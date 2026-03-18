@@ -5,6 +5,90 @@ V {}
 S {}
 F {}
 E {}
+B 2 370 -660 1170 -260 {flags=graph
+y1=0.26
+y2=1.56
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=6.9913583e-06
+x2=0.00020699131
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+dataset=-1
+unitx=1
+logx=0
+logy=0
+autoload=1
+color="4 7"
+node="cvco
+cref"
+legend=1}
+B 2 -1050 220 -250 620 {flags=graph
+y1=0
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=6.9913583e-06
+x2=0.00020699131
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node=up
+color=7
+dataset=-1
+unitx=1
+logx=0
+logy=0
+y2=1.3}
+B 2 -170 220 630 620 {flags=graph
+y1=0
+y2=1.3
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=6.9913583e-06
+x2=0.00020699131
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node=down
+color=12
+dataset=-1
+unitx=1
+logx=0
+logy=0
+}
+B 2 710 220 1510 620 {flags=graph
+y1=0
+y2=2
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=6.9913583e-06
+x2=0.00020699131
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+dataset=-1
+unitx=1
+logx=0
+logy=0
+color=4
+node="v(up) - v(down)"}
 N -40 -160 -40 -110 {lab=#net1}
 N -400 -160 -40 -160 {lab=#net1}
 N -400 -160 -400 -120 {lab=#net1}
@@ -28,22 +112,19 @@ value=".lib cornerMOSlv.lib mos_tt
 "}
 C {devices/code_shown.sym} -110 -470 0 0 {name=NGSPICE only_toplevel=false
 value="
-.param temp=27
+.param temp=27 
+.param T = 31.25u
 .control
 
-op
-print all
 save all
+.param dly=1u
+tran 25n 200u
 
-tran 50p 20n
+
 write PFD_tb.raw
-set appendwrite
 
 .endc
 "}
-C {vsource.sym} -400 -90 0 0 {name=V1 value=1.2 savecurrent=false}
-C {vsource.sym} -320 -40 0 0 {name=V2 value=1.2 savecurrent=false}
-C {vsource.sym} -260 10 0 0 {name=V3 value=0 savecurrent=false}
 C {gnd.sym} -40 80 0 0 {name=l1 lab=0
 }
 C {connector.sym} 220 -20 0 1 {name=c1 footprint=connector(1,1)}
@@ -55,3 +136,10 @@ C {lab_wire.sym} 200 -80 0 0 {name=p3 sig_type=std_logic lab=UP
 C {lab_wire.sym} 200 -20 0 0 {name=p4 sig_type=std_logic lab=DOWN
 
 }
+C {devices/vsource.sym} -320 -40 0 0 {name=Vref value="dc 0 ac 0 pulse(0 1.2 0     10n 10n \{T/2\} \{T\}) "}
+C {devices/vsource.sym} -260 10 0 0 {name=Vco value="dc 0 ac 0 pulse(0 1.2 \{dly\} 10n 10n \{T/2\} \{T\}) "}
+C {launcher.sym} 580 -210 0 0 {name=h5
+descr="load waves"
+tclcommand="xschem raw_read $netlist_dir/PFD_tb.raw tran"
+}
+C {devices/vsource.sym} -400 -90 0 0 {name=Vp value="dc 1.2"}
