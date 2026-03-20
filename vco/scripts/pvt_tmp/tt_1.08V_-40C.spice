@@ -1,0 +1,9 @@
+.lib /foss/pdks/ihp-sg13g2/libs.tech/ngspice/models/cornerMOSlv.lib mos_tt
+.param vdd=1.08
+.temp -40
+.include /foss/designs/CHIP-PLL/simulations/pvt_tmp/vco_tb_clean.spice
+.control
+  tran 20p 20n
+  wrdata /foss/designs/CHIP-PLL/simulations/pvt_results/tt_1.08V_-40C.dat v(out_pb)
+  exit
+.endc
