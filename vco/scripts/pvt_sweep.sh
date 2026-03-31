@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SPICE="/foss/designs/CHIP-PLL/simulations/vco_tb.spice"
+SPICE="/foss/designs/CHIP-PLL/simulations/vco_tb_buf.spice"
 SPICE_CLEAN="/foss/designs/CHIP-PLL/simulations/pvt_tmp/vco_tb_clean.spice"
 MODELS="/foss/pdks/ihp-sg13g2/libs.tech/ngspice/models/cornerMOSlv.lib"
 OUTDIR="/foss/designs/CHIP-PLL/simulations/pvt_results"
@@ -10,8 +10,10 @@ mkdir -p "$OUTDIR"
 mkdir -p "$TMPDIR"
 
 # strip .control ... .endc from xschem netlist
-sed '/^\.control/,/^\.endc/d' "$SPICE" > "$SPICE_CLEAN"
 
+
+sed '/^\.control/,/^\.endc/d' "$SPICE" | \
+sed '/^\.param[[:space:]]\+vdd\s*=/d' > "$SPICE_CLEAN"
 PASS=0
 FAIL=0
 
