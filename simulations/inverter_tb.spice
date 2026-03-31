@@ -1,0 +1,42 @@
+** sch_path: /foss/designs/CHIP-PLL/divider/inverter_tb.sch
+**.subckt inverter_tb
+x1 in out VP 0 inverter
+V1 VP 0 1.2
+V2 in 0 PULSE(0 1.2 0 10p 10p 3.335n 6.67n)
+C1 out 0 1f
+**** begin user architecture code
+ .lib cornerMOSlv.lib mos_tt
+
+
+
+.param temp=27
+.control
+
+op
+print all
+save all
+
+tran 50p 20n
+write inverter_tb.raw
+set appendwrite
+plot v(out) v(in)
+plot X1.VP
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/divider/inverter.sym # of pins=4
+** sym_path: /foss/designs/CHIP-PLL/divider/inverter.sym
+** sch_path: /foss/designs/CHIP-PLL/divider/inverter.sch
+.subckt inverter IN OUT VP GND
+*.ipin IN
+*.iopin VP
+*.opin OUT
+*.iopin GND
+XM1 OUT IN GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+XM2 OUT IN VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1
+.ends
+
+.end
