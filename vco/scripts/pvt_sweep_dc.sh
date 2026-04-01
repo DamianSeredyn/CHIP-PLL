@@ -1,5 +1,5 @@
 #!/bin/bash
-SPICE="/foss/designs/CHIP-PLL/simulations/vco_tb&buf.spice"
+SPICE="/foss/designs/CHIP-PLL/simulations/vco_tb_buf.spice"
 SPICE_CLEAN="/foss/designs/CHIP-PLL/simulations/pvt_tmp/vco_tb_clean.spice"
 MODELS="/foss/pdks/ihp-sg13g2/libs.tech/ngspice/models/cornerMOSlv.lib"
 OUTDIR="/foss/designs/CHIP-PLL/simulations/pvt_results"
