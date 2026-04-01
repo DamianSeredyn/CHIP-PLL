@@ -14,8 +14,8 @@ N -350 50 -350 60 {lab=gnd!}
 N 650 -20 690 -20 {lab=gnd!}
 N 650 -40 670 -40 {lab=VP}
 N 560 -250 560 -230 {lab=gnd!}
-N 420 -320 560 -320 {lab=div128}
-N 560 -320 560 -310 {lab=div128}
+N 420 -320 560 -320 {lab=div256}
+N 560 -320 560 -310 {lab=div256}
 N -350 -160 -350 -140 {lab=d}
 N -350 -80 -350 -70 {lab=gnd!}
 N 330 -40 350 -40 {lab=#net1}
@@ -74,6 +74,14 @@ N 1040 110 1080 110 {lab=gnd!}
 N 1040 90 1060 90 {lab=VP}
 N 720 90 720 160 {lab=#net7}
 N 1060 130 1060 160 {lab=#net7}
+N 1430 70 1520 70 {lab=div256}
+N 1430 130 1450 130 {lab=#net8}
+N 1110 160 1450 160 {lab=#net8}
+N 1110 90 1130 90 {lab=#net8}
+N 1430 110 1470 110 {lab=gnd!}
+N 1430 90 1450 90 {lab=VP}
+N 1110 90 1110 160 {lab=#net8}
+N 1450 130 1450 160 {lab=#net8}
 C {devices/code_shown.sym} -330 -410 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_tt
@@ -87,7 +95,7 @@ op
 print all
 save all
 
-tran 50p 2u
+tran 50p 5u
 write divider_tb.raw
 set appendwrite
 
@@ -161,7 +169,7 @@ C {lab_wire.sym} 300 70 2 0 {name=p32 sig_type=std_logic lab=div32
 C {vsource.sym} -350 -110 0 0 {name=V3 value="PULSE(0 1.2 0 10p 10p 3.335n 6.67n)" savecurrent=false}
 C {lab_wire.sym} -110 70 0 0 {name=p47 sig_type=std_logic lab=div16
 }
-C {lab_wire.sym} 440 -320 2 0 {name=p4 sig_type=std_logic lab=div128
+C {lab_wire.sym} 440 -320 2 0 {name=p4 sig_type=std_logic lab=div256
 }
 C {lab_wire.sym} 670 110 2 0 {name=p5 sig_type=std_logic lab=gnd!
 }
@@ -176,4 +184,11 @@ C {lab_wire.sym} 1060 90 2 0 {name=p29 sig_type=std_logic lab=VP
 }
 C {/foss/designs/CHIP-PLL/divider/d_flip_flop.sym} 890 100 0 0 {name=x7}
 C {lab_wire.sym} 1080 70 2 0 {name=p30 sig_type=std_logic lab=div128
+}
+C {lab_wire.sym} 1450 110 2 0 {name=p31 sig_type=std_logic lab=gnd!
+}
+C {lab_wire.sym} 1450 90 2 0 {name=p33 sig_type=std_logic lab=VP
+}
+C {/foss/designs/CHIP-PLL/divider/d_flip_flop.sym} 1280 100 0 0 {name=x8}
+C {lab_wire.sym} 1470 70 2 0 {name=p34 sig_type=std_logic lab=div256
 }
