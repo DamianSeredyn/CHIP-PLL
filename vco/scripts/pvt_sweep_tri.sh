@@ -1,11 +1,11 @@
 #!/bin/bash
-SPICE="/foss/designs/CHIP-PLL/simulations/vco_dcin_tb.spice"
-SPICE_CLEAN="/foss/designs/CHIP-PLL/simulations/pvt_tmp/vco_dcin_tb.spice"
+SPICE="/foss/designs/CHIP-PLL/simulations/vco_triangular_in_tb.spice"
+SPICE_CLEAN="/foss/designs/CHIP-PLL/simulations/pvt_tri_tmp/vco_triangular_in_tb.spice"
 MODELS="/foss/pdks/ihp-sg13g2/libs.tech/ngspice/models/cornerMOSlv.lib"
-OUTDIR="/foss/designs/CHIP-PLL/simulations/pvt_results"
-TMPDIR="/foss/designs/CHIP-PLL/simulations/pvt_tmp"
-PLOTSCRIPT="/foss/designs/CHIP-PLL/simulations/plot_pvt.py"
-CSVFILE="${OUTDIR}/pvt_summary.csv"
+OUTDIR="/foss/designs/CHIP-PLL/simulations/pvt_tri_results"
+TMPDIR="/foss/designs/CHIP-PLL/simulations/pvt_tri_tmp"
+PLOTSCRIPT="/foss/designs/CHIP-PLL/simulations/plot_pvt_tri.py"
+CSVFILE="${OUTDIR}/pvt_tri_summary.csv"
 
 mkdir -p "$OUTDIR"
 mkdir -p "$TMPDIR"
@@ -68,8 +68,8 @@ import matplotlib.gridspec as gridspec
 from matplotlib.widgets import CheckButtons, Button
 import glob, os, csv
 
-RESULTS_DIR = "/foss/designs/CHIP-PLL/simulations/pvt_results"
-CSV_PATH    = os.path.join(RESULTS_DIR, "pvt_summary.csv")
+RESULTS_DIR = "/foss/designs/CHIP-PLL/simulations/pvt_tri_results"
+CSV_PATH    = os.path.join(RESULTS_DIR, "pvt_tri_summary.csv")
 
 def analyze_first_stable_cycle(time, voltage, last_fraction=0.3):
     """
