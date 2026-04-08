@@ -97,13 +97,14 @@ value="
 save all
 op
 ;dc V3 0 1.2 0.01
-dc V4 -100m 100m 0.0001
-;ac dec 100 1 1G
+;dc V4 -100m 100m 0.0001
+ac dec 100 1 1G
 write amp.raw
 show all > op_report.txt
-;plot v(vout)
+plot db(v(vout))
+plot (180/pi)*phase(v(vout))
 ;plot i(v2)
-plot deriv(v(vout))
+;plot deriv(v(vout))
 .endc
 "}
 C {sg13g2_pr/sg13_lv_nmos.sym} 670 -80 0 1 {name=M1
