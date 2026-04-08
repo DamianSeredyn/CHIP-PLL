@@ -92,7 +92,7 @@ N -270 -330 -240 -330 {lab=vp}
 N -270 590 -250 590 {lab=cVco}
 N 80 -190 140 -190 {lab=pre_up}
 N 180 -250 180 -230 {lab=vp}
-N 160 -150 160 -130 {lab=gnd}
+N 180 -150 180 -130 {lab=gnd}
 N 230 230 230 250 {lab=vp}
 N 230 330 230 350 {lab=gnd}
 N 290 290 350 290 {lab=DOWN}
@@ -185,7 +185,7 @@ C {lab_wire.sym} -50 400 0 0 {name=p15 sig_type=std_logic lab=3}
 C {lab_wire.sym} -10 520 0 0 {name=p16 sig_type=std_logic lab=4}
 C {PFD_buffor.sym} 290 -190 0 0 {name=x1}
 C {lab_wire.sym} 180 -250 0 0 {name=p17 sig_type=std_logic lab=vp}
-C {lab_wire.sym} 160 -130 0 0 {name=p18 sig_type=std_logic lab=gnd}
+C {lab_wire.sym} 180 -130 0 0 {name=p18 sig_type=std_logic lab=gnd}
 C {PFD_buffor.sym} 340 290 0 0 {name=x2}
 C {lab_wire.sym} 230 230 0 0 {name=p19 sig_type=std_logic lab=vp}
 C {lab_wire.sym} 230 350 0 0 {name=p20 sig_type=std_logic lab=gnd}

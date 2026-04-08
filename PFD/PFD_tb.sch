@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.9913583e-06
-x2=0.00020699131
+x1=-3.0086393e-06
+x2=0.00019699131
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -35,8 +35,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.9913583e-06
-x2=0.00020699131
+x1=-3.0086393e-06
+x2=0.00019699131
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -56,8 +56,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.9913583e-06
-x2=0.00020699131
+x1=-3.0086393e-06
+x2=0.00019699131
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -77,8 +77,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.9913583e-06
-x2=0.00020699131
+x1=-3.0086393e-06
+x2=0.00019699131
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -110,19 +110,17 @@ C {devices/code_shown.sym} -580 -320 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_tt
 "}
-C {devices/code_shown.sym} -110 -470 0 0 {name=NGSPICE only_toplevel=false
+C {devices/code_shown.sym} -860 -1000 0 0 {name=NGSPICE only_toplevel=false
 value="
-.param temp=27 
+.param temp=27
 .param T = 31.25u
-.control
-
-save all
 .param dly=1u
-tran 25n 200u
-
-
+.control
+save all
+tran 25n 400u
+meas tran pw_up trig v(UP) val=0.6 rise=2 targ v(UP) val=0.6 fall=2 from=100u to=400u
+meas tran pw_down trig v(DOWN) val=0.6 rise=2 targ v(DOWN) val=0.6 fall=2 from=100u to=400u
 write PFD_tb.raw
-
 .endc
 "}
 C {gnd.sym} -40 80 0 0 {name=l1 lab=0
