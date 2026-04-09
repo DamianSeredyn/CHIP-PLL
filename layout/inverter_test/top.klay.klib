@@ -1,0 +1,9 @@
+{
+    "technology": "",
+    "statements": [
+        {
+            "lib_name": "ntap",
+            "lib_path": "/foss/designs/CHIP-PLL/layout/std_cells/ntap.oas"
+        }
+    ]
+}
