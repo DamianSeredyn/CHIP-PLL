@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.9913583e-06
-x2=0.00020699131
+x1=5.6991348e-05
+x2=0.00025699131
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -35,8 +35,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.9913583e-06
-x2=0.00020699131
+x1=5.6991348e-05
+x2=0.00025699131
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -49,15 +49,15 @@ logx=0
 logy=0
 y2=1.3}
 B 2 -170 220 630 620 {flags=graph
-y1=0
-y2=1.3
+y1=0.52
+y2=1.82
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.9913583e-06
-x2=0.00020699131
+x1=5.6991348e-05
+x2=0.00025699131
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -77,8 +77,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=6.9913583e-06
-x2=0.00020699131
+x1=5.6991348e-05
+x2=0.00025699131
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -110,19 +110,19 @@ C {devices/code_shown.sym} -580 -320 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_tt
 "}
-C {devices/code_shown.sym} -110 -470 0 0 {name=NGSPICE only_toplevel=false
+C {devices/code_shown.sym} -860 -1000 0 0 {name=NGSPICE only_toplevel=false
 value="
-.param temp=27 
+.param temp=27
 .param T = 31.25u
-.control
-
-save all
 .param dly=1u
-tran 25n 200u
-
-
+.param Vp=0
+.control
+save all
+tran 25n 400u
+plot v(CRef) v(CVco) v(UP) v(DOWN)
+meas tran pw_up avg v(UP) from=100u to=400u
+meas tran pw_down avg v(DOWN) from=100u to=400u
 write PFD_tb.raw
-
 .endc
 "}
 C {gnd.sym} -40 80 0 0 {name=l1 lab=0
@@ -136,10 +136,10 @@ C {lab_wire.sym} 200 -80 0 0 {name=p3 sig_type=std_logic lab=UP
 C {lab_wire.sym} 200 -20 0 0 {name=p4 sig_type=std_logic lab=DOWN
 
 }
-C {devices/vsource.sym} -320 -40 0 0 {name=Vref value="dc 0 ac 0 pulse(0 1.2 0     10n 10n \{T/2\} \{T\}) "}
-C {devices/vsource.sym} -260 10 0 0 {name=Vco value="dc 0 ac 0 pulse(0 1.2 \{dly\} 10n 10n \{T/2\} \{T\}) "}
+C {devices/vsource.sym} -320 -40 0 0 {name=Vref value="dc 0 ac 0 pulse(0 \{Vp\} \{T/2\} 10n 10n \{T/2\} \{T\}) "}
+C {devices/vsource.sym} -260 10 0 0 {name=Vco value="dc 0 ac 0 pulse(0 \{Vp\} \{dly\} 10n 10n \{T/2\} \{T\}) "}
 C {launcher.sym} 580 -210 0 0 {name=h5
 descr="load waves"
 tclcommand="xschem raw_read $netlist_dir/PFD_tb.raw tran"
 }
-C {devices/vsource.sym} -400 -90 0 0 {name=Vp value="dc 1.2"}
+C {devices/vsource.sym} -400 -90 0 0 {name=Vp value="dc \{Vp\}"}

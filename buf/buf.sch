@@ -90,7 +90,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} 330 -220 0 0 {name=M2
 l=0.13u
-w=0.5u
+w=0.75u
 ng=1
 m=1
 model=sg13_lv_pmos
@@ -106,7 +106,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} 510 -220 0 0 {name=M4
 l=0.13u
-w=1.5u
+w=2.25u
 ng=1
 m=1
 model=sg13_lv_pmos
@@ -122,7 +122,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} 670 -220 0 0 {name=M6
 l=0.13u
-w=4.5u
+w=6.75u
 ng=1
 m=1
 model=sg13_lv_pmos
@@ -138,7 +138,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} 830 -220 0 0 {name=M8
 l=0.13u
-w=4.5u
+w=6.75u
 ng=1
 m=3
 model=sg13_lv_pmos
