@@ -44,30 +44,12 @@ m=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
-C {sg13g2_pr/sg13_lv_rf_pmos.sym} 60 290 0 0 {name=M2
-l=0.72u
-w=2.0u
-ng=1
-m=1
-rfmode=1
-model=sg13_lv_pmos
-spiceprefix=X
-}
 C {sg13g2_pr/sg13_lv_nmos.sym} 60 470 0 0 {name=M3
 l=0.13u
 w=0.15u
 ng=1
 m=1
 model=sg13_lv_nmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_rf_pmos.sym} 200 290 0 0 {name=M5
-l=0.72u
-w=2.0u
-ng=1
-m=1
-rfmode=1
-model=sg13_lv_pmos
 spiceprefix=X
 }
 C {opin.sym} 360 340 0 0 {name=p1 lab=y}
@@ -86,3 +68,19 @@ C {lab_pin.sym} 20 290 0 0 {name=p15 sig_type=std_logic lab=b}
 C {lab_pin.sym} 80 620 2 0 {name=p18 sig_type=std_logic lab=GND}
 C {lab_pin.sym} 80 240 2 0 {name=p19 sig_type=std_logic lab=VP}
 C {lab_pin.sym} 220 240 2 0 {name=p20 sig_type=std_logic lab=VP}
+C {sg13g2_pr/sg13_lv_pmos.sym} 60 290 0 0 {name=M2
+l=0.13u
+w=0.15u
+ng=1
+m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_pmos.sym} 200 290 0 0 {name=M4
+l=0.13u
+w=0.15u
+ng=1
+m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
