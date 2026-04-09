@@ -38,7 +38,7 @@ show all
 "}
 C {capa.sym} 840 -120 0 0 {name=C1
 m=1
-value=20p
+value=5p
 ic=0.8
 footprint=1206
 device="ceramic capacitor"}
