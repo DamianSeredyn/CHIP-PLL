@@ -45,24 +45,23 @@ def load_file(filepath):
     idx = np.argsort(phi_deg)
     return phi_deg[idx], delta[idx], pw_up[idx], pw_dn[idx]
 
-def compute_stats(phi_deg, delta):
-    scale = np.max(np.abs(delta[np.abs(phi_deg) < 170]))
+def compute_stats(phi_deg, delta, vp):
+    scale = float(vp) / 2.0
     delta_ideal_at_sim = phi_deg / 180.0 * scale
-    error = delta - delta_ideal_at_sim
-    mask = np.abs(phi_deg) < 175
-    error_clean = error[mask]
+    error_abs = np.abs(delta - delta_ideal_at_sim)
+    mask = np.abs(phi_deg) < 160
+    error_clean = error_abs[mask]
     phi_clean = phi_deg[mask]
     return {
         'scale': scale,
-        'error': error,
-        'error_clean': error_clean,
+        'error_abs': error_clean,
         'phi_clean': phi_clean,
-        'max_delta': np.max(delta)*1000,
-        'min_delta': np.min(delta)*1000,
         'max_error': np.max(error_clean)*1000,
         'min_error': np.min(error_clean)*1000,
         'avg_error': np.mean(error_clean)*1000,
-        'max_error_pct': np.max(np.abs(error_clean/scale*100)),
+        'max_error_pct': np.max(error_clean/scale*100),
+        'min_error_pct': np.min(error_clean/scale*100),
+        'avg_error_pct': np.mean(error_clean/scale*100),
         'rms_error': np.sqrt(np.mean(error_clean**2))*1000,
     }
 
@@ -102,15 +101,15 @@ def make_plot(phi_deg, delta, pw_up, pw_dn, stats, tag, out_path):
     ax2.grid(True, alpha=0.3)
 
     ax3 = fig.add_subplot(2, 2, 3)
-    ax3.plot(stats['phi_clean'], stats['error_clean']*1000, 'o-', color='purple',
-             linewidth=2, markersize=4, label='Blad')
+    ax3.plot(stats['phi_clean'], stats['error_abs']*1000, 'o-', color='purple',
+             linewidth=2, markersize=4, label='|Blad|')
     ax3.axhline(0, color='gray', linewidth=0.8, linestyle=':')
     ax3.axvline(0, color='gray', linewidth=0.8, linestyle=':')
-    ax3.fill_between(stats['phi_clean'], stats['error_clean']*1000, 0,
+    ax3.fill_between(stats['phi_clean'], stats['error_abs']*1000, 0,
                      alpha=0.2, color='purple')
     ax3.set_xlabel('Roznica faz [deg]')
-    ax3.set_ylabel('Blad [mV avg]')
-    ax3.set_title('Blad wzgledem idealnej charakterystyki')
+    ax3.set_ylabel('|Blad| [mV avg]')
+    ax3.set_title('Blad bezwzgledny wzgledem idealnej')
     ax3.set_xticks(range(-180, 181, 45))
     ax3.legend()
     ax3.grid(True, alpha=0.3)
@@ -118,19 +117,17 @@ def make_plot(phi_deg, delta, pw_up, pw_dn, stats, tag, out_path):
     ax4 = fig.add_subplot(2, 2, 4)
     ax4.axis('off')
     rows = [
-        ['Corner',            corner],
-        ['Temperatura [C]',   temp],
-        ['Vp [V]',            vp],
-        ['T [us]',            f'{T*1e6:.2f}'],
-        ['Liczba punktow',    f'{len(phi_deg)}'],
-        ['', ''],
-        ['Max delta [mV]',    f'{stats["max_delta"]:.3f}'],
-        ['Min delta [mV]',    f'{stats["min_delta"]:.3f}'],
-        ['Max blad [mV]',     f'{stats["max_error"]:.3f}'],
-        ['Min blad [mV]',     f'{stats["min_error"]:.3f}'],
-        ['Avg blad [mV]',     f'{stats["avg_error"]:.3f}'],
-        ['Max blad [%]',      f'{stats["max_error_pct"]:.2f}'],
-        ['RMS blad [mV]',     f'{stats["rms_error"]:.3f}'],
+        ['Corner',             corner],
+        ['Temperatura [C]',    temp],
+        ['Vp [V]',             vp],
+        ['T [us]',             f'{T*1e6:.2f}'],
+        ['Liczba punktow',     f'{len(phi_deg)}'],
+        ['Max |blad| [mV]',    f'{stats["max_error"]:.3f}'],
+        ['Min |blad| [mV]',    f'{stats["min_error"]:.3f}'],
+        ['Avg |blad| [mV]',    f'{stats["avg_error"]:.3f}'],
+        ['Max |blad| [%]',     f'{stats["max_error_pct"]:.2f}'],
+        ['Avg |blad| [%]',     f'{stats["avg_error_pct"]:.2f}'],
+        ['RMS blad [mV]',      f'{stats["rms_error"]:.3f}'],
     ]
     table = ax4.table(cellText=rows,
                       colLabels=['Parametr', 'Wartosc'],
@@ -139,8 +136,19 @@ def make_plot(phi_deg, delta, pw_up, pw_dn, stats, tag, out_path):
     table.auto_set_font_size(False)
     table.set_fontsize(10)
     table.scale(1, 1.6)
-    ax4.set_title('Parametry symulacji i statystyki', pad=10)
 
+    for i, row in enumerate(rows):
+        if '%' in row[0]:
+            try:
+                val = float(row[1])
+                if val > 10:
+                    table[i+1, 1].set_facecolor('#ffcccc')
+                elif val > 5:
+                    table[i+1, 1].set_facecolor('#ffe5cc')
+            except:
+                pass
+
+    ax4.set_title('Parametry symulacji i statystyki', pad=10)
     plt.tight_layout()
     plt.savefig(out_path, dpi=150)
     plt.close()
@@ -154,68 +162,59 @@ for filepath in files:
     if phi_deg is None:
         print(f"Pomijam (brak danych): {tag}")
         continue
-    stats = compute_stats(phi_deg, delta)
+    corner, temp, vp = parse_tag(tag)
+    stats = compute_stats(phi_deg, delta, vp)
     out_path = os.path.join(results_dir, f'pfd_{tag}.png')
     make_plot(phi_deg, delta, pw_up, pw_dn, stats, tag, out_path)
-    corner, temp, vp = parse_tag(tag)
     summary.append((tag, corner, temp, vp, stats))
 
-# Sortuj po corner potem temp potem vp
 corner_order = {'mos_tt': 0, 'mos_ss': 1, 'mos_ff': 2, 'mos_sf': 3, 'mos_fs': 4}
 summary.sort(key=lambda x: (corner_order.get(x[1], 99), float(x[2]), float(x[3])))
 
-# Grupuj po cornerze
-from itertools import groupby
-
-def row_color(pct):
+def cell_color(pct):
     if pct > 10:
         return '#ffcccc'
     elif pct > 5:
         return '#ffe5cc'
     return '#ffffff'
 
-# Buduj HTML
-corner_groups = {}
-for tag, corner, temp, vp, stats in summary:
-    if corner not in corner_groups:
-        corner_groups[corner] = []
-    corner_groups[corner].append((tag, corner, temp, vp, stats))
-
+# HTML
 html_tabs = '<button class="tab active" onclick="showTab(\'summary\')">Podsumowanie</button>\n'
+for tag, corner, temp, vp, stats in summary:
+    label = f'{corner} T{temp} {vp}V'
+    html_tabs += f'<button class="tab" onclick="showTab(\'{tag}\')">{label}</button>\n'
+
 html_panels = ''
 
 # Panel podsumowania
 summary_rows = ''
 current_corner = None
 for tag, corner, temp, vp, stats in summary:
-    pct = stats['max_error_pct']
-    bg = row_color(pct)
+    max_pct = stats['max_error_pct']
+    avg_pct = stats['avg_error_pct']
     if corner != current_corner:
         current_corner = corner
-        summary_rows += f'<tr class="corner-header"><td colspan="6"><b>{corner}</b></td></tr>\n'
-    summary_rows += f'''<tr style="background:{bg}">
+        summary_rows += f'<tr class="corner-header"><td colspan="7"><b>{corner}</b></td></tr>\n'
+    summary_rows += f'''<tr>
         <td>{temp} °C</td>
         <td>{vp} V</td>
         <td>{stats["max_error"]:.2f}</td>
         <td>{stats["min_error"]:.2f}</td>
-        <td>{stats["avg_error"]:.2f}</td>
-        <td style="font-weight:bold">{pct:.2f}</td>
+        <td>{stats["avg_error"]:.2f} ({avg_pct:.2f}%)</td>
+        <td style="background:{cell_color(max_pct)};font-weight:bold">{max_pct:.2f}%</td>
+        <td>{stats["rms_error"]:.2f}</td>
     </tr>'''
 
 html_panels += f'''
 <div id="summary" class="panel active">
     <h2>Podsumowanie — blad liniowosci PFD</h2>
     <table class="summary">
-        <thead>
-            <tr>
-                <th>Temp</th>
-                <th>Vp</th>
-                <th>Max blad [mV]</th>
-                <th>Min blad [mV]</th>
-                <th>Avg blad [mV]</th>
-                <th>Max blad [%]</th>
-            </tr>
-        </thead>
+        <thead><tr>
+            <th>Temp</th><th>Vp</th>
+            <th>Max |blad| [mV]</th><th>Min |blad| [mV]</th>
+            <th>Avg |blad| [mV] (%)</th>
+            <th>Max |blad| [%]</th><th>RMS [mV]</th>
+        </tr></thead>
         <tbody>{summary_rows}</tbody>
     </table>
     <div class="legend">
@@ -225,18 +224,18 @@ html_panels += f'''
     </div>
 </div>'''
 
-# Panele per corner
-for corner, items in corner_groups.items():
-    html_tabs += f'<button class="tab" onclick="showTab(\'{corner}\')">{corner}</button>\n'
-    inner = f'<h2>Corner: {corner}</h2>'
-    for tag, _, temp, vp, stats in items:
-        png_name = f'pfd_{tag}.png'
-        inner += f'''
-        <div class="card">
-            <h3>T={temp}°C  Vp={vp}V</h3>
-            <img src="{png_name}" style="max-width:100%">
-        </div>'''
-    html_panels += f'<div id="{corner}" class="panel">{inner}</div>\n'
+# Osobna zakladka na kazda kombinacje
+for tag, corner, temp, vp, stats in summary:
+    png_name = f'pfd_{tag}.png'
+    pct = stats['max_error_pct']
+    color = 'red' if pct > 10 else 'orange' if pct > 5 else 'green'
+    inner = f'''
+    <h2>{corner} — T={temp}°C — Vp={vp}V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:{color};font-weight:bold">{pct:.2f}%</span></h3>
+        <img src="{png_name}" style="max-width:100%">
+    </div>'''
+    html_panels += f'<div id="{tag}" class="panel">{inner}</div>\n'
 
 html = f'''<!DOCTYPE html>
 <html>
