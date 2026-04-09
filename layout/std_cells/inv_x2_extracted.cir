@@ -1,0 +1,28 @@
+* Extracted by KLayout with SG13G2 LVS runset on : 08/04/2026 17:18
+
+.SUBCKT inv_x2
+X$1 IN \$1 Via
+X$2 \$1 \$6 \$1 IN nmos
+X$3 \$2 \$6 IN \$2 \$1 pmos
+X$4 \$1 ptap
+X$5 \$2 \$1 ntap
+.ENDS inv_x2
+
+.SUBCKT ntap \$1 \$2
+.ENDS ntap
+
+.SUBCKT ptap \$1
+.ENDS ptap
+
+.SUBCKT pmos \$1 \$2 \$3 \$4 \$6
+M$1 \$1 \$3 \$2 \$4 sg13_lv_pmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p PS=1.34u
++ PD=1.34u
+.ENDS pmos
+
+.SUBCKT nmos \$1 \$2 \$3 \$5
+M$1 \$1 \$5 \$2 \$3 sg13_lv_nmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p PS=1.34u
++ PD=1.34u
+.ENDS nmos
+
+.SUBCKT Via \$1 \$2
+.ENDS Via

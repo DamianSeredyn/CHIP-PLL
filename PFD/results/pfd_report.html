@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>PFD Linearity Report</title>
+<style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f0f2f5; }
+    h1 { color: #222; }
+    h2 { color: #333; border-bottom: 2px solid #4a90d9; padding-bottom: 6px; }
+    h3 { color: #555; margin: 8px 0; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 16px; }
+    .tab { padding: 8px 14px; background: #ddd; border: none; cursor: pointer; border-radius: 4px; font-size: 12px; }
+    .tab:hover { background: #bbb; }
+    .tab.active { background: #4a90d9; color: white; }
+    .panel { display: none; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    .panel.active { display: block; }
+    .card { margin-bottom: 30px; border: 1px solid #ddd; border-radius: 6px; padding: 12px; }
+    table.summary { border-collapse: collapse; width: 100%; font-size: 13px; }
+    table.summary th { background: #4a90d9; color: white; padding: 8px; text-align: center; }
+    table.summary td { padding: 6px 10px; border: 1px solid #ddd; text-align: center; }
+    tr.corner-header td { background: #e8eef8; font-size: 14px; padding: 8px; text-align: left; }
+    .legend { margin-top: 12px; display: flex; gap: 20px; font-size: 13px; }
+    .leg-ok { color: #2a2; }
+    .leg-warn { color: #e80; }
+    .leg-err { color: #d00; }
+</style>
+</head>
+<body>
+<h1>PFD Linearity Report</h1>
+<div class="tabs">
+<button class="tab active" onclick="showTab('summary')">Podsumowanie</button>
+<button class="tab" onclick="showTab('mos_tt_T-25_Vp1.08')">mos_tt T-25 1.08V</button>
+<button class="tab" onclick="showTab('mos_tt_T-25_Vp1.2')">mos_tt T-25 1.2V</button>
+<button class="tab" onclick="showTab('mos_tt_T-25_Vp1.32')">mos_tt T-25 1.32V</button>
+<button class="tab" onclick="showTab('mos_tt_T27_Vp1.08')">mos_tt T27 1.08V</button>
+<button class="tab" onclick="showTab('mos_tt_T27_Vp1.2')">mos_tt T27 1.2V</button>
+<button class="tab" onclick="showTab('mos_tt_T27_Vp1.32')">mos_tt T27 1.32V</button>
+<button class="tab" onclick="showTab('mos_tt_T125_Vp1.08')">mos_tt T125 1.08V</button>
+<button class="tab" onclick="showTab('mos_tt_T125_Vp1.2')">mos_tt T125 1.2V</button>
+<button class="tab" onclick="showTab('mos_tt_T125_Vp1.32')">mos_tt T125 1.32V</button>
+<button class="tab" onclick="showTab('mos_ss_T-25_Vp1.08')">mos_ss T-25 1.08V</button>
+<button class="tab" onclick="showTab('mos_ss_T-25_Vp1.2')">mos_ss T-25 1.2V</button>
+<button class="tab" onclick="showTab('mos_ss_T-25_Vp1.32')">mos_ss T-25 1.32V</button>
+<button class="tab" onclick="showTab('mos_ss_T27_Vp1.08')">mos_ss T27 1.08V</button>
+<button class="tab" onclick="showTab('mos_ss_T27_Vp1.2')">mos_ss T27 1.2V</button>
+<button class="tab" onclick="showTab('mos_ss_T27_Vp1.32')">mos_ss T27 1.32V</button>
+<button class="tab" onclick="showTab('mos_ss_T125_Vp1.08')">mos_ss T125 1.08V</button>
+<button class="tab" onclick="showTab('mos_ss_T125_Vp1.2')">mos_ss T125 1.2V</button>
+<button class="tab" onclick="showTab('mos_ss_T125_Vp1.32')">mos_ss T125 1.32V</button>
+<button class="tab" onclick="showTab('mos_ff_T-25_Vp1.08')">mos_ff T-25 1.08V</button>
+<button class="tab" onclick="showTab('mos_ff_T-25_Vp1.2')">mos_ff T-25 1.2V</button>
+<button class="tab" onclick="showTab('mos_ff_T-25_Vp1.32')">mos_ff T-25 1.32V</button>
+<button class="tab" onclick="showTab('mos_ff_T27_Vp1.08')">mos_ff T27 1.08V</button>
+<button class="tab" onclick="showTab('mos_ff_T27_Vp1.2')">mos_ff T27 1.2V</button>
+<button class="tab" onclick="showTab('mos_ff_T27_Vp1.32')">mos_ff T27 1.32V</button>
+<button class="tab" onclick="showTab('mos_ff_T125_Vp1.08')">mos_ff T125 1.08V</button>
+<button class="tab" onclick="showTab('mos_ff_T125_Vp1.2')">mos_ff T125 1.2V</button>
+<button class="tab" onclick="showTab('mos_ff_T125_Vp1.32')">mos_ff T125 1.32V</button>
+<button class="tab" onclick="showTab('mos_sf_T-25_Vp1.08')">mos_sf T-25 1.08V</button>
+<button class="tab" onclick="showTab('mos_sf_T-25_Vp1.2')">mos_sf T-25 1.2V</button>
+<button class="tab" onclick="showTab('mos_sf_T-25_Vp1.32')">mos_sf T-25 1.32V</button>
+<button class="tab" onclick="showTab('mos_sf_T27_Vp1.08')">mos_sf T27 1.08V</button>
+<button class="tab" onclick="showTab('mos_sf_T27_Vp1.2')">mos_sf T27 1.2V</button>
+<button class="tab" onclick="showTab('mos_sf_T27_Vp1.32')">mos_sf T27 1.32V</button>
+<button class="tab" onclick="showTab('mos_sf_T125_Vp1.08')">mos_sf T125 1.08V</button>
+<button class="tab" onclick="showTab('mos_sf_T125_Vp1.2')">mos_sf T125 1.2V</button>
+<button class="tab" onclick="showTab('mos_sf_T125_Vp1.32')">mos_sf T125 1.32V</button>
+<button class="tab" onclick="showTab('mos_fs_T-25_Vp1.08')">mos_fs T-25 1.08V</button>
+<button class="tab" onclick="showTab('mos_fs_T-25_Vp1.2')">mos_fs T-25 1.2V</button>
+<button class="tab" onclick="showTab('mos_fs_T-25_Vp1.32')">mos_fs T-25 1.32V</button>
+<button class="tab" onclick="showTab('mos_fs_T27_Vp1.08')">mos_fs T27 1.08V</button>
+<button class="tab" onclick="showTab('mos_fs_T27_Vp1.2')">mos_fs T27 1.2V</button>
+<button class="tab" onclick="showTab('mos_fs_T27_Vp1.32')">mos_fs T27 1.32V</button>
+<button class="tab" onclick="showTab('mos_fs_T125_Vp1.08')">mos_fs T125 1.08V</button>
+<button class="tab" onclick="showTab('mos_fs_T125_Vp1.2')">mos_fs T125 1.2V</button>
+<button class="tab" onclick="showTab('mos_fs_T125_Vp1.32')">mos_fs T125 1.32V</button>
+
+</div>
+
+<div id="summary" class="panel active">
+    <h2>Podsumowanie — blad liniowosci PFD</h2>
+    <table class="summary">
+        <thead><tr>
+            <th>Temp</th><th>Vp</th>
+            <th>Max |blad| [mV]</th><th>Min |blad| [mV]</th>
+            <th>Avg |blad| [mV] (%)</th>
+            <th>Max |blad| [%]</th><th>RMS [mV]</th>
+        </tr></thead>
+        <tbody><tr class="corner-header"><td colspan="7"><b>mos_tt</b></td></tr>
+<tr>
+        <td>-25 °C</td>
+        <td>1.08 V</td>
+        <td>12.95</td>
+        <td>0.60</td>
+        <td>7.19 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.07</td>
+    </tr><tr>
+        <td>-25 °C</td>
+        <td>1.2 V</td>
+        <td>14.38</td>
+        <td>0.67</td>
+        <td>7.99 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.97</td>
+    </tr><tr>
+        <td>-25 °C</td>
+        <td>1.32 V</td>
+        <td>15.83</td>
+        <td>0.73</td>
+        <td>8.79 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>9.87</td>
+    </tr><tr>
+        <td>27 °C</td>
+        <td>1.08 V</td>
+        <td>12.95</td>
+        <td>0.60</td>
+        <td>7.19 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.07</td>
+    </tr><tr>
+        <td>27 °C</td>
+        <td>1.2 V</td>
+        <td>14.38</td>
+        <td>0.67</td>
+        <td>7.99 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.97</td>
+    </tr><tr>
+        <td>27 °C</td>
+        <td>1.32 V</td>
+        <td>15.83</td>
+        <td>0.73</td>
+        <td>8.79 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>9.87</td>
+    </tr><tr>
+        <td>125 °C</td>
+        <td>1.08 V</td>
+        <td>12.95</td>
+        <td>0.60</td>
+        <td>7.19 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.07</td>
+    </tr><tr>
+        <td>125 °C</td>
+        <td>1.2 V</td>
+        <td>14.38</td>
+        <td>0.67</td>
+        <td>7.99 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.97</td>
+    </tr><tr>
+        <td>125 °C</td>
+        <td>1.32 V</td>
+        <td>15.83</td>
+        <td>0.73</td>
+        <td>8.79 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>9.87</td>
+    </tr><tr class="corner-header"><td colspan="7"><b>mos_ss</b></td></tr>
+<tr>
+        <td>-25 °C</td>
+        <td>1.08 V</td>
+        <td>12.91</td>
+        <td>0.57</td>
+        <td>7.14 (1.32%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.39%</td>
+        <td>8.03</td>
+    </tr><tr>
+        <td>-25 °C</td>
+        <td>1.2 V</td>
+        <td>14.37</td>
+        <td>0.67</td>
+        <td>7.99 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.97</td>
+    </tr><tr>
+        <td>-25 °C</td>
+        <td>1.32 V</td>
+        <td>15.82</td>
+        <td>0.73</td>
+        <td>8.78 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>9.86</td>
+    </tr><tr>
+        <td>27 °C</td>
+        <td>1.08 V</td>
+        <td>12.91</td>
+        <td>0.57</td>
+        <td>7.14 (1.32%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.39%</td>
+        <td>8.03</td>
+    </tr><tr>
+        <td>27 °C</td>
+        <td>1.2 V</td>
+        <td>14.37</td>
+        <td>0.67</td>
+        <td>7.99 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.97</td>
+    </tr><tr>
+        <td>27 °C</td>
+        <td>1.32 V</td>
+        <td>15.82</td>
+        <td>0.73</td>
+        <td>8.78 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>9.86</td>
+    </tr><tr>
+        <td>125 °C</td>
+        <td>1.08 V</td>
+        <td>12.91</td>
+        <td>0.57</td>
+        <td>7.14 (1.32%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.39%</td>
+        <td>8.03</td>
+    </tr><tr>
+        <td>125 °C</td>
+        <td>1.2 V</td>
+        <td>14.37</td>
+        <td>0.67</td>
+        <td>7.99 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.97</td>
+    </tr><tr>
+        <td>125 °C</td>
+        <td>1.32 V</td>
+        <td>15.82</td>
+        <td>0.73</td>
+        <td>8.78 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>9.86</td>
+    </tr><tr class="corner-header"><td colspan="7"><b>mos_ff</b></td></tr>
+<tr>
+        <td>-25 °C</td>
+        <td>1.08 V</td>
+        <td>12.95</td>
+        <td>0.60</td>
+        <td>7.19 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.08</td>
+    </tr><tr>
+        <td>-25 °C</td>
+        <td>1.2 V</td>
+        <td>14.39</td>
+        <td>0.30</td>
+        <td>6.98 (1.16%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.53</td>
+    </tr><tr>
+        <td>-25 °C</td>
+        <td>1.32 V</td>
+        <td>906.72</td>
+        <td>3.75</td>
+        <td>349.29 (52.92%)</td>
+        <td style="background:#ffcccc;font-weight:bold">137.38%</td>
+        <td>521.15</td>
+    </tr><tr>
+        <td>27 °C</td>
+        <td>1.08 V</td>
+        <td>12.95</td>
+        <td>0.60</td>
+        <td>7.19 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.08</td>
+    </tr><tr>
+        <td>27 °C</td>
+        <td>1.2 V</td>
+        <td>14.39</td>
+        <td>0.30</td>
+        <td>6.98 (1.16%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.53</td>
+    </tr><tr>
+        <td>27 °C</td>
+        <td>1.32 V</td>
+        <td>906.72</td>
+        <td>3.75</td>
+        <td>349.29 (52.92%)</td>
+        <td style="background:#ffcccc;font-weight:bold">137.38%</td>
+        <td>521.15</td>
+    </tr><tr>
+        <td>125 °C</td>
+        <td>1.08 V</td>
+        <td>12.95</td>
+        <td>0.60</td>
+        <td>7.19 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.08</td>
+    </tr><tr>
+        <td>125 °C</td>
+        <td>1.2 V</td>
+        <td>14.39</td>
+        <td>0.30</td>
+        <td>6.98 (1.16%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.53</td>
+    </tr><tr>
+        <td>125 °C</td>
+        <td>1.32 V</td>
+        <td>906.72</td>
+        <td>3.75</td>
+        <td>349.29 (52.92%)</td>
+        <td style="background:#ffcccc;font-weight:bold">137.38%</td>
+        <td>521.15</td>
+    </tr><tr class="corner-header"><td colspan="7"><b>mos_sf</b></td></tr>
+<tr>
+        <td>-25 °C</td>
+        <td>1.08 V</td>
+        <td>12.93</td>
+        <td>0.59</td>
+        <td>7.18 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.39%</td>
+        <td>8.07</td>
+    </tr><tr>
+        <td>-25 °C</td>
+        <td>1.2 V</td>
+        <td>14.40</td>
+        <td>0.67</td>
+        <td>7.99 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.97</td>
+    </tr><tr>
+        <td>-25 °C</td>
+        <td>1.32 V</td>
+        <td>15.79</td>
+        <td>0.73</td>
+        <td>8.78 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.39%</td>
+        <td>9.86</td>
+    </tr><tr>
+        <td>27 °C</td>
+        <td>1.08 V</td>
+        <td>12.93</td>
+        <td>0.59</td>
+        <td>7.18 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.39%</td>
+        <td>8.07</td>
+    </tr><tr>
+        <td>27 °C</td>
+        <td>1.2 V</td>
+        <td>14.40</td>
+        <td>0.67</td>
+        <td>7.99 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.97</td>
+    </tr><tr>
+        <td>27 °C</td>
+        <td>1.32 V</td>
+        <td>15.79</td>
+        <td>0.73</td>
+        <td>8.78 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.39%</td>
+        <td>9.86</td>
+    </tr><tr>
+        <td>125 °C</td>
+        <td>1.08 V</td>
+        <td>12.93</td>
+        <td>0.59</td>
+        <td>7.18 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.39%</td>
+        <td>8.07</td>
+    </tr><tr>
+        <td>125 °C</td>
+        <td>1.2 V</td>
+        <td>14.40</td>
+        <td>0.67</td>
+        <td>7.99 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.97</td>
+    </tr><tr>
+        <td>125 °C</td>
+        <td>1.32 V</td>
+        <td>15.79</td>
+        <td>0.73</td>
+        <td>8.78 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.39%</td>
+        <td>9.86</td>
+    </tr><tr class="corner-header"><td colspan="7"><b>mos_fs</b></td></tr>
+<tr>
+        <td>-25 °C</td>
+        <td>1.08 V</td>
+        <td>12.95</td>
+        <td>0.60</td>
+        <td>7.19 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.08</td>
+    </tr><tr>
+        <td>-25 °C</td>
+        <td>1.2 V</td>
+        <td>14.39</td>
+        <td>0.67</td>
+        <td>7.99 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.97</td>
+    </tr><tr>
+        <td>-25 °C</td>
+        <td>1.32 V</td>
+        <td>15.83</td>
+        <td>0.72</td>
+        <td>8.78 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>9.87</td>
+    </tr><tr>
+        <td>27 °C</td>
+        <td>1.08 V</td>
+        <td>12.95</td>
+        <td>0.60</td>
+        <td>7.19 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.08</td>
+    </tr><tr>
+        <td>27 °C</td>
+        <td>1.2 V</td>
+        <td>14.39</td>
+        <td>0.67</td>
+        <td>7.99 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.97</td>
+    </tr><tr>
+        <td>27 °C</td>
+        <td>1.32 V</td>
+        <td>15.83</td>
+        <td>0.72</td>
+        <td>8.78 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>9.87</td>
+    </tr><tr>
+        <td>125 °C</td>
+        <td>1.08 V</td>
+        <td>12.95</td>
+        <td>0.60</td>
+        <td>7.19 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.08</td>
+    </tr><tr>
+        <td>125 °C</td>
+        <td>1.2 V</td>
+        <td>14.39</td>
+        <td>0.67</td>
+        <td>7.99 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>8.97</td>
+    </tr><tr>
+        <td>125 °C</td>
+        <td>1.32 V</td>
+        <td>15.83</td>
+        <td>0.72</td>
+        <td>8.78 (1.33%)</td>
+        <td style="background:#ffffff;font-weight:bold">2.40%</td>
+        <td>9.87</td>
+    </tr></tbody>
+    </table>
+    <div class="legend">
+        <span class="leg-ok">&#9632; OK (&lt;5%)</span>
+        <span class="leg-warn">&#9632; Ostrzezenie (&gt;5%)</span>
+        <span class="leg-err">&#9632; Przekroczenie (&gt;10%)</span>
+    </div>
+</div><div id="mos_tt_T-25_Vp1.08" class="panel">
+    <h2>mos_tt — T=-25°C — Vp=1.08V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_tt_T-25_Vp1.08.png" style="max-width:100%">
+    </div></div>
+<div id="mos_tt_T-25_Vp1.2" class="panel">
+    <h2>mos_tt — T=-25°C — Vp=1.2V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_tt_T-25_Vp1.2.png" style="max-width:100%">
+    </div></div>
+<div id="mos_tt_T-25_Vp1.32" class="panel">
+    <h2>mos_tt — T=-25°C — Vp=1.32V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_tt_T-25_Vp1.32.png" style="max-width:100%">
+    </div></div>
+<div id="mos_tt_T27_Vp1.08" class="panel">
+    <h2>mos_tt — T=27°C — Vp=1.08V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_tt_T27_Vp1.08.png" style="max-width:100%">
+    </div></div>
+<div id="mos_tt_T27_Vp1.2" class="panel">
+    <h2>mos_tt — T=27°C — Vp=1.2V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_tt_T27_Vp1.2.png" style="max-width:100%">
+    </div></div>
+<div id="mos_tt_T27_Vp1.32" class="panel">
+    <h2>mos_tt — T=27°C — Vp=1.32V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_tt_T27_Vp1.32.png" style="max-width:100%">
+    </div></div>
+<div id="mos_tt_T125_Vp1.08" class="panel">
+    <h2>mos_tt — T=125°C — Vp=1.08V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_tt_T125_Vp1.08.png" style="max-width:100%">
+    </div></div>
+<div id="mos_tt_T125_Vp1.2" class="panel">
+    <h2>mos_tt — T=125°C — Vp=1.2V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_tt_T125_Vp1.2.png" style="max-width:100%">
+    </div></div>
+<div id="mos_tt_T125_Vp1.32" class="panel">
+    <h2>mos_tt — T=125°C — Vp=1.32V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_tt_T125_Vp1.32.png" style="max-width:100%">
+    </div></div>
+<div id="mos_ss_T-25_Vp1.08" class="panel">
+    <h2>mos_ss — T=-25°C — Vp=1.08V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.39%</span></h3>
+        <img src="pfd_mos_ss_T-25_Vp1.08.png" style="max-width:100%">
+    </div></div>
+<div id="mos_ss_T-25_Vp1.2" class="panel">
+    <h2>mos_ss — T=-25°C — Vp=1.2V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_ss_T-25_Vp1.2.png" style="max-width:100%">
+    </div></div>
+<div id="mos_ss_T-25_Vp1.32" class="panel">
+    <h2>mos_ss — T=-25°C — Vp=1.32V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_ss_T-25_Vp1.32.png" style="max-width:100%">
+    </div></div>
+<div id="mos_ss_T27_Vp1.08" class="panel">
+    <h2>mos_ss — T=27°C — Vp=1.08V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.39%</span></h3>
+        <img src="pfd_mos_ss_T27_Vp1.08.png" style="max-width:100%">
+    </div></div>
+<div id="mos_ss_T27_Vp1.2" class="panel">
+    <h2>mos_ss — T=27°C — Vp=1.2V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_ss_T27_Vp1.2.png" style="max-width:100%">
+    </div></div>
+<div id="mos_ss_T27_Vp1.32" class="panel">
+    <h2>mos_ss — T=27°C — Vp=1.32V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_ss_T27_Vp1.32.png" style="max-width:100%">
+    </div></div>
+<div id="mos_ss_T125_Vp1.08" class="panel">
+    <h2>mos_ss — T=125°C — Vp=1.08V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.39%</span></h3>
+        <img src="pfd_mos_ss_T125_Vp1.08.png" style="max-width:100%">
+    </div></div>
+<div id="mos_ss_T125_Vp1.2" class="panel">
+    <h2>mos_ss — T=125°C — Vp=1.2V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_ss_T125_Vp1.2.png" style="max-width:100%">
+    </div></div>
+<div id="mos_ss_T125_Vp1.32" class="panel">
+    <h2>mos_ss — T=125°C — Vp=1.32V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_ss_T125_Vp1.32.png" style="max-width:100%">
+    </div></div>
+<div id="mos_ff_T-25_Vp1.08" class="panel">
+    <h2>mos_ff — T=-25°C — Vp=1.08V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_ff_T-25_Vp1.08.png" style="max-width:100%">
+    </div></div>
+<div id="mos_ff_T-25_Vp1.2" class="panel">
+    <h2>mos_ff — T=-25°C — Vp=1.2V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_ff_T-25_Vp1.2.png" style="max-width:100%">
+    </div></div>
+<div id="mos_ff_T-25_Vp1.32" class="panel">
+    <h2>mos_ff — T=-25°C — Vp=1.32V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:red;font-weight:bold">137.38%</span></h3>
+        <img src="pfd_mos_ff_T-25_Vp1.32.png" style="max-width:100%">
+    </div></div>
+<div id="mos_ff_T27_Vp1.08" class="panel">
+    <h2>mos_ff — T=27°C — Vp=1.08V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_ff_T27_Vp1.08.png" style="max-width:100%">
+    </div></div>
+<div id="mos_ff_T27_Vp1.2" class="panel">
+    <h2>mos_ff — T=27°C — Vp=1.2V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_ff_T27_Vp1.2.png" style="max-width:100%">
+    </div></div>
+<div id="mos_ff_T27_Vp1.32" class="panel">
+    <h2>mos_ff — T=27°C — Vp=1.32V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:red;font-weight:bold">137.38%</span></h3>
+        <img src="pfd_mos_ff_T27_Vp1.32.png" style="max-width:100%">
+    </div></div>
+<div id="mos_ff_T125_Vp1.08" class="panel">
+    <h2>mos_ff — T=125°C — Vp=1.08V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_ff_T125_Vp1.08.png" style="max-width:100%">
+    </div></div>
+<div id="mos_ff_T125_Vp1.2" class="panel">
+    <h2>mos_ff — T=125°C — Vp=1.2V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_ff_T125_Vp1.2.png" style="max-width:100%">
+    </div></div>
+<div id="mos_ff_T125_Vp1.32" class="panel">
+    <h2>mos_ff — T=125°C — Vp=1.32V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:red;font-weight:bold">137.38%</span></h3>
+        <img src="pfd_mos_ff_T125_Vp1.32.png" style="max-width:100%">
+    </div></div>
+<div id="mos_sf_T-25_Vp1.08" class="panel">
+    <h2>mos_sf — T=-25°C — Vp=1.08V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.39%</span></h3>
+        <img src="pfd_mos_sf_T-25_Vp1.08.png" style="max-width:100%">
+    </div></div>
+<div id="mos_sf_T-25_Vp1.2" class="panel">
+    <h2>mos_sf — T=-25°C — Vp=1.2V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_sf_T-25_Vp1.2.png" style="max-width:100%">
+    </div></div>
+<div id="mos_sf_T-25_Vp1.32" class="panel">
+    <h2>mos_sf — T=-25°C — Vp=1.32V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.39%</span></h3>
+        <img src="pfd_mos_sf_T-25_Vp1.32.png" style="max-width:100%">
+    </div></div>
+<div id="mos_sf_T27_Vp1.08" class="panel">
+    <h2>mos_sf — T=27°C — Vp=1.08V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.39%</span></h3>
+        <img src="pfd_mos_sf_T27_Vp1.08.png" style="max-width:100%">
+    </div></div>
+<div id="mos_sf_T27_Vp1.2" class="panel">
+    <h2>mos_sf — T=27°C — Vp=1.2V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_sf_T27_Vp1.2.png" style="max-width:100%">
+    </div></div>
+<div id="mos_sf_T27_Vp1.32" class="panel">
+    <h2>mos_sf — T=27°C — Vp=1.32V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.39%</span></h3>
+        <img src="pfd_mos_sf_T27_Vp1.32.png" style="max-width:100%">
+    </div></div>
+<div id="mos_sf_T125_Vp1.08" class="panel">
+    <h2>mos_sf — T=125°C — Vp=1.08V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.39%</span></h3>
+        <img src="pfd_mos_sf_T125_Vp1.08.png" style="max-width:100%">
+    </div></div>
+<div id="mos_sf_T125_Vp1.2" class="panel">
+    <h2>mos_sf — T=125°C — Vp=1.2V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_sf_T125_Vp1.2.png" style="max-width:100%">
+    </div></div>
+<div id="mos_sf_T125_Vp1.32" class="panel">
+    <h2>mos_sf — T=125°C — Vp=1.32V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.39%</span></h3>
+        <img src="pfd_mos_sf_T125_Vp1.32.png" style="max-width:100%">
+    </div></div>
+<div id="mos_fs_T-25_Vp1.08" class="panel">
+    <h2>mos_fs — T=-25°C — Vp=1.08V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_fs_T-25_Vp1.08.png" style="max-width:100%">
+    </div></div>
+<div id="mos_fs_T-25_Vp1.2" class="panel">
+    <h2>mos_fs — T=-25°C — Vp=1.2V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_fs_T-25_Vp1.2.png" style="max-width:100%">
+    </div></div>
+<div id="mos_fs_T-25_Vp1.32" class="panel">
+    <h2>mos_fs — T=-25°C — Vp=1.32V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_fs_T-25_Vp1.32.png" style="max-width:100%">
+    </div></div>
+<div id="mos_fs_T27_Vp1.08" class="panel">
+    <h2>mos_fs — T=27°C — Vp=1.08V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_fs_T27_Vp1.08.png" style="max-width:100%">
+    </div></div>
+<div id="mos_fs_T27_Vp1.2" class="panel">
+    <h2>mos_fs — T=27°C — Vp=1.2V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_fs_T27_Vp1.2.png" style="max-width:100%">
+    </div></div>
+<div id="mos_fs_T27_Vp1.32" class="panel">
+    <h2>mos_fs — T=27°C — Vp=1.32V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_fs_T27_Vp1.32.png" style="max-width:100%">
+    </div></div>
+<div id="mos_fs_T125_Vp1.08" class="panel">
+    <h2>mos_fs — T=125°C — Vp=1.08V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_fs_T125_Vp1.08.png" style="max-width:100%">
+    </div></div>
+<div id="mos_fs_T125_Vp1.2" class="panel">
+    <h2>mos_fs — T=125°C — Vp=1.2V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_fs_T125_Vp1.2.png" style="max-width:100%">
+    </div></div>
+<div id="mos_fs_T125_Vp1.32" class="panel">
+    <h2>mos_fs — T=125°C — Vp=1.32V</h2>
+    <div class="card">
+        <h3>Max|blad|=<span style="color:green;font-weight:bold">2.40%</span></h3>
+        <img src="pfd_mos_fs_T125_Vp1.32.png" style="max-width:100%">
+    </div></div>
+
+<script>
+function showTab(id) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
