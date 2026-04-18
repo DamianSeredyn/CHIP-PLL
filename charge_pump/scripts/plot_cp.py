@@ -7,6 +7,13 @@ SCRIPT_DIR  = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR    = os.path.join(SCRIPT_DIR, '../results/data')
 RESULTS_DIR = os.path.join(SCRIPT_DIR, '../results')
 
+for f in glob.glob(os.path.join(RESULTS_DIR, 'cp_*.png')):
+    os.remove(f)
+if os.path.exists(os.path.join(RESULTS_DIR, 'cp_report.html')):
+    os.remove(os.path.join(RESULTS_DIR, 'cp_report.html'))
+
+print("Usunieto stare wykresy i html")
+
 files = sorted(glob.glob(os.path.join(DATA_DIR, 'cp_parsed_*.txt')))
 
 if not files:
@@ -29,13 +36,15 @@ def make_plot(filepath):
     vout  = data[:, 1]
     i_vip = data[:, 2] * 1e6
     i_vin = data[:, 3] * 1e6
+    v_bias_p  = data[:, 4]
+    v_bias_n  = data[:, 5]
 
-    fig, axes = plt.subplots(3, 1, figsize=(6, 7), sharex=True)  # bylo (12, 10)
+    fig, axes = plt.subplots(5, 1, figsize=(15, 15), sharex=True)
     fig.suptitle(f'Charge Pump — {corner} T={temp}°C Vp={vp}V', fontsize=13, fontweight='bold')
 
     axes[0].plot(time, vout, color='royalblue', linewidth=1)
     axes[0].set_ylabel('Vout [V]')
-    axes[0].set_title('Napiecie wyjsciowe')
+    axes[0].set_title('Napiecie wyjsciowe [V]')
     axes[0].grid(True, alpha=0.3)
 
     axes[1].plot(time, i_vip, color='green', linewidth=1)
@@ -48,6 +57,18 @@ def make_plot(filepath):
     axes[2].set_title('Prad i_vin')
     axes[2].set_xlabel('Czas [us]')
     axes[2].grid(True, alpha=0.3)
+
+    axes[3].plot(time, v_bias_p, color='red', linewidth=1)
+    axes[3].set_ylabel('Napiecie [V]')
+    axes[3].set_title('Napiecie bias_p')
+    axes[3].set_xlabel('Czas [us]')
+    axes[3].grid(True, alpha=0.3)
+
+    axes[4].plot(time, v_bias_n, color='red', linewidth=1)
+    axes[4].set_ylabel('Napiecie [V]')
+    axes[4].set_title('Napiecie bias_n')
+    axes[4].set_xlabel('Czas [us]')
+    axes[4].grid(True, alpha=0.3)
 
     plt.tight_layout()
     out_path = os.path.join(RESULTS_DIR, f'cp_{tag}.png')
