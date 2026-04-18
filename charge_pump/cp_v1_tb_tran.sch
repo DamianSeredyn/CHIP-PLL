@@ -27,22 +27,15 @@ value="
 .control
 
 op
+tran 100p 5u
 save all
-plot v(vout)
 write cp_test.raw
+set filetype=ascii
+wrdata cp_test.txt time v(vout) i(v.x1.vip) i(v.x1.vin)
+plot v(vout)
 set appendwrite
-show all
 .endc
 "}
-C {vsource.sym} 260 -400 0 0 {name=Vup1
-value=0 savecurrent=false}
-C {gnd.sym} 260 -370 0 0 {name=l2 lab=0}
-C {vsource.sym} 620 -400 0 0 {name=Vdn1
-value=1 savecurrent=false
-}
-C {gnd.sym} 620 -370 0 0 {name=l1 lab=0}
-C {lab_pin.sym} 260 -430 0 1 {name=p4 sig_type=std_logic lab=up}
-C {lab_pin.sym} 620 -430 0 1 {name=p5 sig_type=std_logic lab=dn}
 C {capa.sym} 650 -80 0 0 {name=C1
 m=1
 value=5p
@@ -55,9 +48,13 @@ C {lab_pin.sym} 150 -180 0 0 {name=p1 sig_type=std_logic lab=up}
 C {lab_pin.sym} 510 -180 0 1 {name=p9 sig_type=std_logic lab=vp}
 C {lab_pin.sym} 510 -160 0 1 {name=p10 sig_type=std_logic lab=vout}
 C {gnd.sym} 510 -140 0 0 {name=l7 lab=0}
-C {/foss/designs/CHIP-PLL/charge_pump/cp_v1_no_mirror.sym} 330 -160 0 0 {name=x1}
+C {cp_v1_no_mirror.sym} 330 -160 0 0 {name=x1}
 C {lab_pin.sym} 150 -160 0 0 {name=p2 sig_type=std_logic lab=dn}
-C {vsource.sym} 740 -80 0 0 {name=Vvout
-value=0.8 savecurrent=false}
-C {gnd.sym} 740 -50 0 0 {name=l3 lab=0}
-C {lab_pin.sym} 740 -110 0 1 {name=p3 sig_type=std_logic lab=vout}
+C {vsource.sym} 270 -360 0 0 {name=Vup2
+value="PULSE(1.2 0 50n 10p 10p 30n 200n)" savecurrent=false}
+C {gnd.sym} 270 -330 0 0 {name=l4 lab=0}
+C {vsource.sym} 630 -360 0 0 {name=Vdn2
+value="PULSE(0 1.2 150n 10p 10p 30n 200n)" savecurrent=false}
+C {gnd.sym} 630 -330 0 0 {name=l5 lab=0}
+C {lab_pin.sym} 270 -390 0 1 {name=p6 sig_type=std_logic lab=up}
+C {lab_pin.sym} 630 -390 0 1 {name=p7 sig_type=std_logic lab=dn}
