@@ -33,7 +33,7 @@ for VP in $vp_min $vp_nom $vp_max; do
         DLY_U="${DLY}u"
 
         sed "s/\.param dly=.*/.param dly=$DLY_U/" $SPICE | \
-        sed "s/\.param temp=.*/.param temp=$TEMP/" | \
+	sed "s/\.param temp=.*/.param temp=$TEMP/" | \
         sed "s/\.param Vp=.*/.param Vp=$VP/" | \
         sed "s/cornerMOSlv\.lib .*/cornerMOSlv.lib $CORNER/" \
         > /tmp/pfd_run.spice

@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=5.6991348e-05
-x2=0.00025699131
+x1=3.6991353e-05
+x2=0.00023699131
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -35,8 +35,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=5.6991348e-05
-x2=0.00025699131
+x1=3.6991353e-05
+x2=0.00023699131
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -49,15 +49,15 @@ logx=0
 logy=0
 y2=1.3}
 B 2 -170 220 630 620 {flags=graph
-y1=0.52
-y2=1.82
+y1=0.26
+y2=1.56
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=5.6991348e-05
-x2=0.00025699131
+x1=3.6991353e-05
+x2=0.00023699131
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -70,15 +70,15 @@ logx=0
 logy=0
 }
 B 2 710 220 1510 620 {flags=graph
-y1=0
-y2=2
+y1=2
+y2=4
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=5.6991348e-05
-x2=0.00025699131
+x1=3.6991353e-05
+x2=0.00023699131
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -115,13 +115,14 @@ value="
 .param temp=27
 .param T = 31.25u
 .param dly=1u
-.param Vp=0
+.param Vp=1.2
 .control
 save all
 tran 25n 400u
-plot v(CRef) v(CVco) v(UP) v(DOWN)
+
 meas tran pw_up avg v(UP) from=100u to=400u
 meas tran pw_down avg v(DOWN) from=100u to=400u
+plot v(pw_up) v(pw_down)
 write PFD_tb.raw
 .endc
 "}

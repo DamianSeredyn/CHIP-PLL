@@ -1,38 +1,5 @@
-** sch_path: /foss/designs/CHIP-PLL/PFD/PFD_tb.sch
-**.subckt PFD_tb
-x1 0 net1 CRef UP DOWN CVco PFD_cell
-*connector(1,1) ?1 DOWN
-*connector(1,1) ?1 UP
-Vref CRef 0 dc 0 ac 0 pulse(0 {Vp} {T/2} 10n 10n {T/2} {T})
-Vco CVco 0 dc 0 ac 0 pulse(0 {Vp} {dly} 10n 10n {T/2} {T})
-Vp net1 0 dc {Vp}
-**** begin user architecture code
- .lib cornerMOSlv.lib mos_tt
-
-
-
-.param temp=27
-.param T = 31.25u
-.param dly=1u
-.param Vp=1.2
-.control
-save all
-tran 25n 400u
-
-meas tran pw_up avg v(UP) from=100u to=400u
-meas tran pw_down avg v(DOWN) from=100u to=400u
-plot v(pw_up) v(pw_down)
-write PFD_tb.raw
-.endc
-
-
-**** end user architecture code
-**.ends
-
-* expanding   symbol:  PFD_cell.sym # of pins=6
-** sym_path: /foss/designs/CHIP-PLL/PFD/PFD_cell.sym
 ** sch_path: /foss/designs/CHIP-PLL/PFD/PFD_cell.sch
-.subckt PFD_cell gnd vp cRef UP DOWN cVco
+**.subckt PFD_cell gnd vp cRef UP DOWN cVco
 *.iopin gnd
 *.iopin vp
 *.iopin DOWN
@@ -51,8 +18,7 @@ x1 gnd vp UP pre_up PFD_buffor
 x2 gnd vp DOWN pre_down PFD_buffor
 XM5 1 cRef pre_up gnd sg13_lv_nmos w=0.3u l=0.15u ng=1
 XM10 3 cVco pre_down gnd sg13_lv_nmos w=0.3u l=0.15u ng=1
-.ends
-
+**.ends
 
 * expanding   symbol:  PFD_buffor.sym # of pins=4
 ** sym_path: /foss/designs/CHIP-PLL/PFD/PFD_buffor.sym

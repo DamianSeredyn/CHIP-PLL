@@ -25,24 +25,17 @@ N -20 140 -20 170 {lab=gnd}
 N 0 110 -0 170 {lab=gnd}
 N -20 110 -0 110 {lab=gnd}
 N -20 -190 20 -190 {lab=1}
-N -60 -190 -20 -190 {lab=1}
-N -90 -260 -90 -230 {lab=cRef}
+N -90 -260 -90 -220 {lab=cRef}
 N -90 -260 50 -260 {lab=cRef}
-N 50 -260 50 -230 {lab=cRef}
+N 50 -260 50 -220 {lab=cRef}
 N -190 -260 -90 -260 {lab=cRef}
 N -190 -260 -190 110 {lab=cRef}
 N -190 110 -60 110 {lab=cRef}
-N -140 -190 -120 -190 {lab=vp}
-N -140 -190 -140 -140 {lab=vp}
-N -160 -190 -140 -190 {lab=vp}
-N -90 -190 -90 -140 {lab=vp}
-N -140 -140 -90 -140 {lab=vp}
-N 50 -190 50 -140 {lab=gnd}
+N -170 -190 -130 -190 {lab=vp}
 N -280 -260 -190 -260 {lab=cRef}
-N -160 -220 -160 -190 {lab=vp}
+N -170 -220 -170 -190 {lab=vp}
 N 350 -190 390 -190 {lab=UP}
 N -110 400 -110 420 {lab=3}
-N -30 400 60 400 {lab=3}
 N 60 400 60 420 {lab=3}
 N -110 480 -110 520 {lab=4}
 N -30 520 60 520 {lab=4}
@@ -62,15 +55,10 @@ N -10 590 -10 650 {lab=gnd}
 N -30 590 -10 590 {lab=gnd}
 N -30 290 10 290 {lab=3}
 N -70 290 -30 290 {lab=3}
-N -100 220 -100 250 {lab=cVco}
-N 40 220 40 250 {lab=cVco}
-N -150 290 -130 290 {lab=vp}
-N -150 290 -150 340 {lab=vp}
-N -170 290 -150 290 {lab=vp}
-N -100 290 -100 340 {lab=vp}
-N -150 340 -100 340 {lab=vp}
-N 40 290 40 340 {lab=gnd}
-N -170 260 -170 290 {lab=vp}
+N -100 220 -100 260 {lab=cVco}
+N 40 220 40 260 {lab=cVco}
+N -170 290 -130 290 {lab=vp}
+N 40 320 40 380 {lab=cVco_n}
 N -100 220 40 220 {lab=cVco}
 N -140 -30 -140 220 {lab=cVco}
 N -140 220 -100 220 {lab=cVco}
@@ -94,28 +82,45 @@ N 180 -150 180 -130 {lab=gnd}
 N 230 230 230 250 {lab=vp}
 N 230 330 230 350 {lab=gnd}
 N 290 290 350 290 {lab=DOWN}
-N 350 290 400 290 {lab=DOWN}
 N 70 290 190 290 {lab=pre_down}
 N 240 -190 350 -190 {lab=UP}
+N 350 290 400 290 {lab=DOWN}
+N -50 -190 -20 -190 {lab=1}
+N -90 -160 -90 -120 {lab=Cref_n}
+N -170 -220 -110 -220 {lab=vp}
+N -170 -160 -110 -160 {lab=gnd}
+N 30 -240 30 -220 {lab=gnd}
+N 10 -240 30 -240 {lab=gnd}
+N -170 -240 -170 -220 {lab=vp}
+N -0 -160 30 -160 {lab=vp}
+N 50 -160 50 -120 {lab=Cref_n}
+N -30 400 60 400 {lab=3}
+N -100 320 -100 380 {lab=cVco_n}
+N 20 250 20 260 {lab=gnd}
+N -170 260 -120 260 {lab=vp}
+N -170 260 -170 290 {lab=vp}
+N -170 250 -170 260 {lab=vp}
+N 20 320 20 360 {lab=vp}
+N -120 320 -120 350 {lab=gnd}
 C {sg13g2_pr/sg13_lv_nmos.sym} -120 -30 0 0 {name=M1
-l=0.13u
-w=0.5u
+l=0.15u
+w=0.6u
 ng=1
 m=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 90 -30 0 1 {name=M2
-l=0.13u
-w=0.5u
+l=0.15u
+w=0.6u
 ng=1
 m=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} -40 110 0 0 {name=M3
-l=0.13u
-w=0.25u
+l=0.15u
+w=0.3u
 ng=1
 m=1
 model=sg13_lv_nmos
@@ -124,44 +129,28 @@ spiceprefix=X
 C {iopin.sym} -240 -360 0 0 {name=p1 lab=gnd}
 C {iopin.sym} -240 -330 0 0 {name=p2 lab=vp
 }
-C {sg13g2_pr/sg13_lv_pmos.sym} -90 -210 3 1 {name=M4
-l=0.13u
-w=0.75u
-ng=1
-m=1
-model=sg13_lv_pmos
-spiceprefix=X
-}
 C {sg13g2_pr/sg13_lv_nmos.sym} -130 450 0 0 {name=M6
-l=0.13u
-w=0.5u
+l=0.15u
+w=0.6u
 ng=1
 m=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 80 450 0 1 {name=M7
-l=0.13u
-w=0.5u
+l=0.15u
+w=0.6u
 ng=1
 m=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} -50 590 0 0 {name=M8
-l=0.13u
-w=0.25u
+l=0.15u
+w=0.3u
 ng=1
 m=1
 model=sg13_lv_nmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_pmos.sym} -100 270 3 1 {name=M9
-l=0.13u
-w=0.75u
-ng=1
-m=1
-model=sg13_lv_pmos
 spiceprefix=X
 }
 C {iopin.sym} 400 290 0 0 {name=p3 lab=DOWN}
@@ -169,8 +158,8 @@ C {iopin.sym} 390 -190 0 0 {name=p4 lab=UP
 }
 C {ipin.sym} -280 -260 0 0 {name=p5 lab=cRef}
 C {ipin.sym} -270 590 0 0 {name=p6 lab=cVco}
-C {lab_wire.sym} -160 -220 0 0 {name=p7 sig_type=std_logic lab=vp}
-C {lab_wire.sym} -170 260 0 0 {name=p8 sig_type=std_logic lab=vp}
+C {lab_wire.sym} -170 -240 0 0 {name=p7 sig_type=std_logic lab=vp}
+C {lab_wire.sym} -170 250 0 0 {name=p8 sig_type=std_logic lab=vp}
 C {lab_wire.sym} -20 190 0 0 {name=p9 sig_type=std_logic lab=gnd}
 C {lab_wire.sym} -30 670 0 0 {name=p10 sig_type=std_logic lab=gnd}
 C {lab_wire.sym} -30 470 0 0 {name=p11 sig_type=std_logic lab=gnd}
@@ -191,21 +180,23 @@ C {lab_wire.sym} 140 -190 0 0 {name=p21 sig_type=std_logic lab=pre_up
 }
 C {lab_wire.sym} 170 290 0 0 {name=p22 sig_type=std_logic lab=pre_down
 }
-C {sg13g2_pr/sg13_lv_nmos.sym} 50 -210 3 1 {name=M5
-l=0.13u
-w=0.75u
-ng=1
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
+C {lab_wire.sym} 20 250 0 0 {name=p23 sig_type=std_logic lab=gnd}
+C {lab_wire.sym} 10 -240 0 0 {name=p24 sig_type=std_logic lab=gnd}
+C {PFD_passgate.sym} -90 -190 0 0 {name=x3}
+C {lab_wire.sym} -150 -160 0 0 {name=p25 sig_type=std_logic lab=gnd}
+C {PFD_passgate.sym} 50 -190 2 1 {name=x4}
+C {lab_wire.sym} 10 -160 0 0 {name=p26 sig_type=std_logic lab=vp}
+C {PFD_passgate.sym} -90 -190 0 0 {name=x5}
+C {PFD_passgate.sym} 50 -190 2 1 {name=x6}
+C {PFD_passgate.sym} -100 290 0 0 {name=x7}
+C {PFD_passgate.sym} 40 290 2 1 {name=x8}
+C {lab_wire.sym} -120 350 0 0 {name=p27 sig_type=std_logic lab=gnd}
+C {lab_wire.sym} 20 350 0 0 {name=p28 sig_type=std_logic lab=vp}
+C {lab_wire.sym} -90 -120 0 0 {name=p29 sig_type=std_logic lab=Cref_n
 }
-C {sg13g2_pr/sg13_lv_nmos.sym} 40 270 3 1 {name=M10
-l=0.13u
-w=0.75u
-ng=1
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
+C {lab_wire.sym} 50 -120 0 0 {name=p30 sig_type=std_logic lab=Cref_n
 }
-C {lab_wire.sym} 40 340 0 0 {name=p23 sig_type=std_logic lab=gnd}
-C {lab_wire.sym} 50 -140 0 0 {name=p24 sig_type=std_logic lab=gnd}
+C {lab_wire.sym} -100 380 0 0 {name=p31 sig_type=std_logic lab=cVco_n
+}
+C {lab_wire.sym} 40 380 0 0 {name=p32 sig_type=std_logic lab=cVco_n
+}
