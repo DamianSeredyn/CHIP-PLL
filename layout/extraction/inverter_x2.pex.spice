@@ -1,0 +1,34 @@
+* PEX produced on Tue Apr 21 06:11:40 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=3 and s=1
+* NGSPICE file created from inverter_x2.ext - technology: ihp-sg13g2
+
+.subckt inverter_x2 OUT GND VP IN
+X0 OUT.t0 IN.t0 VP.t1 VP.t0 sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.13u
+X1 OUT.t1 IN.t0 GND.t1 GND.t0 sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.13u
+R0 OUT OUT.t0 17.638
+R1 OUT OUT.t1 17.4111
+R2 IN IN.t0 7.66967
+R3 VP VP.t1 17.2721
+R4 VP VP.t0 3.77167
+R5 GND.n2 GND.t0 947.369
+R6 GND.n4 GND.n3 21.1588
+R7 GND GND.t1 17.2899
+R8 GND.n5 GND.n4 8.6367
+R9 GND.n2 GND.n1 8.501
+R10 GND.n3 GND.n2 5.54572
+R11 GND.n5 GND.n0 2.10713
+R12 GND GND.n5 0.150634
+R13 GND.n3 GND.n0 0.0538314
+R14 GND.n4 GND.n1 0.001
+R15 GND.n1 GND.n0 0.001
+C0 IN VP 0.07354f
+C1 IN OUT 0.1201f
+C2 VP OUT 0.06114f
+C3 OUT GND 0.27416f
+C4 IN GND 0.30371f
+C5 VP GND 0.17662f
+C6 VP.t0 GND 0.10482f
+C7 IN.t0 GND 0.12136f
+C8 OUT.t0 GND 0.03318f
+C9 OUT.t1 GND 0.03244f
+.ends
+
