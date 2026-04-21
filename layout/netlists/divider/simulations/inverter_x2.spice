@@ -4,11 +4,7 @@
 *.iopin VP
 *.opin OUT
 *.iopin GND
-M1 OUT IN GND GND sg13_lv_nmos w=0.30u l=0.13u ng=1
-M2 OUT IN VP VP sg13_lv_pmos w=0.30u l=0.13u ng=1
-M3 VP VP VP VP sg13_lv_pmos  w=0.30u l=0.13u ng=1
-M4 OUT OUT OUT VP sg13_lv_pmos  w=0.30u l=0.13u ng=1
-M5 GND GND GND GND sg13_lv_nmos  w=0.30u l=0.13u ng=1
-M6 OUT OUT OUT GND sg13_lv_nmos  w=0.30u l=0.13u ng=1
+M1 OUT IN GND GND sg13_lv_nmos w=0.3u l=0.13u ng=1
+M2 OUT IN VP VP sg13_lv_pmos w=0.3u l=0.13u ng=1
 .ends
 
