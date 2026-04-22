@@ -22,7 +22,7 @@ for CORNER in $corners; do
             OUT=$DATA_DIR/charge_pump_data_${TAG}.txt
             echo "=== Corner: $CORNER Temp: $TEMP Vp: $VP ==="
 
-            sed "s/\.param temp=.*/.param temp=$TEMP/" $SPICE | \
+            sed "s/\.temp=.*/.temp=$TEMP/" $SPICE | \
             sed "s/\.param Vp=.*/.param Vp=$VP/" | \
             sed "s/cornerMOSlv\.lib .*/cornerMOSlv.lib $CORNER/" \
             > /tmp/charge_pump_run.spice
