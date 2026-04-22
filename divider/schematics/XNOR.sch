@@ -141,10 +141,8 @@ m=4
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {inverter.sym} -170 50 0 0 {name=x2}
 C {lab_pin.sym} -170 100 2 0 {name=p4 sig_type=std_logic lab=GND}
 C {lab_pin.sym} -170 0 2 0 {name=p7 sig_type=std_logic lab=VP}
-C {inverter.sym} -170 170 0 0 {name=x1}
 C {lab_pin.sym} -170 220 2 0 {name=p12 sig_type=std_logic lab=GND}
 C {lab_pin.sym} -170 120 2 0 {name=p13 sig_type=std_logic lab=VP}
 C {lab_pin.sym} -210 50 0 0 {name=p14 sig_type=std_logic lab=a}
@@ -159,3 +157,5 @@ C {lab_pin.sym} 70 -170 0 0 {name=p26 sig_type=std_logic lab=b}
 C {lab_pin.sym} 240 40 0 0 {name=p27 sig_type=std_logic lab=b}
 C {lab_pin.sym} 240 -170 0 0 {name=p28 sig_type=std_logic lab=_b}
 C {lab_pin.sym} 240 -260 0 0 {name=p29 sig_type=std_logic lab=_a}
+C {/foss/designs/CHIP-PLL/divider/schematics/inverter.sym} -170 50 0 0 {name=x1}
+C {/foss/designs/CHIP-PLL/divider/schematics/inverter.sym} -170 170 0 0 {name=x2}
