@@ -31,7 +31,7 @@ tran 100p 5u
 save all
 write cp_test.raw
 set filetype=ascii
-wrdata cp_test.txt time v(vout) i(v.x1.vip) i(v.x1.vin) v(x1.biasp) v(x1.biasn)
+wrdata cp_test.txt time v(vout) i(v.x1.vip) i(v.x1.vin) v(x1.biasp) v(x1.biasn) i(Vdn2) i(Vup2) i(Vvp) v(up) v(dn)
 set appendwrite
 .endc
 "}
