@@ -69,7 +69,6 @@ N -240 -290 -130 -290 {lab=clk}
 N -240 -440 -240 -290 {lab=clk}
 N -240 -440 -130 -440 {lab=clk}
 N -230 -110 -130 -110 {lab=d}
-C {schematics/NAND_3in.sym} 20 -290 0 0 {name=x1}
 C {iopin.sym} -400 -300 2 0 {name=p2 lab=GND}
 C {ipin.sym} -400 -270 0 0 {name=p3 lab=clk}
 C {iopin.sym} -400 -320 2 0 {name=p5 lab=VP}
@@ -80,22 +79,23 @@ C {lab_pin.sym} -380 -300 2 0 {name=p10 sig_type=std_logic lab=GND}
 C {lab_pin.sym} -380 -320 2 0 {name=p11 sig_type=std_logic lab=VP}
 C {lab_pin.sym} 190 -290 2 0 {name=p1 sig_type=std_logic lab=GND}
 C {lab_pin.sym} 190 -310 2 0 {name=p12 sig_type=std_logic lab=VP}
-C {schematics/NAND_2in.sym} 20 -440 0 0 {name=x2}
 C {lab_pin.sym} 190 -440 2 0 {name=p13 sig_type=std_logic lab=GND}
 C {lab_pin.sym} 190 -460 2 0 {name=p14 sig_type=std_logic lab=VP}
-C {schematics/NAND_2in.sym} 30 -590 0 0 {name=x3}
 C {lab_pin.sym} 200 -590 2 0 {name=p15 sig_type=std_logic lab=GND}
 C {lab_pin.sym} 200 -610 2 0 {name=p16 sig_type=std_logic lab=VP}
-C {schematics/NAND_2in.sym} 20 -110 0 0 {name=x4}
 C {lab_pin.sym} 190 -110 2 0 {name=p17 sig_type=std_logic lab=GND}
 C {lab_pin.sym} 190 -130 2 0 {name=p18 sig_type=std_logic lab=VP}
-C {schematics/NAND_2in.sym} 530 -290 0 0 {name=x5}
 C {lab_pin.sym} 700 -290 2 0 {name=p19 sig_type=std_logic lab=GND}
 C {lab_pin.sym} 700 -310 2 0 {name=p20 sig_type=std_logic lab=VP}
-C {schematics/NAND_2in.sym} 540 -440 0 0 {name=x6}
 C {lab_pin.sym} 710 -440 2 0 {name=p21 sig_type=std_logic lab=GND}
 C {lab_pin.sym} 710 -460 2 0 {name=p22 sig_type=std_logic lab=VP}
 C {lab_pin.sym} -230 -110 0 0 {name=p4 sig_type=std_logic lab=d}
 C {lab_pin.sym} -240 -290 0 0 {name=p7 sig_type=std_logic lab=clk}
 C {opin.sym} 780 -420 0 0 {name=p23 lab=q}
 C {opin.sym} 780 -270 0 0 {name=p24 lab=q_}
+C {/foss/designs/CHIP-PLL/divider/schematics/NAND_2in.sym} 30 -590 0 0 {name=x3}
+C {/foss/designs/CHIP-PLL/divider/schematics/NAND_2in.sym} 20 -440 0 0 {name=x2}
+C {/foss/designs/CHIP-PLL/divider/schematics/NAND_2in.sym} 540 -440 0 0 {name=x4}
+C {/foss/designs/CHIP-PLL/divider/schematics/NAND_2in.sym} 530 -290 0 0 {name=x5}
+C {/foss/designs/CHIP-PLL/divider/schematics/NAND_2in.sym} 20 -110 0 0 {name=x6}
+C {/foss/designs/CHIP-PLL/divider/schematics/NAND_3in.sym} 20 -290 0 0 {name=x1}
