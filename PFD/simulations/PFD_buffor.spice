@@ -4,13 +4,9 @@
 *.iopin vp
 *.ipin in
 *.iopin out
-XM1 out_stage1 in gnd gnd sg13_lv_nmos w=0.9u l=0.15u ng=1
-XM4 out_stage1 in vp vp sg13_lv_pmos w=0.9u l=0.15u ng=1
-XM2 out_stage2 out_stage1 gnd gnd sg13_lv_nmos w=0.6u l=0.15u ng=1
-XM3 out_stage2 out_stage1 vp vp sg13_lv_pmos w=0.6u l=0.15u ng=1
-XM5 out_stage3 out_stage2 gnd gnd sg13_lv_nmos w=0.9u l=0.15u ng=1
-XM6 out_stage3 out_stage2 vp vp sg13_lv_pmos w=0.9u l=0.15u ng=1
-XM7 out out_stage3 gnd gnd sg13_lv_nmos w=1.2u l=0.15u ng=1
-XM8 out out_stage3 vp vp sg13_lv_pmos w=1.2u l=0.15u ng=1
+XM1 out_stage1 in gnd gnd sg13_lv_nmos w=0.6u l=0.15u ng=1
+XM4 out_stage1 in vp vp sg13_lv_pmos w=0.6u l=0.15u ng=1
+XM2 out out_stage1 gnd gnd sg13_lv_nmos w=1.2u l=0.15u ng=1
+XM3 out out_stage1 vp vp sg13_lv_pmos w=1.2u l=0.15u ng=1
 **.ends
 .end

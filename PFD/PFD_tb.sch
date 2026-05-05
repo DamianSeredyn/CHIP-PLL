@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=4.6991351e-05
-x2=0.00024699131
+x1=2.6991355e-05
+x2=0.00022699131
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -35,8 +35,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=4.6991351e-05
-x2=0.00024699131
+x1=2.6991355e-05
+x2=0.00022699131
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -49,15 +49,15 @@ logx=0
 logy=0
 y2=1.3}
 B 2 -170 220 630 620 {flags=graph
-y1=1.3
-y2=2.6
+y1=1.04
+y2=2.34
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=4.6991351e-05
-x2=0.00024699131
+x1=2.6991355e-05
+x2=0.00022699131
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -77,8 +77,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=4.6991351e-05
-x2=0.00024699131
+x1=2.6991355e-05
+x2=0.00022699131
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -90,33 +90,33 @@ logy=0
 color=4
 node="v(up) - v(down)"}
 N -40 -160 -40 -110 {lab=#net1}
-N -400 -160 -40 -160 {lab=#net1}
 N -400 -160 -400 -120 {lab=#net1}
 N -320 -80 -320 -70 {lab=CRef}
 N -320 -80 -190 -80 {lab=CRef}
 N -260 -20 -190 -20 {lab=CVco}
-N -400 -60 -400 60 {lab=0}
-N -320 -10 -320 60 {lab=0}
-N -260 40 -260 60 {lab=0}
-N -40 10 -40 60 {lab=0}
+N -400 -60 -400 60 {lab=GND}
+N -320 -10 -320 60 {lab=GND}
+N -260 40 -260 60 {lab=GND}
+N -40 10 -40 60 {lab=GND}
 N 310 -80 330 -80 {lab=UP}
 N 200 -20 220 -20 {lab=DOWN}
-N -400 60 -320 60 {lab=0}
-N -320 60 -260 60 {lab=0}
-N -260 60 -40 60 {lab=0}
-N -40 60 -40 80 {lab=0}
-N 310 60 340 60 {lab=0}
-N 200 50 200 60 {lab=0}
-N -40 60 200 60 {lab=0}
+N -400 60 -320 60 {lab=GND}
+N -320 60 -260 60 {lab=GND}
+N -260 60 -40 60 {lab=GND}
+N -40 60 -40 80 {lab=GND}
+N 310 60 340 60 {lab=GND}
+N 200 50 200 60 {lab=GND}
+N -40 60 200 60 {lab=GND}
 N 200 -20 200 -10 {lab=DOWN}
 N 110 -20 200 -20 {lab=DOWN}
 N 310 -80 310 -10 {lab=UP}
 N 110 -80 310 -80 {lab=UP}
-N 310 50 310 60 {lab=0}
-N 200 60 310 60 {lab=0}
+N 310 50 310 60 {lab=GND}
+N 200 60 310 60 {lab=GND}
+N -400 -160 -40 -160 {lab=#net1}
 C {devices/code_shown.sym} -580 -320 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
-value=".lib cornerMOSlv.lib mos_ff
+value=".lib cornerMOSlv.lib mos_tt
 "}
 C {devices/code_shown.sym} -860 -1000 0 0 {name=NGSPICE only_toplevel=false
 value="
@@ -126,15 +126,15 @@ value="
 .param Vp=1.2
 .control
 save all
-tran 25n 400u
+tran 25n 200u
 
-meas tran pw_up avg v(UP) from=100u to=400u
-meas tran pw_down avg v(DOWN) from=100u to=400u
+meas tran pw_up avg v(UP) from=100u to=200u
+meas tran pw_down avg v(DOWN) from=100u to=200u
 plot v(pw_up) v(pw_down)
 write PFD_tb.raw
 .endc
 "}
-C {gnd.sym} -40 80 0 0 {name=l1 lab=0
+C {gnd.sym} -40 80 0 0 {name=l1 lab=GND
 }
 C {lab_wire.sym} -230 -80 0 0 {name=p1 sig_type=std_logic lab=CRef}
 C {lab_wire.sym} -220 -20 0 0 {name=p2 sig_type=std_logic lab=CVco}
