@@ -11,7 +11,7 @@ N -320 -250 -240 -250 {lab=#net1}
 N -240 -250 -240 40 {lab=#net1}
 N -320 50 -240 40 {lab=#net1}
 C {vsource.sym} -320 -160 0 0 {name=vp
-value=1.2 savecurrent=false}
+value=1.1 savecurrent=false}
 C {gnd.sym} -320 -130 0 0 {name=l3 lab=0}
 C {lab_pin.sym} -180 90 0 1 {name=p4 sig_type=std_logic lab=vb}
 C {devices/code_shown.sym} 90 -450 0 0 {name=MODEL only_toplevel=true
@@ -20,14 +20,14 @@ value=".lib cornerMOSlv.lib mos_tt
 "}
 C {devices/code_shown.sym} 100 -360 0 0 {name=NGSPICE only_toplevel=true 
 value="
-.param temp=27
+.temp 80
 .param l=0.15u
 .param Vp=1.2
 .control
 
 op
 save all
-write vbias.raw
+write aavbias.raw
 set appendwrite
 show all
 .endc

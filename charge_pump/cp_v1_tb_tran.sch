@@ -47,7 +47,6 @@ C {lab_pin.sym} 150 -180 0 0 {name=p1 sig_type=std_logic lab=up}
 C {lab_pin.sym} 510 -180 0 1 {name=p9 sig_type=std_logic lab=vp}
 C {lab_pin.sym} 510 -160 0 1 {name=p10 sig_type=std_logic lab=vout}
 C {gnd.sym} 510 -140 0 0 {name=l7 lab=0}
-C {cp_v1_no_mirror.sym} 330 -160 0 0 {name=x1}
 C {lab_pin.sym} 150 -160 0 0 {name=p2 sig_type=std_logic lab=dn}
 C {vsource.sym} 270 -360 0 0 {name=Vup2
 value="PULSE(1.2 0 50n 10p 10p 30n 200n)" savecurrent=false}
@@ -57,3 +56,4 @@ value="PULSE(0 1.2 150n 10p 10p 30n 200n)" savecurrent=false}
 C {gnd.sym} 630 -330 0 0 {name=l5 lab=0}
 C {lab_pin.sym} 270 -390 0 1 {name=p6 sig_type=std_logic lab=up}
 C {lab_pin.sym} 630 -390 0 1 {name=p7 sig_type=std_logic lab=dn}
+C {/foss/designs/CHIP-PLL/charge_pump/cp_v1_no_mirror.sym} 330 -160 0 0 {name=x1}
