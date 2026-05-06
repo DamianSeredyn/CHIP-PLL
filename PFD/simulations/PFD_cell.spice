@@ -1,0 +1,58 @@
+** sch_path: /foss/designs/CHIP-PLL/PFD/PFD_cell.sch
+**.subckt PFD_cell gnd vp cRef UP DOWN cVco
+*.iopin gnd
+*.iopin vp
+*.iopin DOWN
+*.iopin UP
+*.ipin cRef
+*.ipin cVco
+XM1 1 cVco 2 gnd sg13_lv_nmos w=0.6u l=0.15u ng=1
+XM2 1 DOWN 2 gnd sg13_lv_nmos w=0.6u l=0.15u ng=1
+XM3 2 cRef gnd gnd sg13_lv_nmos w=0.3u l=0.15u ng=1
+XM6 3 cRef 4 gnd sg13_lv_nmos w=0.6u l=0.15u ng=1
+XM7 3 UP 4 gnd sg13_lv_nmos w=0.6u l=0.15u ng=1
+XM8 4 cVco gnd gnd sg13_lv_nmos w=0.3u l=0.15u ng=1
+x1 gnd vp UP pre_up PFD_buffor
+x2 gnd vp DOWN pre_down PFD_buffor
+XM4 1 cRef vp vp sg13_lv_pmos w=0.45u l=0.15u ng=1
+XM5 1 cRef pre_up gnd sg13_lv_nmos w=0.45u l=0.15u ng=1
+XM9 3 cVco vp vp sg13_lv_pmos w=0.45u l=0.15u ng=1
+XM10 3 cVco pre_down gnd sg13_lv_nmos w=0.45u l=0.15u ng=1
+x3 cRef net1 vp gnd inverter_x4
+x4 cVco net2 vp gnd inverter_x4
+C2 4 gnd 250f
+C1 2 gnd 250f
+XM11 pre_down net2 gnd gnd sg13_lv_nmos w=0.6u l=0.15u ng=1
+XM12 pre_up net1 gnd gnd sg13_lv_nmos w=0.6u l=0.15u ng=1
+C3 1 gnd 250f
+C4 3 gnd 250f
+**.ends
+
+* expanding   symbol:  PFD_buffor.sym # of pins=4
+** sym_path: /foss/designs/CHIP-PLL/PFD/PFD_buffor.sym
+** sch_path: /foss/designs/CHIP-PLL/PFD/PFD_buffor.sch
+.subckt PFD_buffor gnd vp out in
+*.iopin gnd
+*.iopin vp
+*.ipin in
+*.iopin out
+XM1 out_stage1 in gnd gnd sg13_lv_nmos w=0.6u l=0.15u ng=1
+XM4 out_stage1 in vp vp sg13_lv_pmos w=0.6u l=0.15u ng=1
+XM2 out out_stage1 gnd gnd sg13_lv_nmos w=1.2u l=0.15u ng=1
+XM3 out out_stage1 vp vp sg13_lv_pmos w=1.2u l=0.15u ng=1
+.ends
+
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/divider/inverter_x4.sym # of pins=4
+** sym_path: /foss/designs/CHIP-PLL/divider/inverter_x4.sym
+** sch_path: /foss/designs/CHIP-PLL/divider/inverter_x4.sch
+.subckt inverter_x4 IN OUT VP GND
+*.ipin IN
+*.iopin VP
+*.opin OUT
+*.iopin GND
+XM1 OUT IN GND GND sg13_lv_nmos w=0.60u l=0.13u ng=1
+XM2 OUT IN VP VP sg13_lv_pmos w=0.60u l=0.13u ng=1
+.ends
+
+.end
