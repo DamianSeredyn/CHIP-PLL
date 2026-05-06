@@ -36,7 +36,7 @@ for corner in tt ss ff fs sf; do
 .temp ${temp}
 .include ${SPICE_CLEAN}
 .control
-  tran 20p 20n
+  tran 20p 500n
   wrdata ${DAT} v(out_pb) v(out) i(V2)
   exit
 .endc
@@ -139,7 +139,7 @@ def analyze_first_stable_cycle(time, voltage, last_fraction=0.3):
         return None, None, None, None
 
     duty_cycle_pct = 100.0 * high_time / period
-    freq_ghz       = 1.0 / period / 1e9
+    freq_ghz       = 1.0 / period / 1e3
 
     # ── rise time: 10 % → 90 % on the SAME rising edge ──────────────────────
     # Look for the 10 % crossing just before t_rise0_50
