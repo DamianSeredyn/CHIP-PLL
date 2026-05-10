@@ -23,7 +23,7 @@ N -510 70 -510 80 {lab=gnd!}
 N -210 -140 -190 -140 {lab=a}
 N -210 -120 -190 -120 {lab=b}
 N -210 -100 -190 -100 {lab=c}
-C {/foss/designs/CHIP-PLL/divider/NAND_3in.sym} -40 -120 0 0 {name=x1}
+C {NAND_3in.sym} -40 -120 0 0 {name=x1}
 C {devices/code_shown.sym} -530 -560 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_tt

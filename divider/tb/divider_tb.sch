@@ -122,7 +122,7 @@ N 1470 590 1540 590 {lab=div4096}
 N 1470 460 1540 460 {lab=div256}
 N 1470 330 1540 330 {lab=div16}
 N -70 460 0 460 {lab=div16}
-N -70 590 0 590 {lab=#net14}
+N -70 590 0 590 {lab=div256}
 N -70 730 0 730 {lab=div4096}
 C {devices/code_shown.sym} -290 -20 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
@@ -132,13 +132,13 @@ C {devices/code_shown.sym} 30 -80 0 0 {name=NGSPICE only_toplevel=false
 value="
 .param temp=27
 .control
-
+set maxdata = 1000
 op
 print all
 save all
 
 tran 50p 60u
-write divider_tb.raw
+write divider_tb.raw v(div8192)
 set appendwrite
 
 plot v(div16)
@@ -181,18 +181,18 @@ C {lab_wire.sym} 320 370 2 0 {name=p12 sig_type=std_logic lab=gnd!
 }
 C {lab_wire.sym} 320 350 2 0 {name=p14 sig_type=std_logic lab=VP
 }
-C {/foss/designs/CHIP-PLL/divider/d_flip_flop.sym} 150 360 0 0 {name=x1}
-C {/foss/designs/CHIP-PLL/divider/d_flip_flop.sym} 540 360 0 0 {name=x2}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 150 360 0 0 {name=x1}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 540 360 0 0 {name=x2}
 C {lab_wire.sym} 1100 370 2 0 {name=p16 sig_type=std_logic lab=gnd!
 }
 C {lab_wire.sym} 1100 350 2 0 {name=p17 sig_type=std_logic lab=VP
 }
-C {/foss/designs/CHIP-PLL/divider/d_flip_flop.sym} 930 360 0 0 {name=x3}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 930 360 0 0 {name=x3}
 C {lab_wire.sym} 1490 370 2 0 {name=p18 sig_type=std_logic lab=gnd!
 }
 C {lab_wire.sym} 1490 350 2 0 {name=p19 sig_type=std_logic lab=VP
 }
-C {/foss/designs/CHIP-PLL/divider/d_flip_flop.sym} 1320 360 0 0 {name=x4}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 1320 360 0 0 {name=x4}
 C {lab_wire.sym} 340 330 2 0 {name=p20 sig_type=std_logic lab=div2
 }
 C {lab_wire.sym} 720 330 2 0 {name=p21 sig_type=std_logic lab=div4
@@ -209,18 +209,18 @@ C {lab_wire.sym} 320 500 2 0 {name=p26 sig_type=std_logic lab=gnd!
 }
 C {lab_wire.sym} 320 480 2 0 {name=p27 sig_type=std_logic lab=VP
 }
-C {/foss/designs/CHIP-PLL/divider/d_flip_flop.sym} 150 490 0 0 {name=x5}
-C {/foss/designs/CHIP-PLL/divider/d_flip_flop.sym} 540 490 0 0 {name=x6}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 150 490 0 0 {name=x5}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 540 490 0 0 {name=x6}
 C {lab_wire.sym} 1100 500 2 0 {name=p28 sig_type=std_logic lab=gnd!
 }
 C {lab_wire.sym} 1100 480 2 0 {name=p29 sig_type=std_logic lab=VP
 }
-C {/foss/designs/CHIP-PLL/divider/d_flip_flop.sym} 930 490 0 0 {name=x7}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 930 490 0 0 {name=x7}
 C {lab_wire.sym} 1490 500 2 0 {name=p30 sig_type=std_logic lab=gnd!
 }
 C {lab_wire.sym} 1490 480 2 0 {name=p31 sig_type=std_logic lab=VP
 }
-C {/foss/designs/CHIP-PLL/divider/d_flip_flop.sym} 1320 490 0 0 {name=x8}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 1320 490 0 0 {name=x8}
 C {lab_wire.sym} 340 460 2 0 {name=p32 sig_type=std_logic lab=div32
 }
 C {lab_wire.sym} 720 460 2 0 {name=p33 sig_type=std_logic lab=div64
@@ -240,18 +240,18 @@ C {lab_wire.sym} 320 630 2 0 {name=p37 sig_type=std_logic lab=gnd!
 }
 C {lab_wire.sym} 320 610 2 0 {name=p38 sig_type=std_logic lab=VP
 }
-C {/foss/designs/CHIP-PLL/divider/d_flip_flop.sym} 150 620 0 0 {name=x9}
-C {/foss/designs/CHIP-PLL/divider/d_flip_flop.sym} 540 620 0 0 {name=x10}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 150 620 0 0 {name=x9}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 540 620 0 0 {name=x10}
 C {lab_wire.sym} 1100 630 2 0 {name=p39 sig_type=std_logic lab=gnd!
 }
 C {lab_wire.sym} 1100 610 2 0 {name=p40 sig_type=std_logic lab=VP
 }
-C {/foss/designs/CHIP-PLL/divider/d_flip_flop.sym} 930 620 0 0 {name=x11}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 930 620 0 0 {name=x11}
 C {lab_wire.sym} 1490 630 2 0 {name=p41 sig_type=std_logic lab=gnd!
 }
 C {lab_wire.sym} 1490 610 2 0 {name=p42 sig_type=std_logic lab=VP
 }
-C {/foss/designs/CHIP-PLL/divider/d_flip_flop.sym} 1320 620 0 0 {name=x12}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 1320 620 0 0 {name=x12}
 C {lab_wire.sym} 340 590 2 0 {name=p43 sig_type=std_logic lab=dov512
 }
 C {lab_wire.sym} 720 590 2 0 {name=p44 sig_type=std_logic lab=div1024
@@ -264,7 +264,7 @@ C {lab_wire.sym} 320 770 2 0 {name=p48 sig_type=std_logic lab=gnd!
 }
 C {lab_wire.sym} 320 750 2 0 {name=p49 sig_type=std_logic lab=VP
 }
-C {/foss/designs/CHIP-PLL/divider/d_flip_flop.sym} 150 760 0 0 {name=x13}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 150 760 0 0 {name=x13}
 C {lab_wire.sym} 370 730 2 0 {name=p50 sig_type=std_logic lab=div8192
 }
 C {lab_wire.sym} -70 460 0 0 {name=p47 sig_type=std_logic lab=div16

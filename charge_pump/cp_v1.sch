@@ -318,7 +318,6 @@ C {opin.sym} 1280 -470 0 1 {name=p8 lab=vout}
 C {ipin.sym} 560 -300 0 0 {name=p33 lab=vbn}
 C {ipin.sym} 520 -610 0 1 {name=p39 lab=vbp}
 C {lab_pin.sym} 440 -510 0 1 {name=p10 sig_type=std_logic lab=Vp2}
-C {/foss/designs/CHIP-PLL/charge_pump/amp_jj.sym} 840 -470 0 0 {name=x1}
 C {lab_pin.sym} 990 -490 2 0 {name=p2 sig_type=std_logic lab=vp}
 C {lab_pin.sym} 990 -470 2 0 {name=p18 sig_type=std_logic lab=gd}
 C {lab_pin.sym} 210 -420 0 1 {name=p40 sig_type=std_logic lab=net1}
@@ -328,3 +327,4 @@ C {lab_pin.sym} 350 -240 0 1 {name=p43 sig_type=std_logic lab=net7}
 C {lab_pin.sym} 350 -670 0 1 {name=p44 sig_type=std_logic lab=net6}
 C {lab_pin.sym} 830 -660 0 1 {name=p45 sig_type=std_logic lab=net5}
 C {lab_pin.sym} 210 -250 0 1 {name=p47 sig_type=std_logic lab=net2}
+C {/foss/designs/CHIP-PLL/charge_pump/amp_sz.sym} 840 -470 0 0 {name=x1}

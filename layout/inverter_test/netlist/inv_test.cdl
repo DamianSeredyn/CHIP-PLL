@@ -1,6 +1,0 @@
-** sch_path: /foss/designs/inv_test.sch
-.subckt inv_test VP GND IN OUT
-*.PININFO VP:B GND:B IN:I OUT:O
-M1 OUT IN GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1
-M2 OUT IN VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1
-.ends
