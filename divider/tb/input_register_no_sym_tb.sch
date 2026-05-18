@@ -138,10 +138,8 @@ tran 50p 300n
 write input_register_tb.raw
 set appendwrite
 
-meas tran v_d0 AVG v(d0) FROM=170n TO=180n
 
 
-print d0_logic
 
 .endc
 "}
