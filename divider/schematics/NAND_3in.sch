@@ -47,7 +47,7 @@ N -10 -80 10 -80 {lab=a}
 N 130 -170 150 -170 {lab=a}
 N -10 10 10 10 {lab=b}
 N -10 -170 10 -170 {lab=b}
-N -10 100 10 100 {lab=c}
+N -20 100 10 100 {lab=c}
 N 260 -170 280 -170 {lab=c}
 C {sg13g2_pr/sg13_lv_nmos.sym} 30 -80 0 0 {name=M1
 l=0.13u
@@ -76,7 +76,6 @@ spiceprefix=X
 C {opin.sym} 330 -120 0 0 {name=p1 lab=y}
 C {iopin.sym} -140 -150 2 0 {name=p2 lab=GND}
 C {ipin.sym} -140 -120 0 0 {name=p3 lab=a}
-C {lab_pin.sym} -120 -80 2 0 {name=p4 sig_type=std_logic lab=c}
 C {iopin.sym} -140 -170 2 0 {name=p5 lab=VP}
 C {ipin.sym} -140 -100 0 0 {name=p6 lab=b}
 C {ipin.sym} -140 -80 0 0 {name=p7 lab=c}
@@ -88,8 +87,6 @@ C {lab_pin.sym} -10 -80 0 0 {name=p12 sig_type=std_logic lab=a}
 C {lab_pin.sym} 130 -170 0 0 {name=p13 sig_type=std_logic lab=a}
 C {lab_pin.sym} -10 10 0 0 {name=p14 sig_type=std_logic lab=b}
 C {lab_pin.sym} -10 -170 0 0 {name=p15 sig_type=std_logic lab=b}
-C {lab_pin.sym} -10 100 0 0 {name=p16 sig_type=std_logic lab=c}
-C {lab_pin.sym} 260 -170 0 0 {name=p17 sig_type=std_logic lab=c}
 C {lab_pin.sym} 50 160 2 0 {name=p18 sig_type=std_logic lab=GND}
 C {lab_pin.sym} 50 -220 2 0 {name=p19 sig_type=std_logic lab=VP}
 C {lab_pin.sym} 190 -220 2 0 {name=p20 sig_type=std_logic lab=VP}
@@ -118,3 +115,6 @@ m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
+C {lab_pin.sym} -120 -80 2 0 {name=p4 sig_type=std_logic lab=c}
+C {lab_pin.sym} -20 100 0 0 {name=p16 sig_type=std_logic lab=c}
+C {lab_pin.sym} 260 -170 0 0 {name=p17 sig_type=std_logic lab=c}

@@ -16,15 +16,19 @@ N 420 -100 420 -60 {lab=vdd}
 N 100 80 100 120 {lab=0}
 N 420 40 420 80 {lab=0}
 N 530 -10 570 -10 {lab=out_pb}
-C {vsource.sym} -160 220 0 0 {name=V1 value=0.8 savecurrent=false}
+C {vsource.sym} -160 220 0 0 {name=V1 value=\{vin\} savecurrent=false}
 C {vsource.sym} -240 220 0 0 {name=V2 value=\{vdd\} savecurrent=false}
 C {devices/code_shown.sym} -290 -320 0 0 {name=NGSPICE only_toplevel=false
 value="
 .param temp=27
 .param vdd=1.2
+.param vin=0.4
+.param Lcs=0.16*4u
+.param Ldrv=0.16*2u
+
 .control
 
-tran 20p 20n
+tran 40p 700n
 write vco_tb.raw
 set appendwrite
 plot out
