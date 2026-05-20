@@ -1,82 +1,82 @@
-* PEX produced on Tue May 19 07:22:48 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=3 and s=1
+* PEX produced on Wed May 20 07:34:59 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=3 and s=1
 * NGSPICE file created from PFD_cell.ext - technology: ihp-sg13g2
 
 .subckt PFD_cell DOWN UP cVco cRef gnd vp
 X0 3.t0 cVco.t11 vp.t4 vp.t0 sg13_lv_pmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
-X1 1.t5 gnd.t35 pre_down.t0 gnd.t45 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
-X2 4.t1 cVco.t0 gnd.t18 gnd.t17 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
+X1 1.t5 gnd.t32 pre_down.t0 gnd.t48 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
+X2 4.t1 cVco.t0 gnd.t3 gnd.t2 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
 X3 vp.t9 cVco.t12 inv_out_down.t1 vp.t0 sg13_lv_pmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.13u
 X4 vp.t10 cVco.t10 3.t0 vp.t0 sg13_lv_pmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
-X5 2.t0 gnd.t32 gnd.t34 gnd.t33 sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
+X5 2.t0 gnd.t40 gnd.t42 gnd.t41 sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
 X6 DOWN.t1 buf_in_down.t3 gnd.t22 gnd.t21 sg13_lv_nmos ad=0.114p pd=0.98u as=0.204p ps=1.88u w=0.6u l=0.15u
 X7 gnd.t28 pre_up.t3 buf_in_up.t1 gnd.t27 sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
-X8 3.t2 gnd.t35 gnd.t37 gnd.t36 sg13_lv_nmos ad=55.5f pd=0.74u as=0.1005p ps=1.34u w=0.15u l=0.15u
-X9 1.t1 DOWN.t2 4.t3 gnd.t60 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
-X10 gnd.t44 gnd.t32 2.t2 gnd.t43 sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
-X11 pre_up.t1 gnd.t35 3.t4 gnd.t47 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
+X8 3.t2 gnd.t32 gnd.t34 gnd.t33 sg13_lv_nmos ad=55.5f pd=0.74u as=0.1005p ps=1.34u w=0.15u l=0.15u
+X9 1.t1 DOWN.t2 2.t3 gnd.t60 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
+X10 gnd.t47 gnd.t40 4.t5 gnd.t46 sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
+X11 pre_up.t1 gnd.t32 3.t4 gnd.t50 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
 X12 vp.t18 pre_up.t5 buf_in_up.t0 vp.t0 sg13_lv_pmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
 X13 inv_out_up.t3 cRef.t7 gnd.t73 gnd.t74 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
 X14 vp.t6 cRef.t9 1.t6 vp.t0 sg13_lv_pmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
-X15 pre_down.t0 cVco.t4 3.t2 gnd.t14 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
+X15 pre_down.t0 cVco.t4 3.t2 gnd.t16 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
 X16 vp.t5 cRef.t12 inv_out_up.t1 vp.t0 sg13_lv_pmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
 X17 gnd.t73 cRef.t8 inv_out_up.t2 gnd.t72 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
-X18 3.t6 cRef.t6 4.t4 gnd.t76 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
+X18 3.t5 cRef.t6 4.t4 gnd.t76 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
 X19 vp.t15 vp.t14 3.t1 vp.t0 sg13_lv_pmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.15u
-X20 gnd.t56 gnd.t54 4.t1 gnd.t55 sg13_lv_nmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.15u
+X20 gnd.t37 gnd.t35 4.t1 gnd.t36 sg13_lv_nmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.15u
 X21 pre_up.t0 inv_out_up.t4 gnd.t24 gnd.t23 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
 X22 vp.t8 cVco.t13 inv_out_down.t0 vp.t0 sg13_lv_pmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
-X23 3.t4 cVco.t2 pre_down.t1 gnd.t16 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
+X23 3.t4 cVco.t2 pre_down.t1 gnd.t18 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
 X24 1.t2 vp.t12 vp.t13 vp.t0 sg13_lv_pmos ad=55.5f pd=0.74u as=0.1005p ps=1.34u w=0.15u l=0.15u
-X25 2.t4 cRef.t1 gnd.t5 gnd.t81 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
+X25 2.t4 cRef.t1 gnd.t7 gnd.t81 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
 X26 gnd.t26 inv_out_up.t4 pre_up.t0 gnd.t25 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
-X27 1.t0 cVco.t6 2.t0 gnd.t12 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
+X27 1.t0 cVco.t6 2.t0 gnd.t14 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
 X28 buf_in_up.t1 pre_up.t4 gnd.t64 gnd.t63 sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
-X29 inv_out_up.t2 cRef.t8 gnd.t9 gnd.t71 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
-X30 4.t3 gnd.t32 4.t3 gnd.t39 sg13_lv_nmos ad=57f pd=0.68u as=0 ps=0 w=0.3u l=0.15u
-X31 2.t2 cRef.t5 3.t5 gnd.t77 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
+X29 inv_out_up.t2 cRef.t8 gnd.t11 gnd.t71 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
+X30 2.t3 gnd.t40 4.t3 gnd.t44 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
+X31 4.t5 cRef.t5 3.t6 gnd.t77 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
 X32 gnd.t68 pre_down.t3 buf_in_down.t1 gnd.t67 sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
 X33 vp.t22 cRef.t13 inv_out_up.t0 vp.t0 sg13_lv_pmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
 X34 UP.t0 buf_in_up.t5 vp.t17 vp.t0 sg13_lv_pmos ad=0.114p pd=0.98u as=0.204p ps=1.88u w=0.6u l=0.15u
 X35 buf_in_down.t1 pre_down.t4 gnd.t1 gnd.t0 sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
 X36 4.t0 gnd.t51 gnd.t53 gnd.t52 sg13_lv_nmos ad=55.5f pd=0.74u as=0.1005p ps=1.34u w=0.15u l=0.15u
-X37 gnd.t5 cVco.t1 4.t0 gnd.t4 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
+X37 gnd.t7 cVco.t1 4.t0 gnd.t6 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
 X38 DOWN.t0 buf_in_down.t5 vp.t16 vp.t0 sg13_lv_pmos ad=0.114p pd=0.98u as=0.204p ps=1.88u w=0.6u l=0.15u
-X39 gnd.t18 cRef.t0 2.t4 gnd.t82 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
+X39 gnd.t3 cRef.t0 2.t4 gnd.t82 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
 X40 1.t6 cRef.t10 vp.t10 vp.t0 sg13_lv_pmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
-X41 2.t3 DOWN.t3 1.t0 gnd.t59 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
-X42 3.t3 gnd.t35 1.t3 gnd.t46 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
+X41 2.t2 DOWN.t3 1.t0 gnd.t59 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
+X42 3.t3 gnd.t32 1.t3 gnd.t49 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
 X43 3.t1 cVco.t9 vp.t6 vp.t0 sg13_lv_pmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
-X44 gnd.t50 gnd.t48 gnd.t30 gnd.t49 sg13_lv_nmos ad=0.102p pd=1.28u as=0 ps=0 w=0.3u l=0.15u
+X44 gnd.t56 gnd.t54 gnd.t30 gnd.t55 sg13_lv_nmos ad=0.102p pd=1.28u as=0 ps=0 w=0.3u l=0.15u
 X45 vp.t3 buf_in_up.t4 UP.t0 vp.t0 sg13_lv_pmos ad=0.204p pd=1.88u as=0.114p ps=0.98u w=0.6u l=0.15u
-X46 4.t3 UP.t3 3.t6 gnd.t19 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
-X47 3.t5 UP.t2 2.t1 gnd.t20 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
+X46 4.t3 UP.t3 3.t5 gnd.t19 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
+X47 3.t6 UP.t2 4.t2 gnd.t20 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
 X48 inv_out_up.t1 cRef.t12 vp.t22 vp.t0 sg13_lv_pmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
 X49 buf_in_up.t0 pre_up.t6 vp.t19 vp.t0 sg13_lv_pmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
-X50 pre_down.t1 cVco.t3 3.t3 gnd.t15 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
+X50 pre_down.t1 cVco.t3 3.t3 gnd.t17 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
 X51 pre_down.t2 inv_out_down.t4 gnd.t30 gnd.t29 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
-X52 4.t4 gnd.t32 2.t3 gnd.t38 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
+X52 4.t4 gnd.t40 2.t2 gnd.t43 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
 X53 inv_out_down.t0 cVco.t13 vp.t7 vp.t0 sg13_lv_pmos ad=55.5f pd=0.74u as=0.1005p ps=1.34u w=0.15u l=0.13u
 X54 vp.t4 cRef.t11 1.t2 vp.t0 sg13_lv_pmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
 X55 buf_in_down.t0 pre_down.t6 vp.t1 vp.t0 sg13_lv_pmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
-X56 gnd.t11 cVco.t7 inv_out_down.t3 gnd.t10 sg13_lv_nmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.13u
+X56 gnd.t13 cVco.t7 inv_out_down.t3 gnd.t12 sg13_lv_nmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.13u
 X57 gnd.t24 inv_out_down.t4 pre_down.t2 gnd.t31 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
-X58 gnd.t9 cVco.t8 inv_out_down.t2 gnd.t8 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
+X58 gnd.t11 cVco.t8 inv_out_down.t2 gnd.t10 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
 X59 1.t3 cRef.t3 pre_up.t2 gnd.t79 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
 X60 inv_out_down.t1 cVco.t12 vp.t5 vp.t0 sg13_lv_pmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
-X61 gnd.t42 gnd.t35 1.t4 gnd.t41 sg13_lv_nmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.15u
+X61 gnd.t39 gnd.t32 1.t4 gnd.t38 sg13_lv_nmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.15u
 X62 gnd.t66 buf_in_down.t2 DOWN.t1 gnd.t65 sg13_lv_nmos ad=0.204p pd=1.88u as=0.114p ps=0.98u w=0.6u l=0.15u
 X63 gnd.t62 buf_in_up.t2 UP.t1 gnd.t61 sg13_lv_nmos ad=0.204p pd=1.88u as=0.114p ps=0.98u w=0.6u l=0.15u
 X64 inv_out_up.t0 cRef.t13 vp.t8 vp.t0 sg13_lv_pmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
-X65 inv_out_down.t3 cVco.t7 gnd.t3 gnd.t2 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
+X65 inv_out_down.t3 cVco.t7 gnd.t5 gnd.t4 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
 X66 gnd.t26 gnd.t57 gnd.t26 gnd.t58 sg13_lv_nmos ad=57f pd=0.68u as=0 ps=0 w=0.3u l=0.15u
-X67 4.t2 cVco.t5 1.t1 gnd.t13 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
-X68 2.t1 gnd.t32 4.t2 gnd.t40 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
+X67 2.t1 cVco.t5 1.t1 gnd.t15 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
+X68 4.t2 gnd.t40 2.t1 gnd.t45 sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.15u
 X69 vp.t2 buf_in_down.t4 DOWN.t0 vp.t0 sg13_lv_pmos ad=0.204p pd=1.88u as=0.114p ps=0.98u w=0.6u l=0.15u
-X70 inv_out_down.t2 cVco.t8 gnd.t7 gnd.t6 sg13_lv_nmos ad=55.5f pd=0.74u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X70 inv_out_down.t2 cVco.t8 gnd.t9 gnd.t8 sg13_lv_nmos ad=55.5f pd=0.74u as=0.1005p ps=1.34u w=0.15u l=0.13u
 X71 pre_up.t2 cRef.t4 1.t5 gnd.t78 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
 X72 vp.t11 pre_down.t5 buf_in_down.t0 vp.t0 sg13_lv_pmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
 X73 1.t4 cRef.t2 pre_up.t1 gnd.t80 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.15u
-X74 gnd.t3 cRef.t7 inv_out_up.t3 gnd.t75 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
+X74 gnd.t5 cRef.t7 inv_out_up.t3 gnd.t75 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
 X75 UP.t1 buf_in_up.t3 gnd.t70 gnd.t69 sg13_lv_nmos ad=0.114p pd=0.98u as=0.204p ps=1.88u w=0.6u l=0.15u
 R0 UP.n1 UP.t0 27.3291
 R1 UP.n1 UP.t1 26.6559
@@ -239,44 +239,44 @@ R157 vp.n43 vp.n33 0.0754625
 R158 vp.n47 vp.n1 0.0564167
 R159 vp vp.n47 0.0133333
 R160 gnd.n91 gnd.t0 303.375
-R161 gnd.n126 gnd.t33 293.478
+R161 gnd.n126 gnd.t41 293.478
 R162 gnd.n88 gnd.n87 198.002
-R163 gnd.t33 gnd.t12 144.023
+R163 gnd.t41 gnd.t14 144.023
 R164 gnd.n77 gnd.t69 94.79
 R165 gnd.n38 gnd.t21 94.79
-R166 gnd.t43 gnd.n106 94.79
-R167 gnd.n94 gnd.t47 89.6744
+R166 gnd.t46 gnd.n106 94.79
+R167 gnd.n94 gnd.t50 89.6744
 R168 gnd.t79 gnd.n99 89.6744
 R169 gnd.n103 gnd.t29 89.6744
-R170 gnd.t38 gnd.n117 89.6744
+R170 gnd.t43 gnd.n117 89.6744
 R171 gnd.n109 gnd.t20 86.957
-R172 gnd.t36 gnd.n105 84.2396
+R172 gnd.t33 gnd.n105 84.2396
 R173 gnd.n119 gnd.t52 84.2396
 R174 gnd.n15 gnd.t75 84.2396
 R175 gnd.t82 gnd.n113 81.5222
 R176 gnd.n20 gnd.t71 81.5222
 R177 gnd.t27 gnd.n77 81.203
 R178 gnd.n38 gnd.t67 81.203
-R179 gnd.n105 gnd.t14 76.0875
-R180 gnd.n112 gnd.t13 76.0875
+R179 gnd.n105 gnd.t16 76.0875
+R180 gnd.n112 gnd.t15 76.0875
 R181 gnd.t58 gnd.n95 73.3701
-R182 gnd.n20 gnd.t8 73.3701
+R182 gnd.n20 gnd.t10 73.3701
 R183 gnd.n93 gnd.t80 72.3974
-R184 gnd.t16 gnd.n94 70.6527
+R184 gnd.t18 gnd.n94 70.6527
 R185 gnd.t74 gnd.n15 70.6527
-R186 gnd.n126 gnd.t10 67.9353
+R186 gnd.n126 gnd.t12 67.9353
 R187 gnd.t78 gnd.n101 65.2179
-R188 gnd.n115 gnd.t39 65.2179
-R189 gnd.t23 gnd.t46 62.5005
-R190 gnd.n14 gnd.t2 61.5279
+R188 gnd.n115 gnd.t44 65.2179
+R189 gnd.t23 gnd.t49 62.5005
+R190 gnd.n14 gnd.t4 61.5279
 R191 gnd.n87 gnd.t63 59.7831
 R192 gnd.n98 gnd.t25 59.7831
-R193 gnd.t41 gnd.n91 58.8105
+R193 gnd.t38 gnd.n91 58.8105
 R194 gnd.n18 gnd.t72 58.8105
-R195 gnd.t40 gnd.n109 57.0657
+R195 gnd.t45 gnd.n109 57.0657
 R196 gnd.t81 gnd.n115 57.0657
-R197 gnd.n111 gnd.t55 54.3483
-R198 gnd.t60 gnd.t17 54.3483
+R197 gnd.n111 gnd.t36 54.3483
+R198 gnd.t60 gnd.t2 54.3483
 R199 gnd.n117 gnd.t76 54.3483
 R200 gnd.n85 gnd.t61 54.034
 R201 gnd.n88 gnd.t65 53.9815
@@ -287,47 +287,47 @@ R205 gnd.n108 gnd.t77 53.3757
 R206 gnd.n120 gnd.t59 50.6584
 R207 gnd.n101 gnd.t31 48.9135
 R208 gnd.t59 gnd.n119 48.9135
-R209 gnd.n92 gnd.t41 47.9409
+R209 gnd.n92 gnd.t38 47.9409
 R210 gnd.t72 gnd.n17 47.9409
-R211 gnd.t15 gnd.n96 46.1962
-R212 gnd.n97 gnd.t15 46.1962
-R213 gnd.n134 gnd.t2 45.4151
-R214 gnd.n104 gnd.t49 45.2235
+R211 gnd.t17 gnd.n96 46.1962
+R212 gnd.n97 gnd.t17 46.1962
+R213 gnd.n134 gnd.t4 45.4151
+R214 gnd.n104 gnd.t55 45.2235
 R215 gnd.t31 gnd.n100 43.4788
-R216 gnd.t45 gnd.n103 40.7614
+R216 gnd.t48 gnd.n103 40.7614
 R217 gnd.t0 gnd.n90 39.7895
-R218 gnd.t4 gnd.n116 39.7888
+R218 gnd.t6 gnd.n116 39.7888
 R219 gnd.n81 gnd.t63 39.7887
-R220 gnd.t55 gnd.n110 38.044
-R221 gnd.n110 gnd.t40 35.3266
+R220 gnd.t36 gnd.n110 38.044
+R221 gnd.n110 gnd.t45 35.3266
 R222 gnd.t80 gnd.n92 34.354
 R223 gnd.t25 gnd.n97 32.6092
-R224 gnd.n29 gnd.t3 31.642
-R225 gnd.n23 gnd.t11 31.642
-R226 gnd.n24 gnd.t7 31.642
-R227 gnd.n26 gnd.t9 31.642
+R224 gnd.n29 gnd.t5 31.642
+R225 gnd.n23 gnd.t13 31.642
+R226 gnd.n24 gnd.t9 31.642
+R227 gnd.n26 gnd.t11 31.642
 R228 gnd.n28 gnd.t73 31.642
-R229 gnd.n144 gnd.t18 31.5749
-R230 gnd.n143 gnd.t5 31.5749
+R229 gnd.n144 gnd.t3 31.5749
+R230 gnd.n143 gnd.t7 31.5749
 R231 gnd.n45 gnd.t24 31.4436
 R232 gnd.n17 gnd.t74 28.9192
 R233 gnd.n102 gnd.t78 27.1744
-R234 gnd.t39 gnd.n114 27.1744
-R235 gnd.n19 gnd.t6 26.7512
-R236 gnd.t8 gnd.n19 26.5095
+R234 gnd.t44 gnd.n114 27.1744
+R235 gnd.n19 gnd.t8 26.7512
+R236 gnd.t10 gnd.n19 26.5095
 R237 gnd.n90 gnd.t67 26.2018
 R238 gnd.n81 gnd.t27 26.2018
 R239 gnd.n113 gnd.t60 24.457
-R240 gnd.n135 gnd.t10 24.457
-R241 gnd.t14 gnd.n104 23.4844
-R242 gnd.n95 gnd.t16 21.7396
-R243 gnd.t46 gnd.n98 21.7396
+R240 gnd.n135 gnd.t12 24.457
+R241 gnd.t16 gnd.n104 23.4844
+R242 gnd.n95 gnd.t18 21.7396
+R243 gnd.t49 gnd.n98 21.7396
 R244 gnd.t19 gnd.t81 21.7396
 R245 gnd.n116 gnd.t19 20.7677
 R246 gnd.n96 gnd.t58 19.0222
 R247 gnd.t71 gnd.n18 18.0496
-R248 gnd.n50 gnd.t37 17.8464
-R249 gnd.n40 gnd.t42 17.8233
+R248 gnd.n50 gnd.t34 17.8464
+R249 gnd.n40 gnd.t39 17.8233
 R250 gnd.n73 gnd.t66 17.6089
 R251 gnd.n72 gnd.t22 17.6089
 R252 gnd.n84 gnd.t62 17.6089
@@ -336,31 +336,31 @@ R254 gnd.n70 gnd.t1 17.5524
 R255 gnd.n39 gnd.t68 17.5058
 R256 gnd.n79 gnd.t28 17.5058
 R257 gnd.n78 gnd.t64 17.5058
-R258 gnd.n51 gnd.t44 17.2601
-R259 gnd.n5 gnd.t34 17.2601
-R260 gnd.n2 gnd.t56 17.2205
+R258 gnd.n51 gnd.t47 17.2601
+R259 gnd.n5 gnd.t42 17.2601
+R260 gnd.n2 gnd.t37 17.2205
 R261 gnd.n4 gnd.t53 17.2067
 R262 gnd.t26 gnd.n42 17.1629
 R263 gnd.n44 gnd.t26 17.1629
 R264 gnd.n47 gnd.t30 17.1629
-R265 gnd.n49 gnd.t50 17.1629
+R265 gnd.n49 gnd.t56 17.1629
 R266 gnd.n136 gnd.n135 17.0005
-R267 gnd.t13 gnd.n111 16.3048
-R268 gnd.n106 gnd.t36 15.9856
-R269 gnd.t12 gnd.n120 15.3329
+R267 gnd.t15 gnd.n111 16.3048
+R268 gnd.n106 gnd.t33 15.9856
+R269 gnd.t14 gnd.n120 15.3329
 R270 gnd.t75 gnd.n14 15.3322
 R271 gnd.n58 gnd.n47 14.2812
 R272 gnd.n57 gnd.n49 14.2812
 R273 gnd.n65 gnd.n42 14.2777
 R274 gnd.n64 gnd.n44 14.2777
-R275 gnd.t49 gnd.t45 13.5875
-R276 gnd.t17 gnd.n112 13.5875
+R275 gnd.t55 gnd.t48 13.5875
+R276 gnd.t2 gnd.n112 13.5875
 R277 gnd.t69 gnd.n75 12.6148
 R278 gnd.t21 gnd.n36 12.6148
-R279 gnd.n107 gnd.t43 12.6148
+R279 gnd.n107 gnd.t46 12.6148
 R280 gnd.t20 gnd.n108 12.6148
 R281 gnd.n114 gnd.t82 10.8701
-R282 gnd.t47 gnd.n93 9.89744
+R282 gnd.t50 gnd.n93 9.89744
 R283 gnd.n133 gnd.n13 8.52304
 R284 gnd.n135 gnd.n8 8.501
 R285 gnd.n135 gnd.n9 8.501
@@ -403,15 +403,15 @@ R321 gnd.n114 gnd.n1 8.5005
 R322 gnd.n115 gnd.n1 8.5005
 R323 gnd.n99 gnd.t23 8.15267
 R324 gnd.t52 gnd.n118 8.15267
-R325 gnd.n2 gnd.t54 7.5589
+R325 gnd.n2 gnd.t35 7.5589
 R326 gnd.n4 gnd.t51 7.5589
 R327 gnd.n43 gnd.t57 7.53301
-R328 gnd.n48 gnd.t48 7.53301
-R329 gnd.t35 gnd.n40 7.47647
-R330 gnd.n51 gnd.t32 7.47438
-R331 gnd.t32 gnd.n5 7.47438
-R332 gnd.n50 gnd.t35 7.46996
-R333 gnd.t76 gnd.t4 5.43528
+R328 gnd.n48 gnd.t54 7.53301
+R329 gnd.t32 gnd.n40 7.47647
+R330 gnd.n51 gnd.t40 7.47438
+R331 gnd.t40 gnd.n5 7.47438
+R332 gnd.n50 gnd.t32 7.46996
+R333 gnd.t76 gnd.t6 5.43528
 R334 gnd.n135 gnd.n134 4.91444
 R335 gnd.n24 gnd.n21 4.6148
 R336 gnd.n28 gnd.n27 4.5005
@@ -452,7 +452,7 @@ R370 gnd.n3 gnd.n1 2.80696
 R371 gnd.n139 gnd.n1 2.80691
 R372 gnd.n100 gnd.t79 2.71789
 R373 gnd.t29 gnd.n102 2.71789
-R374 gnd.n118 gnd.t38 2.71789
+R374 gnd.n118 gnd.t43 2.71789
 R375 gnd.n86 gnd.n76 2.08777
 R376 gnd.n89 gnd.n37 2.08777
 R377 gnd.n146 gnd.n1 2.08777
@@ -568,24 +568,24 @@ R486 gnd.n124 gnd.n9 0.001
 R487 gnd.n125 gnd.n124 0.001
 R488 gnd.n11 gnd.n10 0.001
 R489 gnd.n10 gnd.n7 0.001
-R490 4.t1 4.n0 21.8846
-R491 4 4.n0 0.846528
-R492 4 4.n2 0.593528
-R493 4.n2 4.n3 8.89047
-R494 4.n3 4.t4 17.6419
-R495 4.n3 4.t3 17.6669
-R496 4.n2 4.t0 21.8846
-R497 4.n0 4.n1 8.87287
-R498 4.n1 4.t3 17.6217
-R499 4.n1 4.t2 17.6427
+R490 4.t1 4.n3 22.1723
+R491 4 4.n3 0.557833
+R492 4.n3 4.n0 11.4399
+R493 4 4.n1 0.593528
+R494 4.n1 4.n2 8.89047
+R495 4.n2 4.t4 17.6419
+R496 4.n2 4.t3 17.6669
+R497 4.n1 4.t0 21.8846
+R498 4.n0 4.t2 17.6217
+R499 4.n0 4.t5 17.6427
 R500 2.t4 2 26.9819
 R501 2 2.n2 4.5005
 R502 2.n2 2.n1 0.623833
-R503 2.n2 2.n0 0.7375
+R503 2.n2 2.n0 0.1545
 R504 2.n1 2.t0 22.4872
-R505 2.n1 2.t3 22.1117
-R506 2.n0 2.t1 22.1117
-R507 2.n0 2.t2 22.4872
+R505 2.n1 2.t2 22.1117
+R506 2.n0 2.t3 22.1117
+R507 2.n0 2.t1 22.5004
 R508 pre_up.t0 pre_up.n4 22.2011
 R509 pre_up.n4 pre_up.t2 32.1585
 R510 pre_up pre_up.n4 0.3833
@@ -632,7 +632,7 @@ R550 buf_in_down.n1 buf_in_down.t4 7.83692
 R551 buf_in_down.n0 buf_in_down.t1 27.5397
 R552 3.n4 3.t1 27.0829
 R553 3.n3 3.n4 3.0005
-R554 3.n4 3.t5 27.8037
+R554 3.n4 3.t6 27.8037
 R555 3.n3 3.n1 1.22674
 R556 3.n1 3.n2 3.77604
 R557 3.n2 3.t4 27.7553
@@ -640,7 +640,7 @@ R558 3.n2 3.t3 27.7465
 R559 3.n1 3.t2 32.0038
 R560 3 3.n3 0.235271
 R561 3 3.n0 5.49197
-R562 3.n0 3.t6 27.6718
+R562 3.n0 3.t5 27.6718
 R563 3.n0 3.t0 26.9268
 R564 1.n4 1.t6 26.8292
 R565 1.n3 1.n4 4.50198
@@ -670,318 +670,317 @@ R588 inv_out_down inv_out_down.t4 22.3776
 R589 inv_out_down.n1 inv_out_down.t2 26.0948
 R590 inv_out_down.n1 inv_out_down.t0 28.5129
 R591 inv_out_down.n0 inv_out_down.t3 26.0948
-C0 pre_up UP 0.16301f
-C1 3 cRef 1.00905f
-C2 pre_up cVco 0.04416f
-C3 cVco inv_out_up 0.27771f
-C4 vp 1 1.80921f
-C5 UP cRef 0.57351f
-C6 cVco cRef 8.68415f
-C7 3 4 0.14435f
-C8 pre_up 1 1.2096f
-C9 2 DOWN 0.05844f
-C10 UP 4 0.02694f
-C11 cVco inv_out_down 0.57874f
-C12 cVco 4 0.0738f
-C13 pre_down DOWN 0.16673f
-C14 1 cRef 0.6681f
-C15 pre_up vp 0.39078f
-C16 vp inv_out_up 1.34866f
-C17 3 2 0.08485f
-C18 vp cRef 1.59105f
-C19 1 4 0.14923f
-C20 3 pre_down 0.92057f
-C21 pre_up inv_out_up 0.07201f
-C22 UP 2 0.01229f
-C23 buf_in_down pre_down 0.68849f
-C24 cVco 2 0.02802f
-C25 pre_up cRef 0.15336f
-C26 UP pre_down 0.11868f
-C27 vp inv_out_down 1.35065f
-C28 cRef inv_out_up 0.28638f
-C29 cVco pre_down 0.49553f
-C30 3 DOWN 0.26577f
-C31 buf_in_up DOWN 0.19237f
-C32 pre_up inv_out_down 0.01204f
-C33 buf_in_down DOWN 0.31366f
-C34 1 2 0.084f
-C35 inv_out_down inv_out_up 3.46692f
-C36 UP DOWN 4.0335f
-C37 cVco DOWN 0.52146f
-C38 1 pre_down 0.31372f
-C39 inv_out_down cRef 0.09403f
-C40 4 cRef 0.24288f
-C41 vp pre_down 0.23629f
-C42 buf_in_up buf_in_down 0.01311f
-C43 UP 3 0.37475f
-C44 1 DOWN 0.2712f
-C45 buf_in_up UP 0.3853f
-C46 cVco 3 0.12827f
-C47 UP buf_in_down 0.11881f
-C48 pre_up pre_down 1.25666f
-C49 cVco UP 0.44239f
-C50 2 cRef 0.25799f
-C51 vp DOWN 0.28572f
-C52 cRef pre_down 0.18807f
-C53 1 3 3.96373f
-C54 1 buf_in_down 0.01602f
-C55 pre_up DOWN 0.20954f
-C56 1 UP 0.12726f
-C57 2 4 1.34286f
-C58 cVco 1 0.12261f
-C59 inv_out_down pre_down 0.0594f
-C60 vp 3 1.40691f
-C61 buf_in_up vp 0.55456f
-C62 cRef DOWN 0.21962f
-C63 vp buf_in_down 0.53675f
-C64 vp UP 0.29931f
-C65 cVco vp 3.05571f
-C66 pre_up 3 0.30963f
-C67 pre_up buf_in_up 0.42422f
-C68 pre_up buf_in_down 0.66817f
-C69 4 DOWN 0.06611f
-C70 UP gnd 1.36523f
-C71 DOWN gnd 1.74955f
-C72 cRef gnd 3.78676f
-C73 cVco gnd 5.73549f
-C74 vp gnd 1.15603f
-C75 4 gnd 1.69775f
-C76 2 gnd 1.94952f
-C77 pre_up gnd 1.74181f
-C78 pre_down gnd 1.53664f
-C79 buf_in_up gnd 1.16897f
-C80 buf_in_down gnd 1.12498f
-C81 3 gnd 1.21636f
-C82 1 gnd 1.18192f
-C83 inv_out_up gnd 6.51621f
-C84 inv_out_down gnd 6.05739f
-C85 inv_out_down.t1 gnd 0.1341f
-C86 inv_out_down.t3 gnd 0.09731f
-C87 inv_out_down.n0 gnd 1.34171f
-C88 inv_out_down.t0 gnd 0.1341f
-C89 inv_out_down.t2 gnd 0.09731f
-C90 inv_out_down.n1 gnd 1.39392f
-C91 inv_out_down.t4 gnd 0.37341f
-C92 inv_out_down.n2 gnd 1.06956f
-C93 inv_out_up.t1 gnd 0.13394f
-C94 inv_out_up.t3 gnd 0.09719f
-C95 inv_out_up.n0 gnd 1.11669f
-C96 inv_out_up.t4 gnd 0.36211f
-C97 inv_out_up.n1 gnd 1.16435f
-C98 inv_out_up.t0 gnd 0.13394f
-C99 inv_out_up.t2 gnd 0.09719f
-C100 inv_out_up.n2 gnd 1.12406f
-C101 1.t6 gnd 0.16756f
-C102 1.t2 gnd 0.16871f
-C103 1.t0 gnd 0.19497f
-C104 1.n0 gnd 1.46775f
-C105 1.n1 gnd 1.25426f
-C106 1.t5 gnd 0.31429f
-C107 1.n2 gnd 2.05643f
-C108 1.t3 gnd 0.31429f
-C109 1.t4 gnd 0.35269f
-C110 1.n3 gnd 0.52435f
-C111 1.t1 gnd 0.19496f
-C112 1.n4 gnd 1.40749f
-C113 3.t1 gnd 0.18403f
-C114 3.n0 gnd 1.41021f
-C115 3.t0 gnd 0.18032f
-C116 3.t6 gnd 0.20257f
-C117 3.n1 gnd 1.50816f
-C118 3.t2 gnd 0.32111f
-C119 3.t3 gnd 0.20269f
-C120 3.t4 gnd 0.20294f
-C121 3.n2 gnd 1.95138f
-C122 3.n3 gnd 0.2757f
-C123 3.n4 gnd 1.58258f
-C124 3.t5 gnd 0.20679f
-C125 buf_in_down.t0 gnd 0.10359f
-C126 buf_in_down.t1 gnd 0.11504f
-C127 buf_in_down.n0 gnd 0.84141f
-C128 buf_in_down.t2 gnd 0.14565f
-C129 buf_in_down.t4 gnd 0.13163f
-C130 buf_in_down.n1 gnd 0.24364f
-C131 buf_in_down.t3 gnd 0.14565f
-C132 buf_in_down.t5 gnd 0.13163f
-C133 buf_in_down.n2 gnd 0.24413f
-C134 buf_in_down.n3 gnd 0.03196f
-C135 buf_in_up.t0 gnd 0.06889f
-C136 buf_in_up.t1 gnd 0.07651f
-C137 buf_in_up.n0 gnd 0.55922f
-C138 buf_in_up.t2 gnd 0.09686f
-C139 buf_in_up.t4 gnd 0.08754f
-C140 buf_in_up.n1 gnd 0.16203f
-C141 buf_in_up.t3 gnd 0.09686f
-C142 buf_in_up.t5 gnd 0.08754f
-C143 buf_in_up.n2 gnd 0.16235f
-C144 buf_in_up.n3 gnd 0.02163f
-C145 pre_down.t0 gnd 0.20827f
-C146 pre_down.t2 gnd 0.11732f
-C147 pre_down.n0 gnd 0.81166f
-C148 pre_down.n1 gnd 1.35042f
-C149 pre_down.t1 gnd 0.20073f
-C150 pre_down.t3 gnd 0.14891f
-C151 pre_down.t5 gnd 0.13984f
-C152 pre_down.n2 gnd 0.32299f
-C153 pre_down.t4 gnd 0.14891f
-C154 pre_down.t6 gnd 0.13984f
-C155 pre_down.n3 gnd 0.32357f
-C156 pre_down.n4 gnd 0.4296f
-C157 pre_up.t0 gnd 0.09343f
-C158 pre_up.t2 gnd 0.20069f
-C159 pre_up.n0 gnd 1.77183f
-C160 pre_up.t1 gnd 0.19597f
-C161 pre_up.t3 gnd 0.13475f
-C162 pre_up.t5 gnd 0.12655f
-C163 pre_up.n1 gnd 0.29282f
-C164 pre_up.t4 gnd 0.13475f
-C165 pre_up.t6 gnd 0.12655f
-C166 pre_up.n2 gnd 0.29335f
-C167 pre_up.n3 gnd 0.73163f
-C168 pre_up.n4 gnd 0.72144f
-C169 2.t4 gnd 0.09618f
-C170 2.t2 gnd 0.07434f
-C171 2.t1 gnd 0.07106f
-C172 2.n0 gnd 0.46758f
-C173 2.t3 gnd 0.07106f
-C174 2.n1 gnd 0.45195f
-C175 2.t0 gnd 0.07434f
-C176 2.n2 gnd 0.18711f
-C177 4.t1 gnd 0.0535f
-C178 4.n0 gnd 0.47701f
-C179 4.t2 gnd 0.04336f
-C180 4.n1 gnd 0.31096f
-C181 4.t0 gnd 0.0535f
-C182 4.n2 gnd 0.45048f
-C183 4.t3 gnd 0.08673f
-C184 4.t4 gnd 0.04326f
-C185 4.n3 gnd 0.31243f
-C186 vp.n0 gnd 0.17248f
-C187 vp.n1 gnd 0.01905f
-C188 vp.n2 gnd 0.01567f
-C189 vp.n3 gnd 0.01672f
-C190 vp.n4 gnd 0.01257f
-C191 vp.n5 gnd 0.0167f
-C192 vp.n6 gnd 0.0126f
-C193 vp.t14 gnd 0.0167f
-C194 vp.n7 gnd 0.04793f
-C195 vp.n8 gnd 0.06014f
-C196 vp.t6 gnd 0.02242f
-C197 vp.n9 gnd 0.02722f
-C198 vp.n10 gnd 0.09915f
-C199 vp.t10 gnd 0.02242f
-C200 vp.n11 gnd 0.02739f
-C201 vp.n12 gnd 0.09915f
-C202 vp.t4 gnd 0.02242f
-C203 vp.n13 gnd 0.02727f
-C204 vp.n14 gnd 0.09915f
-C205 vp.t12 gnd 0.01421f
-C206 vp.n15 gnd 0.05315f
-C207 vp.n16 gnd 0.06014f
-C208 vp.n17 gnd 0.03144f
-C209 vp.n18 gnd 0.02041f
-C210 vp.n19 gnd 0.0115f
-C211 vp.n20 gnd 0.01581f
-C212 vp.n21 gnd 0.02905f
-C213 vp.t9 gnd 0.02179f
-C214 vp.n22 gnd 0.03555f
-C215 vp.n23 gnd 0.0774f
-C216 vp.t5 gnd 0.02242f
-C217 vp.n24 gnd 0.02769f
-C218 vp.n25 gnd 0.09744f
-C219 vp.t22 gnd 0.02242f
-C220 vp.n26 gnd 0.02297f
-C221 vp.n27 gnd 0.09744f
-C222 vp.t8 gnd 0.02242f
-C223 vp.n28 gnd 0.09744f
-C224 vp.t7 gnd 0.02179f
-C225 vp.n29 gnd 0.07789f
-C226 vp.n30 gnd 0.03687f
-C227 vp.t3 gnd 0.01309f
-C228 vp.n31 gnd 0.05193f
-C229 vp.t17 gnd 0.01286f
-C230 vp.n32 gnd 0.0451f
-C231 vp.n33 gnd 0.01413f
-C232 vp.n34 gnd 0.01801f
-C233 vp.n35 gnd 0.11155f
-C234 vp.n36 gnd 0.01392f
-C235 vp.n37 gnd 0.03921f
-C236 vp.n38 gnd 0.01422f
-C237 vp.t16 gnd 0.01287f
-C238 vp.n39 gnd 0.04368f
-C239 vp.t2 gnd 0.01287f
-C240 vp.n40 gnd 0.04382f
-C241 vp.n42 gnd 0.03915f
-C242 vp.n43 gnd 0.03929f
-C243 vp.n44 gnd 0.01386f
-C244 vp.n45 gnd 0.76473f
-C245 vp.t0 gnd 9.06335f
-C246 vp.n46 gnd 0.57082f
-C247 cVco.t2 gnd 0.22919f
-C248 cVco.t3 gnd 0.22933f
-C249 cVco.n0 gnd 0.40489f
-C250 cVco.t4 gnd 0.29169f
-C251 cVco.n1 gnd 1.11167f
-C252 cVco.t0 gnd 0.23993f
-C253 cVco.n2 gnd 1.27059f
-C254 cVco.t1 gnd 0.23993f
-C255 cVco.n3 gnd 0.36084f
-C256 cVco.t9 gnd 0.27365f
-C257 cVco.t10 gnd 0.17505f
-C258 cVco.t11 gnd 0.17586f
-C259 cVco.n4 gnd 0.46971f
-C260 cVco.n5 gnd 0.64887f
-C261 cVco.t13 gnd 0.36452f
-C262 cVco.t12 gnd 0.29928f
-C263 cVco.n6 gnd 0.93624f
-C264 cVco.n7 gnd 0.43224f
-C265 cVco.t5 gnd 0.48005f
-C266 cVco.t6 gnd 0.40555f
-C267 cVco.n8 gnd 1.27767f
-C268 cVco.n9 gnd 0.98268f
-C269 cVco.t8 gnd 0.39638f
-C270 cVco.t7 gnd 0.33786f
-C271 cVco.n10 gnd 1.17977f
-C272 cVco.n11 gnd 0.82784f
-C273 cRef.t2 gnd 0.31639f
-C274 cRef.t3 gnd 0.23094f
-C275 cRef.t4 gnd 0.23101f
-C276 cRef.n0 gnd 0.20708f
-C277 cRef.n1 gnd 1.46853f
-C278 cRef.t0 gnd 0.16566f
-C279 cRef.t1 gnd 0.16589f
-C280 cRef.n2 gnd 0.16359f
-C281 cRef.n3 gnd 1.26175f
-C282 cRef.t11 gnd 0.21819f
-C283 cRef.t10 gnd 0.21819f
-C284 cRef.t9 gnd 0.22413f
-C285 cRef.n4 gnd 0.58389f
-C286 cRef.n5 gnd 0.39348f
-C287 cRef.t13 gnd 0.31795f
-C288 cRef.t12 gnd 0.29974f
-C289 cRef.n6 gnd 0.87321f
-C290 cRef.n7 gnd 0.46901f
-C291 cRef.t5 gnd 0.48945f
-C292 cRef.t6 gnd 0.43243f
-C293 cRef.n8 gnd 1.41414f
-C294 cRef.n9 gnd 0.81396f
-C295 cRef.t8 gnd 0.3133f
-C296 cRef.t7 gnd 0.29508f
-C297 cRef.n10 gnd 0.9768f
-C298 cRef.n11 gnd 0.88811f
-C299 DOWN.t3 gnd 0.41302f
-C300 DOWN.t2 gnd 0.38574f
-C301 DOWN.n0 gnd 1.80361f
-C302 DOWN.t0 gnd 0.29357f
-C303 DOWN.t1 gnd 0.26788f
-C304 DOWN.n1 gnd 1.40695f
-C305 DOWN.n2 gnd 1.56143f
-C306 UP.t3 gnd 0.45246f
-C307 UP.t2 gnd 0.42138f
-C308 UP.n0 gnd 2.16432f
-C309 UP.t0 gnd 0.29718f
-C310 UP.t1 gnd 0.28045f
-C311 UP.n1 gnd 1.4548f
-C312 UP.n2 gnd 1.48178f
+C0 UP DOWN 4.0335f
+C1 4 DOWN 0.043f
+C2 UP vp 0.29931f
+C3 inv_out_up pre_up 0.07201f
+C4 4 UP 0.05375f
+C5 1 3 3.96373f
+C6 pre_up 1 1.2096f
+C7 cVco 3 0.12818f
+C8 pre_up buf_in_down 0.66817f
+C9 inv_out_down cRef 0.09403f
+C10 1 2 0.16234f
+C11 pre_up cVco 0.04416f
+C12 pre_down inv_out_down 0.0594f
+C13 cVco 2 0.03252f
+C14 DOWN buf_in_up 0.19237f
+C15 vp inv_out_down 1.35065f
+C16 vp buf_in_up 0.55456f
+C17 UP buf_in_up 0.3853f
+C18 inv_out_up cVco 0.27771f
+C19 3 cRef 1.00887f
+C20 1 buf_in_down 0.01602f
+C21 pre_down 3 0.92057f
+C22 cVco 1 0.12496f
+C23 pre_up cRef 0.15336f
+C24 pre_down pre_up 1.25666f
+C25 DOWN 3 0.26577f
+C26 vp 3 1.40691f
+C27 2 cRef 0.21594f
+C28 pre_up DOWN 0.20954f
+C29 vp pre_up 0.39078f
+C30 UP 3 0.37475f
+C31 4 3 0.28352f
+C32 2 DOWN 0.06369f
+C33 UP pre_up 0.16301f
+C34 inv_out_up cRef 0.28638f
+C35 4 2 1.21831f
+C36 1 cRef 0.66819f
+C37 inv_out_up vp 1.34866f
+C38 pre_down 1 0.31372f
+C39 pre_down buf_in_down 0.68849f
+C40 cVco cRef 8.68413f
+C41 1 DOWN 0.2712f
+C42 pre_down cVco 0.49553f
+C43 vp 1 1.80921f
+C44 buf_in_down DOWN 0.31366f
+C45 vp buf_in_down 0.53675f
+C46 pre_up inv_out_down 0.01204f
+C47 cVco DOWN 0.52216f
+C48 UP 1 0.12726f
+C49 pre_up buf_in_up 0.42422f
+C50 4 1 0.01071f
+C51 vp cVco 3.05571f
+C52 UP buf_in_down 0.11881f
+C53 UP cVco 0.44237f
+C54 4 cVco 0.04854f
+C55 inv_out_up inv_out_down 3.46692f
+C56 pre_down cRef 0.18807f
+C57 pre_up 3 0.30963f
+C58 DOWN cRef 0.22009f
+C59 vp cRef 1.59105f
+C60 pre_down DOWN 0.16673f
+C61 buf_in_down buf_in_up 0.01311f
+C62 pre_down vp 0.23629f
+C63 cVco inv_out_down 0.57874f
+C64 UP cRef 0.57348f
+C65 4 cRef 0.32225f
+C66 UP pre_down 0.11868f
+C67 vp DOWN 0.28572f
+C68 UP gnd 1.36141f
+C69 DOWN gnd 1.75486f
+C70 cRef gnd 3.77782f
+C71 cVco gnd 5.73978f
+C72 vp gnd 1.15642f
+C73 4 gnd 1.85885f
+C74 2 gnd 1.69774f
+C75 pre_up gnd 1.74181f
+C76 pre_down gnd 1.53664f
+C77 buf_in_up gnd 1.16897f
+C78 buf_in_down gnd 1.12498f
+C79 3 gnd 1.19413f
+C80 1 gnd 1.19666f
+C81 inv_out_up gnd 6.51624f
+C82 inv_out_down gnd 6.05741f
+C83 inv_out_down.t1 gnd 0.1341f
+C84 inv_out_down.t3 gnd 0.09731f
+C85 inv_out_down.n0 gnd 1.34173f
+C86 inv_out_down.t0 gnd 0.1341f
+C87 inv_out_down.t2 gnd 0.09731f
+C88 inv_out_down.n1 gnd 1.39394f
+C89 inv_out_down.t4 gnd 0.37342f
+C90 inv_out_down.n2 gnd 1.06958f
+C91 inv_out_up.t1 gnd 0.13395f
+C92 inv_out_up.t3 gnd 0.09719f
+C93 inv_out_up.n0 gnd 1.11672f
+C94 inv_out_up.t4 gnd 0.36212f
+C95 inv_out_up.n1 gnd 1.16438f
+C96 inv_out_up.t0 gnd 0.13395f
+C97 inv_out_up.t2 gnd 0.09719f
+C98 inv_out_up.n2 gnd 1.12409f
+C99 1.t6 gnd 0.16646f
+C100 1.t2 gnd 0.1676f
+C101 1.t0 gnd 0.19369f
+C102 1.n0 gnd 1.45806f
+C103 1.n1 gnd 1.24598f
+C104 1.t5 gnd 0.31222f
+C105 1.n2 gnd 2.04285f
+C106 1.t3 gnd 0.31222f
+C107 1.t4 gnd 0.35036f
+C108 1.n3 gnd 0.52089f
+C109 1.t1 gnd 0.19368f
+C110 1.n4 gnd 1.3982f
+C111 3.t1 gnd 0.18536f
+C112 3.n0 gnd 1.42043f
+C113 3.t0 gnd 0.18163f
+C114 3.t5 gnd 0.20404f
+C115 3.n1 gnd 1.51908f
+C116 3.t2 gnd 0.32344f
+C117 3.t3 gnd 0.20415f
+C118 3.t4 gnd 0.20441f
+C119 3.n2 gnd 1.96551f
+C120 3.n3 gnd 0.2777f
+C121 3.n4 gnd 1.59404f
+C122 3.t6 gnd 0.20829f
+C123 buf_in_down.t0 gnd 0.10359f
+C124 buf_in_down.t1 gnd 0.11504f
+C125 buf_in_down.n0 gnd 0.84141f
+C126 buf_in_down.t2 gnd 0.14565f
+C127 buf_in_down.t4 gnd 0.13163f
+C128 buf_in_down.n1 gnd 0.24364f
+C129 buf_in_down.t3 gnd 0.14565f
+C130 buf_in_down.t5 gnd 0.13163f
+C131 buf_in_down.n2 gnd 0.24413f
+C132 buf_in_down.n3 gnd 0.03196f
+C133 buf_in_up.t0 gnd 0.06889f
+C134 buf_in_up.t1 gnd 0.07651f
+C135 buf_in_up.n0 gnd 0.55922f
+C136 buf_in_up.t2 gnd 0.09686f
+C137 buf_in_up.t4 gnd 0.08754f
+C138 buf_in_up.n1 gnd 0.16203f
+C139 buf_in_up.t3 gnd 0.09686f
+C140 buf_in_up.t5 gnd 0.08754f
+C141 buf_in_up.n2 gnd 0.16235f
+C142 buf_in_up.n3 gnd 0.02163f
+C143 pre_down.t0 gnd 0.20827f
+C144 pre_down.t2 gnd 0.11732f
+C145 pre_down.n0 gnd 0.81164f
+C146 pre_down.n1 gnd 1.35039f
+C147 pre_down.t1 gnd 0.20072f
+C148 pre_down.t3 gnd 0.1489f
+C149 pre_down.t5 gnd 0.13984f
+C150 pre_down.n2 gnd 0.32298f
+C151 pre_down.t4 gnd 0.1489f
+C152 pre_down.t6 gnd 0.13984f
+C153 pre_down.n3 gnd 0.32357f
+C154 pre_down.n4 gnd 0.42959f
+C155 pre_up.t0 gnd 0.09343f
+C156 pre_up.t2 gnd 0.20069f
+C157 pre_up.n0 gnd 1.7718f
+C158 pre_up.t1 gnd 0.19597f
+C159 pre_up.t3 gnd 0.13475f
+C160 pre_up.t5 gnd 0.12654f
+C161 pre_up.n1 gnd 0.29281f
+C162 pre_up.t4 gnd 0.13475f
+C163 pre_up.t6 gnd 0.12654f
+C164 pre_up.n2 gnd 0.29335f
+C165 pre_up.n3 gnd 0.73161f
+C166 pre_up.n4 gnd 0.72143f
+C167 2.t4 gnd 0.09559f
+C168 2.t1 gnd 0.07392f
+C169 2.t3 gnd 0.07062f
+C170 2.n0 gnd 0.38762f
+C171 2.t2 gnd 0.07062f
+C172 2.n1 gnd 0.44919f
+C173 2.t0 gnd 0.07389f
+C174 2.n2 gnd 0.10627f
+C175 4.t1 gnd 0.05244f
+C176 4.t5 gnd 0.03997f
+C177 4.t2 gnd 0.03988f
+C178 4.n0 gnd 0.29853f
+C179 4.t0 gnd 0.04932f
+C180 4.n1 gnd 0.41529f
+C181 4.t3 gnd 0.04007f
+C182 4.t4 gnd 0.03988f
+C183 4.n2 gnd 0.28802f
+C184 4.n3 gnd 0.56882f
+C185 vp.n0 gnd 0.17248f
+C186 vp.n1 gnd 0.01905f
+C187 vp.n2 gnd 0.01567f
+C188 vp.n3 gnd 0.01672f
+C189 vp.n4 gnd 0.01257f
+C190 vp.n5 gnd 0.0167f
+C191 vp.n6 gnd 0.0126f
+C192 vp.t14 gnd 0.0167f
+C193 vp.n7 gnd 0.04793f
+C194 vp.n8 gnd 0.06014f
+C195 vp.t6 gnd 0.02243f
+C196 vp.n9 gnd 0.02722f
+C197 vp.n10 gnd 0.09915f
+C198 vp.t10 gnd 0.02243f
+C199 vp.n11 gnd 0.02739f
+C200 vp.n12 gnd 0.09915f
+C201 vp.t4 gnd 0.02243f
+C202 vp.n13 gnd 0.02727f
+C203 vp.n14 gnd 0.09915f
+C204 vp.t12 gnd 0.01421f
+C205 vp.n15 gnd 0.05315f
+C206 vp.n16 gnd 0.06014f
+C207 vp.n17 gnd 0.03144f
+C208 vp.n18 gnd 0.02041f
+C209 vp.n19 gnd 0.0115f
+C210 vp.n20 gnd 0.01581f
+C211 vp.n21 gnd 0.02905f
+C212 vp.t9 gnd 0.02179f
+C213 vp.n22 gnd 0.03555f
+C214 vp.n23 gnd 0.07741f
+C215 vp.t5 gnd 0.02243f
+C216 vp.n24 gnd 0.02769f
+C217 vp.n25 gnd 0.09744f
+C218 vp.t22 gnd 0.02243f
+C219 vp.n26 gnd 0.02297f
+C220 vp.n27 gnd 0.09744f
+C221 vp.t8 gnd 0.02243f
+C222 vp.n28 gnd 0.09744f
+C223 vp.t7 gnd 0.02179f
+C224 vp.n29 gnd 0.07789f
+C225 vp.n30 gnd 0.03687f
+C226 vp.t3 gnd 0.01309f
+C227 vp.n31 gnd 0.05193f
+C228 vp.t17 gnd 0.01286f
+C229 vp.n32 gnd 0.0451f
+C230 vp.n33 gnd 0.01413f
+C231 vp.n34 gnd 0.01801f
+C232 vp.n35 gnd 0.11155f
+C233 vp.n36 gnd 0.01392f
+C234 vp.n37 gnd 0.03921f
+C235 vp.n38 gnd 0.01422f
+C236 vp.t16 gnd 0.01287f
+C237 vp.n39 gnd 0.04368f
+C238 vp.t2 gnd 0.01287f
+C239 vp.n40 gnd 0.04382f
+C240 vp.n42 gnd 0.03915f
+C241 vp.n43 gnd 0.03929f
+C242 vp.n44 gnd 0.01386f
+C243 vp.n45 gnd 0.76475f
+C244 vp.t0 gnd 9.06353f
+C245 vp.n46 gnd 0.57083f
+C246 cVco.t2 gnd 0.2289f
+C247 cVco.t3 gnd 0.22904f
+C248 cVco.n0 gnd 0.40439f
+C249 cVco.t4 gnd 0.29133f
+C250 cVco.n1 gnd 1.1103f
+C251 cVco.t0 gnd 0.23964f
+C252 cVco.n2 gnd 1.26902f
+C253 cVco.t1 gnd 0.23964f
+C254 cVco.n3 gnd 0.36039f
+C255 cVco.t9 gnd 0.27331f
+C256 cVco.t10 gnd 0.17484f
+C257 cVco.t11 gnd 0.17564f
+C258 cVco.n4 gnd 0.46913f
+C259 cVco.n5 gnd 0.64807f
+C260 cVco.t13 gnd 0.36407f
+C261 cVco.t12 gnd 0.29891f
+C262 cVco.n6 gnd 0.93509f
+C263 cVco.n7 gnd 0.43171f
+C264 cVco.t5 gnd 0.47945f
+C265 cVco.t6 gnd 0.40505f
+C266 cVco.n8 gnd 1.2761f
+C267 cVco.n9 gnd 0.98147f
+C268 cVco.t8 gnd 0.39589f
+C269 cVco.t7 gnd 0.33745f
+C270 cVco.n10 gnd 1.17832f
+C271 cVco.n11 gnd 0.82681f
+C272 cRef.t2 gnd 0.31724f
+C273 cRef.t3 gnd 0.23156f
+C274 cRef.t4 gnd 0.23163f
+C275 cRef.n0 gnd 0.20764f
+C276 cRef.n1 gnd 1.47249f
+C277 cRef.t0 gnd 0.16611f
+C278 cRef.t1 gnd 0.16633f
+C279 cRef.n2 gnd 0.16403f
+C280 cRef.n3 gnd 1.26515f
+C281 cRef.t11 gnd 0.21877f
+C282 cRef.t10 gnd 0.21877f
+C283 cRef.t9 gnd 0.22473f
+C284 cRef.n4 gnd 0.58547f
+C285 cRef.n5 gnd 0.39454f
+C286 cRef.t13 gnd 0.31881f
+C287 cRef.t12 gnd 0.30055f
+C288 cRef.n6 gnd 0.87556f
+C289 cRef.n7 gnd 0.47027f
+C290 cRef.t5 gnd 0.49077f
+C291 cRef.t6 gnd 0.4336f
+C292 cRef.n8 gnd 1.41795f
+C293 cRef.n9 gnd 0.81615f
+C294 cRef.t8 gnd 0.31414f
+C295 cRef.t7 gnd 0.29588f
+C296 cRef.n10 gnd 0.97943f
+C297 cRef.n11 gnd 0.8905f
+C298 DOWN.t3 gnd 0.41198f
+C299 DOWN.t2 gnd 0.38477f
+C300 DOWN.n0 gnd 1.79905f
+C301 DOWN.t0 gnd 0.29283f
+C302 DOWN.t1 gnd 0.2672f
+C303 DOWN.n1 gnd 1.4034f
+C304 DOWN.n2 gnd 1.55749f
+C305 UP.t3 gnd 0.45354f
+C306 UP.t2 gnd 0.42239f
+C307 UP.n0 gnd 2.16948f
+C308 UP.t0 gnd 0.29789f
+C309 UP.t1 gnd 0.28112f
+C310 UP.n1 gnd 1.45827f
+C311 UP.n2 gnd 1.48531f
 .ends
 
