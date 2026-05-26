@@ -160,4 +160,4 @@ m=1
 value=5p
 footprint=1206
 device="ceramic capacitor"}
-C {PFD_cell.sym} -40 -50 0 0 {name=x1}
+C {/foss/designs/CHIP-PLL/PFD/PFD_cell.sym} -40 -50 0 0 {name=x1}

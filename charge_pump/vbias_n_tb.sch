@@ -32,5 +32,5 @@ set appendwrite
 show all
 .endc
 "}
-C {/foss/designs/CHIP-PLL/charge_pump/vbias.sym} -470 70 0 0 {name=x1}
 C {gnd.sym} -320 70 0 0 {name=l5 lab=0}
+C {/foss/designs/CHIP-PLL/charge_pump/vbias_p.sym} -470 70 0 0 {name=x1}
