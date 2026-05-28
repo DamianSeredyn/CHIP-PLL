@@ -225,4 +225,4 @@ C {lab_wire.sym} 350 260 2 0 {name=p18 sig_type=std_logic lab=d11
 }
 C {lab_wire.sym} 320 280 2 0 {name=p19 sig_type=std_logic lab=d12
 }
-C {/foss/designs/CHIP-PLL/divider/input_register.sym} 120 140 0 0 {name=x1}
+C {/foss/designs/CHIP-PLL/divider/schematics/input_register.sym} 120 140 0 0 {name=x2}
