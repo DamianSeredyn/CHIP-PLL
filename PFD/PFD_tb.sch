@@ -120,10 +120,10 @@ value=".lib cornerMOSlv.lib mos_tt
 "}
 C {devices/code_shown.sym} -860 -1000 0 0 {name=NGSPICE only_toplevel=false
 value="
-.temp=125
+.temp=-25
 .param T = 31.25u
 .param dly=1u
-.param Vp=1.2
+.param Vp=1.08
 .control
 save all
 tran 25n 200u
