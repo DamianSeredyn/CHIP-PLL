@@ -1,1 +1,323 @@
-#!/usr/bin/env python3 # ============================================================================== # PROGRAMMABLE DIVIDER (pdiv) — Chunked Analysis and HTML Report # ============================================================================== # Loads per-N .dat files (pdiv_<corner>_T<temp>_Vp<vp>_N<nn>.dat), # merges measurements for each PVT condition, and generates a single-page # HTML report with one detailed panel per PVT point showing all 64 N values. # # Primary output: out_div — always 50% duty cycle, f = f_clk / 2*(N+1) # Monitoring: out, div2..div64 # ============================================================================== import os import sys import re import numpy as np from pathlib import Path from datetime import datetime from collections import defaultdict # ────────────────────────────────────────────────────────────────────────────── # CONFIGURATION # ────────────────────────────────────────────────────────────────────────────── DUTY_TARGET = 50.0 # Target duty cycle for out_div (%) DUTY_TOL = 5.0 # Tolerance around target (%) DIV_REL_TOL = 0.10 # Divider ratio tolerance (10%) LAST_FRACTION = 0.5 # Use last N% of each chunk for analysis VSWING_MIN = 0.40 # Minimum swing fraction of VDD to count as switching # Signals saved by wrdata — MUST match order in run_sweep_pdiv.sh wrdata line # out_div is first after clk because it is the primary measured output SIGNAL_ORDER = ['clk', 'out_div', 'out', 'div2', 'div4', 'div8', 'div16', 'div32', 'div64'] # ────────────────────────────────────────────────────────────────────────────── def load_dat(dat_path): """Load ngspice wrdata .dat file. Returns (time_array, signals_2d) or (None, None).""" if not os.path.exists(dat_path): return None, None try: with open(dat_path, 'r') as f: lines = f.readlines() data_start = 0 for i, line in enumerate(lines): stripped = line.strip() if not stripped: continue if stripped.startswith(('Title', 'Date', '#')): continue try: float(stripped.split()[0]) data_start = i break except (ValueError, IndexError): continue data = np.loadtxt(dat_path, skiprows=data_start) if data.ndim < 2 or data.size == 0: return None, None return data[:, 0], data[:, 1:] except Exception as e: print(f" WARN: could not load {dat_path}: {e}", file=sys.stderr) return None, None def analyze_signal(time, voltage, vdd, ref_freq=None): """ Compute frequency, duty cycle, ratio vs ref_freq, and swing for one signal. Returns dict: frequency, duty_cycle, measured_ratio, swing, status. """ result = dict(frequency=None, duty_cycle=None, measured_ratio=None, swing=0.0, status='ok') v_min, v_max = np.min(voltage), np.max(voltage) swing = v_max - v_min result['swing'] = swing if swing < VSWING_MIN * vdd: result['status'] = 'stuck' return result threshold = (v_max + v_min) / 2.0 crossings = [] for i in range(len(voltage) - 1): v1, v2 = voltage[i], voltage[i + 1] t1, t2 = time[i], time[i + 1] if v1 < threshold <= v2: t_x = t1 + (t2 - t1) * (threshold - v1) / (v2 - v1) crossings.append(('rise', t_x)) elif v1 >= threshold > v2: t_x = t1 + (t2 - t1) * (threshold - v1) / (v2 - v1) crossings.append(('fall', t_x)) if len(crossings) < 3: result['status'] = 'stuck' return result t_start = time[0] + LAST_FRACTION * (time[-1] - time[0]) crossings = [(e, t) for e, t in crossings if t >= t_start] if len(crossings) < 2: result['status'] = 'stuck' return result rising = [t for e, t in crossings if e == 'rise'] if len(rising) >= 2: periods = np.diff(rising) period = np.mean(periods) result['frequency'] = 1.0 / period if period > 0 else None if len(crossings) >= 4: duties, i = [], 0 while i + 2 < len(crossings): e1, t1 = crossings[i] e2, t2 = crossings[i + 1] e3, t3 = crossings[i + 2] if e1 == 'rise' and e2 == 'fall' and e3 == 'rise': period = t3 - t1 if period > 0: duties.append(100.0 * (t2 - t1) / period) i += 2 else: i += 1 if duties: result['duty_cycle'] = float(np.mean(duties)) if ref_freq and result['frequency'] and result['frequency'] > 0: result['measured_ratio'] = ref_freq / result['frequency'] return result def check_pass_fail(analysis, expected_ratio): """ Pass/fail for out_div: 1. Not stuck 2. Duty cycle within DUTY_TARGET ± DUTY_TOL 3. Measured ratio within DIV_REL_TOL of expected_ratio = 2*(N+1) Returns (passed: bool, reason: str). """ if analysis.get('status') == 'stuck': return False, 'stuck' if analysis.get('frequency') is None: return False, 'no_signal' duty = analysis.get('duty_cycle') if duty is None: return False, 'no_duty' if abs(duty - DUTY_TARGET) > DUTY_TOL: return False, 'bad_duty' meas = analysis.get('measured_ratio') if meas is None: return False, 'no_ratio' if abs(meas - expected_ratio) / expected_ratio > DIV_REL_TOL: return False, 'bad_ratio' return True, 'pass' def duty_cls(duty): if duty is None: return '' dev = abs(duty - DUTY_TARGET) if dev <= DUTY_TOL: return 'duty-ok' if dev <= DUTY_TOL + 5: return 'duty-warn' return 'duty-fail' # ────────────────────────────────────────────────────────────────────────────── # HTML # ────────────────────────────────────────────────────────────────────────────── CSS = """ * { box-sizing: border-box; margin: 0; padding: 0; } body { font-family: Arial, sans-serif; font-size: 13px; background: #f5f5f5; color: #222; } .header { background: #333; color: #fff; padding: 16px 20px; margin-bottom: 18px; } .header h1 { font-size: 1.4em; font-weight: bold; } .header .ts { font-size: 0.85em; opacity: .75; margin-top: 4px; } .wrap { padding: 0 20px 30px; } h2 { font-size: 1.1em; margin: 18px 0 8px; color: #333; border-bottom: 2px solid #4CAF50; padding-bottom: 4px; } .summary-table { width: 100%; border-collapse: collapse; background: #fff; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,.1); } .summary-table th { background: #4CAF50; color: #fff; padding: 9px 10px; text-align: left; font-size: 0.9em; } .summary-table td { padding: 7px 10px; border-bottom: 1px solid #e0e0e0; } .summary-table tr:hover td { background: #f0f7f0; } .pvt-panel { background: #fff; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 14px; box-shadow: 0 1px 3px rgba(0,0,0,.07); } .pvt-title { font-size: 1em; font-weight: bold; color: #fff; background: #388E3C; padding: 9px 14px; border-radius: 4px 4px 0 0; cursor: pointer; user-select: none; display: flex; justify-content: space-between; align-items: center; } .pvt-title .arrow { transition: transform .2s; } .pvt-title.collapsed .arrow { transform: rotate(-90deg); } .pvt-body { overflow-x: auto; } .pvt-body.hidden { display: none; } .data-table { width: 100%; border-collapse: collapse; font-size: 0.88em; } .data-table th { background: #e8e8e8; padding: 7px 8px; text-align: left; border: 1px solid #bbb; white-space: nowrap; } .data-table td { padding: 5px 8px; border: 1px solid #ddd; white-space: nowrap; } .data-table tr:nth-child(even) td { background: #f9f9f9; } .data-table tr:hover td { background: #e8f5e9; } /* Primary output columns get a subtle left border to stand out */ .col-primary { border-left: 3px solid #4CAF50 !important; } .col-n { background: #f3f3f3 !important; font-weight: bold; width: 44px; } .col-bits { background: #f3f3f3 !important; font-family: monospace; } .col-mon { background: #fafafa !important; color: #666; } .pass { background: #c8e6c9 !important; font-weight: bold; color: #1b5e20; } .fail { background: #ffcdd2 !important; font-weight: bold; color: #b71c1c; } .duty-ok { background: #e8f5e9; } .duty-warn { background: #fff9c4; } .duty-fail { background: #ffebee; } .badge { font-size: 0.78em; font-weight: normal; padding: 2px 8px; border-radius: 10px; margin-left: 8px; } .badge-pass { background: #a5d6a7; color: #1b5e20; } .badge-fail { background: #ef9a9a; color: #b71c1c; } .data-table thead th { position: sticky; top: 0; z-index: 1; } .note { font-size: 0.82em; color: #666; margin-top: 16px; line-height: 1.6; } .mon-label { font-size: 0.78em; color: #888; font-weight: normal; } """ JS = """ function toggle(id) { var body = document.getElementById('body-' + id); var title = document.getElementById('title-' + id); body.classList.toggle('hidden'); title.classList.toggle('collapsed'); } """ def na(): return '<span style="color:#bbb">N/A</span>' def fmt(val, decimals=3): return na() if val is None else f"{val:.{decimals}f}" def fmt_mhz(hz): return na() if hz is None else f"{hz / 1e6:.3f}" def generate_html(pvt_results, output_path): ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S") lines = [f"""<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <title>Programmable Divider — PVT Report</title> <style>{CSS}</style> </head> <body> <div class="header"> <h1>Programmable Divider (pdiv) — PVT Analysis Report</h1> <div class="ts">Generated: {ts} &nbsp;|&nbsp; Simulation split into per-N chunks (≤4 µs each) &nbsp;|&nbsp; Primary output: <b>out_div</b> &nbsp;f = f_clk / 2·(N+1) &nbsp; duty ≈ 50% </div> </div> <div class="wrap"> """] # ── Summary table ────────────────────────────────────────────────────────── lines.append('<h2>Summary by Corner</h2>') lines.append("""<table class="summary-table"> <thead><tr> <th>Corner / T / VDD</th> <th>f_clk (MHz)</th> <th>CLK Duty (%)</th> <th>N simulated</th> <th>Passed</th> <th>Failed</th> <th>Overall</th> </tr></thead><tbody>""") for (corner, temp, vp) in sorted(pvt_results): n_data = pvt_results[(corner, temp, vp)] tag = f"{corner}_T{temp}_Vp{vp}" clk_a = None for n in sorted(n_data): a = n_data[n].get('clk', {}) if a.get('frequency'): clk_a = a break clk_freq = clk_a.get('frequency') if clk_a else None clk_duty = clk_a.get('duty_cycle') if clk_a else None n_total = len(n_data) n_passed = 0 n_failed = 0 for n, sig_dict in n_data.items(): exp = 2 * (n + 1) # out_div expected ratio ok, _ = check_pass_fail(sig_dict.get('out_div', {}), expected_ratio=exp) if ok: n_passed += 1 else: n_failed += 1 ov_cls = 'pass' if n_failed == 0 else 'fail' ov_text = '✓ PASS' if n_failed == 0 else f'✗ FAIL ({n_failed}/{n_total})' lines.append(f"""<tr> <td><a href="#{tag}" style="color:#1a6b1a">{tag}</a></td> <td>{fmt_mhz(clk_freq)}</td> <td>{fmt(clk_duty, 1)}</td> <td>{n_total}</td> <td>{n_passed}</td> <td>{n_failed}</td> <td class="{ov_cls}">{ov_text}</td> </tr>""") lines.append('</tbody></table>') # ── Per-PVT detail panels ────────────────────────────────────────────────── lines.append('<h2>Detailed Results by Corner</h2>') for panel_idx, (corner, temp, vp) in enumerate(sorted(pvt_results)): n_data = pvt_results[(corner, temp, vp)] tag = f"{corner}_T{temp}_Vp{vp}" n_pass = 0; n_fail = 0 for n, sd in n_data.items(): ok, _ = check_pass_fail(sd.get('out_div', {}), expected_ratio=2*(n+1)) if ok: n_pass += 1 else: n_fail += 1 badge_cls = 'badge-pass' if n_fail == 0 else 'badge-fail' badge_text = f'✓ {n_pass}/{n_pass+n_fail}' if n_fail == 0 \ else f'✗ {n_fail} failed' lines.append(f""" <div class="pvt-panel" id="{tag}"> <div class="pvt-title" id="title-{panel_idx}" onclick="toggle({panel_idx})"> <span>{tag}<span class="badge {badge_cls}">{badge_text}</span></span> <span class="arrow">▾</span> </div> <div class="pvt-body" id="body-{panel_idx}"> <table class="data-table"> <thead><tr> <th class="col-n">N</th> <th class="col-bits">d5–d0</th> <th>Exp. ratio</th> <th class="col-primary">f_out_div (MHz)</th> <th class="col-primary">out_div Duty (%)</th> <th class="col-primary">Meas. ratio</th> <th class="col-primary">out_div swing (V)</th> <th class="col-primary">Status</th> <th class="col-mon">f_out <span class="mon-label">(mon)</span></th> <th class="col-mon">f_div2 <span class="mon-label">(mon)</span></th> <th class="col-mon">f_div4 <span class="mon-label">(mon)</span></th> <th class="col-mon">f_div8 <span class="mon-label">(mon)</span></th> <th class="col-mon">f_div16 <span class="mon-label">(mon)</span></th> <th class="col-mon">f_div32 <span class="mon-label">(mon)</span></th> <th class="col-mon">f_div64 <span class="mon-label">(mon)</span></th> </tr></thead> <tbody>""") for n in sorted(n_data): sig = n_data[n] bits = f"{(n>>5)&1}{(n>>4)&1}{(n>>3)&1}{(n>>2)&1}{(n>>1)&1}{n&1}" exp = 2 * (n + 1) # out_div = f_clk / 2*(N+1) od = sig.get('out_div', {}) passed, reason = check_pass_fail(od, expected_ratio=exp) stat_cls = 'pass' if passed else 'fail' stat_text = '✓ Pass' if passed else f'✗ {reason}' def mon(sname): return f'<td class="col-mon">{fmt_mhz(sig.get(sname, {}).get("frequency"))}</td>' lines.append(f"""<tr> <td class="col-n">{n}</td> <td class="col-bits">{bits}</td> <td>{exp}</td> <td class="col-primary">{fmt_mhz(od.get('frequency'))}</td> <td class="col-primary {duty_cls(od.get('duty_cycle'))}">{fmt(od.get('duty_cycle'), 1)}</td> <td class="col-primary">{fmt(od.get('measured_ratio'), 3)}</td> <td class="col-primary">{fmt(od.get('swing'), 3)}</td> <td class="{stat_cls}">{stat_text}</td> {mon('out')}{mon('div2')}{mon('div4')}{mon('div8')}{mon('div16')}{mon('div32')}{mon('div64')} </tr>""") lines.append('</tbody></table></div></div>') # ── Footer ───────────────────────────────────────────────────────────────── lines.append(f""" <p class="note"> <b>Primary output — out_div:</b> f = f_clk / 2·(N+1) &nbsp;|&nbsp; Expected duty cycle {DUTY_TARGET:.0f}% ± {DUTY_TOL:.0f}% &nbsp;|&nbsp; Ratio tolerance ±{int(DIV_REL_TOL*100)}% &nbsp;|&nbsp; Min swing {int(VSWING_MIN*100)}% of VDD<br> <b>Pass requires:</b> all four — not stuck, duty in range, ratio in range, swing sufficient.<br> <b>Monitoring columns</b> (out, div2–div64) show frequency only, no pass/fail applied. </p> </div> <script>{JS}</script> </body></html>""") with open(output_path, 'w') as f: f.write('\n'.join(lines)) # ────────────────────────────────────────────────────────────────────────────── # MAIN # ────────────────────────────────────────────────────────────────────────────── def main(): project_dir = Path.cwd().parent.parent data_dir = project_dir / 'divider' / 'results' / 'data' spice_path = project_dir / 'divider' / 'simulations' / 'pdiv_sym_tb.spice' report_path = project_dir / 'divider' / 'results' / 'pdiv_report.html' if not data_dir.exists(): print(f"Error: data directory not found: {data_dir}") sys.exit(1) dat_files = sorted(data_dir.glob('pdiv_*_N[0-9][0-9].dat')) legacy_files = [f for f in sorted(data_dir.glob('pdiv_*.dat')) if not re.search(r'_N\d{2}\.dat$', f.name)] if not dat_files and not legacy_files: print(f"Error: no .dat files found in {data_dir}") sys.exit(1) vdd_default = 1.2 try: with open(spice_path) as f: for line in f: m = re.match(r'\.param\s+vdd\s*=\s*([\d.]+)', line, re.I) if m: vdd_default = float(m.group(1)) break except Exception: pass # pvt_results[(corner, temp, vp)][N][signal_name] = analysis_dict pvt_results = defaultdict(lambda: defaultdict(dict)) def process_file(dat_path, corner, temp, vp, n): print(f" Analyzing N={n:2d} {dat_path.name} ...", end=' ', flush=True) time, signals = load_dat(str(dat_path)) if time is None or signals is None: print("SKIP") return vdd = float(vp) if vp else vdd_default clk_freq = None sig_results = {} for col_idx, sig_name in enumerate(SIGNAL_ORDER): if col_idx >= signals.shape[1]: break voltage = signals[:, col_idx] ref = clk_freq if sig_name != 'clk' else None a = analyze_signal(time, voltage, vdd, ref_freq=ref) if sig_name == 'clk' and a.get('frequency'): clk_freq = a['frequency'] sig_results[sig_name] = a pvt_results[(corner, temp, vp)][n] = sig_results print("OK") if dat_files: pvt_groups = defaultdict(list) for f in dat_files: m = re.match(r'pdiv_(.*?)_T(.*?)_Vp(.*?)_N(\d{2})\.dat', f.name) if m: corner, temp, vp, nn = m.groups() pvt_groups[(corner, temp, vp)].append((int(nn), f)) for (corner, temp, vp), n_files in sorted(pvt_groups.items()): print(f"\nPVT: {corner} T={temp} Vp={vp} ({len(n_files)} N chunks)") for n, dat_path in sorted(n_files): process_file(dat_path, corner, temp, vp, n) for dat_path in legacy_files: m = re.match(r'pdiv_(.*?)_T(.*?)_Vp(.*?)\.dat', dat_path.name) if not m: continue corner, temp, vp = m.groups() print(f"\nLegacy file: {dat_path.name}") process_file(dat_path, corner, temp, vp, n=0) if not pvt_results: print("Error: no valid results to report") sys.exit(1) print(f"\nGenerating report → {report_path}") generate_html(pvt_results, str(report_path)) print("Done!")
+#!/bin/bash
+# ==============================================================================
+# SWEEP PROGRAMMABLE DIVIDER (pdiv) — corner / temperature / VDD / division value
+# ==============================================================================
+# ngspice crashes for simulations longer than ~14 µs (known environment issue).
+# Strategy: run one short simulation per division value N (0-63) with d0-d5
+# hardwired as DC voltages, each simulation ≤ 4 µs.
+# plot_divider_pdiv.py merges all N chunks per PVT condition into one report row.
+#
+# File naming: pdiv_<corner>_T<temp>_Vp<vp>_N<nn>.dat  (nn = 00..63)
+#
+# Place in divider/scripts/ and run from there.
+#
+# ------------------------------------------------------------------------------
+# USAGE
+# ------------------------------------------------------------------------------
+#
+#   Full sweep (all corners × all temps × all VDDs):
+#     ./run_sweep_pdiv.sh
+#
+#   Named presets (corner + temp + VDD in one word):
+#     ./run_sweep_pdiv.sh -c typ            # mos_tt  t_nom  vp_nom
+#     ./run_sweep_pdiv.sh -c hot            # mos_ss  t_max  vp_min
+#     ./run_sweep_pdiv.sh -c cold           # mos_ff  t_min  vp_max
+#     ./run_sweep_pdiv.sh -c typ hot cold   # several presets at once
+#
+#   Explicit corner + temperature + VDD (single point):
+#     ./run_sweep_pdiv.sh -c sf -t t_min -v vp_max
+#     ./run_sweep_pdiv.sh -c tt -t t_nom -v vp_nom
+#
+#   Corner only (all temps × all VDDs for that corner):
+#     ./run_sweep_pdiv.sh -c ff
+#
+#   Corner + temperature only (all VDDs):
+#     ./run_sweep_pdiv.sh -c ss -t t_max
+#
+#   Corner + VDD only (all temps):
+#     ./run_sweep_pdiv.sh -c tt -v vp_min
+#
+#   Multiple explicit corners with shared temp/VDD:
+#     ./run_sweep_pdiv.sh -c tt ss -t t_nom -v vp_nom
+#
+#   Mix preset and explicit:
+#     ./run_sweep_pdiv.sh -c typ -c sf -t t_min -v vp_max
+#
+# Flags:
+#   -c <name ...>   Corner substring(s) or preset names (typ/hot/cold).
+#                   Multiple -c flags are additive.
+#   -t <value>      Temperature value (must match a value in corner_data,
+#                   e.g. t_min, t_nom, t_max, or a literal like 27).
+#                   Repeatable: -t t_min -t t_max
+#   -v <value>      VDD value (vp_min, vp_nom, vp_max, or literal).
+#                   Repeatable: -v vp_min -v vp_max
+# ==============================================================================
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
+
+source $PROJECT_DIR/configs/corner_data
+
+# ── Argument parsing ───────────────────────────────────────────────────────────
+FILTER_CORNERS=""
+FILTER_TEMPS=""
+FILTER_VPS=""
+
+# Resolve a symbolic name (t_min, vp_nom, …) to its numeric value from
+# corner_data, or return the value unchanged if it is already numeric.
+resolve_var() {
+    local name="$1"
+    # If it looks like a shell variable name, try to expand it
+    case "$name" in
+        t_min)  echo "$t_min"  ;;
+        t_nom)  echo "$t_nom"  ;;
+        t_max)  echo "$t_max"  ;;
+        vp_min) echo "$vp_min" ;;
+        vp_nom) echo "$vp_nom" ;;
+        vp_max) echo "$vp_max" ;;
+        *)      echo "$name"   ;;   # already a literal value
+    esac
+}
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -c)
+            shift
+            while [[ $# -gt 0 && "$1" != -* ]]; do
+                case "$1" in
+                    typ)
+                        FILTER_CORNERS="$FILTER_CORNERS mos_tt"
+                        FILTER_TEMPS="$FILTER_TEMPS $t_nom"
+                        FILTER_VPS="$FILTER_VPS $vp_nom"
+                        ;;
+                    hot)
+                        FILTER_CORNERS="$FILTER_CORNERS mos_ss"
+                        FILTER_TEMPS="$FILTER_TEMPS $t_max"
+                        FILTER_VPS="$FILTER_VPS $vp_min"
+                        ;;
+                    cold)
+                        FILTER_CORNERS="$FILTER_CORNERS mos_ff"
+                        FILTER_TEMPS="$FILTER_TEMPS $t_min"
+                        FILTER_VPS="$FILTER_VPS $vp_max"
+                        ;;
+                    *)
+                        # Plain corner substring — no temp/VDD implied
+                        FILTER_CORNERS="$FILTER_CORNERS $1"
+                        ;;
+                esac
+                shift
+            done
+            ;;
+        -t)
+            shift
+            [[ $# -eq 0 || "$1" == -* ]] && { echo "Error: -t requires a value"; exit 1; }
+            while [[ $# -gt 0 && "$1" != -* ]]; do
+                FILTER_TEMPS="$FILTER_TEMPS $(resolve_var "$1")"
+                shift
+            done
+            ;;
+        -v)
+            shift
+            [[ $# -eq 0 || "$1" == -* ]] && { echo "Error: -v requires a value"; exit 1; }
+            while [[ $# -gt 0 && "$1" != -* ]]; do
+                FILTER_VPS="$FILTER_VPS $(resolve_var "$1")"
+                shift
+            done
+            ;;
+        -h|--help)
+            sed -n '/#.*USAGE/,/^# ====/p' "$0" | sed 's/^# \?//'
+            exit 0
+            ;;
+        *)
+            echo "Error: unknown option '$1'"
+            echo "Run with -h for usage."
+            exit 1
+            ;;
+    esac
+done
+
+# ── Deduplicate lists (preserve order) ────────────────────────────────────────
+dedup() {
+    echo "$1" | tr ' ' '\n' | grep -v '^$' | awk '!seen[$0]++' | tr '\n' ' '
+}
+FILTER_CORNERS=$(dedup "$FILTER_CORNERS")
+FILTER_TEMPS=$(dedup "$FILTER_TEMPS")
+FILTER_VPS=$(dedup "$FILTER_VPS")
+
+# ── Fall back to full range for unspecified dimensions ─────────────────────────
+# Only fall back if the dimension was not set by ANY argument (preset or -t/-v).
+# Presets inject into FILTER_TEMPS/FILTER_VPS above, so an empty value here
+# means "user did not constrain this dimension".
+if [[ -z "$FILTER_TEMPS" ]]; then FILTER_TEMPS="$t_min $t_nom $t_max"; fi
+if [[ -z "$FILTER_VPS"   ]]; then FILTER_VPS="$vp_min $vp_nom $vp_max"; fi
+
+# ── Filter corners ─────────────────────────────────────────────────────────────
+if [[ -n "$FILTER_CORNERS" ]]; then
+    filtered=""
+    for C in $corners; do
+        for F in $FILTER_CORNERS; do
+            if [[ "$C" == *"$F"* ]]; then
+                filtered="$filtered $C"
+                break
+            fi
+        done
+    done
+    if [[ -z "$filtered" ]]; then
+        echo "Error: no corner matches for: $FILTER_CORNERS"
+        echo "Available corners: $corners"
+        exit 1
+    fi
+    corners=$(dedup "$filtered")
+fi
+
+# ── Validate -t / -v values against corner_data ───────────────────────────────
+VALID_TEMPS="$t_min $t_nom $t_max"
+VALID_VPS="$vp_min $vp_nom $vp_max"
+
+for T in $FILTER_TEMPS; do
+    found=0
+    for VT in $VALID_TEMPS; do
+        [[ "$T" == "$VT" ]] && found=1 && break
+    done
+    if [[ $found -eq 0 ]]; then
+        echo "Warning: temperature '$T' not in corner_data ($VALID_TEMPS) — using anyway"
+    fi
+done
+
+for V in $FILTER_VPS; do
+    found=0
+    for VV in $VALID_VPS; do
+        [[ "$V" == "$VV" ]] && found=1 && break
+    done
+    if [[ $found -eq 0 ]]; then
+        echo "Warning: VDD '$V' not in corner_data ($VALID_VPS) — using anyway"
+    fi
+done
+
+# ── Summary ────────────────────────────────────────────────────────────────────
+SIM_NAME="pdiv"
+SPICE=$PROJECT_DIR/divider/simulations/pdiv_sym_tb.spice
+DATA_DIR=$PROJECT_DIR/divider/results/data
+RESULTS_DIR=$PROJECT_DIR/divider/results
+
+TSTEP="50p"
+TSTOP="4u"
+N_VALUES=$(seq 0 63)
+
+echo "Corners     : $corners"
+echo "Temperatures: $FILTER_TEMPS"
+echo "VDDs        : $FILTER_VPS"
+echo "Division N  : 0..63 (64 runs per PVT point)"
+echo "Per-run time: $TSTOP  step: $TSTEP"
+echo ""
+
+# Count total simulations
+TOTAL=0
+for CORNER in $corners;       do
+for TEMP   in $FILTER_TEMPS;  do
+for VP     in $FILTER_VPS;    do
+    for N in $N_VALUES; do TOTAL=$((TOTAL + 1)); done
+done; done; done
+
+echo "Total simulations: $TOTAL"
+echo ""
+
+mkdir -p $DATA_DIR
+
+# Remove previous results only for the PVT points we are about to (re)run,
+# so a partial sweep does not wipe data from other corners.
+for CORNER in $corners;      do
+for TEMP   in $FILTER_TEMPS; do
+for VP     in $FILTER_VPS;   do
+    TAG="${CORNER}_T${TEMP}_Vp${VP}"
+    rm -f $DATA_DIR/${SIM_NAME}_${TAG}_N*.dat
+done; done; done
+# Always regenerate the report from whatever data is present afterwards
+rm -f $RESULTS_DIR/${SIM_NAME}_report.html
+
+CURRENT=0
+
+for CORNER in $corners;      do
+for TEMP   in $FILTER_TEMPS; do
+for VP     in $FILTER_VPS;   do
+
+    TAG="${CORNER}_T${TEMP}_Vp${VP}"
+    echo "=== PVT: $TAG ==="
+
+    for N in $N_VALUES; do
+        NN=$(printf "%02d" $N)
+        DAT=$DATA_DIR/${SIM_NAME}_${TAG}_N${NN}.dat
+
+        D0=$(( (N >> 0) & 1 ))
+        D1=$(( (N >> 1) & 1 ))
+        D2=$(( (N >> 2) & 1 ))
+        D3=$(( (N >> 3) & 1 ))
+        D4=$(( (N >> 4) & 1 ))
+        D5=$(( (N >> 5) & 1 ))
+
+        python3 - "$SPICE" "$CORNER" "$TEMP" "$VP" "$DAT" \
+                   "$D0" "$D1" "$D2" "$D3" "$D4" "$D5" \
+                   "$TSTEP" "$TSTOP" "$VP" <<'PYEOF'
+import re, sys
+
+(spice_path, corner, temp, vp, dat_path,
+ d0, d1, d2, d3, d4, d5,
+ tstep, tstop, vdd) = sys.argv[1:]
+
+with open(spice_path) as f:
+    spice = f.read()
+
+spice = re.sub(r'\.control.*?\.endc', '', spice, flags=re.DOTALL)
+spice = re.sub(r'\.param\s+temp\s*=.*', f'.param temp={temp}', spice)
+spice = re.sub(r'\.param\s+vdd\s*=.*',  f'.param vdd={vp}',    spice)
+spice = re.sub(r'(\.lib\s+\S*cornerMOSlv\.lib\s+)\S+',
+               r'\g<1>' + corner, spice, flags=re.IGNORECASE)
+spice = re.sub(r'\.options[^\n]*\bTEMP\b[^\n]*\n', '', spice, flags=re.IGNORECASE)
+
+vdd_v = float(vdd)
+def dc_src(val, vdd_v):
+    return f"{vdd_v:.4f}" if int(val) else "0"
+
+spice = re.sub(r'(V11\s+d0\s+0\s+)PULSE\([^)]*\)',
+               r'\g<1>DC ' + dc_src(d0, vdd_v), spice)
+spice = re.sub(r'(V10\s+d1\s+0\s+)PULSE\([^)]*\)',
+               r'\g<1>DC ' + dc_src(d1, vdd_v), spice)
+spice = re.sub(r'(V12\s+d2\s+0\s+)PULSE\([^)]*\)',
+               r'\g<1>DC ' + dc_src(d2, vdd_v), spice)
+spice = re.sub(r'(V7\s+d3\s+0\s+)\S+',
+               r'\g<1>' + dc_src(d3, vdd_v), spice)
+spice = re.sub(r'(V8\s+d4\s+0\s+)\S+',
+               r'\g<1>' + dc_src(d4, vdd_v), spice)
+spice = re.sub(r'(V9\s+d5\s+0\s+)\S+',
+               r'\g<1>' + dc_src(d5, vdd_v), spice)
+
+spice = re.sub(r'(\.end\b)', f'.options TEMP={temp}\n\\1', spice, flags=re.IGNORECASE)
+
+control_block = f"""
+.control
+tran {tstep} {tstop}
+wrdata {dat_path} v(clk) v(out) v(out_div) v(div2) v(div4) v(div8) v(div16) v(div32) v(div64)
+exit
+.endc
+"""
+
+with open('/tmp/pdiv_run.spice', 'w') as f:
+    f.write(spice + control_block)
+PYEOF
+
+        ngspice -b /tmp/pdiv_run.spice >/dev/null 2>&1
+
+        CURRENT=$((CURRENT + 1))
+        PCT=$(( CURRENT * 100 / TOTAL ))
+        printf "  N=%02d (d5..d0=%d%d%d%d%d%d) — %3d%% total\n" \
+               $N $D5 $D4 $D3 $D2 $D1 $D0 $PCT
+
+    done  # N loop
+
+done
+done
+done  # PVT loops
+
+echo ""
+echo "All simulations done. Generating report..."
+python3 $SCRIPT_DIR/plot_divider_pdiv.py
