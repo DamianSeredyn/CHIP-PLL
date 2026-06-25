@@ -25,13 +25,13 @@ N 200 -150 220 -150 {lab=a2}
 N 520 -170 540 -170 {lab=VP}
 N -200 -150 -180 -150 {lab=clk}
 N 200 -130 220 -130 {lab=clk}
-N 120 -110 220 -110 {lab=#net1}
-N 120 -90 220 -90 {lab=#net2}
-N 120 -70 220 -70 {lab=#net3}
-N 120 -50 220 -50 {lab=#net4}
-N 120 -30 220 -30 {lab=#net5}
-N 120 -10 220 -10 {lab=#net6}
-N 120 10 220 10 {lab=#net7}
+N 120 -110 220 -110 {lab=div2}
+N 120 -90 220 -90 {lab=div4}
+N 120 -70 220 -70 {lab=div8}
+N 120 -50 220 -50 {lab=div16}
+N 120 -30 220 -30 {lab=div32}
+N 120 -10 220 -10 {lab=div64}
+N 120 10 220 10 {lab=div128}
 N 120 -150 140 -150 {lab=0}
 N 120 -130 140 -130 {lab=VP}
 C {/foss/designs/CHIP-PLL/divider/schematics/2Div.sym} -30 -70 0 0 {name=x2}
@@ -57,7 +57,7 @@ op
 print all
 save all
 
-tran 50p 13u
+tran 50p 12.01u
 write MUX_8to1_tb.raw
 set appendwrite
 
@@ -107,4 +107,18 @@ C {lab_wire.sym} 200 -130 2 1 {name=p3 sig_type=std_logic lab=clk
 C {gnd.sym} 140 -150 3 0 {name=l4 lab=0
 }
 C {lab_wire.sym} 140 -130 2 0 {name=p4 sig_type=std_logic lab=VP
+}
+C {lab_wire.sym} 180 10 2 1 {name=p6 sig_type=std_logic lab=div128
+}
+C {lab_wire.sym} 180 -10 2 1 {name=p7 sig_type=std_logic lab=div64
+}
+C {lab_wire.sym} 180 -30 2 1 {name=p9 sig_type=std_logic lab=div32
+}
+C {lab_wire.sym} 180 -50 2 1 {name=p10 sig_type=std_logic lab=div16
+}
+C {lab_wire.sym} 180 -70 2 1 {name=p11 sig_type=std_logic lab=div8
+}
+C {lab_wire.sym} 180 -90 2 1 {name=p12 sig_type=std_logic lab=div4
+}
+C {lab_wire.sym} 180 -110 2 1 {name=p13 sig_type=std_logic lab=div2
 }

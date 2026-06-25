@@ -10,7 +10,6 @@ C3 div16 0 1f
 C4 div8 0 1f
 C5 div4 0 1f
 C6 div2 0 1f
-V5 reset 0 PULSE(0 1.2 0 100p 100p 6.67n 500n)
 x7 net3 net1 VP 0 inverter_x2
 x8 net1 out VP 0 inverter_x4
 x19 out_div VP 0 net2 out net2 d_flip_flop

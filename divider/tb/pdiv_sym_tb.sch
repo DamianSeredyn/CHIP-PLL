@@ -30,8 +30,6 @@ N 580 520 610 520 {lab=d2}
 N -130 670 -130 700 {lab=d0}
 N -10 670 -10 700 {lab=d1}
 N 110 670 110 700 {lab=d2}
-N -130 510 -130 530 {lab=0}
-N -130 430 -130 450 {lab=reset}
 N 480 840 480 860 {lab=0}
 N 540 840 540 860 {lab=0}
 N 600 840 600 860 {lab=0}
@@ -103,10 +101,6 @@ C {lab_wire.sym} -130 250 0 0 {name=p2 sig_type=std_logic lab=clk
 C {lab_wire.sym} 110 90 0 0 {name=p8 sig_type=std_logic lab=VP
 }
 C {gnd.sym} -130 350 0 0 {name=l3 lab=0
-}
-C {gnd.sym} -130 530 0 0 {name=l4 lab=0
-}
-C {lab_wire.sym} -130 430 0 0 {name=p4 sig_type=std_logic lab=reset
 }
 C {lab_wire.sym} 140 320 0 0 {name=p3 sig_type=std_logic lab=clk
 }
@@ -208,7 +202,6 @@ C {lab_wire.sym} 480 760 2 0 {name=p27 sig_type=std_logic lab=div64
 }
 C {gnd.sym} 110 180 0 0 {name=l13 lab=0
 }
-C {vsource.sym} -130 480 0 0 {name=V5 value="PULSE(0 1.2 0 100p 100p 6.67n 500n)" savecurrent=false}
 C {lab_wire.sym} 130 340 0 0 {name=p1 sig_type=std_logic lab=out
 }
 C {/foss/designs/CHIP-PLL/divider/schematics/inverter_x2.sym} 1050 360 0 0 {name=x7}

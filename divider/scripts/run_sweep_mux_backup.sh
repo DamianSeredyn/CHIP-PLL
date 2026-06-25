@@ -44,7 +44,7 @@ while [[ $# -gt 0 ]]; do
                     hot)
                         PRESET="hot"
                         FILTER_CORNERS="$FILTER_CORNERS mos_ss"
-                        FILTER_TEMPS="$t_min"
+                        FILTER_TEMPS="$t_max"
                         FILTER_VPS="$vp_min"
                         ;;
                     cold)
@@ -135,7 +135,7 @@ ADDR_SOURCES = ['V3', 'V4', 'V5']
 # Okno pomiaru wewnatrz kazdego przedzialu (pomijamy poczatek przy przelaczeniu
 # adresu oraz sam koniec przed kolejnym przelaczeniem).
 MEAS_FRAC_LO = 0.15
-MEAS_FRAC_HI = 0.95
+MEAS_FRAC_HI = 0.9
 
 bits = []
 for nm in ADDR_SOURCES:
@@ -223,7 +223,7 @@ spice = re.sub(r'(\.end\b)', f'.options TEMP={temp}\n\\1', spice, flags=re.IGNOR
 #    Kolejnosc MUSI sie zgadzac z SIGNAL_ORDER w plot_mux.py
 control_block = f"""
 .control
-tran 50p 12.01u
+tran 50p 12.1u
 wrdata {dat_path} v(clk) v(out)
 exit
 .endc

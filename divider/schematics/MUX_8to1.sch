@@ -33,7 +33,6 @@ N 330 220 330 230 {lab=gd}
 N 330 150 330 160 {lab=vp}
 N 160 190 170 190 {lab=in6}
 N 350 190 370 190 {lab=out_unb}
-N 290 340 290 360 {lab=en5}
 N 290 420 290 440 {lab=en5}
 N 330 420 330 430 {lab=gd}
 N 330 350 330 360 {lab=vp}
@@ -255,6 +254,8 @@ N 340 -430 340 -420 {lab=vp}
 N 340 -360 340 -350 {lab=gd}
 N 390 -390 410 -390 {lab=out}
 N 300 -390 320 -390 {lab=out_unb}
+N 270 310 290 310 {lab=en5_}
+N 290 310 290 360 {lab=en5_}
 C {/foss/designs/CHIP-PLL/divider/schematics/passgate.sym} 290 -190 0 0 {name=x1}
 C {iopin.sym} -970 -290 2 0 {name=p1 lab=gd}
 C {lab_pin.sym} -950 -290 2 0 {name=p4 sig_type=std_logic lab=gd}
@@ -298,8 +299,6 @@ C {lab_pin.sym} 160 190 0 0 {name=p39 sig_type=std_logic lab=in6
 C {lab_pin.sym} 370 190 2 0 {name=p40 sig_type=std_logic lab=out_unb}
 C {/foss/designs/CHIP-PLL/divider/schematics/passgate.sym} 290 410 0 0 {name=x4}
 C {lab_pin.sym} 330 430 3 0 {name=p41 sig_type=std_logic lab=gd}
-C {lab_pin.sym} 290 340 1 0 {name=p43 sig_type=std_logic lab=en5
-_}
 C {lab_pin.sym} 290 440 3 0 {name=p44 sig_type=std_logic lab=en5}
 C {lab_pin.sym} 160 390 0 0 {name=p45 sig_type=std_logic lab=in5}
 C {lab_pin.sym} 370 390 2 0 {name=p46 sig_type=std_logic lab=out_unb}
@@ -428,7 +427,6 @@ C {lab_pin.sym} 590 230 3 0 {name=p149 sig_type=std_logic lab=gd}
 C {/foss/designs/CHIP-PLL/divider/schematics/inverter.sym} 590 390 0 0 {name=x35}
 C {lab_pin.sym} 590 350 1 0 {name=p150 sig_type=std_logic lab=vp}
 C {lab_pin.sym} 590 430 3 0 {name=p151 sig_type=std_logic lab=gd}
-C {/foss/designs/CHIP-PLL/divider/schematics/inverter.sym} 340 -390 0 0 {name=x36}
 C {lab_pin.sym} 340 -430 1 0 {name=p152 sig_type=std_logic lab=vp}
 C {lab_pin.sym} 340 -350 3 0 {name=p153 sig_type=std_logic lab=gd}
 C {lab_pin.sym} 410 -390 2 0 {name=p154 sig_type=std_logic lab=out}
@@ -441,3 +439,5 @@ C {/foss/designs/CHIP-PLL/divider/schematics/NAND_3in.sym} -320 310 0 0 {name=x2
 C {/foss/designs/CHIP-PLL/divider/schematics/NAND_3in.sym} -320 450 0 0 {name=x22}
 C {/foss/designs/CHIP-PLL/divider/schematics/NAND_3in.sym} -320 590 0 0 {name=x24}
 C {/foss/designs/CHIP-PLL/divider/schematics/NAND_3in.sym} -320 730 0 0 {name=x26}
+C {/foss/designs/CHIP-PLL/divider/schematics/inverter.sym} 340 -390 0 0 {name=x37}
+C {lab_pin.sym} 270 310 3 0 {name=p43 sig_type=std_logic lab=en5_}
