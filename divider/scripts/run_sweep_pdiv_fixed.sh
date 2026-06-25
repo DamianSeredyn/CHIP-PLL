@@ -297,4 +297,4 @@ echo ""
 echo "=========================================================================="
 echo "All simulations done. Generating report..."
 echo "=========================================================================="
-python3 $SCRIPT_DIR/plot_divider_pdiv.py
+python3 $SCRIPT_DIR/plot_divider_pdiv_fixed.py
