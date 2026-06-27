@@ -53,7 +53,7 @@ C {sg13g2_pr/sg13_lv_nmos.sym} 30 -80 0 0 {name=M1
 l=0.13u
 w=0.150u
 ng=1
-m=2
+m=8
 model=sg13_lv_nmos
 spiceprefix=X
 }
@@ -61,7 +61,7 @@ C {sg13g2_pr/sg13_lv_nmos.sym} 30 10 0 0 {name=M3
 l=0.13u
 w=0.150u
 ng=1
-m=2
+m=8
 model=sg13_lv_nmos
 spiceprefix=X
 }
@@ -69,7 +69,7 @@ C {sg13g2_pr/sg13_lv_nmos.sym} 30 100 0 0 {name=M4
 l=0.13u
 w=0.150u
 ng=1
-m=2
+m=8
 model=sg13_lv_nmos
 spiceprefix=X
 }
