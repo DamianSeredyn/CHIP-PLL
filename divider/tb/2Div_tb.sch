@@ -41,8 +41,8 @@ N 300 180 350 180 {lab=0}
 N 350 180 400 180 {lab=0}
 N 150 160 150 180 {lab=0}
 C {/foss/designs/CHIP-PLL/divider/schematics/2Div.sym} -20 0 0 0 {name=x1}
-C {vsource.sym} -430 -210 0 0 {name=V1 value=1.2 savecurrent=false}
-C {vsource.sym} -430 -30 0 0 {name=V2 value="PULSE(0 1.2 0 100p 100p 1.5625n 3.125n)" savecurrent=false}
+C {vsource.sym} -430 -210 0 0 {name=V1 value=\{vdd\} savecurrent=false}
+C {vsource.sym} -430 -30 0 0 {name=V2 value="PULSE(0 \{vdd\} 0 100p 100p 1.5625n 3.125n)" savecurrent=false}
 C {gnd.sym} -430 -160 0 0 {name=l1 lab=0
 }
 C {lab_wire.sym} -430 -80 0 0 {name=p2 sig_type=std_logic lab=clk
@@ -56,6 +56,7 @@ value=".lib cornerMOSlv.lib mos_tt
 C {devices/code_shown.sym} -170 -460 0 0 {name=NGSPICE only_toplevel=false
 value="
 .param temp=27
+.param vdd=1.2
 .control
 set maxdata = 1000
 op
