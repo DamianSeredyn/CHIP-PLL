@@ -18,28 +18,24 @@ N 420 40 420 80 {lab=0}
 N 530 -10 570 -10 {lab=out_pb}
 C {vsource.sym} -160 220 0 0 {name=V1 value=\{vin\} savecurrent=false}
 C {vsource.sym} -240 220 0 0 {name=V2 value=\{vdd\} savecurrent=false}
-C {devices/code_shown.sym} -10 -620 0 0 {name=NGSPICE only_toplevel=false
+C {devices/code_shown.sym} -290 -320 0 0 {name=NGSPICE only_toplevel=false
 value="
 .param temp=27
 .param vdd=1.2
 .param vin=0.4
-.param Lcs=0.16*38u
-.param Ldrv=0.16*34u
-.param enable_cap=0
-.param cap1=1p
+.param Lcs=0.16*4u
+.param Ldrv=0.16*2u
 
 .control
 
-tran 20p 100u
+tran 40p 700n
 write vco_tb.raw
 set appendwrite
 plot out
 plot out_pb
-wrdata /foss/designs/CHIP-PLL/simulations/single_result/run.dat  v(out_pb) v(out) i(V2)
-
 .endc
 "}
-C {devices/code_shown.sym} -290 -430 0 0 {name=MODEL only_toplevel=true
+C {devices/code_shown.sym} -290 -400 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_tt
 "}
@@ -59,7 +55,7 @@ C {lab_wire.sym} 570 -10 0 0 {name=p4 sig_type=std_logic lab=out_pb
 C {/foss/designs/CHIP-PLL/buf/buf.sym} 420 -10 0 0 {name=x1}
 C {lab_wire.sym} 420 -100 0 0 {name=p5 sig_type=std_logic lab=vdd
 }
-C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_core_3BL.sym} 100 -10 0 0 {name=x2}
+C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_core_stage.sym} 100 -10 0 0 {name=x2}
 C {gnd.sym} -240 290 0 0 {name=l4 lab=0
 }
 C {lab_wire.sym} -160 150 0 0 {name=p6 sig_type=std_logic lab=in

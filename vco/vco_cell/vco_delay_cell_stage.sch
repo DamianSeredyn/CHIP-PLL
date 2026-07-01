@@ -35,7 +35,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 1060 -130 0 0 {name=M25
 l=\{Ldrv\}
-w=0.8u
+w=0.4u
 ng=1
 m=1
 model=sg13_lv_nmos
@@ -43,7 +43,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 1060 20 0 0 {name=M26
 l=\{Lcs\}
-w=0.8u
+w=0.4u
 ng=1
 m=1
 model=sg13_lv_nmos
