@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Charge Pump NEW_500n – Raport PVT</title>
+<style>
+/* ===== reset & base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 14px;
+    background: #eef1f6;
+    color: #222;
+}
+
+/* ===== layout ===== */
+header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #2e6da4 100%);
+    color: white;
+    padding: 18px 30px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.3);
+}
+header h1 { font-size: 20px; font-weight: 700; }
+header .subtitle { font-size: 12px; opacity: .8; margin-top: 3px; }
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 24px;
+}
+
+/* ===== tabs ===== */
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 18px;
+    padding: 12px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.1);
+}
+.tab {
+    padding: 7px 13px;
+    background: #e4e8ef;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: inherit;
+    color: #333;
+    transition: background .15s, color .15s;
+    white-space: nowrap;
+}
+.tab:hover  { background: #c5d6ea; }
+.tab.active { background: #2e6da4; color: white; font-weight: 600; }
+
+/* ===== panels ===== */
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* ===== summary table ===== */
+.note { color: #666; font-size: 12px; margin: 6px 0 14px; }
+table.summary {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,.1);
+}
+table.summary thead th {
+    background: #2e6da4;
+    color: white;
+    padding: 10px 12px;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: .3px;
+}
+table.summary td {
+    padding: 7px 12px;
+    border-bottom: 1px solid #e0e4ea;
+    text-align: center;
+}
+table.summary tr:last-child td { border-bottom: none; }
+table.summary tr:hover:not(.corner-header) { background: #f0f5fb; }
+table.summary td.num { font-family: 'Consolas', monospace; font-size: 12.5px; }
+tr.corner-header td {
+    background: #dce8f5;
+    font-size: 13px;
+    text-align: left;
+    padding: 8px 12px;
+    color: #1a3a5c;
+}
+table.summary a {
+    color: #2e6da4;
+    text-decoration: none;
+    font-weight: 600;
+}
+table.summary a:hover { text-decoration: underline; }
+
+/* ===== chart panel ===== */
+h2 {
+    font-size: 16px;
+    color: #1a3a5c;
+    border-bottom: 2px solid #2e6da4;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+}
+.stats-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+.stat {
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Consolas', monospace;
+    color: white;
+}
+.stat.vout   { background: #1f77b4; }
+.stat.biasn  { background: #d62728; }
+.stat.biasp  { background: #e67e22; }
+.stat.iviup  { background: #2ca02c; }
+.stat.ividn  { background: #7b4fa6; }
+
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.1);
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div>
+        <h1>⚡ Charge Pump NEW_500n – Raport PVT</h1>
+        <div class="subtitle">
+            Symulacja transientna | 5 cornery MOS × 3 temperatury × 3 napięcia Vp = 45 przypadków
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="tabs"><button class="tab active" onclick="showTab('summary', this)">📋 Podsumowanie</button>
+<button class="tab" onclick="showTab('mos_tt_T-25_Vp1.08', this)">mos_tt T-25°C 1.08V</button>
+<button class="tab" onclick="showTab('mos_tt_T-25_Vp1.2', this)">mos_tt T-25°C 1.2V</button>
+<button class="tab" onclick="showTab('mos_tt_T-25_Vp1.32', this)">mos_tt T-25°C 1.32V</button>
+<button class="tab" onclick="showTab('mos_tt_T27_Vp1.08', this)">mos_tt T27°C 1.08V</button>
+<button class="tab" onclick="showTab('mos_tt_T27_Vp1.2', this)">mos_tt T27°C 1.2V</button>
+<button class="tab" onclick="showTab('mos_tt_T27_Vp1.32', this)">mos_tt T27°C 1.32V</button>
+<button class="tab" onclick="showTab('mos_tt_T125_Vp1.08', this)">mos_tt T125°C 1.08V</button>
+<button class="tab" onclick="showTab('mos_tt_T125_Vp1.2', this)">mos_tt T125°C 1.2V</button>
+<button class="tab" onclick="showTab('mos_tt_T125_Vp1.32', this)">mos_tt T125°C 1.32V</button>
+<button class="tab" onclick="showTab('mos_ss_T-25_Vp1.08', this)">mos_ss T-25°C 1.08V</button>
+<button class="tab" onclick="showTab('mos_ss_T-25_Vp1.2', this)">mos_ss T-25°C 1.2V</button>
+<button class="tab" onclick="showTab('mos_ss_T-25_Vp1.32', this)">mos_ss T-25°C 1.32V</button>
+<button class="tab" onclick="showTab('mos_ss_T27_Vp1.08', this)">mos_ss T27°C 1.08V</button>
+<button class="tab" onclick="showTab('mos_ss_T27_Vp1.2', this)">mos_ss T27°C 1.2V</button>
+<button class="tab" onclick="showTab('mos_ss_T27_Vp1.32', this)">mos_ss T27°C 1.32V</button>
+<button class="tab" onclick="showTab('mos_ss_T125_Vp1.08', this)">mos_ss T125°C 1.08V</button>
+<button class="tab" onclick="showTab('mos_ss_T125_Vp1.2', this)">mos_ss T125°C 1.2V</button>
+<button class="tab" onclick="showTab('mos_ss_T125_Vp1.32', this)">mos_ss T125°C 1.32V</button>
+<button class="tab" onclick="showTab('mos_ff_T-25_Vp1.08', this)">mos_ff T-25°C 1.08V</button>
+<button class="tab" onclick="showTab('mos_ff_T-25_Vp1.2', this)">mos_ff T-25°C 1.2V</button>
+<button class="tab" onclick="showTab('mos_ff_T-25_Vp1.32', this)">mos_ff T-25°C 1.32V</button>
+<button class="tab" onclick="showTab('mos_ff_T27_Vp1.08', this)">mos_ff T27°C 1.08V</button>
+<button class="tab" onclick="showTab('mos_ff_T27_Vp1.2', this)">mos_ff T27°C 1.2V</button>
+<button class="tab" onclick="showTab('mos_ff_T27_Vp1.32', this)">mos_ff T27°C 1.32V</button>
+<button class="tab" onclick="showTab('mos_ff_T125_Vp1.08', this)">mos_ff T125°C 1.08V</button>
+<button class="tab" onclick="showTab('mos_ff_T125_Vp1.2', this)">mos_ff T125°C 1.2V</button>
+<button class="tab" onclick="showTab('mos_ff_T125_Vp1.32', this)">mos_ff T125°C 1.32V</button>
+<button class="tab" onclick="showTab('mos_sf_T-25_Vp1.08', this)">mos_sf T-25°C 1.08V</button>
+<button class="tab" onclick="showTab('mos_sf_T-25_Vp1.2', this)">mos_sf T-25°C 1.2V</button>
+<button class="tab" onclick="showTab('mos_sf_T-25_Vp1.32', this)">mos_sf T-25°C 1.32V</button>
+<button class="tab" onclick="showTab('mos_sf_T27_Vp1.08', this)">mos_sf T27°C 1.08V</button>
+<button class="tab" onclick="showTab('mos_sf_T27_Vp1.2', this)">mos_sf T27°C 1.2V</button>
+<button class="tab" onclick="showTab('mos_sf_T27_Vp1.32', this)">mos_sf T27°C 1.32V</button>
+<button class="tab" onclick="showTab('mos_sf_T125_Vp1.08', this)">mos_sf T125°C 1.08V</button>
+<button class="tab" onclick="showTab('mos_sf_T125_Vp1.2', this)">mos_sf T125°C 1.2V</button>
+<button class="tab" onclick="showTab('mos_sf_T125_Vp1.32', this)">mos_sf T125°C 1.32V</button>
+<button class="tab" onclick="showTab('mos_fs_T-25_Vp1.08', this)">mos_fs T-25°C 1.08V</button>
+<button class="tab" onclick="showTab('mos_fs_T-25_Vp1.2', this)">mos_fs T-25°C 1.2V</button>
+<button class="tab" onclick="showTab('mos_fs_T-25_Vp1.32', this)">mos_fs T-25°C 1.32V</button>
+<button class="tab" onclick="showTab('mos_fs_T27_Vp1.08', this)">mos_fs T27°C 1.08V</button>
+<button class="tab" onclick="showTab('mos_fs_T27_Vp1.2', this)">mos_fs T27°C 1.2V</button>
+<button class="tab" onclick="showTab('mos_fs_T27_Vp1.32', this)">mos_fs T27°C 1.32V</button>
+<button class="tab" onclick="showTab('mos_fs_T125_Vp1.08', this)">mos_fs T125°C 1.08V</button>
+<button class="tab" onclick="showTab('mos_fs_T125_Vp1.2', this)">mos_fs T125°C 1.2V</button>
+<button class="tab" onclick="showTab('mos_fs_T125_Vp1.32', this)">mos_fs T125°C 1.32V</button>
+</div>
+    
+<div id="summary" class="panel active">
+    <h2>Podsumowanie – Charge Pump NEW_500n (PVT corners)</h2>
+    <p class="note">Wartości uśrednione z ostatniej 1/4 czasu symulacji.</p>
+    <table class="summary">
+        <thead>
+            <tr>
+                <th>Temp</th>
+                <th>Vp</th>
+                <th>V(out) [V]</th>
+                <th>V(biasn) [V]</th>
+                <th>V(biasp) [V]</th>
+                <th>i(Viup) [nA]</th>
+                <th>i(Vidn) [nA]</th>
+                <th>Wykres</th>
+            </tr>
+        </thead>
+        <tbody><tr class="corner-header"><td colspan="8"><b>Corner: mos_tt (TT)</b></td></tr>
+
+        <tr>
+            <td>-25 °C</td>
+            <td>1.08 V</td>
+            <td class="num">0.1327</td>
+            <td class="num">0.5818</td>
+            <td class="num">0.3474</td>
+            <td class="num">51.90</td>
+            <td class="num">-31.09</td>
+            <td><a href="#" onclick="showTabByTag('mos_tt_T-25_Vp1.08'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>-25 °C</td>
+            <td>1.2 V</td>
+            <td class="num">0.3238</td>
+            <td class="num">0.6404</td>
+            <td class="num">0.4436</td>
+            <td class="num">93.29</td>
+            <td class="num">277.68</td>
+            <td><a href="#" onclick="showTabByTag('mos_tt_T-25_Vp1.2'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>-25 °C</td>
+            <td>1.32 V</td>
+            <td class="num">0.5434</td>
+            <td class="num">0.6837</td>
+            <td class="num">0.5330</td>
+            <td class="num">173.24</td>
+            <td class="num">505.11</td>
+            <td><a href="#" onclick="showTabByTag('mos_tt_T-25_Vp1.32'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>27 °C</td>
+            <td>1.08 V</td>
+            <td class="num">0.2678</td>
+            <td class="num">0.5412</td>
+            <td class="num">0.3497</td>
+            <td class="num">80.25</td>
+            <td class="num">126.09</td>
+            <td><a href="#" onclick="showTabByTag('mos_tt_T27_Vp1.08'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>27 °C</td>
+            <td>1.2 V</td>
+            <td class="num">0.4478</td>
+            <td class="num">0.5923</td>
+            <td class="num">0.4342</td>
+            <td class="num">152.60</td>
+            <td class="num">317.84</td>
+            <td><a href="#" onclick="showTabByTag('mos_tt_T27_Vp1.2'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>27 °C</td>
+            <td>1.32 V</td>
+            <td class="num">0.6757</td>
+            <td class="num">0.6335</td>
+            <td class="num">0.5005</td>
+            <td class="num">175.87</td>
+            <td class="num">503.48</td>
+            <td><a href="#" onclick="showTabByTag('mos_tt_T27_Vp1.32'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>125 °C</td>
+            <td>1.08 V</td>
+            <td class="num">0.4147</td>
+            <td class="num">0.4499</td>
+            <td class="num">0.3103</td>
+            <td class="num">198.52</td>
+            <td class="num">267.33</td>
+            <td><a href="#" onclick="showTabByTag('mos_tt_T125_Vp1.08'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>125 °C</td>
+            <td>1.2 V</td>
+            <td class="num">0.6012</td>
+            <td class="num">0.4942</td>
+            <td class="num">0.3604</td>
+            <td class="num">91.93</td>
+            <td class="num">407.90</td>
+            <td><a href="#" onclick="showTabByTag('mos_tt_T125_Vp1.2'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>125 °C</td>
+            <td>1.32 V</td>
+            <td class="num">0.7690</td>
+            <td class="num">0.5328</td>
+            <td class="num">0.4023</td>
+            <td class="num">-100.70</td>
+            <td class="num">549.76</td>
+            <td><a href="#" onclick="showTabByTag('mos_tt_T125_Vp1.32'); return false;">🔍 Wykres</a></td>
+        </tr>
+    <tr class="corner-header"><td colspan="8"><b>Corner: mos_ss (SS)</b></td></tr>
+
+        <tr>
+            <td>-25 °C</td>
+            <td>1.08 V</td>
+            <td class="num">0.0360</td>
+            <td class="num">0.5375</td>
+            <td class="num">0.1597</td>
+            <td class="num">75.95</td>
+            <td class="num">-206.68</td>
+            <td><a href="#" onclick="showTabByTag('mos_ss_T-25_Vp1.08'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>-25 °C</td>
+            <td>1.2 V</td>
+            <td class="num">0.0746</td>
+            <td class="num">0.6358</td>
+            <td class="num">0.2742</td>
+            <td class="num">97.60</td>
+            <td class="num">-89.63</td>
+            <td><a href="#" onclick="showTabByTag('mos_ss_T-25_Vp1.2'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>-25 °C</td>
+            <td>1.32 V</td>
+            <td class="num">0.2078</td>
+            <td class="num">0.7115</td>
+            <td class="num">0.3904</td>
+            <td class="num">84.07</td>
+            <td class="num">171.35</td>
+            <td><a href="#" onclick="showTabByTag('mos_ss_T-25_Vp1.32'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>27 °C</td>
+            <td>1.08 V</td>
+            <td class="num">0.0892</td>
+            <td class="num">0.5376</td>
+            <td class="num">0.2496</td>
+            <td class="num">55.14</td>
+            <td class="num">-100.35</td>
+            <td><a href="#" onclick="showTabByTag('mos_ss_T27_Vp1.08'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>27 °C</td>
+            <td>1.2 V</td>
+            <td class="num">0.2055</td>
+            <td class="num">0.6152</td>
+            <td class="num">0.3508</td>
+            <td class="num">72.75</td>
+            <td class="num">86.30</td>
+            <td><a href="#" onclick="showTabByTag('mos_ss_T27_Vp1.2'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>27 °C</td>
+            <td>1.32 V</td>
+            <td class="num">0.3628</td>
+            <td class="num">0.6722</td>
+            <td class="num">0.4398</td>
+            <td class="num">117.37</td>
+            <td class="num">298.82</td>
+            <td><a href="#" onclick="showTabByTag('mos_ss_T27_Vp1.32'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>125 °C</td>
+            <td>1.08 V</td>
+            <td class="num">0.2722</td>
+            <td class="num">0.4812</td>
+            <td class="num">0.2910</td>
+            <td class="num">101.50</td>
+            <td class="num">123.56</td>
+            <td><a href="#" onclick="showTabByTag('mos_ss_T125_Vp1.08'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>125 °C</td>
+            <td>1.2 V</td>
+            <td class="num">0.4117</td>
+            <td class="num">0.5350</td>
+            <td class="num">0.3576</td>
+            <td class="num">179.23</td>
+            <td class="num">248.45</td>
+            <td><a href="#" onclick="showTabByTag('mos_ss_T125_Vp1.2'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>125 °C</td>
+            <td>1.32 V</td>
+            <td class="num">0.6175</td>
+            <td class="num">0.5801</td>
+            <td class="num">0.4192</td>
+            <td class="num">202.78</td>
+            <td class="num">395.42</td>
+            <td><a href="#" onclick="showTabByTag('mos_ss_T125_Vp1.32'); return false;">🔍 Wykres</a></td>
+        </tr>
+    <tr class="corner-header"><td colspan="8"><b>Corner: mos_ff (FF)</b></td></tr>
+
+        <tr>
+            <td>-25 °C</td>
+            <td>1.08 V</td>
+            <td class="num">0.4775</td>
+            <td class="num">0.5666</td>
+            <td class="num">0.4531</td>
+            <td class="num">128.23</td>
+            <td class="num">350.03</td>
+            <td><a href="#" onclick="showTabByTag('mos_ff_T-25_Vp1.08'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>-25 °C</td>
+            <td>1.2 V</td>
+            <td class="num">0.7752</td>
+            <td class="num">0.6062</td>
+            <td class="num">0.5085</td>
+            <td class="num">-100.21</td>
+            <td class="num">588.94</td>
+            <td><a href="#" onclick="showTabByTag('mos_ff_T-25_Vp1.2'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>-25 °C</td>
+            <td>1.32 V</td>
+            <td class="num">0.7990</td>
+            <td class="num">0.6396</td>
+            <td class="num">0.5472</td>
+            <td class="num">-273.53</td>
+            <td class="num">696.29</td>
+            <td><a href="#" onclick="showTabByTag('mos_ff_T-25_Vp1.32'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>27 °C</td>
+            <td>1.08 V</td>
+            <td class="num">0.5970</td>
+            <td class="num">0.5147</td>
+            <td class="num">0.4035</td>
+            <td class="num">116.45</td>
+            <td class="num">372.41</td>
+            <td><a href="#" onclick="showTabByTag('mos_ff_T27_Vp1.08'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>27 °C</td>
+            <td>1.2 V</td>
+            <td class="num">0.7572</td>
+            <td class="num">0.5541</td>
+            <td class="num">0.4507</td>
+            <td class="num">-226.69</td>
+            <td class="num">531.69</td>
+            <td><a href="#" onclick="showTabByTag('mos_ff_T27_Vp1.2'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>27 °C</td>
+            <td>1.32 V</td>
+            <td class="num">0.7647</td>
+            <td class="num">0.5882</td>
+            <td class="num">0.4875</td>
+            <td class="num">-223.04</td>
+            <td class="num">643.57</td>
+            <td><a href="#" onclick="showTabByTag('mos_ff_T27_Vp1.32'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>125 °C</td>
+            <td>1.08 V</td>
+            <td class="num">0.5856</td>
+            <td class="num">0.4148</td>
+            <td class="num">0.3037</td>
+            <td class="num">-136.29</td>
+            <td class="num">423.56</td>
+            <td><a href="#" onclick="showTabByTag('mos_ff_T125_Vp1.08'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>125 °C</td>
+            <td>1.2 V</td>
+            <td class="num">0.6503</td>
+            <td class="num">0.4530</td>
+            <td class="num">0.3396</td>
+            <td class="num">-167.00</td>
+            <td class="num">500.49</td>
+            <td><a href="#" onclick="showTabByTag('mos_ff_T125_Vp1.2'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>125 °C</td>
+            <td>1.32 V</td>
+            <td class="num">0.7298</td>
+            <td class="num">0.4872</td>
+            <td class="num">0.3714</td>
+            <td class="num">-112.34</td>
+            <td class="num">600.24</td>
+            <td><a href="#" onclick="showTabByTag('mos_ff_T125_Vp1.32'); return false;">🔍 Wykres</a></td>
+        </tr>
+    <tr class="corner-header"><td colspan="8"><b>Corner: mos_sf (SF)</b></td></tr>
+
+        <tr>
+            <td>-25 °C</td>
+            <td>1.08 V</td>
+            <td class="num">0.1165</td>
+            <td class="num">0.6205</td>
+            <td class="num">0.3731</td>
+            <td class="num">49.30</td>
+            <td class="num">-33.86</td>
+            <td><a href="#" onclick="showTabByTag('mos_sf_T-25_Vp1.08'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>-25 °C</td>
+            <td>1.2 V</td>
+            <td class="num">0.3181</td>
+            <td class="num">0.6821</td>
+            <td class="num">0.4680</td>
+            <td class="num">84.94</td>
+            <td class="num">294.32</td>
+            <td><a href="#" onclick="showTabByTag('mos_sf_T-25_Vp1.2'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>-25 °C</td>
+            <td>1.32 V</td>
+            <td class="num">0.5562</td>
+            <td class="num">0.7269</td>
+            <td class="num">0.5574</td>
+            <td class="num">163.63</td>
+            <td class="num">534.22</td>
+            <td><a href="#" onclick="showTabByTag('mos_sf_T-25_Vp1.32'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>27 °C</td>
+            <td>1.08 V</td>
+            <td class="num">0.2736</td>
+            <td class="num">0.5839</td>
+            <td class="num">0.3816</td>
+            <td class="num">74.21</td>
+            <td class="num">143.25</td>
+            <td><a href="#" onclick="showTabByTag('mos_sf_T27_Vp1.08'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>27 °C</td>
+            <td>1.2 V</td>
+            <td class="num">0.4675</td>
+            <td class="num">0.6362</td>
+            <td class="num">0.4660</td>
+            <td class="num">143.35</td>
+            <td class="num">348.34</td>
+            <td><a href="#" onclick="showTabByTag('mos_sf_T27_Vp1.2'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>27 °C</td>
+            <td>1.32 V</td>
+            <td class="num">0.7189</td>
+            <td class="num">0.6781</td>
+            <td class="num">0.5360</td>
+            <td class="num">155.28</td>
+            <td class="num">546.58</td>
+            <td><a href="#" onclick="showTabByTag('mos_sf_T27_Vp1.32'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>125 °C</td>
+            <td>1.08 V</td>
+            <td class="num">0.4828</td>
+            <td class="num">0.4959</td>
+            <td class="num">0.3481</td>
+            <td class="num">175.16</td>
+            <td class="num">281.09</td>
+            <td><a href="#" onclick="showTabByTag('mos_sf_T125_Vp1.08'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>125 °C</td>
+            <td>1.2 V</td>
+            <td class="num">0.6855</td>
+            <td class="num">0.5405</td>
+            <td class="num">0.4013</td>
+            <td class="num">14.09</td>
+            <td class="num">427.75</td>
+            <td><a href="#" onclick="showTabByTag('mos_sf_T125_Vp1.2'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>125 °C</td>
+            <td>1.32 V</td>
+            <td class="num">0.8072</td>
+            <td class="num">0.5793</td>
+            <td class="num">0.4451</td>
+            <td class="num">-113.01</td>
+            <td class="num">560.62</td>
+            <td><a href="#" onclick="showTabByTag('mos_sf_T125_Vp1.32'); return false;">🔍 Wykres</a></td>
+        </tr>
+    <tr class="corner-header"><td colspan="8"><b>Corner: mos_fs (FS)</b></td></tr>
+
+        <tr>
+            <td>-25 °C</td>
+            <td>1.08 V</td>
+            <td class="num">0.1523</td>
+            <td class="num">0.5466</td>
+            <td class="num">0.3316</td>
+            <td class="num">55.64</td>
+            <td class="num">-17.35</td>
+            <td><a href="#" onclick="showTabByTag('mos_fs_T-25_Vp1.08'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>-25 °C</td>
+            <td>1.2 V</td>
+            <td class="num">0.3339</td>
+            <td class="num">0.6016</td>
+            <td class="num">0.4293</td>
+            <td class="num">103.32</td>
+            <td class="num">268.96</td>
+            <td><a href="#" onclick="showTabByTag('mos_fs_T-25_Vp1.2'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>-25 °C</td>
+            <td>1.32 V</td>
+            <td class="num">0.5505</td>
+            <td class="num">0.6432</td>
+            <td class="num">0.5123</td>
+            <td class="num">196.47</td>
+            <td class="num">488.19</td>
+            <td><a href="#" onclick="showTabByTag('mos_fs_T-25_Vp1.32'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>27 °C</td>
+            <td>1.08 V</td>
+            <td class="num">0.2651</td>
+            <td class="num">0.5020</td>
+            <td class="num">0.3262</td>
+            <td class="num">86.88</td>
+            <td class="num">121.08</td>
+            <td><a href="#" onclick="showTabByTag('mos_fs_T27_Vp1.08'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>27 °C</td>
+            <td>1.2 V</td>
+            <td class="num">0.4408</td>
+            <td class="num">0.5515</td>
+            <td class="num">0.4078</td>
+            <td class="num">162.88</td>
+            <td class="num">306.69</td>
+            <td><a href="#" onclick="showTabByTag('mos_fs_T27_Vp1.2'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>27 °C</td>
+            <td>1.32 V</td>
+            <td class="num">0.6589</td>
+            <td class="num">0.5917</td>
+            <td class="num">0.4686</td>
+            <td class="num">165.15</td>
+            <td class="num">487.30</td>
+            <td><a href="#" onclick="showTabByTag('mos_fs_T27_Vp1.32'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>125 °C</td>
+            <td>1.08 V</td>
+            <td class="num">0.3866</td>
+            <td class="num">0.4079</td>
+            <td class="num">0.2799</td>
+            <td class="num">204.45</td>
+            <td class="num">267.04</td>
+            <td><a href="#" onclick="showTabByTag('mos_fs_T125_Vp1.08'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>125 °C</td>
+            <td>1.2 V</td>
+            <td class="num">0.5713</td>
+            <td class="num">0.4514</td>
+            <td class="num">0.3251</td>
+            <td class="num">104.20</td>
+            <td class="num">404.41</td>
+            <td><a href="#" onclick="showTabByTag('mos_fs_T125_Vp1.2'); return false;">🔍 Wykres</a></td>
+        </tr>
+    
+        <tr>
+            <td>125 °C</td>
+            <td>1.32 V</td>
+            <td class="num">0.7422</td>
+            <td class="num">0.4897</td>
+            <td class="num">0.3643</td>
+            <td class="num">-100.44</td>
+            <td class="num">540.53</td>
+            <td><a href="#" onclick="showTabByTag('mos_fs_T125_Vp1.32'); return false;">🔍 Wykres</a></td>
+        </tr>
+    </tbody>
+    </table>
+</div>
+
+<div id="mos_tt_T-25_Vp1.08" class="panel">
+    <h2>Corner: mos_tt &nbsp;|&nbsp; T = -25 °C &nbsp;|&nbsp; Vp = 1.08 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.1327 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.5818 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.3474 V</span>
+        <span class="stat iviup">i(Viup) śr. = 51.9018 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = -31.0881 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_tt_T-25_Vp1.08.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_tt_T-25_Vp1.2" class="panel">
+    <h2>Corner: mos_tt &nbsp;|&nbsp; T = -25 °C &nbsp;|&nbsp; Vp = 1.2 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.3238 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.6404 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.4436 V</span>
+        <span class="stat iviup">i(Viup) śr. = 93.2866 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 277.6763 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_tt_T-25_Vp1.2.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_tt_T-25_Vp1.32" class="panel">
+    <h2>Corner: mos_tt &nbsp;|&nbsp; T = -25 °C &nbsp;|&nbsp; Vp = 1.32 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.5434 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.6837 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.5330 V</span>
+        <span class="stat iviup">i(Viup) śr. = 173.2405 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 505.1079 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_tt_T-25_Vp1.32.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_tt_T27_Vp1.08" class="panel">
+    <h2>Corner: mos_tt &nbsp;|&nbsp; T = 27 °C &nbsp;|&nbsp; Vp = 1.08 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.2678 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.5412 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.3497 V</span>
+        <span class="stat iviup">i(Viup) śr. = 80.2499 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 126.0925 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_tt_T27_Vp1.08.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_tt_T27_Vp1.2" class="panel">
+    <h2>Corner: mos_tt &nbsp;|&nbsp; T = 27 °C &nbsp;|&nbsp; Vp = 1.2 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.4478 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.5923 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.4342 V</span>
+        <span class="stat iviup">i(Viup) śr. = 152.6024 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 317.8402 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_tt_T27_Vp1.2.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_tt_T27_Vp1.32" class="panel">
+    <h2>Corner: mos_tt &nbsp;|&nbsp; T = 27 °C &nbsp;|&nbsp; Vp = 1.32 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.6757 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.6335 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.5005 V</span>
+        <span class="stat iviup">i(Viup) śr. = 175.8741 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 503.4834 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_tt_T27_Vp1.32.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_tt_T125_Vp1.08" class="panel">
+    <h2>Corner: mos_tt &nbsp;|&nbsp; T = 125 °C &nbsp;|&nbsp; Vp = 1.08 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.4147 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.4499 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.3103 V</span>
+        <span class="stat iviup">i(Viup) śr. = 198.5170 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 267.3311 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_tt_T125_Vp1.08.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_tt_T125_Vp1.2" class="panel">
+    <h2>Corner: mos_tt &nbsp;|&nbsp; T = 125 °C &nbsp;|&nbsp; Vp = 1.2 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.6012 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.4942 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.3604 V</span>
+        <span class="stat iviup">i(Viup) śr. = 91.9326 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 407.9005 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_tt_T125_Vp1.2.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_tt_T125_Vp1.32" class="panel">
+    <h2>Corner: mos_tt &nbsp;|&nbsp; T = 125 °C &nbsp;|&nbsp; Vp = 1.32 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.7690 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.5328 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.4023 V</span>
+        <span class="stat iviup">i(Viup) śr. = -100.6959 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 549.7557 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_tt_T125_Vp1.32.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_ss_T-25_Vp1.08" class="panel">
+    <h2>Corner: mos_ss &nbsp;|&nbsp; T = -25 °C &nbsp;|&nbsp; Vp = 1.08 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.0360 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.5375 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.1597 V</span>
+        <span class="stat iviup">i(Viup) śr. = 75.9534 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = -206.6810 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_ss_T-25_Vp1.08.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_ss_T-25_Vp1.2" class="panel">
+    <h2>Corner: mos_ss &nbsp;|&nbsp; T = -25 °C &nbsp;|&nbsp; Vp = 1.2 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.0746 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.6358 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.2742 V</span>
+        <span class="stat iviup">i(Viup) śr. = 97.6030 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = -89.6340 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_ss_T-25_Vp1.2.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_ss_T-25_Vp1.32" class="panel">
+    <h2>Corner: mos_ss &nbsp;|&nbsp; T = -25 °C &nbsp;|&nbsp; Vp = 1.32 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.2078 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.7115 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.3904 V</span>
+        <span class="stat iviup">i(Viup) śr. = 84.0654 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 171.3501 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_ss_T-25_Vp1.32.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_ss_T27_Vp1.08" class="panel">
+    <h2>Corner: mos_ss &nbsp;|&nbsp; T = 27 °C &nbsp;|&nbsp; Vp = 1.08 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.0892 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.5376 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.2496 V</span>
+        <span class="stat iviup">i(Viup) śr. = 55.1424 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = -100.3521 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_ss_T27_Vp1.08.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_ss_T27_Vp1.2" class="panel">
+    <h2>Corner: mos_ss &nbsp;|&nbsp; T = 27 °C &nbsp;|&nbsp; Vp = 1.2 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.2055 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.6152 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.3508 V</span>
+        <span class="stat iviup">i(Viup) śr. = 72.7465 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 86.3034 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_ss_T27_Vp1.2.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_ss_T27_Vp1.32" class="panel">
+    <h2>Corner: mos_ss &nbsp;|&nbsp; T = 27 °C &nbsp;|&nbsp; Vp = 1.32 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.3628 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.6722 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.4398 V</span>
+        <span class="stat iviup">i(Viup) śr. = 117.3708 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 298.8180 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_ss_T27_Vp1.32.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_ss_T125_Vp1.08" class="panel">
+    <h2>Corner: mos_ss &nbsp;|&nbsp; T = 125 °C &nbsp;|&nbsp; Vp = 1.08 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.2722 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.4812 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.2910 V</span>
+        <span class="stat iviup">i(Viup) śr. = 101.5013 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 123.5643 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_ss_T125_Vp1.08.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_ss_T125_Vp1.2" class="panel">
+    <h2>Corner: mos_ss &nbsp;|&nbsp; T = 125 °C &nbsp;|&nbsp; Vp = 1.2 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.4117 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.5350 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.3576 V</span>
+        <span class="stat iviup">i(Viup) śr. = 179.2309 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 248.4544 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_ss_T125_Vp1.2.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_ss_T125_Vp1.32" class="panel">
+    <h2>Corner: mos_ss &nbsp;|&nbsp; T = 125 °C &nbsp;|&nbsp; Vp = 1.32 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.6175 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.5801 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.4192 V</span>
+        <span class="stat iviup">i(Viup) śr. = 202.7811 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 395.4172 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_ss_T125_Vp1.32.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_ff_T-25_Vp1.08" class="panel">
+    <h2>Corner: mos_ff &nbsp;|&nbsp; T = -25 °C &nbsp;|&nbsp; Vp = 1.08 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.4775 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.5666 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.4531 V</span>
+        <span class="stat iviup">i(Viup) śr. = 128.2321 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 350.0274 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_ff_T-25_Vp1.08.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_ff_T-25_Vp1.2" class="panel">
+    <h2>Corner: mos_ff &nbsp;|&nbsp; T = -25 °C &nbsp;|&nbsp; Vp = 1.2 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.7752 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.6062 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.5085 V</span>
+        <span class="stat iviup">i(Viup) śr. = -100.2142 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 588.9369 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_ff_T-25_Vp1.2.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_ff_T-25_Vp1.32" class="panel">
+    <h2>Corner: mos_ff &nbsp;|&nbsp; T = -25 °C &nbsp;|&nbsp; Vp = 1.32 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.7990 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.6396 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.5472 V</span>
+        <span class="stat iviup">i(Viup) śr. = -273.5341 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 696.2921 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_ff_T-25_Vp1.32.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_ff_T27_Vp1.08" class="panel">
+    <h2>Corner: mos_ff &nbsp;|&nbsp; T = 27 °C &nbsp;|&nbsp; Vp = 1.08 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.5970 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.5147 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.4035 V</span>
+        <span class="stat iviup">i(Viup) śr. = 116.4505 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 372.4133 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_ff_T27_Vp1.08.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_ff_T27_Vp1.2" class="panel">
+    <h2>Corner: mos_ff &nbsp;|&nbsp; T = 27 °C &nbsp;|&nbsp; Vp = 1.2 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.7572 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.5541 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.4507 V</span>
+        <span class="stat iviup">i(Viup) śr. = -226.6890 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 531.6914 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_ff_T27_Vp1.2.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_ff_T27_Vp1.32" class="panel">
+    <h2>Corner: mos_ff &nbsp;|&nbsp; T = 27 °C &nbsp;|&nbsp; Vp = 1.32 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.7647 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.5882 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.4875 V</span>
+        <span class="stat iviup">i(Viup) śr. = -223.0412 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 643.5718 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_ff_T27_Vp1.32.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_ff_T125_Vp1.08" class="panel">
+    <h2>Corner: mos_ff &nbsp;|&nbsp; T = 125 °C &nbsp;|&nbsp; Vp = 1.08 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.5856 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.4148 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.3037 V</span>
+        <span class="stat iviup">i(Viup) śr. = -136.2878 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 423.5646 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_ff_T125_Vp1.08.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_ff_T125_Vp1.2" class="panel">
+    <h2>Corner: mos_ff &nbsp;|&nbsp; T = 125 °C &nbsp;|&nbsp; Vp = 1.2 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.6503 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.4530 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.3396 V</span>
+        <span class="stat iviup">i(Viup) śr. = -167.0001 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 500.4874 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_ff_T125_Vp1.2.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_ff_T125_Vp1.32" class="panel">
+    <h2>Corner: mos_ff &nbsp;|&nbsp; T = 125 °C &nbsp;|&nbsp; Vp = 1.32 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.7298 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.4872 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.3714 V</span>
+        <span class="stat iviup">i(Viup) śr. = -112.3373 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 600.2388 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_ff_T125_Vp1.32.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_sf_T-25_Vp1.08" class="panel">
+    <h2>Corner: mos_sf &nbsp;|&nbsp; T = -25 °C &nbsp;|&nbsp; Vp = 1.08 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.1165 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.6205 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.3731 V</span>
+        <span class="stat iviup">i(Viup) śr. = 49.2981 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = -33.8628 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_sf_T-25_Vp1.08.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_sf_T-25_Vp1.2" class="panel">
+    <h2>Corner: mos_sf &nbsp;|&nbsp; T = -25 °C &nbsp;|&nbsp; Vp = 1.2 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.3181 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.6821 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.4680 V</span>
+        <span class="stat iviup">i(Viup) śr. = 84.9441 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 294.3175 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_sf_T-25_Vp1.2.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_sf_T-25_Vp1.32" class="panel">
+    <h2>Corner: mos_sf &nbsp;|&nbsp; T = -25 °C &nbsp;|&nbsp; Vp = 1.32 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.5562 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.7269 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.5574 V</span>
+        <span class="stat iviup">i(Viup) śr. = 163.6256 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 534.2172 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_sf_T-25_Vp1.32.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_sf_T27_Vp1.08" class="panel">
+    <h2>Corner: mos_sf &nbsp;|&nbsp; T = 27 °C &nbsp;|&nbsp; Vp = 1.08 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.2736 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.5839 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.3816 V</span>
+        <span class="stat iviup">i(Viup) śr. = 74.2086 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 143.2480 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_sf_T27_Vp1.08.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_sf_T27_Vp1.2" class="panel">
+    <h2>Corner: mos_sf &nbsp;|&nbsp; T = 27 °C &nbsp;|&nbsp; Vp = 1.2 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.4675 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.6362 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.4660 V</span>
+        <span class="stat iviup">i(Viup) śr. = 143.3549 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 348.3400 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_sf_T27_Vp1.2.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_sf_T27_Vp1.32" class="panel">
+    <h2>Corner: mos_sf &nbsp;|&nbsp; T = 27 °C &nbsp;|&nbsp; Vp = 1.32 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.7189 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.6781 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.5360 V</span>
+        <span class="stat iviup">i(Viup) śr. = 155.2796 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 546.5772 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_sf_T27_Vp1.32.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_sf_T125_Vp1.08" class="panel">
+    <h2>Corner: mos_sf &nbsp;|&nbsp; T = 125 °C &nbsp;|&nbsp; Vp = 1.08 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.4828 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.4959 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.3481 V</span>
+        <span class="stat iviup">i(Viup) śr. = 175.1623 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 281.0852 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_sf_T125_Vp1.08.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_sf_T125_Vp1.2" class="panel">
+    <h2>Corner: mos_sf &nbsp;|&nbsp; T = 125 °C &nbsp;|&nbsp; Vp = 1.2 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.6855 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.5405 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.4013 V</span>
+        <span class="stat iviup">i(Viup) śr. = 14.0942 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 427.7521 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_sf_T125_Vp1.2.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_sf_T125_Vp1.32" class="panel">
+    <h2>Corner: mos_sf &nbsp;|&nbsp; T = 125 °C &nbsp;|&nbsp; Vp = 1.32 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.8072 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.5793 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.4451 V</span>
+        <span class="stat iviup">i(Viup) śr. = -113.0115 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 560.6237 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_sf_T125_Vp1.32.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_fs_T-25_Vp1.08" class="panel">
+    <h2>Corner: mos_fs &nbsp;|&nbsp; T = -25 °C &nbsp;|&nbsp; Vp = 1.08 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.1523 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.5466 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.3316 V</span>
+        <span class="stat iviup">i(Viup) śr. = 55.6362 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = -17.3538 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_fs_T-25_Vp1.08.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_fs_T-25_Vp1.2" class="panel">
+    <h2>Corner: mos_fs &nbsp;|&nbsp; T = -25 °C &nbsp;|&nbsp; Vp = 1.2 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.3339 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.6016 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.4293 V</span>
+        <span class="stat iviup">i(Viup) śr. = 103.3156 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 268.9645 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_fs_T-25_Vp1.2.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_fs_T-25_Vp1.32" class="panel">
+    <h2>Corner: mos_fs &nbsp;|&nbsp; T = -25 °C &nbsp;|&nbsp; Vp = 1.32 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.5505 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.6432 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.5123 V</span>
+        <span class="stat iviup">i(Viup) śr. = 196.4697 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 488.1880 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_fs_T-25_Vp1.32.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_fs_T27_Vp1.08" class="panel">
+    <h2>Corner: mos_fs &nbsp;|&nbsp; T = 27 °C &nbsp;|&nbsp; Vp = 1.08 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.2651 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.5020 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.3262 V</span>
+        <span class="stat iviup">i(Viup) śr. = 86.8776 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 121.0831 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_fs_T27_Vp1.08.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_fs_T27_Vp1.2" class="panel">
+    <h2>Corner: mos_fs &nbsp;|&nbsp; T = 27 °C &nbsp;|&nbsp; Vp = 1.2 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.4408 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.5515 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.4078 V</span>
+        <span class="stat iviup">i(Viup) śr. = 162.8819 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 306.6855 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_fs_T27_Vp1.2.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_fs_T27_Vp1.32" class="panel">
+    <h2>Corner: mos_fs &nbsp;|&nbsp; T = 27 °C &nbsp;|&nbsp; Vp = 1.32 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.6589 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.5917 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.4686 V</span>
+        <span class="stat iviup">i(Viup) śr. = 165.1501 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 487.2953 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_fs_T27_Vp1.32.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_fs_T125_Vp1.08" class="panel">
+    <h2>Corner: mos_fs &nbsp;|&nbsp; T = 125 °C &nbsp;|&nbsp; Vp = 1.08 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.3866 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.4079 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.2799 V</span>
+        <span class="stat iviup">i(Viup) śr. = 204.4476 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 267.0442 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_fs_T125_Vp1.08.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_fs_T125_Vp1.2" class="panel">
+    <h2>Corner: mos_fs &nbsp;|&nbsp; T = 125 °C &nbsp;|&nbsp; Vp = 1.2 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.5713 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.4514 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.3251 V</span>
+        <span class="stat iviup">i(Viup) śr. = 104.1953 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 404.4061 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_fs_T125_Vp1.2.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+<div id="mos_fs_T125_Vp1.32" class="panel">
+    <h2>Corner: mos_fs &nbsp;|&nbsp; T = 125 °C &nbsp;|&nbsp; Vp = 1.32 V</h2>
+    <div class="stats-bar">
+        <span class="stat vout">V(out) śr. = 0.7422 V</span>
+        <span class="stat biasn">V(biasn) śr. = 0.4897 V</span>
+        <span class="stat biasp">V(biasp) śr. = 0.3643 V</span>
+        <span class="stat iviup">i(Viup) śr. = -100.4352 nA</span>
+        <span class="stat ividn">i(Vidn) śr. = 540.5273 nA</span>
+    </div>
+    <div class="card">
+        <img src="cp_new500n_mos_fs_T125_Vp1.32.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
+
+</div>
+
+<script>
+function showTab(id, el) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    var panel = document.getElementById(id);
+    if (panel) panel.classList.add('active');
+    if (el) el.classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+function showTabByTag(id) {
+    var btn = Array.from(document.querySelectorAll('.tab'))
+        .find(t => (t.getAttribute('onclick') || '').includes("'" + id + "'"));
+    showTab(id, btn || null);
+}
+</script>
+
+</body>
+</html>
