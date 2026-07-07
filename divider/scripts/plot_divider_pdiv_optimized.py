@@ -4,7 +4,7 @@
 # ==============================================================================
 # Loads per-N .dat files (pdiv_<corner>_T<temp>_Vp<vp>_N<nn>.dat),
 # analyzes measurements from out_div (not out, which has narrow pulses),
-# merges all N values (1-63) into a single PVT condition report,
+# merges all N values (0-63) into a single PVT condition report,
 # and generates an HTML report showing results for each N value.
 #
 # Key: out_div is the /2 version of the programmable divider output,
@@ -389,7 +389,7 @@ def generate_html_report(results_by_pvt, output_path):
             </tr>
         </table>
         
-        <p style="margin-top: 15px;"><strong>Programmable Divider Output (out_div) — All N Values (1-63):</strong></p>
+        <p style="margin-top: 15px;"><strong>Programmable Divider Output (out_div) — All N Values (0-63):</strong></p>
         <table class="n-table">
             <tr>
                 <th>N</th>
@@ -402,8 +402,8 @@ def generate_html_report(results_by_pvt, output_path):
             </tr>
 """
         
-        # Iterate N=1..63 (skip N=0)
-        for n_val in range(1, 64):
+        # Iterate N=0..63 (includes bypass mode N=0)
+        for n_val in range(0, 64):
             n_key = f'out_div_N{n_val:02d}'
             n_data = pvt_data.get(n_key, {})
             
@@ -466,15 +466,17 @@ def generate_html_report(results_by_pvt, output_path):
                 providing ~50% duty cycle and better measurability compared to <code>out</code> 
                 (which has narrow pulses).</li>
             <li><strong>Expected Ratio:</strong> out_div = f_clk / (2 × (N+1)), 
-                where N is the programming value (1-63).</li>
+                where N is the programming value (0-63). For bypass mode (N=0): ratio = 2.</li>
             <li><strong>Pass Criteria:</strong> (1) Duty cycle within 50% ± 5%, 
                 (2) Measured ratio within ±10% of expected.</li>
             <li><strong>Stuck:</strong> Signal swing &lt; 40% of VDD (not switching).</li>
             <li>Results use last 50% of each simulation window (after settling).</li>
             <li>Measurements from fixed-tap outputs (div2-div64) are shown for 
                 circuit validation but are architecture-dependent.</li>
-            <li><strong>Optimization:</strong> N=0 is skipped (fastest division ratio, least interesting). 
-                Each simulation runs for exactly 10 periods of its slowest output, reducing total runtime by ~4×.</li>
+            <li><strong>Bypass Mode (N=0):</strong> All data bits are zero; output frequency = f_clk / 2.
+                Validates the divider path with no counter logic engaged.</li>
+            <li><strong>Optimization:</strong> Each simulation runs for exactly 10 periods of its slowest output, 
+                reducing total runtime significantly. Includes 64 division codes per corner (0-63).</li>
         </ul>
     </div>
 
