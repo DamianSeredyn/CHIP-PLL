@@ -1,0 +1,15 @@
+** sch_path: /foss/designs/CHIP-PLL/charge_pump/curr_source.sch
+.subckt curr_source vp iref gd
+*.iopin vp
+*.iopin gd
+*.opin iref
+M4 iref iref vp vp sg13_lv_pmos w=1.4u l=0.6u ng=1
+M5 net2 iref vp vp sg13_lv_pmos w=1.2u l=0.6u ng=1
+M6 net3 net3 gd gd sg13_lv_nmos w=1u l=0.6u ng=1
+M3 net2 net2 gd gd sg13_lv_nmos w=1.4u l=0.6u ng=1
+R2 net1 gd gd rppd w=1e-6 l=1.70e-6 m=1 b=0
+M1 iref net2 net1 gd sg13_lv_nmos w=1.2u l=0.6u ng=1
+M2 vp net3 iref gd sg13_lv_nmos w=1u l=0.6u ng=1
+M7 vp vp net3 gd sg13_lv_nmos w=1u l=0.6u ng=1
+.ends
+.end
