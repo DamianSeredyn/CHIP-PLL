@@ -11,5 +11,6 @@ R2 net1 gd gd rppd w=1e-6 l=1.70e-6 m=1 b=0
 M1 iref net2 net1 gd sg13_lv_nmos w=1.2u l=0.6u ng=1
 M2 vp net3 iref gd sg13_lv_nmos w=1u l=0.6u ng=1
 M7 vp vp net3 gd sg13_lv_nmos w=1u l=0.6u ng=1
+M8 gd gd gd gd sg13_lv_nmos w=0.4u l=0.6u ng=1
 .ends
 .end

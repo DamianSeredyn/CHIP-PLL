@@ -51,6 +51,11 @@ N -20 -400 -10 -400 {lab=gd}
 N -20 -190 -10 -190 {lab=gd}
 N 80 -370 90 -370 {lab=gd}
 N 320 -240 320 -80 {lab=gd}
+N 0 -40 40 -40 {lab=gd}
+N 40 -40 40 20 {lab=gd}
+N -10 20 40 20 {lab=gd}
+N -10 -10 -10 20 {lab=gd}
+N -10 -10 -0 -10 {lab=gd}
 C {sg13g2_pr/sg13_lv_pmos.sym} 180 -410 0 1 {name=M4
 l=0.6u
 w=1.4u
@@ -96,7 +101,7 @@ C {sg13g2_pr/rppd.sym} 160 -190 0 0 {name=R2
 w=1e-6
 l=1.70e-6
 model=rppd
-body=sub!
+body=gd
 spiceprefix=X
 b=0
 m=1
@@ -128,3 +133,12 @@ spiceprefix=X
 C {lab_pin.sym} 90 -370 0 0 {name=p4 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -20 -400 0 1 {name=p5 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -20 -190 0 1 {name=p6 sig_type=std_logic lab=gd}
+C {sg13g2_pr/sg13_lv_nmos.sym} 20 -10 0 1 {name=M8
+l=0.6u
+w=0.4u
+ng=1
+m=1
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {lab_pin.sym} 40 20 0 1 {name=p11 sig_type=std_logic lab=gd}
