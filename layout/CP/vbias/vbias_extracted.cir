@@ -1,4 +1,15 @@
-* Extracted by KLayout with SG13G2 LVS runset on : 09/07/2026 22:22
+* Extracted by KLayout with SG13G2 LVS runset on : 09/07/2026 23:18
+
+.SUBCKT vbias iref vbias gd vp
+X$1 gd iref vp curr_source
+M$1 vp iref \$4 vp sg13_lv_pmos L=0.6u W=1.2u AS=0.408p AD=0.408p PS=3.08u
++ PD=3.08u
+R$2 vbias \$4 rppd w=1u l=1.7u ps=0 b=0 m=1
+M$3 gd \$6 \$6 gd sg13_lv_nmos L=0.6u W=1.2u AS=0.408p AD=0.408p PS=3.08u
++ PD=3.08u
+M$4 \$6 \$4 vbias gd sg13_lv_nmos L=0.6u W=3.6u AS=1.224p AD=1.224p PS=7.88u
++ PD=7.88u
+.ENDS vbias
 
 .SUBCKT curr_source gd iref vp
 M$1 gd gd gd gd sg13_lv_nmos L=0.6u W=0.4u AS=0.136p AD=0.136p PS=1.48u PD=1.48u
