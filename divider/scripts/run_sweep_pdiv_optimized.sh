@@ -60,7 +60,7 @@ while [[ $# -gt 0 ]]; do
                         ;;
                     cold)
                         FILTER_CORNERS="$FILTER_CORNERS mos_ff"
-                        FILTER_TEMPS="$FILTER_TEMPS $t_max"
+                        FILTER_TEMPS="$FILTER_TEMPS $t_nom"
                         FILTER_VPS="$FILTER_VPS $vp_max"
                         ;;
                     *)

@@ -79,17 +79,17 @@ N 980 -40 1000 -40 {lab=VP}
 N 980 -20 1000 -20 {lab=0}
 N 1340 50 1360 50 {lab=VP}
 N 1340 70 1360 70 {lab=0}
-N 1480 150 1500 150 {lab=VP}
-N 1480 150 1480 190 {lab=VP}
-N 1480 250 1480 280 {lab=0}
+N 1480 20 1500 20 {lab=VP}
+N 1480 20 1480 60 {lab=VP}
+N 1480 120 1480 150 {lab=0}
 N 1580 70 1650 70 {lab=#net4}
 N 1650 70 1650 120 {lab=#net4}
-N 980 0 980 50 {lab=#net5}
-N 980 50 1040 50 {lab=#net5}
+N 980 0 980 50 {lab=d012}
+N 980 50 1040 50 {lab=d012}
 N 990 130 1010 130 {lab=VP}
 N 990 150 1010 150 {lab=0}
-N 990 170 1040 170 {lab=#net6}
-N 1040 70 1040 170 {lab=#net6}
+N 990 170 1040 170 {lab=d345}
+N 1040 70 1040 170 {lab=d345}
 N 650 -40 680 -40 {lab=d0}
 N 650 -20 680 -20 {lab=d1}
 N 650 0 680 0 {lab=d2}
@@ -101,15 +101,10 @@ N 1690 290 1690 330 {lab=VP}
 N 1690 390 1690 420 {lab=0}
 N 1650 390 1650 430 {lab=#net4}
 N 1580 430 1650 430 {lab=#net4}
-N 1650 220 1650 330 {lab=#net7}
-N 1580 90 1580 430 {lab=#net4}
-N 1340 220 1460 220 {lab=#net4}
-N 1340 90 1340 220 {lab=#net4}
+N 1650 220 1650 330 {lab=bypass}
+N 1340 90 1340 220 {lab=bypass}
 N 1690 290 1710 290 {lab=VP}
-N 1530 220 1650 220 {lab=#net7}
-N 1650 180 1650 220 {lab=#net7}
-N 1340 90 1580 90 {lab=#net4}
-N 1580 70 1580 90 {lab=#net4}
+N 1650 180 1650 220 {lab=bypass}
 N 1750 680 1820 680 {lab=out_div}
 N 1710 360 1760 360 {lab=#net1}
 N 1710 150 1760 150 {lab=#net1}
@@ -117,9 +112,14 @@ N 1760 150 1760 360 {lab=#net1}
 N 1760 360 1760 560 {lab=#net1}
 N 1420 560 1760 560 {lab=#net1}
 N 1420 560 1420 680 {lab=#net1}
+N 1530 90 1580 90 {lab=#net4}
+N 1580 90 1580 430 {lab=#net4}
+N 1580 70 1580 90 {lab=#net4}
+N 1340 90 1460 90 {lab=bypass}
+N 1340 220 1650 220 {lab=bypass}
 C {devices/code_shown.sym} -20 -10 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
-value=".lib cornerMOSlv.lib mos_tt
+value=".lib cornerMOSlv.lib mos_ff
 "}
 C {devices/code_shown.sym} 300 -70 0 0 {name=NGSPICE only_toplevel=false
 value="
@@ -270,11 +270,11 @@ C {lab_wire.sym} -10 670 1 0 {name=p51 sig_type=std_logic lab=d1
 }
 C {lab_wire.sym} -10 850 1 0 {name=p50 sig_type=std_logic lab=d4
 }
-C {vsource.sym} -10 910 0 0 {name=V8 value=0 savecurrent=false}
-C {vsource.sym} 110 910 0 0 {name=V9 value=0 savecurrent=false}
-C {vsource.sym} -130 730 0 0 {name=V11 value=1.2 savecurrent=false}
+C {vsource.sym} -10 910 0 0 {name=V8 value=1.2 savecurrent=false}
+C {vsource.sym} 110 910 0 0 {name=V9 value=1.2 savecurrent=false}
+C {vsource.sym} -130 730 0 0 {name=V11 value=0 savecurrent=false}
 C {vsource.sym} -10 730 0 0 {name=V10 value=0 savecurrent=false}
-C {vsource.sym} 110 730 0 0 {name=V12 value=1.2 savecurrent=false}
+C {vsource.sym} 110 730 0 0 {name=V12 value=0 savecurrent=false}
 C {lab_wire.sym} 140 340 2 0 {name=p28 sig_type=std_logic lab=out
 }
 C {lab_wire.sym} 1220 360 2 0 {name=p29 sig_type=std_logic lab=out
@@ -301,10 +301,10 @@ C {lab_wire.sym} 1360 50 2 0 {name=p26 sig_type=std_logic lab=VP
 }
 C {gnd.sym} 1360 70 0 0 {name=l19 lab=0
 }
-C {/foss/designs/CHIP-PLL/divider/schematics/inverter.sym} 1480 220 0 0 {name=x6}
-C {lab_wire.sym} 1500 150 2 0 {name=p30 sig_type=std_logic lab=VP
+C {/foss/designs/CHIP-PLL/divider/schematics/inverter.sym} 1480 90 0 0 {name=x6}
+C {lab_wire.sym} 1500 20 2 0 {name=p30 sig_type=std_logic lab=VP
 }
-C {gnd.sym} 1480 280 0 0 {name=l20 lab=0
+C {gnd.sym} 1480 150 0 0 {name=l20 lab=0
 }
 C {/foss/designs/CHIP-PLL/divider/schematics/NAND_3in.sym} 840 150 0 0 {name=x7}
 C {lab_wire.sym} 1010 130 2 0 {name=p31 sig_type=std_logic lab=VP
@@ -330,6 +330,10 @@ C {gnd.sym} 1690 420 0 0 {name=l23 lab=0
 }
 C {lab_wire.sym} 1820 680 0 0 {name=p42 sig_type=std_logic lab=out_div
 }
-C {vsource.sym} -130 910 0 0 {name=V7 value=0 savecurrent=false}
+C {vsource.sym} -130 910 0 0 {name=V7 value=1.2 savecurrent=false}
 C {lab_wire.sym} 1710 290 2 0 {name=p41 sig_type=std_logic lab=VP
 }
+C {lab_wire.sym} 1340 130 2 0 {name=p40 sig_type=std_logic lab=bypass
+}
+C {lab_wire.sym} 980 30 2 0 {name=p43 sig_type=std_logic lab=d012}
+C {lab_wire.sym} 1040 160 2 0 {name=p44 sig_type=std_logic lab=d345}
