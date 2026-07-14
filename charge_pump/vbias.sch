@@ -30,6 +30,16 @@ N 490 -370 530 -370 {lab=vp}
 N 490 -350 540 -350 {lab=iref}
 N 490 -330 540 -330 {lab=gd}
 N 120 -70 120 -40 {lab=gd}
+N 270 -140 310 -140 {lab=gd}
+N 270 -140 270 -80 {lab=gd}
+N 270 -80 330 -80 {lab=gd}
+N 330 -110 330 -80 {lab=gd}
+N 310 -110 330 -110 {lab=gd}
+N 530 -140 570 -140 {lab=vp}
+N 570 -140 570 -80 {lab=vp}
+N 520 -80 570 -80 {lab=vp}
+N 520 -110 520 -80 {lab=vp}
+N 520 -110 530 -110 {lab=vp}
 C {sg13g2_pr/sg13_lv_nmos.sym} 100 -100 0 0 {name=M2
 l=0.6u
 w=1.2u
@@ -60,7 +70,7 @@ C {sg13g2_pr/rppd.sym} 120 -310 0 0 {name=R2
 w=1e-6
 l=1.70e-6
 model=rppd
-body=sub!
+body=gd
 spiceprefix=X
 b=0
 m=1
@@ -68,8 +78,26 @@ m=1
 C {opin.sym} 260 -260 0 0 {name=p14 lab=vbias}
 C {iopin.sym} 540 -330 0 0 {name=p21 lab=gd}
 C {iopin.sym} 530 -370 0 0 {name=p22 lab=vp}
-C {/foss/designs/CHIP-PLL/charge_pump/curr_source.sym} 340 -350 0 0 {name=x1}
+C {curr_source.sym} 340 -350 0 0 {name=x1}
 C {lab_pin.sym} 540 -350 0 1 {name=p1 sig_type=std_logic lab=iref}
 C {lab_pin.sym} 120 -40 0 1 {name=p2 sig_type=std_logic lab=gd}
 C {lab_pin.sym} 130 -100 0 1 {name=p3 sig_type=std_logic lab=gd}
 C {lab_pin.sym} 130 -220 0 1 {name=p4 sig_type=std_logic lab=gd}
+C {sg13g2_pr/sg13_lv_nmos.sym} 290 -110 0 0 {name=M1
+l=0.6u
+w=1.86u
+ng=1
+m=1
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {lab_pin.sym} 330 -80 0 1 {name=p6 sig_type=std_logic lab=gd}
+C {sg13g2_pr/sg13_lv_pmos.sym} 550 -110 0 1 {name=M4
+w=1.375u
+l=0.6u
+ng=1
+m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {lab_pin.sym} 570 -80 0 1 {name=p7 sig_type=std_logic lab=vp}

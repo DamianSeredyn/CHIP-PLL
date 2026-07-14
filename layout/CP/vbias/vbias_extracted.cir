@@ -1,4 +1,4 @@
-* Extracted by KLayout with SG13G2 LVS runset on : 13/07/2026 16:31
+* Extracted by KLayout with SG13G2 LVS runset on : 14/07/2026 23:14
 
 .SUBCKT vbias iref vbias vp gd
 X$1 gd iref vp curr_source

@@ -14,7 +14,7 @@ N 470 -230 810 -230 {lab=bias}
 N 370 -100 370 -70 {lab=gd}
 N 230 -100 230 -70 {lab=gd}
 N 230 -70 370 -70 {lab=gd}
-N 410 -430 460 -430 {lab=biasn}
+N 410 -430 460 -430 {lab=bias}
 N 270 -130 300 -130 {lab=net1}
 N 360 -430 370 -430 {lab=gd}
 N 220 -280 230 -280 {lab=net2}
@@ -159,7 +159,7 @@ C {lab_pin.sym} 370 -170 0 1 {name=p17 sig_type=std_logic lab=net7}
 C {lab_pin.sym} 230 -180 0 1 {name=p7 sig_type=std_logic lab=net2}
 C {lab_pin.sym} 370 -370 0 1 {name=p16 sig_type=std_logic lab=net10}
 C {lab_pin.sym} 230 -410 0 1 {name=p3 sig_type=std_logic lab=net1}
-C {sg13g2_pr/sg13_lv_pmos.sym} 390 -610 0 1 {name=q
+C {sg13g2_pr/sg13_lv_pmos.sym} 390 -610 0 1 {name=M19
 l=0.6u
 w=1.6u
 ng=1
@@ -216,7 +216,6 @@ model=sg13_lv_nmos
 spiceprefix=X
 }
 C {lab_wire.sym} 840 -500 0 0 {name=p12 sig_type=std_logic lab=vp}
-C {lab_pin.sym} 370 -270 2 0 {name=p27 sig_type=std_logic lab=VE}
 C {lab_pin.sym} 530 -230 0 1 {name=p19 sig_type=std_logic lab=bias}
 C {lab_pin.sym} 460 -430 0 1 {name=p21 sig_type=std_logic lab=bias}
 C {iopin.sym} 1110 -600 0 0 {name=p11 lab=UP
@@ -243,9 +242,9 @@ m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {/foss/designs/CHIP-PLL/charge_pump/curr_source.sym} 0 -660 0 0 {name=x2}
+C {curr_source.sym} 0 -660 0 0 {name=x2}
 C {lab_pin.sym} 160 -640 0 1 {name=p5 sig_type=std_logic lab=gd}
-C {/foss/designs/CHIP-PLL/charge_pump/vbias.sym} 530 -540 0 0 {name=x1}
+C {vbias.sym} 530 -540 0 0 {name=x1}
 C {lab_pin.sym} 670 -640 0 1 {name=p2 sig_type=std_logic lab=bias}
 C {lab_pin.sym} 710 -520 0 1 {name=p8 sig_type=std_logic lab=bias}
 C {lab_pin.sym} 710 -540 0 1 {name=p10 sig_type=std_logic lab=gd}
