@@ -8,6 +8,8 @@ M3 vbias net1 net2 gd sg13_lv_nmos w=3.6u l=0.6u ng=1
 M13 net1 iref vp vp sg13_lv_pmos w=1.2u l=0.6u ng=1
 R2 net1 vbias rppd w=1e-6 l=1.70e-6 m=1 b=0
 x1 vp iref gd curr_source
+M1 gd gd gd gd sg13_lv_nmos w=1.86u l=0.6u ng=1
+M4 vp vp vp vp sg13_lv_pmos w=1.375u l=0.6u ng=1
 .ends
 
 * expanding   symbol:  curr_source.sym # of pins=3
