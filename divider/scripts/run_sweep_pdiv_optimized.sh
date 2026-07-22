@@ -3,16 +3,17 @@
 # SWEEP PROGRAMMABLE DIVIDER (pdiv) — corner / temperature / VDD / division value
 # ==============================================================================
 # ngspice crashes for simulations longer than ~14 µs (known environment issue).
-# Strategy: run one short simulation per division value N (1-63, skip N=0 as redundant)
+# Strategy: run one short simulation per division value N (0-63)
 # with d0-d5 hardwired as DC voltages. Each simulation duration is calculated
 # to provide exactly 10 periods of the slowest output (out_div), minimizing runtime.
+# N=0 is bypass mode: output frequency = clk / 2
 #
 # IMPORTANT: Measures from out_div (not out) because:
 #   - out has very short pulses (narrow pulse train, poor for duty cycle measurement)
 #   - out_div is the /2 version of out, giving ~50% duty cycle
 #   - out_div is more reliable for frequency and duty cycle analysis
 #
-# File naming: pdiv_<corner>_T<temp>_Vp<vp>_N<nn>.dat  (nn = 01..63, N=00 skipped)
+# File naming: pdiv_<corner>_T<temp>_Vp<vp>_N<nn>.dat  (nn = 00..63)
 #
 # Place in divider/scripts/ and run from there.
 #
@@ -58,8 +59,8 @@ while [[ $# -gt 0 ]]; do
                         FILTER_VPS="$FILTER_VPS $vp_min"
                         ;;
                     cold)
-                        FILTER_CORNERS="$FILTER_CORNERS mos_sf"
-                        FILTER_TEMPS="$FILTER_TEMPS $t_min"
+                        FILTER_CORNERS="$FILTER_CORNERS mos_ff"
+                        FILTER_TEMPS="$FILTER_TEMPS $t_nom"
                         FILTER_VPS="$FILTER_VPS $vp_max"
                         ;;
                     *)
@@ -138,8 +139,8 @@ RESULTS_DIR=$PROJECT_DIR/divider/results
 # Timestep: 20ps for good accuracy on small signals
 TSTEP="20p"
 
-# N range: 1-63 (skip N=0 as it's fastest and least interesting)
-N_VALUES=$(seq 1 63)
+# N range: 0-63 (N=0 is bypass mode: output frequency = clk / 2)
+N_VALUES=$(seq 0 63)
 
 # ── Function to calculate TSTOP ────────────────────────────────────────────────
 # out_div frequency = 320 MHz / (2 * (N+1))
@@ -171,7 +172,7 @@ echo "==========================================================================
 echo "Corners     : $corners"
 echo "Temperatures: $FILTER_TEMPS"
 echo "VDDs        : $FILTER_VPS"
-echo "Division N  : 1..63 (63 runs per PVT point, N=0 skipped)"
+echo "Division N  : 0..63 (64 runs per PVT point, includes bypass mode N=0)"
 echo "Per-run time: DYNAMIC (10 periods of out_div for each N)"
 echo "Timestep    : $TSTEP"
 echo "Measurement : out_div (NOT out, which has very short pulses)"
@@ -185,7 +186,7 @@ for VP in $FILTER_VPS; do
     for N in $N_VALUES; do TOTAL=$((TOTAL + 1)); done
 done; done; done
 
-echo "Total simulations: $TOTAL (vs. 64 before = 1.6× speedup per PVT)"
+echo "Total simulations: $TOTAL (includes bypass mode N=0)"
 echo "=========================================================================="
 echo ""
 
