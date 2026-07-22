@@ -1,0 +1,61 @@
+* PEX produced on Wed Jul 22 05:14:14 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=3 and s=1
+* NGSPICE file created from NAND_2in.ext - technology: ihp-sg13g2
+
+.subckt NAND_2in a b y VP GND
+X0 a_162_n565.t0 b.t0 GND.t2 GND.t1 sg13_lv_nmos ad=55.5f pd=0.74u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X1 VP.t1 a.t1 y.t1 VP.t0 sg13_lv_pmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.13u
+X2 y.t0 a.t0 a_162_n565.t0 GND.t0 sg13_lv_nmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.13u
+X3 y.t1 b.t1 VP.t2 VP.t0 sg13_lv_pmos ad=55.5f pd=0.74u as=0.1005p ps=1.34u w=0.15u l=0.13u
+R0 a.n0 a.t1 8.57008
+R1 a.n0 a.t0 7.51402
+R2 a a.n0 5.14188
+R3 y.n0 y.t0 27.0125
+R4 y.n0 y.t1 26.9107
+R5 y y.n0 4.7799
+R6 b.n0 b.t0 8.57008
+R7 b.n0 b.t1 7.51402
+R8 b b.n0 4.90868
+R9 VP.n1 VP.t1 17.6952
+R10 VP.n0 VP.t2 17.633
+R11 VP VP.n2 5.68508
+R12 VP.n2 VP.n1 1.67354
+R13 VP.n2 VP.t0 1.30819
+R14 VP.n1 VP.n0 0.147966
+R15 VP VP.n0 0.00691667
+R16 GND.n3 GND.t0 232.31
+R17 GND.t1 GND.n3 224.299
+R18 GND.n4 GND.t1 56.3152
+R19 GND.t0 GND.n2 48.3054
+R20 GND.n0 GND.t2 17.5471
+R21 GND.n3 GND.n1 8.5005
+R22 GND GND.n4 4.28303
+R23 GND.n2 GND.n0 1.8182
+R24 GND GND.n0 0.00508333
+R25 GND.n2 GND.n1 0.00109998
+R26 GND.n4 GND.n1 0.001
+C0 y b 0.02775f
+C1 y a 0.11107f
+C2 VP b 0.15702f
+C3 VP a 0.12352f
+C4 b a 0.37123f
+C5 VP y 0.25114f
+C6 a GND 0.52175f
+C7 y GND 0.59441f
+C8 b GND 0.42451f
+C9 VP GND 0.15447f
+C10 a_162_n565.t0 GND 0.08128f
+C11 VP.n0 GND 0.01524f
+C12 VP.n1 GND 0.02916f
+C13 VP.t0 GND 0.40786f
+C14 VP.n2 GND 0.06395f
+C15 b.t1 GND 0.12003f
+C16 b.t0 GND 0.12471f
+C17 b.n0 GND 0.19241f
+C18 y.t0 GND 0.04467f
+C19 y.t1 GND 0.04645f
+C20 y.n0 GND 0.32343f
+C21 a.t1 GND 0.13104f
+C22 a.t0 GND 0.11389f
+C23 a.n0 GND 0.19898f
+.ends
+
