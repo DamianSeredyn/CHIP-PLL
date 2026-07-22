@@ -18,7 +18,7 @@ N 420 40 420 80 {lab=0}
 N 530 -10 570 -10 {lab=out_pb}
 C {vsource.sym} -160 220 0 0 {name=V1 value=\{vin\} savecurrent=false}
 C {vsource.sym} -240 220 0 0 {name=V2 value=\{vdd\} savecurrent=false}
-C {devices/code_shown.sym} -10 -430 0 0 {name=NGSPICE only_toplevel=false
+C {devices/code_shown.sym} -10 -620 0 0 {name=NGSPICE only_toplevel=false
 value="
 .param temp=27
 .param vdd=1.2
