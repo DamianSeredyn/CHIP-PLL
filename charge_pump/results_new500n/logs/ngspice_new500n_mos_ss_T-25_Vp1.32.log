@@ -1,0 +1,19 @@
+Warning: singular matrix:  check node x1.x2.sub!
+
+Note: Starting dynamic gmin stepping
+Warning: singular matrix:  check node x1.x2.sub!
+
+Warning: Dynamic gmin stepping failed
+Note: Starting true gmin stepping
+Warning: singular matrix:  check node x1.x2.sub!
+
+Warning: singular matrix:  check node x1.x2.sub!
+
+Warning: singular matrix:  check node x1.x2.sub!
+
+Warning: singular matrix:  check node x1.x2.sub!
+
+Warning: True gmin stepping failed
+Note: Starting source stepping
+Warning: source stepping failed
+Note: Transient op started

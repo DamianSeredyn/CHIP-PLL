@@ -121,13 +121,14 @@ N 320 920 320 990 {lab=d12}
 N 240 960 280 960 {lab=#net4}
 N 240 940 260 940 {lab=VP}
 N -80 940 -60 940 {lab=d11}
-C {devices/code_shown.sym} -60 -10 0 0 {name=MODEL only_toplevel=true
+C {devices/code_shown.sym} -360 -310 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_tt
 "}
 C {devices/code_shown.sym} -50 -290 0 0 {name=NGSPICE only_toplevel=false
 value="
 .param temp=27
+.param vdd=1.2
 .control
 
 op
@@ -138,14 +139,12 @@ tran 50p 300n
 write input_register_tb.raw
 set appendwrite
 
-meas tran v_d0 AVG v(d0) FROM=170n TO=180n
 
 
-print d0_logic
 
 .endc
 "}
-C {vsource.sym} -310 110 0 0 {name=V1 value=1.2 savecurrent=false}
+C {vsource.sym} -310 110 0 0 {name=V1 value=\{vdd\} savecurrent=false}
 C {vsource.sym} -310 -50 0 0 {name=V2 value="PULSE(1.2 0 0 10p 10p 5n 10n)" savecurrent=false}
 C {capa.sym} 320 430 0 0 {name=C1
 m=1
@@ -165,24 +164,24 @@ C {lab_wire.sym} 300 330 2 0 {name=p4 sig_type=std_logic lab=d0
 C {vsource.sym} -240 110 0 0 {name=V3 value="PWL(
 + 0 0 
 + 142.5n 0 
-+ 142.51n 1.2
-+ 162.5n 1.2 
++ 142.51n \{vdd\}
++ 162.5n \{vdd\}
 + 162.51n 0
 + 172.5n 0
-+ 172.51n 1.2
-+ 182.5n 1.2
++ 172.51n \{vdd\}
++ 182.5n \{vdd\}
 + 182.51n 0
 + 212.5n 0
-+ 212.51n 1.2
-+ 222.5n 1.2
++ 212.51n \{vdd\}
++ 222.5n \{vdd\}
 + 222.51n 0
 + 232.5n 0
-+ 232.51n 1.2
-+ 242.5n 1.2
++ 232.51n \{vdd\}
++ 242.5n \{vdd\}
 + 242.51n 0
 + 262.5n 0
-+ 262.51n 1.2
-+ 272.5n 1.2
++ 262.51n \{vdd\}
++ 272.5n \{vdd\}
 + 272.51n 0)" savecurrent=false}
 C {lab_wire.sym} -240 60 0 0 {name=p6 sig_type=std_logic lab=d
 }
@@ -197,7 +196,6 @@ C {lab_wire.sym} 770 330 2 0 {name=p14 sig_type=std_logic lab=d1
 }
 C {lab_wire.sym} 730 350 2 0 {name=p17 sig_type=std_logic lab=VP
 }
-C {schematics/d_flip_flop.sym} 90 360 0 0 {name=x2}
 C {lab_wire.sym} 860 340 0 0 {name=p18 sig_type=std_logic lab=clk_buf
 }
 C {lab_wire.sym} 1240 340 2 0 {name=p20 sig_type=std_logic lab=d2
@@ -312,8 +310,8 @@ C {lab_wire.sym} 820 10 2 0 {name=p3 sig_type=std_logic lab=VP
 C {gnd.sym} 840 30 0 0 {name=l20 lab=0
 }
 C {vsource.sym} -310 480 0 0 {name=V4 value="PWL(
-+ 0 1.2 
-+ 272.6n 1.2
++ 0 \{vdd\}
++ 272.6n \{vdd\}
 + 272.61n 0)" savecurrent=false}
 C {lab_wire.sym} -310 430 0 0 {name=p5 sig_type=std_logic lab=data_en
 }
@@ -331,15 +329,7 @@ C {gnd.sym} 910 100 0 0 {name=l22 lab=0
 }
 C {lab_wire.sym} 840 50 2 0 {name=p21 sig_type=std_logic lab=_clk_un
 }
-C {schematics/inverter_x2.sym} 920 50 0 0 {name=x11}
 C {/foss/designs/CHIP-PLL/divider/schematics/NAND_2in.sym} 650 30 0 0 {name=x1}
-C {schematics/d_flip_flop.sym} 90 550 0 0 {name=x3}
-C {schematics/d_flip_flop.sym} 560 360 0 0 {name=x4}
-C {schematics/d_flip_flop.sym} 560 550 0 0 {name=x5}
-C {schematics/d_flip_flop.sym} 1030 370 0 0 {name=x6}
-C {schematics/d_flip_flop.sym} 1030 560 0 0 {name=x7}
-C {schematics/d_flip_flop.sym} 1500 370 0 0 {name=x8}
-C {schematics/d_flip_flop.sym} 1500 560 0 0 {name=x9}
 C {capa.sym} 320 810 0 0 {name=C3
 m=1
 value=1f
@@ -403,10 +393,6 @@ C {gnd.sym} 1220 760 0 0 {name=l29 lab=0
 }
 C {gnd.sym} 1690 750 0 0 {name=l30 lab=0
 }
-C {schematics/d_flip_flop.sym} 90 740 0 0 {name=x10}
-C {schematics/d_flip_flop.sym} 560 740 0 0 {name=x12}
-C {schematics/d_flip_flop.sym} 1030 750 0 0 {name=x13}
-C {schematics/d_flip_flop.sym} 1500 750 0 0 {name=x14}
 C {lab_wire.sym} -80 920 0 0 {name=p50 sig_type=std_logic lab=clk_buf
 }
 C {capa.sym} 320 1020 0 0 {name=C13
@@ -422,6 +408,19 @@ C {gnd.sym} 320 1070 0 0 {name=l31 lab=0
 }
 C {gnd.sym} 280 950 0 0 {name=l32 lab=0
 }
-C {schematics/d_flip_flop.sym} 90 950 0 0 {name=x15}
 C {lab_wire.sym} -80 940 2 0 {name=p53 sig_type=std_logic lab=d11
 }
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 1030 370 0 0 {name=x6}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 1500 370 0 0 {name=x2}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 1030 560 0 0 {name=x3}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 1500 560 0 0 {name=x4}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 90 360 0 0 {name=x5}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 560 360 0 0 {name=x7}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 90 550 0 0 {name=x8}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 560 550 0 0 {name=x9}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 1030 750 0 0 {name=x10}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 1500 750 0 0 {name=x12}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 90 740 0 0 {name=x13}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 560 740 0 0 {name=x14}
+C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop.sym} 90 950 0 0 {name=x15}
+C {/foss/designs/CHIP-PLL/divider/schematics/inverter_x2.sym} 920 50 0 0 {name=x11}

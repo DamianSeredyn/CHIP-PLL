@@ -130,7 +130,7 @@ spice = re.sub(r'(\.end\b)', f'.options TEMP={temp}\n\\1', spice, flags=re.IGNOR
 
 control_block = f"""
 .control
-tran 20p 10u
+tran 20p 5u
 wrdata {dat_path} v(out_pb) v(out) i(V2)
 exit
 .endc
