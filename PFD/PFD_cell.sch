@@ -212,34 +212,34 @@ C {lab_wire.sym} 220 310 0 0 {name=p22 sig_type=std_logic lab=pre_down
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} -140 -190 3 1 {name=M4
 l=0.15u
-w=0.45u
+w=0.6u
 ng=1
-m=2
+m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 0 -190 3 1 {name=M5
 l=0.15u
-w=0.45u
+w=0.6u
 ng=1
-m=2
+m=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
 C {lab_wire.sym} 0 -100 0 0 {name=p24 sig_type=std_logic lab=gnd}
 C {sg13g2_pr/sg13_lv_pmos.sym} -150 290 3 1 {name=M9
 l=0.15u
-w=0.45u
+w=0.6u
 ng=1
-m=2
+m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} -10 290 3 1 {name=M10
 l=0.15u
-w=0.45u
+w=0.6u
 ng=1
-m=2
+m=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
