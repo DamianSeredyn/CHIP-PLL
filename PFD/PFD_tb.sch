@@ -116,14 +116,14 @@ N 200 60 310 60 {lab=GND}
 N -400 -160 -40 -160 {lab=#net1}
 C {devices/code_shown.sym} -580 -320 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
-value=".lib cornerMOSlv.lib mos_tt
+value=".lib cornerMOSlv.lib mos_ss
 "}
 C {devices/code_shown.sym} -860 -1000 0 0 {name=NGSPICE only_toplevel=false
 value="
-.temp=-25
+.temp=25
 .param T = 31.25u
 .param dly=1u
-.param Vp=1.08
+.param Vp=1.0
 .control
 save all
 tran 25n 200u
