@@ -1,6 +1,5 @@
 #!/bin/bash
-# run_corners.sh - Symulacja cornerów PVT dla charge pump
-# Rejestruje: v(vout), i(v.x1.viup), i(v.x1.vidn), v(x1.biasn)
+# run_corners.sh - Symulacja cornerów PVT bez ingerencji w ścieżkę biblioteki
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
@@ -14,19 +13,20 @@ RESULTS_DIR="$PROJECT_DIR/charge_pump/results"
 
 TMP_NETLIST="$SIM_DIR/temp_run_$$.spice"
 
-# Parametry symulacji – na test ustaw tylko dwa cornera
-corners="mos_tt mos_ss"
-t_min="-25"
-#t_nom="27"
-#t_max="125"
+# Parametry symulacji (dostosuj)
+corners="mos_tt mos_ss mos_ff mos_sf mos_fs"
+t_min="-40"
+t_nom="27"
+t_max="125"
 vp_min="1.08"
-#vp_nom="1.2"
-#vp_max="1.32"
+vp_nom="1.2"
+vp_max="1.32"
 
 mkdir -p "$DATA_DIR" "$LOG_DIR" "$RESULTS_DIR"
 rm -f "$DATA_DIR"/charge_pump_data_*.txt
 rm -f "$RESULTS_DIR"/cp_*.png "$RESULTS_DIR"/cp_report.html
 
+# Funkcja przygotowująca netlistę dla jednego przypadku
 prepare_netlist() {
     local corner=$1
     local temp=$2
@@ -35,30 +35,27 @@ prepare_netlist() {
 
     cp "$NETLIST_SRC" "$out"
 
-    # 1. Usuń wszystkie istniejące bloki .control ... .endc (włączając wielokrotne)
+    # Usunięcie istniejących bloków .control ... .endc
     sed -i '/^\.control/,/^\.endc/d' "$out"
 
-    # 2. Usuń wszelkie linie zawierające wrdata, write, set appendwrite
-    sed -i '/wrdata/d; /write/d; /set appendwrite/d' "$out"
-
-    # 3. Podmień parametry
+    # Podmiana parametrów temperatury i napięcia (jeśli istnieją)
     sed -i -e "s/\.param temp=.*/.param temp=$temp/" \
            -e "s/\.param Vp=.*/.param Vp=$vp/" "$out"
 
-    # 4. Zmień corner w linii .lib
+    # Zmiana tylko ostatniego słowa w linii .lib (corner)
     sed -i -E "s/^(\.lib .*cornerMOSlv\.lib) [^ ]+$/\1 $corner/" "$out"
 
-    # 5. Dopisz swój blok .control przed .ends (lub na końcu)
+    # Wstawienie nowego bloku .control (bez v(biasp), z .options temp)
     if grep -q "^\.ends" "$out"; then
         sed -i "/^\.ends/i\\
 **** begin user architecture code\\
 .options temp=$temp\\
 .control\\
 op\\
-tran 1n 80u\\
+tran 1n 60u\\
 save all\\
 set filetype=ascii\\
-wrdata cp_test.txt time v(vout) i(v.x1.viup) i(v.x1.vidn) v(x1.biasn)\\
+wrdata cp_test.txt time v(vout) i(vip) i(vin) v(biasn) i(Vdn2) i(Vup2) i(Vvp) v(up) v(dn)\\
 quit\\
 .endc\\
 **** end user architecture code" "$out"
@@ -69,10 +66,10 @@ quit\\
 .options temp=$temp
 .control
 op
-tran 1n 80u
+tran 1n 60u
 save all
 set filetype=ascii
-wrdata cp_test.txt time v(vout) i(v.x1.viup) i(v.x1.vidn) v(x1.biasn)
+wrdata cp_test.txt time v(vout) i(vip) i(vin) v(biasn) i(Vdn2) i(Vup2) i(Vvp) v(up) v(dn)
 quit
 .endc
 **** end user architecture code
@@ -91,6 +88,7 @@ for CORNER in $corners; do
             echo "=== $TAG ==="
             prepare_netlist "$CORNER" "$TEMP" "$VP" "$TMP_NETLIST"
 
+            # Uruchom ngspice w katalogu symulacji (tam jest netlista i domyślnie .lib)
             (cd "$SIM_DIR" && ngspice -b "$(basename "$TMP_NETLIST")") > "$LOG_FILE" 2>&1
 
             if [ -f "$SIM_DIR/cp_test.txt" ]; then
@@ -107,11 +105,11 @@ for CORNER in $corners; do
 done
 
 # Post-processing
-if [ -f "$SCRIPT_DIR/parse_cp2.py" ]; then
-    python3 "$SCRIPT_DIR/parse_cp2.py"
+if [ -f "$SCRIPT_DIR/parse_cp.py" ]; then
+    python3 "$SCRIPT_DIR/parse_cp.py"
 fi
-if [ -f "$SCRIPT_DIR/plot_cp2.py" ]; then
-    python3 "$SCRIPT_DIR/plot_cp2.py"
+if [ -f "$SCRIPT_DIR/plot_cp.py" ]; then
+    python3 "$SCRIPT_DIR/plot_cp.py"
 fi
 
 echo "Gotowe. Raport HTML: $RESULTS_DIR/cp_report.html"

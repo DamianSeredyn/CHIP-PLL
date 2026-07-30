@@ -15,16 +15,12 @@ C {vsource.sym} 620 -500 0 0 {name=Vvp
 value=1.2 savecurrent=false}
 C {gnd.sym} 620 -470 0 0 {name=l16 lab=0}
 C {lab_pin.sym} 620 -530 0 0 {name=p47 sig_type=std_logic lab=vp}
-C {devices/code_shown.sym} 10 -440 0 0 {name=MODEL only_toplevel=true
-format="tcleval( @value )"
-value=".lib cornerMOSlv.lib mos_tt
-"}
 C {devices/code_shown.sym} 60 -350 0 0 {name=NGSPICE only_toplevel=true 
 value="
 .temp 25
 
 .control
-
+.param rsh_rppd = 500
 op
 save all
 write mirror_test.raw
@@ -44,12 +40,12 @@ C {vsource.sym} 410 -500 0 0 {name=Vup2
 value=1 savecurrent=false}
 C {gnd.sym} 410 -470 0 0 {name=l11 lab=0}
 C {vsource.sym} 510 -500 0 0 {name=Vdn2
-value=0 savecurrent=false}
+value=1 savecurrent=false}
 C {gnd.sym} 510 -470 0 0 {name=l12 lab=0}
 C {lab_pin.sym} 410 -530 0 1 {name=p30 sig_type=std_logic lab=up}
 C {lab_pin.sym} 510 -530 0 1 {name=p31 sig_type=std_logic lab=dn}
 C {vsource.sym} 790 -300 0 0 {name=Vup1
-value=0.8 savecurrent=false}
+value=0.6 savecurrent=false}
 C {gnd.sym} 790 -270 0 0 {name=l3 lab=0}
 C {lab_pin.sym} 790 -330 0 1 {name=p22 sig_type=std_logic lab=vout}
 C {/foss/designs/CHIP-PLL/charge_pump/NEW_500n_cp_cell.sym} 460 -310 0 0 {name=x1}
@@ -58,3 +54,8 @@ C {lab_pin.sym} 640 -310 0 1 {name=p1 sig_type=std_logic lab=vout}
 C {lab_pin.sym} 640 -330 0 1 {name=p2 sig_type=std_logic lab=up}
 C {lab_pin.sym} 640 -290 0 1 {name=p3 sig_type=std_logic lab=dn}
 C {lab_pin.sym} 640 -350 0 1 {name=p4 sig_type=std_logic lab=vp}
+C {devices/code_shown.sym} 310 -180 0 0 {name=MODEL1 only_toplevel=true
+format="tcleval( @value )"
+value=".lib cornerMOSlv.lib mos_ss
+.include /foss/pdks/ihp-sg13g2/libs.tech/ngspice/models/resistors_mod.lib
+"}
