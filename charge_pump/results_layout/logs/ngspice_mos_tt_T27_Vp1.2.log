@@ -1,0 +1,65 @@
+Error in netlist line no. 738, new internal line no. 30:
+
+Undefined parameter [dw_rppd_par]
+Error in netlist line no. 738, new internal line no. 30:
+
+ Formula() error.
+      |rqrc=4.5e-6; cpx=25e-18; cax=90e-18; rzspec=35e-6; lhead=0.86e-6; kappa=1.85; postsim=0; sw_et=0; m=1; trise=0; ps=0.18e-6; b=0; mm_ok=0; l=1.7u; w=1u; weff=w+dw_rppd_par; px=115e-18/cpx; rz=rzspec/w-(postsim>0)*rqrc/w; leff=(b+1)*l+(2/kappa*weff+ps)*b; ax=175e-18*(1-1/(1.5*leff*1e6+1))/cax; p0=leff+lhead+w-(postsim>0)*px*1e-6; a0=0.5*(leff+lhead)*w-(postsim>0)*w*ax*1e-6; p=(p0>0)*p0; a=(a0>0)*a0;| : |weff|=|w+dw_rppd_par|
+Error in netlist line no. 725, new internal line no. 188:
+
+Undefined parameter [leff]
+Error in netlist line no. 725, new internal line no. 188:
+
+Cannot compute substitute
+Error in netlist line no. 726, new internal line no. 196:
+
+Undefined parameter [rz]
+Error in netlist line no. 726, new internal line no. 196:
+
+Cannot compute substitute
+Error in netlist line no. 739, new internal line no. 31:
+
+Undefined parameter [dw_rppd_par]
+Error in netlist line no. 739, new internal line no. 31:
+
+ Formula() error.
+      |rqrc=4.5e-6; cpx=25e-18; cax=90e-18; rzspec=35e-6; lhead=0.86e-6; kappa=1.85; postsim=0; sw_et=0; m=1; trise=0; ps=0.18e-6; b=0; mm_ok=0; l=1.7u; w=1u; weff=w+dw_rppd_par; px=115e-18/cpx; rz=rzspec/w-(postsim>0)*rqrc/w; leff=(b+1)*l+(2/kappa*weff+ps)*b; ax=175e-18*(1-1/(1.5*leff*1e6+1))/cax; p0=leff+lhead+w-(postsim>0)*px*1e-6; a0=0.5*(leff+lhead)*w-(postsim>0)*w*ax*1e-6; p=(p0>0)*p0; a=(a0>0)*a0;| : |weff|=|w+dw_rppd_par|
+Error in netlist line no. 725, new internal line no. 188:
+
+Undefined parameter [leff]
+Error in netlist line no. 725, new internal line no. 188:
+
+Cannot compute substitute
+Error in netlist line no. 726, new internal line no. 196:
+
+Undefined parameter [rz]
+Error in netlist line no. 726, new internal line no. 196:
+
+Cannot compute substitute
+Error in netlist line no. 772, new internal line no. 64:
+
+Undefined parameter [dw_rppd_par]
+Error in netlist line no. 772, new internal line no. 64:
+
+ Formula() error.
+      |rqrc=4.5e-6; cpx=25e-18; cax=90e-18; rzspec=35e-6; lhead=0.86e-6; kappa=1.85; postsim=0; sw_et=0; m=1; trise=0; ps=0.18e-6; b=0; mm_ok=0; l=1.7u; w=1u; weff=w+dw_rppd_par; px=115e-18/cpx; rz=rzspec/w-(postsim>0)*rqrc/w; leff=(b+1)*l+(2/kappa*weff+ps)*b; ax=175e-18*(1-1/(1.5*leff*1e6+1))/cax; p0=leff+lhead+w-(postsim>0)*px*1e-6; a0=0.5*(leff+lhead)*w-(postsim>0)*w*ax*1e-6; p=(p0>0)*p0; a=(a0>0)*a0;| : |weff|=|w+dw_rppd_par|
+Error in netlist line no. 725, new internal line no. 188:
+
+Undefined parameter [leff]
+Error in netlist line no. 725, new internal line no. 188:
+
+Cannot compute substitute
+Error in netlist line no. 726, new internal line no. 196:
+
+Undefined parameter [rz]
+Error in netlist line no. 726, new internal line no. 196:
+
+Cannot compute substitute
+
+ERROR: fatal error in ngspice, exit(1)
+
+Note: No compatibility mode selected!
+
+
+Circuit: ** sch_path: /foss/designs/chip-pll/charge_pump/charge_pump_tran_tb.sch
+

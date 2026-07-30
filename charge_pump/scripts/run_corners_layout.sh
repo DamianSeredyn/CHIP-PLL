@@ -1,4 +1,3 @@
-
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 SIM_DIR="$PROJECT_DIR/charge_pump/simulations"
@@ -40,16 +39,22 @@ SIG_VBIAS="v(x1.bias)"
 #
 # Mapowanie (potwierdzone):
 #   X43 -> M9  (iref)
-#   X19 -> M17 (iup)
+#   X19 -> M17 (iup, czesc 1)
+#   X50 -> M17 (iup, czesc 2 - IUP = suma drenow X19+X50)
 #   X20 -> M18 (idn)
-declare -A AMMETERS=( [X43]=Viref [X19]=Viup [X20]=Vidn )
+declare -A AMMETERS=( [X43]=Viref [X19]=Viup1 [X50]=Viup2 [X20]=Vidn )
 
 # ngspice dla źródeł napięciowych zagnieżdżonych w subcircuicie zwraca prąd
 # pod nazwą "v.<hierarchia>.<nazwa>#branch" (potwierdzone w logu ngspice),
 # a NIE "i(<hierarchia>.<nazwa>)" - stąd błąd "no such function as i".
 SIG_IREF="v.x1.viref#branch"
-SIG_IUP="v.x1.viup#branch"
+SIG_IUP1="v.x1.viup1#branch"
+SIG_IUP2="v.x1.viup2#branch"
 SIG_IDN="v.x1.vidn#branch"
+# Nazwa finalnego, policzonego wektora iup (suma X19+X50) - patrz "let" w
+# bloku .control ponizej. To ta nazwa trafia do wrdata, NIE SIG_IUP1/IUP2
+# osobno.
+SIG_IUP="itotal_up"
 
 # ---------------------------------------------------------------------------
 # Wstawienie ammetera 0V w dren wskazanej instancji X, TYLKO wewnątrz bloku
@@ -149,10 +154,14 @@ prepare_netlist() {
     # ngspice nie akumuluje reszty parazytycznych węzłów/gałęzi w pamięci
     # ani w pliku wynikowym. To jedyny sposób, żeby plik nie ważył 100+ MB
     # na tak dużej post-layout netliście.
+    # "let itotal_up" sumuje prad drenow X19 i X50 (razem = M17). Ta suma
+    # jest liczona PO tran (elementwise na juz zapisanych wektorach czasowych),
+    # wiec itotal_up ma pelna historie w czasie, tak samo jak reszta sygnalow.
     cat >> "$out" <<EOF
 .control
-save $SIG_VOUT $SIG_VBIAS $SIG_IREF $SIG_IUP $SIG_IDN
+save $SIG_VOUT $SIG_VBIAS $SIG_IREF $SIG_IUP1 $SIG_IUP2 $SIG_IDN
 tran 10n 300u
+let itotal_up = $SIG_IUP1 + $SIG_IUP2
 set filetype=ascii
 wrdata cp_test.txt $SIG_VOUT $SIG_VBIAS $SIG_IREF $SIG_IUP $SIG_IDN
 quit

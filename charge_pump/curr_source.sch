@@ -56,38 +56,6 @@ N 40 -40 40 20 {lab=gd}
 N -10 20 40 20 {lab=gd}
 N -10 -10 -10 20 {lab=gd}
 N -10 -10 -0 -10 {lab=gd}
-C {sg13g2_pr/sg13_lv_pmos.sym} 180 -410 0 1 {name=M4
-l=0.6u
-w=1.4u
-ng=1
-m=1
-model=sg13_lv_pmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_pmos.sym} 300 -410 0 0 {name=M5
-l=0.6u
-w=1.2u
-ng=1
-m=1
-model=sg13_lv_pmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_nmos.sym} 10 -190 0 1 {name=M6
-l=0.6u
-w=1u
-ng=1
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_nmos.sym} 300 -270 0 0 {name=M3
-l=0.6u
-w=1.4u
-ng=1
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
 C {lab_pin.sym} 150 -410 0 0 {name=p7 sig_type=std_logic lab=vp}
 C {lab_pin.sym} 330 -410 0 1 {name=p8 sig_type=std_logic lab=vp}
 C {lab_pin.sym} 330 -270 0 1 {name=p9 sig_type=std_logic lab=gd}
@@ -97,48 +65,89 @@ C {iopin.sym} 180 -80 0 0 {name=p29 lab=gd}
 C {opin.sym} 220 -360 0 0 {name=p1 lab=iref}
 C {lab_pin.sym} 160 -230 0 1 {name=p2 sig_type=std_logic lab=net1}
 C {lab_pin.sym} 320 -350 0 1 {name=p3 sig_type=std_logic lab=net2}
-C {sg13g2_pr/rppd.sym} 160 -190 0 0 {name=R2
-w=1e-6
-l=1.70e-6
-model=rppd
-body=gd
-spiceprefix=X
-b=0
+C {lab_pin.sym} 90 -370 0 0 {name=p4 sig_type=std_logic lab=gd}
+C {lab_pin.sym} -20 -400 0 1 {name=p5 sig_type=std_logic lab=gd}
+C {lab_pin.sym} -20 -190 0 1 {name=p6 sig_type=std_logic lab=gd}
+C {lab_pin.sym} 40 20 0 1 {name=p11 sig_type=std_logic lab=gd}
+C {/foss/pdks/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_pr/sg13_lv_nmos.sym} 10 -190 0 1 {name=M9
+l=0.6u
+w=1u
+ng=1
 m=1
+mm_ok=1
+model=sg13_lv_nmos
+spiceprefix=X
 }
-C {sg13g2_pr/sg13_lv_nmos.sym} 180 -270 0 1 {name=M1
+C {/foss/pdks/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_pr/sg13_lv_pmos.sym} 180 -410 0 1 {name=M4
+l=0.6u
+w=1.4u
+ng=1
+m=1
+mm_ok=1
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {/foss/pdks/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_pr/sg13_lv_pmos.sym} 300 -410 0 0 {name=M5
 l=0.6u
 w=1.2u
 ng=1
 m=1
+mm_ok=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
-C {sg13g2_pr/sg13_lv_nmos.sym} 60 -370 0 0 {name=M2
+C {/foss/pdks/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_pr/sg13_lv_nmos.sym} 180 -270 0 1 {name=M10
+l=0.6u
+w=1.2u
+ng=1
+m=1
+mm_ok=1
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {/foss/pdks/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_pr/sg13_lv_nmos.sym} 300 -270 0 0 {name=M1
+l=0.6u
+w=1.4u
+ng=1
+m=1
+mm_ok=1
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {/foss/pdks/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_pr/sg13_lv_nmos.sym} 10 -400 0 1 {name=M3
 l=0.6u
 w=1u
 ng=1
 m=1
+mm_ok=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
-C {sg13g2_pr/sg13_lv_nmos.sym} 10 -400 0 1 {name=M7
+C {/foss/pdks/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_pr/sg13_lv_nmos.sym} 60 -370 0 0 {name=M6
 l=0.6u
 w=1u
 ng=1
 m=1
+mm_ok=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
-C {lab_pin.sym} 90 -370 0 0 {name=p4 sig_type=std_logic lab=gd}
-C {lab_pin.sym} -20 -400 0 1 {name=p5 sig_type=std_logic lab=gd}
-C {lab_pin.sym} -20 -190 0 1 {name=p6 sig_type=std_logic lab=gd}
-C {sg13g2_pr/sg13_lv_nmos.sym} 20 -10 0 1 {name=M8
+C {/foss/pdks/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_pr/sg13_lv_nmos.sym} 20 -10 0 1 {name=M2
 l=0.6u
 w=0.4u
 ng=1
 m=1
+mm_ok=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
-C {lab_pin.sym} 40 20 0 1 {name=p11 sig_type=std_logic lab=gd}
+C {/foss/pdks/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_pr/rppd.sym} 160 -190 0 0 {name=R2
+w=1e-6
+l=1.7e-6
+model=rppd
+body=gd
+spiceprefix=X
+ m=1
+  mm_ok=1
+value="expr_eng(  ( 70.0e-6 / @w + 260.0 * ( (@b + 1)* @l + ( 1.081*( @w + 6.0e-9 ) + 0.18e-6 )*@b ) / ( @w + 6.0e-9 ) ) / @m  )"
+}

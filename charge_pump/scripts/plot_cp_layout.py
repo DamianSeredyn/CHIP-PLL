@@ -7,8 +7,11 @@ Plik danych (wrdata) zawiera 5 sygnałów -> 10 kolumn (para: skala_czasu, warto
   col0=time col1=vout
   col2=time col3=vbias
   col4=time col5=i_iref   (M9)
-  col6=time col7=i_iup    (M17)
+  col6=time col7=i_iup    (M17, suma pradow drenow X19+X50 - liczona w bashu)
   col8=time col9=i_idn    (M18)
+
+Srednie w tabeli/opisie liczone w oknie czasowym AVG_T_MIN..AVG_T_MAX (w us),
+a nie z ostatniej cwiartki symulacji jak wczesniej.
 """
 
 import numpy as np
@@ -23,6 +26,10 @@ SCRIPT_DIR  = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, '../..'))
 DATA_DIR    = os.path.join(PROJECT_DIR, 'charge_pump/results_layout/data')
 RESULTS_DIR = os.path.join(PROJECT_DIR, 'charge_pump/results_layout')
+
+# Okno czasowe do usredniania iup/idn (w mikrosekundach)
+AVG_T_MIN = 275.0
+AVG_T_MAX = 295.0
 
 for f in glob.glob(os.path.join(RESULTS_DIR, 'cp_layout_*.png')):
     os.remove(f)
@@ -81,14 +88,19 @@ for fpath in data_files:
     i_iup_uA = i_iup * 1e6
     i_idn_uA = i_idn * 1e6
 
-    n = len(time_us)
-    q = n - n // 4
+    # Okno usredniania 275-295us (zamiast ostatniej cwiartki symulacji)
+    mask = (time_us >= AVG_T_MIN) & (time_us <= AVG_T_MAX)
+    if not np.any(mask):
+        print(f"  UWAGA: brak probek w oknie {AVG_T_MIN}-{AVG_T_MAX}us dla {tag}, "
+              f"uzywam calego przebiegu jako fallback")
+        mask = np.ones_like(time_us, dtype=bool)
+
     avgs = {
-        'vout':  float(np.mean(vout[q:])),
-        'vbias': float(np.mean(vbias[q:])),
-        'iref':  float(np.mean(i_iref_uA[q:])),
-        'iup':   float(np.mean(i_iup_uA[q:])),
-        'idn':   float(np.mean(i_idn_uA[q:])),
+        'vout':  float(np.mean(vout[mask])),
+        'vbias': float(np.mean(vbias[mask])),
+        'iref':  float(np.mean(i_iref_uA[mask])),
+        'iup':   float(np.mean(i_iup_uA[mask])),
+        'idn':   float(np.mean(i_idn_uA[mask])),
     }
     summary.append((tag, corner, temp, vp, avgs))
 
@@ -104,7 +116,7 @@ for fpath in data_files:
     axes[1].grid(True, alpha=0.3)
 
     axes[2].plot(time_us, i_iref_uA, color='#2ca02c', linewidth=1, label='iref (M9)')
-    axes[2].plot(time_us, i_iup_uA, color='#ff7f0e', linewidth=1, label='iup (M17)')
+    axes[2].plot(time_us, i_iup_uA, color='#ff7f0e', linewidth=1, label='iup (M17 = X19+X50)')
     axes[2].plot(time_us, i_idn_uA, color='#9467bd', linewidth=1, label='idn (M18)')
     axes[2].set_ylabel('I [uA]')
     axes[2].legend(fontsize=9)
@@ -113,7 +125,7 @@ for fpath in data_files:
     # Panel 4 - tylko iup vs idn, skala osi Y liczona z zakresu percentyli
     # (5-95%), a nie min/max - piki ladowania/rozladowania wychodza wtedy
     # poza widoczny zakres, zamiast splaszczac caly wykres wokol typowych wartosci.
-    axes[3].plot(time_us, i_iup_uA, color='#ff7f0e', linewidth=1.2, label='iup (M17)')
+    axes[3].plot(time_us, i_iup_uA, color='#ff7f0e', linewidth=1.2, label='iup (X19+X50)')
     axes[3].plot(time_us, i_idn_uA, color='#9467bd', linewidth=1.2, label='idn (M18)')
     combined = np.concatenate([i_iup_uA, i_idn_uA])
     lo = np.percentile(combined, 5)
@@ -121,6 +133,7 @@ for fpath in data_files:
     span = hi - lo
     pad = span * 0.15 if span > 0 else max(abs(hi), 1e-6)
     axes[3].set_ylim(lo - pad, hi + pad)
+    axes[3].axvspan(AVG_T_MIN, AVG_T_MAX, color='gray', alpha=0.15)
     axes[3].set_ylabel('I [uA]')
     axes[3].set_xlabel('Czas [us]')
     axes[3].legend(fontsize=9)
@@ -155,9 +168,9 @@ for tag, corner, temp, vp, a in summary:
     tabs_html += f'<a href="#" onclick="show(\'{tag}\');return false;">{corner} T{temp} Vp{vp}</a>\n'
     panels_html += f'''
 <div id="{tag}" class="panel">
-  <p>{corner} | T={temp}C | Vp={vp}V |
+  <p>{corner} | T={temp}C | Vp={vp}V | srednie liczone w oknie {AVG_T_MIN}-{AVG_T_MAX}us:
      V(out)={fmt(a["vout"])}V, V(vbias)={fmt(a["vbias"])}V,
-     Iref={fmt(a["iref"],3)}uA, Iup={fmt(a["iup"],3)}uA, Idn={fmt(a["idn"],3)}uA</p>
+     Iref={fmt(a["iref"],3)}uA, Iup={fmt(a["iup"],3)}uA (X19+X50), Idn={fmt(a["idn"],3)}uA</p>
   <img src="cp_layout_{tag}.png">
 </div>
 '''
@@ -183,6 +196,8 @@ img {{ max-width: 900px; border: 1px solid #ccc; }}
 </head>
 <body>
 <h1>Charge pump - post-layout, sweep PVT</h1>
+<p>Srednie prady Iup/Idn liczone w oknie {AVG_T_MIN}-{AVG_T_MAX}us (zaznaczone szarym pasem na wykresach).
+Iup = suma pradow drenow X19 + X50.</p>
 
 <table>
 <thead>
