@@ -17,18 +17,16 @@ N 50 -430 70 -430 {lab=vp}
 N 50 -410 140 -410 {lab=#net2}
 N 50 -390 70 -390 {lab=0}
 C {vsource.sym} 350 -360 0 0 {name=Vvp
-value=1.2 savecurrent=false}
+value=1.08 savecurrent=false}
 C {gnd.sym} 350 -330 0 0 {name=l16 lab=0}
 C {lab_pin.sym} 350 -390 0 0 {name=p47 sig_type=std_logic lab=vp}
-C {devices/code_shown.sym} -340 -140 0 0 {name=MODEL only_toplevel=true
-format="tcleval( @value )"
-value=".lib cornerMOSlv.lib mos_tt
-"}
 C {devices/code_shown.sym} -320 -440 0 0 {name=NGSPICE only_toplevel=true 
 value="
-.temp 27
+.temp -25
 
 .control
+
+.param rsh_rppd = 500
 
 op
 save all
@@ -64,3 +62,8 @@ C {lab_pin.sym} 350 -160 0 1 {name=p4 sig_type=std_logic lab=vout}
 C {/foss/designs/CHIP-PLL/charge_pump/curr_source.sym} -100 -410 0 0 {name=x1}
 C {gnd.sym} 70 -390 0 0 {name=l1 lab=0}
 C {lab_pin.sym} 70 -430 0 1 {name=p1 sig_type=std_logic lab=vp}
+C {devices/code_shown.sym} -490 -90 0 0 {name=MODEL1 only_toplevel=true
+format="tcleval( @value )"
+value=".lib cornerMOSlv.lib mos_ss
+.include /foss/pdks/ihp-sg13g2/libs.tech/ngspice/models/resistors_mod.lib
+"}

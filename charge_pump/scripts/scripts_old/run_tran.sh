@@ -38,5 +38,5 @@ for CORNER in $corners; do
     done
 done
 
-python3 $SCRIPT_DIR/parse_cp2.py
-python3 $SCRIPT_DIR/plot_cp2.py
+python3 $SCRIPT_DIR/parse_cp.py
+python3 $SCRIPT_DIR/plot_cp.py

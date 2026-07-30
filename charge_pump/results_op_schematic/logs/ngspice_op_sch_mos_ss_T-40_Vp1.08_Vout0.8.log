@@ -1,0 +1,87 @@
+Warning: singular matrix:  check node x1.x1.sub!
+
+Note: Starting dynamic gmin stepping
+Warning: singular matrix:  check node x1.x1.sub!
+
+Warning: Dynamic gmin stepping failed
+Note: Starting true gmin stepping
+Warning: singular matrix:  check node x1.x1.sub!
+
+Warning: singular matrix:  check node x1.x1.sub!
+
+Warning: singular matrix:  check node x1.x1.sub!
+
+Warning: singular matrix:  check node x1.x1.sub!
+
+Warning: True gmin stepping failed
+Note: Starting source stepping
+Warning: source stepping failed
+Note: Transient op started
+Error: Transient op failed, timestep too small
+
+
+Error: The operating point could not be simulated successfully.
+    Any of the following steps may fail.!
+
+doAnalyses: OP:  Timestep too small; trouble with node "x1.net13"
+
+
+op simulation(s) aborted
+Warning from checkvalid: vector vout is not available or has zero length.
+Warning from checkvalid: vector x1.bias is not available or has zero length.
+
+Note: No compatibility mode selected!
+
+
+Circuit: ** sch_path: /foss/designs/chip-pll/charge_pump/charge_pump_op_tb.sch
+
+Doing analysis at TEMP = -40.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+DC solution failed -
+
+Last Node Voltages
+------------------
+
+Node                                   Last Voltage        Previous Iter
+----                                   ------------        -------------
+vp                                              1.2                  1.2
+vout                                            0.8                  0.8
+up                                                1                    1
+dn                                                1                    1
+x1.net13                                       -nan                  nan
+x1.bias                                         nan                 -nan
+x1.net4                                        -nan                  nan
+x1.net1                                         nan                 -nan
+x1.net15                                       -nan                  nan
+x1.net10                                       -nan                  nan
+x1.net7                                        -nan                  nan
+x1.net2                                        -nan                  nan
+x1.net8                                        -nan                 -nan
+x1.net3                                        -nan                 -nan
+x1.net5                                        -nan                 -nan
+x1.net9                                        -nan                 -nan
+x1.net6                                        -nan                 -nan
+x1.x2.net2                                     -nan                 -nan
+x1.x2.net3                                     -nan                  nan
+x1.x2.net1                                     -nan                  nan
+x1.x2.xr2.dt                                   -nan                 -nan
+x1.x1.net2                                     -nan                  nan
+x1.x1.net1                                      nan                 -nan
+x1.x1.iref                                     -nan                 -nan
+x1.x1.sub!                                     -nan                 -nan
+x1.x1.xr2.dt                                   -nan                 -nan
+x1.x1.x1.net2                                  -nan                 -nan
+x1.x1.x1.net3                                  -nan                  nan
+x1.x1.x1.net1                                  -nan                  nan
+x1.x1.x1.xr2.dt                                -nan                 -nan
+vup1#branch                                    -nan                 -nan
+vdn2#branch                                     nan                 -nan
+vup2#branch                                    -nan                 -nan
+vvp#branch                                     -nan                  nan
+
+@n.x1.xm3.nsg13_lv_pmos[ids] = -nan
+@n.x1.xm17.nsg13_lv_pmos[ids] = nan
+@n.x1.xm18.nsg13_lv_nmos[ids] = -nan
+ngspice-45.2 done
