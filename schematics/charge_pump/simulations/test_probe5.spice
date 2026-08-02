@@ -1,0 +1,6 @@
+.control
+tran 10n 60u
+print @n.x1.x17.nsg13_lv_pmos[ids]
+plot @n.x1.x17.nsg13_lv_pmos[ids] @n.x1.x18.nsg13_lv_nmos[ids]
+quit
+.endc
