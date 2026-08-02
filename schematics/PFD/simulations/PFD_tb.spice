@@ -1,0 +1,31 @@
+** sch_path: /foss/designs/CHIP-PLL/PFD/PFD_tb.sch
+**.subckt PFD_tb
+Vref CRef GND dc 0 ac 0 pulse(0 {Vp} {T/2} 10n 10n {T/2} {T})
+Vco CVco GND dc 0 ac 0 pulse(1u {Vp} {dly} 10n 10n {T/2} {T})
+Vp net1 GND dc {Vp}
+C1 UP GND 5p
+C2 DOWN GND 5p
+x1 DOWN UP CVco CRef GND net1 PFD_cell
+**** begin user architecture code
+ .lib cornerMOSlv.lib mos_ss
+
+
+
+.temp=25
+.param T = 31.25u
+.param dly=1u
+.param Vp=1.2
+.control
+save all
+tran 25n 200u
+
+meas tran pw_up avg v(UP) from=100u to=200u
+meas tran pw_down avg v(DOWN) from=100u to=200u
+plot v(pw_up) v(pw_down)
+write PFD_tb.raw
+.endc
+
+.inc /foss/designs/CHIP-PLL/layout/extraction/PFD_cell.pex.spice
+
+.GLOBAL GND
+.end

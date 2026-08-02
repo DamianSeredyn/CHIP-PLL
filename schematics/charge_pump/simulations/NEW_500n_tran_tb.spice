@@ -1,0 +1,121 @@
+** sch_path: /foss/designs/CHIP-PLL/charge_pump/NEW_500n_tran_tb.sch
+**.subckt NEW_500n_tran_tb
+Vvp vp 0 {Vp}
+C1 vout 0 5p
+Vup2 up 0 PULSE(1.2 0 5u 10p 10p 5u 20u)
+Vdn2 dn 0 PULSE(0 1.2 15u 10p 10p 5u 20u)
+x1 vp up vout dn 0 NEW_500n_cp_cell
+XM1 vout rst 0 0 sg13_lv_nmos w=2.5u l=0.15u ng=1
+Vrst rst 0 PULSE(0 1.2 0 1n 1n 5u 1)
+**** begin user architecture code
+ .lib cornerMOSlv.lib mos_ss
+.include /foss/pdks/ihp-sg13g2/libs.tech/ngspice/models/resistors_mod.lib
+
+
+
+.temp -25
+.param Vp=1.08
+.param rsh_rhigh=1000
+.control
+
+op
+tran 10n 300u
+save all
+wrdata cp_test.txt v(vout) v(x1.biasn) v(x1.biasp) i(v.x1.Viup) i(v.x1.Vidn)
+write cp_test.raw
+
+set filetype=ascii
+
+set appendwrite
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/charge_pump/NEW_500n_cp_cell.sym # of pins=5
+** sym_path: /foss/designs/CHIP-PLL/charge_pump/NEW_500n_cp_cell.sym
+** sch_path: /foss/designs/CHIP-PLL/charge_pump/NEW_500n_cp_cell.sch
+.subckt NEW_500n_cp_cell vp UP vout DN gd
+*.iopin UP
+*.iopin DN
+*.iopin gd
+*.iopin vp
+*.opin vout
+XM15 net13 biasn net4 gd sg13_lv_nmos w=1.6u l=0.6u ng=1
+XM16 net4 net1 gd gd sg13_lv_nmos w=1.6u l=0.6u ng=1
+XM1 net15 biasn net10 gd sg13_lv_nmos w=1.6u l=0.6u ng=1
+XM6 VE biasn net7 gd sg13_lv_nmos w=1.6u l=0.6u ng=1
+XM8 net7 net1 gd gd sg13_lv_nmos w=1.6u l=0.6u ng=1
+XM9 net1 biasn net2 gd sg13_lv_nmos w=1.6u l=0.6u ng=1
+XM10 net2 net1 gd gd sg13_lv_nmos w=1.6u l=0.6u ng=1
+Vprad net9 net1 0
+Vprad1 net10 VE 0
+Vidn VF net13 0
+Xq net15 biasp net8 vp sg13_lv_pmos w=1.6u l=0.6u ng=1
+XM7 VH biasp net3 vp sg13_lv_pmos w=1.6u l=0.6u ng=1 m=3
+XM11 net5 net15 vp vp sg13_lv_pmos w=1.6u l=0.6u ng=1 m=3
+XM2 net8 net15 vp vp sg13_lv_pmos w=5.1u l=0.6u ng=1
+XM17 vout UP VH vp sg13_lv_pmos w=1u l=0.8u ng=1 m=3
+XM18 vout DN VF gd sg13_lv_nmos w=1u l=0.8u ng=1
+x1 vp gd biasn vbias
+Viup net5 net3 0
+XM3 net9 net6 vp vp sg13_lv_pmos w=1u l=0.6u ng=1
+x2 vp net6 gd curr_source
+x3 vp gd biasp vbias_p
+.ends
+
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/charge_pump/vbias.sym # of pins=3
+** sym_path: /foss/designs/CHIP-PLL/charge_pump/vbias.sym
+** sch_path: /foss/designs/CHIP-PLL/charge_pump/vbias.sch
+.subckt vbias vp gd vbias
+*.iopin vp
+*.iopin gd
+*.opin vbias
+XM16 net2 net2 0 gd sg13_lv_nmos w=1.6u l=0.6u ng=1
+XM1 vbias net1 net2 gd sg13_lv_nmos w=1.6u l=0.6u ng=1
+R1 net1 vbias 500
+XM5 iref iref vp vp sg13_lv_pmos w=1.25u l=0.6u ng=1
+XM6 net3 iref vp vp sg13_lv_pmos w=1u l=0.6u ng=1
+XM7 iref net3 net4 gd sg13_lv_nmos w=1u l=0.6u ng=1
+XM8 net3 net3 gd gd sg13_lv_nmos w=1.25u l=0.6u ng=1
+R3 net4 gd 500
+XM10 net1 iref vp vp sg13_lv_pmos w=1.6u l=0.6u ng=1
+.ends
+
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/charge_pump/curr_source.sym # of pins=3
+** sym_path: /foss/designs/CHIP-PLL/charge_pump/curr_source.sym
+** sch_path: /foss/designs/CHIP-PLL/charge_pump/curr_source.sch
+.subckt curr_source vp iref gd
+*.iopin vp
+*.iopin gd
+*.opin iref
+XM4 iref iref vp vp sg13_lv_pmos w=2u l=0.6u ng=1
+XM5 net2 iref vp vp sg13_lv_pmos w=3u l=0.6u ng=1
+XM6 iref net2 net1 gd sg13_lv_nmos w=3u l=0.6u ng=1
+XM7 net2 net2 gd gd sg13_lv_nmos w=2u l=0.6u ng=1
+XR2 net1 gd sub! rhigh w=0.5e-6 l=36e-6 m=1 b=0
+.ends
+
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/charge_pump/vbias_p.sym # of pins=3
+** sym_path: /foss/designs/CHIP-PLL/charge_pump/vbias_p.sym
+** sch_path: /foss/designs/CHIP-PLL/charge_pump/vbias_p.sch
+.subckt vbias_p vp gd vbias
+*.iopin vp
+*.iopin gd
+*.opin vbias
+XM16 net2 net2 0 gd sg13_lv_nmos w=1.6u l=0.6u ng=1
+XM1 vbias net1 net2 gd sg13_lv_nmos w=1.6u l=0.6u ng=1
+R1 net1 vbias 500
+XM5 iref iref vp vp sg13_lv_pmos w=1.4u l=0.6u ng=1
+XM6 net3 iref vp vp sg13_lv_pmos w=1u l=0.6u ng=1
+XM7 iref net3 net4 gd sg13_lv_nmos w=1u l=0.6u ng=1
+XM8 net3 net3 gd gd sg13_lv_nmos w=1.4u l=0.6u ng=1
+R3 net4 gd 500
+XM10 net1 iref vp vp sg13_lv_pmos w=1.6u l=0.6u ng=1
+.ends
+
+.end

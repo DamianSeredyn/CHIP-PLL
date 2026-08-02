@@ -1,0 +1,84 @@
+* PEX produced on Wed Jul 22 05:29:04 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=3 and s=1
+* NGSPICE file created from NAND_3in.ext - technology: ihp-sg13g2
+
+.subckt NAND_3in a b y c VP GND
+X0 a_162_n565.t0 b.t0 a_48_n565.t0 GND.t0 sg13_lv_nmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
+X1 y.t2 a.t1 VP.t1 VP.t0 sg13_lv_pmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.13u
+X2 a_48_n565.t0 c.t0 GND.t3 GND.t2 sg13_lv_nmos ad=55.5f pd=0.74u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X3 y.t0 c.t1 VP.t3 VP.t0 sg13_lv_pmos ad=55.5f pd=0.74u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X4 y.t1 a.t0 a_162_n565.t0 GND.t1 sg13_lv_nmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.13u
+X5 VP.t1 b.t1 y.t0 VP.t0 sg13_lv_pmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
+R0 a.n0 a.t1 8.57008
+R1 a.n0 a.t0 7.51402
+R2 a a.n0 5.12428
+R3 b.n0 b.t0 8.57008
+R4 b.n0 b.t1 7.51402
+R5 b b.n0 4.88228
+R6 y.n1 y.t0 27.0955
+R7 y.n0 y.t1 26.8673
+R8 y.n0 y.t2 26.8051
+R9 y y.n1 3.3459
+R10 y.n1 y.n0 0.2117
+R11 c.n0 c.t0 8.01682
+R12 c.n0 c.t1 8.00307
+R13 c c.n0 4.6391
+R14 VP.n2 VP.t3 17.6656
+R15 VP.n0 VP.t1 17.6456
+R16 VP.n2 VP.n1 2.41907
+R17 VP.n1 VP.n0 1.72746
+R18 VP.n1 VP.t0 1.0005
+R19 VP VP.n0 0.099484
+R20 VP VP.n2 0.0673911
+R21 GND.n2 GND.t1 232.31
+R22 GND.t0 GND.n2 224.299
+R23 GND.n4 GND.t2 144.433
+R24 GND.t2 GND.n3 144.184
+R25 GND.n3 GND.t0 56.0657
+R26 GND.t1 GND.n0 48.3064
+R27 GND.n1 GND.t3 17.5471
+R28 GND.n5 GND.n2 8.5005
+R29 GND.n4 GND.n1 4.30778
+R30 GND.n6 GND.n5 4.23547
+R31 GND GND.n0 1.55981
+R32 GND.n5 GND.n3 0.250686
+R33 GND.n6 GND.n1 0.0531361
+R34 GND GND.n6 0.0485528
+R35 GND.n5 GND.n0 0.00107995
+R36 GND.n5 GND.n4 0.001
+C0 b y 0.11383f
+C1 VP a 0.12318f
+C2 b a 0.34245f
+C3 c y 0.05246f
+C4 VP b 0.1167f
+C5 c a 0.07043f
+C6 c VP 0.11576f
+C7 c b 0.37268f
+C8 y a 0.14881f
+C9 VP y 0.38276f
+C10 a GND 0.53057f
+C11 b GND 0.37072f
+C12 y GND 0.67901f
+C13 c GND 0.30253f
+C14 VP GND 0.1713f
+C15 a_48_n565.t0 GND 0.08062f
+C16 a_162_n565.t0 GND 0.14159f
+C17 VP.n0 GND 0.04458f
+C18 VP.t0 GND 0.53303f
+C19 VP.n1 GND 0.11019f
+C20 VP.n2 GND 0.03172f
+C21 c.t1 GND 0.17903f
+C22 c.t0 GND 0.17021f
+C23 c.n0 GND 0.2742f
+C24 y.t2 GND 0.04927f
+C25 y.t1 GND 0.04944f
+C26 y.n0 GND 0.34418f
+C27 y.t0 GND 0.05368f
+C28 y.n1 GND 0.21186f
+C29 b.t1 GND 0.20859f
+C30 b.t0 GND 0.21672f
+C31 b.n0 GND 0.33278f
+C32 a.t1 GND 0.15051f
+C33 a.t0 GND 0.13081f
+C34 a.n0 GND 0.2275f
+.ends
+

@@ -1,0 +1,14 @@
+** sch_path: /foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sch
+**.subckt vco_delay_cell vp pgt in out ngt gnd
+*.ipin in
+*.opin out
+*.iopin gnd
+*.iopin vp
+*.iopin pgt
+*.iopin ngt
+M23 up pgt vp vp sg13_lv_pmos w=1.21u l=0.18u ng=1
+M24 out in up up sg13_lv_pmos w=1.2u l=0.18u ng=1
+M25 out in dn dn sg13_lv_nmos w=0.4u l=0.18u ng=1
+M26 dn ngt gnd gnd sg13_lv_nmos w=0.405u l=0.420u ng=1
+**.ends
+.end

@@ -1,0 +1,47 @@
+Warning: singular matrix:  check node x1.a_39_4370#
+
+Note: Starting dynamic gmin stepping
+Warning: singular matrix:  check node x1.a_39_4370#
+
+Warning: Dynamic gmin stepping failed
+Note: Starting true gmin stepping
+Warning: singular matrix:  check node x1.a_39_4370#
+
+Warning: singular matrix:  check node x1.a_39_4370#
+
+Warning: singular matrix:  check node x1.a_39_4370#
+
+Warning: singular matrix:  check node x1.a_39_4370#
+
+Warning: True gmin stepping failed
+Note: Starting source stepping
+Warning: source stepping failed
+Note: Transient op started
+Note: Transient op finished successfully
+
+Note: No compatibility mode selected!
+
+
+Circuit: ** sch_path: /foss/designs/chip-pll/charge_pump/charge_pump_op_tb.sch
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+OSDI(debug) n.x1.x34.nr1: OSDI(debug) n.x1.x2.nr1: WARNING: V(i2,c) voltage is greater than specified by vmax
+WARNING: V(i1,c) voltage is greater than specified by vmax
+OSDI(debug) n.x1.x34.nr1: WARNING: V(i2,c) voltage is greater than specified by vmax
+OSDI(debug) n.x1.x3.nr1: WARNING: V(i1,c) voltage is greater than specified by vmax
+OSDI(debug) n.x1.x3.nr1: WARNING: V(i2,c) voltage is greater than specified by vmax
+OSDI(debug) n.x1.x34.nr1: OSDI(debug) n.x1.x3.nr1: WARNING: V(i1,c) voltage is greater than specified by vmax
+OSDI(debug) n.x1.x2.nr1: OSDI(debug) n.x1.x3.nr1: WARNING: V(i1,c) voltage is greater than specified by vmax
+WARNING: V(i2,c) voltage is greater than specified by vmax
+WARNING: V(i2,c) voltage is greater than specified by vmax
+OSDI(debug) n.x1.x34.nr1: WARNING: V(i2,c) voltage is greater than specified by vmax
+ Reference value :  0.00000e+00
+No. of Data Rows : 1
+v(vout) = 6.000000e-01
+v(x1.vbias_0.vbias) = 6.516686e-01
+@n.x1.x43.nsg13_lv_pmos[ids] = 1.200760e-06
+@n.x1.x19.nsg13_lv_pmos[ids] = 1.989689e-07
+@n.x1.x20.nsg13_lv_nmos[ids] = 4.281002e-07
+ngspice-45.2 done
