@@ -1,0 +1,138 @@
+* PEX produced on Thu Jul  9 10:04:54 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=3 and s=1
+* NGSPICE file created from curr_source.ext - technology: ihp-sg13g2
+
+.subckt curr_source gd vp iref
+X0 a_827_n219.t0 a_739_295.t0 iref.t1 gd.t6 sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.6u
+X1 gd.t12 gd.t9 gd.t11 gd.t10 sg13_lv_nmos ad=0.136p pd=1.48u as=0 ps=0 w=0.4u l=0.6u
+X2 iref.t0 a_441_107.t0 vp.t0 gd.t0 sg13_lv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
+X3 gd.t8 a_827_n219.t1 gd.t7 rppd l=1.7u w=1u
+X4 a_441_107.t2 vp.t1 vp.t2 gd.t3 sg13_lv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
+X5 vp.t4 iref.t2 iref.t3 vp.t3 sg13_lv_pmos ad=0.476p pd=3.48u as=0.476p ps=3.48u w=1.4u l=0.6u
+X6 a_441_107.t1 a_441_107.t0 gd.t2 gd.t1 sg13_lv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
+X7 a_739_295.t1 a_739_295.t0 gd.t5 gd.t4 sg13_lv_nmos ad=0.476p pd=3.48u as=0.476p ps=3.48u w=1.4u l=0.6u
+X8 a_739_295.t2 iref.t4 vp.t5 vp.t3 sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.6u
+R0 iref.n1 iref.n0 29.9973
+R1 iref.n1 iref.t4 24.0005
+R2 iref.n2 iref.t2 15.0005
+R3 iref.n3 iref.n2 9.0005
+R4 iref.n0 iref.t0 6.20378
+R5 iref.n0 iref.t1 5.60148
+R6 iref.n2 iref.t3 5.01607
+R7 iref.n3 iref.n1 0.6605
+R8 iref iref.n3 0.4295
+R9 vp.n5 vp.n4 18.7081
+R10 vp.t5 vp.n2 17.0005
+R11 vp.n7 vp.t5 17.0005
+R12 vp.t5 vp.n6 17.0005
+R13 vp.n9 vp.t4 17.0005
+R14 vp.t4 vp.n3 17.0005
+R15 vp.n5 vp.t1 15.0005
+R16 vp.n1 vp.n0 8.5005
+R17 vp.t4 vp.n8 8.48605
+R18 vp.n4 vp.t0 6.61647
+R19 vp.n4 vp.t2 5.56245
+R20 vp.n13 vp.n12 2.80799
+R21 vp.n12 vp.t3 2.126
+R22 vp.n11 vp.n10 1.79696
+R23 vp.t3 vp.n11 1.70305
+R24 vp.n6 vp.n5 0.591097
+R25 vp.n10 vp.n9 0.492627
+R26 vp.n13 vp.n0 0.126463
+R27 vp vp.n13 0.0782853
+R28 vp.n7 vp.n3 0.0464701
+R29 vp.n8 vp.n7 0.0448652
+R30 vp.n10 vp.n0 0.04175
+R31 vp.n9 vp.n2 0.0333358
+R32 vp.n8 vp.n6 0.03091
+R33 vp.n3 vp.n2 0.0284104
+R34 vp.n11 vp.n1 0.00315277
+R35 vp.n12 vp.n1 0.00175
+R36 gd.t7 gd.t10 1242.8
+R37 gd.t0 gd.t4 1102.88
+R38 gd.n9 gd.t7 1037.04
+R39 gd.t1 gd.t6 855.967
+R40 gd.t10 gd.t1 246.915
+R41 gd.t4 gd.t3 164.609
+R42 gd.t6 gd.t0 139.918
+R43 gd.n3 gd.t12 17.3443
+R44 gd.n3 gd.t11 17.3305
+R45 gd.n12 gd.n11 17.0005
+R46 gd.n4 gd.t9 15.0005
+R47 gd.n13 gd.n12 8.59439
+R48 gd.n9 gd.n8 8.501
+R49 gd.n9 gd.n7 8.501
+R50 gd.n9 gd.n6 8.501
+R51 gd.n11 gd.n2 8.5005
+R52 gd.n11 gd.n5 8.5005
+R53 gd.n3 gd.t5 6.84299
+R54 gd.n0 gd.t2 6.61656
+R55 gd.n10 gd.n9 5.47466
+R56 gd.n0 gd.t8 5.0005
+R57 gd.n15 gd.n2 4.23547
+R58 gd.n13 gd.n5 4.23547
+R59 gd.n11 gd.n10 4.10551
+R60 gd.n16 gd.n1 2.08773
+R61 gd.n14 gd.n4 1.4781
+R62 gd.n17 gd.n0 0.590078
+R63 gd.n4 gd.n3 0.240596
+R64 gd.n16 gd.n15 0.18804
+R65 gd.n17 gd.n16 0.0992176
+R66 gd.n10 gd.n1 0.0842818
+R67 gd.n15 gd.n14 0.0815528
+R68 gd.n14 gd.n13 0.0448861
+R69 gd gd.n17 0.0115
+R70 gd.n12 gd.n6 0.001
+R71 gd.n7 gd.n5 0.001
+R72 gd.n8 gd.n2 0.001
+R73 gd.n8 gd.n1 0.001
+R74 gd.n7 gd.n2 0.001
+R75 gd.n6 gd.n5 0.001
+R76 a_827_n219.t1 a_827_n219.t0 47.9805
+R77 a_441_107.t1 a_441_107.n0 6.33368
+R78 a_441_107.n0 a_441_107.t0 15.0005
+R79 a_441_107.n0 a_441_107.t2 43.5164
+R80 a_739_295.t2 a_739_295.n0 6.27106
+R81 a_739_295.n0 a_739_295.t1 4.72314
+R82 a_739_295.n0 a_739_295.t0 33.2091
+C0 vp iref 0.91237f
+C1 iref gd 0.84445f
+C2 vp gd 0.49146f
+C3 a_487_n219# gd 0.41112f $ **FLOATING
+C4 a_739_295.t2 gd 0.03772f
+C5 a_739_295.n0 gd 0.05649f
+C6 a_739_295.t0 gd 0.16187f
+C7 a_739_295.t1 gd 0.04392f
+C8 a_441_107.t1 gd 0.04738f
+C9 a_441_107.t0 gd 0.18324f
+C10 a_441_107.n0 gd 0.11562f
+C11 a_441_107.t2 gd 0.13362f
+C12 a_827_n219.t1 gd 0.10863f
+C13 a_827_n219.t0 gd 0.08579f
+C14 vp.n0 gd 0.01869f
+C15 vp.n1 gd 0.05065f
+C16 vp.t0 gd 0.02267f
+C17 vp.t2 gd 0.0207f
+C18 vp.n4 gd 0.03248f
+C19 vp.t1 gd 0.04073f
+C20 vp.n5 gd 0.01441f
+C21 vp.n6 gd 0.01798f
+C22 vp.t5 gd 0.02484f
+C23 vp.n7 gd 0.01373f
+C24 vp.t4 gd 0.02898f
+C25 vp.n9 gd 0.01319f
+C26 vp.n10 gd 0.0616f
+C27 vp.n11 gd 0.05145f
+C28 vp.t3 gd 0.73294f
+C29 vp.n12 gd 0.05079f
+C30 vp.n13 gd 0.01454f
+C31 iref.t1 gd 0.09378f
+C32 iref.t0 gd 0.08252f
+C33 iref.n0 gd 0.22076f
+C34 iref.t4 gd 0.21652f
+C35 iref.n1 gd 0.24192f
+C36 iref.t2 gd 0.20877f
+C37 iref.t3 gd 0.11838f
+C38 iref.n2 gd 0.07898f
+C39 iref.n3 gd 0.05684f
+.ends
+
