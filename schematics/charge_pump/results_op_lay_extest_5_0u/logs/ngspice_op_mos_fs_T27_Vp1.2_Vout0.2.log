@@ -1,0 +1,38 @@
+Warning: singular matrix:  check node x1.a_39_4370#
+
+Note: Starting dynamic gmin stepping
+Warning: singular matrix:  check node x1.a_39_4370#
+
+Warning: Dynamic gmin stepping failed
+Note: Starting true gmin stepping
+Warning: singular matrix:  check node x1.a_39_4370#
+
+Warning: singular matrix:  check node x1.a_39_4370#
+
+Warning: singular matrix:  check node x1.a_39_4370#
+
+Warning: singular matrix:  check node x1.a_39_4370#
+
+Warning: True gmin stepping failed
+Note: Starting source stepping
+Warning: source stepping failed
+Note: Transient op started
+Note: Transient op finished successfully
+
+Note: No compatibility mode selected!
+
+
+Circuit: ** sch_path: /foss/designs/chip-pll/charge_pump/charge_pump_op_tb.sch
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+ Reference value :  0.00000e+00
+No. of Data Rows : 1
+v(vout) = 2.000000e-01
+v(x1.vbias_0.vbias) = 5.586153e-01
+@n.x1.x43.nsg13_lv_pmos[ids] = 1.288253e-06
+@n.x1.x19.nsg13_lv_pmos[ids] = 2.226365e-07
+@n.x1.x50.nsg13_lv_pmos[ids] = 2.226354e-07
+@n.x1.x20.nsg13_lv_nmos[ids] = 4.448469e-07
+ngspice-45.2 done

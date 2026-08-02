@@ -1,0 +1,69 @@
+** sch_path: /foss/designs/CHIP-PLL/charge_pump/NEW_500n_tran_tb.sch
+**.subckt NEW_500n_tran_tb
+XM15 net13 biasn net4 0 sg13_lv_nmos w=1.6u l=0.6u ng=1
+XM16 net4 net1 0 0 sg13_lv_nmos w=1.7u l=0.6u ng=1
+XM1 net15 biasn net10 0 sg13_lv_nmos w=1.8u l=0.6u ng=1
+XM6 VE biasn net7 0 sg13_lv_nmos w=1.8u l=0.6u ng=1
+XM8 net7 net1 0 0 sg13_lv_nmos w=1.72u l=0.6u ng=1
+XM9 net1 biasn net3 0 sg13_lv_nmos w=1.8u l=0.6u ng=1
+XM10 net2 net1 0 0 sg13_lv_nmos w=1.8u l=0.6u ng=1
+Vvp vp 0 {Vp}
+Iiref vp net1 0.2u
+Vprad net3 net2 0
+Vprad1 net10 VE 0
+Vin VF net13 0
+Xq VG biasn net8 vp sg13_lv_pmos w=2.84u l=0.6u ng=1
+XM3 net15 biasn VG vp sg13_lv_pmos w=2.8u l=0.6u ng=1
+XM7 VH biasn net6 vp sg13_lv_pmos w=1u l=0.8u ng=1 m=3
+XM11 net5 net15 vp vp sg13_lv_pmos w=1u l=0.8u ng=1 m=3
+Vip net5 net6 0
+XM2 net8 net15 vp vp sg13_lv_pmos w=2.84u l=0.6u ng=1
+XM17 vout up VH vp sg13_lv_pmos w=1.6u l=0.6u ng=1 m=3
+XM18 vout dn VF 0 sg13_lv_nmos w=1.6u l=0.6u ng=1
+C1 vout 0 5p
+x1 vp 0 biasn vbias
+Vup2 up 0 PULSE(1.2 0 0n 10p 10p 5u 15u)
+Vdn2 dn 0 PULSE(0 1.2 7.5u 10p 10p 5u 15u)
+**** begin user architecture code
+**** begin user architecture code
+ .lib cornerMOSlv.lib mos_tt
+
+.param temp=-40
+.param Vp=1.2
+
+**** end user architecture code
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/charge_pump/vbias.sym # of pins=3
+** sym_path: /foss/designs/CHIP-PLL/charge_pump/vbias.sym
+** sch_path: /foss/designs/CHIP-PLL/charge_pump/vbias.sch
+.subckt vbias vp gd vbias
+*.iopin vp
+*.iopin gd
+*.opin vbias
+XM16 net2 net2 0 gd sg13_lv_nmos w=1u l=0.6u ng=1
+XM1 vbias net1 net2 gd sg13_lv_nmos w=1u l=0.6u ng=1
+R1 net1 vbias 500
+XM5 viref viref vp vp sg13_lv_pmos w=1.2u l=0.6u ng=1
+XM6 net3 viref vp vp sg13_lv_pmos w=1u l=0.6u ng=1
+XM7 net5 net3 net4 gd sg13_lv_nmos w=1u l=0.6u ng=1
+XM8 net3 net3 gd gd sg13_lv_nmos w=1.3u l=0.6u ng=1
+R3 net4 gd 1k
+XM10 net1 viref vp vp sg13_lv_pmos w=1u l=0.6u ng=1
+Viref viref net5 0
+**** begin user architecture code
+.options temp=$temp
+.control
+op
+tran 1n 60u
+save all
+set filetype=ascii
+wrdata cp_test.txt time v(vout) i(vip) i(vin) v(biasn) i(Vdn2) i(Vup2) i(Vvp) v(up) v(dn)
+quit
+.endc
+**** end user architecture code
+.ends
+
+.end
