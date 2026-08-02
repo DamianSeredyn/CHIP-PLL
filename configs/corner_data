@@ -3,10 +3,15 @@ t_min=-25
 t_nom=27
 t_max=125
 
-# Napiecie zasilania
+# Napiecie zasilania vp
 vp_min=1.08
 vp_nom=1.2
 vp_max=1.32
+
+# Napiecie zasilania vph
+vph_min=3.1
+vph_nom=3.3
+vph_max=3.5
 
 # Cornery
 corners="mos_tt mos_ss mos_ff mos_sf mos_fs"
