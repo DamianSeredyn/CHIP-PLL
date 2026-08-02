@@ -1,0 +1,24 @@
+** sch_path: /foss/designs/CHIP-PLL/schematics/misc/level_shifter.sch
+**.subckt level_shifter vph out vpl in gd
+*.ipin in
+*.opin out
+*.ipin gd
+*.ipin vph
+*.ipin vpl
+XM1 1_stage_out in vpl vpl sg13_lv_pmos w=2u l=0.45u ng=1 m=1 mm_ok=1
+XM3 1_stage_out in net1 gd sg13_lv_nmos w=1u l=0.45u ng=1 m=1 mm_ok=1
+XM4 net1 in gd gd sg13_lv_nmos w=1u l=0.45u ng=1 m=1 mm_ok=1
+XM2 2_stage_out 1_stage_out vpl vpl sg13_lv_pmos w=2u l=0.45u ng=1 m=1 mm_ok=1
+XM5 2_stage_out 1_stage_out net5 gd sg13_lv_nmos w=1u l=0.45u ng=1 m=1 mm_ok=1
+XM6 net5 1_stage_out gd gd sg13_lv_nmos w=1u l=0.45u ng=1 m=1 mm_ok=1
+XM7 net2 3_stage_out vph vph sg13_hv_pmos w=1u l=0.45u ng=1 m=1 mm_ok=1
+XM8 3_stage_out 2_stage_out gd gd sg13_hv_nmos w=2u l=0.45u ng=1 m=1 mm_ok=1
+XM9 4 1_stage_out net2 vph sg13_hv_pmos w=1u l=0.45u ng=1 m=1 mm_ok=1
+XM10 3_stage_out 2_stage_out net3 vph sg13_hv_pmos w=1u l=0.45u ng=1 m=1 mm_ok=1
+XM11 net3 4 vph vph sg13_hv_pmos w=1u l=0.45u ng=1 m=1 mm_ok=1
+XM12 4 1_stage_out gd gd sg13_hv_nmos w=2u l=0.45u ng=1 m=1 mm_ok=1
+XM13 net4 3_stage_out gd gd sg13_hv_nmos w=1u l=0.45u ng=1 m=1 mm_ok=1
+XM15 out 3_stage_out vph vph sg13_hv_pmos w=2u l=0.45u ng=1 m=1 mm_ok=1
+XM14 out 3_stage_out net4 gd sg13_hv_nmos w=1u l=0.45u ng=1 m=1 mm_ok=1
+**.ends
+.end
