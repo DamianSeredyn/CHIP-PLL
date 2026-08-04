@@ -21,9 +21,9 @@ RESULTS_DIR = os.path.join(PROJECT_DIR, 'charge_pump/results_op_schematic')
 # Nazwy wektorów, dokładnie takie jak SIG_* w run_op_sweep_schematic.sh
 VEC_VOUT  = 'vout'
 VEC_VBIAS = 'x1.bias'
-VEC_IREF  = r'x1\.xm3\.nsg13_lv_pmos\[ids\]'
-VEC_IUP   = r'x1\.xm17\.nsg13_lv_pmos\[ids\]'
-VEC_IDN   = r'x1\.xm18\.nsg13_lv_nmos\[ids\]'
+VEC_IREF  = r'x1\.xm12\.nsg13_lv_pmos\[ids\]'
+VEC_IUP   = r'x1\.xm5\.nsg13_lv_pmos\[ids\]'
+VEC_IDN   = r'x1\.xm13\.nsg13_lv_nmos\[ids\]'
 
 html_out = os.path.join(RESULTS_DIR, 'cp_op_schematic_report.html')
 if os.path.exists(html_out):

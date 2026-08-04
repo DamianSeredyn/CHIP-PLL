@@ -51,14 +51,13 @@ C {lab_pin.sym} 130 -100 0 1 {name=p3 sig_type=std_logic lab=gd}
 C {lab_pin.sym} 130 -220 0 1 {name=p4 sig_type=std_logic lab=gd}
 C {lab_pin.sym} 330 -80 0 1 {name=p6 sig_type=std_logic lab=gd}
 C {lab_pin.sym} 570 -80 0 1 {name=p7 sig_type=std_logic lab=vp}
-C {/foss/designs/CHIP-PLL/charge_pump/curr_source.sym} 340 -350 0 0 {name=x1}
 C {/foss/pdks/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_pr/sg13_lv_pmos.sym} 140 -410 0 1 {name=M5
 l=0.6u
 w=1.2u
 ng=1
 m=1
 mm_ok=1
-model=sg13_lv_nmos
+model=sg13_lv_pmos
 spiceprefix=X
 }
 C {/foss/pdks/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_pr/sg13_lv_nmos.sym} 100 -220 0 0 {name=M6
@@ -94,7 +93,7 @@ w=1.375u
 ng=1
 m=1
 mm_ok=1
-model=sg13_lv_nmos
+model=sg13_lv_pmos
 spiceprefix=X
 }
 C {/foss/pdks/ihp-sg13cmos5l/libs.tech/xschem/sg13g2_pr/rppd.sym} 120 -310 0 0 {name=R1
@@ -107,3 +106,4 @@ spiceprefix=X
   mm_ok=1
 value="expr_eng(  ( 70.0e-6 / @w + 260.0 * ( (@b + 1)* @l + ( 1.081*( @w + 6.0e-9 ) + 0.18e-6 )*@b ) / ( @w + 6.0e-9 ) ) / @m  )"
 }
+C {/foss/designs/CHIP-PLL/schematics/charge_pump/curr_source.sym} 340 -350 0 0 {name=x1}
