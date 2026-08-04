@@ -20,7 +20,7 @@ value="
 .temp 25
 
 .control
-.param rsh_rppd = 509
+
 op
 save all
 write aa_cp_lay_op.raw
@@ -30,7 +30,7 @@ show all
 "}
 C {capa.sym} -20 -150 0 0 {name=C1
 m=1
-value=5p
+value=10p
 ic=0.8
 footprint=1206
 device="ceramic capacitor"}
@@ -53,9 +53,12 @@ C {lab_pin.sym} -230 -160 0 1 {name=p1 sig_type=std_logic lab=vout}
 C {lab_pin.sym} -230 -180 0 1 {name=p2 sig_type=std_logic lab=up}
 C {lab_pin.sym} -230 -140 0 1 {name=p3 sig_type=std_logic lab=dn}
 C {lab_pin.sym} -230 -200 0 1 {name=p4 sig_type=std_logic lab=vp}
-C {devices/code_shown.sym} -560 -30 0 0 {name=MODEL1 only_toplevel=true
+C {/foss/designs/CHIP-PLL/schematics/charge_pump/charge_pump_cell.sym} -410 -160 0 0 {name=x1}
+C {devices/code_shown.sym} -530 -50 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_tt
-.include /foss/pdks/ihp-sg13g2/libs.tech/ngspice/models/resistors_mod.lib
+.lib cornerRES.lib res_typ
+
+
+
 "}
-C {/foss/designs/CHIP-PLL/charge_pump/charge_pump_cell.sym} -410 -160 0 0 {name=x1}
