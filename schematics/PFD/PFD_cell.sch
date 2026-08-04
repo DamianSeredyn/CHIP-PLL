@@ -246,10 +246,8 @@ spiceprefix=X
 C {lab_wire.sym} -10 370 0 0 {name=p23 sig_type=std_logic lab=gnd}
 C {lab_wire.sym} 110 -60 0 0 {name=p27 sig_type=std_logic lab=gnd}
 C {lab_wire.sym} 130 430 0 0 {name=p29 sig_type=std_logic lab=gnd}
-C {/foss/designs/CHIP-PLL/divider/inverter_x4.sym} -40 -320 0 0 {name=x3}
 C {lab_wire.sym} -40 -390 0 0 {name=p26 sig_type=std_logic lab=vp}
 C {lab_wire.sym} -40 -270 0 0 {name=p30 sig_type=std_logic lab=gnd}
-C {/foss/designs/CHIP-PLL/divider/inverter_x4.sym} 50 220 0 0 {name=x4}
 C {lab_wire.sym} 50 150 0 0 {name=p31 sig_type=std_logic lab=vp}
 C {lab_wire.sym} 50 270 0 0 {name=p32 sig_type=std_logic lab=gnd}
 C {capa.sym} 0 580 0 0 {name=C2
@@ -292,3 +290,5 @@ footprint=1206
 device="ceramic capacitor"}
 C {lab_wire.sym} 0 630 0 0 {name=p34 sig_type=std_logic lab=gnd}
 C {lab_wire.sym} 0 140 0 0 {name=p35 sig_type=std_logic lab=gnd}
+C {CHIP-PLL/schematics/divider/inverter_x4.sym} -40 -320 0 0 {name=x3}
+C {CHIP-PLL/schematics/divider/inverter_x4.sym} 50 220 0 0 {name=x4}

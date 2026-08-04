@@ -21,7 +21,7 @@ for VPH in $vph_min $vph_nom $vph_max; do
 
     sed "s/\.temp=.*/.temp=$TEMP/" $SPICE | \
     sed "s/\.param Vp=.*/.param Vp=$VP/" | \
-    sed "s/\.param Vph = .*/.param Vph=$VPH/" | \
+    sed "s/\.param Vph=.*/.param Vph=$VPH/" | \
     sed "s/cornerMOSlv\.lib .*/cornerMOSlv.lib $CORNER/" | \
     sed "s/cornerMOShv\.lib .*/cornerMOShv.lib $CORNER/" \
     > /tmp/ls_run.spice

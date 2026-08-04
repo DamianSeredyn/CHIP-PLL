@@ -1,0 +1,10 @@
+** sch_path: /foss/designs/CHIP-PLL/schematics/misc/buffer_hv.sch
+**.subckt buffer_hv in out
+*.ipin in
+*.opin out
+XM1 buf_stage_1 in vph vph sg13_hv_pmos w=1u l=0.45u ng=1 m=1 mm_ok=1
+XM2 buf_stage_1 in gd gd sg13_hv_nmos w=1u l=0.45u ng=1 m=1 mm_ok=1
+XM3 out buf_stage_1 vph vph sg13_hv_pmos w=1u l=0.45u ng=1 m=1 mm_ok=1
+XM4 out buf_stage_1 gd gd sg13_hv_nmos w=1u l=0.45u ng=1 m=1 mm_ok=1
+**.ends
+.end

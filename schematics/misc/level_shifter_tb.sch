@@ -29,10 +29,10 @@ C {vsource.sym} -180 -40 0 0 {name=V1 value=\{Vp\} savecurrent=false}
 C {vsource.sym} 210 -40 0 0 {name=V2 value=\{Vph\} savecurrent=false}
 C {capa.sym} 140 -10 0 0 {name=C1
 m=1
-value=10p
+value=1p
 footprint=1206
 device="ceramic capacitor"}
-C {devices/vsource.sym} -120 70 0 0 {name=Vco value="dc 0 ac 0 pulse(1u \{Vp\} 0 10n 10n \{T/2\} \{T\}) "}
+C {devices/vsource.sym} -120 70 0 0 {name=Vco value="dc 0 ac 0 pulse(1u \{Vp\} 0 10p 10p \{T/2\} \{T\}) "}
 C {gnd.sym} 0 150 0 0 {name=l1 lab=GND
 }
 C {lab_wire.sym} -30 -130 0 0 {name=p2 sig_type=std_logic lab=vp}
@@ -46,17 +46,17 @@ value=".lib cornerMOSlv.lib mos_tt
 C {devices/code_shown.sym} -580 -700 0 0 {name=NGSPICE only_toplevel=false
 value="
 .temp=25
-.param T = 31.25u
+.param T = 20n
 .param Vp=1.2
 .param Vph=3.3
 .control
 save all
 
-tran 25n 200u
+tran 0.5n 100n
 
-meas tran VOUT_MAX MAX v(out) from=100u to=200u
+meas tran VOUT_MAX MAX v(out) from=75n to=100n
 
-meas tran VOUT_AVG AVG v(out) from=100u to=200u
+meas tran VOUT_AVG AVG v(out) from=75n to=100n
 
 
 plot v(VOUT_MAX) v(VOUT_AVG)
