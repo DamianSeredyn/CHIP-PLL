@@ -5,59 +5,63 @@ V {}
 S {}
 F {}
 E {}
-N -380 110 -380 130 {lab=clk}
-N -270 -20 -270 -10 {lab=VP}
-N -270 50 -270 60 {lab=0}
-N -380 190 -380 200 {lab=0}
-N -380 -20 -380 0 {lab=d}
-N -380 60 -380 70 {lab=0}
-N 270 20 290 20 {lab=0}
-N 270 0 320 -0 {lab=VP}
-N 270 260 350 260 {lab=d11}
-N 270 220 410 220 {lab=d9}
-N 270 180 470 180 {lab=d7}
-N 270 140 530 140 {lab=d5}
-N 270 100 590 100 {lab=d3}
-N -40 20 -30 20 {lab=d}
-N -40 -0 -30 0 {lab=clk}
-N 350 380 350 390 {lab=0}
-N 320 460 320 470 {lab=0}
-N 410 380 410 390 {lab=0}
-N 380 460 380 470 {lab=0}
-N 470 380 470 390 {lab=0}
-N 440 460 440 470 {lab=0}
-N 530 380 530 390 {lab=0}
-N 500 460 500 470 {lab=0}
-N 590 380 590 390 {lab=0}
-N 650 380 650 390 {lab=0}
-N 620 460 620 470 {lab=0}
-N 680 460 680 470 {lab=0}
-N 270 280 320 280 {lab=d12}
-N 320 280 320 400 {lab=d12}
-N 350 260 350 320 {lab=d11}
-N 270 240 380 240 {lab=d10}
-N 380 240 380 400 {lab=d10}
-N 410 220 410 320 {lab=d9}
-N 440 200 440 400 {lab=d8}
-N 270 200 440 200 {lab=d8}
-N 470 180 470 320 {lab=d7}
-N 270 160 500 160 {lab=d6}
-N 500 160 500 400 {lab=d6}
-N 530 140 530 320 {lab=d5}
-N 270 120 560 120 {lab=d4}
-N 560 120 560 400 {lab=d4}
-N 590 100 590 320 {lab=d3}
-N 270 80 620 80 {lab=d2}
-N 620 80 620 400 {lab=d2}
-N 650 60 650 320 {lab=d1}
-N 270 60 650 60 {lab=d1}
-N 270 40 680 40 {lab=d0}
-N 680 40 680 400 {lab=d0}
-C {devices/code_shown.sym} -400 -120 0 0 {name=MODEL only_toplevel=true
+N -130 410 -130 420 {lab=VP}
+N -130 320 -130 330 {lab=0}
+N -60 400 -60 420 {lab=d}
+N -60 480 -60 490 {lab=0}
+N 640 240 640 310 {lab=d0}
+N 700 240 700 310 {lab=d1}
+N 820 240 820 310 {lab=d3}
+N 760 240 760 310 {lab=d2}
+N 640 560 640 580 {lab=0}
+N 640 430 640 500 {lab=d4}
+N 700 560 700 580 {lab=0}
+N 760 560 760 580 {lab=0}
+N 700 430 700 500 {lab=d5}
+N 820 560 820 580 {lab=0}
+N 820 430 820 500 {lab=d7}
+N 760 430 760 500 {lab=d6}
+N 640 370 640 390 {lab=0}
+N 700 370 700 390 {lab=0}
+N 760 370 760 390 {lab=0}
+N 820 370 820 390 {lab=0}
+N -130 480 -130 490 {lab=0}
+N -130 770 -130 790 {lab=data_en}
+N -130 850 -130 860 {lab=0}
+N -130 240 -130 260 {lab=clk_in}
+N 640 750 640 770 {lab=0}
+N 640 620 640 690 {lab=d8}
+N 700 750 700 770 {lab=0}
+N 760 750 760 770 {lab=0}
+N 700 620 700 690 {lab=d9}
+N 820 750 820 770 {lab=0}
+N 820 620 820 690 {lab=d11}
+N 760 620 760 690 {lab=d10}
+N 640 960 640 980 {lab=0}
+N 640 830 640 900 {lab=d12}
+N 150 270 170 270 {lab=d}
+N 150 250 170 250 {lab=data_en}
+N 150 230 170 230 {lab=clk_in}
+N 470 230 510 230 {lab=VP}
+N 470 250 510 250 {lab=0}
+N 470 510 480 510 {lab=d12}
+N 470 490 480 490 {lab=d11}
+N 470 470 480 470 {lab=d10}
+N 470 450 480 450 {lab=d9}
+N 470 430 480 430 {lab=d8}
+N 470 410 480 410 {lab=d7}
+N 470 390 480 390 {lab=d6}
+N 470 370 480 370 {lab=d5}
+N 470 350 480 350 {lab=d4}
+N 470 330 480 330 {lab=d3}
+N 470 310 480 310 {lab=d2}
+N 470 290 480 290 {lab=d1}
+N 470 270 480 270 {lab=d0}
+C {devices/code_shown.sym} 140 910 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_tt
 "}
-C {devices/code_shown.sym} 60 -540 0 0 {name=NGSPICE only_toplevel=false
+C {devices/code_shown.sym} 150 630 0 0 {name=NGSPICE only_toplevel=false
 value="
 .param temp=27
 .control
@@ -66,163 +70,214 @@ op
 print all
 save all
 
-tran 500p 15u
+tran 50p 300n
 write input_register_tb.raw
 set appendwrite
 
-plot v(d0)
-plot v(d1)
-plot v(d2)
-plot v(d3)
-plot v(d4)
-plot v(d5)
-plot v(d6)
-plot v(d7)
-plot v(d8)
-plot v(d9)
-plot v(d10)
-plot v(d11)
-plot v(d12)
+
+
+
 .endc
 "}
-C {vsource.sym} -270 20 0 0 {name=V1 value=1.2 savecurrent=false}
-C {vsource.sym} -380 160 0 0 {name=V2 value="PULSE(0 1.2 0 100n 100n 500n 1u)" savecurrent=false}
-C {lab_wire.sym} -380 110 0 0 {name=p2 sig_type=std_logic lab=clk
-}
-C {lab_wire.sym} -270 -20 0 0 {name=p8 sig_type=std_logic lab=VP
-}
-C {lab_wire.sym} -380 -20 0 0 {name=p6 sig_type=std_logic lab=d
-}
-C {vsource.sym} -380 30 0 0 {name=V3 value="PULSE(0 1.2 0 1n 1n 50m 100m)" savecurrent=false}
-C {gnd.sym} -380 70 0 0 {name=l2 lab=0
-}
-C {gnd.sym} -380 200 0 0 {name=l3 lab=0
-}
-C {gnd.sym} -270 60 0 0 {name=l4 lab=0
-}
-C {lab_wire.sym} 320 0 2 0 {name=p3 sig_type=std_logic lab=VP
-}
-C {gnd.sym} 290 20 3 0 {name=l5 lab=0
-}
-C {lab_wire.sym} -40 0 0 0 {name=p1 sig_type=std_logic lab=clk
-}
-C {lab_wire.sym} -40 20 0 0 {name=p4 sig_type=std_logic lab=d
-}
-C {lab_wire.sym} 680 40 2 0 {name=p5 sig_type=std_logic lab=d0
-}
-C {capa.sym} 350 350 2 0 {name=C1
+C {vsource.sym} -130 450 0 0 {name=V1 value=1.2 savecurrent=false}
+C {vsource.sym} -130 290 0 0 {name=V2 value="PULSE(1.2 0 0 10p 10p 5n 10n)" savecurrent=false}
+C {capa.sym} 640 340 0 0 {name=C1
 m=1
 value=1f
 footprint=1206
 device="ceramic capacitor"}
-C {gnd.sym} 350 390 0 0 {name=l1 lab=0
+C {lab_wire.sym} -130 410 0 0 {name=p8 sig_type=std_logic lab=VP
 }
-C {capa.sym} 320 430 2 0 {name=C2
+C {lab_wire.sym} 640 240 2 0 {name=p4 sig_type=std_logic lab=d0
+}
+C {vsource.sym} -60 450 0 0 {name=V3 value="PWL(
++ 0 0 
++ 142.5n 0 
++ 142.51n 1.2
++ 162.5n 1.2 
++ 162.51n 0
++ 172.5n 0
++ 172.51n 1.2
++ 182.5n 1.2
++ 182.51n 0
++ 212.5n 0
++ 212.51n 1.2
++ 222.5n 1.2
++ 222.51n 0
++ 232.5n 0
++ 232.51n 1.2
++ 242.5n 1.2
++ 242.51n 0
++ 262.5n 0
++ 262.51n 1.2
++ 272.5n 1.2
++ 272.51n 0)" savecurrent=false}
+C {lab_wire.sym} -60 400 0 0 {name=p6 sig_type=std_logic lab=d
+}
+C {capa.sym} 700 340 0 0 {name=C2
 m=1
 value=1f
 footprint=1206
 device="ceramic capacitor"}
-C {gnd.sym} 320 470 0 0 {name=l6 lab=0
+C {lab_wire.sym} 700 240 2 0 {name=p14 sig_type=std_logic lab=d1
 }
-C {capa.sym} 410 350 2 0 {name=C3
+C {lab_wire.sym} 760 240 2 0 {name=p20 sig_type=std_logic lab=d2
+}
+C {lab_wire.sym} 820 240 2 0 {name=p26 sig_type=std_logic lab=d3
+}
+C {capa.sym} 640 530 0 0 {name=C5
 m=1
 value=1f
 footprint=1206
 device="ceramic capacitor"}
-C {gnd.sym} 410 390 0 0 {name=l7 lab=0
+C {lab_wire.sym} 640 430 2 0 {name=p33 sig_type=std_logic lab=d4
+
 }
-C {capa.sym} 380 430 2 0 {name=C4
+C {capa.sym} 700 530 0 0 {name=C6
 m=1
 value=1f
 footprint=1206
 device="ceramic capacitor"}
-C {gnd.sym} 380 470 0 0 {name=l8 lab=0
+C {lab_wire.sym} 700 430 2 0 {name=p37 sig_type=std_logic lab=d5
 }
-C {capa.sym} 470 350 2 0 {name=C5
+C {capa.sym} 760 530 0 0 {name=C7
 m=1
 value=1f
 footprint=1206
 device="ceramic capacitor"}
-C {gnd.sym} 470 390 0 0 {name=l9 lab=0
+C {lab_wire.sym} 760 430 2 0 {name=p42 sig_type=std_logic lab=d6
 }
-C {capa.sym} 440 430 2 0 {name=C6
+C {capa.sym} 820 530 0 0 {name=C8
 m=1
 value=1f
 footprint=1206
 device="ceramic capacitor"}
-C {gnd.sym} 440 470 0 0 {name=l10 lab=0
+C {lab_wire.sym} 820 430 2 0 {name=p47 sig_type=std_logic lab=d7
 }
-C {capa.sym} 530 350 2 0 {name=C7
+C {gnd.sym} 640 580 0 0 {name=l2 lab=0
+}
+C {gnd.sym} 700 580 0 0 {name=l3 lab=0
+}
+C {gnd.sym} 760 580 0 0 {name=l4 lab=0
+}
+C {gnd.sym} 820 580 0 0 {name=l5 lab=0
+}
+C {capa.sym} 760 340 0 0 {name=C9
 m=1
 value=1f
 footprint=1206
 device="ceramic capacitor"}
-C {gnd.sym} 530 390 0 0 {name=l11 lab=0
-}
-C {capa.sym} 500 430 2 0 {name=C9
+C {capa.sym} 820 340 0 0 {name=C10
 m=1
 value=1f
 footprint=1206
 device="ceramic capacitor"}
-C {gnd.sym} 500 470 0 0 {name=l13 lab=0
+C {gnd.sym} 640 390 0 0 {name=l6 lab=0
 }
-C {capa.sym} 590 350 2 0 {name=C10
+C {gnd.sym} 700 390 0 0 {name=l7 lab=0
+}
+C {gnd.sym} 760 390 0 0 {name=l8 lab=0
+}
+C {gnd.sym} 820 390 0 0 {name=l9 lab=0
+}
+C {gnd.sym} -130 330 0 0 {name=l17 lab=0
+}
+C {gnd.sym} -60 490 0 0 {name=l18 lab=0
+}
+C {gnd.sym} -130 490 0 0 {name=l19 lab=0
+}
+C {vsource.sym} -130 820 0 0 {name=V4 value="PWL(
++ 0 1.2 
++ 272.6n 1.2
++ 272.61n 0)" savecurrent=false}
+C {lab_wire.sym} -130 770 0 0 {name=p5 sig_type=std_logic lab=data_en
+}
+C {gnd.sym} -130 860 0 0 {name=l21 lab=0
+}
+C {lab_wire.sym} 150 230 0 0 {name=p9 sig_type=std_logic lab=clk_in
+}
+C {lab_wire.sym} 150 250 0 0 {name=p11 sig_type=std_logic lab=data_en
+}
+C {lab_wire.sym} -130 240 0 0 {name=p13 sig_type=std_logic lab=clk_in
+}
+C {capa.sym} 640 720 0 0 {name=C3
 m=1
 value=1f
 footprint=1206
 device="ceramic capacitor"}
-C {gnd.sym} 590 390 0 0 {name=l14 lab=0
+C {lab_wire.sym} 640 620 2 0 {name=p22 sig_type=std_logic lab=d8
+
 }
-C {capa.sym} 560 430 2 0 {name=C11
+C {capa.sym} 700 720 0 0 {name=C4
 m=1
 value=1f
 footprint=1206
 device="ceramic capacitor"}
-C {gnd.sym} 560 470 0 0 {name=l15 lab=0
+C {lab_wire.sym} 700 620 2 0 {name=p27 sig_type=std_logic lab=d9
 }
-C {capa.sym} 650 350 2 0 {name=C12
+C {capa.sym} 760 720 0 0 {name=C11
 m=1
 value=1f
 footprint=1206
 device="ceramic capacitor"}
-C {gnd.sym} 650 390 0 0 {name=l16 lab=0
+C {lab_wire.sym} 760 620 2 0 {name=p36 sig_type=std_logic lab=d10
 }
-C {capa.sym} 620 430 2 0 {name=C13
+C {capa.sym} 820 720 0 0 {name=C12
 m=1
 value=1f
 footprint=1206
 device="ceramic capacitor"}
-C {gnd.sym} 620 470 0 0 {name=l17 lab=0
+C {lab_wire.sym} 820 620 2 0 {name=p43 sig_type=std_logic lab=d11
 }
-C {capa.sym} 680 430 2 0 {name=C15
+C {gnd.sym} 640 770 0 0 {name=l23 lab=0
+}
+C {gnd.sym} 700 770 0 0 {name=l24 lab=0
+}
+C {gnd.sym} 760 770 0 0 {name=l25 lab=0
+}
+C {gnd.sym} 820 770 0 0 {name=l26 lab=0
+}
+C {capa.sym} 640 930 0 0 {name=C13
 m=1
 value=1f
 footprint=1206
 device="ceramic capacitor"}
-C {gnd.sym} 680 470 0 0 {name=l19 lab=0
+C {lab_wire.sym} 640 830 2 0 {name=p51 sig_type=std_logic lab=d12
 }
-C {lab_wire.sym} 650 60 2 0 {name=p7 sig_type=std_logic lab=d1
+C {gnd.sym} 640 980 0 0 {name=l31 lab=0
 }
-C {lab_wire.sym} 620 80 2 0 {name=p9 sig_type=std_logic lab=d2
+C {/foss/designs/CHIP-PLL/divider/schematics/input_register.sym} 320 370 0 0 {name=x16}
+C {lab_wire.sym} 150 270 0 0 {name=p54 sig_type=std_logic lab=d
 }
-C {lab_wire.sym} 590 100 2 0 {name=p10 sig_type=std_logic lab=d3
+C {lab_wire.sym} 510 230 2 0 {name=p2 sig_type=std_logic lab=VP
 }
-C {lab_wire.sym} 560 120 2 0 {name=p11 sig_type=std_logic lab=d4
+C {gnd.sym} 510 250 0 0 {name=l20 lab=0
 }
-C {lab_wire.sym} 530 140 2 0 {name=p12 sig_type=std_logic lab=d5
+C {lab_wire.sym} 480 270 2 0 {name=p1 sig_type=std_logic lab=d0
 }
-C {lab_wire.sym} 500 160 2 0 {name=p13 sig_type=std_logic lab=d6
+C {lab_wire.sym} 480 290 2 0 {name=p3 sig_type=std_logic lab=d1
 }
-C {lab_wire.sym} 470 180 2 0 {name=p14 sig_type=std_logic lab=d7
+C {lab_wire.sym} 480 310 2 0 {name=p7 sig_type=std_logic lab=d2
 }
-C {lab_wire.sym} 440 200 2 0 {name=p15 sig_type=std_logic lab=d8
+C {lab_wire.sym} 480 330 2 0 {name=p10 sig_type=std_logic lab=d3
 }
-C {lab_wire.sym} 410 220 2 0 {name=p16 sig_type=std_logic lab=d9
+C {lab_wire.sym} 480 350 2 0 {name=p12 sig_type=std_logic lab=d4
+
 }
-C {lab_wire.sym} 380 240 2 0 {name=p17 sig_type=std_logic lab=d10
+C {lab_wire.sym} 480 370 2 0 {name=p15 sig_type=std_logic lab=d5
 }
-C {lab_wire.sym} 350 260 2 0 {name=p18 sig_type=std_logic lab=d11
+C {lab_wire.sym} 480 390 2 0 {name=p16 sig_type=std_logic lab=d6
 }
-C {lab_wire.sym} 320 280 2 0 {name=p19 sig_type=std_logic lab=d12
+C {lab_wire.sym} 480 410 2 0 {name=p17 sig_type=std_logic lab=d7
 }
-C {/foss/designs/CHIP-PLL/divider/schematics/input_register.sym} 120 140 0 0 {name=x2}
+C {lab_wire.sym} 480 430 2 0 {name=p18 sig_type=std_logic lab=d8
+
+}
+C {lab_wire.sym} 480 450 2 0 {name=p19 sig_type=std_logic lab=d9
+}
+C {lab_wire.sym} 480 470 2 0 {name=p21 sig_type=std_logic lab=d10
+}
+C {lab_wire.sym} 480 490 2 0 {name=p23 sig_type=std_logic lab=d11
+}
+C {lab_wire.sym} 480 510 2 0 {name=p24 sig_type=std_logic lab=d12
+}
