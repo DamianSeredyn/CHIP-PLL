@@ -79,22 +79,31 @@ N 1440 -500 1440 -470 {lab=4th}
 N 1440 -560 1550 -560 {lab=5th}
 N 1230 -350 1280 -350 {lab=en11}
 N 1230 -330 1280 -330 {lab=gnd}
-N -470 280 -370 280 {lab=#net10}
+N -470 280 -370 280 {lab=11_1st}
 N 1320 -320 1320 -240 {lab=11_1st}
 N 1600 120 1650 120 {lab=en11}
 N 1600 140 1650 140 {lab=gnd}
 N 1690 -20 1690 90 {lab=5th}
 N 1690 150 1690 280 {lab=#net9}
+N -450 -540 -410 -540 {lab=en5}
+N -300 -90 -200 -90 {lab=en5}
+N -200 -90 -200 -40 {lab=en5}
+N -160 -110 -160 -70 {lab=en11}
+N -160 -110 -110 -110 {lab=en11}
+N -160 -140 -160 -110 {lab=en11}
+N -200 -170 -200 -90 {lab=en5}
+N -160 -40 -160 50 {lab=gnd}
+N -160 -240 -160 -170 {lab=vp}
 C {sg13g2_pr/sg13_lv_nmos.sym} -230 -360 0 0 {name=M1
-l=\{Lcs\}
-w=0.4u
+l=8*4u
+w=0.8u
 ng=1
 m=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} -230 -580 0 0 {name=M2
-l=\{Lcs\}
+l=8*4u
 w=1.2u
 ng=1
 m=1
@@ -105,7 +114,7 @@ C {ipin.sym} -330 -360 0 0 {name=p1 lab=in}
 C {iopin.sym} -450 -620 0 1 {name=p3 lab=vp
 }
 C {opin.sym} 2020 -310 0 0 {name=p4 lab=out}
-C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 110 -470 0 0 {name=x1}
+C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell_4.sym} 110 -470 0 0 {name=x1}
 C {lab_wire.sym} -50 -470 0 0 {name=p5 sig_type=std_logic lab=out
 }
 C {lab_wire.sym} -50 -510 0 0 {name=p10 sig_type=std_logic lab=pgt
@@ -118,7 +127,7 @@ C {lab_wire.sym} 110 -580 0 0 {name=p13 sig_type=std_logic lab=vp
 }
 C {lab_wire.sym} 110 -360 0 0 {name=p15 sig_type=std_logic lab=gnd
 }
-C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 430 -470 0 0 {name=x2}
+C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell_4.sym} 430 -470 0 0 {name=x2}
 C {lab_wire.sym} 270 -510 0 0 {name=p7 sig_type=std_logic lab=pgt
 }
 C {lab_wire.sym} 270 -430 0 0 {name=p8 sig_type=std_logic lab=in
@@ -127,7 +136,7 @@ C {lab_wire.sym} 430 -580 0 0 {name=p9 sig_type=std_logic lab=vp
 }
 C {lab_wire.sym} 430 -360 0 0 {name=p16 sig_type=std_logic lab=gnd
 }
-C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 750 -470 0 0 {name=x3}
+C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell_4.sym} 750 -470 0 0 {name=x3}
 C {lab_wire.sym} 590 -510 0 0 {name=p18 sig_type=std_logic lab=pgt
 }
 C {lab_wire.sym} 590 -430 0 0 {name=p19 sig_type=std_logic lab=in
@@ -136,7 +145,7 @@ C {lab_wire.sym} 750 -580 0 0 {name=p20 sig_type=std_logic lab=vp
 }
 C {lab_wire.sym} 750 -360 0 0 {name=p21 sig_type=std_logic lab=gnd
 }
-C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 1070 -470 0 0 {name=x4}
+C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell_4.sym} 1070 -470 0 0 {name=x4}
 C {lab_wire.sym} 910 -510 0 0 {name=p23 sig_type=std_logic lab=pgt
 }
 C {lab_wire.sym} 910 -430 0 0 {name=p24 sig_type=std_logic lab=in
@@ -150,7 +159,7 @@ C {lab_wire.sym} -210 -280 0 0 {name=p2 sig_type=std_logic lab=gnd
 }
 C {lab_wire.sym} -210 -460 0 0 {name=p14 sig_type=std_logic lab=pgt
 }
-C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 1810 -310 0 0 {name=x7}
+C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell_4.sym} 1810 -310 0 0 {name=x7}
 C {lab_wire.sym} 1650 -350 0 0 {name=p39 sig_type=std_logic lab=pgt
 }
 C {lab_wire.sym} 1650 -270 0 0 {name=p40 sig_type=std_logic lab=in
@@ -159,7 +168,7 @@ C {lab_wire.sym} 1810 -420 0 0 {name=p41 sig_type=std_logic lab=vp
 }
 C {lab_wire.sym} 1810 -200 0 0 {name=p42 sig_type=std_logic lab=gnd
 }
-C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} -230 280 0 0 {name=x8}
+C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell_4.sym} -230 280 0 0 {name=x8}
 C {lab_wire.sym} -390 240 0 0 {name=p17 sig_type=std_logic lab=pgt
 }
 C {lab_wire.sym} -390 320 0 0 {name=p22 sig_type=std_logic lab=in
@@ -168,7 +177,7 @@ C {lab_wire.sym} -230 170 0 0 {name=p27 sig_type=std_logic lab=vp
 }
 C {lab_wire.sym} -230 390 0 0 {name=p33 sig_type=std_logic lab=gnd
 }
-C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 90 280 0 0 {name=x9}
+C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell_4.sym} 90 280 0 0 {name=x9}
 C {lab_wire.sym} -70 240 0 0 {name=p38 sig_type=std_logic lab=pgt
 }
 C {lab_wire.sym} -70 320 0 0 {name=p43 sig_type=std_logic lab=in
@@ -177,7 +186,7 @@ C {lab_wire.sym} 90 170 0 0 {name=p44 sig_type=std_logic lab=vp
 }
 C {lab_wire.sym} 90 390 0 0 {name=p45 sig_type=std_logic lab=gnd
 }
-C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 410 280 0 0 {name=x10}
+C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell_4.sym} 410 280 0 0 {name=x10}
 C {lab_wire.sym} 250 240 0 0 {name=p46 sig_type=std_logic lab=pgt
 }
 C {lab_wire.sym} 250 320 0 0 {name=p47 sig_type=std_logic lab=in
@@ -186,7 +195,7 @@ C {lab_wire.sym} 410 170 0 0 {name=p48 sig_type=std_logic lab=vp
 }
 C {lab_wire.sym} 410 390 0 0 {name=p49 sig_type=std_logic lab=gnd
 }
-C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 730 280 0 0 {name=x11}
+C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell_4.sym} 730 280 0 0 {name=x11}
 C {lab_wire.sym} 570 240 0 0 {name=p50 sig_type=std_logic lab=pgt
 }
 C {lab_wire.sym} 570 320 0 0 {name=p51 sig_type=std_logic lab=in
@@ -195,7 +204,7 @@ C {lab_wire.sym} 730 170 0 0 {name=p52 sig_type=std_logic lab=vp
 }
 C {lab_wire.sym} 730 390 0 0 {name=p53 sig_type=std_logic lab=gnd
 }
-C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 1050 280 0 0 {name=x12}
+C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell_4.sym} 1050 280 0 0 {name=x12}
 C {lab_wire.sym} 890 240 0 0 {name=p54 sig_type=std_logic lab=pgt
 }
 C {lab_wire.sym} 890 320 0 0 {name=p55 sig_type=std_logic lab=in
@@ -204,7 +213,7 @@ C {lab_wire.sym} 1050 170 0 0 {name=p56 sig_type=std_logic lab=vp
 }
 C {lab_wire.sym} 1050 390 0 0 {name=p57 sig_type=std_logic lab=gnd
 }
-C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 1430 280 0 0 {name=x13}
+C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell_4.sym} 1430 280 0 0 {name=x13}
 C {lab_wire.sym} 1270 240 0 0 {name=p58 sig_type=std_logic lab=pgt
 }
 C {lab_wire.sym} 1270 320 0 0 {name=p59 sig_type=std_logic lab=in
@@ -249,3 +258,28 @@ C {lab_wire.sym} 1690 -20 0 0 {name=p63 sig_type=std_logic lab=5th
 }
 C {lab_wire.sym} -410 280 0 0 {name=p64 sig_type=std_logic lab=11_1st
 }
+C {lab_wire.sym} -260 -90 0 0 {name=p66 sig_type=std_logic lab=en5
+}
+C {sg13g2_pr/sg13_lv_pmos.sym} -180 -170 0 0 {name=M3
+l=0.18*4u
+w=1.2u
+ng=1
+m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_nmos.sym} -180 -40 0 0 {name=M4
+l=0.18*4u
+w=0.8u
+ng=1
+m=1
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {lab_wire.sym} -160 -240 0 0 {name=p67 sig_type=std_logic lab=vp
+}
+C {lab_wire.sym} -160 50 0 0 {name=p68 sig_type=std_logic lab=gnd
+}
+C {lab_wire.sym} -110 -110 0 0 {name=p69 sig_type=std_logic lab=en11
+}
+C {ipin.sym} -450 -540 0 0 {name=p70 lab=en5}
