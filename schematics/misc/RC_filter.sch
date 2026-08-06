@@ -9,7 +9,12 @@ N -70 -20 -20 -20 {lab=in}
 N 70 -20 110 -20 {lab=out}
 N 70 -20 70 10 {lab=out}
 N 40 -20 70 -20 {lab=out}
-N 70 70 70 100 {lab=#net1}
+N 70 90 70 140 {lab=gd}
+N 40 50 40 90 {lab=gd}
+N 40 90 70 90 {lab=gd}
+N 70 50 70 90 {lab=gd}
+N 70 90 100 90 {lab=gd}
+N 100 50 100 90 {lab=gd}
 C {sg13cmos5l_pr/rppd.sym} 10 -20 1 0 {name=R1
 w=0.5e-6
 l=0.5e-6
@@ -23,12 +28,13 @@ value="expr_eng(  ( 70.0e-6 / @w + 260.0 * ( (@b + 1)* @l + ( 1.081*( @w + 6.0e-
 }
 C {ipin.sym} -70 -20 0 0 {name=p1 lab=in}
 C {opin.sym} 110 -20 0 0 {name=p2 lab=out}
-C {sg13cmos5l_pr/cap_mfringe.sym} 70 40 0 0 {name=C1
-model=cap_mfringe
-w=2.0u
-l=2.0u
-mmin=1
-mmax=4
+C {ipin.sym} 70 140 0 0 {name=p3 lab=gd}
+C {sg13cmos5l_pr/sg13_lv_nmos.sym} 70 30 1 0 {name=M1
+l=0.2u
+w=5u
+ng=1
+m=1
+mm_ok=1
+model=sg13_lv_nmos
 spiceprefix=X
 }
-C {ipin.sym} 70 100 0 0 {name=p3 lab=gd}
