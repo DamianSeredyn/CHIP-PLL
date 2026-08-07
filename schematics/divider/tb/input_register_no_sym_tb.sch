@@ -33,7 +33,7 @@ N 1260 360 1350 360 {lab=d2}
 N 1330 340 1350 340 {lab=clk_buf}
 N 1650 340 1730 340 {lab=d3}
 N 1730 340 1730 410 {lab=d3}
-N 1650 380 1690 380 {lab=#net1}
+N 1650 380 1690 380 {lab=0}
 N 1650 360 1670 360 {lab=VP}
 N 1260 340 1260 360 {lab=d2}
 N 320 650 320 670 {lab=0}
@@ -64,7 +64,7 @@ N 1330 530 1350 530 {lab=clk_buf}
 N 1730 660 1730 680 {lab=0}
 N 1650 530 1730 530 {lab=d7}
 N 1730 530 1730 600 {lab=d7}
-N 1650 570 1690 570 {lab=#net2}
+N 1650 570 1690 570 {lab=0}
 N 1650 550 1670 550 {lab=VP}
 N 1260 530 1260 550 {lab=d6}
 N 320 460 320 480 {lab=0}
@@ -111,14 +111,14 @@ N 1330 720 1350 720 {lab=clk_buf}
 N 1730 850 1730 870 {lab=0}
 N 1650 720 1730 720 {lab=d11}
 N 1730 720 1730 790 {lab=d11}
-N 1650 760 1690 760 {lab=#net3}
+N 1650 760 1690 760 {lab=0}
 N 1650 740 1670 740 {lab=VP}
 N 1260 720 1260 740 {lab=d10}
 N -80 920 -60 920 {lab=clk_buf}
 N 320 1050 320 1070 {lab=0}
 N 240 920 320 920 {lab=d12}
 N 320 920 320 990 {lab=d12}
-N 240 960 280 960 {lab=#net4}
+N 240 960 280 960 {lab=#net1}
 N 240 940 260 940 {lab=VP}
 N -80 940 -60 940 {lab=d11}
 C {devices/code_shown.sym} -360 -310 0 0 {name=MODEL only_toplevel=true
@@ -295,9 +295,9 @@ C {gnd.sym} 1220 570 0 0 {name=l13 lab=0
 }
 C {gnd.sym} 1220 380 0 0 {name=l14 lab=0
 }
-C {gnd.sym} 1690 560 0 0 {name=l15 lab=0
+C {gnd.sym} 1690 570 0 0 {name=l15 lab=0
 }
-C {gnd.sym} 1690 370 0 0 {name=l16 lab=0
+C {gnd.sym} 1690 380 0 0 {name=l16 lab=0
 }
 C {gnd.sym} -310 -10 0 0 {name=l17 lab=0
 }
@@ -391,7 +391,7 @@ C {gnd.sym} 750 750 0 0 {name=l28 lab=0
 }
 C {gnd.sym} 1220 760 0 0 {name=l29 lab=0
 }
-C {gnd.sym} 1690 750 0 0 {name=l30 lab=0
+C {gnd.sym} 1690 760 0 0 {name=l30 lab=0
 }
 C {lab_wire.sym} -80 920 0 0 {name=p50 sig_type=std_logic lab=clk_buf
 }
@@ -406,7 +406,7 @@ C {lab_wire.sym} 260 940 2 0 {name=p52 sig_type=std_logic lab=VP
 }
 C {gnd.sym} 320 1070 0 0 {name=l31 lab=0
 }
-C {gnd.sym} 280 950 0 0 {name=l32 lab=0
+C {gnd.sym} 280 960 0 0 {name=l32 lab=0
 }
 C {lab_wire.sym} -80 940 2 0 {name=p53 sig_type=std_logic lab=d11
 }

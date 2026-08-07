@@ -33,17 +33,12 @@ vout_values="0.2 0.4 0.6 0.8 1.0"
 # ---------------------------------------------------------------------------
 # Sygnały do pomiaru
 # ---------------------------------------------------------------------------
-# Mapowanie potwierdzone przez uzytkownika:
-#   XM3  (pmos) -> iref
-#   XM17 (pmos) -> iup
-#   XM18 (nmos) -> idn
-#   v(x1.bias)  -> vbias (bez parazytow wezel nazywa sie po prostu "bias",
-#                  nie "vbias_0.vbias" jak w PEX)
+
 SIG_VOUT="v(vout)"
 SIG_VBIAS="v(x1.bias)"
-SIG_IREF="@n.x1.xm3.nsg13_lv_pmos[ids]"
-SIG_IUP="@n.x1.xm17.nsg13_lv_pmos[ids]"
-SIG_IDN="@n.x1.xm18.nsg13_lv_nmos[ids]"
+SIG_IREF="@n.x1.xm12.nsg13_lv_pmos[ids]"
+SIG_IUP="@n.x1.xm5.nsg13_lv_pmos[ids]"
+SIG_IDN="@n.x1.xm13.nsg13_lv_nmos[ids]"
 
 mkdir -p "$DATA_DIR" "$LOG_DIR" "$RESULTS_DIR"
 

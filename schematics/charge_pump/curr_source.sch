@@ -84,7 +84,7 @@ w=1.4u
 ng=1
 m=1
 mm_ok=1
-model=sg13_lv_nmos
+model=sg13_lv_pmos
 spiceprefix=X
 }
 C {/foss/pdks/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_pr/sg13_lv_pmos.sym} 300 -410 0 0 {name=M5
@@ -93,7 +93,7 @@ w=1.2u
 ng=1
 m=1
 mm_ok=1
-model=sg13_lv_nmos
+model=sg13_lv_pmos
 spiceprefix=X
 }
 C {/foss/pdks/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_pr/sg13_lv_nmos.sym} 180 -270 0 1 {name=M10
