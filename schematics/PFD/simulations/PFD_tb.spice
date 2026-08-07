@@ -1,20 +1,22 @@
-** sch_path: /foss/designs/CHIP-PLL/PFD/PFD_tb.sch
+** sch_path: /foss/designs/CHIP-PLL/schematics/PFD/PFD_tb.sch
 **.subckt PFD_tb
-Vref CRef GND dc 0 ac 0 pulse(0 {Vp} {T/2} 10n 10n {T/2} {T})
+Vref CRef_prebuf GND dc 0 ac 0 pulse(0 {Vph} {T/2} 10n 10n {T/2} {T})
 Vco CVco GND dc 0 ac 0 pulse(1u {Vp} {dly} 10n 10n {T/2} {T})
 Vp net1 GND dc {Vp}
 C1 UP GND 5p
 C2 DOWN GND 5p
-x1 DOWN UP CVco CRef GND net1 PFD_cell
+x1 GND net1 CRef UP DOWN CVco PFD_cell
+x2 net1 CRef_prebuf CRef GND buffer_hv
 **** begin user architecture code
  .lib cornerMOSlv.lib mos_ss
 
-
+.inc /foss/designs/CHIP-PLL/layout/extraction/PFD_cell.pex.spice
 
 .temp=25
 .param T = 31.25u
 .param dly=1u
 .param Vp=1.2
+.param Vph=3.3
 .control
 save all
 tran 25n 200u
@@ -25,7 +27,29 @@ plot v(pw_up) v(pw_down)
 write PFD_tb.raw
 .endc
 
-.inc /foss/designs/CHIP-PLL/layout/extraction/PFD_cell.pex.spice
+
+ .lib cornerMOShv.lib mos_ss
+
+**** end user architecture code
+**.ends
+
+
+
+* expanding   symbol:  CHIP-PLL/schematics/misc/buffer_hv.sym # of pins=4
+** sym_path: /foss/designs/CHIP-PLL/schematics/misc/buffer_hv.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/misc/buffer_hv.sch
+.subckt buffer_hv vph in out gd
+*.ipin in
+*.opin out
+*.ipin vph
+*.ipin gd
+XM1 buf_stage_1 in vph vph sg13_hv_pmos w=1u l=0.45u ng=1 m=1 mm_ok=1
+XM2 buf_stage_1 in gd gd sg13_hv_nmos w=1u l=0.45u ng=1 m=1 mm_ok=1
+XM3 out buf_stage_1 vph vph sg13_hv_pmos w=1u l=0.45u ng=1 m=1 mm_ok=1
+XM4 out buf_stage_1 gd gd sg13_hv_nmos w=1u l=0.45u ng=1 m=1 mm_ok=1
+.ends
+
+
 
 .GLOBAL GND
 .end

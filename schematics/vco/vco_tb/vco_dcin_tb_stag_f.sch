@@ -9,10 +9,10 @@ N -160 250 -160 290 {lab=0}
 N -240 250 -240 290 {lab=0}
 N -240 150 -240 190 {lab=vdd}
 N -160 150 -160 190 {lab=in}
-N 1470 480 1510 480 {lab=out}
-N 1610 390 1610 430 {lab=vdd}
-N 1610 530 1610 570 {lab=0}
-N 1720 480 1760 480 {lab=out_pb}
+N 4430 -70 4470 -70 {lab=out}
+N 4570 -160 4570 -120 {lab=vdd}
+N 4570 -20 4570 20 {lab=0}
+N 4680 -70 4720 -70 {lab=out_pb}
 N 70 40 150 40 {lab=in}
 N 150 -130 190 -130 {lab=pgt}
 N 190 -130 190 10 {lab=pgt}
@@ -45,43 +45,63 @@ N 190 40 190 120 {lab=gnd}
 N 150 -180 150 -130 {lab=pgt}
 N 190 -150 190 -130 {lab=pgt}
 N 190 -260 190 -180 {lab=vdd}
-N 1850 -860 1850 -810 {lab=vdd}
-N 1850 -690 1850 -640 {lab=0}
-N 1650 -750 1710 -750 {lab=#net1}
-N 2190 -860 2190 -810 {lab=vdd}
-N 2190 -690 2190 -640 {lab=0}
-N 1690 -790 1710 -790 {lab=pgt}
-N 1690 -710 1710 -710 {lab=in}
-N 2030 -790 2050 -790 {lab=pgt}
-N 2030 -710 2050 -710 {lab=in}
-N 1990 -750 2050 -750 {lab=#net2}
-N 2580 -860 2580 -810 {lab=vdd}
-N 2580 -690 2580 -640 {lab=0}
-N 2330 -750 2440 -750 {lab=#net3}
-N 2920 -860 2920 -810 {lab=vdd}
-N 2920 -690 2920 -640 {lab=0}
-N 2420 -790 2440 -790 {lab=pgt}
-N 2420 -710 2440 -710 {lab=in}
-N 2760 -790 2780 -790 {lab=pgt}
-N 2760 -710 2780 -710 {lab=in}
-N 2720 -750 2780 -750 {lab=#net4}
-N 3310 -860 3310 -810 {lab=vdd}
-N 3310 -690 3310 -640 {lab=0}
-N 3060 -750 3170 -750 {lab=#net5}
-N 3650 -860 3650 -810 {lab=vdd}
-N 3650 -690 3650 -640 {lab=0}
-N 3150 -790 3170 -790 {lab=pgt}
-N 3150 -710 3170 -710 {lab=in}
-N 3490 -790 3510 -790 {lab=pgt}
-N 3490 -710 3510 -710 {lab=in}
-N 3450 -750 3510 -750 {lab=#net6}
-N 3810 -750 3950 -750 {lab=4-5}
-N 3820 -70 3960 -70 {lab=4-5}
-N 1650 -750 1650 -70 {lab=#net1}
-N 1600 -750 1650 -750 {lab=#net1}
-N 1610 -70 1650 -70 {lab=#net1}
-N 3810 -750 3820 -70 {lab=4-5}
-N 3790 -750 3810 -750 {lab=4-5}
+N 1860 -480 1860 -430 {lab=vdd}
+N 1860 -310 1860 -260 {lab=0}
+N 2200 -480 2200 -430 {lab=vdd}
+N 2200 -310 2200 -260 {lab=0}
+N 1700 -410 1720 -410 {lab=pgt}
+N 1700 -330 1720 -330 {lab=in}
+N 2040 -410 2060 -410 {lab=pgt}
+N 2040 -330 2060 -330 {lab=in}
+N 2000 -370 2060 -370 {lab=#net1}
+N 2590 -480 2590 -430 {lab=vdd}
+N 2590 -310 2590 -260 {lab=0}
+N 2340 -370 2450 -370 {lab=#net2}
+N 2930 -480 2930 -430 {lab=vdd}
+N 2930 -310 2930 -260 {lab=0}
+N 2430 -410 2450 -410 {lab=pgt}
+N 2430 -330 2450 -330 {lab=in}
+N 2770 -410 2790 -410 {lab=pgt}
+N 2770 -330 2790 -330 {lab=in}
+N 2730 -370 2790 -370 {lab=#net3}
+N 3320 -480 3320 -430 {lab=vdd}
+N 3320 -310 3320 -260 {lab=0}
+N 3070 -370 3180 -370 {lab=#net4}
+N 3660 -480 3660 -430 {lab=vdd}
+N 3660 -310 3660 -260 {lab=0}
+N 3160 -410 3180 -410 {lab=pgt}
+N 3160 -330 3180 -330 {lab=in}
+N 3500 -410 3520 -410 {lab=pgt}
+N 3500 -330 3520 -330 {lab=in}
+N 3460 -370 3520 -370 {lab=#net5}
+N 1650 -70 1750 -70 {lab=#net6}
+N 1650 -370 1720 -370 {lab=#net7}
+N 3850 -370 3960 -370 {lab=#net8}
+N 3850 -70 3960 -70 {lab=4-5}
+N 1560 -210 1610 -210 {lab=en11}
+N 1560 -190 1610 -190 {lab=gnd}
+N 3760 -230 3810 -230 {lab=en11}
+N 3760 -210 3810 -210 {lab=gnd}
+N 1660 -100 1710 -100 {lab=en5}
+N 1660 -80 1710 -80 {lab=gnd}
+N 1650 -180 1650 -70 {lab=#net6}
+N 1610 -70 1650 -70 {lab=#net6}
+N 1650 -370 1650 -240 {lab=#net7}
+N 1610 -370 1650 -370 {lab=#net7}
+N 3850 -370 3850 -260 {lab=#net8}
+N 3800 -370 3850 -370 {lab=#net8}
+N 3850 -200 3850 -70 {lab=4-5}
+N 3820 -70 3850 -70 {lab=4-5}
+N 1750 -130 3630 -70 {lab=#net9}
+N 3630 -10 3820 -70 {lab=4-5}
+N 3550 -20 3590 -20 {lab=gnd}
+N 3550 -40 3590 -40 {lab=en5}
+N -30 200 20 200 {lab=en11}
+N -30 260 20 260 {lab=gnd}
+N 110 200 160 200 {lab=en5}
+N 110 260 160 260 {lab=gnd}
+N -430 240 -430 280 {lab=0}
+N -430 140 -430 180 {lab=gnd}
 C {vsource.sym} -160 220 0 0 {name=V1 value=\{vin\} savecurrent=false}
 C {vsource.sym} -240 220 0 0 {name=V2 value=\{vdd\} savecurrent=false}
 C {devices/code_shown.sym} -290 -400 0 0 {name=MODEL only_toplevel=true
@@ -90,21 +110,21 @@ value=".lib cornerMOSlv.lib mos_tt
 "}
 C {lab_wire.sym} -240 150 0 0 {name=p1 sig_type=std_logic lab=vdd
 }
-C {lab_wire.sym} 1490 480 0 0 {name=p3 sig_type=std_logic lab=out
+C {lab_wire.sym} 4450 -70 0 0 {name=p3 sig_type=std_logic lab=out
 }
 C {gnd.sym} -160 290 0 0 {name=l2 lab=0
 }
-C {connector.sym} 1760 480 0 1 {name=c2 footprint=connector(1,1)}
-C {lab_wire.sym} 1760 480 0 0 {name=p4 sig_type=std_logic lab=out_pb
+C {connector.sym} 4720 -70 0 1 {name=c2 footprint=connector(1,1)}
+C {lab_wire.sym} 4720 -70 0 0 {name=p4 sig_type=std_logic lab=out_pb
 }
-C {/foss/designs/CHIP-PLL/buf/buf.sym} 1610 480 0 0 {name=x1}
-C {lab_wire.sym} 1610 390 0 0 {name=p5 sig_type=std_logic lab=vdd
+C {/foss/designs/CHIP-PLL/buf/buf.sym} 4570 -70 0 0 {name=x1}
+C {lab_wire.sym} 4570 -160 0 0 {name=p5 sig_type=std_logic lab=vdd
 }
 C {gnd.sym} -240 290 0 0 {name=l4 lab=0
 }
 C {lab_wire.sym} -160 150 0 0 {name=p6 sig_type=std_logic lab=in
 }
-C {gnd.sym} 1610 570 0 0 {name=l1 lab=0
+C {gnd.sym} 4570 20 0 0 {name=l1 lab=0
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 170 40 0 0 {name=M1
 l=\{Lcs\}
@@ -192,6 +212,8 @@ value="
 .param vin=0.4
 .param Lcs=0.18*4u
 .param Ldrv=0.18*2u
+.param enable11=1
+.param enable5=0
 
 .control
 
@@ -202,59 +224,106 @@ plot out
 plot out_pb
 .endc
 "}
-C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 1850 -750 0 0 {name=x7}
-C {lab_wire.sym} 1690 -790 0 0 {name=p18 sig_type=std_logic lab=pgt
+C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 1860 -370 0 0 {name=x7}
+C {lab_wire.sym} 1700 -410 0 0 {name=p18 sig_type=std_logic lab=pgt
 }
-C {lab_wire.sym} 1690 -710 0 0 {name=p23 sig_type=std_logic lab=in
+C {lab_wire.sym} 1700 -330 0 0 {name=p23 sig_type=std_logic lab=in
 }
-C {lab_wire.sym} 1850 -860 0 0 {name=p28 sig_type=std_logic lab=vdd
+C {lab_wire.sym} 1860 -480 0 0 {name=p28 sig_type=std_logic lab=vdd
 }
-C {gnd.sym} 1850 -640 0 0 {name=l5 lab=0
+C {gnd.sym} 1860 -260 0 0 {name=l5 lab=0
 }
-C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 2190 -750 0 0 {name=x8}
-C {lab_wire.sym} 2030 -790 0 0 {name=p15 sig_type=std_logic lab=pgt
+C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 2200 -370 0 0 {name=x8}
+C {lab_wire.sym} 2040 -410 0 0 {name=p15 sig_type=std_logic lab=pgt
 }
-C {lab_wire.sym} 2030 -710 0 0 {name=p33 sig_type=std_logic lab=in
+C {lab_wire.sym} 2040 -330 0 0 {name=p33 sig_type=std_logic lab=in
 }
-C {lab_wire.sym} 2190 -860 0 0 {name=p36 sig_type=std_logic lab=vdd
+C {lab_wire.sym} 2200 -480 0 0 {name=p36 sig_type=std_logic lab=vdd
 }
-C {gnd.sym} 2190 -640 0 0 {name=l10 lab=0
+C {gnd.sym} 2200 -260 0 0 {name=l10 lab=0
 }
-C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 2580 -750 0 0 {name=x9}
-C {lab_wire.sym} 2420 -790 0 0 {name=p37 sig_type=std_logic lab=pgt
+C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 2590 -370 0 0 {name=x9}
+C {lab_wire.sym} 2430 -410 0 0 {name=p37 sig_type=std_logic lab=pgt
 }
-C {lab_wire.sym} 2420 -710 0 0 {name=p38 sig_type=std_logic lab=in
+C {lab_wire.sym} 2430 -330 0 0 {name=p38 sig_type=std_logic lab=in
 }
-C {lab_wire.sym} 2580 -860 0 0 {name=p39 sig_type=std_logic lab=vdd
+C {lab_wire.sym} 2590 -480 0 0 {name=p39 sig_type=std_logic lab=vdd
 }
-C {gnd.sym} 2580 -640 0 0 {name=l11 lab=0
+C {gnd.sym} 2590 -260 0 0 {name=l11 lab=0
 }
-C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 2920 -750 0 0 {name=x10}
-C {lab_wire.sym} 2760 -790 0 0 {name=p40 sig_type=std_logic lab=pgt
+C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 2930 -370 0 0 {name=x10}
+C {lab_wire.sym} 2770 -410 0 0 {name=p40 sig_type=std_logic lab=pgt
 }
-C {lab_wire.sym} 2760 -710 0 0 {name=p41 sig_type=std_logic lab=in
+C {lab_wire.sym} 2770 -330 0 0 {name=p41 sig_type=std_logic lab=in
 }
-C {lab_wire.sym} 2920 -860 0 0 {name=p42 sig_type=std_logic lab=vdd
+C {lab_wire.sym} 2930 -480 0 0 {name=p42 sig_type=std_logic lab=vdd
 }
-C {gnd.sym} 2920 -640 0 0 {name=l12 lab=0
+C {gnd.sym} 2930 -260 0 0 {name=l12 lab=0
 }
-C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 3310 -750 0 0 {name=x11}
-C {lab_wire.sym} 3150 -790 0 0 {name=p43 sig_type=std_logic lab=pgt
+C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 3320 -370 0 0 {name=x11}
+C {lab_wire.sym} 3160 -410 0 0 {name=p43 sig_type=std_logic lab=pgt
 }
-C {lab_wire.sym} 3150 -710 0 0 {name=p44 sig_type=std_logic lab=in
+C {lab_wire.sym} 3160 -330 0 0 {name=p44 sig_type=std_logic lab=in
 }
-C {lab_wire.sym} 3310 -860 0 0 {name=p45 sig_type=std_logic lab=vdd
+C {lab_wire.sym} 3320 -480 0 0 {name=p45 sig_type=std_logic lab=vdd
 }
-C {gnd.sym} 3310 -640 0 0 {name=l13 lab=0
+C {gnd.sym} 3320 -260 0 0 {name=l13 lab=0
 }
-C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 3650 -750 0 0 {name=x12}
-C {lab_wire.sym} 3490 -790 0 0 {name=p46 sig_type=std_logic lab=pgt
+C {/foss/designs/CHIP-PLL/vco/vco_cell/vco_delay_cell.sym} 3660 -370 0 0 {name=x12}
+C {lab_wire.sym} 3500 -410 0 0 {name=p46 sig_type=std_logic lab=pgt
 }
-C {lab_wire.sym} 3490 -710 0 0 {name=p47 sig_type=std_logic lab=in
+C {lab_wire.sym} 3500 -330 0 0 {name=p47 sig_type=std_logic lab=in
 }
-C {lab_wire.sym} 3650 -860 0 0 {name=p48 sig_type=std_logic lab=vdd
+C {lab_wire.sym} 3660 -480 0 0 {name=p48 sig_type=std_logic lab=vdd
 }
-C {gnd.sym} 3650 -640 0 0 {name=l14 lab=0
+C {gnd.sym} 3660 -260 0 0 {name=l14 lab=0
 }
-C {noconn.sym} 1600 -750 0 0 {name=l16}
-C {noconn.sym} 3950 -750 0 0 {name=l15}
+C {noconn.sym} 1610 -370 0 0 {name=l16}
+C {noconn.sym} 3960 -370 0 0 {name=l15}
+C {lab_wire.sym} 1610 -210 0 0 {name=p49 sig_type=std_logic lab=en11
+}
+C {lab_wire.sym} 1610 -190 0 0 {name=p50 sig_type=std_logic lab=gnd
+}
+C {switch_ngspice.sym} 1650 -210 0 0 {name=S1 model=SW1
+device_model=".MODEL SW1 SW 
++ VT=0.9 VH=0.01
++ RON=0.01 ROFF=10G "}
+C {lab_wire.sym} 3810 -230 0 0 {name=p51 sig_type=std_logic lab=en11
+}
+C {lab_wire.sym} 3810 -210 0 0 {name=p52 sig_type=std_logic lab=gnd
+}
+C {switch_ngspice.sym} 3850 -230 0 0 {name=S2 model=SW1
+device_model=".MODEL SW1 SW 
++ VT=0.9 VH=0.01
++ RON=0.01 ROFF=10G "}
+C {switch_ngspice.sym} 1750 -100 0 0 {name=S3 model=SW1
+device_model=".MODEL SW1 SW 
++ VT=0.9 VH=0.01
++ RON=0.01 ROFF=10G "}
+C {switch_ngspice.sym} 3630 -40 0 0 {name=S4 model=SW1
+device_model=".MODEL SW1 SW 
++ VT=0.9 VH=0.01
++ RON=0.01 ROFF=10G "}
+C {lab_wire.sym} 1700 -100 0 0 {name=p53 sig_type=std_logic lab=en5
+}
+C {lab_wire.sym} 1700 -80 0 0 {name=p54 sig_type=std_logic lab=gnd
+}
+C {lab_wire.sym} 3580 -40 0 0 {name=p55 sig_type=std_logic lab=en5
+}
+C {lab_wire.sym} 3580 -20 0 0 {name=p56 sig_type=std_logic lab=gnd
+}
+C {vsource.sym} -30 230 0 0 {name=V3 value=\{enable11\} savecurrent=false}
+C {lab_wire.sym} 20 200 0 0 {name=p57 sig_type=std_logic lab=en11
+value=\{enable11\}}
+C {lab_wire.sym} 20 260 0 0 {name=p58 sig_type=std_logic lab=gnd
+value=\{enable11\}}
+C {vsource.sym} 110 230 0 0 {name=V4 value=\{enable5\} savecurrent=false}
+C {lab_wire.sym} 160 200 0 0 {name=p59 sig_type=std_logic lab=en5
+value=\{enable5\}}
+C {lab_wire.sym} 160 260 0 0 {name=p60 sig_type=std_logic lab=gnd
+value=\{enable11\}}
+C {vsource.sym} -430 210 0 0 {name=V5 value=0 savecurrent=false}
+C {lab_wire.sym} -430 140 0 0 {name=p61 sig_type=std_logic lab=gnd
+}
+C {gnd.sym} -430 280 0 0 {name=l17 lab=0
+}
