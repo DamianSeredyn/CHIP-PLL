@@ -1,42 +1,33 @@
-* PEX produced on Fri Aug  7 09:00:33 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
-* NGSPICE file created from vco_delay_cell_0.ext - technology: ihp-sg13cmos5l
+* PEX produced on Mon Aug 10 09:56:54 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
+* NGSPICE file created from vco_delay_cell_0.ext - technology: ihp-sg13g2
 
-.subckt vco_delay_cell_0 ngt pgt out in vp gnd
-X0 a_n14_206# in out vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.114p ps=0.98u w=0.6u l=0.36u
-X1 out in a_n14_206# vp sg13_lv_pmos ad=0.114p pd=0.98u as=0.204p ps=1.88u w=0.6u l=0.36u
-X2 a_n16_n222# a_n28_n550# gnd gnd sg13_lv_nmos ad=76f pd=0.78u as=0.136p ps=1.48u w=0.4u l=0.76u
-X3 a_n16_n222# in out gnd sg13_lv_nmos ad=0.136p pd=1.48u as=76f ps=0.78u w=0.4u l=0.36u
-X4 gnd a_n28_n550# a_n16_n222# gnd sg13_lv_nmos ad=0.136p pd=1.48u as=76f ps=0.78u w=0.4u l=0.76u
-X5 out in a_n16_n222# gnd sg13_lv_nmos ad=76f pd=0.78u as=0.136p ps=1.48u w=0.4u l=0.36u
-X6 vp a_n18_474# a_n14_206# vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.114p ps=0.98u w=0.6u l=0.72u
-X7 a_n14_206# a_n18_474# vp vp sg13_lv_pmos ad=0.114p pd=0.98u as=0.204p ps=1.88u w=0.6u l=0.72u
-C0 vp in 0.30783f
-C1 a_n18_474# a_n14_206# 0.16924f
-C2 a_n16_n222# in 0.07764f
-C3 pgt a_n14_206# 0.01041f
-C4 vp out 0.05867f
-C5 a_n16_n222# out 0.17336f
-C6 out in 0.31805f
-C7 pgt a_n18_474# 0.07415f
-C8 a_n14_206# vp 0.16859f
-C9 a_n28_n550# ngt 0.0723f
-C10 a_n14_206# in 0.09397f
-C11 a_n14_206# out 0.18615f
-C12 a_n16_n222# a_n28_n550# 0.18712f
-C13 a_n28_n550# in 0.04904f
-C14 a_n18_474# vp 0.99388f
-C15 pgt vp 0.09998f
-C16 a_n18_474# in 0.05469f
-C17 pgt in 0.02883f
-C18 pgt out 0.02974f
-C19 a_n16_n222# ngt 0.01224f
-C20 in ngt 0.03066f
-C21 out ngt 0.03284f
-C22 ngt gnd 0.17782f
-C23 pgt gnd 0.08042f
-C24 out gnd 0.4424f
-C25 vp gnd 0.15291f
-C26 a_n16_n222# gnd 0.65472f
-C27 a_n14_206# gnd 0.31047f
+.subckt vco_delay_cell_0 ngt pgt out in gnd vp
+X0 gnd ngt a_n16_n222# gnd sg13_lv_nmos ad=0.136p pd=1.48u as=76f ps=0.78u w=0.4u l=0.64u
+X1 out in a_n14_206# vp sg13_lv_pmos ad=0.114p pd=0.98u as=0.204p ps=1.88u w=0.6u l=0.32u
+X2 a_n16_n222# ngt gnd gnd sg13_lv_nmos ad=76f pd=0.78u as=0.136p ps=1.48u w=0.4u l=0.64u
+X3 a_n16_n222# in out gnd sg13_lv_nmos ad=0.136p pd=1.48u as=76f ps=0.78u w=0.4u l=0.32u
+X4 a_n14_206# in out vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.114p ps=0.98u w=0.6u l=0.32u
+X5 vp pgt a_n14_206# vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.114p ps=0.98u w=0.6u l=0.64u
+X6 out in a_n16_n222# gnd sg13_lv_nmos ad=76f pd=0.78u as=0.136p ps=1.48u w=0.4u l=0.32u
+X7 a_n14_206# pgt vp vp sg13_lv_pmos ad=0.114p pd=0.98u as=0.204p ps=1.88u w=0.6u l=0.64u
+C0 vp in 0.30301f
+C1 pgt in 0.04109f
+C2 out a_n16_n222# 0.14545f
+C3 a_n16_n222# ngt 0.16201f
+C4 out a_n14_206# 0.1574f
+C5 out ngt 0.02665f
+C6 out vp 0.06147f
+C7 vp a_n14_206# 0.15567f
+C8 out pgt 0.02781f
+C9 a_n14_206# pgt 0.15311f
+C10 in a_n16_n222# 0.06874f
+C11 out in 0.26417f
+C12 vp pgt 0.96491f
+C13 a_n14_206# in 0.08442f
+C14 in ngt 0.04086f
+C15 out gnd 0.43966f
+C16 vp gnd 0.19058f
+C17 a_n16_n222# gnd 0.71528f
+C18 a_n14_206# gnd 0.34319f
 .ends
 
