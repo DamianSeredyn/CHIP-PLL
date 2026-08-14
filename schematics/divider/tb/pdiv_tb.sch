@@ -90,7 +90,6 @@ C {vsource.sym} -140 490 0 0 {name=V11 value=0 savecurrent=false}
 C {vsource.sym} -20 490 0 0 {name=V10 value=0 savecurrent=false}
 C {vsource.sym} 100 490 0 0 {name=V12 value=0 savecurrent=false}
 C {vsource.sym} -140 670 0 0 {name=V7 value=1.2 savecurrent=false}
-C {/foss/designs/CHIP-PLL/divider/schematics/pdiv.sym} 400 330 0 0 {name=x10}
 C {gnd.sym} 610 270 3 0 {name=l24 lab=0
 }
 C {lab_wire.sym} 580 290 2 0 {name=p46 sig_type=std_logic lab=VP
@@ -111,3 +110,4 @@ C {lab_wire.sym} 220 370 0 0 {name=p27 sig_type=std_logic lab=d4
 }
 C {lab_wire.sym} 230 270 0 0 {name=p53 sig_type=std_logic lab=clk
 }
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/pdiv.sym} 400 330 0 0 {name=x1}

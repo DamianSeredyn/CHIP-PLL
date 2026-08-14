@@ -5,9 +5,6 @@ V {}
 S {}
 F {}
 E {}
-N -400 320 -370 320 {lab=r}
-N -500 320 -500 330 {lab=reset}
-N -500 320 -470 320 {lab=reset}
 N -330 -380 -310 -380 {lab=gd}
 N -330 -360 -310 -360 {lab=vp}
 N -330 -340 -310 -340 {lab=in}
@@ -66,23 +63,16 @@ N -60 150 -50 150 {lab=div64}
 N 250 150 270 150 {lab=vp}
 N 250 170 270 170 {lab=gd}
 N -120 130 -50 130 {lab=#net5}
-N -420 170 -420 180 {lab=r}
-N -50 170 -50 180 {lab=r}
-N -50 -30 -50 -20 {lab=r}
-N -420 -30 -420 -20 {lab=r}
-N 320 -30 320 -20 {lab=r}
-N 690 -30 690 -20 {lab=r}
+N -420 170 -420 190 {lab=reset}
+N -50 170 -50 190 {lab=reset}
+N -50 -30 -50 -10 {lab=reset}
+N -420 -30 -420 -10 {lab=reset}
+N 320 -30 320 -10 {lab=reset}
+N 690 -30 690 -10 {lab=reset}
 N -330 -320 -310 -320 {lab=reset}
 N 1060 -70 1060 50 {lab=#net4}
 N -460 50 1060 50 {lab=#net4}
 N -460 50 -460 130 {lab=#net4}
-N -470 380 -400 380 {lab=r}
-N -400 320 -400 380 {lab=r}
-C {lab_wire.sym} -370 320 2 0 {name=p5 sig_type=std_logic lab=r
-}
-C {lab_wire.sym} -500 330 3 0 {name=p1 sig_type=std_logic lab=reset
-}
-C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop_reset.sym} -270 -40 0 0 {name=x1}
 C {iopin.sym} -330 -380 2 0 {name=p2 lab=gd}
 C {ipin.sym} -330 -340 0 0 {name=p4 lab=in}
 C {lab_pin.sym} -310 -380 2 0 {name=p6 sig_type=std_logic lab=gd}
@@ -104,40 +94,40 @@ C {lab_pin.sym} -310 -180 2 0 {name=p22 sig_type=std_logic lab=div64}
 C {lab_pin.sym} -100 -30 2 0 {name=p24 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 -50 2 0 {name=p25 sig_type=std_logic lab=vp}
 C {lab_pin.sym} -440 -70 0 0 {name=p26 sig_type=std_logic lab=in}
-C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop_reset.sym} 100 -40 0 0 {name=x2}
 C {lab_pin.sym} 270 -30 2 0 {name=p27 sig_type=std_logic lab=gd}
 C {lab_pin.sym} 270 -50 2 0 {name=p28 sig_type=std_logic lab=vp}
-C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop_reset.sym} 470 -40 0 0 {name=x3}
 C {lab_pin.sym} 640 -30 2 0 {name=p30 sig_type=std_logic lab=gd}
 C {lab_pin.sym} 640 -50 2 0 {name=p31 sig_type=std_logic lab=vp}
 C {lab_pin.sym} -150 10 2 0 {name=p29 sig_type=std_logic lab=div2}
-C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop_reset.sym} 840 -40 0 0 {name=x4}
 C {lab_pin.sym} 1010 -30 2 0 {name=p32 sig_type=std_logic lab=gd}
 C {lab_pin.sym} 1010 -50 2 0 {name=p33 sig_type=std_logic lab=vp}
 C {lab_pin.sym} 250 10 2 0 {name=p34 sig_type=std_logic lab=div4}
 C {lab_pin.sym} 620 10 2 0 {name=p35 sig_type=std_logic lab=div8}
-C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop_reset.sym} -270 160 0 0 {name=x5}
 C {lab_pin.sym} -100 170 2 0 {name=p36 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 150 2 0 {name=p37 sig_type=std_logic lab=vp}
-C {/foss/designs/CHIP-PLL/divider/schematics/d_flip_flop_reset.sym} 100 160 0 0 {name=x6}
 C {lab_pin.sym} 270 170 2 0 {name=p38 sig_type=std_logic lab=gd}
 C {lab_pin.sym} 270 150 2 0 {name=p39 sig_type=std_logic lab=vp}
 C {lab_pin.sym} 1000 10 2 0 {name=p40 sig_type=std_logic lab=div16}
 C {lab_pin.sym} -130 210 2 0 {name=p44 sig_type=std_logic lab=div32}
 C {lab_pin.sym} 250 210 2 0 {name=p45 sig_type=std_logic lab=div64}
-C {lab_wire.sym} -420 180 2 0 {name=p23 sig_type=std_logic lab=r
-}
-C {lab_wire.sym} -50 180 2 0 {name=p41 sig_type=std_logic lab=r
-}
-C {lab_wire.sym} -50 -20 2 0 {name=p42 sig_type=std_logic lab=r
-}
-C {lab_wire.sym} -420 -20 2 0 {name=p46 sig_type=std_logic lab=r
-}
-C {lab_wire.sym} 320 -20 2 0 {name=p47 sig_type=std_logic lab=r
-}
-C {lab_wire.sym} 690 -20 2 0 {name=p48 sig_type=std_logic lab=r
-}
 C {ipin.sym} -330 -320 0 0 {name=p49 lab=reset}
 C {lab_wire.sym} -310 -320 2 0 {name=p50 sig_type=std_logic lab=reset
 }
-C {vsource.sym} -470 350 0 0 {name=V7 value=0 savecurrent=false}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/d_flip_flop_reset.sym} -270 -40 0 0 {name=x1}
+C {lab_wire.sym} -420 190 3 0 {name=p3 sig_type=std_logic lab=reset
+}
+C {lab_wire.sym} -50 190 3 0 {name=p5 sig_type=std_logic lab=reset
+}
+C {lab_wire.sym} -50 -10 3 0 {name=p15 sig_type=std_logic lab=reset
+}
+C {lab_wire.sym} 320 -10 3 0 {name=p23 sig_type=std_logic lab=reset
+}
+C {lab_wire.sym} 690 -10 3 0 {name=p41 sig_type=std_logic lab=reset
+}
+C {lab_wire.sym} -420 -10 3 0 {name=p42 sig_type=std_logic lab=reset
+}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/d_flip_flop_reset.sym} -270 160 0 0 {name=x2}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/d_flip_flop_reset.sym} 100 -40 0 0 {name=x3}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/d_flip_flop_reset.sym} 100 160 0 0 {name=x4}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/d_flip_flop_reset.sym} 470 -40 0 0 {name=x5}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/d_flip_flop_reset.sym} 840 -40 0 0 {name=x6}
