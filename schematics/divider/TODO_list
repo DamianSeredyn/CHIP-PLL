@@ -1,8 +1,0 @@
-TODO:
-
-add bypass to PDiv for code 000 000
-check with scripts if PDiv is working correctly for all codes
-make wymbol of Pdiv
-make TB of whole divider section
-test "top" of divider
-test functionality of all of the block - 2Div, PDiv, MUX + SISO register
