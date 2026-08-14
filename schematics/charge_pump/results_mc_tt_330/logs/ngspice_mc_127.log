@@ -1,0 +1,75 @@
+Note: Starting dynamic gmin stepping
+Note: Dynamic gmin stepping completed
+
+Note: No compatibility mode selected!
+
+
+Circuit: ** sch_path: /foss/designs/chip-pll/schematics/charge_pump/charge_pump_tran_tb.sch
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+OSDI(debug) n.x1.x2.xr2.nr1: OSDI(debug) n.x1.x1.xr1.nr1: WARNING: V(i1,c) voltage is greater than specified by vmax
+OSDI(debug) n.x1.x2.xr2.nr1: OSDI(debug) n.x1.x1.x1.xr2.nr1: WARNING: V(i1,c) voltage is greater than specified by vmax
+OSDI(debug) n.x1.x1.xr1.nr1: WARNING: V(i2,c) voltage is greater than specified by vmax
+WARNING: V(i1,c) voltage is greater than specified by vmax
+OSDI(debug) n.x1.x1.x1.xr2.nr1: WARNING: V(i2,c) voltage is greater than specified by vmax
+WARNING: V(i2,c) voltage is greater than specified by vmax
+OSDI(debug) n.x1.x2.xr2.nr1: WARNING: V(i1,c) voltage is greater than specified by vmax
+OSDI(debug) n.x1.x2.xr2.nr1: WARNING: V(i2,c) voltage is greater than specified by vmax
+OSDI(debug) n.x1.x1.x1.xr2.nr1: OSDI(debug) n.x1.x1.xr1.nr1: WARNING: V(i1,c) voltage is greater than specified by vmax
+OSDI(debug) n.x1.x1.x1.xr2.nr1: WARNING: V(i2,c) voltage is greater than specified by vmax
+WARNING: V(i1,c) voltage is greater than specified by vmax
+OSDI(debug) n.x1.x1.xr1.nr1: WARNING: V(i2,c) voltage is greater than specified by vmax
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+vp                                         1.2
+vout                                 0.0971059
+up                                           0
+dn                                           0
+rst                                          0
+net1                                       0.4
+x1.net11                              0.215222
+x1.net6                               0.760362
+x1.net8                                1.03597
+x1.net15                              0.855527
+x1.net5                                    1.2
+x1.net3                                    1.2
+x1.bias                               0.662331
+x1.net14                                   1.2
+x1.net9                                    1.2
+x1.net12                           3.49448e-05
+x1.net10                              0.404331
+x1.net1                               0.215222
+x1.net2                               0.213364
+x1.net7                               0.373646
+x1.net4                            3.45529e-05
+x1.net13                           3.49448e-05
+x1.x1.net1                            0.663645
+x1.x1.iref                             0.67958
+x1.x1.net2                            0.346929
+x1.x1.xr1.dt                                 0
+x1.x1.x1.net3                         0.569835
+x1.x1.x1.net2                         0.337378
+x1.x1.x1.net1                       0.00152929
+x1.x1.x1.xr2.dt                              0
+x1.x2.net3                            0.564613
+x1.x2.net2                            0.286163
+x1.x2.net1                         0.000541373
+x1.x2.xr2.dt                                 0
+voutbias#branch                   -1.28883e-10
+v.x1.viup#branch                   7.08015e-12
+v.x1.vidn#branch                   1.34073e-10
+v.x1.viref#branch                  7.70069e-07
+vrst#branch                        7.76299e-14
+vdn2#branch                        1.56514e-15
+vup2#branch                        5.10504e-11
+vvp#branch                        -5.54448e-05
+
+ Reference value :  0.00000e+00 Reference value :  9.42525e-07 Reference value :  2.06252e-06 Reference value :  3.12252e-06 Reference value :  4.11252e-06 Reference value :  5.00001e-06 Reference value :  5.68878e-06 Reference value :  6.65878e-06 Reference value :  7.66878e-06 Reference value :  8.57878e-06 Reference value :  9.46878e-06 Reference value :  1.00510e-05 Reference value :  1.10310e-05 Reference value :  1.19710e-05 Reference value :  1.28810e-05 Reference value :  1.36510e-05 Reference value :  1.45710e-05 Reference value :  1.50032e-05 Reference value :  1.56819e-05 Reference value :  1.62719e-05 Reference value :  1.63019e-05 Reference value :  1.63319e-05 Reference value :  1.69819e-05 Reference value :  1.74919e-05 Reference value :  1.79119e-05 Reference value :  1.88819e-05 Reference value :  1.98519e-05 Reference value :  2.05051e-05 Reference value :  2.14151e-05 Reference value :  2.23451e-05 Reference value :  2.32351e-05 Reference value :  2.41451e-05 Reference value :  2.49851e-05 Reference value :  2.56141e-05 Reference value :  2.64141e-05 Reference value :  2.70941e-05 Reference value :  2.77841e-05 Reference value :  2.84541e-05 Reference value :  2.91241e-05 Reference value :  2.97441e-05 Reference value :  3.00413e-05 Reference value :  3.08913e-05 Reference value :  3.15213e-05 Reference value :  3.24413e-05 Reference value :  3.34113e-05 Reference value :  3.43013e-05 Reference value :  3.50032e-05 Reference value :  3.57420e-05 Reference value :  3.65420e-05 Reference value :  3.65720e-05 Reference value :  3.66020e-05 Reference value :  3.71320e-05 Reference value :  3.80920e-05 Reference value :  3.90920e-05 Reference value :  4.00000e-05 Reference value :  4.07748e-05 Reference value :  4.17048e-05 Reference value :  4.26148e-05 Reference value :  4.35748e-05 Reference value :  4.45248e-05 Reference value :  4.51041e-05 Reference value :  4.60441e-05 Reference value :  4.66341e-05 Reference value :  4.72841e-05 Reference value :  4.79641e-05 Reference value :  4.86441e-05 Reference value :  4.93141e-05 Reference value :  4.99741e-05
+No. of Data Rows : 5198
+ngspice-46 done
