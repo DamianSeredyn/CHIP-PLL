@@ -1,0 +1,18 @@
+13-Aug-2026 20:33:42 | INFO    | Your Klayout version is: KLayout 0.30.9
+13-Aug-2026 20:33:42 | INFO    | Running SG13CMOS5L LVS checks on design /foss/designs/CHIP-PLL/layout/CP/vbias/vbias.gds on cell vbias
+13-Aug-2026 20:33:45 | INFO    | ==============================================================================
+13-Aug-2026 20:33:45 | INFO    | Important Summary
+13-Aug-2026 20:33:45 | INFO    | +------------------+--------------------------------------------------------------------------+
+13-Aug-2026 20:33:45 | INFO    | | Status           | FAIL                                                                     |
+13-Aug-2026 20:33:45 | INFO    | | Mode             | COMPARE                                                                  |
+13-Aug-2026 20:33:45 | INFO    | | Outcome          | Comparison mode: FAIL (netlists do not match).                           |
+13-Aug-2026 20:33:45 | INFO    | | Layout           | vbias.gds                                                                |
+13-Aug-2026 20:33:45 | INFO    | | Top Cell         | vbias                                                                    |
+13-Aug-2026 20:33:45 | INFO    | | Results Dir      | /foss/designs/CHIP-PLL/layout/CP/vbias/lvs_run_vbias_2026_08_13_20_33_41 |
+13-Aug-2026 20:33:45 | INFO    | | Warnings         | 0                                                                        |
+13-Aug-2026 20:33:45 | INFO    | | Errors           | 1                                                                        |
+13-Aug-2026 20:33:45 | INFO    | | Run Time (s)     | 3.352                                                                    |
+13-Aug-2026 20:33:45 | INFO    | +------------------+--------------------------------------------------------------------------+
+13-Aug-2026 20:33:45 | ERROR   | Key errors:
+13-Aug-2026 20:33:45 | ERROR   |   - 2026-08-13 20:33:45 +0200: Memory Usage (493088K) : ERROR : Netlists don't match
+13-Aug-2026 20:33:45 | INFO    | ==============================================================================
