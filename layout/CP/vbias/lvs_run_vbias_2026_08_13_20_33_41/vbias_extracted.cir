@@ -1,0 +1,40 @@
+* Extracted by KLayout with SG13CMOS5L LVS runset on : 13/08/2026 20:33
+
+.SUBCKT vbias gd iref vbias vp
+X$7 gd iref \$5 \$6 vp curr_source
+M$1 vp vp vp \$5 sg13_lv_pmos L=0.6u W=1.375u AS=0.4675p AD=0.4675p PS=3.43u
++ PD=3.43u rfmode=0
+M$2 gd gd gd \$6 sg13_lv_nmos L=0.6u W=1.86u AS=0.6324p AD=0.6324p PS=4.4u
++ PD=4.4u rfmode=0
+R$3 vp \$5 ntap1 A=2.34p P=7.56u
+M$4 vp iref \$9 \$5 sg13_lv_pmos L=0.6u W=1.2u AS=0.408p AD=0.408p PS=3.08u
++ PD=3.08u rfmode=0
+R$5 gd \$6 ptap1 A=2.34p P=7.56u
+R$6 vbias \$9 \$6 rppd w=1u l=1.7u ps=0u b=0 m=1
+M$7 gd \$11 \$11 \$6 sg13_lv_nmos L=0.6u W=1.2u AS=0.408p AD=0.408p PS=3.08u
++ PD=3.08u rfmode=0
+M$8 \$11 \$9 vbias \$6 sg13_lv_nmos L=0.6u W=3.6u AS=1.224p AD=1.224p PS=7.88u
++ PD=7.88u rfmode=0
+.ENDS vbias
+
+.SUBCKT curr_source gd iref \$3 \$4 vp
+R$1 vp \$3 ntap1 A=2.457p P=7.86u
+R$2 gd \$16 \$4 rppd w=1u l=1.7u ps=0u b=0 m=1
+M$3 gd gd gd \$4 sg13_lv_nmos L=0.6u W=0.4u AS=0.136p AD=0.136p PS=1.48u
++ PD=1.48u rfmode=0
+M$4 gd \$6 \$6 \$4 sg13_lv_nmos L=0.6u W=1u AS=0.34p AD=0.34p PS=2.68u PD=2.68u
++ rfmode=0
+M$5 vp \$6 iref \$4 sg13_lv_nmos L=0.6u W=1u AS=0.34p AD=0.34p PS=2.68u
++ PD=2.68u rfmode=0
+M$6 vp vp \$6 \$4 sg13_lv_nmos L=0.6u W=1u AS=0.34p AD=0.34p PS=2.68u PD=2.68u
++ rfmode=0
+M$7 gd \$10 \$10 \$4 sg13_lv_nmos L=0.6u W=1.4u AS=0.476p AD=0.476p PS=3.48u
++ PD=3.48u rfmode=0
+R$8 gd \$4 ptap1 A=2.496p P=7.96u
+M$9 vp iref \$10 \$3 sg13_lv_pmos L=0.6u W=1.2u AS=0.408p AD=0.408p PS=3.08u
++ PD=3.08u rfmode=0
+M$10 iref iref vp \$3 sg13_lv_pmos L=0.6u W=1.4u AS=0.476p AD=0.476p PS=3.48u
++ PD=3.48u rfmode=0
+M$11 iref \$10 \$16 \$4 sg13_lv_nmos L=0.6u W=1.2u AS=0.408p AD=0.408p PS=3.08u
++ PD=3.08u rfmode=0
+.ENDS curr_source

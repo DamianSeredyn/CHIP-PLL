@@ -1,63 +1,54 @@
-** sch_path: /foss/designs/CHIP-PLL/charge_pump/charge_pump_cell.sch
+** sch_path: /foss/designs/CHIP-PLL/schematics/charge_pump/charge_pump_cell.sch
 .subckt charge_pump_cell vp UP vout DN gd
-*.iopin UP
-*.iopin DN
-*.iopin gd
-*.iopin vp
-*.opin vout
-M15 net13 bias net4 gd sg13_lv_nmos w=1.6u l=0.6u ng=1
-M16 net4 net1 gd gd sg13_lv_nmos w=1.6u l=0.6u ng=1
-M1 net15 bias net10 gd sg13_lv_nmos w=1.6u l=0.6u ng=1
-M6 net10 bias net7 gd sg13_lv_nmos w=1.6u l=0.6u ng=1
-M8 net7 net1 gd gd sg13_lv_nmos w=1.6u l=0.6u ng=1
-M9 net1 bias net2 gd sg13_lv_nmos w=4.8u l=0.6u ng=1
-M10 net2 net1 gd gd sg13_lv_nmos w=4.8u l=0.6u ng=1
-M19 net15 bias net8 vp sg13_lv_pmos w=1.6u l=0.6u ng=1
-M7 net3 bias net5 vp sg13_lv_pmos w=1.6u l=0.6u ng=1 m=3
-M11 net5 net15 vp vp sg13_lv_pmos w=1.6u l=0.6u ng=1 m=3
-M2 net8 net15 vp vp sg13_lv_pmos w=5.2u l=0.6u ng=1
-M17 vout net9 net3 vp sg13_lv_pmos w=1u l=0.6u ng=1 m=3
-M18 vout DN net13 gd sg13_lv_nmos w=1u l=0.6u ng=1
-M3 net1 net6 vp vp sg13_lv_pmos w=1u l=0.6u ng=1
-x2 vp net6 gd curr_source
+*.PININFO UP:B DN:B gd:B vp:B vout:O
+MM12 net1 net6 vp vp sg13_lv_pmos w=1u l=0.6u ng=1
+MM3 net8 net15 vp vp sg13_lv_pmos w=1.6u l=0.6u ng=1
+MM2 net5 net15 vp vp sg13_lv_pmos w=1.65u l=0.6u ng=1
+MM7 net3 bias net5 vp sg13_lv_pmos w=1.6u l=0.6u ng=1
+MM11 net9 UP vp vp sg13_lv_pmos w=1u l=0.6u ng=1
+MM4 net9 UP gd gd sg13_lv_nmos w=1u l=0.6u ng=1
+MM5 vout net9 net3 vp sg13_lv_pmos w=1u l=0.6u ng=1
+MM13 vout DN net13 gd sg13_lv_nmos w=1u l=0.6u ng=1
+MM14 net15 bias net8 vp sg13_lv_pmos w=1.6u l=0.6u ng=1
+MM1 net15 bias net10 gd sg13_lv_nmos w=1.6u l=0.6u ng=1
+MM17 net1 bias net2 gd sg13_lv_nmos w=4.8u l=0.6u ng=1
+MM9 net2 net1 gd gd sg13_lv_nmos w=4.8u l=0.6u ng=1
+MM10 net10 bias net7 gd sg13_lv_nmos w=1.6u l=0.6u ng=1
+MM6 net7 net1 gd gd sg13_lv_nmos w=1.6u l=0.6u ng=1
+MM8 net4 net1 gd gd sg13_lv_nmos w=1.6u l=0.6u ng=1
+MM15 net13 bias net4 gd sg13_lv_nmos w=1.6u l=0.6u ng=1
 x1 vp gd bias vbias
-M4 net9 UP vp vp sg13_lv_pmos w=1u l=0.8u ng=1 m=3
-M5 net9 UP gd gd sg13_lv_nmos w=1u l=0.6u ng=1
-**.ends
-
-* expanding   symbol:  curr_source.sym # of pins=3
-** sym_path: /foss/designs/CHIP-PLL/charge_pump/curr_source.sym
-** sch_path: /foss/designs/CHIP-PLL/charge_pump/curr_source.sch
-.subckt curr_source vp iref gd
-*.iopin vp
-*.iopin gd
-*.opin iref
-M4 iref iref vp vp sg13_lv_pmos w=1.4u l=0.6u ng=1
-M5 net2 iref vp vp sg13_lv_pmos w=1.2u l=0.6u ng=1
-M6 net3 net3 gd gd sg13_lv_nmos w=1u l=0.6u ng=1
-M3 net2 net2 gd gd sg13_lv_nmos w=1.4u l=0.6u ng=1
-R2 net1 gd rppd w=1e-6 l=1.70e-6 m=1 b=0
-M1 iref net2 net1 gd sg13_lv_nmos w=1.2u l=0.6u ng=1
-M2 vp net3 iref gd sg13_lv_nmos w=1u l=0.6u ng=1
-M7 vp vp net3 gd sg13_lv_nmos w=1u l=0.6u ng=1
-M8 gd gd gd gd sg13_lv_nmos w=0.4u l=0.6u ng=1
+x2 vp net6 gd curr_source
 .ends
-
 
 * expanding   symbol:  vbias.sym # of pins=3
-** sym_path: /foss/designs/CHIP-PLL/charge_pump/vbias.sym
-** sch_path: /foss/designs/CHIP-PLL/charge_pump/vbias.sch
+** sym_path: /foss/designs/CHIP-PLL/schematics/charge_pump/vbias.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/charge_pump/vbias.sch
 .subckt vbias vp gd vbias
-*.opin vbias
-*.iopin gd
-*.iopin vp
-M2 net2 net2 gd gd sg13_lv_nmos w=1.2u l=0.6u ng=1
-M3 vbias net1 net2 gd sg13_lv_nmos w=3.6u l=0.6u ng=1
-M13 net1 iref vp vp sg13_lv_pmos w=1.2u l=0.6u ng=1
-R2 net1 vbias rppd w=1e-6 l=1.70e-6 m=1 b=0
+*.PININFO vbias:O gd:B vp:B
+MM5 net1 iref vp vp sg13_lv_pmos w=1.2u l=0.6u ng=1
+MM6 vbias net1 net2 gd sg13_lv_nmos w=3.6u l=0.6u ng=1
+MM2 net2 net2 gd gd sg13_lv_nmos w=1.2u l=0.6u ng=1
+MM3 gd gd gd gd sg13_lv_nmos w=1.86u l=0.6u ng=1
+MM7 vp vp vp vp sg13_lv_pmos w=1.375u l=0.6u ng=1
+RR1 net1 vbias 509.4 $SUB=gd $[rppd] w=1e-6 l=1.7e-6 b=0
 x1 vp iref gd curr_source
-M1 gd gd gd gd sg13_lv_nmos w=1.86u l=0.6u ng=1
-M4 vp vp vp vp sg13_lv_pmos w=1.375u l=0.6u ng=1
 .ends
 
-.end
+
+* expanding   symbol:  curr_source.sym # of pins=3
+** sym_path: /foss/designs/CHIP-PLL/schematics/charge_pump/curr_source.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/charge_pump/curr_source.sch
+.subckt curr_source vp iref gd
+*.PININFO vp:B gd:B iref:O
+MM9 net3 net3 gd gd sg13_lv_nmos w=1u l=0.6u ng=1
+MM4 iref iref vp vp sg13_lv_pmos w=1.4u l=0.6u ng=1
+MM5 net2 iref vp vp sg13_lv_pmos w=1.2u l=0.6u ng=1
+MM10 iref net2 net1 gd sg13_lv_nmos w=1.2u l=0.6u ng=1
+MM1 net2 net2 gd gd sg13_lv_nmos w=1.4u l=0.6u ng=1
+MM3 vp vp net3 gd sg13_lv_nmos w=1u l=0.6u ng=1
+MM6 vp net3 iref gd sg13_lv_nmos w=1u l=0.6u ng=1
+MM2 gd gd gd gd sg13_lv_nmos w=0.4u l=0.6u ng=1
+RR2 net1 gd 509.4 $SUB=gd $[rppd] w=1e-6 l=1.7e-6 b=0
+.ends
+

@@ -1,0 +1,20 @@
+14-Aug-2026 15:43:32 | INFO    | Your Klayout version is: KLayout 0.30.9
+14-Aug-2026 15:43:32 | INFO    | Running SG13CMOS5L LVS checks on design /foss/designs/CHIP-PLL/layout/CP/charge_pump/charge_pump_cell_next.gds on cell charge_pump_cell
+14-Aug-2026 15:43:36 | INFO    | ==============================================================================
+14-Aug-2026 15:43:36 | INFO    | Important Summary
+14-Aug-2026 15:43:36 | INFO    | +------------------+--------------------------------------------------------------+
+14-Aug-2026 15:43:36 | INFO    | | Status           | PASS                                                         |
+14-Aug-2026 15:43:36 | INFO    | | Mode             | COMPARE                                                      |
+14-Aug-2026 15:43:36 | INFO    | | Outcome          | Comparison mode: PASS (netlists match).                      |
+14-Aug-2026 15:43:36 | INFO    | | Layout           | charge_pump_cell_next.gds                                    |
+14-Aug-2026 15:43:36 | INFO    | | Top Cell         | charge_pump_cell                                             |
+14-Aug-2026 15:43:36 | INFO    | | Results Dir      | /foss/designs/CHIP-PLL/layout/CP/lvs                         |
+14-Aug-2026 15:43:36 | INFO    | | Warnings         | 0                                                            |
+14-Aug-2026 15:43:36 | INFO    | | Errors           | 3                                                            |
+14-Aug-2026 15:43:36 | INFO    | | Run Time (s)     | 3.475                                                        |
+14-Aug-2026 15:43:36 | INFO    | +------------------+--------------------------------------------------------------+
+14-Aug-2026 15:43:36 | ERROR   | Key errors:
+14-Aug-2026 15:43:36 | ERROR   |   - 2026-08-14 15:14:08 +0200: Memory Usage (491828K) : ERROR : Netlists don't match
+14-Aug-2026 15:43:36 | ERROR   |   - 2026-08-14 15:16:13 +0200: Memory Usage (492516K) : ERROR : Netlists don't match
+14-Aug-2026 15:43:36 | ERROR   |   - 2026-08-14 15:22:23 +0200: Memory Usage (492184K) : ERROR : Netlists don't match
+14-Aug-2026 15:43:36 | INFO    | ==============================================================================
