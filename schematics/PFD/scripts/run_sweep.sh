@@ -1,12 +1,12 @@
 #!/bin/bash
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/../../../" && pwd)"
 
 source $PROJECT_DIR/configs/corner_data
 
-SPICE=$PROJECT_DIR/PFD/simulations/PFD_tb.spice
-DATA_DIR=$PROJECT_DIR/PFD/results/data
+SPICE=$PROJECT_DIR/schematics/PFD/simulations/PFD_tb.spice
+DATA_DIR=$PROJECT_DIR/schematics/PFD/results/data
 T_US=31.25
 STEPS=32
 

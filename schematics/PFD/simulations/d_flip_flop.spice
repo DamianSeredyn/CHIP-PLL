@@ -1,0 +1,16 @@
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/d_flip_flop.sch
+**.subckt d_flip_flop q VP GND q_ clk d
+*.iopin GND
+*.ipin clk
+*.iopin VP
+*.ipin d
+*.opin q
+*.opin q_
+*  x1 -  NAND_3in  IS MISSING !!!!
+*  x2 -  NAND_2in  IS MISSING !!!!
+*  x3 -  NAND_2in  IS MISSING !!!!
+*  x4 -  NAND_2in  IS MISSING !!!!
+*  x5 -  NAND_2in  IS MISSING !!!!
+*  x6 -  NAND_2in  IS MISSING !!!!
+**.ends
+.end
