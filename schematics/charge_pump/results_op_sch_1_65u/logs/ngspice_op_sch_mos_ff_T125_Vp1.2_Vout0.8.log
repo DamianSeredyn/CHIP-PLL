@@ -1,0 +1,19 @@
+Note: Starting dynamic gmin stepping
+Note: Dynamic gmin stepping completed
+
+Note: No compatibility mode selected!
+
+
+Circuit: ** sch_path: /foss/designs/chip-pll/schematics/charge_pump/charge_pump_op_tb.sch
+
+Doing analysis at TEMP = 125.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+ Reference value :  0.00000e+00
+No. of Data Rows : 1
+v(vout) = 8.000000e-01
+v(x1.bias) = 4.574381e-01
+@n.x1.xm12.nsg13_lv_pmos[ids] = 2.600807e-06
+@n.x1.xm5.nsg13_lv_pmos[ids] = 8.309149e-07
+@n.x1.xm13.nsg13_lv_nmos[ids] = 8.325390e-07
+ngspice-46 done

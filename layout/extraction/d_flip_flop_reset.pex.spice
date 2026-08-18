@@ -1,0 +1,105 @@
+* PEX produced on Thu Aug  6 07:03:52 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
+* NGSPICE file created from d_flip_flop_reset.ext - technology: ihp-sg13g2
+
+.subckt d_flip_flop_reset VP GND d q_ q reset clk
+X0 NAND_3in_nmosx3_0.c reset VP VP sg13_lv_pmos ad=55.5f pd=0.74u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X1 a_607_n517# reset GND GND sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.13u
+X2 a_579_n79# NAND_3in_nmosx3_0.a GND GND sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.13u
+X3 NAND_3in_nmosx3_3.a NAND_3in_nmosx3_0.a VP VP sg13_lv_pmos ad=55.5f pd=0.74u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X4 NAND_3in_nmosx3_3.a NAND_3in_nmosx3_0.c a_579_n79# GND sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.13u
+X5 a_1423_n517# reset GND GND sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.13u
+X6 VP d NAND_3in_nmosx3_0.c VP sg13_lv_pmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
+X7 VP clk NAND_3in_nmosx3_0.a VP sg13_lv_pmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
+X8 VP NAND_3in_nmosx3_0.c NAND_3in_nmosx3_3.a VP sg13_lv_pmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.13u
+X9 a_709_n517# d a_607_n517# GND sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.13u
+X10 NAND_3in_nmosx3_0.y NAND_3in_nmosx3_0.c VP VP sg13_lv_pmos ad=55.5f pd=0.74u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X11 VP NAND_3in_nmosx3_0.y q_ VP sg13_lv_pmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
+X12 a_n175_n517# clk a_n277_n517# GND sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.13u
+X13 NAND_3in_nmosx3_0.a NAND_3in_nmosx3_3.a a_n175_n79# GND sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.13u
+X14 NAND_3in_nmosx3_0.a reset VP VP sg13_lv_pmos ad=55.5f pd=0.74u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X15 a_1525_n517# NAND_3in_nmosx3_0.y a_1423_n517# GND sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.13u
+X16 q q_ VP VP sg13_lv_pmos ad=55.5f pd=0.74u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X17 NAND_3in_nmosx3_0.c NAND_3in_nmosx3_0.y a_709_n517# GND sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.13u
+X18 a_n277_n517# NAND_3in_nmosx3_0.c GND GND sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.13u
+X19 NAND_3in_nmosx3_0.y NAND_3in_nmosx3_0.a VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.13u
+X20 NAND_3in_nmosx3_0.c NAND_3in_nmosx3_0.y VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.13u
+X21 NAND_3in_nmosx3_0.a NAND_3in_nmosx3_3.a VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.13u
+X22 a_1327_n79# q_ GND GND sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.13u
+X23 q_ q a_1525_n517# GND sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.13u
+X24 q NAND_3in_nmosx3_0.a a_1327_n79# GND sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.13u
+X25 a_n175_n79# clk a_n277_n79# GND sg13_lv_nmos ad=57f pd=0.68u as=57f ps=0.68u w=0.3u l=0.13u
+X26 VP clk NAND_3in_nmosx3_0.y VP sg13_lv_pmos ad=55.5f pd=0.74u as=55.5f ps=0.74u w=0.15u l=0.13u
+X27 q_ reset VP VP sg13_lv_pmos ad=55.5f pd=0.74u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X28 q_ q VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.13u
+X29 a_n277_n79# reset GND GND sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.13u
+X30 NAND_3in_nmosx3_0.y NAND_3in_nmosx3_0.a a_n175_n517# GND sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.13u
+X31 VP NAND_3in_nmosx3_0.a q VP sg13_lv_pmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.13u
+C0 NAND_3in_nmosx3_0.c NAND_3in_nmosx3_0.y 0.91346f
+C1 q_ a_1423_n517# 0.01441f
+C2 clk NAND_3in_nmosx3_0.y 0.17195f
+C3 q_ VP 0.19562f
+C4 NAND_3in_nmosx3_3.a q 0.04108f
+C5 NAND_3in_nmosx3_0.y VP 0.72808f
+C6 d NAND_3in_nmosx3_0.y 0.42906f
+C7 q VP 0.12287f
+C8 VP NAND_3in_nmosx3_0.a 0.83842f
+C9 q_ reset 0.31569f
+C10 a_607_n517# a_709_n517# 0.07705f
+C11 a_579_n79# NAND_3in_nmosx3_3.a 0.07883f
+C12 NAND_3in_nmosx3_0.a reset 0.63717f
+C13 NAND_3in_nmosx3_0.c VP 0.14404f
+C14 NAND_3in_nmosx3_0.c reset 1.086f
+C15 clk VP 0.15745f
+C16 VP NAND_3in_nmosx3_3.a 0.38698f
+C17 q_ NAND_3in_nmosx3_0.a 0.69652f
+C18 a_n175_n517# a_n277_n517# 0.07705f
+C19 q NAND_3in_nmosx3_0.y 0.4192f
+C20 clk reset 0.87177f
+C21 NAND_3in_nmosx3_3.a reset 0.12503f
+C22 q_ NAND_3in_nmosx3_0.c 0.09197f
+C23 reset VP 0.29636f
+C24 d reset 0.40199f
+C25 a_1525_n517# q 0.01218f
+C26 a_n175_n79# a_n277_n79# 0.07705f
+C27 NAND_3in_nmosx3_0.c NAND_3in_nmosx3_0.a 0.55956f
+C28 q_ NAND_3in_nmosx3_3.a 0.02905f
+C29 q_ VP 0.39453f
+C30 clk NAND_3in_nmosx3_0.a 0.57395f
+C31 NAND_3in_nmosx3_0.a NAND_3in_nmosx3_3.a 0.8092f
+C32 VP q 0.27974f
+C33 a_n175_n517# NAND_3in_nmosx3_0.y 0.08001f
+C34 NAND_3in_nmosx3_0.a VP 0.13563f
+C35 NAND_3in_nmosx3_0.c a_709_n517# 0.08066f
+C36 NAND_3in_nmosx3_0.y reset 1.17943f
+C37 clk NAND_3in_nmosx3_0.c 0.63236f
+C38 NAND_3in_nmosx3_0.c NAND_3in_nmosx3_3.a 0.34794f
+C39 a_1525_n517# a_1423_n517# 0.07705f
+C40 NAND_3in_nmosx3_0.c VP 0.62355f
+C41 d NAND_3in_nmosx3_0.c 0.34838f
+C42 clk NAND_3in_nmosx3_3.a 0.40724f
+C43 q_ NAND_3in_nmosx3_0.y 0.15011f
+C44 clk VP 0.15975f
+C45 q_ q 1.12728f
+C46 a_1327_n79# q 0.07824f
+C47 NAND_3in_nmosx3_0.a NAND_3in_nmosx3_0.y 0.59131f
+C48 d VP 0.12812f
+C49 NAND_3in_nmosx3_0.a q 0.10985f
+C50 q_ a_1525_n517# 0.07769f
+C51 a_n175_n79# NAND_3in_nmosx3_0.a 0.08001f
+C52 VP reset 0.14198f
+C53 q_ GND 0.80468f
+C54 VP GND 2.93058f
+C55 VP GND 1.68154f
+C56 a_1525_n517# GND 0.83975f
+C57 a_1423_n517# GND 0.101f
+C58 a_709_n517# GND 0.03507f
+C59 a_607_n517# GND 0.101f
+C60 a_n175_n517# GND 0.03507f
+C61 a_n277_n517# GND 0.101f
+C62 a_1327_n79# GND 0.10128f
+C63 a_579_n79# GND 1.92172f
+C64 a_n175_n79# GND 0.88811f
+C65 a_n277_n79# GND 0.101f
+C66 NAND_3in_nmosx3_0.c GND 0.3291f
+.ends
+
