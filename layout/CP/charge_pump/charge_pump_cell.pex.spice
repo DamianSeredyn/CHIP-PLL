@@ -1,163 +1,188 @@
-* PEX produced on Fri Aug 14 03:45:49 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
+* PEX produced on Wed Aug 19 10:30:23 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
 * NGSPICE file created from charge_pump_cell.ext - technology: ihp-sg13g2
 
-.subckt charge_pump_cell gd vp UP DN vout
+.subckt charge_pump_cell gd vp rst DN UP
 X0 net8 net15 vp vp sg13_lv_pmos ad=0.544p pd=3.88u as=0.544p ps=3.88u w=1.6u l=0.6u
 X1 net1 bias net2 gd sg13_lv_nmos ad=0.544p pd=3.88u as=0.304p ps=1.98u w=1.6u l=0.6u
 X2 gd net1 net2 gd sg13_lv_nmos ad=0.544p pd=3.88u as=0.304p ps=1.98u w=1.6u l=0.6u
-X3 curr_source_0.iref a_1397_4440# vp gd sg13_lv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
-X4 a_3659_5090# UP gd gd sg13_lv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
-X5 vp net15 net5 vp sg13_lv_pmos ad=0.561p pd=3.98u as=0.561p ps=3.98u w=1.65u l=0.6u
-X6 net1 bias net2 gd sg13_lv_nmos ad=0.304p pd=1.98u as=0.544p ps=3.88u w=1.6u l=0.6u
-X7 gd net1 net2 gd sg13_lv_nmos ad=0.304p pd=1.98u as=0.544p ps=3.88u w=1.6u l=0.6u
-X8 a_989_4628# vbias_0.curr_source_0.iref vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.6u
-X9 a_1695_4628# curr_source_0.iref vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.6u
-X10 a_1397_4440# vp vp gd sg13_lv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
-X11 net1 curr_source_0.iref vp vp sg13_lv_pmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
-X12 gd gd gd gd sg13_lv_nmos ad=0.136p pd=1.48u as=21.16p ps=0.14074m w=0.4u l=0.6u
-X13 gd gd gd gd sg13_lv_nmos ad=0.136p pd=1.48u as=0 ps=0 w=0.4u l=0.6u
-X14 a_1077_4114# a_989_4628# vbias_0.curr_source_0.iref gd sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.6u
-X15 a_1783_4114# a_1695_4628# curr_source_0.iref gd sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.6u
-X16 vout DN net13 gd sg13_lv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
-X17 vbias_0.curr_source_0.iref a_691_4440# vp gd sg13_lv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
-X18 net5 bias a_2995_5126# vp sg13_lv_pmos ad=0.544p pd=3.88u as=0.544p ps=3.88u w=1.6u l=0.6u
-X19 vp curr_source_0.iref curr_source_0.iref vp sg13_lv_pmos ad=0.476p pd=3.48u as=0.476p ps=3.48u w=1.4u l=0.6u
-X20 a_691_4440# vp vp gd sg13_lv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
-X21 a_1397_4440# a_1397_4440# gd gd sg13_lv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
-X22 a_3659_5090# UP vp vp sg13_lv_pmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
-X23 gd gd gd gd sg13_lv_nmos ad=0.6324p pd=4.4u as=0 ps=0 w=1.86u l=0.6u
-X24 a_1695_4628# a_1695_4628# gd gd sg13_lv_nmos ad=0.476p pd=3.48u as=0.476p ps=3.48u w=1.4u l=0.6u
-X25 gd a_1077_4114# gd rppd l=1.7u w=1u
-X26 gd a_1783_4114# gd rppd l=1.7u w=1u
-X27 a_989_4628# a_989_4628# gd gd sg13_lv_nmos ad=0.476p pd=3.48u as=0.476p ps=3.48u w=1.4u l=0.6u
-X28 vp vbias_0.curr_source_0.iref vbias_0.curr_source_0.iref vp sg13_lv_pmos ad=0.476p pd=3.48u as=0.476p ps=3.48u w=1.4u l=0.6u
-X29 a_95_4470# a_95_4470# gd gd sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.6u
-X30 net13 bias a_3385_4115# gd sg13_lv_nmos ad=0.544p pd=3.88u as=0.544p ps=3.88u w=1.6u l=0.6u
-X31 gd net1 a_3385_4115# gd sg13_lv_nmos ad=0.544p pd=3.88u as=0.544p ps=3.88u w=1.6u l=0.6u
-X32 vout a_3659_5090# a_2995_5126# vp sg13_lv_pmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
-X33 net2 bias net1 gd sg13_lv_nmos ad=0.304p pd=1.98u as=0.304p ps=1.98u w=1.6u l=0.6u
-X34 bias a_393_4470# gd rppd l=1.7u w=1u
-X35 a_691_4440# a_691_4440# gd gd sg13_lv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
-X36 net2 net1 gd gd sg13_lv_nmos ad=0.304p pd=1.98u as=0.304p ps=1.98u w=1.6u l=0.6u
-X37 vp vp vp vp sg13_lv_pmos ad=0.4675p pd=3.43u as=19.0472p ps=0.10859m w=1.375u l=0.6u
+X3 bias a_453_4470# gd rppd l=1.7u w=1u
+X4 curr_source_0.iref a_1397_4440# vp gd sg13_lv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
+X5 vp vp vp vp sg13_lv_pmos ad=0.4675p pd=3.43u as=20.86482p ps=0.11767m w=1.375u l=0.6u
+X6 a_1049_4628# vbias_0.curr_source_0.iref vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.6u
+X7 gd UP a_3659_5090# gd sg13_lv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
+X8 vp net15 net5 vp sg13_lv_pmos ad=0.561p pd=3.98u as=0.561p ps=3.98u w=1.65u l=0.6u
+X9 a_1137_4114# a_1049_4628# vbias_0.curr_source_0.iref gd sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.6u
+X10 gd gd gd gd sg13_lv_nmos ad=0.136p pd=1.48u as=21.5728p ps=0.14041m w=0.4u l=0.6u
+X11 net1 bias net2 gd sg13_lv_nmos ad=0.304p pd=1.98u as=0.544p ps=3.88u w=1.6u l=0.6u
+X12 gd net1 net2 gd sg13_lv_nmos ad=0.304p pd=1.98u as=0.544p ps=3.88u w=1.6u l=0.6u
+X13 a_1695_4628# curr_source_0.iref vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.6u
+X14 a_1397_4440# vp vp gd sg13_lv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
+X15 net1 curr_source_0.iref vp vp sg13_lv_pmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
+X16 gd gd gd gd sg13_lv_nmos ad=0.136p pd=1.48u as=0 ps=0 w=0.4u l=0.6u
+X17 vbias_0.curr_source_0.iref a_751_4440# vp gd sg13_lv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
+X18 a_1783_4114# a_1695_4628# curr_source_0.iref gd sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.6u
+X19 vout DN net13 gd sg13_lv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
+X20 net5 bias a_2995_5126# vp sg13_lv_pmos ad=0.544p pd=3.88u as=0.544p ps=3.88u w=1.6u l=0.6u
+X21 vp curr_source_0.iref curr_source_0.iref vp sg13_lv_pmos ad=0.476p pd=3.48u as=0.476p ps=3.48u w=1.4u l=0.6u
+X22 a_751_4440# vp vp gd sg13_lv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
+X23 a_1397_4440# a_1397_4440# gd gd sg13_lv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
+X24 a_3659_5090# UP vp vp sg13_lv_pmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
+X25 a_1049_4628# a_1049_4628# gd gd sg13_lv_nmos ad=0.476p pd=3.48u as=0.476p ps=3.48u w=1.4u l=0.6u
+X26 vtest vtest vp vp sg13_lv_pmos ad=0.612p pd=4.28u as=0.612p ps=4.28u w=1.8u l=1.8u
+X27 a_1695_4628# a_1695_4628# gd gd sg13_lv_nmos ad=0.476p pd=3.48u as=0.476p ps=3.48u w=1.4u l=0.6u
+X28 gd a_1783_4114# gd rppd l=1.7u w=1u
+X29 vp vbias_0.curr_source_0.iref vbias_0.curr_source_0.iref vp sg13_lv_pmos ad=0.476p pd=3.48u as=0.476p ps=3.48u w=1.4u l=0.6u
+X30 a_751_4440# a_751_4440# gd gd sg13_lv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
+X31 net13 bias a_3385_4115# gd sg13_lv_nmos ad=0.544p pd=3.88u as=0.544p ps=3.88u w=1.6u l=0.6u
+X32 gd net1 a_3385_4115# gd sg13_lv_nmos ad=0.544p pd=3.88u as=0.544p ps=3.88u w=1.6u l=0.6u
+X33 vout a_3659_5090# a_2995_5126# vp sg13_lv_pmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.6u
+X34 net2 bias net1 gd sg13_lv_nmos ad=0.304p pd=1.98u as=0.304p ps=1.98u w=1.6u l=0.6u
+X35 vout rst vtest gd sg13_lv_nmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=1.8u
+X36 a_155_4470# a_453_4470# bias gd sg13_lv_nmos ad=1.224p pd=7.88u as=1.224p ps=7.88u w=3.6u l=0.6u
+X37 net2 net1 gd gd sg13_lv_nmos ad=0.304p pd=1.98u as=0.304p ps=1.98u w=1.6u l=0.6u
 X38 net15 bias net8 vp sg13_lv_pmos ad=0.544p pd=3.88u as=0.544p ps=3.88u w=1.6u l=0.6u
 X39 net10 bias net15 gd sg13_lv_nmos ad=0.544p pd=3.88u as=0.544p ps=3.88u w=1.6u l=0.6u
-X40 a_95_4470# a_393_4470# bias gd sg13_lv_nmos ad=1.224p pd=7.88u as=1.224p ps=7.88u w=3.6u l=0.6u
-X41 a_393_4470# vbias_0.curr_source_0.iref vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.6u
-X42 net7 bias net10 gd sg13_lv_nmos ad=0.544p pd=3.88u as=0.544p ps=3.88u w=1.6u l=0.6u
-X43 net7 net1 gd gd sg13_lv_nmos ad=0.544p pd=3.88u as=0.544p ps=3.88u w=1.6u l=0.6u
-C0 vp net8 0.12854f
-C1 net15 a_2995_5126# 0.20408f
-C2 bias net5 0.06561f
-C3 bias net1 1.1044f
-C4 a_1695_4628# a_1783_4114# 0.05702f
-C5 a_2995_5126# vp 0.22613f
-C6 a_1397_4440# curr_source_0.iref 0.20908f
-C7 bias a_393_4470# 0.26066f
-C8 a_1397_4440# a_1443_4114# 0.02514f
-C9 a_3385_4115# net1 0.09901f
-C10 bias vbias_0.curr_source_0.iref 0.02618f
-C11 a_393_4470# vbias_0.curr_source_0.iref 0.21643f
-C12 curr_source_0.iref a_989_4628# 0.0482f
-C13 bias a_3385_4115# 0.04692f
-C14 bias a_691_4440# 0.03834f
-C15 a_393_4470# a_691_4440# 0.01389f
-C16 UP vout 0.10527f
-C17 bias a_1077_4114# 0.04917f
-C18 net10 net1 0.02038f
-C19 a_1695_4628# net1 0.01079f
-C20 a_691_4440# vbias_0.curr_source_0.iref 0.20908f
-C21 vbias_0.curr_source_0.iref a_1077_4114# 0.09902f
-C22 vout vp 0.17936f
-C23 bias net10 0.10903f
-C24 bias a_1695_4628# 0.01568f
-C25 a_691_4440# a_1077_4114# 0.03881f
-C26 net15 net5 0.05352f
-C27 net15 net1 0.38747f
-C28 a_1397_4440# a_1783_4114# 0.03881f
-C29 net5 vp 0.12574f
-C30 net1 vp 0.22937f
-C31 bias UP 0.03518f
-C32 bias net15 0.89253f
-C33 bias vp 0.63566f
-C34 a_393_4470# vp 0.14436f
-C35 a_3659_5090# DN 0.25646f
-C36 bias a_737_4114# 0.02274f
-C37 bias a_95_4470# 0.45403f
-C38 a_393_4470# a_95_4470# 0.18853f
-C39 a_1783_4114# net2 0.01919f
-C40 bias a_91_4114# 0.14491f
-C41 a_393_4470# a_91_4114# 0.02412f
-C42 vbias_0.curr_source_0.iref vp 1.37943f
-C43 net7 net1 0.11087f
-C44 a_95_4470# vbias_0.curr_source_0.iref 0.01534f
-C45 a_691_4440# vp 0.24237f
-C46 a_1077_4114# vp 0.03553f
-C47 a_691_4440# a_737_4114# 0.02514f
-C48 a_95_4470# a_691_4440# 0.03339f
-C49 bias net7 0.04748f
-C50 a_2995_5126# a_3659_5090# 0.0261f
-C51 net15 net10 0.08193f
-C52 a_1397_4440# bias 0.03625f
-C53 a_1695_4628# vp 0.17863f
-C54 net15 UP 0.01532f
-C55 a_1397_4440# vbias_0.curr_source_0.iref 0.03926f
-C56 a_3385_4115# net7 0.39335f
-C57 net1 net2 0.57037f
-C58 UP vp 0.43771f
-C59 a_1397_4440# a_1077_4114# 0.06061f
-C60 net13 DN 0.04315f
-C61 net15 vp 1.00557f
-C62 bias net2 0.57718f
-C63 vbias_0.curr_source_0.iref a_989_4628# 0.16523f
-C64 curr_source_0.iref a_1783_4114# 0.0999f
-C65 net7 net10 0.06622f
-C66 a_95_4470# vp 0.26048f
-C67 a_1077_4114# a_989_4628# 0.05702f
-C68 a_3659_5090# vout 0.16468f
-C69 a_95_4470# a_91_4114# 0.02535f
-C70 DN vout 0.08252f
-C71 a_2995_5126# net13 0.02309f
-C72 a_1397_4440# vp 0.24218f
-C73 curr_source_0.iref net1 0.031f
-C74 a_2995_5126# vout 0.06063f
-C75 net1 net8 0.05619f
-C76 vp a_989_4628# 0.22154f
-C77 bias curr_source_0.iref 0.10292f
-C78 bias a_1443_4114# 0.02273f
-C79 net15 net2 0.01645f
-C80 a_2995_5126# net5 0.09026f
-C81 a_2995_5126# net1 0.01521f
-C82 bias net8 0.04739f
-C83 net13 vout 0.04139f
-C84 vbias_0.curr_source_0.iref curr_source_0.iref 0.07824f
-C85 bias a_2995_5126# 0.62915f
-C86 a_1783_4114# net1 0.01235f
-C87 a_1695_4628# curr_source_0.iref 0.25454f
-C88 a_3659_5090# UP 0.95982f
-C89 bias net13 0.03366f
-C90 bias a_1783_4114# 0.17779f
-C91 UP DN 0.24676f
-C92 a_3659_5090# vp 0.42408f
-C93 net15 curr_source_0.iref 0.04994f
-C94 DN vp 0.01249f
-C95 a_2995_5126# net10 0.01594f
-C96 net13 a_3385_4115# 0.06622f
-C97 curr_source_0.iref vp 1.6652f
-C98 a_1783_4114# a_1077_4114# 0.01012f
-C99 net15 net8 0.16372f
-C100 bias vout 0.01794f
-C101 vout gd 0.7027f
-C102 net13 gd 0.24197f
-C103 a_3385_4115# gd 0.11516f
-C104 net7 gd 0.29149f
-C105 net10 gd 0.22665f
-C106 net2 gd 3.34925f
-C107 a_1783_4114# gd 1.53888f
-C108 a_1077_4114# gd 1.53247f
-C109 a_2995_5126# gd 0.33845f
-C110 net8 gd 0.19574f
-C111 a_95_4470# gd 0.35835f
-C112 net15 gd 0.0779f
+X40 gd gd gd gd sg13_lv_nmos ad=0.6324p pd=4.4u as=0 ps=0 w=1.86u l=0.6u
+X41 gd a_1137_4114# gd rppd l=1.7u w=1u
+X42 a_453_4470# vbias_0.curr_source_0.iref vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.6u
+X43 net7 bias net10 gd sg13_lv_nmos ad=0.544p pd=3.88u as=0.544p ps=3.88u w=1.6u l=0.6u
+X44 net7 net1 gd gd sg13_lv_nmos ad=0.544p pd=3.88u as=0.544p ps=3.88u w=1.6u l=0.6u
+X45 vtest vtest gd gd sg13_lv_nmos ad=0.612p pd=4.28u as=0.612p ps=4.28u w=1.8u l=0.6u
+X46 a_155_4470# a_155_4470# gd gd sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.6u
+C0 vbias_0.curr_source_0.iref vout 0.09431f
+C1 vtest vp 0.93664f
+C2 curr_source_0.iref a_1049_4628# 0.07184f
+C3 vout a_453_4470# 0.03039f
+C4 DN vout 0.13565f
+C5 UP vp 0.40366f
+C6 net1 net2 0.61431f
+C7 vout a_751_4440# 0.0582f
+C8 net15 bias 0.82121f
+C9 net10 a_2995_5126# 0.03395f
+C10 a_1397_4440# a_1443_4114# 0.02514f
+C11 net1 a_2995_5126# 0.01422f
+C12 a_797_4114# a_751_4440# 0.02514f
+C13 net5 bias 0.06488f
+C14 a_155_4470# a_453_4470# 0.18654f
+C15 a_155_4470# a_751_4440# 0.03339f
+C16 net15 vout 0.13666f
+C17 rst vout 0.03771f
+C18 net5 vout 0.03925f
+C19 net1 a_3385_4115# 0.09901f
+C20 a_3659_5090# a_2995_5126# 0.02901f
+C21 a_3659_5090# net13 0.0178f
+C22 vp curr_source_0.iref 1.69019f
+C23 net13 a_2995_5126# 0.02064f
+C24 curr_source_0.iref a_1783_4114# 0.09908f
+C25 vtest DN 0.74999f
+C26 net1 vp 0.23629f
+C27 vp a_1695_4628# 0.17867f
+C28 net1 net8 0.08504f
+C29 net1 a_1783_4114# 0.01258f
+C30 a_1137_4114# a_1049_4628# 0.05033f
+C31 UP DN 0.55523f
+C32 a_1783_4114# a_1695_4628# 0.05033f
+C33 bias vout 0.37215f
+C34 a_3385_4115# net13 0.06622f
+C35 a_797_4114# bias 0.02274f
+C36 vp a_1049_4628# 0.26111f
+C37 a_151_4114# a_453_4470# 0.02412f
+C38 a_3659_5090# vp 0.5f
+C39 a_1397_4440# curr_source_0.iref 0.20586f
+C40 vtest rst 0.15924f
+C41 vp a_2995_5126# 0.23427f
+C42 a_155_4470# bias 0.4535f
+C43 net2 a_1783_4114# 0.01919f
+C44 vbias_0.curr_source_0.iref curr_source_0.iref 0.09352f
+C45 rst UP 0.0217f
+C46 a_1443_4114# bias 0.02273f
+C47 net7 bias 0.04748f
+C48 a_155_4470# vout 0.057f
+C49 vp a_1137_4114# 0.05318f
+C50 a_1137_4114# a_1783_4114# 0.01115f
+C51 vbias_0.curr_source_0.iref a_1049_4628# 0.15419f
+C52 net15 curr_source_0.iref 0.04835f
+C53 net8 vp 0.1226f
+C54 net15 net10 0.08791f
+C55 net1 net15 0.25859f
+C56 a_3659_5090# DN 0.19972f
+C57 vtest vout 0.21996f
+C58 net13 DN 0.0409f
+C59 a_151_4114# bias 0.14491f
+C60 a_1397_4440# a_1137_4114# 0.07847f
+C61 UP vout 0.15345f
+C62 vbias_0.curr_source_0.iref a_1137_4114# 0.09902f
+C63 net15 net2 0.01606f
+C64 a_1397_4440# vp 0.22598f
+C65 curr_source_0.iref bias 0.06009f
+C66 net15 a_3659_5090# 0.01871f
+C67 net15 a_2995_5126# 0.16605f
+C68 vp vbias_0.curr_source_0.iref 1.37112f
+C69 a_1137_4114# a_751_4440# 0.03881f
+C70 a_1397_4440# a_1783_4114# 0.03881f
+C71 net5 a_2995_5126# 0.06935f
+C72 net10 bias 0.10739f
+C73 net1 bias 1.23143f
+C74 bias a_1695_4628# 0.01447f
+C75 a_151_4114# a_155_4470# 0.02535f
+C76 vp DN 0.0123f
+C77 vp a_453_4470# 0.14436f
+C78 vp a_751_4440# 0.22621f
+C79 curr_source_0.iref vout 0.15424f
+C80 net2 bias 0.57767f
+C81 net1 vout 0.49584f
+C82 vtest UP 0.16743f
+C83 vout a_1695_4628# 0.09603f
+C84 a_3659_5090# bias 0.03569f
+C85 bias a_2995_5126# 0.66243f
+C86 net13 bias 0.03366f
+C87 net15 vp 1.18523f
+C88 a_1397_4440# vbias_0.curr_source_0.iref 0.04663f
+C89 net5 vp 0.11856f
+C90 net15 net8 0.15267f
+C91 vout a_1049_4628# 0.09441f
+C92 net7 net10 0.06622f
+C93 net1 net7 0.111f
+C94 a_3659_5090# vout 0.33595f
+C95 vout a_2995_5126# 0.79512f
+C96 net13 vout 0.047f
+C97 vbias_0.curr_source_0.iref a_453_4470# 0.21265f
+C98 a_3385_4115# bias 0.04692f
+C99 vbias_0.curr_source_0.iref a_751_4440# 0.20586f
+C100 a_1137_4114# bias 0.04819f
+C101 a_751_4440# a_453_4470# 0.01389f
+C102 vp bias 0.57218f
+C103 net1 vtest 0.02027f
+C104 net8 bias 0.03608f
+C105 bias a_1783_4114# 0.17783f
+C106 vp vout 0.63108f
+C107 rst DN 0.02403f
+C108 vtest a_3659_5090# 0.0204f
+C109 net8 vout 0.03905f
+C110 net7 a_3385_4115# 0.39335f
+C111 vp a_155_4470# 0.25344f
+C112 a_3659_5090# UP 0.97456f
+C113 a_1397_4440# bias 0.03596f
+C114 vbias_0.curr_source_0.iref bias 0.02062f
+C115 net1 curr_source_0.iref 0.03073f
+C116 curr_source_0.iref a_1695_4628# 0.24332f
+C117 net15 net5 0.0854f
+C118 bias a_453_4470# 0.26059f
+C119 net1 net10 0.02038f
+C120 bias a_751_4440# 0.03805f
+C121 a_1397_4440# vout 0.0582f
+C122 net1 a_1695_4628# 0.01055f
+C123 vp gd 0.9724f
+C124 net13 gd 0.17335f
+C125 a_3385_4115# gd 0.11479f
+C126 net7 gd 0.1142f
+C127 net10 gd 0.04797f
+C128 net2 gd 3.59689f
+C129 a_1783_4114# gd 1.52787f
+C130 a_1137_4114# gd 1.54539f
+C131 vout gd 1.44415f
+C132 a_2995_5126# gd 0.26951f
+C133 net8 gd 0.29136f
+C134 net15 gd 0.17917f
 .ends
 
