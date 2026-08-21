@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.00015300861
-x2=4.6991331e-05
+x1=-0.00017300861
+x2=2.6991337e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -35,8 +35,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.00015300861
-x2=4.6991331e-05
+x1=-0.00017300861
+x2=2.6991337e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -56,8 +56,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.00015300861
-x2=4.6991331e-05
+x1=-0.00017300861
+x2=2.6991337e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -77,8 +77,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.00015300861
-x2=4.6991331e-05
+x1=-0.00017300861
+x2=2.6991337e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -125,18 +125,18 @@ N -760 -30 -760 60 {lab=GND}
 N -760 -160 -760 -90 {lab=rst}
 C {devices/code_shown.sym} -580 -320 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
-value=".lib cornerMOSlv.lib mos_tt
+value=".lib cornerMOSlv.lib mos_ss
 "}
 C {devices/code_shown.sym} -860 -1000 0 0 {name=NGSPICE only_toplevel=false
 value="
 .temp=25
 .param T = 31.25u
-.param dly=30u
-.param Vp=1.2
+.param dly=0.5u
+.param Vp=1.08
 .param Vph=3.3
 .control
 save all
-tran 0.25u 312.5u
+tran 0.1u 312.5u
 
 meas tran pw_up avg v(UP) from=120u to=312.5u
 meas tran pw_down avg v(DOWN) from=120u to=312.5u
@@ -154,7 +154,7 @@ C {lab_wire.sym} 190 -20 0 0 {name=p4 sig_type=std_logic lab=DOWN
 
 }
 C {devices/vsource.sym} -560 -40 0 0 {name=Vref value="dc 0 ac 0 pulse(0 \{Vph\} \{T/2\} 10n 10n \{T/2\} \{T\}) "}
-C {devices/vsource.sym} -500 20 0 0 {name=Vco value="dc 0 ac 0 pulse(1u \{Vp\} \{dly\} 10n 10n \{T/2\} \{T\}) "}
+C {devices/vsource.sym} -500 20 0 0 {name=Vco value="dc 0 ac 0 pulse(1u \{Vp\} \{dly\} 10n 10n \{T/2\} \{T\}"}
 C {launcher.sym} 580 -210 0 0 {name=h5
 descr="load waves"
 tclcommand="xschem raw_read $netlist_dir/PFD_tb.raw tran"
@@ -162,12 +162,12 @@ tclcommand="xschem raw_read $netlist_dir/PFD_tb.raw tran"
 C {devices/vsource.sym} -640 -90 0 0 {name=Vp value="dc \{Vp\}"}
 C {capa.sym} 310 20 0 0 {name=C1
 m=1
-value=5p
+value=1p
 footprint=1206
 device="ceramic capacitor"}
 C {capa.sym} 200 20 0 0 {name=C2
 m=1
-value=5p
+value=1p
 footprint=1206
 device="ceramic capacitor"}
 C {PFD_cell_2.sym} -40 -50 0 0 {name=xPFD}
