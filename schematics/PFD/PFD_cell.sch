@@ -200,10 +200,8 @@ C {lab_wire.sym} -40 60 0 0 {name=p14 sig_type=std_logic lab=2
 }
 C {lab_wire.sym} -100 420 0 0 {name=p15 sig_type=std_logic lab=3}
 C {lab_wire.sym} -60 540 0 0 {name=p16 sig_type=std_logic lab=4}
-C {PFD_buffor.sym} 340 -170 0 0 {name=x1}
 C {lab_wire.sym} 230 -230 0 0 {name=p17 sig_type=std_logic lab=vp}
 C {lab_wire.sym} 230 -110 0 0 {name=p18 sig_type=std_logic lab=gnd}
-C {PFD_buffor.sym} 390 310 0 0 {name=x2}
 C {lab_wire.sym} 280 250 0 0 {name=p19 sig_type=std_logic lab=vp}
 C {lab_wire.sym} 280 370 0 0 {name=p20 sig_type=std_logic lab=gnd}
 C {lab_wire.sym} 170 -170 0 0 {name=p21 sig_type=std_logic lab=pre_up
@@ -292,3 +290,5 @@ C {lab_wire.sym} 0 630 0 0 {name=p34 sig_type=std_logic lab=gnd}
 C {lab_wire.sym} 0 140 0 0 {name=p35 sig_type=std_logic lab=gnd}
 C {CHIP-PLL/schematics/divider/inverter_x4.sym} -40 -320 0 0 {name=x3}
 C {CHIP-PLL/schematics/divider/inverter_x4.sym} 50 220 0 0 {name=x4}
+C {CHIP-PLL/schematics/PFD/PFD_buffor.sym} 340 -170 0 0 {name=x1}
+C {CHIP-PLL/schematics/PFD/PFD_buffor.sym} 390 310 0 0 {name=x5}

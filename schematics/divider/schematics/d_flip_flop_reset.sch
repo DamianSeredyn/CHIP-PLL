@@ -106,5 +106,5 @@ C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in.sym} -30 -70 0 
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in_x2.sym} 470 230 0 0 {name=x2}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in_x2.sym} -40 410 0 0 {name=x5}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in_x2.sym} -40 80 0 0 {name=x6}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} -40 230 0 0 {name=x1}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in_x2.sym} 480 80 0 0 {name=x4}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} -40 230 0 0 {name=x1}

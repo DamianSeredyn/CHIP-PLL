@@ -21,16 +21,19 @@ N 100 700 100 720 {lab=0}
 N -140 610 -140 640 {lab=d3}
 N -20 610 -20 640 {lab=d4}
 N 100 610 100 640 {lab=d5}
-N 550 290 580 290 {lab=VP}
-N 550 270 620 270 {lab=0}
-N 550 310 620 310 {lab=out_div}
+N 550 270 580 270 {lab=VP}
+N 550 250 620 250 {lab=0}
+N 550 290 620 290 {lab=out_div}
 N 220 290 250 290 {lab=d0}
 N 220 310 250 310 {lab=d1}
 N 220 330 250 330 {lab=d2}
 N 220 350 250 350 {lab=d3}
 N 220 370 250 370 {lab=d4}
 N 220 390 250 390 {lab=d5}
-N 230 270 250 270 {lab=clk}
+N 230 270 250 270 {lab=reset}
+N 230 250 250 250 {lab=clk}
+N -340 250 -340 270 {lab=reset}
+N -340 330 -340 350 {lab=0}
 C {devices/code_shown.sym} -90 -10 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_ff
@@ -44,7 +47,7 @@ op
 print all
 save all
 
-tran 50p 1u
+tran 50p 2u
 write pdiv_tb.raw 
 set appendwrite
 
@@ -90,11 +93,11 @@ C {vsource.sym} -140 490 0 0 {name=V11 value=0 savecurrent=false}
 C {vsource.sym} -20 490 0 0 {name=V10 value=0 savecurrent=false}
 C {vsource.sym} 100 490 0 0 {name=V12 value=0 savecurrent=false}
 C {vsource.sym} -140 670 0 0 {name=V7 value=1.2 savecurrent=false}
-C {gnd.sym} 610 270 3 0 {name=l24 lab=0
+C {gnd.sym} 610 250 3 0 {name=l24 lab=0
 }
-C {lab_wire.sym} 580 290 2 0 {name=p46 sig_type=std_logic lab=VP
+C {lab_wire.sym} 580 270 2 0 {name=p46 sig_type=std_logic lab=VP
 }
-C {lab_wire.sym} 620 310 0 0 {name=p52 sig_type=std_logic lab=out_div
+C {lab_wire.sym} 620 290 0 0 {name=p52 sig_type=std_logic lab=out_div
 }
 C {lab_wire.sym} 220 350 0 0 {name=p18 sig_type=std_logic lab=d3
 }
@@ -108,6 +111,16 @@ C {lab_wire.sym} 220 390 0 0 {name=p25 sig_type=std_logic lab=d5
 }
 C {lab_wire.sym} 220 370 0 0 {name=p27 sig_type=std_logic lab=d4
 }
-C {lab_wire.sym} 230 270 0 0 {name=p53 sig_type=std_logic lab=clk
+C {lab_wire.sym} 230 270 0 0 {name=p53 sig_type=std_logic lab=reset
 }
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/pdiv.sym} 400 330 0 0 {name=x1}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/pdiv.sym} 400 320 0 0 {name=x1}
+C {lab_wire.sym} 230 250 0 0 {name=p1 sig_type=std_logic lab=clk
+}
+C {lab_wire.sym} -340 250 0 0 {name=p3 sig_type=std_logic lab=reset
+}
+C {gnd.sym} -340 350 0 0 {name=l1 lab=0
+}
+C {vsource.sym} -340 300 0 0 {name=V4 value="PWL(
++ 0 1.2 
++ 200n 1.2 
++ 200.1n 0)" savecurrent=false}

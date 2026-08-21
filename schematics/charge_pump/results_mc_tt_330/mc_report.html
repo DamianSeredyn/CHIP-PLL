@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Charge pump - Monte Carlo (mismatch)</title>
+<style>
+body { font-family: Arial, sans-serif; font-size: 14px; margin: 20px; color: #111; }
+h1 { font-size: 18px; }
+h2 { font-size: 15px; margin-top: 28px; }
+table { border-collapse: collapse; margin-bottom: 24px; }
+td, th { border: 1px solid #ccc; padding: 4px 10px; text-align: right; }
+th { background: #eee; }
+td:first-child, th:first-child { text-align: left; }
+img { max-width: 100%; border: 1px solid #ccc; margin-bottom: 20px; }
+.note { background: #fff8e1; padding: 10px 14px; border-left: 3px solid #f0ad4e; margin-bottom: 20px; }
+</style>
+</head>
+<body>
+<h1>Charge pump - Monte Carlo (mismatch, corner mos_tt_mismatch)</h1>
+<p>N = 330 iteracji, kazda z innym rndseed. Iup/Idn liczone srednia
+wazona czasem TYLKO gdy odpowiednie zrodlo sterujace (Vup2/Vdn2) jest aktywne.
+Iref usredniony w ostatnich 20% symulacji (stan ustalony).</p>
+
+<table>
+<tr><th>Wielkosc</th><th>srednia</th><th>odchylenie std</th><th>min</th><th>max</th></tr>
+<tr><td>Iup [uA]</td><td>0.3842</td><td>0.2307</td>
+    <td>0.0009</td><td>1.2583</td></tr>
+<tr><td>Idn [uA]</td><td>0.3850</td><td>0.2327</td>
+    <td>0.0014</td><td>1.3651</td></tr>
+<tr><td>Iref [uA]</td><td>1.5100</td><td>0.8812</td>
+    <td>0.0012</td><td>4.8291</td></tr>
+<tr><td>Rozbieznosc [%]</td><td>-1.31</td><td>15.20</td>
+    <td>-93.12</td><td>37.41</td></tr>
+</table>
+<p><b>Rozbieznosc 3-sigma (worst-case estymacja):</b> 44.27%</p>
+<p><b>Korelacja rozbieznosci [%] z Iref:</b> r = 0.079
+(BRAK zaleznosci od punktu pracy)</p>
+
+<div class="note">
+Rozbieznosc [%] = (|Iup|-|Idn|)/max(|Iup|,|Idn|)*100 jest matematycznie
+niezalezna od wspolnej skali 
+</div>
+
+<h2>Histogramy: Iup, Idn, rozbieznosc %</h2>
+<img src="mc_histogram.png">
+
+<h2>Surowy vs znormalizowany scatter Iup/Idn</h2>
+<img src="mc_scatter.png">
+
+<h2>Czy mismatch zalezy od punktu pracy (Iref)?</h2>
+<img src="mc_pct_vs_iref.png">
+
+</body>
+</html>

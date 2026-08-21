@@ -11,7 +11,6 @@ N -50 320 -30 320 {lab=a0}
 N -50 340 -30 340 {lab=a1}
 N -50 360 -30 360 {lab=a2}
 N 270 340 290 340 {lab=VP}
-N -450 360 -430 360 {lab=clk}
 N -50 380 -30 380 {lab=clk}
 N -130 400 -30 400 {lab=div2}
 N -130 420 -30 420 {lab=div4}
@@ -44,7 +43,7 @@ N 180 80 200 80 {lab=d5}
 N 180 100 200 100 {lab=a0}
 N 180 120 200 120 {lab=a1}
 N 180 140 200 140 {lab=a2}
-C {/foss/designs/CHIP-PLL/divider/schematics/2Div.sym} -280 440 0 0 {name=x10}
+N -450 360 -420 360 {lab=clk}
 C {lab_wire.sym} 290 340 0 0 {name=p23 sig_type=std_logic lab=VP
 }
 C {lab_wire.sym} 340 360 0 0 {name=p46 sig_type=std_logic lab=MUX_out
@@ -57,7 +56,6 @@ C {lab_wire.sym} -50 360 0 0 {name=p54 sig_type=std_logic lab=a2
 }
 C {lab_wire.sym} -450 360 2 1 {name=p55 sig_type=std_logic lab=clk
 }
-C {/foss/designs/CHIP-PLL/divider/schematics/MUX_8to1.sym} 120 420 0 0 {name=x11}
 C {lab_wire.sym} -50 380 2 1 {name=p56 sig_type=std_logic lab=clk
 }
 C {lab_wire.sym} -110 380 2 0 {name=p57 sig_type=std_logic lab=VP
@@ -84,7 +82,6 @@ C {lab_pin.sym} 200 -60 2 0 {name=p68 sig_type=std_logic lab=VP}
 C {opin.sym} 170 170 2 0 {name=p69 lab=out_div}
 C {lab_pin.sym} 200 -40 2 0 {name=p75 sig_type=std_logic lab=clk}
 C {lab_pin.sym} 190 170 2 0 {name=p76 sig_type=std_logic lab=out_div}
-C {/foss/designs/CHIP-PLL/divider/schematics/pdiv.sym} 500 420 0 0 {name=x12}
 C {lab_wire.sym} 720 400 0 0 {name=p71 sig_type=std_logic lab=out_div
 }
 C {lab_wire.sym} 320 440 0 0 {name=p72 sig_type=std_logic lab=d3
@@ -122,3 +119,6 @@ C {ipin.sym} 180 120 0 0 {name=p26 lab=a1}
 C {lab_pin.sym} 200 120 2 0 {name=p28 sig_type=std_logic lab=a1}
 C {ipin.sym} 180 140 0 0 {name=p29 lab=a2}
 C {lab_pin.sym} 200 140 2 0 {name=p30 sig_type=std_logic lab=a2}
+C {CHIP-PLL/schematics/divider/schematics/2Div.sym} -270 440 0 0 {name=x1}
+C {CHIP-PLL/schematics/divider/schematics/MUX_8to1.sym} 120 420 0 0 {name=x2}
+C {CHIP-PLL/schematics/divider/schematics/pdiv.sym} 500 420 0 0 {name=x3}
