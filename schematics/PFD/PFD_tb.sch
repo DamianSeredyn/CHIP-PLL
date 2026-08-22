@@ -170,7 +170,6 @@ m=1
 value=1p
 footprint=1206
 device="ceramic capacitor"}
-C {PFD_cell_2.sym} -40 -50 0 0 {name=xPFD}
 C {devices/code_shown.sym} -580 -410 0 0 {name=MODEL1 only_toplevel=true
 format="tcleval( @value )"
 value=".lib cornerMOShv.lib mos_tt
@@ -181,3 +180,4 @@ C {devices/vsource.sym} -760 -60 0 0 {name=Vp1 value="dc 0 ac 0 PULSE(\{Vp\} 0 6
 C {lab_wire.sym} -760 -160 0 0 {name=p6 sig_type=std_logic lab=rst}
 C {lab_wire.sym} -250 -50 0 0 {name=p7 sig_type=std_logic lab=rst}
 C {lab_wire.sym} -220 -160 0 0 {name=p8 sig_type=std_logic lab=vp}
+C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_cell_2.sym} -40 -50 0 0 {name=x1}
