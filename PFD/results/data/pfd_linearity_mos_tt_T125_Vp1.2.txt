@@ -1,4 +1,0 @@
-dly pw_up pw_down
-0u  
-1.008064u  
-2.016129u  

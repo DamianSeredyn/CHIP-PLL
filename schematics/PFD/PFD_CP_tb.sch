@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=8.6991343e-05
-x2=0.00028699131
+x1=-3.300863e-05
+x2=0.00016699131
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -35,8 +35,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=8.6991343e-05
-x2=0.00028699131
+x1=-3.300863e-05
+x2=0.00016699131
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -49,15 +49,15 @@ logx=0
 logy=0
 y2=1.3}
 B 2 -170 220 630 620 {flags=graph
-y1=2.08
-y2=3.38
+y1=2.86
+y2=4.16
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=8.6991343e-05
-x2=0.00028699131
+x1=-3.300863e-05
+x2=0.00016699131
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -77,8 +77,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=8.6991343e-05
-x2=0.00028699131
+x1=-3.300863e-05
+x2=0.00016699131
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -113,17 +113,24 @@ N -370 -50 -370 60 {lab=GND}
 N -310 -80 -190 -80 {lab=CRef}
 N -500 -20 -500 -10 {lab=CVco}
 N 200 -20 330 -20 {lab=DOWN}
-N 470 20 470 60 {lab=GND}
-N -40 60 470 60 {lab=GND}
-N 470 -160 470 -120 {lab=vp}
-N -40 -160 470 -160 {lab=vp}
+N 480 60 960 60 {lab=GND}
+N -40 -160 480 -160 {lab=vp}
 N -370 -160 -40 -160 {lab=vp}
-N 740 -50 770 -50 {lab=out}
-N 740 60 760 60 {lab=GND}
-N 740 30 740 60 {lab=GND}
-N 470 60 740 60 {lab=GND}
-N 740 -50 740 -30 {lab=out}
-N 630 -50 740 -50 {lab=out}
+N 630 -60 820 -60 {lab=out_preRC}
+N 480 -160 480 -130 {lab=vp}
+N -850 -30 -850 60 {lab=GND}
+N -850 -160 -850 -90 {lab=rst}
+N -850 60 -640 60 {lab=GND}
+N -240 -50 -190 -50 {lab=rst}
+N 630 -20 690 -20 {lab=rst_n}
+N 340 130 380 130 {lab=rst}
+N 450 130 500 130 {lab=rst_n}
+N 400 80 400 100 {lab=vp}
+N 400 160 400 180 {lab=GND}
+N 960 -10 960 60 {lab=GND}
+N 1000 -60 1070 -60 {lab=out}
+N 480 30 480 60 {lab=GND}
+N -40 60 480 60 {lab=GND}
 C {devices/code_shown.sym} -580 -320 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_tt
@@ -139,10 +146,10 @@ value="
 .param Vph=3.3
 .control
 save all
-tran 25n 200u
+tran 25n 300u
 
-meas tran pw_up avg v(UP) from=100u to=200u
-meas tran pw_down avg v(DOWN) from=100u to=200u
+meas tran pw_up avg v(UP) from=100u to=1m
+meas tran pw_down avg v(DOWN) from=100u to=300u
 plot v(pw_up) v(pw_down) v(out)
 write PFD_tb.raw
 .endc
@@ -157,22 +164,32 @@ C {lab_wire.sym} 200 -20 0 0 {name=p4 sig_type=std_logic lab=DOWN
 
 }
 C {devices/vsource.sym} -560 -40 0 0 {name=Vref value="dc 0 ac 0 pulse(0 \{Vph\} \{T/2\} 10n 10n \{T/2\} \{T\}) "}
-C {devices/vsource.sym} -500 20 0 0 {name=Vco value="dc 0 ac 0 pulse(1u \{Vp\} \{dly\} 10n 10n \{T/2\} \{T\}) "}
+C {devices/vsource.sym} -500 20 0 0 {name=Vco value="dc 0 ac 0 pulse(0 \{Vp\} \{dly\} 10n 10n \{T/2\} \{T\}) "}
 C {launcher.sym} 580 -210 0 0 {name=h5
 descr="load waves"
 tclcommand="xschem raw_read $netlist_dir/PFD_tb.raw tran"
 }
 C {devices/vsource.sym} -640 -90 0 0 {name=Vp value="dc \{Vp\}"}
-C {CHIP-PLL/schematics/misc/buffer_hv.sym} -280 -80 0 0 {name=x2}
+C {/foss/designs/CHIP-PLL/schematics/misc/buffer_hv.sym} -280 -80 0 0 {name=x2}
 C {lab_wire.sym} -450 -80 0 0 {name=p5 sig_type=std_logic lab=CRef_prebuf}
-C {capa.sym} 740 0 0 0 {name=C1
-m=1
-value=5p
-footprint=1206
-device="ceramic capacitor"}
-C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_cell.sym} -40 -50 0 0 {name=x1}
-C {lab_wire.sym} 700 -50 0 0 {name=p6 sig_type=std_logic lab=out
+C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_cell_2.sym} -40 -50 0 0 {name=x1}
+C {lab_wire.sym} 700 -60 0 0 {name=p6 sig_type=std_logic lab=out_preRC
+
 }
 C {lab_wire.sym} 150 -160 0 0 {name=p7 sig_type=std_logic lab=vp
 }
 C {/foss/designs/CHIP-PLL/schematics/charge_pump/charge_pump_cell.sym} 480 -50 0 0 {name=x3}
+C {devices/vsource.sym} -850 -60 0 0 {name=Vp1 value="dc 0 ac 0 PULSE(\{Vp\} 0 63u 1p 1p 1 2"}
+C {lab_wire.sym} -850 -160 0 0 {name=p8 sig_type=std_logic lab=rst}
+C {lab_wire.sym} -230 -50 0 0 {name=p9 sig_type=std_logic lab=rst}
+C {lab_wire.sym} 350 130 0 0 {name=p10 sig_type=std_logic lab=rst}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 400 130 0 0 {name=x4}
+C {lab_wire.sym} 500 130 0 0 {name=p11 sig_type=std_logic lab=rst_n}
+C {lab_wire.sym} 690 -20 0 0 {name=p12 sig_type=std_logic lab=rst_n}
+C {lab_wire.sym} 400 80 0 0 {name=p13 sig_type=std_logic lab=vp
+}
+C {gnd.sym} 400 180 0 0 {name=l2 lab=GND
+}
+C {/foss/designs/CHIP-PLL/schematics/misc/RC_filter.sym} 970 -50 0 0 {name=x5}
+C {lab_wire.sym} 1060 -60 0 0 {name=p14 sig_type=std_logic lab=out
+}
