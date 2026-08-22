@@ -146,7 +146,6 @@ C {gnd.sym} -130 350 0 0 {name=l3 lab=0
 }
 C {lab_wire.sym} 140 320 0 0 {name=p3 sig_type=std_logic lab=clk
 }
-C {/foss/designs/CHIP-PLL/divider/schematics/div_with_reset.sym} 310 390 0 0 {name=x1}
 C {gnd.sym} 520 320 3 0 {name=l9 lab=0
 }
 C {lab_wire.sym} 490 340 2 0 {name=p5 sig_type=std_logic lab=VP
@@ -337,3 +336,4 @@ C {lab_wire.sym} 1340 130 2 0 {name=p40 sig_type=std_logic lab=bypass
 }
 C {lab_wire.sym} 980 30 2 0 {name=p43 sig_type=std_logic lab=d012}
 C {lab_wire.sym} 1040 160 2 0 {name=p44 sig_type=std_logic lab=d345}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/div_with_reset.sym} 310 390 0 0 {name=x1}

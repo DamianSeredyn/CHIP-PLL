@@ -27,12 +27,12 @@ N 180 -40 200 -40 {lab=clk}
 N 170 170 190 170 {lab=out_div}
 N 650 380 680 380 {lab=VP}
 N 650 400 720 400 {lab=out_div}
-N 320 380 350 380 {lab=d0}
-N 320 400 350 400 {lab=d1}
-N 320 420 350 420 {lab=d2}
-N 320 440 350 440 {lab=d3}
-N 320 460 350 460 {lab=d4}
-N 320 480 350 480 {lab=d5}
+N 320 400 350 400 {lab=d0}
+N 320 420 350 420 {lab=d1}
+N 320 440 350 440 {lab=d2}
+N 320 460 350 460 {lab=d3}
+N 320 480 350 480 {lab=d4}
+N 320 500 350 500 {lab=d5}
 N 650 360 670 360 {lab=gd}
 N 180 -20 200 -20 {lab=d0}
 N 180 0 200 0 {lab=d1}
@@ -44,6 +44,8 @@ N 180 100 200 100 {lab=a0}
 N 180 120 200 120 {lab=a1}
 N 180 140 200 140 {lab=a2}
 N -450 360 -420 360 {lab=clk}
+N 320 380 350 380 {lab=rst}
+N 180 200 200 200 {lab=rst}
 C {lab_wire.sym} 290 340 0 0 {name=p23 sig_type=std_logic lab=VP
 }
 C {lab_wire.sym} 340 360 0 0 {name=p46 sig_type=std_logic lab=MUX_out
@@ -84,17 +86,17 @@ C {lab_pin.sym} 200 -40 2 0 {name=p75 sig_type=std_logic lab=clk}
 C {lab_pin.sym} 190 170 2 0 {name=p76 sig_type=std_logic lab=out_div}
 C {lab_wire.sym} 720 400 0 0 {name=p71 sig_type=std_logic lab=out_div
 }
-C {lab_wire.sym} 320 440 0 0 {name=p72 sig_type=std_logic lab=d3
+C {lab_wire.sym} 320 460 0 0 {name=p72 sig_type=std_logic lab=d3
 }
-C {lab_wire.sym} 320 400 0 0 {name=p73 sig_type=std_logic lab=d1
+C {lab_wire.sym} 320 420 0 0 {name=p73 sig_type=std_logic lab=d1
 }
-C {lab_wire.sym} 320 420 0 0 {name=p74 sig_type=std_logic lab=d2
+C {lab_wire.sym} 320 440 0 0 {name=p74 sig_type=std_logic lab=d2
 }
-C {lab_wire.sym} 320 380 0 0 {name=p77 sig_type=std_logic lab=d0
+C {lab_wire.sym} 320 400 0 0 {name=p77 sig_type=std_logic lab=d0
 }
-C {lab_wire.sym} 320 480 0 0 {name=p78 sig_type=std_logic lab=d5
+C {lab_wire.sym} 320 500 0 0 {name=p78 sig_type=std_logic lab=d5
 }
-C {lab_wire.sym} 320 460 0 0 {name=p79 sig_type=std_logic lab=d4
+C {lab_wire.sym} 320 480 0 0 {name=p79 sig_type=std_logic lab=d4
 }
 C {lab_pin.sym} 290 320 2 0 {name=p1 sig_type=std_logic lab=gd}
 C {lab_pin.sym} 670 360 2 0 {name=p4 sig_type=std_logic lab=gd}
@@ -119,6 +121,9 @@ C {ipin.sym} 180 120 0 0 {name=p26 lab=a1}
 C {lab_pin.sym} 200 120 2 0 {name=p28 sig_type=std_logic lab=a1}
 C {ipin.sym} 180 140 0 0 {name=p29 lab=a2}
 C {lab_pin.sym} 200 140 2 0 {name=p30 sig_type=std_logic lab=a2}
-C {CHIP-PLL/schematics/divider/schematics/2Div.sym} -270 440 0 0 {name=x1}
-C {CHIP-PLL/schematics/divider/schematics/MUX_8to1.sym} 120 420 0 0 {name=x2}
-C {CHIP-PLL/schematics/divider/schematics/pdiv.sym} 500 420 0 0 {name=x3}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/2Div.sym} -270 440 0 0 {name=x1}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/MUX_8to1.sym} 120 420 0 0 {name=x2}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/pdiv.sym} 500 430 0 0 {name=x3}
+C {ipin.sym} 180 200 0 0 {name=p20 lab=rst}
+C {lab_pin.sym} 200 200 2 0 {name=p21 sig_type=std_logic lab=rst}
+C {lab_pin.sym} 320 380 2 1 {name=p22 sig_type=std_logic lab=rst}
