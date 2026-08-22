@@ -45,7 +45,9 @@ N 40 80 40 110 {lab=d3}
 N 60 80 60 110 {lab=d2}
 N 80 80 80 110 {lab=d1}
 N 100 80 100 110 {lab=d0}
-C {CHIP-PLL/schematics/top/PLL_top.sym} 50 -70 0 0 {name=x1}
+N -770 230 -770 300 {lab=rst}
+N -770 360 -770 380 {lab=GND}
+N -190 -10 -100 -10 {lab=rst}
 C {devices/code_shown.sym} -220 -330 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_tt
@@ -61,7 +63,7 @@ value="
 .param Vp=1.2
 .param Vph=3.3
 .control
-save all
+save v(rst) v(out) v(xPLL.cvco) v(xPLL.cref) v(xPLL.UP) v(xPLL.DOWN) v(xPLL.vout_preRC) v(xPLL.vco_out_prebuff) v(xPLL.vout_aftRC) v(xPLL.vco_out_buffered) 
 tran 1p 10m
 
 meas tran t1 WHEN v(out)=1.65 RISE=1 FROM=9m
@@ -160,3 +162,9 @@ C {lab_wire.sym} -50 110 0 0 {name=p15 sig_type=std_logic lab=a1
 }
 C {lab_wire.sym} -70 110 0 0 {name=p16 sig_type=std_logic lab=a2
 }
+C {PLL_top.sym} 50 -70 0 0 {name=xPLL}
+C {devices/vsource.sym} -770 330 0 0 {name=Vp1 value="dc 0 ac 0 PULSE(\{Vp\} 0 63u 1p 1p 1 2"}
+C {lab_wire.sym} -770 230 0 0 {name=p17 sig_type=std_logic lab=rst}
+C {gnd.sym} -770 380 0 0 {name=l15 lab=GND
+}
+C {lab_wire.sym} -190 -10 0 0 {name=p18 sig_type=std_logic lab=rst}

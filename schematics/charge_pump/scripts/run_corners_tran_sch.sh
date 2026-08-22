@@ -25,11 +25,7 @@ vp_max="1.32"
 # ---------------------------------------------------------------------------
 # Sygnały do pomiaru
 # ---------------------------------------------------------------------------
-# UWAGA - ZMIANA: netlista JUZ MA wbudowane zrodla-ammetry (0V) wewnatrz
-# .subckt charge_pump_cell: "Viref net9 net1 0", "Viup net5 net14 0",
-# "Vidn net11 net13 0". NIE trzeba wiec nic wstawiac recznie (caly mechanizm
-# insert_ammeter/AMMETERS z poprzednich wersji jest zbedny) - odwolujemy sie
-# bezposrednio do tych gotowych zrodel po ich nazwach z netlisty.
+
 SIG_VOUT="v(vout)"
 SIG_VBIAS="v(x1.bias)"
 SIG_IREF="v.x1.viref#branch"

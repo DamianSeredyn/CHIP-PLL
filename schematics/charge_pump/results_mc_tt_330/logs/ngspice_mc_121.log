@@ -1,0 +1,63 @@
+Note: Starting dynamic gmin stepping
+Note: Dynamic gmin stepping completed
+
+Note: No compatibility mode selected!
+
+
+Circuit: ** sch_path: /foss/designs/chip-pll/schematics/charge_pump/charge_pump_tran_tb.sch
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+vp                                         1.2
+vout                                  0.112727
+up                                           0
+dn                                           0
+rst                                          0
+net1                                       0.4
+x1.net11                              0.199882
+x1.net6                               0.792131
+x1.net8                                1.00954
+x1.net15                              0.869231
+x1.net5                                    1.2
+x1.net3                                    1.2
+x1.bias                               0.648551
+x1.net14                                   1.2
+x1.net9                                    1.2
+x1.net12                           4.14582e-05
+x1.net10                              0.407991
+x1.net1                               0.199882
+x1.net2                               0.198768
+x1.net7                               0.369765
+x1.net4                            4.11831e-05
+x1.net13                           4.14582e-05
+x1.x1.net1                            0.649795
+x1.x1.iref                            0.682519
+x1.x1.net2                            0.337084
+x1.x1.xr1.dt                                 0
+x1.x1.x1.net3                         0.567249
+x1.x1.x1.net2                         0.343289
+x1.x1.x1.net1                       0.00148093
+x1.x1.x1.xr2.dt                              0
+x1.x2.net3                            0.565287
+x1.x2.net2                            0.257622
+x1.x2.net1                         0.000311266
+x1.x2.xr2.dt                                 0
+voutbias#branch                   -8.51362e-11
+v.x1.viup#branch                   7.47133e-12
+v.x1.vidn#branch                    9.0341e-11
+v.x1.viref#branch                  4.82872e-07
+vrst#branch                        7.88851e-14
+vdn2#branch                        1.98506e-15
+vup2#branch                        5.26377e-11
+vvp#branch                        -5.24943e-05
+
+ Reference value :  0.00000e+00 Reference value :  2.71206e-07 Reference value :  1.13121e-06 Reference value :  1.93121e-06 Reference value :  2.63121e-06 Reference value :  3.51121e-06 Reference value :  3.65121e-06 Reference value :  4.47121e-06 Reference value :  5.00023e-06 Reference value :  5.69868e-06 Reference value :  5.75868e-06 Reference value :  5.83868e-06 Reference value :  5.97868e-06 Reference value :  6.90868e-06 Reference value :  7.91868e-06 Reference value :  8.86868e-06 Reference value :  9.86868e-06 Reference value :  1.04419e-05 Reference value :  1.14019e-05 Reference value :  1.22319e-05 Reference value :  1.32319e-05 Reference value :  1.41219e-05 Reference value :  1.50000e-05 Reference value :  1.57325e-05 Reference value :  1.66525e-05 Reference value :  1.75525e-05 Reference value :  1.85125e-05 Reference value :  1.94425e-05 Reference value :  2.01363e-05 Reference value :  2.10463e-05 Reference value :  2.20163e-05 Reference value :  2.27963e-05 Reference value :  2.35963e-05 Reference value :  2.44463e-05 Reference value :  2.50040e-05 Reference value :  2.58249e-05 Reference value :  2.64849e-05 Reference value :  2.71049e-05 Reference value :  2.76149e-05 Reference value :  2.81049e-05 Reference value :  2.81249e-05 Reference value :  2.81449e-05 Reference value :  2.87949e-05 Reference value :  2.95049e-05 Reference value :  3.00119e-05 Reference value :  3.09519e-05 Reference value :  3.15619e-05 Reference value :  3.25419e-05 Reference value :  3.35019e-05 Reference value :  3.44619e-05 Reference value :  3.50525e-05 Reference value :  3.60225e-05 Reference value :  3.70125e-05 Reference value :  3.80125e-05 Reference value :  3.89425e-05 Reference value :  3.98225e-05 Reference value :  4.04864e-05 Reference value :  4.13964e-05 Reference value :  4.23964e-05 Reference value :  4.33464e-05 Reference value :  4.42464e-05 Reference value :  4.50002e-05 Reference value :  4.58649e-05 Reference value :  4.65249e-05 Reference value :  4.72149e-05 Reference value :  4.78649e-05 Reference value :  4.85049e-05 Reference value :  4.90949e-05 Reference value :  4.97349e-05 Reference value :  4.98049e-05 Reference value :  4.98549e-05 Reference value :  4.99549e-05
+No. of Data Rows : 5198
+ngspice-46 done
