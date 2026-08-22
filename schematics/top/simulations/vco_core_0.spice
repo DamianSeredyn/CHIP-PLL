@@ -1,0 +1,32 @@
+** sch_path: /foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_core_0.sch
+**.subckt vco_core_0 vp gnd out in
+*.ipin in
+*.iopin vp
+*.opin out
+*.iopin gnd
+XM1 pgt in gnd gnd sg13_lv_nmos w=0.8u l=0.18*4u ng=1 m=1 mm_ok=1
+XM2 pgt pgt vp vp sg13_lv_pmos w=1.2u l=0.18*4u ng=1 m=1 mm_ok=1
+x1 vp pgt out net1 in gnd vco_delay_cell_0
+x2 vp pgt net1 net2 in gnd vco_delay_cell_0
+x3 vp pgt net2 net3 in gnd vco_delay_cell_0
+x4 vp pgt net3 5th in gnd vco_delay_cell_0
+x5 vp pgt 5th out in gnd vco_delay_cell_0
+**.ends
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_delay_cell_0.sym # of pins=6
+** sym_path: /foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_delay_cell_0.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_delay_cell_0.sch
+.subckt vco_delay_cell_0 vp pgt in out ngt gnd
+*.ipin in
+*.opin out
+*.iopin gnd
+*.iopin vp
+*.iopin pgt
+*.iopin ngt
+XM23 up pgt vp vp sg13_lv_pmos w=1.2u l=0.18*4u ng=1 m=1 mm_ok=1
+XM24 out in up up sg13_lv_pmos w=1.2u l=0.18*2u ng=1 m=1 mm_ok=1
+XM25 out in dn dn sg13_lv_nmos w=0.8u l=0.18*2u ng=1 m=1 mm_ok=1
+XM26 dn ngt gnd gnd sg13_lv_nmos w=0.8u l=0.18*4u ng=1 m=1 mm_ok=1
+.ends
+
+.end

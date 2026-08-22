@@ -1,0 +1,21 @@
+* Extracted by KLayout with SG13CMOS5L LVS runset on : 19/08/2026 22:43
+
+.SUBCKT curr_source gd iref vp
+R$1 gd \$16 gd rppd w=1u l=1.7u ps=0u b=0 m=1
+M$2 gd gd gd gd sg13_lv_nmos L=0.6u W=0.4u AS=0.136p AD=0.136p PS=1.48u
++ PD=1.48u rfmode=0
+M$3 gd \$7 \$7 gd sg13_lv_nmos L=0.6u W=1u AS=0.34p AD=0.34p PS=2.68u PD=2.68u
++ rfmode=0
+M$4 vp \$7 iref gd sg13_lv_nmos L=0.6u W=1u AS=0.34p AD=0.34p PS=2.68u PD=2.68u
++ rfmode=0
+M$5 vp vp \$7 gd sg13_lv_nmos L=0.6u W=1u AS=0.34p AD=0.34p PS=2.68u PD=2.68u
++ rfmode=0
+M$6 gd \$10 \$10 gd sg13_lv_nmos L=0.6u W=1.4u AS=0.476p AD=0.476p PS=3.48u
++ PD=3.48u rfmode=0
+M$7 vp iref \$10 vp sg13_lv_pmos L=0.6u W=1.2u AS=0.408p AD=0.408p PS=3.08u
++ PD=3.08u rfmode=0
+M$8 iref iref vp vp sg13_lv_pmos L=0.6u W=1.4u AS=0.476p AD=0.476p PS=3.48u
++ PD=3.48u rfmode=0
+M$9 iref \$10 \$16 gd sg13_lv_nmos L=0.6u W=1.2u AS=0.408p AD=0.408p PS=3.08u
++ PD=3.08u rfmode=0
+.ENDS curr_source

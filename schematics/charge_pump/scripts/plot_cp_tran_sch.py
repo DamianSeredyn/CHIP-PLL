@@ -1,29 +1,5 @@
 #!/usr/bin/env python3
-"""
-plot_cp_layout.py
-Wykresy + raport HTML dla symulacji cornerow PVT
 
-Plik danych (wrdata) zawiera 7 sygnalow -> 14 kolumn (para: skala_czasu, wartosc):
-  col0=time  col1=vout
-  col2=time  col3=vbias
-  col4=time  col5=i_iref  (zrodlo Viref w netliscie)
-  col6=time  col7=i_iup   (zrodlo Viup w netliscie)
-  col8=time  col9=i_idn   (zrodlo Vidn w netliscie)
-  col10=time col11=v_up   (v(up) - do maskowania kiedy UP aktywne)
-  col12=time col13=v_dn   (v(dn) - do maskowania kiedy DN aktywne)
-
-Srednia Iup/Idn: MEDIANA z DRUGIEJ POLOWY kazdego impulsu (po ustabilizowaniu
-sie prądu, z pominieciem zbocza narastania/opadania). Powod zmiany z calki
-trapezoidalnej: zbocze przelaczania wyglada podobnie we wszystkich cornerach
-(zdominowane przez RC/parazyty), wiec jesli dominuje powierzchnie pod
-krzywa w oknie aktywnosci, calka rozmywa roznice miedzy cornerami, ktore w
-rzeczywistosci siedza w ustabilizowanej (plateau) wartosci prądu. Mediana
-dodatkowo jest odporna na pojedyncze piki/szum w danych.
-
-Vout/Vbias/Iref nadal usredniane w oknie AVG_T_MIN..AVG_T_MAX (stan ustalony,
-srednia wazona czasem - dla napiec ta metoda jest OK, bo napiecia nie maja
-takiego samego problemu z dominujacym zboczem jak prady przelaczania).
-"""
 
 import numpy as np
 import matplotlib
@@ -89,9 +65,6 @@ def read_data(filepath):
 
 
 def time_avg(values, time_vec, mask):
-    """Srednia wazona czasem (calka trapezoidalna / dlugosc okna) - dla
-    napiec w stanie ustalonym (Vout/Vbias/Iref), gdzie nie ma problemu z
-    dominujacym zboczem przelaczania."""
     t_win = time_vec[mask]
     v_win = values[mask]
     if len(t_win) < 2:
@@ -101,8 +74,6 @@ def time_avg(values, time_vec, mask):
 
 
 def find_active_segments(active_mask):
-    """Zwraca liste tablic indeksow - kazda to jeden ciagly przedzial gdzie
-    active_mask jest True."""
     idx = np.where(active_mask)[0]
     if len(idx) < 2:
         return []
@@ -111,11 +82,6 @@ def find_active_segments(active_mask):
 
 
 def settled_median_active(values, time_vec, active_mask, settled_fraction=SETTLED_FRACTION):
-    """Mediana z DRUGIEJ CZESCI (settled_fraction) kazdego impulsu, uśredniona
-    (zwykla srednia arytmetyczna) po wszystkich impulsach w symulacji.
-    Dla kazdego impulsu bierzemy tylko probki z jego koncowej czesci
-    (indeksy od start + (1-settled_fraction)*dlugosc do konca) - to pomija
-    zbocze narastania/przejscie i skupia sie na ustabilizowanej wartosci."""
     segments = find_active_segments(active_mask)
     if not segments:
         return float('nan')
