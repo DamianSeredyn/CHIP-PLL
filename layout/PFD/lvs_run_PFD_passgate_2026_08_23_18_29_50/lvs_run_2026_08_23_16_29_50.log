@@ -1,0 +1,16 @@
+23-Aug-2026 18:29:50 | INFO    | Your Klayout version is: KLayout 0.30.9
+23-Aug-2026 18:29:50 | INFO    | Running SG13CMOS5L LVS checks on design /foss/designs/CHIP-PLL/layout/PFD/PFD_passgate.gds on cell PFD_passgate
+23-Aug-2026 18:29:53 | INFO    | ==============================================================================
+23-Aug-2026 18:29:53 | INFO    | Important Summary
+23-Aug-2026 18:29:53 | INFO    | +------------------+----------------------------------------------------------------------------+
+23-Aug-2026 18:29:53 | INFO    | | Status           | PASS                                                                       |
+23-Aug-2026 18:29:53 | INFO    | | Mode             | COMPARE                                                                    |
+23-Aug-2026 18:29:53 | INFO    | | Outcome          | Comparison mode: PASS (netlists match).                                    |
+23-Aug-2026 18:29:53 | INFO    | | Layout           | PFD_passgate.gds                                                           |
+23-Aug-2026 18:29:53 | INFO    | | Top Cell         | PFD_passgate                                                               |
+23-Aug-2026 18:29:53 | INFO    | | Results Dir      | /foss/designs/CHIP-PLL/layout/PFD/lvs_run_PFD_passgate_2026_08_23_18_29_50 |
+23-Aug-2026 18:29:53 | INFO    | | Warnings         | 0                                                                          |
+23-Aug-2026 18:29:53 | INFO    | | Errors           | 0                                                                          |
+23-Aug-2026 18:29:53 | INFO    | | Run Time (s)     | 3.327                                                                      |
+23-Aug-2026 18:29:53 | INFO    | +------------------+----------------------------------------------------------------------------+
+23-Aug-2026 18:29:53 | INFO    | ==============================================================================
