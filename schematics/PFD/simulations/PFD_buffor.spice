@@ -1,12 +1,10 @@
-** sch_path: /foss/designs/CHIP-PLL/PFD/PFD_buffor.sch
-**.subckt PFD_buffor gnd vp out in
-*.iopin gnd
-*.iopin vp
-*.ipin in
-*.iopin out
-XM1 out_stage1 in gnd gnd sg13_lv_nmos w=0.6u l=0.15u ng=1
-XM4 out_stage1 in vp vp sg13_lv_pmos w=0.6u l=0.15u ng=1
-XM2 out out_stage1 gnd gnd sg13_lv_nmos w=1.2u l=0.15u ng=1
-XM3 out out_stage1 vp vp sg13_lv_pmos w=1.2u l=0.15u ng=1
-**.ends
-.end
+** sch_path: /foss/designs/CHIP-PLL/schematics/PFD/PFD_buffor.sch
+.subckt PFD_buffor gnd vp out in
+*.PININFO gnd:B vp:B in:I out:B
+MM1 out_stage1 in gnd sub sg13_lv_nmos w=0.4u l=0.5u ng=1
+MM4 out_stage1 in vp well sg13_lv_pmos w=0.4u l=0.5u ng=1
+MM2 out out_stage1 gnd sub sg13_lv_nmos w=0.4u l=0.5u ng=1
+MM3 out out_stage1 vp well sg13_lv_pmos w=0.4u l=0.5u ng=1
+RR1 gnd sub ptap1 A=6.084e-13 P=3.12e-06
+RR2 vp well ntap1 A=6.084e-13 P=3.12e-06
+.ends
