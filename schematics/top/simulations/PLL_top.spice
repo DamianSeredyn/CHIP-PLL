@@ -15,15 +15,15 @@
 *.ipin d4
 *.ipin d5
 *.ipin rst
-x9 vout_aftRC vout_preRC gd RC_filter
+xRC vout_aftRC vout_preRC gd RC_filter
 x2 vp clk_ref cref gd buffer_hv
-x7 gd vp cref UP DOWN cvco rst PFD_cell_2
-x8 vp UP vout_preRC DOWN rst_n gd charge_pump_cell
-x3 vp vco_out_prebuff vco_out_buffered gd buf
-x4 gd vp vco_out_prebuff d0 d1 d2 d3 d4 d5 a0 a1 a2 cvco rst Divider_top
-x6 vp gd vco_out_prebuff vout_aftRC vco_core_0
+xPFD gd vp cref UP DOWN cvco rst PFD_cell_2
+xCP vp UP vout_preRC DOWN rst_n gd charge_pump_cell
+xBUF vp vco_out_prebuff vco_out_buffered gd buf
+xDiv gd vp vco_out_prebuff d0 d1 d2 d3 d4 d5 a0 a1 a2 cvco rst Divider_top
+xVCO vp gd vco_out_prebuff vout_aftRC vco_core_0
 x5 net2 vp gd net1 vco_out_buffered net1 d_flip_flop
-x1 vph out vp net2 gd level_shifter
+xLS vph out vp net2 gd level_shifter
 x10 rst rst_n vp gd inverter_x4
 **.ends
 

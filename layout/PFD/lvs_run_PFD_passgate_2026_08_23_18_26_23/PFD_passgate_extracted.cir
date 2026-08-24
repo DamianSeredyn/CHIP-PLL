@@ -1,0 +1,10 @@
+* Extracted by KLayout with SG13CMOS5L LVS runset on : 23/08/2026 18:26
+
+.SUBCKT PFD_passgate A B gd in_n in_p vp
+M$1 A in_n B \$1 sg13_lv_nmos L=0.15u W=0.3u AS=0.156p AD=0.156p PS=2.08u
++ PD=2.08u rfmode=0
+M$3 A in_p B \$2 sg13_lv_pmos L=0.15u W=0.3u AS=0.156p AD=0.156p PS=2.08u
++ PD=2.08u rfmode=0
+R$5 vp \$2 ntap1 A=0.6084p P=3.12u
+R$6 gd \$1 ptap1 A=0.6084p P=3.12u
+.ENDS PFD_passgate

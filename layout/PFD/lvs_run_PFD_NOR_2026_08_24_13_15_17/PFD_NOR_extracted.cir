@@ -1,0 +1,14 @@
+* Extracted by KLayout with SG13CMOS5L LVS runset on : 24/08/2026 13:15
+
+.SUBCKT PFD_NOR A B gd out vp
+M$1 gd B out \$1 sg13_lv_nmos L=0.15u W=0.3u AS=0.156p AD=0.111p PS=2.08u
++ PD=1.48u rfmode=0
+M$3 gd A out \$1 sg13_lv_nmos L=0.15u W=0.3u AS=0.111p AD=0.156p PS=1.48u
++ PD=2.08u rfmode=0
+M$5 \$10 B vp \$9 sg13_lv_pmos L=0.15u W=0.3u AS=0.156p AD=0.111p PS=2.08u
++ PD=1.48u rfmode=0
+M$7 \$10 A out \$9 sg13_lv_pmos L=0.15u W=0.3u AS=0.111p AD=0.156p PS=1.48u
++ PD=2.08u rfmode=0
+R$9 vp \$9 ntap1 A=0.6084p P=3.12u
+R$10 gd \$1 ptap1 A=0.6084p P=3.12u
+.ENDS PFD_NOR
