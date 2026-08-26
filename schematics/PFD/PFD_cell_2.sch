@@ -57,7 +57,7 @@ N 770 440 820 440 {lab=gnd}
 N 770 430 770 440 {lab=gnd}
 N 820 400 820 440 {lab=gnd}
 N 770 400 820 400 {lab=gnd}
-N 690 400 730 400 {lab=reset}
+N 690 400 730 400 {lab=rst}
 N 770 440 770 450 {lab=gnd}
 N 770 310 770 370 {lab=DOWN}
 N -390 -120 -230 -120 {lab=cRef}
@@ -116,8 +116,8 @@ C {lab_wire.sym} 400 60 0 1 {name=p32 sig_type=std_logic lab=pre_down}
 C {lab_wire.sym} 450 -170 0 0 {name=p33 sig_type=std_logic lab=pre_up}
 C {lab_wire.sym} 230 -30 0 0 {name=p34 sig_type=std_logic lab=post_nand}
 C {lab_wire.sym} -360 -30 0 0 {name=p35 sig_type=std_logic lab=flip_flop_reset}
-C {PFD_flip_flop.sym} -80 -180 0 0 {name=xflipFlopCref}
-C {PFD_flip_flop.sym} -80 70 0 0 {name=xFlipFlopCvco}
+C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_flip_flop.sym} -80 -180 0 0 {name=xflipFlopCref}
+C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_flip_flop.sym} -80 70 0 0 {name=xFlipFlopCvco}
 C {lab_wire.sym} 100 30 0 0 {name=p47 sig_type=std_logic lab=gnd}
 C {lab_wire.sym} 100 -90 0 0 {name=p48 sig_type=std_logic lab=vp}
 C {sg13cmos5l_pr/sg13_lv_nmos.sym} 800 -130 0 0 {name=M4
@@ -162,7 +162,7 @@ C {lab_wire.sym} 660 370 0 0 {name=p46 sig_type=std_logic lab=gnd}
 C {lab_wire.sym} 660 250 0 0 {name=p49 sig_type=std_logic lab=vp}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 570 -170 0 0 {name=x2}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 560 310 0 0 {name=x5}
-C {PFD_passgate.sym} -500 -30 0 0 {name=x1}
-C {PFD_passgate.sym} -230 -30 0 0 {name=x3}
-C {PFD_buffor.sym} -130 -30 0 1 {name=x8}
+C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_passgate.sym} -500 -30 0 0 {name=x1}
+C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_passgate.sym} -230 -30 0 0 {name=x3}
+C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_buffor.sym} -130 -30 0 1 {name=x8}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 100 -30 0 1 {name=x11}
