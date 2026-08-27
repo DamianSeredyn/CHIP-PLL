@@ -1,0 +1,60 @@
+* PEX produced on Thu Aug 27 10:04:03 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
+* NGSPICE file created from level_shifter.ext - technology: ihp-sg13g2
+
+.subckt level_shifter in vph vpl gd
+X0 3_stage_out a_5207_4935# gd gd sg13_hv_nmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=0.45u
+X1 gd a_5207_4935# 3_stage_out gd sg13_hv_nmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=0.45u
+X2 a_5207_4935# 1_stage_out a_5365_4545# gd sg13_lv_nmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=0.45u
+X3 3_stage_out a_5207_4935# a_6343_5165# vph sg13_hv_pmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.45u
+X4 a_5207_4935# 1_stage_out vpl vpl sg13_lv_pmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=0.45u
+X5 a_4931_4545# in gd gd sg13_lv_nmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=0.45u
+X6 vph 4 a_6343_5165# vph sg13_hv_pmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=0.45u
+X7 a_6343_5165# a_5207_4935# 3_stage_out vph sg13_hv_pmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=0.45u
+X8 vpl in 1_stage_out vpl sg13_lv_pmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=0.45u
+X9 4 1_stage_out gd gd sg13_hv_nmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=0.45u
+X10 gd a_5207_4935# 3_stage_out gd sg13_hv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.45u
+X11 vph 3_stage_out a_6067_5165# vph sg13_hv_pmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=0.45u
+X12 gd 1_stage_out 4 gd sg13_hv_nmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=0.45u
+X13 a_5365_4545# 1_stage_out gd gd sg13_lv_nmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=0.45u
+X14 a_6343_5165# 4 vph vph sg13_hv_pmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.45u
+X15 1_stage_out in a_4931_4545# gd sg13_lv_nmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=0.45u
+X16 vpl 1_stage_out a_5207_4935# vpl sg13_lv_pmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=0.45u
+X17 a_6067_5165# 1_stage_out 4 vph sg13_hv_pmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=0.45u
+X18 1_stage_out in vpl vpl sg13_lv_pmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=0.45u
+X19 3_stage_out a_5207_4935# gd gd sg13_hv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.45u
+C0 1_stage_out a_5365_4545# 0.05936f
+C1 vph a_6067_5165# 0.02392f
+C2 a_6343_5165# 4 0.08334f
+C3 1_stage_out a_4931_4545# 0.05117f
+C4 3_stage_out 4 0.25994f
+C5 1_stage_out in 0.53853f
+C6 a_5365_4545# a_5207_4935# 0.05117f
+C7 3_stage_out a_6343_5165# 0.96375f
+C8 1_stage_out a_5207_4935# 1.11646f
+C9 vpl 4 0.03934f
+C10 in a_4931_4545# 0.05936f
+C11 1_stage_out vph 0.15042f
+C12 3_stage_out vpl 0.01771f
+C13 4 a_6067_5165# 0.05906f
+C14 vph a_5207_4935# 0.3052f
+C15 3_stage_out a_6067_5165# 0.15583f
+C16 1_stage_out 4 0.47974f
+C17 1_stage_out 3_stage_out 0.05153f
+C18 4 a_5207_4935# 0.4715f
+C19 1_stage_out vpl 0.63397f
+C20 a_6343_5165# a_5207_4935# 0.08779f
+C21 vph 4 0.4346f
+C22 a_6343_5165# vph 0.47519f
+C23 3_stage_out a_5207_4935# 0.67326f
+C24 in vpl 0.29476f
+C25 vpl a_5207_4935# 0.30802f
+C26 3_stage_out vph 0.44105f
+C27 1_stage_out a_6067_5165# 0.02162f
+C28 vph gd 1.47735f
+C29 vpl gd 0.06616f
+C30 a_5365_4545# gd 0.68419f
+C31 a_4931_4545# gd 0.29449f
+C32 a_6343_5165# gd 0.82751f
+C33 a_6067_5165# gd 0.88792f
+.ends
+

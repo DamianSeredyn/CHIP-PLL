@@ -3414,5 +3414,29 @@
   </cell>
  </cells>
  <items>
+  <item>
+   <tags />
+   <category>'M2.b'</category>
+   <cell>level_shifter</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment />
+   <image />
+   <values>
+    <value>edge-pair: (30.185,24.1;30.185,24.3)|(30.17,24.3;30.17,24.1)</value>
+   </values>
+  </item>
+ <item>
+   <tags />
+   <category>'M2.d'</category>
+   <cell>level_shifter</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment />
+   <image />
+   <values>
+    <value>polygon: (30.185,24.1;30.185,24.3;30.885,24.3;30.885,24.1)</value>
+   </values>
+  </item>
  </items>
 </report-database>

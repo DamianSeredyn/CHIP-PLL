@@ -1,9 +1,9 @@
-# Logfile created on 2026-08-27 21:41:39 +0200 by logger.rb/v1.5.3
-2026-08-27 21:41:39 +0200: Memory Usage (456212K) : Starting running IHP-SG13CMOS5L Klayout DRC maximum runset on /foss/designs/CHIP-PLL/layout/misc/level_shifter/level_shifter.gds
-2026-08-27 21:41:39 +0200: Memory Usage (456212K) : Ruby Version for klayout: 3.2.3
-2026-08-27 21:41:39 +0200: Memory Usage (457708K) : Loading database to memory is complete.
-2026-08-27 21:41:39 +0200: Memory Usage (457708K) : IHP-SG13CMOS5L Klayout DRC maximum runset output at: /foss/designs/CHIP-PLL/layout/misc/level_shifter/drc_run_level_shifter/level_shifter_level_shifter_sg13cmos5l_maximal.lyrdb
-2026-08-27 21:41:39 +0200: Memory Usage (457836K) : Evaluate switches.
-2026-08-27 21:41:39 +0200: Memory Usage (457836K) : Klayout will use  thread(s)
-2026-08-27 21:41:39 +0200: Memory Usage (457836K) : deep mode is enabled for sg13cmos5l_maximal runset.
-2026-08-27 21:41:41 +0200: Memory Usage (488652K) : KLayout DRC run for maximum ruleSet completed in 2.61 seconds
+# Logfile created on 2026-08-27 22:02:25 +0200 by logger.rb/v1.5.3
+2026-08-27 22:02:25 +0200: Memory Usage (455560K) : Starting running IHP-SG13CMOS5L Klayout DRC maximum runset on /foss/designs/CHIP-PLL/layout/misc/level_shifter/level_shifter.gds
+2026-08-27 22:02:25 +0200: Memory Usage (455560K) : Ruby Version for klayout: 3.2.3
+2026-08-27 22:02:25 +0200: Memory Usage (457044K) : Loading database to memory is complete.
+2026-08-27 22:02:25 +0200: Memory Usage (457044K) : IHP-SG13CMOS5L Klayout DRC maximum runset output at: /foss/designs/CHIP-PLL/layout/misc/level_shifter/drc_run_level_shifter/level_shifter_level_shifter_sg13cmos5l_maximal.lyrdb
+2026-08-27 22:02:25 +0200: Memory Usage (457172K) : Evaluate switches.
+2026-08-27 22:02:25 +0200: Memory Usage (457172K) : Klayout will use  thread(s)
+2026-08-27 22:02:25 +0200: Memory Usage (457172K) : deep mode is enabled for sg13cmos5l_maximal runset.
+2026-08-27 22:02:27 +0200: Memory Usage (487824K) : KLayout DRC run for maximum ruleSet completed in 2.57 seconds
