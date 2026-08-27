@@ -64,10 +64,10 @@ value="
 .param Vph=3.3
 .control
 save v(rst) v(out) v(xPLL.cvco) v(xPLL.cref) v(xPLL.UP) v(xPLL.DOWN) v(xPLL.vout_preRC) v(xPLL.vco_out_prebuff) v(xPLL.vout_aftRC) v(xPLL.vco_out_buffered) 
-tran 1p 10m
+tran 0.05n 1m
 
-meas tran t1 WHEN v(out)=1.65 RISE=1 FROM=9m
-meas tran t2 WHEN v(out)=1.65 RISE=2 FROM=9m
+meas tran t1 WHEN v(out)=1.65 RISE=1 FROM=0.75m
+meas tran t2 WHEN v(out)=1.65 RISE=2 FROM=0.75m
 meas tran period PARAM='t2-t1'
 meas tran freq PARAM='1/period'
 

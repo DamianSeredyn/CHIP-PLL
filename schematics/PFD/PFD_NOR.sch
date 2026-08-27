@@ -10,29 +10,29 @@ N 80 0 80 30 {lab=Out}
 N -10 30 80 30 {lab=Out}
 N -10 30 -10 50 {lab=Out}
 N 140 30 240 30 {lab=Out}
-N -10 130 -10 140 {lab=gd}
-N -10 80 20 80 {lab=gd}
-N 20 80 20 130 {lab=gd}
-N -10 130 20 130 {lab=gd}
-N -10 110 -10 130 {lab=gd}
-N 140 80 180 80 {lab=gd}
-N 180 80 180 130 {lab=gd}
-N 140 130 180 130 {lab=gd}
-N 140 110 140 130 {lab=gd}
-N 140 130 140 140 {lab=gd}
-N -10 140 140 140 {lab=gd}
-N 80 -30 110 -30 {lab=vp}
-N 110 -120 110 -30 {lab=vp}
-N 80 -170 110 -170 {lab=vp}
-N 80 -170 80 -150 {lab=vp}
-N 80 -120 110 -120 {lab=vp}
-N 110 -170 110 -120 {lab=vp}
+N -10 80 20 80 {lab=#net2}
+N -10 110 -10 190 {lab=gd}
+N 140 80 180 80 {lab=#net2}
+N 140 110 140 190 {lab=gd}
+N 80 -30 110 -30 {lab=#net3}
+N 110 -120 110 -30 {lab=#net3}
+N 80 -120 110 -120 {lab=#net3}
 N -10 -120 40 -120 {lab=B}
 N -10 -30 40 -30 {lab=A}
 N 70 80 100 80 {lab=B}
 N -70 80 -50 80 {lab=A}
 N 140 30 140 50 {lab=Out}
 N 80 30 140 30 {lab=Out}
+N 80 -210 80 -150 {lab=vp}
+N 110 -150 110 -120 {lab=#net3}
+N 80 -210 110 -210 {lab=vp}
+N 80 -220 80 -210 {lab=vp}
+N -10 190 140 190 {lab=gd}
+N 180 80 180 120 {lab=#net2}
+N 120 120 180 120 {lab=#net2}
+N 20 80 20 120 {lab=#net2}
+N 120 120 120 130 {lab=#net2}
+N 20 120 120 120 {lab=#net2}
 C {sg13cmos5l_pr/sg13_lv_pmos.sym} 60 -30 0 0 {name=M1
 l=0.15u
 w=0.3u
@@ -51,8 +51,8 @@ mm_ok=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {ipin.sym} 80 -170 0 0 {name=p1 lab=vp}
-C {ipin.sym} -10 140 0 0 {name=p2 lab=gd}
+C {ipin.sym} 80 -220 0 0 {name=p1 lab=vp}
+C {ipin.sym} -10 190 0 0 {name=p2 lab=gd}
 C {ipin.sym} -70 -30 0 0 {name=p3 lab=B}
 C {ipin.sym} -70 -60 0 0 {name=p4 lab=A}
 C {opin.sym} 240 30 0 0 {name=p5 lab=Out}
@@ -77,4 +77,16 @@ m=1
 mm_ok=1
 model=sg13_lv_nmos
 spiceprefix=X
+}
+C {sg13cmos5l_pr/ntap1.sym} 110 -180 0 0 {name=R1
+model=ntap1
+spiceprefix=X
+w=0.78e-6
+l=0.78e-6
+}
+C {sg13cmos5l_pr/ptap1.sym} 120 160 2 0 {name=R2
+model=ptap1
+spiceprefix=X
+w=0.78e-6
+l=0.78e-6
 }

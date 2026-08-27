@@ -1,0 +1,18 @@
+24-Aug-2026 12:42:35 | INFO    | Your Klayout version is: KLayout 0.30.9
+24-Aug-2026 12:42:35 | INFO    | Running SG13CMOS5L LVS checks on design /foss/designs/CHIP-PLL/layout/PFD/PFD_NOR.gds on cell PFD_NOR
+24-Aug-2026 12:42:39 | INFO    | ==============================================================================
+24-Aug-2026 12:42:39 | INFO    | Important Summary
+24-Aug-2026 12:42:39 | INFO    | +------------------+-----------------------------------------------------------------------+
+24-Aug-2026 12:42:39 | INFO    | | Status           | FAIL                                                                  |
+24-Aug-2026 12:42:39 | INFO    | | Mode             | COMPARE                                                               |
+24-Aug-2026 12:42:39 | INFO    | | Outcome          | Comparison mode: FAIL (netlists do not match).                        |
+24-Aug-2026 12:42:39 | INFO    | | Layout           | PFD_NOR.gds                                                           |
+24-Aug-2026 12:42:39 | INFO    | | Top Cell         | PFD_NOR                                                               |
+24-Aug-2026 12:42:39 | INFO    | | Results Dir      | /foss/designs/CHIP-PLL/layout/PFD/lvs_run_PFD_NOR_2026_08_24_12_42_35 |
+24-Aug-2026 12:42:39 | INFO    | | Warnings         | 0                                                                     |
+24-Aug-2026 12:42:39 | INFO    | | Errors           | 1                                                                     |
+24-Aug-2026 12:42:39 | INFO    | | Run Time (s)     | 3.417                                                                 |
+24-Aug-2026 12:42:39 | INFO    | +------------------+-----------------------------------------------------------------------+
+24-Aug-2026 12:42:39 | ERROR   | Key errors:
+24-Aug-2026 12:42:39 | ERROR   |   - 2026-08-24 12:42:39 +0200: Memory Usage (490692K) : ERROR : Netlists don't match
+24-Aug-2026 12:42:39 | INFO    | ==============================================================================
