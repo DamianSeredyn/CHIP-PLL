@@ -1,0 +1,23 @@
+29-Aug-2026 20:38:04 | INFO    | Your Klayout version is: KLayout 0.30.9
+29-Aug-2026 20:38:04 | INFO    | Running SG13CMOS5L LVS checks on design /foss/designs/CHIP-PLL/layout/PFD/PFD_buffor.gds on cell PFD_buffor
+29-Aug-2026 20:38:09 | ERROR   | KLayout run failed with exit code 1.
+29-Aug-2026 20:38:09 | ERROR   | KLayout stderr: ERROR: In /foss/pdks/ihp-sg13cmos5l/libs.tech/klayout/tech/lvs/sg13cmos5l.lvs: Can't find a schematic counterpart for the top cell PFD_buffor - use 'same_circuit' to establish a correspondence
+29-Aug-2026 20:38:09 | ERROR   | KLayout stderr: ERROR: RuntimeError: Can't find a schematic counterpart for the top cell PFD_buffor - use 'same_circuit' to establish a correspondence in Executable::execute
+29-Aug-2026 20:38:09 | INFO    | ==============================================================================
+29-Aug-2026 20:38:09 | INFO    | Important Summary
+29-Aug-2026 20:38:09 | INFO    | +------------------+--------------------------------------------------------------------------+
+29-Aug-2026 20:38:09 | INFO    | | Status           | FAIL                                                                     |
+29-Aug-2026 20:38:09 | INFO    | | Mode             | COMPARE                                                                  |
+29-Aug-2026 20:38:09 | INFO    | | Outcome          | Comparison mode: completed (no match/mismatch verdict found).            |
+29-Aug-2026 20:38:09 | INFO    | | Layout           | PFD_buffor.gds                                                           |
+29-Aug-2026 20:38:09 | INFO    | | Top Cell         | PFD_buffor                                                               |
+29-Aug-2026 20:38:09 | INFO    | | Results Dir      | /foss/designs/CHIP-PLL/layout/PFD/lvs_run_PFD_buffor_2026_08_29_20_38_03 |
+29-Aug-2026 20:38:09 | INFO    | | Warnings         | 0                                                                        |
+29-Aug-2026 20:38:09 | INFO    | | Errors           | 3                                                                        |
+29-Aug-2026 20:38:09 | INFO    | | Run Time (s)     | 5.801                                                                    |
+29-Aug-2026 20:38:09 | INFO    | +------------------+--------------------------------------------------------------------------+
+29-Aug-2026 20:38:09 | ERROR   | Key errors:
+29-Aug-2026 20:38:09 | ERROR   |   - KLayout run failed with exit code 1.
+29-Aug-2026 20:38:09 | ERROR   |   - KLayout stderr: ERROR: In /foss/pdks/ihp-sg13cmos5l/libs.tech/klayout/tech/lvs/sg13cmos5l.lvs: Can't find a schematic counterpart for the top cell PFD_buffor - use 'same_circuit' to establish a correspondence
+29-Aug-2026 20:38:09 | ERROR   |   - KLayout stderr: ERROR: RuntimeError: Can't find a schematic counterpart for the top cell PFD_buffor - use 'same_circuit' to establish a correspondence in Executable::execute
+29-Aug-2026 20:38:09 | INFO    | ==============================================================================

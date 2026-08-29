@@ -15,16 +15,14 @@ N -170 -20 -130 -20 {lab=A}
 N -130 -100 -130 -20 {lab=A}
 N -0 120 0 160 {lab=in_n}
 N -0 -180 -0 -140 {lab=in_p}
-N 0 -100 -0 -20 {lab=#net1}
+N 0 -100 -0 -20 {lab=vp}
 N -130 -100 -30 -100 {lab=A}
 N -130 80 -30 80 {lab=A}
-N -110 -20 -100 -20 {lab=vp}
+N -110 -20 -0 -20 {lab=vp}
 N -110 -50 -110 -20 {lab=vp}
-N -40 -20 -0 -20 {lab=#net1}
-N -120 10 -100 10 {lab=gnd}
+N -120 10 -0 10 {lab=gnd}
 N -120 10 -120 20 {lab=gnd}
-N -40 10 -0 10 {lab=#net2}
-N 0 10 -0 80 {lab=#net2}
+N 0 10 -0 80 {lab=gnd}
 C {sg13g2_pr/sg13_lv_pmos.sym} 0 -120 3 1 {name=M4
 l=0.15u
 w=0.3u
@@ -49,16 +47,4 @@ C {iopin.sym} -120 20 1 0 {name=p8 lab=gnd}
 C {iopin.sym} 150 -10 0 0 {name=p1 lab=B
 }
 C {iopin.sym} -170 -20 0 1 {name=p2 lab=A
-}
-C {sg13cmos5l_pr/ntap1.sym} -70 -20 3 0 {name=R1
-model=ntap1
-spiceprefix=X
-w=0.78e-6
-l=0.78e-6
-}
-C {sg13cmos5l_pr/ptap1.sym} -70 10 3 1 {name=R2
-model=ptap1
-spiceprefix=X
-w=0.78e-6
-l=0.78e-6
 }
