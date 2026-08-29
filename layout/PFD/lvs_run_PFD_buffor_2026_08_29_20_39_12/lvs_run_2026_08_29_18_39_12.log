@@ -1,0 +1,16 @@
+29-Aug-2026 20:39:12 | INFO    | Your Klayout version is: KLayout 0.30.9
+29-Aug-2026 20:39:12 | INFO    | Running SG13CMOS5L LVS checks on design /foss/designs/CHIP-PLL/layout/PFD/PFD_buffor.gds on cell PFD_buffor
+29-Aug-2026 20:39:18 | INFO    | ==============================================================================
+29-Aug-2026 20:39:18 | INFO    | Important Summary
+29-Aug-2026 20:39:18 | INFO    | +------------------+--------------------------------------------------------------------------+
+29-Aug-2026 20:39:18 | INFO    | | Status           | PASS                                                                     |
+29-Aug-2026 20:39:18 | INFO    | | Mode             | COMPARE                                                                  |
+29-Aug-2026 20:39:18 | INFO    | | Outcome          | Comparison mode: PASS (netlists match).                                  |
+29-Aug-2026 20:39:18 | INFO    | | Layout           | PFD_buffor.gds                                                           |
+29-Aug-2026 20:39:18 | INFO    | | Top Cell         | PFD_buffor                                                               |
+29-Aug-2026 20:39:18 | INFO    | | Results Dir      | /foss/designs/CHIP-PLL/layout/PFD/lvs_run_PFD_buffor_2026_08_29_20_39_12 |
+29-Aug-2026 20:39:18 | INFO    | | Warnings         | 0                                                                        |
+29-Aug-2026 20:39:18 | INFO    | | Errors           | 0                                                                        |
+29-Aug-2026 20:39:18 | INFO    | | Run Time (s)     | 5.996                                                                    |
+29-Aug-2026 20:39:18 | INFO    | +------------------+--------------------------------------------------------------------------+
+29-Aug-2026 20:39:18 | INFO    | ==============================================================================
