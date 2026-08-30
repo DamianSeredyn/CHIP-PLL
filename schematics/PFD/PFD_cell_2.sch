@@ -100,7 +100,6 @@ C {lab_wire.sym} -20 -90 0 0 {name=p14 sig_type=std_logic lab=vp}
 C {lab_wire.sym} -20 30 0 0 {name=p15 sig_type=std_logic lab=gnd}
 C {lab_wire.sym} 570 -110 0 0 {name=p16 sig_type=std_logic lab=gnd}
 C {lab_wire.sym} 570 -230 0 0 {name=p17 sig_type=std_logic lab=vp}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in.sym} 390 -50 0 1 {name=x7}
 C {lab_wire.sym} 200 -70 0 0 {name=p20 sig_type=std_logic lab=vp}
 C {lab_wire.sym} 200 -50 0 0 {name=p21 sig_type=std_logic lab=gnd}
 C {noconn.sym} 20 -120 0 1 {name=l1}
@@ -166,3 +165,4 @@ C {PFD_passgate.sym} -500 -30 0 1 {name=x1}
 C {PFD_passgate.sym} -230 -30 0 0 {name=x3}
 C {PFD_buffor.sym} -130 -30 0 1 {name=x8}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 100 -30 0 1 {name=x11}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in_x2.sym} 390 -50 0 1 {name=x7}
