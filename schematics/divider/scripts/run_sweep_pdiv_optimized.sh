@@ -8,6 +8,18 @@
 # to provide exactly 10 periods of the slowest output (out_div), minimizing runtime.
 # N=0 is bypass mode: output frequency = clk / 2
 #
+# RESET HANDLING (netlist now drives reset from V4 as a PWL source):
+#   - reset is held HIGH (asserted) for ~75% of the out_div period at this N,
+#     then released. This scales the reset duration with N so slower division
+#     values still get a proportionally long, safe reset window.
+#   - TSTOP = reset_release_time + 10 full out_div periods, so there are
+#     always exactly 10 post-reset periods available for measurement,
+#     regardless of how long reset was held.
+#   - tran's optional <tstart> argument is set to the reset release time, so
+#     ngspice only WRITES data (wrdata) from that point on — the reset
+#     transient itself never appears in the .dat file and can't skew the
+#     duty-cycle calculation done downstream.
+#
 # IMPORTANT: Measures from out_div (not out) because:
 #   - out has very short pulses (narrow pulse train, poor for duty cycle measurement)
 #   - out_div is the /2 version of out, giving ~50% duty cycle
@@ -20,9 +32,14 @@
 # ==============================================================================
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
+# New hierarchy: CHIP-PLL/schematics/divider/scripts/<this file>
+#   SCRIPT_DIR  -> .../CHIP-PLL/schematics/divider/scripts
+#   DIVIDER_DIR -> .../CHIP-PLL/schematics/divider        (1 level up)
+#   ROOT_DIR    -> .../CHIP-PLL                            (3 levels up)
+DIVIDER_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+ROOT_DIR="$(cd "$DIVIDER_DIR/../.." && pwd)"
 
-source $PROJECT_DIR/configs/corner_data
+source $ROOT_DIR/configs/corner_data
 
 # ── Argument parsing ───────────────────────────────────────────────────────────
 FILTER_CORNERS=""
@@ -131,38 +148,57 @@ fi
 
 # ── Configuration ──────────────────────────────────────────────────────────────
 SIM_NAME="pdiv"
-SPICE=$PROJECT_DIR/divider/simulations/pdiv_sym_tb.spice
-DATA_DIR=$PROJECT_DIR/divider/results/data
-RESULTS_DIR=$PROJECT_DIR/divider/results
+SPICE=$DIVIDER_DIR/simulations/pdiv_sym_tb.spice
+DATA_DIR=$DIVIDER_DIR/results/data
+RESULTS_DIR=$DIVIDER_DIR/results
 
 # Simulation parameters
 # Timestep: 20ps for good accuracy on small signals
 TSTEP="20p"
 
 # N range: 0-63 (N=0 is bypass mode: output frequency = clk / 2)
-N_VALUES=$(seq 0 63)
+# Code 111111 (N=63, all data bits high) is intentionally excluded — not simulated.
+N_VALUES=$(seq 0 63 | grep -v '^63$')
 
-# ── Function to calculate TSTOP ────────────────────────────────────────────────
+# ── Function to calculate RESET_TIME / RESET_END / TSTOP ──────────────────────
 # out_div frequency = 320 MHz / (2 * (N+1))
 # Period of out_div = 2 * (N+1) / 320 MHz = (N+1) / 160 MHz
-# For 10 periods: TSTOP = 10 * (N+1) / 160 MHz = (N+1) / 16 MHz
-# Minimum 500ns for ngspice startup settling
-calculate_tstop() {
+#
+# RESET_TIME  = 0.75 * period_out_div(N)   — reset asserted for ~75% of one
+#               out_div period at this division value
+# RESET_END   = RESET_TIME + 100ps         — short, fixed fall-transition width
+# TSTOP       = RESET_END + 10 * period_out_div(N) — 10 full periods measured
+#               strictly AFTER reset has released
+#
+# Prints three lines: RESET_TIME, RESET_END, TSTOP (ngspice time strings)
+calculate_timing() {
     local N=$1
     python3 << PYEOF
-import sys
 N = int($N)
-# 10 periods of out_div in seconds
-tstop_sec = (N + 1) / 16e6
-# Apply minimum of 500ns
-tstop_sec = max(500e-9, tstop_sec)
-# Format as ngspice string (e.g., "1.5u", "100n")
-if tstop_sec >= 1e-6:
-    print(f"{tstop_sec*1e6:.1f}u")
-elif tstop_sec >= 1e-9:
-    print(f"{tstop_sec*1e9:.0f}n")
-else:
-    print(f"{tstop_sec*1e12:.0f}p")
+
+# out_div period in seconds for this N (see header note above)
+period_out_div = (N + 1) / 160e6
+
+# Reset asserted for ~75% of this N's out_div period
+reset_time_sec = 0.75 * period_out_div
+# Fixed, short transition width for the reset falling edge
+reset_end_sec = reset_time_sec + 100e-12
+
+# 10 full out_div periods to measure, counted from AFTER reset releases
+tstop_sec = reset_end_sec + 10 * period_out_div
+
+def fmt(t):
+    # Format as an ngspice time string (e.g., "1.5u", "100n", "250p")
+    if t >= 1e-6:
+        return f"{t*1e6:.4f}u"
+    elif t >= 1e-9:
+        return f"{t*1e9:.4f}n"
+    else:
+        return f"{t*1e12:.4f}p"
+
+print(fmt(reset_time_sec))
+print(fmt(reset_end_sec))
+print(fmt(tstop_sec))
 PYEOF
 }
 
@@ -172,10 +208,11 @@ echo "==========================================================================
 echo "Corners     : $corners"
 echo "Temperatures: $FILTER_TEMPS"
 echo "VDDs        : $FILTER_VPS"
-echo "Division N  : 0..63 (64 runs per PVT point, includes bypass mode N=0)"
-echo "Per-run time: DYNAMIC (10 periods of out_div for each N)"
+echo "Division N  : 0..63, excluding 63 (111111) — 63 runs per PVT point, includes bypass mode N=0"
+echo "Per-run time: DYNAMIC (reset ~75% of out_div period, then 10 periods of out_div)"
 echo "Timestep    : $TSTEP"
 echo "Measurement : out_div (NOT out, which has very short pulses)"
+echo "Reset       : held from t=0, released before the 10-period measurement window"
 echo ""
 
 # Count total simulations
@@ -186,7 +223,7 @@ for VP in $FILTER_VPS; do
     for N in $N_VALUES; do TOTAL=$((TOTAL + 1)); done
 done; done; done
 
-echo "Total simulations: $TOTAL (includes bypass mode N=0)"
+echo "Total simulations: $TOTAL (includes bypass mode N=0, excludes code 111111/N=63)"
 echo "=========================================================================="
 echo ""
 
@@ -214,8 +251,11 @@ for VP in $FILTER_VPS; do
         NN=$(printf "%02d" $N)
         DAT=$DATA_DIR/${SIM_NAME}_${TAG}_N${NN}.dat
 
-        # Calculate dynamic TSTOP for this N value
-        TSTOP=$(calculate_tstop $N)
+        # Calculate dynamic RESET_TIME / RESET_END / TSTOP for this N value
+        TIMING=$(calculate_timing $N)
+        RESET_TIME=$(sed -n '1p' <<< "$TIMING")
+        RESET_END=$(sed -n '2p' <<< "$TIMING")
+        TSTOP=$(sed -n '3p' <<< "$TIMING")
 
         # Extract data bits from N (0-63)
         D0=$(( (N >> 0) & 1 ))
@@ -228,12 +268,12 @@ for VP in $FILTER_VPS; do
         # Generate SPICE netlist with DC-biased data inputs
         python3 - "$SPICE" "$CORNER" "$TEMP" "$VP" "$DAT" \
                    "$D0" "$D1" "$D2" "$D3" "$D4" "$D5" \
-                   "$TSTEP" "$TSTOP" "$VP" <<'PYEOF'
+                   "$TSTEP" "$TSTOP" "$VP" "$RESET_TIME" "$RESET_END" <<'PYEOF'
 import re, sys
 
 (spice_path, corner, temp, vp, dat_path,
  d0_str, d1_str, d2_str, d3_str, d4_str, d5_str,
- tstep, tstop, vdd_str) = sys.argv[1:]
+ tstep, tstop, vdd_str, reset_time, reset_end) = sys.argv[1:]
 
 with open(spice_path) as f:
     spice = f.read()
@@ -241,8 +281,11 @@ with open(spice_path) as f:
 # 1. Remove existing .control block
 spice = re.sub(r'\.control.*?\.endc', '', spice, flags=re.DOTALL)
 
-# 2. Replace temperature and VDD parameters
+# 2. Replace temperature parameter
 spice = re.sub(r'\.param\s+temp\s*=.*', f'.param temp={temp}', spice, flags=re.IGNORECASE)
+# This netlist has no ".param vdd=" line — V1 drives VP directly with a fixed
+# 1.2V literal ("V1 VP 0 1.2"). If a future testbench reintroduces a vdd
+# param, this substitution still applies harmlessly (no match = no-op).
 spice = re.sub(r'\.param\s+vdd\s*=.*',  f'.param vdd={vp}',    spice, flags=re.IGNORECASE)
 
 # 3. Select corner from library
@@ -273,6 +316,15 @@ replacements = [
     (r'(V7\s+d3\s+0)\s+.*',  lambda: f'\\1 DC {dc_level(d3_str)}'),
     (r'(V8\s+d4\s+0)\s+.*',  lambda: f'\\1 DC {dc_level(d4_str)}'),
     (r'(V9\s+d5\s+0)\s+.*',  lambda: f'\\1 DC {dc_level(d5_str)}'),
+    # V1 drives VP directly (e.g. "V1 VP 0 1.2") — tie it to the swept VDD
+    # instead of the netlist's hardcoded literal, so -v corner sweeps work.
+    (r'(V1\s+VP\s+0)\s+.*', lambda: f'\\1 {vdd_v:.4f}'),
+    # V4 drives reset as a PWL source (e.g. "V4 reset 0 PWL( 0 1.2 500n 1.2 500.1n 0)").
+    # Rebuild it: reset asserted (at VDD) from t=0 to reset_time, falls to 0
+    # by reset_end. reset_time/reset_end are pre-computed per N (~75% of the
+    # out_div period) and passed in from the bash driver.
+    (r'(V4\s+reset\s+0\s+PWL\()[^)]*(\))',
+     lambda: f'\\g<1> 0 {vdd_v:.4f} {reset_time} {vdd_v:.4f} {reset_end} 0\\g<2>'),
 ]
 
 for pattern, replacement in replacements:
@@ -281,11 +333,15 @@ for pattern, replacement in replacements:
 # 7. Add .options TEMP
 spice = re.sub(r'(\.end\b)', f'.options TEMP={temp}\n\\1', spice, flags=re.IGNORECASE)
 
-# 8. Create .control block with measurement from out_div (not out)
+# 8. Create .control block with measurement from out_div (not out).
+#    tran's optional 4th argument (tstart) tells ngspice to only start
+#    WRITING data at reset_end — the simulator still runs from t=0, but the
+#    reset transient itself is excluded from the .dat file, so it can't
+#    skew any downstream duty-cycle/frequency calculation.
 control_block = f"""
 .control
 save all
-tran {tstep} {tstop}
+tran {tstep} {tstop} {reset_end}
 wrdata {dat_path} v(clk) v(out_div) v(div2) v(div4) v(div8) v(div16) v(div32) v(div64)
 exit
 .endc
@@ -301,8 +357,8 @@ PYEOF
 
         CURRENT=$((CURRENT + 1))
         PCT=$(( CURRENT * 100 / TOTAL ))
-        printf "  N=%02d (d5..d0=%d%d%d%d%d%d) TSTOP=%s — %3d%% total\n" \
-               $N $D5 $D4 $D3 $D2 $D1 $D0 "$TSTOP" $PCT
+        printf "  N=%02d (d5..d0=%d%d%d%d%d%d) RESET=0-%s TSTOP=%s — %3d%% total\n" \
+               $N $D5 $D4 $D3 $D2 $D1 $D0 "$RESET_END" "$TSTOP" $PCT
 
     done  # N loop
 

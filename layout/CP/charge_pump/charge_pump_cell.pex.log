@@ -24,47 +24,48 @@ Reading "$$$CONTEXT_INFO$$$".
 Reading "ntap1$1".
 Reading "ptap1$1".
 Moving label "sub!" from space to ptapdiff in cell ptap1$1.
-Reading "Via$4".
 Reading "Via$2".
-Reading "Via$5".
-Reading "Via$3".
-Reading "Via$20".
-Reading "Via$1".
 Reading "pmos$1".
 Reading "pmos$3".
 Reading "nmos$2".
 Reading "nmos$6".
 Reading "nmos$1".
-Reading "Via$7".
-Reading "Via$6".
-Reading "Via$9".
-Reading "Via$10".
-Reading "Via$8".
 Reading "nmos$3".
-Reading "Via$13".
 Reading "rppd$1".
-Reading "pmos$4".
+Reading "Via$11".
+Reading "Via$12".
+Reading "Via$14".
+Reading "Via$15".
+Reading "Via$16".
+Reading "Via$17".
+Reading "Via$18".
+Reading "Via$19".
+Reading "Via$20".
+Reading "Via$21".
+Reading "Via$1".
+Reading "Via$27".
+Reading "Via$26".
+Reading "Via$25".
+Reading "Via$24$1".
+Reading "Via$23".
+Reading "pmos$9".
 CIF file read warning: CIF style sg13g2(): units rescaled by factor of 5 / 1
-Reading "nmos$14".
+Reading "nmos$19".
 Reading "pmos$2".
 Reading "nmos$5".
 Reading "nmos$4".
 Reading "rppd".
-Reading "Via$40".
-Reading "Via$11".
-Reading "Via$15".
-Reading "Via$12".
-Reading "Via$16".
-Reading "Via$18".
-Reading "Via$19".
+Reading "Via$60".
+Reading "ntap1$2".
+Reading "ptap1$2".
+Moving label "sub!" from space to ptapdiff in cell ptap1$2.
 Reading "curr_source".
-Reading "ntap1$1$1".
-Reading "ptap1$1$1".
-Moving label "sub!" from space to ptapdiff in cell ptap1$1$1.
-Reading "Via$59".
-Reading "Via$58".
-Reading "Via".
-Reading "Via$28".
+Reading "Via$62".
+Reading "ntap1".
+Reading "Via$63".
+Reading "ptap1".
+Moving label "sub!" from space to ptapdiff in cell ptap1.
+Reading "vbias".
 Reading "pmos".
 Reading "Via$24".
 Reading "Via$22".
@@ -72,12 +73,9 @@ Reading "pmos$6".
 Reading "nmos$8".
 Reading "nmos$12".
 Reading "nmos$13".
-Reading "Via$39".
 Reading "nmos".
 Reading "pmos$7".
 Reading "pmos$8".
-Reading "nmos$18".
-Reading "nmos$16".
 Reading "Via$45".
 Reading "Via$46".
 Reading "Via$43".
@@ -94,10 +92,9 @@ Reading "Via$54".
 Reading "Via$55".
 Reading "Via$56".
 Reading "Via$57".
-Reading "ntap1".
-Reading "ptap1".
-Moving label "sub!" from space to ptapdiff in cell ptap1.
-Reading "vbias".
+Reading "nmos$14".
+Reading "pmos$11".
+Reading "Via".
 Reading "charge_pump_cell".
 Extracting charge_pump_cell into /foss/designs/CHIP-PLL/layout/CP/charge_pump/charge_pump_cell.ext:
 Processing charge_pump_cell

@@ -1,0 +1,12 @@
+* Extracted by KLayout with SG13CMOS5L LVS runset on : 29/08/2026 20:39
+
+.SUBCKT PFD_buffor gnd in out vp
+M$1 \$10 in gnd gnd sg13_lv_nmos L=0.5u W=0.4u AS=0.136p AD=0.076p PS=1.48u
++ PD=0.78u rfmode=0
+M$2 gnd \$10 out gnd sg13_lv_nmos L=0.5u W=0.4u AS=0.076p AD=0.136p PS=0.78u
++ PD=1.48u rfmode=0
+M$3 \$10 in vp vp sg13_lv_pmos L=0.5u W=0.4u AS=0.136p AD=0.076p PS=1.48u
++ PD=0.78u rfmode=0
+M$4 vp \$10 out vp sg13_lv_pmos L=0.5u W=0.4u AS=0.076p AD=0.136p PS=0.78u
++ PD=1.48u rfmode=0
+.ENDS PFD_buffor

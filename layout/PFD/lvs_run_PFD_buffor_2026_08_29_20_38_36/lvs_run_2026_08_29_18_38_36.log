@@ -1,0 +1,18 @@
+29-Aug-2026 20:38:37 | INFO    | Your Klayout version is: KLayout 0.30.9
+29-Aug-2026 20:38:37 | INFO    | Running SG13CMOS5L LVS checks on design /foss/designs/CHIP-PLL/layout/PFD/PFD_buffor.gds on cell PFD_buffor
+29-Aug-2026 20:38:42 | INFO    | ==============================================================================
+29-Aug-2026 20:38:42 | INFO    | Important Summary
+29-Aug-2026 20:38:42 | INFO    | +------------------+--------------------------------------------------------------------------+
+29-Aug-2026 20:38:42 | INFO    | | Status           | FAIL                                                                     |
+29-Aug-2026 20:38:42 | INFO    | | Mode             | COMPARE                                                                  |
+29-Aug-2026 20:38:42 | INFO    | | Outcome          | Comparison mode: FAIL (netlists do not match).                           |
+29-Aug-2026 20:38:42 | INFO    | | Layout           | PFD_buffor.gds                                                           |
+29-Aug-2026 20:38:42 | INFO    | | Top Cell         | PFD_buffor                                                               |
+29-Aug-2026 20:38:42 | INFO    | | Results Dir      | /foss/designs/CHIP-PLL/layout/PFD/lvs_run_PFD_buffor_2026_08_29_20_38_36 |
+29-Aug-2026 20:38:42 | INFO    | | Warnings         | 0                                                                        |
+29-Aug-2026 20:38:42 | INFO    | | Errors           | 1                                                                        |
+29-Aug-2026 20:38:42 | INFO    | | Run Time (s)     | 5.841                                                                    |
+29-Aug-2026 20:38:42 | INFO    | +------------------+--------------------------------------------------------------------------+
+29-Aug-2026 20:38:42 | ERROR   | Key errors:
+29-Aug-2026 20:38:42 | ERROR   |   - 2026-08-29 20:38:42 +0200: Memory Usage (488028K) : ERROR : Netlists don't match
+29-Aug-2026 20:38:42 | INFO    | ==============================================================================
