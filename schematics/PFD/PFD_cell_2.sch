@@ -25,8 +25,8 @@ N 540 -50 540 60 {lab=pre_up}
 N -60 -120 20 -120 {lab=#net1}
 N -770 -170 -770 -140 {lab=vp}
 N -770 -80 -770 -60 {lab=gnd}
-N -520 -90 -520 -60 {lab=vp}
-N -520 0 -520 30 {lab=gnd}
+N -480 -90 -480 -60 {lab=vp}
+N -480 0 -480 30 {lab=gnd}
 N -720 -110 -670 -110 {lab=reset_n}
 N -500 -90 -500 -60 {lab=reset_n}
 N -500 0 -500 30 {lab=rst}
@@ -107,8 +107,8 @@ C {noconn.sym} 20 -120 0 1 {name=l1}
 C {noconn.sym} -20 130 0 1 {name=l2}
 C {ipin.sym} -860 -110 0 0 {name=p24 lab=rst}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} -770 -110 0 0 {name=x9}
-C {lab_wire.sym} -520 -90 0 0 {name=p25 sig_type=std_logic lab=vp}
-C {lab_wire.sym} -520 30 0 0 {name=p26 sig_type=std_logic lab=gnd}
+C {lab_wire.sym} -480 -90 0 0 {name=p25 sig_type=std_logic lab=vp}
+C {lab_wire.sym} -480 30 0 1 {name=p26 sig_type=std_logic lab=gnd}
 C {lab_wire.sym} -770 -60 0 0 {name=p27 sig_type=std_logic lab=gnd}
 C {lab_wire.sym} -770 -170 0 0 {name=p28 sig_type=std_logic lab=vp}
 C {lab_wire.sym} -680 -110 0 0 {name=p29 sig_type=std_logic lab=reset_n}
@@ -116,8 +116,8 @@ C {lab_wire.sym} 370 -170 0 1 {name=p32 sig_type=std_logic lab=pre_down}
 C {lab_wire.sym} 350 60 0 0 {name=p33 sig_type=std_logic lab=pre_up}
 C {lab_wire.sym} 230 -30 0 0 {name=p34 sig_type=std_logic lab=post_nand}
 C {lab_wire.sym} -360 -30 0 0 {name=p35 sig_type=std_logic lab=flip_flop_reset}
-C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_flip_flop.sym} -80 -180 0 0 {name=xflipFlopCref}
-C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_flip_flop.sym} -80 70 0 0 {name=xFlipFlopCvco}
+C {PFD_flip_flop.sym} -80 -180 0 0 {name=xflipFlopCref}
+C {PFD_flip_flop.sym} -80 70 0 0 {name=xFlipFlopCvco}
 C {lab_wire.sym} 100 30 0 0 {name=p47 sig_type=std_logic lab=gnd}
 C {lab_wire.sym} 100 -90 0 0 {name=p48 sig_type=std_logic lab=vp}
 C {sg13cmos5l_pr/sg13_lv_nmos.sym} 800 -130 0 0 {name=M4
@@ -146,7 +146,7 @@ C {opin.sym} 850 -170 0 0 {name=p3 lab=DOWN
 }
 C {lab_wire.sym} -250 -90 0 0 {name=p4 sig_type=std_logic lab=vp}
 C {lab_wire.sym} -250 30 0 0 {name=p22 sig_type=std_logic lab=gnd}
-C {lab_wire.sym} -500 -90 0 1 {name=p30 sig_type=std_logic lab=reset_n}
+C {lab_wire.sym} -500 -90 0 0 {name=p30 sig_type=std_logic lab=reset_n}
 C {lab_wire.sym} -500 30 0 1 {name=p31 sig_type=std_logic lab=rst}
 C {lab_wire.sym} -230 -90 0 1 {name=p36 sig_type=std_logic lab=rst}
 C {lab_wire.sym} -230 30 0 1 {name=p23 sig_type=std_logic lab=reset_n}
@@ -162,7 +162,7 @@ C {lab_wire.sym} 660 370 0 0 {name=p46 sig_type=std_logic lab=gnd}
 C {lab_wire.sym} 660 250 0 0 {name=p49 sig_type=std_logic lab=vp}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 570 -170 0 0 {name=x2}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 560 310 0 0 {name=x5}
-C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_passgate.sym} -500 -30 0 0 {name=x1}
-C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_passgate.sym} -230 -30 0 0 {name=x3}
-C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_buffor.sym} -130 -30 0 1 {name=x8}
+C {PFD_passgate.sym} -500 -30 0 1 {name=x1}
+C {PFD_passgate.sym} -230 -30 0 0 {name=x3}
+C {PFD_buffor.sym} -130 -30 0 1 {name=x8}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 100 -30 0 1 {name=x11}
