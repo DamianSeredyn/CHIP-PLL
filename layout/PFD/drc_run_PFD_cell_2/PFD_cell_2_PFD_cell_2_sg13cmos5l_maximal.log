@@ -1,0 +1,9 @@
+# Logfile created on 2026-08-31 08:53:29 +0200 by logger.rb/v1.5.3
+2026-08-31 08:53:29 +0200: Memory Usage (457064K) : Starting running IHP-SG13CMOS5L Klayout DRC maximum runset on /foss/designs/CHIP-PLL/layout/PFD/PFD_cell_2.gds
+2026-08-31 08:53:29 +0200: Memory Usage (457064K) : Ruby Version for klayout: 3.2.3
+2026-08-31 08:53:29 +0200: Memory Usage (458744K) : Loading database to memory is complete.
+2026-08-31 08:53:29 +0200: Memory Usage (458744K) : IHP-SG13CMOS5L Klayout DRC maximum runset output at: /foss/designs/CHIP-PLL/layout/PFD/drc_run_PFD_cell_2/PFD_cell_2_PFD_cell_2_sg13cmos5l_maximal.lyrdb
+2026-08-31 08:53:29 +0200: Memory Usage (458744K) : Evaluate switches.
+2026-08-31 08:53:29 +0200: Memory Usage (458744K) : Klayout will use  thread(s)
+2026-08-31 08:53:29 +0200: Memory Usage (458744K) : deep mode is enabled for sg13cmos5l_maximal runset.
+2026-08-31 08:53:40 +0200: Memory Usage (486848K) : KLayout DRC run for maximum ruleSet completed in 11.07 seconds

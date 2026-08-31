@@ -1,0 +1,126 @@
+* PEX produced on Mon Aug 31 06:26:25 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=3 and s=1 (extresist threshold=10000 mOhm, minres=1000 mOhm, mindelay=1 ps)
+* NGSPICE file created from PFD_flip_flop.ext - technology: ihp-sg13cmos5l
+
+.subckt PFD_flip_flop Q NQ clk D vp gd rst
+X0 Q rst gd.t6 gd.t12 sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
+X1 3 clk NQ vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X2 3 clk_n NQ gd.t8 sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X3 a_812_118# 3 vp vp sg13_lv_pmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
+X4 post_NOR rst gd.t6 gd.t11 sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
+X5 2 1 vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
+X6 3 clk 2 gd.t4 sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X7 clk_n clk vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X8 a_n184_118# 2 vp vp sg13_lv_pmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
+X9 2 1 gd.t1 gd.t0 sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
+X10 gd.t6 2 post_NOR gd.t9 sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
+X11 NQ Q gd.t6 gd.t10 sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
+X12 1 clk D vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X13 1 clk post_NOR gd.t3 sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X14 gd.t6 3 Q gd.t5 sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
+X15 clk_n clk gd.t1 gd.t2 sg13_lv_nmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X16 1 clk_n D gd.t7 sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X17 Q rst a_812_118# vp sg13_lv_pmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
+X18 1 clk_n post_NOR vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X19 post_NOR rst a_n184_118# vp sg13_lv_pmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
+X20 3 clk_n 2 vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X21 NQ Q vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
+R0 gd.n10 gd.t2 1583.52
+R1 gd.n9 gd.n8 2.67787
+R2 gd.n4 gd.n1 369.774
+R3 gd.n11 gd.n3 358.95
+R4 gd.n15 gd.n14 341.538
+R5 gd.n12 gd.n5 319.385
+R6 gd.n4 gd.t9 21.805
+R7 gd.n5 gd.t5 21.805
+R8 gd.n3 gd.t11 23.7898
+R9 gd.n7 gd.t12 23.7898
+R10 gd.n17 gd.t7 66.1543
+R11 gd.n15 gd.t3 66.1543
+R12 gd.n12 gd.t4 66.1543
+R13 gd.n1 gd.n0 0.650615
+R14 gd.n0 gd.t0 29.2021
+R15 gd.n8 gd.t10 29.2021
+R16 gd.n3 gd.n2 2.79745
+R17 gd.n7 gd.n6 2.79745
+R18 gd.t7 gd.n10 38.462
+R19 gd.t3 gd.n11 38.462
+R20 gd.n14 gd.t4 38.462
+R21 gd.n4 gd.n2 2.3631
+R22 gd.n6 gd.n5 2.3631
+R23 gd.t8 gd.n9 9.51747
+R24 gd.n18 gd.n17 8.5005
+R25 gd.n18 gd.n10 8.5005
+R26 gd.n16 gd.n15 8.5005
+R27 gd.n16 gd.n11 8.5005
+R28 gd.n13 gd.n12 8.5005
+R29 gd.n14 gd.n13 8.5005
+R30 gd.t1 gd.n18 4.23591
+R31 gd.t6 gd.n16 4.23591
+R32 gd.n13 gd.t6 4.23591
+R33 gd.t1 gd.t2 2.13884
+R34 gd.n1 gd.t1 2.08833
+R35 gd.n8 gd.n7 369.87
+R36 gd.n6 gd.t6 2.68275
+R37 gd.n2 gd.t6 2.68275
+R38 gd.n17 gd.n0 352.457
+R39 gd.t6 gd.t1 1.39176
+R40 gd.n9 gd.t6 1.01707
+R41 gd gd.t1 0.0005
+C0 clk 2 0.62976f
+C1 post_NOR Q 0.01715f
+C2 clk 3 0.06702f
+C3 clk post_NOR 0.02789f
+C4 rst Q 0.26936f
+C5 vp NQ 0.29121f
+C6 vp 1 0.24642f
+C7 2 1 0.89394f
+C8 3 NQ 0.5345f
+C9 3 1 0.01199f
+C10 clk rst 0.19934f
+C11 clk_n Q 0.02873f
+C12 vp 2 0.41771f
+C13 D clk_n 0.13788f
+C14 3 vp 0.18585f
+C15 vp a_n184_118# 0.03861f
+C16 3 2 0.62563f
+C17 post_NOR 1 0.5285f
+C18 clk clk_n 1.97947f
+C19 post_NOR vp 0.18086f
+C20 post_NOR 2 0.60213f
+C21 post_NOR a_n184_118# 0.03017f
+C22 rst NQ 0.01413f
+C23 rst 1 0.03335f
+C24 rst vp 0.51499f
+C25 rst 2 0.54783f
+C26 a_812_118# Q 0.03017f
+C27 clk Q 0.0343f
+C28 rst 3 0.36753f
+C29 clk D 0.0734f
+C30 clk_n NQ 0.05672f
+C31 clk_n 1 0.32077f
+C32 rst a_n184_118# 0.01021f
+C33 vp clk_n 1.08476f
+C34 post_NOR rst 0.34484f
+C35 clk_n 2 0.2117f
+C36 3 clk_n 0.32731f
+C37 post_NOR clk_n 0.08815f
+C38 Q NQ 0.18983f
+C39 D 1 0.34462f
+C40 vp Q 0.29205f
+C41 D vp 0.07847f
+C42 Q 2 0.05824f
+C43 3 Q 0.45545f
+C44 clk NQ 0.06354f
+C45 clk 1 0.73252f
+C46 rst clk_n 0.13748f
+C47 a_812_118# vp 0.03861f
+C48 clk vp 1.4418f
+C49 NQ gd 3.19571f
+C50 D gd 0.13033f
+C51 vp gd 6.62905f
+C52 a_812_118# gd 2.49661f
+C53 post_NOR gd 0.36417f
+C54 a_n184_118# gd 2.04057f
+C55 gd.t6 gd 0.77063f
+.ends
+
