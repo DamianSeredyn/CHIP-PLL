@@ -127,12 +127,12 @@ C {devices/code_shown.sym} -860 -1000 0 0 {name=NGSPICE only_toplevel=false
 value="
 .temp=25
 .param T = 31.25u
-.param dly=0.5u
-.param Vp=1.08
+.param dly=0.1u
+.param Vp=1.2
 .param Vph=3.3
 .control
 save all
-tran 0.05u 312.5u
+tran 0.01u 312.5u
 
 meas tran pw_up avg v(UP) from=120u to=312.5u
 meas tran pw_down avg v(DOWN) from=120u to=312.5u
@@ -168,7 +168,7 @@ footprint=1206
 device="ceramic capacitor"}
 C {devices/code_shown.sym} -580 -410 0 0 {name=MODEL1 only_toplevel=true
 format="tcleval( @value )"
-value=".lib cornerMOSlv.lib mos_tt
+value=".lib cornerMOSlv.lib mos_ss
 .lib cornerRES.lib res_typ
 .lib cornerMOShv.lib mos_tt
 

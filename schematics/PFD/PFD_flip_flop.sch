@@ -24,12 +24,11 @@ N 440 -70 530 -70 {lab=3}
 N 660 130 660 170 {lab=vp}
 N 640 130 640 170 {lab=clk}
 N 660 230 660 270 {lab=gd}
-N 640 230 640 270 {lab=#net1}
+N 640 230 640 270 {lab=clk_n}
 N 30 280 30 320 {lab=vp}
 N 30 380 30 420 {lab=gd}
 N 10 280 10 320 {lab=clk_n}
 N -40 -70 -0 -70 {lab=1}
-N 50 350 120 350 {lab=#net2}
 N 0 -300 70 -300 {lab=clk}
 N 140 -300 220 -300 {lab=clk_n}
 N 90 -360 90 -330 {lab=vp}
@@ -40,19 +39,15 @@ N 910 -20 910 20 {lab=vp}
 N 860 50 890 50 {lab=Q}
 N 960 50 960 200 {lab=NQ}
 N 960 200 1030 200 {lab=NQ}
-N 680 200 960 200 {lab=NQ}
 N -40 350 -30 350 {lab=1}
 N 10 380 10 420 {lab=clk}
 N -40 -70 -40 350 {lab=1}
 N 440 -70 440 200 {lab=3}
 N 380 -70 440 -70 {lab=3}
-N 440 200 600 200 {lab=3}
 N -50 -70 -40 -70 {lab=1}
 N 490 260 490 280 {lab=gd}
-N 840 260 840 280 {lab=gd}
 N -110 410 -110 430 {lab=gd}
 N -110 350 -40 350 {lab=1}
-N 90 410 90 430 {lab=gd}
 N 570 -170 570 -140 {lab=vp}
 N 570 -20 570 20 {lab=gd}
 N 860 -80 1030 -80 {lab=Q}
@@ -60,7 +55,10 @@ N 860 -80 860 50 {lab=Q}
 N 650 -80 860 -80 {lab=Q}
 N 180 50 220 50 {lab=vp}
 N 40 50 60 50 {lab=gd}
-N 120 130 120 350 {lab=#net2}
+N 120 130 120 350 {lab=post_NOR}
+N 440 200 600 200 {lab=3}
+N 680 200 960 200 {lab=NQ}
+N 50 350 120 350 {lab=post_NOR}
 C {ipin.sym} -230 -70 0 0 {name=p1 lab=D}
 C {opin.sym} 1030 -80 0 0 {name=p2 lab=Q}
 C {opin.sym} 1030 200 0 0 {name=p3 lab=NQ}
@@ -100,36 +98,25 @@ C {lab_wire.sym} 170 -70 0 0 {name=p38 sig_type=std_logic lab=2}
 C {lab_wire.sym} 430 -70 0 0 {name=p39 sig_type=std_logic lab=3}
 C {lab_wire.sym} 910 -20 0 0 {name=p4 sig_type=std_logic lab=vp}
 C {lab_wire.sym} 910 120 0 0 {name=p22 sig_type=std_logic lab=gd}
-C {CHIP-PLL/schematics/PFD/PFD_passgate.sym} 10 350 0 1 {name=x8}
-C {CHIP-PLL/schematics/PFD/PFD_passgate.sym} 340 -70 0 0 {name=x4}
-C {CHIP-PLL/schematics/PFD/PFD_passgate.sym} 640 200 0 1 {name=x7}
+C {PFD_passgate.sym} 10 350 0 1 {name=x8}
+C {PFD_passgate.sym} 340 -70 0 0 {name=x4}
+C {PFD_passgate.sym} 640 200 0 1 {name=x7}
 C {capa.sym} 490 230 0 0 {name=C2
 m=1
-value=0.2p
-footprint=1206
-device="ceramic capacitor"}
-C {capa.sym} 840 230 0 0 {name=C1
-m=1
-value=0.2p
+value=100f
 footprint=1206
 device="ceramic capacitor"}
 C {lab_wire.sym} 490 280 0 0 {name=p40 sig_type=std_logic lab=gd}
-C {lab_wire.sym} 840 280 0 0 {name=p41 sig_type=std_logic lab=gd}
 C {capa.sym} -110 380 0 0 {name=C3
 m=1
-value=0.2p
+value=40f
 footprint=1206
 device="ceramic capacitor"}
 C {lab_wire.sym} -110 430 0 0 {name=p42 sig_type=std_logic lab=gd}
-C {capa.sym} 90 380 0 0 {name=C4
-m=1
-value=0.2p
-footprint=1206
-device="ceramic capacitor"}
-C {lab_wire.sym} 90 430 0 0 {name=p43 sig_type=std_logic lab=gd}
-C {CHIP-PLL/schematics/PFD/PFD_NOR.sym} 650 -80 0 0 {name=x3}
-C {CHIP-PLL/schematics/PFD/PFD_NOR.sym} 120 130 1 0 {name=x5}
-C {CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 90 -300 0 0 {name=x2}
-C {CHIP-PLL/schematics/divider/schematics/inverter_x8.sym} 920 50 0 0 {name=x6}
-C {CHIP-PLL/schematics/divider/schematics/inverter_x8.sym} 30 -70 0 0 {name=x9}
-C {CHIP-PLL/schematics/PFD/PFD_passgate.sym} -90 -70 0 0 {name=x1}
+C {PFD_NOR.sym} 650 -80 0 0 {name=x3}
+C {PFD_NOR.sym} 120 130 1 0 {name=x5}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 90 -300 0 0 {name=x2}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x8.sym} 920 50 0 0 {name=x6}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x8.sym} 30 -70 0 0 {name=x9}
+C {PFD_passgate.sym} -90 -70 0 0 {name=x1}
+C {lab_wire.sym} 120 190 0 0 {name=p44 sig_type=std_logic lab=post_NOR}
