@@ -64,10 +64,10 @@ value="
 .param Vph=3.3
 .control
 save v(rst) v(out) v(xPLL.cvco) v(xPLL.cref) v(xPLL.UP) v(xPLL.DOWN) v(xPLL.vout_preRC) v(xPLL.vco_out_prebuff) v(xPLL.vout_aftRC) v(xPLL.vco_out_buffered) 
-tran 1p 10m
+tran 0.05n 1.5m
 
-meas tran t1 WHEN v(out)=1.65 RISE=1 FROM=9m
-meas tran t2 WHEN v(out)=1.65 RISE=2 FROM=9m
+meas tran t1 WHEN v(out)=1.65 RISE=1 FROM=1m
+meas tran t2 WHEN v(out)=1.65 RISE=2 FROM=1m
 meas tran period PARAM='t2-t1'
 meas tran freq PARAM='1/period'
 
@@ -94,7 +94,7 @@ C {lab_wire.sym} 60 -90 0 0 {name=p5 sig_type=std_logic lab=Vph}
 C {lab_wire.sym} 260 10 0 0 {name=p7 sig_type=std_logic lab=out}
 C {capa.sym} 210 40 0 0 {name=C1
 m=1
-value=1p
+value=20p
 footprint=1206
 device="ceramic capacitor"}
 C {gnd.sym} 210 90 0 0 {name=l5 lab=GND
