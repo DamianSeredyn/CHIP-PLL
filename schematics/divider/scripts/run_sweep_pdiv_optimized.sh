@@ -71,8 +71,8 @@ while [[ $# -gt 0 ]]; do
                         FILTER_VPS="$FILTER_VPS $vp_nom"
                         ;;
                     hot)
-                        FILTER_CORNERS="$FILTER_CORNERS mos_ss"
-                        FILTER_TEMPS="$FILTER_TEMPS $t_max"
+                        FILTER_CORNERS="$FILTER_CORNERS mos_ff"
+                        FILTER_TEMPS="$FILTER_TEMPS $t_min"
                         FILTER_VPS="$FILTER_VPS $vp_min"
                         ;;
                     cold)
