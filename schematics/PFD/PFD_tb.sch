@@ -132,10 +132,10 @@ value="
 .param Vph=3.3
 .control
 save all
-tran 0.01u 312.5u
+tran 0.01u 250u
 
-meas tran pw_up avg v(UP) from=120u to=312.5u
-meas tran pw_down avg v(DOWN) from=120u to=312.5u
+meas tran pw_up avg v(UP) from=120u to=250u
+meas tran pw_down avg v(DOWN) from=120u to=250u
 plot v(pw_up) v(pw_down)
 write PFD_tb.raw
 .endc
@@ -150,7 +150,7 @@ C {lab_wire.sym} 190 -20 0 0 {name=p4 sig_type=std_logic lab=DOWN
 
 }
 C {devices/vsource.sym} -560 -40 0 0 {name=Vref value="dc 0 ac 0 pulse(0 \{Vph\} \{T/2\} 10n 10n \{T/2\} \{T\}) "}
-C {devices/vsource.sym} -500 20 0 0 {name=Vco value="dc 0 ac 0 pulse(1u \{Vp\} \{dly\} 10n 10n \{T/2\} \{T\}"}
+C {devices/vsource.sym} -500 20 0 0 {name=Vco value="dc 0 ac 0 pulse(1u \{Vp\} \{dly\} 10n 10n \{T/2\} \{T\})"}
 C {launcher.sym} 580 -210 0 0 {name=h5
 descr="load waves"
 tclcommand="xschem raw_read $netlist_dir/PFD_tb.raw tran"
@@ -171,6 +171,7 @@ format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_ss
 .lib cornerRES.lib res_typ
 .lib cornerMOShv.lib mos_tt
+.lib cornerMOSCAP.lib moscap_tt
 
 "}
 C {/foss/designs/CHIP-PLL/schematics/misc/buffer_hv.sym} -280 -80 0 0 {name=x2}

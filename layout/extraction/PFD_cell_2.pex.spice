@@ -1,239 +1,234 @@
-* PEX produced on Mon Aug 31 08:56:18 AM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
-* NGSPICE file created from PFD_cell_2.ext - technology: ihp-sg13cmos5l
+* PEX produced on Thu Sep  3 01:16:58 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
+* NGSPICE file created from PFD_cell_2.ext - technology: ihp-sg13g2
 
-.subckt PFD_cell_2 DOWN UP cRef cVco vp gnd rst
+.subckt PFD_cell_2 gnd vp cRef UP DOWN cVco rst
 X0 PFD_flip_flop_0.1 PFD_flip_flop_0.clk_n vp gnd sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
-X1 gnd PFD_flip_flop_0.2 PFD_flip_flop_0.PFD_passgate_2.A gnd sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
-X2 PFD_flip_flop_0.1 cRef PFD_flip_flop_0.PFD_passgate_2.A gnd sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
-X3 PFD_flip_flop_1.1 PFD_flip_flop_1.clk_n PFD_flip_flop_1.PFD_passgate_2.A vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
-X4 gnd a_2226_46# PFD_passgate_1.B gnd sg13_lv_nmos ad=76f pd=0.78u as=0.136p ps=1.48u w=0.4u l=0.5u
-X5 PFD_passgate_1.B rst flip_flop_reset vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
-X6 UP inverter_x4_2.OUT vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
-X7 inverter_x4_0.OUT rst gnd gnd sg13_lv_nmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
-X8 a_n184_n846# PFD_flip_flop_1.2 vp vp sg13_lv_pmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
-X9 PFD_flip_flop_1.1 cVco vp vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
-X10 a_812_n846# PFD_flip_flop_1.3 vp vp sg13_lv_pmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
-X11 pre_down flip_flop_reset gnd gnd sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
-X12 a_2226_46# PFD_buffor_0.in gnd gnd sg13_lv_nmos ad=0.136p pd=1.48u as=76f ps=0.78u w=0.4u l=0.5u
-X13 PFD_flip_flop_0.PFD_passgate_2.A flip_flop_reset gnd gnd sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
-X14 PFD_flip_flop_0.3 PFD_flip_flop_0.clk_n PFD_flip_flop_0.NQ gnd sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
-X15 vp pre_up post_nand vp sg13_lv_pmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.13u
-X16 PFD_flip_flop_1.NQ pre_up gnd gnd sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
-X17 DOWN inverter_x4_5.OUT gnd gnd sg13_lv_nmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
-X18 PFD_flip_flop_1.3 cVco PFD_flip_flop_1.NQ vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
-X19 a_812_74# PFD_flip_flop_0.3 vp vp sg13_lv_pmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
-X20 pre_up flip_flop_reset a_812_n846# vp sg13_lv_pmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
-X21 PFD_flip_flop_1.clk_n cVco gnd gnd sg13_lv_nmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
-X22 gnd PFD_flip_flop_1.2 PFD_flip_flop_1.PFD_passgate_2.A gnd sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
-X23 PFD_flip_flop_0.3 cRef PFD_flip_flop_0.2 gnd sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
-X24 inverter_x4_0.OUT rst vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
-X25 inverter_x4_5.OUT pre_down vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
-X26 PFD_flip_flop_0.1 cRef vp vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
-X27 PFD_flip_flop_0.clk_n cRef vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
-X28 PFD_flip_flop_0.1 PFD_flip_flop_0.clk_n PFD_flip_flop_0.PFD_passgate_2.A vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
-X29 gnd PFD_flip_flop_0.3 pre_down gnd sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
-X30 gnd post_nand PFD_buffor_0.in gnd sg13_lv_nmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
-X31 vp a_2226_46# PFD_passgate_1.B vp sg13_lv_pmos ad=76f pd=0.78u as=0.136p ps=1.48u w=0.4u l=0.5u
-X32 PFD_flip_flop_1.clk_n cVco vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
-X33 PFD_flip_flop_1.PFD_passgate_2.A flip_flop_reset gnd gnd sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
-X34 gnd PFD_flip_flop_1.3 pre_up gnd sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
-X35 UP inverter_x4_2.OUT gnd gnd sg13_lv_nmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
-X36 PFD_flip_flop_1.2 PFD_flip_flop_1.1 gnd gnd sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
-X37 gnd rst DOWN gnd sg13_lv_nmos ad=0.153p pd=1.58u as=0.153p ps=1.58u w=0.45u l=0.15u
-X38 PFD_passgate_1.B inverter_x4_0.OUT flip_flop_reset gnd sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
-X39 a_3426_854# pre_down post_nand gnd sg13_lv_nmos ad=0.114p pd=0.98u as=0.204p ps=1.88u w=0.6u l=0.13u
-X40 PFD_flip_flop_1.PFD_passgate_2.A flip_flop_reset a_n184_n846# vp sg13_lv_pmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
+X1 gnd PFD_flip_flop_1.2 PFD_flip_flop_1.post_NOR gnd sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
+X2 inverter_x4_3.OUT pre_up vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X3 vp rst flip_flop_reset gnd sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X4 gnd a_2226_46# PFD_passgate_0.B gnd sg13_lv_nmos ad=76f pd=0.78u as=0.136p ps=1.48u w=0.4u l=0.5u
+X5 PFD_flip_flop_0.1 PFD_flip_flop_0.clk_n PFD_flip_flop_0.post_NOR vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X6 PFD_flip_flop_1.3 cRef PFD_flip_flop_1.2 gnd sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X7 a_812_76# PFD_flip_flop_1.3 vp vp sg13_lv_pmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
+X8 UP inverter_x4_3.OUT vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X9 inverter_x4_5.OUT rst gnd gnd sg13_lv_nmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X10 PFD_flip_flop_1.NQ pre_down vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
+X11 a_n184_n846# PFD_flip_flop_0.2 vp vp sg13_lv_pmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
+X12 PFD_flip_flop_1.1 cRef vp vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X13 PFD_flip_flop_0.1 cVco vp vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X14 a_812_n846# PFD_flip_flop_0.3 vp vp sg13_lv_pmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
+X15 gnd PFD_flip_flop_0.3 gnd gnd sg13_lv_nmos ad=0.95p pd=5.38u as=58.18222p ps=0.27981m w=5u l=5u
+X16 PFD_passgate_0.B inverter_x4_5.OUT flip_flop_reset gnd sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X17 PFD_flip_flop_1.clk_n cRef vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X18 PFD_flip_flop_1.2 PFD_flip_flop_1.1 vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
+X19 PFD_flip_flop_1.1 PFD_flip_flop_1.clk_n PFD_flip_flop_1.post_NOR vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X20 vp inverter_x4_5.OUT flip_flop_reset vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X21 gnd PFD_flip_flop_0.2 gnd gnd sg13_lv_nmos ad=0.95p pd=5.38u as=0 ps=0 w=5u l=5u
+X22 pre_down flip_flop_reset gnd gnd sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
+X23 PFD_flip_flop_1.post_NOR flip_flop_reset gnd gnd sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
+X24 a_2226_46# PFD_buffor_0.in gnd gnd sg13_lv_nmos ad=0.136p pd=1.48u as=76f ps=0.78u w=0.4u l=0.5u
+X25 vp pre_up post_nand vp sg13_lv_pmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.13u
+X26 PFD_flip_flop_0.NQ pre_up gnd gnd sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
+X27 DOWN inverter_x4_0.OUT gnd gnd sg13_lv_nmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X28 gnd PFD_flip_flop_1.2 gnd gnd sg13_lv_nmos ad=0.95p pd=5.38u as=0 ps=0 w=5u l=5u
+X29 gnd PFD_flip_flop_1.1 gnd gnd sg13_lv_nmos ad=1.7p pd=10.68u as=0 ps=0 w=5u l=5u
+X30 PFD_flip_flop_1.NQ pre_down gnd gnd sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
+X31 pre_up flip_flop_reset a_812_n846# vp sg13_lv_pmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
+X32 PFD_flip_flop_0.3 cVco PFD_flip_flop_0.NQ vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X33 PFD_flip_flop_0.clk_n cVco gnd gnd sg13_lv_nmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X34 gnd PFD_flip_flop_0.2 PFD_flip_flop_0.post_NOR gnd sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
+X35 PFD_flip_flop_1.3 cRef PFD_flip_flop_1.NQ vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X36 inverter_x4_5.OUT rst vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X37 inverter_x4_0.OUT pre_down vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X38 PFD_flip_flop_1.2 PFD_flip_flop_1.1 gnd gnd sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
+X39 gnd PFD_flip_flop_1.3 pre_down gnd sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
+X40 gnd post_nand PFD_buffor_0.in gnd sg13_lv_nmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
 X41 PFD_flip_flop_1.3 PFD_flip_flop_1.clk_n PFD_flip_flop_1.2 vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
-X42 pre_up flip_flop_reset gnd gnd sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
-X43 inverter_x4_2.OUT pre_up gnd gnd sg13_lv_nmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
-X44 PFD_flip_flop_0.NQ pre_down gnd gnd sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
-X45 gnd pre_up a_3426_854# gnd sg13_lv_nmos ad=0.204p pd=1.88u as=0.114p ps=0.98u w=0.6u l=0.13u
-X46 inverter_x4_5.OUT pre_down gnd gnd sg13_lv_nmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
-X47 PFD_flip_flop_0.3 cRef PFD_flip_flop_0.NQ vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
-X48 vp post_nand PFD_buffor_0.in vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
-X49 post_nand pre_down vp vp sg13_lv_pmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.13u
-X50 UP rst gnd gnd sg13_lv_nmos ad=0.153p pd=1.58u as=0.153p ps=1.58u w=0.45u l=0.15u
-X51 PFD_flip_flop_0.2 PFD_flip_flop_0.1 gnd gnd sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
-X52 DOWN inverter_x4_5.OUT vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
-X53 PFD_flip_flop_0.NQ pre_down vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
-X54 a_2226_46# PFD_buffor_0.in vp vp sg13_lv_pmos ad=0.136p pd=1.48u as=76f ps=0.78u w=0.4u l=0.5u
-X55 PFD_flip_flop_0.2 PFD_flip_flop_0.1 vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
-X56 PFD_flip_flop_0.3 PFD_flip_flop_0.clk_n PFD_flip_flop_0.2 vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
-X57 PFD_flip_flop_0.PFD_passgate_2.A flip_flop_reset a_n184_74# vp sg13_lv_pmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
-X58 PFD_flip_flop_1.2 PFD_flip_flop_1.1 vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
-X59 PFD_flip_flop_1.NQ pre_up vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
-X60 PFD_flip_flop_1.3 cVco PFD_flip_flop_1.2 gnd sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
-X61 PFD_flip_flop_1.1 cVco PFD_flip_flop_1.PFD_passgate_2.A gnd sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
-X62 PFD_flip_flop_0.clk_n cRef gnd gnd sg13_lv_nmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
-X63 a_n184_74# PFD_flip_flop_0.2 vp vp sg13_lv_pmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
-X64 pre_down flip_flop_reset a_812_74# vp sg13_lv_pmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
-X65 vp rst flip_flop_reset gnd sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
-X66 vp inverter_x4_0.OUT flip_flop_reset vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
-X67 PFD_flip_flop_1.3 PFD_flip_flop_1.clk_n PFD_flip_flop_1.NQ gnd sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
-X68 PFD_flip_flop_1.1 PFD_flip_flop_1.clk_n vp gnd sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
-X69 inverter_x4_2.OUT pre_up vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
-C0 vp post_nand 0.53911f
-C1 PFD_flip_flop_1.3 PFD_flip_flop_1.NQ 0.46945f
-C2 flip_flop_reset PFD_flip_flop_0.3 0.55488f
-C3 PFD_flip_flop_0.3 PFD_passgate_1.B 0.01118f
-C4 pre_up inverter_x4_5.OUT 0.05674f
-C5 vp PFD_flip_flop_0.2 0.46482f
-C6 vp pre_down 0.96143f
-C7 vp rst 1.28167f
-C8 vp cVco 2.05059f
-C9 vp PFD_buffor_0.in 0.37823f
-C10 vp PFD_flip_flop_0.1 0.66084f
-C11 rst inverter_x4_0.OUT 0.4138f
-C12 vp PFD_flip_flop_1.PFD_passgate_2.A 0.20447f
-C13 pre_down inverter_x4_0.OUT 1.22891f
-C14 inverter_x4_0.OUT cVco 0.07353f
-C15 inverter_x4_0.OUT PFD_buffor_0.in 0.07649f
-C16 PFD_flip_flop_0.2 cRef 0.0775f
-C17 PFD_flip_flop_0.clk_n PFD_flip_flop_0.3 0.13706f
-C18 cRef rst 0.0668f
-C19 cRef pre_down 0.05912f
-C20 cRef cVco 1.65039f
-C21 PFD_flip_flop_0.1 cRef 0.19088f
-C22 vp a_812_n846# 0.0392f
-C23 pre_down PFD_flip_flop_0.NQ 0.27259f
-C24 flip_flop_reset PFD_flip_flop_1.NQ 0.10765f
-C25 vp PFD_flip_flop_0.PFD_passgate_2.A 0.20456f
-C26 PFD_flip_flop_1.clk_n PFD_flip_flop_1.NQ 0.05672f
-C27 rst DOWN 0.07553f
-C28 cRef PFD_flip_flop_0.PFD_passgate_2.A 0.02789f
-C29 PFD_flip_flop_1.3 cVco 0.06518f
-C30 rst UP 0.07849f
-C31 a_2226_46# post_nand 0.03532f
-C32 cVco PFD_flip_flop_1.2 0.07748f
-C33 pre_up PFD_flip_flop_1.NQ 0.27224f
-C34 PFD_flip_flop_1.PFD_passgate_2.A PFD_flip_flop_1.2 0.52764f
-C35 vp inverter_x4_0.OUT 0.83418f
-C36 pre_down a_2226_46# 0.04294f
-C37 vp cRef 2.03139f
-C38 a_2226_46# PFD_buffor_0.in 0.5679f
-C39 PFD_flip_flop_1.PFD_passgate_2.A a_n184_n846# 0.03017f
-C40 vp PFD_flip_flop_0.NQ 0.32772f
-C41 flip_flop_reset PFD_flip_flop_0.2 0.53742f
-C42 flip_flop_reset pre_down 0.29916f
-C43 flip_flop_reset rst 0.23185f
-C44 rst PFD_passgate_1.B 0.03238f
-C45 PFD_flip_flop_1.1 cVco 0.19088f
-C46 flip_flop_reset cVco 0.44759f
-C47 PFD_passgate_1.B PFD_buffor_0.in 0.02335f
-C48 flip_flop_reset PFD_flip_flop_0.1 0.03005f
-C49 PFD_flip_flop_0.NQ inverter_x4_0.OUT 0.01318f
-C50 flip_flop_reset PFD_flip_flop_1.PFD_passgate_2.A 0.34787f
-C51 PFD_flip_flop_1.1 PFD_flip_flop_1.PFD_passgate_2.A 0.52873f
-C52 rst inverter_x4_2.OUT 0.07189f
-C53 cRef PFD_flip_flop_0.NQ 0.05918f
-C54 PFD_flip_flop_1.clk_n rst 0.05561f
-C55 PFD_flip_flop_1.clk_n cVco 1.98167f
-C56 vp DOWN 0.20439f
-C57 flip_flop_reset a_812_n846# 0.01021f
-C58 PFD_flip_flop_1.clk_n PFD_flip_flop_1.PFD_passgate_2.A 0.08815f
-C59 PFD_flip_flop_0.2 PFD_flip_flop_0.clk_n 0.14643f
-C60 pre_down PFD_flip_flop_0.clk_n 0.2892f
-C61 vp PFD_flip_flop_1.3 0.22058f
-C62 pre_up post_nand 0.09696f
-C63 PFD_flip_flop_0.1 PFD_flip_flop_0.clk_n 0.27844f
-C64 flip_flop_reset PFD_flip_flop_0.PFD_passgate_2.A 0.34787f
-C65 vp UP 0.16607f
-C66 vp PFD_flip_flop_1.2 0.46498f
-C67 pre_down inverter_x4_5.OUT 0.21799f
-C68 rst inverter_x4_5.OUT 0.07109f
-C69 pre_down pre_up 0.36707f
-C70 rst pre_up 0.3705f
-C71 pre_up cVco 0.05838f
-C72 PFD_flip_flop_1.PFD_passgate_2.A pre_up 0.01969f
-C73 vp a_2226_46# 0.31221f
-C74 vp a_n184_n846# 0.0392f
-C75 a_2226_46# inverter_x4_0.OUT 0.09678f
-C76 PFD_flip_flop_0.PFD_passgate_2.A PFD_flip_flop_0.clk_n 0.08815f
-C77 PFD_flip_flop_0.PFD_passgate_2.A a_n184_74# 0.03017f
-C78 pre_up a_812_n846# 0.03017f
-C79 vp PFD_flip_flop_1.1 0.66181f
-C80 flip_flop_reset vp 2.51957f
-C81 vp PFD_passgate_1.B 0.11158f
-C82 pre_down a_812_74# 0.03017f
-C83 flip_flop_reset inverter_x4_0.OUT 0.13284f
-C84 inverter_x4_0.OUT PFD_passgate_1.B 0.06484f
-C85 vp inverter_x4_2.OUT 0.40635f
-C86 PFD_flip_flop_0.2 PFD_flip_flop_0.3 0.37f
-C87 vp PFD_flip_flop_1.clk_n 1.33967f
-C88 flip_flop_reset cRef 0.58096f
-C89 pre_down PFD_flip_flop_0.3 0.38052f
-C90 PFD_flip_flop_0.1 PFD_flip_flop_0.3 0.01252f
-C91 PFD_flip_flop_1.3 PFD_flip_flop_1.2 0.37f
-C92 flip_flop_reset PFD_flip_flop_0.NQ 0.14533f
-C93 vp a_n184_74# 0.03922f
-C94 vp PFD_flip_flop_0.clk_n 1.34012f
-C95 inverter_x4_0.OUT PFD_flip_flop_0.clk_n 0.04921f
-C96 cRef PFD_flip_flop_0.clk_n 1.98169f
-C97 vp inverter_x4_5.OUT 0.42131f
-C98 vp pre_up 1.13057f
-C99 inverter_x4_0.OUT inverter_x4_5.OUT 0.05622f
-C100 PFD_flip_flop_0.NQ PFD_flip_flop_0.clk_n 0.05672f
-C101 rst PFD_flip_flop_1.NQ 0.02074f
-C102 cVco PFD_flip_flop_1.NQ 0.06356f
-C103 PFD_flip_flop_1.1 PFD_flip_flop_1.3 0.01252f
-C104 flip_flop_reset PFD_flip_flop_1.3 0.56551f
-C105 DOWN inverter_x4_2.OUT 0.02611f
-C106 PFD_flip_flop_1.1 PFD_flip_flop_1.2 0.64438f
-C107 flip_flop_reset PFD_flip_flop_1.2 0.53742f
-C108 PFD_flip_flop_1.clk_n PFD_flip_flop_1.3 0.13706f
-C109 vp a_812_74# 0.03922f
-C110 UP inverter_x4_2.OUT 0.18564f
-C111 a_3426_854# post_nand 0.0609f
-C112 PFD_flip_flop_1.clk_n PFD_flip_flop_1.2 0.14641f
-C113 flip_flop_reset a_2226_46# 0.01966f
-C114 a_2226_46# PFD_passgate_1.B 0.31901f
-C115 vp PFD_flip_flop_0.3 0.21701f
-C116 flip_flop_reset a_n184_n846# 0.01022f
-C117 DOWN inverter_x4_5.OUT 0.20449f
-C118 pre_up DOWN 0.17555f
-C119 pre_down a_3426_854# 0.01277f
-C120 flip_flop_reset PFD_flip_flop_1.1 0.03005f
-C121 flip_flop_reset PFD_passgate_1.B 0.3966f
-C122 cRef PFD_flip_flop_0.3 0.06518f
-C123 PFD_flip_flop_1.3 pre_up 0.38052f
-C124 pre_down post_nand 0.21046f
-C125 PFD_flip_flop_0.NQ PFD_flip_flop_0.3 0.46945f
-C126 PFD_flip_flop_1.1 PFD_flip_flop_1.clk_n 0.27844f
-C127 flip_flop_reset PFD_flip_flop_1.clk_n 0.1382f
-C128 pre_up PFD_flip_flop_1.2 0.02087f
-C129 PFD_buffor_0.in post_nand 0.16285f
-C130 flip_flop_reset PFD_flip_flop_0.clk_n 0.13975f
-C131 flip_flop_reset a_n184_74# 0.01022f
-C132 PFD_flip_flop_0.2 pre_down 0.02087f
-C133 vp PFD_flip_flop_1.NQ 0.3343f
-C134 pre_down rst 0.09425f
-C135 PFD_flip_flop_0.2 PFD_flip_flop_0.1 0.64438f
-C136 pre_down PFD_buffor_0.in 0.26275f
-C137 PFD_flip_flop_0.1 pre_down 0.0166f
-C138 PFD_flip_flop_1.PFD_passgate_2.A cVco 0.02789f
-C139 PFD_flip_flop_1.clk_n PFD_flip_flop_0.clk_n 0.0187f
-C140 PFD_flip_flop_1.1 pre_up 0.0166f
-C141 flip_flop_reset pre_up 0.29804f
-C142 pre_up inverter_x4_2.OUT 0.38308f
-C143 PFD_flip_flop_1.clk_n pre_up 0.25301f
-C144 PFD_flip_flop_0.2 PFD_flip_flop_0.PFD_passgate_2.A 0.52764f
-C145 PFD_flip_flop_0.PFD_passgate_2.A pre_down 0.01969f
-C146 PFD_flip_flop_0.1 PFD_flip_flop_0.PFD_passgate_2.A 0.52873f
-C147 flip_flop_reset a_812_74# 0.01021f
-C148 UP gnd 0.91242f
-C149 DOWN gnd 1.4686f
-C150 vp gnd 9.06248f
-C151 PFD_flip_flop_1.NQ gnd 0.31829f
-C152 a_812_n846# gnd 0.20256f
-C153 PFD_flip_flop_1.PFD_passgate_2.A gnd 1.32528f
-C154 a_n184_n846# gnd 0.44532f
-C155 PFD_flip_flop_1.2 gnd 1.43684f
-C156 a_812_74# gnd 0.20289f
-C157 a_n184_74# gnd 0.72839f
-C158 a_3426_854# gnd 0.07213f
-C159 PFD_passgate_1.B gnd 1.72899f
-C160 a_2226_46# gnd 0.47673f
-C161 PFD_flip_flop_0.NQ gnd 0.32747f
-C162 PFD_flip_flop_0.PFD_passgate_2.A gnd 1.90367f
+X42 PFD_flip_flop_1.post_NOR flip_flop_reset a_n184_76# vp sg13_lv_pmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
+X43 vp a_2226_46# PFD_passgate_0.B vp sg13_lv_pmos ad=76f pd=0.78u as=0.136p ps=1.48u w=0.4u l=0.5u
+X44 PFD_flip_flop_0.clk_n cVco vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X45 PFD_flip_flop_0.post_NOR flip_flop_reset gnd gnd sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
+X46 gnd PFD_flip_flop_0.3 pre_up gnd sg13_lv_nmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
+X47 UP inverter_x4_3.OUT gnd gnd sg13_lv_nmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X48 PFD_flip_flop_0.2 PFD_flip_flop_0.1 gnd gnd sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
+X49 PFD_flip_flop_1.clk_n cRef gnd gnd sg13_lv_nmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X50 a_n184_76# PFD_flip_flop_1.2 vp vp sg13_lv_pmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.15u
+X51 pre_down flip_flop_reset a_812_76# vp sg13_lv_pmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
+X52 PFD_passgate_0.B rst flip_flop_reset vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X53 PFD_flip_flop_0.3 PFD_flip_flop_0.clk_n PFD_flip_flop_0.2 vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X54 gnd rst DOWN gnd sg13_lv_nmos ad=0.153p pd=1.58u as=0.153p ps=1.58u w=0.45u l=0.15u
+X55 a_3426_854# pre_down post_nand gnd sg13_lv_nmos ad=0.114p pd=0.98u as=0.204p ps=1.88u w=0.6u l=0.13u
+X56 PFD_flip_flop_0.post_NOR flip_flop_reset a_n184_n846# vp sg13_lv_pmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
+X57 pre_up flip_flop_reset gnd gnd sg13_lv_nmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.15u
+X58 gnd PFD_flip_flop_1.3 gnd gnd sg13_lv_nmos ad=0.95p pd=5.38u as=0 ps=0 w=5u l=5u
+X59 inverter_x4_3.OUT pre_up gnd gnd sg13_lv_nmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X60 PFD_flip_flop_1.1 PFD_flip_flop_1.clk_n vp gnd sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X61 gnd pre_up a_3426_854# gnd sg13_lv_nmos ad=0.204p pd=1.88u as=0.114p ps=0.98u w=0.6u l=0.13u
+X62 inverter_x4_0.OUT pre_down gnd gnd sg13_lv_nmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X63 UP rst gnd gnd sg13_lv_nmos ad=0.153p pd=1.58u as=0.153p ps=1.58u w=0.45u l=0.15u
+X64 PFD_flip_flop_1.1 cRef PFD_flip_flop_1.post_NOR gnd sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X65 vp post_nand PFD_buffor_0.in vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X66 post_nand pre_down vp vp sg13_lv_pmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.13u
+X67 DOWN inverter_x4_0.OUT vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X68 a_2226_46# PFD_buffor_0.in vp vp sg13_lv_pmos ad=0.136p pd=1.48u as=76f ps=0.78u w=0.4u l=0.5u
+X69 gnd PFD_flip_flop_0.1 gnd gnd sg13_lv_nmos ad=1.7p pd=10.68u as=0 ps=0 w=5u l=5u
+X70 PFD_flip_flop_0.2 PFD_flip_flop_0.1 vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
+X71 PFD_flip_flop_0.NQ pre_up vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
+X72 PFD_flip_flop_0.3 cVco PFD_flip_flop_0.2 gnd sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X73 PFD_flip_flop_0.1 cVco PFD_flip_flop_0.post_NOR gnd sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X74 PFD_flip_flop_1.3 PFD_flip_flop_1.clk_n PFD_flip_flop_1.NQ gnd sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+X75 PFD_flip_flop_0.3 PFD_flip_flop_0.clk_n PFD_flip_flop_0.NQ gnd sg13_lv_nmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
+C0 flip_flop_reset cVco 0.41666f
+C1 post_nand pre_down 0.16546f
+C2 pre_up pre_down 0.26215f
+C3 inverter_x4_0.OUT pre_up 0.02369f
+C4 a_n184_76# PFD_flip_flop_1.post_NOR 0.0257f
+C5 PFD_flip_flop_1.3 pre_down 0.79861f
+C6 PFD_flip_flop_0.post_NOR pre_up 0.01195f
+C7 a_n184_n846# vp 0.03287f
+C8 inverter_x4_5.OUT PFD_buffor_0.in 0.07478f
+C9 PFD_flip_flop_1.post_NOR PFD_flip_flop_1.clk_n 0.07102f
+C10 PFD_flip_flop_1.post_NOR vp 0.19875f
+C11 PFD_flip_flop_0.post_NOR PFD_flip_flop_0.2 0.52975f
+C12 PFD_flip_flop_0.clk_n flip_flop_reset 0.12894f
+C13 cVco PFD_flip_flop_0.post_NOR 0.02321f
+C14 PFD_buffor_0.in vp 0.3673f
+C15 rst cRef 0.05115f
+C16 PFD_flip_flop_0.3 PFD_flip_flop_0.NQ 0.41135f
+C17 inverter_x4_5.OUT a_2226_46# 0.0881f
+C18 a_3426_854# pre_down 0.01278f
+C19 a_812_76# pre_down 0.0257f
+C20 PFD_flip_flop_1.NQ cRef 0.04711f
+C21 vp a_2226_46# 0.30605f
+C22 pre_up PFD_flip_flop_0.NQ 0.2823f
+C23 PFD_flip_flop_0.clk_n PFD_flip_flop_0.post_NOR 0.07102f
+C24 PFD_flip_flop_1.clk_n cRef 1.67009f
+C25 vp cRef 1.9836f
+C26 a_812_n846# pre_up 0.0257f
+C27 UP rst 0.07165f
+C28 flip_flop_reset pre_down 0.25449f
+C29 PFD_flip_flop_1.2 PFD_flip_flop_1.clk_n 0.17021f
+C30 PFD_flip_flop_1.2 vp 0.44896f
+C31 cVco PFD_flip_flop_0.NQ 0.05073f
+C32 rst pre_up 0.28314f
+C33 PFD_flip_flop_1.1 flip_flop_reset 0.02862f
+C34 DOWN inverter_x4_0.OUT 0.16299f
+C35 flip_flop_reset PFD_passgate_0.B 0.33419f
+C36 flip_flop_reset PFD_flip_flop_0.post_NOR 0.29197f
+C37 PFD_flip_flop_0.3 vp 0.23056f
+C38 UP vp 0.15705f
+C39 post_nand vp 0.52059f
+C40 PFD_flip_flop_0.clk_n PFD_flip_flop_0.NQ 0.04811f
+C41 inverter_x4_0.OUT pre_down 0.15111f
+C42 pre_up vp 1.12274f
+C43 inverter_x4_5.OUT cVco 0.06106f
+C44 inverter_x4_3.OUT UP 0.14723f
+C45 PFD_flip_flop_1.3 PFD_flip_flop_1.NQ 0.41033f
+C46 vp PFD_flip_flop_0.2 0.45066f
+C47 PFD_flip_flop_1.post_NOR cRef 0.02321f
+C48 PFD_flip_flop_1.3 PFD_flip_flop_1.clk_n 0.17876f
+C49 PFD_flip_flop_0.1 PFD_flip_flop_0.2 0.73166f
+C50 PFD_flip_flop_1.3 vp 0.22673f
+C51 inverter_x4_3.OUT pre_up 0.27449f
+C52 PFD_buffor_0.in a_2226_46# 0.4719f
+C53 cVco vp 2.00486f
+C54 PFD_flip_flop_0.clk_n rst 0.039f
+C55 PFD_flip_flop_1.2 PFD_flip_flop_1.post_NOR 0.52975f
+C56 PFD_flip_flop_0.1 cVco 0.41322f
+C57 flip_flop_reset PFD_flip_flop_0.NQ 0.0773f
+C58 rst flip_flop_reset 0.18085f
+C59 PFD_flip_flop_0.clk_n PFD_flip_flop_1.clk_n 0.01062f
+C60 DOWN rst 0.06991f
+C61 PFD_flip_flop_0.clk_n vp 1.27201f
+C62 PFD_flip_flop_0.clk_n PFD_flip_flop_0.1 0.29182f
+C63 inverter_x4_5.OUT flip_flop_reset 0.11007f
+C64 a_812_76# vp 0.03285f
+C65 post_nand PFD_buffor_0.in 0.1305f
+C66 flip_flop_reset PFD_flip_flop_1.NQ 0.10926f
+C67 PFD_flip_flop_1.2 cRef 0.38856f
+C68 flip_flop_reset PFD_flip_flop_1.clk_n 0.13047f
+C69 flip_flop_reset vp 2.39946f
+C70 rst pre_down 0.05072f
+C71 DOWN vp 0.19137f
+C72 PFD_flip_flop_0.1 flip_flop_reset 0.02862f
+C73 rst inverter_x4_0.OUT 0.05853f
+C74 inverter_x4_5.OUT pre_down 1.03444f
+C75 rst PFD_passgate_0.B 0.02705f
+C76 DOWN inverter_x4_3.OUT 0.01996f
+C77 post_nand a_2226_46# 0.02842f
+C78 inverter_x4_5.OUT inverter_x4_0.OUT 0.03857f
+C79 PFD_flip_flop_1.NQ pre_down 0.30677f
+C80 inverter_x4_5.OUT PFD_passgate_0.B 0.05626f
+C81 PFD_flip_flop_1.clk_n pre_down 0.24435f
+C82 vp pre_down 0.95002f
+C83 PFD_flip_flop_1.1 PFD_flip_flop_1.clk_n 0.29183f
+C84 PFD_flip_flop_1.3 cRef 0.05283f
+C85 inverter_x4_0.OUT vp 0.40924f
+C86 PFD_flip_flop_1.1 vp 0.61032f
+C87 PFD_passgate_0.B vp 0.10579f
+C88 PFD_flip_flop_0.post_NOR vp 0.1998f
+C89 cVco cRef 1.41056f
+C90 PFD_flip_flop_0.1 PFD_flip_flop_0.post_NOR 0.44383f
+C91 PFD_flip_flop_0.3 pre_up 0.87941f
+C92 PFD_flip_flop_1.3 PFD_flip_flop_1.2 0.47261f
+C93 flip_flop_reset PFD_flip_flop_1.post_NOR 0.29197f
+C94 PFD_flip_flop_0.3 PFD_flip_flop_0.2 0.47261f
+C95 rst PFD_flip_flop_0.NQ 0.01534f
+C96 PFD_flip_flop_0.3 cVco 0.05287f
+C97 post_nand pre_up 0.07886f
+C98 pre_up PFD_flip_flop_0.2 0.04335f
+C99 PFD_flip_flop_1.post_NOR pre_down 0.01195f
+C100 vp PFD_flip_flop_0.NQ 0.3156f
+C101 PFD_flip_flop_1.1 PFD_flip_flop_1.post_NOR 0.44383f
+C102 cVco pre_up 0.02905f
+C103 PFD_flip_flop_0.post_NOR a_n184_n846# 0.0257f
+C104 inverter_x4_5.OUT rst 0.32117f
+C105 PFD_buffor_0.in pre_down 0.20084f
+C106 flip_flop_reset a_2226_46# 0.01669f
+C107 cVco PFD_flip_flop_0.2 0.38864f
+C108 a_812_n846# vp 0.03287f
+C109 PFD_flip_flop_0.clk_n PFD_flip_flop_0.3 0.17847f
+C110 flip_flop_reset cRef 0.53235f
+C111 PFD_buffor_0.in PFD_passgate_0.B 0.01924f
+C112 rst vp 1.19942f
+C113 a_3426_854# post_nand 0.0511f
+C114 PFD_flip_flop_1.2 flip_flop_reset 0.43181f
+C115 inverter_x4_5.OUT PFD_flip_flop_1.clk_n 0.03251f
+C116 PFD_flip_flop_0.clk_n pre_up 0.20409f
+C117 inverter_x4_5.OUT vp 0.82029f
+C118 PFD_flip_flop_0.3 flip_flop_reset 0.45495f
+C119 a_2226_46# pre_down 0.038f
+C120 inverter_x4_3.OUT rst 0.05924f
+C121 PFD_flip_flop_0.clk_n PFD_flip_flop_0.2 0.17019f
+C122 pre_down cRef 0.02948f
+C123 a_n184_76# vp 0.03285f
+C124 PFD_flip_flop_1.clk_n PFD_flip_flop_1.NQ 0.04811f
+C125 PFD_flip_flop_1.NQ vp 0.30816f
+C126 PFD_passgate_0.B a_2226_46# 0.28336f
+C127 PFD_flip_flop_1.clk_n vp 1.26654f
+C128 PFD_flip_flop_1.1 cRef 0.41322f
+C129 PFD_flip_flop_0.clk_n cVco 1.67005f
+C130 PFD_flip_flop_1.2 pre_down 0.04332f
+C131 PFD_flip_flop_0.1 vp 0.61384f
+C132 flip_flop_reset pre_up 0.25429f
+C133 DOWN pre_up 0.12645f
+C134 flip_flop_reset PFD_flip_flop_0.2 0.43181f
+C135 PFD_flip_flop_1.1 PFD_flip_flop_1.2 0.73165f
+C136 inverter_x4_3.OUT vp 0.39417f
+C137 PFD_flip_flop_1.3 flip_flop_reset 0.44748f
+C138 UP gnd 1.4476f
+C139 DOWN gnd 0.54127f
+C140 vp gnd 17.2197f
+C141 PFD_flip_flop_0.NQ gnd 0.28519f
+C142 a_812_n846# gnd 2.39659f
+C143 PFD_flip_flop_0.post_NOR gnd 0.31194f
+C144 a_n184_n846# gnd 2.374f
+C145 PFD_flip_flop_0.2 gnd 3.42739f
+C146 a_812_76# gnd 2.93854f
+C147 a_3426_854# gnd 0.05949f
+C148 PFD_passgate_0.B gnd 0.71361f
+C149 a_2226_46# gnd 0.17005f
+C150 PFD_flip_flop_1.NQ gnd 2.07464f
+C151 PFD_flip_flop_1.post_NOR gnd 3.44877f
 .ends
 
