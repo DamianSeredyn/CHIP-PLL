@@ -150,7 +150,7 @@ C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 570 -17
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 560 310 0 0 {name=x5}
 C {PFD_passgate.sym} -500 -30 0 1 {name=x1}
 C {PFD_passgate.sym} -260 -30 0 0 {name=x3}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in.sym} 390 -50 0 1 {name=x7}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in_x2.sym} 390 -50 0 1 {name=x7}
 C {noconn.sym} 120 -170 0 1 {name=l1}
 C {lab_wire.sym} -310 100 0 0 {name=p37 sig_type=std_logic lab=vp}
 C {lab_wire.sym} -70 -90 0 0 {name=p10 sig_type=std_logic lab=vp}
