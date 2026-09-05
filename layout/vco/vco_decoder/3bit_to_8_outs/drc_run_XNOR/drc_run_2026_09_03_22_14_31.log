@@ -1,0 +1,13 @@
+04-Sep-2026 00:14:31 | INFO    | KLayout version detected: 0.30.9
+04-Sep-2026 00:14:31 | INFO    | Using DRC JSON file: /foss/pdks/ihp-sg13cmos5l/libs.tech/klayout/python/sg13cmos5l_pycell_lib/sg13cmos5l_tech_mod.json
+04-Sep-2026 00:14:31 | INFO    | Running IHP-SG13CMOS5L main checks on design /foss/designs/CHIP-PLL/layout/vco/vco_decoder/XNOR/XNOR.gds, topcell: XNOR
+04-Sep-2026 00:14:35 | INFO    | Running IHP-SG13CMOS5L density checks on design /foss/designs/CHIP-PLL/layout/vco/vco_decoder/XNOR/XNOR.gds, topcell: XNOR
+04-Sep-2026 00:14:37 | INFO    | Completed running Density checks.
+04-Sep-2026 00:14:37 | INFO    | Running IHP-SG13CMOS5L sg13cmos5l_maximal checks on design /foss/designs/CHIP-PLL/layout/vco/vco_decoder/XNOR/XNOR.gds, topcell: XNOR
+04-Sep-2026 00:14:42 | INFO    | Completed running Sg13cmos5l_maximal checks.
+04-Sep-2026 00:14:42 | ERROR   | ==================================================================================
+04-Sep-2026 00:14:42 | ERROR   | KLayout DRC Check Failed: Violations were detected in the layout.
+04-Sep-2026 00:14:42 | ERROR   | ==================================================================================
+04-Sep-2026 00:14:42 | ERROR   | Violated rules are : {'M2.j', 'TM1.c', 'M4.j', 'GFil.g', 'M3.j', 'AFil.g'}
+
+04-Sep-2026 00:14:42 | INFO    | Total DRC Run time: 11.08 seconds (including execution, analysis, and reporting)
