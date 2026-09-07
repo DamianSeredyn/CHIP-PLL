@@ -8,7 +8,7 @@ source $PROJECT_DIR/configs/corner_data
 SPICE=$PROJECT_DIR/schematics/PFD/simulations/PFD_tb.spice
 DATA_DIR=$PROJECT_DIR/schematics/PFD/results/data
 T_US=31.25
-STEPS=32
+STEPS=64
 
 
 
