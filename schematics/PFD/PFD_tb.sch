@@ -127,7 +127,7 @@ C {devices/code_shown.sym} -860 -1000 0 0 {name=NGSPICE only_toplevel=false
 value="
 .temp=25
 .param T = 31.25u
-.param dly=0.1u
+.param dly=16.1u
 .param Vp=1.2
 .param Vph=3.3
 .control
