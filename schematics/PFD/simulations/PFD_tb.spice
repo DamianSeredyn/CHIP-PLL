@@ -13,7 +13,7 @@ x1 GND vp CRef UP DOWN CVco rst PFD_cell_2
 
 .temp=25
 .param T = 31.25u
-.param dly=0.1u
+.param dly=16.1u
 .param Vp=1.2
 .param Vph=3.3
 .control

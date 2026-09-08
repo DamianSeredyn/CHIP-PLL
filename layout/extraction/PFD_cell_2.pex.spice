@@ -1,7 +1,7 @@
 * PEX produced on Mon Sep  7 02:04:51 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
 * NGSPICE file created from PFD_cell_2.ext - technology: ihp-sg13cmos5l
 
-.subckt PFD_cell_2 DOWN UP cRef cVco vp gnd rst
+.subckt PFD_cell_2 gnd vp cRef UP DOWN cVco rst
 X0 PFD_flip_flop_0.1 PFD_flip_flop_0.clk_n PFD_flip_flop_0.post_NOR vp sg13_lv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=0.15u
 X1 gnd a_2226_46# PFD_passgate_0.B gnd sg13_lv_nmos ad=76f pd=0.78u as=0.136p ps=1.48u w=0.4u l=0.5u
 X2 gnd pre_up a_3420_929# gnd sg13_lv_nmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.13u
