@@ -1,0 +1,204 @@
+
+Magic 8.3 revision 678 - Compiled on Mon Jul 27 03:07:22 PM CEST 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=1048576]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13g2 ...
+2 Magic internal units = 1 Lambda
+Input style sg13g2(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock sealcont difffill nemitter hvnemitter hvisodiffres sealvia1 sealvia2 sealvia3 sealvia4 sealvia5 sealvia6 pillar solder seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13g2 Device Generator Menu ...
+Loading "/foss/designs/CHIP-PLL/layout/vco/vco_decoder/vco_decoder/pex_VCO_decoder_cells.tcl" from command line.
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 6.0
+Library name: LIB
+Reading "$$$CONTEXT_INFO$$$".
+Reading "ptap1$2".
+Moving label "sub!" from space to ptapdiff in cell ptap1$2.
+Reading "ntap1$1".
+Reading "Via$7".
+Reading "Via$4$1".
+Reading "Via$2$1".
+Reading "Via$13".
+Reading "pmos$1".
+Reading "nmos$1".
+Reading "Via$6$2$2".
+Reading "nmos$2$2".
+Reading "pmos$2$2".
+Reading "Via$9$2".
+Reading "Via$2$2$2".
+Reading "Via$4$2$2".
+Reading "Via$8$1$2".
+Reading "ntap1$2$2".
+Reading "ptap1$2$3".
+Moving label "sub!" from space to ptapdiff in cell ptap1$2$3.
+Reading "ptap1$4$1".
+Moving label "sub!" from space to ptapdiff in cell ptap1$4$1.
+Reading "ntap1$3$1".
+Reading "Via$9$1".
+Reading "Via$6$3$1".
+Reading "nmos$3$1".
+Reading "pmos$3$1".
+Reading "Via$14$1".
+Reading "Via$2$3$1".
+Reading "Via$4$3$1".
+Reading "Via$8$3".
+Reading "Via$4$4".
+Reading "Via$2$4".
+Reading "Via$17".
+Reading "pmos$4".
+Reading "nmos$4".
+Reading "Via$6$3".
+Reading "Via$7$2".
+Reading "ntap1$4".
+Reading "ptap1$5".
+Moving label "sub!" from space to ptapdiff in cell ptap1$5.
+Reading "ptap1$4".
+Moving label "sub!" from space to ptapdiff in cell ptap1$4.
+Reading "ntap1$3".
+Reading "Via$7$1".
+Reading "Via$6$2".
+Reading "nmos$3".
+Reading "pmos$3".
+Reading "Via$16".
+Reading "Via$2$3".
+Reading "Via$4$3".
+Reading "ptap1$3".
+Moving label "sub!" from space to ptapdiff in cell ptap1$3.
+Reading "ntap1$2".
+Reading "Via$8$1".
+Reading "Via$4$2".
+Reading "Via$2$2".
+Reading "Via$14".
+Reading "pmos$2".
+Reading "nmos$2".
+Reading "Via$6$1".
+Reading "pmos".
+Reading "Via$15".
+Reading "Via$6".
+Reading "Via$8".
+Reading "Via$10".
+Reading "Via$12".
+Reading "Via$4".
+Reading "Via$2".
+Reading "Via".
+Reading "nmos".
+Reading "ntap1".
+Reading "ptap1".
+Moving label "sub!" from space to ptapdiff in cell ptap1.
+Reading "ptap1$1".
+Moving label "sub!" from space to ptapdiff in cell ptap1$1.
+Reading "inverter".
+Reading "Via$11$1".
+Reading "Via$12$3".
+Reading "Via$15$3".
+Reading "Via$16$3".
+Reading "Via$17$2".
+Reading "Via$18$2".
+Reading "Via$20$4".
+Reading "Via$19$4".
+Reading "Via$21$2".
+Reading "Via$26$2".
+Reading "Via$22$4".
+Reading "NOR_3in".
+Reading "Via$13$1".
+Reading "Via$11".
+Reading "Via$14$4".
+Reading "Via$15$2".
+Reading "Via$12$2".
+Reading "Via$17$1".
+Reading "Via$16$2".
+Reading "Via$20$3".
+Reading "Via$22$3".
+Reading "Via$37".
+Reading "Via$14$3".
+Reading "Via$18$1".
+Reading "Via$19$3".
+Reading "Via$16$1".
+Reading "Via$21$1".
+Reading "Via$23$3".
+Reading "Via$22$2".
+Reading "Via$24$3".
+Reading "Via$25$3".
+Reading "Via$31$1".
+Reading "Via$29".
+Reading "Via$27$1".
+Reading "Via$19$2".
+Reading "Via$20$2".
+Reading "Via$21".
+Reading "Via$23$2".
+Reading "Via$24$2".
+Reading "Via$25$2".
+Reading "Via$26$1".
+Reading "Via$15$1".
+Reading "Via$19$1".
+Reading "Via$14$2".
+Reading "Via$12$1".
+Reading "Via$10$1".
+Reading "NAND_4in".
+Reading "Via$18".
+Reading "Via$20$1".
+Reading "Via$23$1".
+Reading "Via$22$1".
+Reading "Via$25$1".
+Reading "Via$26".
+Reading "Via$24$1".
+Reading "Via$28$1".
+Reading "Via$31".
+Reading "Via$33$1".
+Reading "Via$34$1".
+Reading "Via$30$1".
+Reading "Via$32$1".
+Reading "Via$35$1".
+Reading "Via$36$1".
+Reading "Via$37$1".
+Reading "NAND_2in".
+Reading "NOR_2in".
+Reading "NAND_3in".
+Reading "XNOR".
+Reading "Via$19".
+Reading "Via$20".
+Reading "Via$22".
+Reading "Via$23".
+Reading "Via$25".
+Reading "Via$24".
+Reading "Via$27".
+Reading "Via$28".
+Reading "Via$30".
+Reading "Via$33".
+Reading "Via$32".
+Reading "Via$35".
+Reading "Via$34".
+Reading "Via$36".
+Reading "Via$39".
+Reading "Via$51".
+Reading "Via$50".
+Reading "3bit_to_8_outs".
+Error while reading cell "3bit_to_8_outs" (byte position 103134): Warning: cell "Via$12$3" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "3bit_to_8_outs" (byte position 104062): Warning: cell "Via$12$3" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "3bit_to_8_outs" (byte position 104212): Warning: cell "Via$12$3" placed on top of itself.  Ignoring the extra one.
+Reading "row_section_decoding".
+Reading "VCO5_selection".
+Reading "VCO4_selection".
+Error while reading cell "VCO4_selection" (byte position 130298): Warning: cell "Via$19$2" placed on top of itself.  Ignoring the extra one.
+Reading "VCO_selection".
+Reading "VCO2_selection".
+Reading "VCO3_selection".
+Reading "Via$40".
+Reading "Via$41".
+Reading "Via$42".
+Reading "Via$44".
+Reading "Via$47".
+Reading "Via$49".
+Reading "VCO_decoder_cells".
+Extracting VCO_decoder_cells into /foss/designs/CHIP-PLL/layout/vco/vco_decoder/vco_decoder/VCO_decoder_cells.ext:
+Processing VCO_decoder_cells
+exttospice finished.

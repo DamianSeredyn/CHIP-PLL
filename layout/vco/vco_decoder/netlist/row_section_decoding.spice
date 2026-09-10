@@ -1,7 +1,7 @@
-** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/test/row_section_decoding.sch
-.subckt row_section_decoding f0 f1 f2 f3 f4 f5 gd VP after_000011_n f1_n after_000011 f5_n after_000111 after_000111_n
-+ after_001111 after_001111_n
-*.PININFO f0:I f1:I f2:I f3:I f4:I f5:I gd:B VP:B after_000011_n:O f1_n:O after_000011:O f5_n:O after_000111:O after_000111_n:O
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/VCO_decoder_cells/row_section_decoding.sch
+.subckt row_section_decoding after_000011 after_000011_n f1_n f5_n gd after_000111 VP after_000111_n after_001111 after_001111_n
++ f1 f2 f3 f4 f5
+*.PININFO f1:I f2:I f3:I f4:I f5:I gd:B VP:B after_000011_n:O f1_n:O after_000011:O f5_n:O after_000111:O after_000111_n:O
 *+ after_001111:O after_001111_n:O
 x2 VP gd f2 net1 f3 NOR_2in
 x3 VP gd f4 net2 f5 NOR_2in
