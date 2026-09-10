@@ -1,0 +1,746 @@
+* PEX produced on Wed Sep  9 10:16:15 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
+* NGSPICE file created from VCO3_selection.ext - technology: ihp-sg13g2
+
+.subckt VCO3_selection 011 after_000111 after_001111_n 010 f5_n 001 101 after_000011_n
++ 100 after_000011 after_000111_n 110 f0 000 after_001111 VCO3_11_sel VCO3_5_sel f1
++ vp gd
+X0 NAND_2in_1.y after_000011_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X1 a_11138_17129# f5_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X2 gd inverter_10.out NAND_3in_6.a gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X3 a_11456_13227# f1 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X4 inverter_10.out NAND_3in_9.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X5 NOR_2in_1.y inverter_2.out a_12164_10293# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X6 a_12578_12753# NOR_2in_1.y a_12362_12753# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X7 XNOR_1.y XNOR_1._a a_11456_14699# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X8 a_10674_17129# after_000111 a_10458_17129# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X9 NAND_3in_1.y after_000111_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X10 inverter_4.out inverter_4.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X11 vp after_000011_n NAND_3in_7.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X12 inverter_12.out XNOR_1.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X13 NAND_3in_4.y 100 a_10674_15173# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X14 NAND_3in_2.y 001 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X15 NAND_3in_6.b NOR_2in_4.b a_11954_16151# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X16 vp after_000011_n NAND_3in_8.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X17 NAND_3in_9.y f5_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X18 NAND_3in_6.a inverter_10.out a_12370_17633# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X19 inverter_10.out NAND_3in_9.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X20 NAND_3in_1.y 010 a_10674_10797# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X21 a_11354_12753# after_000011_n a_11138_12753# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X22 NAND_2in_3.y after_000011_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X23 inverter_2.out NAND_3in_1.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X24 VCO3_5_sel NAND_3in_6.a vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X25 a_12447_14699# NAND_3in_6.b a_12231_14699# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X26 vp after_000111 NAND_3in_5.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X27 a_12164_11775# inverter_3.out vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X28 a_11450_14197# XNOR_1._a vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X29 a_11450_13639# XNOR_0._a vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X30 XNOR_1.y f1 a_10990_14197# vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X31 a_12372_15677# inverter_7.out vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X32 gd inverter_5.out NAND_3in_0.c gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X33 NAND_3in_7.c f1 a_10990_13639# vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X34 NAND_3in_2.y 001 a_10674_11271# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X35 vp 000 inverter_4.in vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X36 NAND_2in_0.y 001 a_10458_16655# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X37 NAND_3in_7.c f0 a_10996_13227# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X38 a_11456_14699# f1 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X39 a_10458_17129# after_001111_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X40 NOR_2in_1.y inverter_1.out gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X41 inverter_12.out XNOR_1.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X42 a_11354_15173# after_000011_n a_11138_15173# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X43 XNOR_0._a f0 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X44 NAND_3in_7.y NAND_3in_7.c vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X45 inverter_0.out NAND_3in_7.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X46 NAND_2in_1.y 100 a_11144_10797# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X47 NAND_3in_9.y 010 a_11354_17129# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X48 vp after_000011 NAND_3in_3.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X49 NAND_3in_8.y inverter_12.out vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X50 inverter_8.out NAND_3in_8.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X51 NOR_2in_0.y inverter_3.out gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X52 NAND_3in_1.y 010 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X53 NAND_3in_0.c inverter_5.out a_11971_13731# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X54 a_11138_12753# NAND_3in_7.c gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X55 NAND_2in_3.y 101 a_10934_16655# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X56 inverter_0.out NAND_3in_7.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X57 NAND_3in_6.c inverter_7.out gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X58 vp after_000011 NAND_3in_4.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X59 inverter_4.in 000 a_11144_11271# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X60 vp NAND_3in_6.b VCO3_5_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X61 VCO3_11_sel NAND_3in_0.c vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X62 NAND_3in_5.y after_001111_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X63 inverter_3.out NAND_3in_2.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X64 inverter_11.out NAND_3in_5.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X65 a_10674_12753# after_000011 a_10458_12753# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X66 XNOR_0._b f1 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X67 XNOR_0._a f0 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X68 NAND_3in_9.y 010 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X69 NAND_3in_6.b NOR_2in_4.a gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X70 NAND_3in_6.a inverter_11.out gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X71 vp 001 NAND_2in_0.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X72 a_10458_16655# f5_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X73 inverter_1.out NAND_2in_1.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X74 a_12164_10293# inverter_1.out vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X75 a_12362_12753# NAND_3in_0.c gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X76 a_11138_15173# inverter_12.out gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X77 inverter_8.out NAND_3in_8.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X78 vp 100 NAND_2in_1.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X79 XNOR_1.y f0 a_10996_14699# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X80 XNOR_1._a f0 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X81 NOR_2in_4.a NAND_2in_0.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X82 a_10674_15173# after_000011 a_10458_15173# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X83 vp after_000111 NAND_3in_2.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X84 NAND_3in_3.y after_000111_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X85 inverter_11.out NAND_3in_5.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X86 inverter_3.out NAND_3in_2.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X87 XNOR_0._b f1 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X88 NAND_3in_5.y 011 a_10674_17129# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X89 vp 101 NAND_2in_3.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X90 NAND_3in_7.y 011 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X91 a_10996_13227# XNOR_0._b gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X92 a_12370_17633# inverter_11.out vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X93 NAND_3in_4.y after_000111_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X94 a_10674_10797# after_000011 a_10458_10797# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X95 a_10458_12753# after_000111_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X96 a_12231_14699# NAND_3in_6.c gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X97 NAND_3in_8.y 110 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X98 a_11954_16151# NOR_2in_4.a vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X99 NAND_3in_7.y 011 a_11354_12753# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X100 XNOR_1._b f1 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X101 NOR_2in_4.b NAND_2in_3.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X102 inverter_1.out NAND_2in_1.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X103 NAND_2in_0.y f5_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X104 a_10674_11271# after_000111 a_10458_11271# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X105 inverter_4.in after_001111 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X106 inverter_5.out NAND_3in_3.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X107 VCO3_11_sel NOR_2in_0.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X108 NAND_3in_5.y 011 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X109 NOR_2in_0.y inverter_4.out a_12164_11775# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X110 XNOR_1.y XNOR_1._b a_11450_14197# vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X111 NAND_3in_7.c XNOR_0._b a_11450_13639# vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X112 NAND_3in_6.c inverter_8.out a_12372_15677# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X113 XNOR_1._a f0 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X114 NOR_2in_4.a NAND_2in_0.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X115 inverter_7.out NAND_3in_4.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X116 a_10458_15173# after_000111_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X117 NAND_3in_2.y f5_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X118 NAND_3in_7.c XNOR_0._a a_11456_13227# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X119 a_11354_17129# after_000111 a_11138_17129# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X120 a_11144_10797# after_000011_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X121 inverter_5.out NAND_3in_3.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X122 VCO3_11_sel NOR_2in_0.y a_12578_12753# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X123 a_10990_14197# f0 vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X124 gd inverter_2.out NOR_2in_1.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X125 NAND_3in_0.c inverter_0.out gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X126 a_10990_13639# f0 vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X127 NAND_3in_8.y 110 a_11354_15173# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X128 vp after_000011 NAND_3in_1.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X129 a_10458_10797# after_000111_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X130 a_10996_14699# XNOR_1._b gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X131 a_11144_11271# after_001111 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X132 NAND_3in_3.y 011 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X133 VCO3_5_sel NAND_3in_6.c vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X134 gd NOR_2in_4.b NAND_3in_6.b gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X135 gd inverter_4.out NOR_2in_0.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X136 inverter_4.out inverter_4.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X137 XNOR_1._b f1 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X138 NOR_2in_4.b NAND_2in_3.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X139 gd inverter_8.out NAND_3in_6.c gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X140 NAND_3in_4.y 100 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X141 inverter_7.out NAND_3in_4.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X142 vp after_000111 NAND_3in_9.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X143 a_10458_11271# f5_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X144 vp NOR_2in_1.y VCO3_11_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X145 NAND_3in_3.y 011 a_10674_12753# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X146 a_11971_13731# inverter_0.out vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X147 a_10934_16655# after_000011_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X148 inverter_2.out NAND_3in_1.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X149 VCO3_5_sel NAND_3in_6.a a_12447_14699# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+C0 a_12164_10293# NOR_2in_1.y 0.07285f
+C1 a_11354_17129# NAND_3in_5.y 0.01085f
+C2 vp after_000011 0.34666f
+C3 NAND_2in_0.y 001 0.31739f
+C4 m2_11751_12578# NAND_3in_3.y 0.16449f
+C5 vp after_000111 0.33799f
+C6 NAND_3in_4.y a_11354_15173# 0.01157f
+C7 NAND_3in_1.y NAND_3in_2.y 0.03956f
+C8 inverter_8.out inverter_7.out 1.09977f
+C9 inverter_5.out XNOR_0._a 0.01042f
+C10 after_000011_n NAND_3in_3.y 0.49592f
+C11 m2_12085_10704# m2_12085_11354# 0.01404f
+C12 XNOR_0._b NAND_3in_3.y 0.02375f
+C13 NAND_3in_6.b a_11954_16151# 0.07327f
+C14 XNOR_1.y XNOR_1._b 0.57839f
+C15 after_000011_n f5_n 7.01634f
+C16 a_10458_12753# a_10674_12753# 0.02238f
+C17 f5_n XNOR_0._b 0.11645f
+C18 101 110 0.08722f
+C19 NAND_2in_3.y NOR_2in_4.b 0.40573f
+C20 NAND_3in_5.y a_10458_17129# 0.02085f
+C21 m2_11337_16316# NOR_2in_4.b 0.21677f
+C22 vp NAND_3in_3.y 0.57062f
+C23 NOR_2in_4.a NAND_3in_6.b 0.23686f
+C24 m2_12023_12578# NAND_3in_0.c 0.01589f
+C25 XNOR_1.y NAND_3in_7.c 0.05676f
+C26 inverter_12.out a_11138_15173# 0.01314f
+C27 110 inverter_12.out 0.02635f
+C28 m2_12291_17212# NAND_3in_5.y 0.01495f
+C29 a_11971_13731# inverter_0.out 0.04401f
+C30 f5_n vp 0.45306f
+C31 after_001111 000 0.53194f
+C32 a_11138_17129# NAND_3in_9.y 0.01044f
+C33 after_000011_n XNOR_0._b 0.06965f
+C34 NAND_3in_6.a vp 0.33704f
+C35 NAND_3in_2.y inverter_4.in 0.59614f
+C36 a_12362_12753# NAND_3in_0.c 0.01914f
+C37 VCO3_5_sel NAND_3in_6.c 0.71596f
+C38 inverter_4.out inverter_2.out 0.02854f
+C39 XNOR_1.y f0 0.36836f
+C40 after_000011_n vp 0.49176f
+C41 inverter_2.out m2_11547_10704# 0.09002f
+C42 m2_12291_17212# inverter_10.out 0.01079f
+C43 NAND_3in_9.y after_000111 0.6096f
+C44 VCO3_5_sel NAND_3in_0.c 0.01962f
+C45 XNOR_0._b vp 0.29551f
+C46 inverter_10.out NAND_3in_5.y 0.382f
+C47 110 100 0.14029f
+C48 f5_n NAND_2in_0.y 0.37786f
+C49 101 NAND_2in_3.y 0.45794f
+C50 inverter_3.out inverter_0.out 0.01423f
+C51 NAND_3in_2.y a_10458_11271# 0.01087f
+C52 m2_12291_17294# inverter_11.out 0.01577f
+C53 a_10458_12753# after_000111_n 0.02308f
+C54 m2_12023_12414# m2_11751_12414# 0.01344f
+C55 m2_11819_10704# m2_11547_10704# 0.01344f
+C56 NAND_3in_5.y m2_11751_17294# 0.16449f
+C57 after_000011_n a_11144_10797# 0.04035f
+C58 a_11138_12753# NAND_3in_3.y 0.01516f
+C59 after_000011_n NAND_2in_0.y 0.72611f
+C60 NAND_3in_1.y a_10674_10797# 0.06651f
+C61 after_001111 001 0.08264f
+C62 m2_11892_14606# m2_11892_14524# 0.16392f
+C63 inverter_5.out NAND_3in_0.c 1.05613f
+C64 a_12372_15677# NAND_3in_6.c 0.0729f
+C65 inverter_4.out m2_11547_11600# 0.21677f
+C66 NAND_3in_6.c m2_11892_14524# 0.01575f
+C67 NAND_3in_7.c NAND_3in_7.y 0.70937f
+C68 f5_n NAND_3in_9.y 0.54645f
+C69 NAND_3in_4.y inverter_12.out 1.33397f
+C70 XNOR_1._a a_11450_14197# 0.09297f
+C71 XNOR_1.y NAND_3in_4.y 0.02065f
+C72 inverter_10.out m2_11751_17294# 0.17624f
+C73 NAND_2in_0.y vp 0.31233f
+C74 inverter_2.out NAND_2in_1.y 0.51472f
+C75 a_12164_10293# inverter_1.out 0.04729f
+C76 after_001111 after_000111 0.02846f
+C77 a_12231_14699# a_12447_14699# 0.02238f
+C78 NAND_3in_6.b m2_11875_16562# 0.15347f
+C79 a_10458_17129# after_001111_n 0.0131f
+C80 a_10458_15173# NAND_3in_4.y 0.01108f
+C81 inverter_5.out VCO3_11_sel 0.05075f
+C82 NAND_3in_4.y inverter_7.out 0.46411f
+C83 011 010 0.37732f
+C84 m2_11892_14606# inverter_12.out 0.09002f
+C85 m2_12085_11354# inverter_3.out 0.01349f
+C86 NAND_3in_4.y 100 0.36877f
+C87 inverter_12.out NAND_3in_6.c 0.02127f
+C88 NAND_3in_5.y after_001111_n 1.18144f
+C89 NAND_3in_6.b m2_11875_16480# 0.26528f
+C90 NAND_3in_6.b VCO3_5_sel 0.65265f
+C91 f5_n XNOR_1._b 0.11647f
+C92 XNOR_1.y NAND_3in_6.c 0.06871f
+C93 011 000 0.05262f
+C94 NAND_3in_9.y vp 0.51699f
+C95 m2_12085_11354# NOR_2in_0.y 0.15347f
+C96 NAND_3in_7.c NAND_3in_3.y 0.71393f
+C97 inverter_5.out a_11971_13731# 0.01126f
+C98 NAND_2in_0.y m2_11609_16562# 0.17387f
+C99 inverter_8.out vp 0.31497f
+C100 NOR_2in_4.a a_11954_16151# 0.04729f
+C101 f5_n NAND_3in_7.c 0.01352f
+C102 NAND_3in_6.c inverter_7.out 0.1664f
+C103 after_000011_n XNOR_1._b 0.07003f
+C104 f5_n after_001111 0.66396f
+C105 XNOR_0._b XNOR_1._b 0.02878f
+C106 inverter_4.out inverter_3.out 1.14187f
+C107 m2_10379_15256# 100 0.01011f
+C108 NAND_3in_6.b NOR_2in_4.b 0.32676f
+C109 m2_12283_12660# NAND_3in_3.y 0.0161f
+C110 011 100 0.03362f
+C111 m2_11751_12578# NAND_3in_7.c 0.01387f
+C112 a_12362_12753# a_12578_12753# 0.02238f
+C113 after_000011_n NAND_3in_7.c 0.30526f
+C114 inverter_4.out NOR_2in_0.y 0.32932f
+C115 m2_12023_17294# inverter_11.out 0.17609f
+C116 NAND_3in_7.y a_11354_12753# 0.06651f
+C117 after_000011_n after_001111 0.06013f
+C118 XNOR_0._b NAND_3in_7.c 0.51943f
+C119 f5_n f0 0.05437f
+C120 XNOR_1.y a_11450_14197# 0.09922f
+C121 after_000011_n a_11138_15173# 0.01003f
+C122 XNOR_1._b vp 0.29549f
+C123 m2_12023_12414# inverter_5.out 0.17554f
+C124 after_000011_n 110 0.78131f
+C125 inverter_5.out inverter_3.out 0.01548f
+C126 NOR_2in_4.a NAND_3in_8.y 0.01519f
+C127 NAND_3in_4.y after_000011 0.5644f
+C128 XNOR_1.y a_10990_14197# 0.09334f
+C129 inverter_11.out a_12370_17633# 0.04987f
+C130 m2_11819_11354# m2_11547_11354# 0.01344f
+C131 011 001 0.06238f
+C132 NAND_3in_7.c vp 0.49676f
+C133 inverter_5.out NOR_2in_0.y 0.06724f
+C134 inverter_3.out a_12164_11775# 0.04692f
+C135 NAND_3in_1.y m2_11547_10704# 0.17387f
+C136 vp after_001111 0.09052f
+C137 after_000011_n XNOR_0._a 0.0189f
+C138 inverter_8.out m2_12293_15338# 0.03221f
+C139 a_11456_13227# NAND_3in_7.c 0.07031f
+C140 XNOR_0._b f0 0.52192f
+C141 f5_n NAND_2in_3.y 0.02282f
+C142 XNOR_0._b XNOR_0._a 0.44799f
+C143 011 NAND_3in_7.y 0.48232f
+C144 110 vp 0.44349f
+C145 inverter_4.out NAND_3in_2.y 0.51081f
+C146 after_000111_n 010 0.08775f
+C147 m2_11892_13310# inverter_0.out 0.02443f
+C148 NOR_2in_0.y a_12164_11775# 0.07504f
+C149 m2_10379_15256# after_000011 0.01291f
+C150 NAND_3in_6.b inverter_12.out 0.10522f
+C151 m2_12291_17212# m2_12291_17294# 0.39957f
+C152 inverter_12.out after_000111_n 0.01615f
+C153 a_10996_14699# XNOR_1._b 0.04323f
+C154 011 after_000011 1.52906f
+C155 f0 vp 0.83527f
+C156 011 after_000111 1.15018f
+C157 a_10458_15173# a_10674_15173# 0.02238f
+C158 a_11354_12753# NAND_3in_3.y 0.01157f
+C159 vp XNOR_0._a 0.32302f
+C160 after_000011_n NAND_2in_3.y 0.42607f
+C161 f5_n NAND_3in_4.y 0.06269f
+C162 a_11456_13227# XNOR_0._a 0.05886f
+C163 a_10458_10797# after_000111_n 0.0131f
+C164 m2_11751_12414# inverter_0.out 0.17579f
+C165 inverter_4.out inverter_4.in 0.40573f
+C166 NAND_3in_5.y NOR_2in_4.b 0.01212f
+C167 NAND_2in_1.y inverter_1.out 0.50705f
+C168 a_10458_15173# after_000111_n 0.0131f
+C169 NAND_3in_6.b inverter_7.out 0.33367f
+C170 m2_12291_17294# inverter_10.out 0.06034f
+C171 after_000011_n NAND_3in_4.y 0.49919f
+C172 after_000111_n 100 0.08672f
+C173 NAND_2in_3.y vp 0.35003f
+C174 011 NAND_3in_3.y 0.49057f
+C175 NAND_3in_1.y NAND_2in_1.y 0.77668f
+C176 NAND_3in_7.c a_11138_12753# 0.01977f
+C177 NAND_3in_1.y 010 0.37032f
+C178 NOR_2in_4.a m2_11875_16562# 0.01349f
+C179 NAND_3in_3.y NAND_3in_0.c 0.07926f
+C180 NAND_3in_6.a NAND_3in_6.c 0.17346f
+C181 f5_n 011 0.09269f
+C182 a_10996_14699# f0 0.03549f
+C183 m2_12293_15256# inverter_7.out 0.01092f
+C184 NAND_3in_6.b a_12447_14699# 0.04063f
+C185 after_001111 m2_11547_11354# 0.01321f
+C186 a_10674_12753# NAND_3in_3.y 0.06699f
+C187 NAND_3in_4.y vp 0.50972f
+C188 NAND_3in_8.y a_11354_15173# 0.06651f
+C189 NAND_3in_6.a NAND_3in_0.c 0.01457f
+C190 NOR_2in_4.a m2_11875_16480# 0.10665f
+C191 inverter_11.out NAND_3in_6.a 0.21565f
+C192 NAND_2in_3.y NAND_2in_0.y 0.57767f
+C193 after_000011_n m2_10379_15256# 0.15581f
+C194 after_000111_n 001 0.06034f
+C195 NAND_3in_1.y a_10458_10797# 0.01087f
+C196 after_000011_n 011 0.82233f
+C197 NAND_3in_5.y 010 0.41121f
+C198 NOR_2in_4.b a_11954_16151# 0.0109f
+C199 NAND_3in_2.y 000 0.4139f
+C200 inverter_4.in NAND_2in_1.y 0.03336f
+C201 after_001111 a_11144_11271# 0.04021f
+C202 m2_11751_17458# NAND_3in_9.y 0.22234f
+C203 vp inverter_2.out 0.27138f
+C204 NAND_3in_1.y 100 0.49562f
+C205 NAND_3in_4.y NAND_2in_0.y 0.01539f
+C206 vp NOR_2in_1.y 0.25776f
+C207 NOR_2in_4.a NOR_2in_4.b 1.14189f
+C208 NAND_3in_6.c vp 0.19034f
+C209 after_000111_n after_000011 9.67664f
+C210 011 vp 5.57562f
+C211 NOR_2in_4.b m2_11337_16562# 0.09002f
+C212 after_000111_n after_000111 0.05941f
+C213 inverter_4.in 000 0.45857f
+C214 m2_11892_14360# NAND_3in_6.b 0.0149f
+C215 a_11138_17129# a_11354_17129# 0.02238f
+C216 vp NAND_3in_0.c 0.26072f
+C217 inverter_11.out vp 0.3697f
+C218 f0 XNOR_1._b 0.52192f
+C219 inverter_5.out m2_11892_13310# 0.43604f
+C220 m2_12023_17294# NAND_3in_5.y 0.17539f
+C221 NAND_3in_8.y m2_11751_15502# 0.22234f
+C222 inverter_5.out inverter_0.out 0.76875f
+C223 a_11138_12753# a_11354_12753# 0.02238f
+C224 after_000111_n NAND_3in_3.y 0.62892f
+C225 NAND_3in_2.y 001 0.36667f
+C226 NAND_3in_4.y inverter_8.out 0.33973f
+C227 NAND_3in_7.c f0 0.34564f
+C228 NAND_3in_7.c XNOR_0._a 0.94156f
+C229 vp a_11450_14197# 0.13606f
+C230 VCO3_11_sel vp 0.34371f
+C231 f5_n after_000111_n 0.06978f
+C232 NAND_3in_6.b NAND_3in_6.a 0.84603f
+C233 m2_12023_12414# NAND_3in_3.y 0.17547f
+C234 NAND_3in_1.y after_000011 0.56495f
+C235 a_10996_13227# XNOR_0._b 0.04323f
+C236 a_10990_14197# vp 0.13599f
+C237 NAND_3in_6.c m2_12293_15338# 0.26483f
+C238 a_11138_17129# NAND_3in_5.y 0.01223f
+C239 inverter_10.out a_12370_17633# 0.0109f
+C240 m2_11875_16562# m2_11875_16480# 0.39957f
+C241 f0 XNOR_0._a 1.72469f
+C242 inverter_4.out m2_12085_11354# 0.01079f
+C243 after_000011_n after_000111_n 1.24426f
+C244 NOR_2in_0.y NAND_3in_3.y 0.02431f
+C245 m2_12023_17294# m2_11751_17294# 0.01344f
+C246 NAND_3in_2.y after_000111 0.56942f
+C247 vp a_11971_13731# 0.0976f
+C248 NAND_3in_4.y XNOR_1._b 0.02348f
+C249 inverter_8.out NAND_3in_6.c 0.32594f
+C250 110 NAND_2in_3.y 0.02502f
+C251 inverter_12.out NAND_3in_8.y 0.65032f
+C252 NAND_3in_7.y inverter_4.in 0.03471f
+C253 XNOR_1.y NAND_3in_8.y 0.01603f
+C254 a_10458_10797# a_10674_10797# 0.02238f
+C255 NAND_3in_5.y after_000111 0.75372f
+C256 inverter_5.out m2_12023_12578# 0.17552f
+C257 inverter_12.out inverter_0.out 0.01663f
+C258 NAND_3in_6.b vp 0.35341f
+C259 NOR_2in_4.b m2_11875_16562# 0.01079f
+C260 after_000111_n vp 0.31399f
+C261 f5_n NAND_3in_1.y 0.01124f
+C262 NAND_3in_4.y a_11138_15173# 0.01516f
+C263 110 NAND_3in_4.y 0.41155f
+C264 m2_11892_14606# XNOR_1._b 0.04693f
+C265 NAND_3in_2.y NAND_3in_3.y 0.02973f
+C266 NOR_2in_4.b m2_11875_16480# 0.03221f
+C267 vp inverter_3.out 0.40124f
+C268 f5_n NAND_3in_2.y 0.60057f
+C269 XNOR_1._a f1 0.78301f
+C270 vp a_10990_13639# 0.13599f
+C271 after_000011_n NAND_3in_1.y 0.76169f
+C272 m2_12291_17212# NAND_3in_6.a 0.15559f
+C273 f5_n NAND_3in_5.y 1.15831f
+C274 XNOR_1._a a_11456_14699# 0.05886f
+C275 a_10458_17129# a_10674_17129# 0.02238f
+C276 NOR_2in_0.y vp 0.4836f
+C277 m2_11337_16316# NAND_2in_3.y 0.22093f
+C278 011 NAND_3in_7.c 0.09522f
+C279 after_000011_n a_10934_16655# 0.04035f
+C280 vp inverter_1.out 0.36682f
+C281 inverter_5.out f1 0.0104f
+C282 NAND_3in_7.c NAND_3in_0.c 0.03048f
+C283 m2_10379_16480# 001 0.01127f
+C284 NAND_3in_5.y a_10674_17129# 0.07649f
+C285 m2_12283_12660# NOR_2in_1.y 0.01464f
+C286 inverter_4.out a_12164_11775# 0.0109f
+C287 NAND_3in_1.y vp 0.47288f
+C288 f1 m2_11892_14524# 0.01037f
+C289 inverter_10.out NAND_3in_6.a 0.33026f
+C290 m2_12283_12660# NAND_3in_0.c 0.69789f
+C291 m2_11819_11354# inverter_3.out 0.09062f
+C292 vp NAND_3in_2.y 0.50419f
+C293 NAND_3in_7.y inverter_0.out 0.43112f
+C294 NAND_3in_6.b inverter_8.out 0.02513f
+C295 f5_n a_10458_16655# 0.01018f
+C296 inverter_12.out VCO3_5_sel 0.07295f
+C297 NAND_3in_5.y vp 0.4837f
+C298 f5_n m2_11751_17294# 0.01378f
+C299 m2_12293_15256# m2_12293_15338# 0.39957f
+C300 m2_11751_12414# NAND_3in_7.y 0.22234f
+C301 a_12231_14699# NAND_3in_6.c 0.01575f
+C302 f5_n a_10458_11271# 0.01485f
+C303 after_001111_n after_000111 0.17155f
+C304 vp inverter_4.in 0.35362f
+C305 m2_12293_15256# inverter_8.out 0.01079f
+C306 XNOR_1.y XNOR_1._a 0.97395f
+C307 after_000011_n a_10458_16655# 0.01236f
+C308 VCO3_11_sel m2_12283_12660# 0.08566f
+C309 a_11354_17129# NAND_3in_9.y 0.06651f
+C310 XNOR_1.y f1 1.00719f
+C311 f0 a_11450_14197# 0.02767f
+C312 inverter_10.out vp 0.28287f
+C313 a_10996_13227# NAND_3in_7.c 0.06622f
+C314 NAND_3in_4.y m2_10379_15256# 0.10528f
+C315 NAND_3in_5.y NAND_2in_0.y 0.01322f
+C316 a_10990_14197# f0 0.13529f
+C317 m2_12085_10704# inverter_2.out 0.41204f
+C318 m2_11819_11354# NAND_3in_2.y 0.17387f
+C319 m2_12085_11436# inverter_3.out 0.10665f
+C320 XNOR_1.y a_11456_14699# 0.07022f
+C321 m2_12085_10704# NOR_2in_1.y 0.15549f
+C322 NAND_3in_3.y inverter_0.out 0.18223f
+C323 f5_n m2_10379_16480# 0.0672f
+C324 NAND_3in_7.c after_000111_n 0.0168f
+C325 a_12447_14699# VCO3_5_sel 0.06627f
+C326 inverter_12.out m2_11892_14524# 0.17625f
+C327 m2_12291_17294# m2_12023_17294# 0.01389f
+C328 after_000011_n m2_11337_16562# 0.01323f
+C329 vp a_11954_16151# 0.0976f
+C330 NOR_2in_0.y m2_12085_11436# 0.26528f
+C331 after_000011_n a_10674_10797# 0.01123f
+C332 a_10996_13227# f0 0.03549f
+C333 inverter_2.out NOR_2in_1.y 0.60775f
+C334 f5_n after_001111_n 0.01951f
+C335 XNOR_1.y m2_11892_14524# 0.01096f
+C336 NAND_3in_2.y m2_11547_11354# 0.16451f
+C337 m2_12085_10704# m2_11819_10704# 0.01413f
+C338 after_000011_n NAND_3in_8.y 0.70925f
+C339 after_000011_n m2_10379_16480# 0.40052f
+C340 XNOR_0._b m2_11892_13310# 0.04721f
+C341 m2_11751_12578# inverter_0.out 0.17624f
+C342 a_10458_12753# NAND_3in_3.y 0.01108f
+C343 NAND_3in_5.y NAND_3in_9.y 0.35476f
+C344 NOR_2in_4.a vp 0.40118f
+C345 NAND_3in_7.c a_10990_13639# 0.09342f
+C346 a_12372_15677# inverter_7.out 0.04579f
+C347 a_10458_16655# NAND_2in_0.y 0.06997f
+C348 m2_11819_10704# inverter_2.out 0.16606f
+C349 NAND_3in_0.c NOR_2in_1.y 0.16899f
+C350 XNOR_0._b inverter_0.out 0.06329f
+C351 m2_12085_11436# NAND_3in_2.y 0.01476f
+C352 inverter_4.out NAND_3in_7.y 0.02485f
+C353 m2_11547_11354# inverter_4.in 0.0104f
+C354 NAND_3in_8.y vp 0.57366f
+C355 NAND_3in_3.y m2_12023_12578# 0.17539f
+C356 XNOR_1.y inverter_12.out 0.40627f
+C357 inverter_10.out NAND_3in_9.y 0.44204f
+C358 f0 a_10990_13639# 0.13529f
+C359 a_12231_14699# NAND_3in_6.b 0.0456f
+C360 vp inverter_0.out 0.43303f
+C361 NOR_2in_4.a NAND_2in_0.y 0.51667f
+C362 NOR_2in_0.y m2_12283_12660# 0.01083f
+C363 vp after_001111_n 0.07682f
+C364 NAND_2in_1.y 100 0.35107f
+C365 NAND_2in_0.y m2_11337_16562# 0.16451f
+C366 VCO3_11_sel NOR_2in_1.y 0.68774f
+C367 NAND_3in_4.y a_10674_15173# 0.06699f
+C368 010 100 8.85111f
+C369 NOR_2in_4.a m2_11609_16562# 0.09062f
+C370 inverter_12.out inverter_7.out 0.31445f
+C371 NAND_3in_9.y m2_11751_17294# 0.01152f
+C372 inverter_4.in a_11144_11271# 0.06997f
+C373 NAND_3in_2.y after_001111 0.71857f
+C374 m2_11751_12578# m2_12023_12578# 0.01344f
+C375 m2_10379_16480# NAND_2in_0.y 0.27335f
+C376 m2_11337_16562# m2_11609_16562# 0.01344f
+C377 inverter_12.out 100 0.07061f
+C378 VCO3_11_sel NAND_3in_0.c 0.70065f
+C379 vp a_12164_10293# 0.0976f
+C380 NAND_3in_4.y after_000111_n 0.52378f
+C381 NAND_3in_6.a VCO3_5_sel 0.73951f
+C382 101 001 0.09234f
+C383 010 001 0.03118f
+C384 NOR_2in_4.a inverter_8.out 0.01383f
+C385 after_001111 inverter_4.in 0.41787f
+C386 NAND_3in_4.y m2_12293_15256# 0.01471f
+C387 a_11971_13731# NAND_3in_0.c 0.07281f
+C388 f5_n f1 0.02083f
+C389 m2_12291_17294# NAND_3in_6.a 0.2674f
+C390 m2_11892_14606# NAND_3in_6.b 0.01501f
+C391 m2_10379_15256# after_000111_n 0.65835f
+C392 inverter_5.out NAND_3in_3.y 0.37881f
+C393 001 000 0.13728f
+C394 NAND_3in_6.b NAND_3in_6.c 1.31087f
+C395 NAND_3in_8.y inverter_8.out 0.44201f
+C396 011 after_000111_n 8.62086f
+C397 a_10934_16655# NAND_2in_3.y 0.06997f
+C398 m2_12023_12414# NOR_2in_1.y 0.0149f
+C399 010 after_000011 10.0266f
+C400 after_000011_n XNOR_1._a 0.01891f
+C401 m2_12085_10704# inverter_1.out 0.01349f
+C402 010 after_000111 0.81112f
+C403 inverter_11.out NAND_3in_6.b 0.01342f
+C404 after_000011_n m2_11547_10704# 0.01321f
+C405 XNOR_0._b f1 2.085f
+C406 after_000111_n a_10674_12753# 0.01182f
+C407 VCO3_5_sel vp 0.34051f
+C408 m2_12293_15256# NAND_3in_6.c 0.15304f
+C409 001 100 8.33742f
+C410 vp a_11450_13639# 0.13606f
+C411 NOR_2in_0.y NOR_2in_1.y 0.9908f
+C412 inverter_2.out inverter_1.out 1.25049f
+C413 m2_11892_14360# inverter_12.out 0.17579f
+C414 m2_11751_17458# inverter_10.out 0.21677f
+C415 inverter_1.out NOR_2in_1.y 0.23666f
+C416 inverter_4.out vp 0.31375f
+C417 XNOR_1._a vp 0.32244f
+C418 XNOR_1.y m2_11892_14360# 0.22185f
+C419 f1 vp 0.51024f
+C420 NAND_3in_1.y inverter_2.out 0.4741f
+C421 NOR_2in_0.y NAND_3in_0.c 0.03355f
+C422 m2_12085_11354# m2_11819_11354# 0.01413f
+C423 m2_11609_16562# m2_11875_16562# 0.01413f
+C424 NAND_2in_0.y m2_11875_16480# 0.01476f
+C425 m2_11819_10704# inverter_1.out 0.09062f
+C426 NOR_2in_4.b vp 0.32183f
+C427 101 f5_n 0.01043f
+C428 after_000011 100 1.36306f
+C429 100 after_000111 0.03123f
+C430 f5_n 010 0.03076f
+C431 inverter_5.out vp 0.30513f
+C432 a_11138_15173# NAND_3in_8.y 0.01083f
+C433 110 NAND_3in_8.y 0.51638f
+C434 NAND_3in_2.y a_10674_11271# 0.06651f
+C435 NAND_3in_3.y 000 0.03584f
+C436 NAND_3in_7.c inverter_0.out 0.22732f
+C437 a_12372_15677# vp 0.0976f
+C438 after_000011_n NAND_2in_1.y 0.41683f
+C439 XNOR_1.y NAND_3in_6.a 0.0169f
+C440 after_000011_n 101 0.53365f
+C441 vp a_12164_11775# 0.09943f
+C442 after_000011_n 010 0.10297f
+C443 NOR_2in_0.y VCO3_11_sel 0.46714f
+C444 NOR_2in_4.b NAND_2in_0.y 0.51081f
+C445 011 NAND_3in_5.y 0.3788f
+C446 after_000011 001 0.03942f
+C447 after_000011_n inverter_12.out 0.19827f
+C448 001 after_000111 9.73844f
+C449 m2_12291_17212# inverter_11.out 0.01302f
+C450 f0 inverter_0.out 0.01414f
+C451 inverter_11.out NAND_3in_5.y 0.46336f
+C452 m2_12085_11354# m2_12085_11436# 0.39957f
+C453 NAND_2in_3.y m2_11337_16562# 0.0104f
+C454 vp NAND_2in_1.y 0.31708f
+C455 f5_n 100 0.02297f
+C456 101 vp 0.2839f
+C457 after_000011_n a_10458_10797# 0.01236f
+C458 010 vp 0.75978f
+C459 inverter_4.out m2_11547_11354# 0.09002f
+C460 a_12578_12753# VCO3_11_sel 0.06651f
+C461 NAND_3in_8.y NAND_2in_3.y 0.01323f
+C462 inverter_12.out vp 0.33319f
+C463 a_12370_17633# NAND_3in_6.a 0.07285f
+C464 NAND_3in_6.b m2_12293_15256# 0.02514f
+C465 after_000011 after_000111 0.03822f
+C466 XNOR_1.y vp 0.55498f
+C467 inverter_11.out inverter_10.out 0.99891f
+C468 after_000011_n 100 0.57517f
+C469 vp 000 0.35479f
+C470 a_11144_10797# NAND_2in_1.y 0.06997f
+C471 a_10674_11271# a_10458_11271# 0.02238f
+C472 f5_n 001 0.75834f
+C473 101 NAND_2in_0.y 0.21893f
+C474 inverter_4.out m2_12085_11436# 0.03221f
+C475 NAND_3in_7.y NAND_3in_3.y 0.34186f
+C476 NAND_3in_4.y NAND_3in_8.y 0.29808f
+C477 m2_11547_11600# inverter_4.in 0.22093f
+C478 inverter_8.out m2_11751_15502# 0.21677f
+C479 a_11138_15173# a_11354_15173# 0.02238f
+C480 f5_n a_11138_17129# 0.0201f
+C481 vp inverter_7.out 0.39795f
+C482 inverter_8.out a_12372_15677# 0.0109f
+C483 XNOR_1._a XNOR_1._b 0.44799f
+C484 NOR_2in_0.y inverter_3.out 0.25426f
+C485 NAND_3in_1.y after_000111_n 0.54116f
+C486 vp 100 0.69589f
+C487 f1 XNOR_1._b 2.085f
+C488 inverter_3.out inverter_1.out 0.02854f
+C489 after_000011 NAND_3in_3.y 0.56667f
+C490 after_000011_n 001 0.13552f
+C491 NAND_3in_7.c a_11450_13639# 0.09922f
+C492 m2_11751_12578# NAND_3in_7.y 0.01152f
+C493 f5_n after_000011 0.03834f
+C494 f5_n after_000111 0.53212f
+C495 a_10996_14699# XNOR_1.y 0.066f
+C496 a_12370_17633# vp 0.0976f
+C497 after_000011_n NAND_3in_7.y 0.68782f
+C498 NAND_3in_7.c f1 1.0069f
+C499 NAND_3in_9.y 010 0.51646f
+C500 inverter_12.out m2_12293_15338# 0.01366f
+C501 NAND_3in_6.b NAND_3in_5.y 0.01052f
+C502 vp 001 0.372f
+C503 inverter_3.out NAND_3in_2.y 0.51667f
+C504 f0 a_11450_13639# 0.02767f
+C505 m2_11892_13310# NAND_3in_0.c 0.14995f
+C506 after_000011_n after_000011 0.11695f
+C507 a_11450_13639# XNOR_0._a 0.09297f
+C508 after_000011_n after_000111 7.4106f
+C509 011 after_001111_n 0.02734f
+C510 110 NOR_2in_4.b 0.01331f
+C511 inverter_12.out inverter_8.out 0.45489f
+C512 XNOR_1._a f0 1.72469f
+C513 NAND_3in_0.c inverter_0.out 0.23019f
+C514 NAND_3in_7.y vp 0.57533f
+C515 XNOR_1._a XNOR_0._a 0.02878f
+C516 f5_n NAND_3in_3.y 0.06257f
+C517 f1 f0 1.05269f
+C518 inverter_7.out m2_12293_15338# 0.10408f
+C519 f1 XNOR_0._a 0.78301f
+C520 a_12164_10293# inverter_2.out 0.01126f
+C521 VCO3_11_sel gd 1.96125f
+C522 VCO3_5_sel gd 2.10624f
+C523 vp gd 17.82376f
+C524 m2_12085_10704# gd 0.04208f ; **FLOATING
+C525 m2_11819_10704# gd 0.01353f ; **FLOATING
+C526 m2_11547_10704# gd 0.01358f ; **FLOATING
+C527 m2_12085_11354# gd 0.04231f ; **FLOATING
+C528 m2_11819_11354# gd 0.01351f ; **FLOATING
+C529 m2_11547_11354# gd 0.0136f ; **FLOATING
+C530 m2_12085_11436# gd 0.02018f ; **FLOATING
+C531 m2_12283_12660# gd 0.08517f ; **FLOATING
+C532 m2_11892_13310# gd 0.04171f ; **FLOATING
+C533 m2_11892_14606# gd 0.01243f ; **FLOATING
+C534 m2_12293_15256# gd 0.04241f ; **FLOATING
+C535 m2_10379_15256# gd 0.02907f ; **FLOATING
+C536 m2_12293_15338# gd 0.02045f ; **FLOATING
+C537 m2_11875_16480# gd 0.02009f ; **FLOATING
+C538 m2_10379_16480# gd 0.02026f ; **FLOATING
+C539 m2_11875_16562# gd 0.04161f ; **FLOATING
+C540 m2_11609_16562# gd 0.01312f ; **FLOATING
+C541 m2_11337_16562# gd 0.01332f ; **FLOATING
+C542 m2_12291_17212# gd 0.04892f ; **FLOATING
+C543 m2_12291_17294# gd 0.02078f ; **FLOATING
+C544 a_12164_10293# gd 0.74267f
+C545 a_11144_10797# gd 0.10467f
+C546 a_10674_10797# gd 0.52222f
+C547 a_10458_10797# gd 0.10513f
+C548 a_11144_11271# gd 0.10467f
+C549 a_10674_11271# gd 0.08448f
+C550 a_10458_11271# gd 0.10513f
+C551 a_12164_11775# gd 0.65462f
+C552 inverter_3.out gd 0.46526f
+C553 inverter_4.out gd 0.14744f
+C554 a_12578_12753# gd 1.00988f
+C555 a_12362_12753# gd 0.83334f
+C556 a_11354_12753# gd 0.08448f
+C557 a_11138_12753# gd 0.10512f
+C558 a_10674_12753# gd 0.08448f
+C559 a_10458_12753# gd 0.10513f
+C560 a_11456_13227# gd 0.67619f
+C561 a_10996_13227# gd 0.897f
+C562 NAND_3in_0.c gd 0.55584f
+C563 inverter_5.out gd 0.58355f
+C564 a_11450_13639# gd 0.23065f
+C565 a_11450_14197# gd 0.3413f
+C566 a_12447_14699# gd 0.82682f
+C567 a_12231_14699# gd 0.94037f
+C568 a_11456_14699# gd 0.32354f
+C569 XNOR_1.y gd 0.33729f
+C570 a_10996_14699# gd 0.09914f
+C571 a_11354_15173# gd 0.08448f
+C572 a_11138_15173# gd 0.10512f
+C573 a_10674_15173# gd 0.50838f
+C574 a_10458_15173# gd 0.10513f
+C575 a_12372_15677# gd 0.81097f
+C576 inverter_7.out gd 0.54241f
+C577 NAND_3in_8.y gd 0.10525f
+C578 a_11954_16151# gd 0.43292f
+C579 NAND_3in_6.b gd 0.39549f
+C580 a_10934_16655# gd 0.20975f
+C581 a_10458_16655# gd 0.10695f
+C582 a_11354_17129# gd 0.08448f
+C583 a_11138_17129# gd 0.96098f
+C584 a_10674_17129# gd 1.11925f
+C585 a_10458_17129# gd 0.73091f
+C586 a_12370_17633# gd 0.1554f
+C587 NAND_3in_5.y gd 0.56106f
+.ends
+
