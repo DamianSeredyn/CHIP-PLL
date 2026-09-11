@@ -165,7 +165,7 @@ else
     VIN_SWEEP="0.4 0.8"
 fi
 
-SPICE=$PROJECT_DIR/schematics/simulations/vco_dcin_tb.spice
+SPICE=$PROJECT_DIR/schematics/simulations/vco_dcin_meas_4_tb.spice
 DATA_DIR=$PROJECT_DIR/schematics/vco/results/data
 RESULTS_DIR=$PROJECT_DIR/schematics/vco/results
 
