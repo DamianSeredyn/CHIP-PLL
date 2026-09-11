@@ -1,0 +1,13 @@
+* PEX produced on Mon Aug 24 05:04:10 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
+* NGSPICE file created from inverter_x8.ext - technology: ihp-sg13g2
+
+.subckt inverter_x8 GND VP OUT IN
+X0 OUT IN GND GND sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
+X1 OUT IN VP VP sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.13u
+C0 VP OUT 0.24105f
+C1 VP IN 0.12371f
+C2 OUT IN 0.08731f
+C3 OUT GND 1.02289f
+C4 VP GND 0.11952f
+.ends
+

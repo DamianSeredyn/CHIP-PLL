@@ -1,0 +1,46 @@
+** sch_path: /foss/designs/CHIP-PLL/schematics/top/PLL_top_tb.sch
+**.subckt PLL_top_tb
+*  x1 -  PLL_top  IS MISSING !!!!
+Vref clk_ref GND dc 0 ac 0 pulse(0 {Vph} {T/2} 10n 10n {T/2} {T})
+Vp Vp GND dc {Vp}
+Vph Vph GND dc {Vph}
+C1 out GND 1p
+V8 d4 GND 0
+V9 d5 GND 0
+V11 d0 GND 1.2
+V10 d1 GND 1.2
+V12 d2 GND 0
+V7 d3 GND 0
+V5 a1 GND 1.2
+V6 a0 GND 1.2
+V13 a2 GND 1.2
+**** begin user architecture code
+ .lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+
+
+
+
+.temp=25
+.param T = 31.25u
+
+.param Vp=1.2
+.param Vph=3.3
+.control
+save all
+tran 1p 10m
+
+meas tran t1 WHEN v(out)=1.65 RISE=1 FROM=9m
+meas tran t2 WHEN v(out)=1.65 RISE=2 FROM=9m
+meas tran period PARAM='t2-t1'
+meas tran freq PARAM='1/period'
+
+write PLL_top_tb.raw
+.endc
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

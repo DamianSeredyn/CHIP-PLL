@@ -1,0 +1,11 @@
+27-Aug-2026 21:32:27 | INFO    | KLayout version detected: 0.30.9
+27-Aug-2026 21:32:27 | INFO    | Using DRC JSON file: /foss/pdks/ihp-sg13cmos5l/libs.tech/klayout/python/sg13cmos5l_pycell_lib/sg13cmos5l_tech_mod.json
+27-Aug-2026 21:32:27 | INFO    | Running IHP-SG13CMOS5L main checks on design /foss/designs/CHIP-PLL/layout/misc/buffer_hv/buffer_hv.gds, topcell: buffer_hv
+27-Aug-2026 21:32:30 | INFO    | Running IHP-SG13CMOS5L sg13cmos5l_maximal checks on design /foss/designs/CHIP-PLL/layout/misc/buffer_hv/buffer_hv.gds, topcell: buffer_hv
+27-Aug-2026 21:32:34 | INFO    | Completed running Sg13cmos5l_maximal checks.
+27-Aug-2026 21:32:34 | ERROR   | ==================================================================================
+27-Aug-2026 21:32:34 | ERROR   | KLayout DRC Check Failed: Violations were detected in the layout.
+27-Aug-2026 21:32:34 | ERROR   | ==================================================================================
+27-Aug-2026 21:32:34 | ERROR   | Violated rules are : {'NW.b1', 'NW.d', 'M2.d'}
+
+27-Aug-2026 21:32:34 | INFO    | Total DRC Run time: 7.56 seconds (including execution, analysis, and reporting)

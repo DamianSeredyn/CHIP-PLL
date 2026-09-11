@@ -493,9 +493,14 @@ def generate_html_report(results_by_pvt, output_path):
 # ──────────────────────────────────────────────────────────────────────────────
 
 def main():
-    project_dir = Path.cwd().parent.parent
-    data_dir = project_dir / 'divider' / 'results' / 'data'
-    report_path = project_dir / 'divider' / 'results' / 'pdiv_report.html'
+    # Resolve paths from this file's own location, not the caller's cwd.
+    # Layout: CHIP-PLL/schematics/divider/scripts/<this file>
+    #   script_dir  -> .../divider/scripts
+    #   divider_dir -> .../divider            (1 level up)
+    script_dir = Path(__file__).resolve().parent
+    divider_dir = script_dir.parent
+    data_dir = divider_dir / 'results' / 'data'
+    report_path = divider_dir / 'results' / 'pdiv_report.html'
     
     if not data_dir.exists():
         print(f"Error: data directory not found: {data_dir}")

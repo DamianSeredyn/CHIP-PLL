@@ -1,10 +1,8 @@
-** sch_path: /foss/designs/CHIP-PLL/divider/inverter_x4.sch
-**.subckt inverter_x4 IN OUT VP GND
-*.ipin IN
-*.iopin VP
-*.opin OUT
-*.iopin GND
-XM1 OUT IN GND GND sg13_lv_nmos w=0.60u l=0.13u ng=1
-XM2 OUT IN VP VP sg13_lv_pmos w=0.60u l=0.13u ng=1
-**.ends
-.end
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sch
+.subckt inverter_x4 IN OUT VP GND
+*.PININFO IN:I VP:B OUT:O GND:B
+MM1 OUT IN GND net2 sg13_lv_nmos w=0.60u l=0.13u ng=1
+MM2 OUT IN VP net1 sg13_lv_pmos w=0.60u l=0.13u ng=1
+RR1 GND net2 ptap1 A=1.248e-12 P=4.76e-06
+RR2 VP net1 ntap1 A=1.248e-12 P=4.76e-06
+.ends
