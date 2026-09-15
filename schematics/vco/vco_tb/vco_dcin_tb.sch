@@ -10,7 +10,7 @@ N -240 250 -240 290 {lab=0}
 N 100 -140 100 -100 {lab=vdd}
 N -240 150 -240 190 {lab=vdd}
 N -160 150 -160 190 {lab=in}
-N -120 -20 -80 -20 {lab=in}
+N -120 -10 -80 -10 {lab=in}
 N 280 -10 320 -10 {lab=out}
 N 360 -130 360 -90 {lab=vdd}
 N 100 80 100 120 {lab=0}
@@ -18,7 +18,7 @@ N 360 70 360 110 {lab=0}
 N 520 -10 560 -10 {lab=out_pb}
 N -350 250 -350 290 {lab=0}
 N -350 150 -350 190 {lab=en5}
-N -120 10 -80 10 {lab=en5}
+N 560 50 560 70 {lab=0}
 C {vsource.sym} -160 220 0 0 {name=V1 value="\{vin\} ac 1" savecurrent=true}
 C {vsource.sym} -240 220 0 0 {name=V2 value=\{vdd\} savecurrent=false}
 C {devices/code_shown.sym} -300 -330 0 0 {name=NGSPICE only_toplevel=false
@@ -40,7 +40,7 @@ C {devices/code_shown.sym} -290 -400 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_tt
 "}
-C {lab_wire.sym} -120 -20 0 0 {name=p9 sig_type=std_logic lab=in
+C {lab_wire.sym} -120 -10 0 0 {name=p9 sig_type=std_logic lab=in
 }
 C {lab_wire.sym} -240 150 0 0 {name=p1 sig_type=std_logic lab=vdd
 }
@@ -50,12 +50,11 @@ C {lab_wire.sym} 100 -140 0 0 {name=p2 sig_type=std_logic lab=vdd
 }
 C {gnd.sym} -160 290 0 0 {name=l2 lab=0
 }
-C {connector.sym} 560 -10 0 1 {name=c2 footprint=connector(1,1)}
 C {lab_wire.sym} 560 -10 0 0 {name=p4 sig_type=std_logic lab=out_pb
 }
 C {lab_wire.sym} 360 -130 0 0 {name=p5 sig_type=std_logic lab=vdd
 }
-C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_core_1.sym} 100 -10 0 0 {name=x2}
+C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_core_0.sym} 100 -10 0 0 {name=x2}
 C {gnd.sym} -240 290 0 0 {name=l4 lab=0
 }
 C {lab_wire.sym} -160 150 0 0 {name=p6 sig_type=std_logic lab=in
@@ -70,6 +69,11 @@ C {gnd.sym} -350 290 0 0 {name=l1 lab=0
 C {lab_wire.sym} -350 150 0 0 {name=p7 sig_type=std_logic lab=en5
 }
 C {connector.sym} -350 150 0 1 {name=c1 footprint=connector(1,1)}
-C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/1_buf.sym} 400 80 0 0 {name=x1}
-C {lab_wire.sym} -120 10 0 0 {name=p8 sig_type=std_logic lab=en5
+C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/0_buf.sym} 400 80 0 0 {name=x1}
+C {capa.sym} 560 20 0 0 {name=C3
+m=1
+value=1f
+footprint=1206
+device="ceramic capacitor"}
+C {gnd.sym} 560 70 0 0 {name=l6 lab=0
 }
