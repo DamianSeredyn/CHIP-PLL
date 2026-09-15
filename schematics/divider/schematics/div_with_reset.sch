@@ -73,6 +73,7 @@ N -330 -320 -310 -320 {lab=reset}
 N 1060 -70 1060 50 {lab=#net4}
 N -460 50 1060 50 {lab=#net4}
 N -460 50 -460 130 {lab=#net4}
+N 250 130 270 130 {lab=#net6}
 C {iopin.sym} -330 -380 2 0 {name=p2 lab=gd}
 C {ipin.sym} -330 -340 0 0 {name=p4 lab=in}
 C {lab_pin.sym} -310 -380 2 0 {name=p6 sig_type=std_logic lab=gd}
@@ -131,3 +132,4 @@ C {lab_wire.sym} -50 180 3 0 {name=p23 sig_type=std_logic lab=reset
 }
 C {lab_wire.sym} -420 180 3 0 {name=p41 sig_type=std_logic lab=reset
 }
+C {noconn.sym} 270 130 2 0 {name=l1}

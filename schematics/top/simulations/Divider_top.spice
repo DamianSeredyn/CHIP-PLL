@@ -1,0 +1,388 @@
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/Divider_top.sch
+**.subckt Divider_top gd VP clk d0 d1 d2 d3 d4 d5 a0 a1 a2 out_div rst
+*.iopin gd
+*.ipin clk
+*.iopin VP
+*.opin out_div
+*.ipin d0
+*.ipin d1
+*.ipin d2
+*.ipin d3
+*.ipin d4
+*.ipin d5
+*.ipin a0
+*.ipin a1
+*.ipin a2
+*.ipin rst
+x1 gd VP clk div2 div4 div8 div16 div32 div64 div128 2Div
+x2 gd VP a0 MUX_out clk div2 div4 div8 div16 div32 div64 a1 div128 a2 MUX_8to1
+x3 gd VP MUX_out rst d0 d1 d2 d3 d4 d5 out_div pdiv
+**.ends
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/schematics/divider/schematics/2Div.sym # of pins=10
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/2Div.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/2Div.sch
+.subckt 2Div gd vp in div2 div4 div8 div16 div32 div64 div128
+*.iopin gd
+*.ipin in
+*.iopin vp
+*.opin div2
+*.opin div4
+*.opin div8
+*.opin div16
+*.opin div32
+*.opin div64
+*.opin div128
+x1 div2 vp gd net1 in net1 d_flip_flop
+x2 div4 vp gd net2 div2 net2 d_flip_flop
+x3 div32 vp gd net5 div16 net5 d_flip_flop
+x4 div64 vp gd net6 div32 net6 d_flip_flop
+x5 div8 vp gd net3 div4 net3 d_flip_flop
+x6 div16 vp gd net4 div8 net4 d_flip_flop
+x7 div128 vp gd net7 div64 net7 d_flip_flop
+.ends
+
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/schematics/divider/schematics/MUX_8to1.sym # of pins=14
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/MUX_8to1.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/MUX_8to1.sch
+.subckt MUX_8to1 gd vp A0 out in1 in2 in3 in4 in5 in6 in7 A1 in8 A2
+*.iopin gd
+*.iopin vp
+*.opin out
+*.ipin in1
+*.ipin in2
+*.ipin in3
+*.ipin in4
+*.ipin in5
+*.ipin in6
+*.ipin in7
+*.ipin in8
+*.ipin A0
+*.ipin A1
+*.ipin A2
+x9 A0 net1 vp gd inverter
+x10 A1 net2 vp gd inverter
+x11 A2 net3 vp gd inverter
+x28 out_unb out vp gd inverter
+x29 in4 net8 vp gd inverter
+x30 in8 net4 vp gd inverter
+x31 in7 net5 vp gd inverter
+x32 in6 net6 vp gd inverter
+x33 in5 net7 vp gd inverter
+x34 in1 net11 vp gd inverter
+x35 in2 net10 vp gd inverter
+x36 in3 net9 vp gd inverter
+x1 en8_ vp gd en8 net4 out_unb passgate
+x2 en7_ vp gd en7 net5 out_unb passgate
+x3 en6_ vp gd en6 net6 out_unb passgate
+x4 en5_ vp gd en5 net7 out_unb passgate
+x5 en4_ vp gd en4 net8 out_unb passgate
+x6 en3_ vp gd en3 net9 out_unb passgate
+x7 en2_ vp gd en2 net10 out_unb passgate
+x8 en1_ vp gd en1 net11 out_unb passgate
+x13 en8_ en8 vp gd inverter
+x15 en7_ en7 vp gd inverter
+x17 en6_ en6 vp gd inverter
+x19 en5_ en5 vp gd inverter
+x21 en4_ en4 vp gd inverter
+x23 en3_ en3 vp gd inverter
+x25 en2_ en2 vp gd inverter
+x27 en1_ en1 vp gd inverter
+x12 vp gd net3 en8_ net2 net1 NAND_3in
+x14 vp gd net2 en7_ net3 A0 NAND_3in
+x16 vp gd net1 en6_ net3 A1 NAND_3in
+x18 vp gd net3 en5_ A1 A0 NAND_3in
+x20 vp gd net1 en4_ net2 A2 NAND_3in
+x22 vp gd net2 en3_ A2 A0 NAND_3in
+x24 vp gd net1 en2_ A2 A1 NAND_3in
+x26 vp gd A2 en1_ A1 A0 NAND_3in
+.ends
+
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/schematics/divider/schematics/pdiv.sym # of pins=11
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/pdiv.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/pdiv.sch
+.subckt pdiv gd VP clk reset d0 d1 d2 d3 d4 d5 out_div
+*.iopin gd
+*.ipin clk
+*.iopin VP
+*.ipin d0
+*.ipin d1
+*.ipin d2
+*.ipin d3
+*.ipin d4
+*.ipin d5
+*.opin out_div
+*.ipin reset
+x4 VP gd d0 d012 d1 d2 NAND_3in
+x7 VP gd d3 d345 d4 d5 NAND_3in
+x5 VP gd d012 bypass d345 NOR_2in
+x6 bypass net4 VP gd inverter
+x8 net3 out VP gd inverter_x4
+x3 net4 VP gd bypass clk net1 passgate_scaled
+x9 bypass VP gd net4 out net1 passgate_scaled
+x1 gd VP clk out div2 div4 div8 div16 div32 div64 div_with_reset
+x2 net3 VP gd div2 div4 div8 div16 div32 div64 d0 d1 d2 d3 d4 d5 count_data_check
+x11 out_div VP gd net2 net1 net2 net5 d_flip_flop_reset
+x10 reset net5 VP gd inverter
+.ends
+
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/schematics/divider/schematics/d_flip_flop.sym # of pins=6
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/d_flip_flop.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/d_flip_flop.sch
+.subckt d_flip_flop q VP GND q_ clk d
+*.iopin GND
+*.ipin clk
+*.iopin VP
+*.ipin d
+*.opin q
+*.opin q_
+x2 VP GND net1 q q_ NOR_2in
+x3 VP GND q q_ net3 NOR_2in
+x4 VP GND net2 net1 clk NOR_2in
+x5 VP GND net4 net2 net1 NOR_2in
+x6 VP GND net3 net4 d NOR_2in
+x1 VP GND net1 net3 clk net4 NAND_3in
+.ends
+
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym # of pins=4
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sch
+.subckt inverter IN OUT VP GND
+*.ipin IN
+*.iopin VP
+*.opin OUT
+*.iopin GND
+XM1 OUT IN GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM2 OUT IN VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+.ends
+
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/schematics/divider/schematics/passgate.sym # of pins=6
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/passgate.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/passgate.sch
+.subckt passgate en_ VP GND en IO OI
+*.iopin OI
+*.iopin IO
+*.iopin VP
+*.iopin GND
+*.ipin en_
+*.ipin en
+XM1 IO en OI GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM2 IO en_ OI VP sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+.ends
+
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym # of pins=6
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sch
+.subckt NAND_3in VP GND a y b c
+*.opin y
+*.iopin GND
+*.ipin a
+*.iopin VP
+*.ipin b
+*.ipin c
+XM1 y a net2 GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM3 net2 b net1 GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM4 net1 c GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM7 y c VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM2 y a VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM5 y b VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+.ends
+
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/schematics/divider/schematics/NOR_2in.sym # of pins=5
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/NOR_2in.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/NOR_2in.sch
+.subckt NOR_2in VP GND a y b
+*.opin y
+*.iopin GND
+*.ipin a
+*.iopin VP
+*.ipin b
+XM3 y a GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM2 y b net1 VP sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM4 net1 a VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM5 y b GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+.ends
+
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym # of pins=4
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sch
+.subckt inverter_x4 IN OUT VP GND
+*.ipin IN
+*.iopin VP
+*.opin OUT
+*.iopin GND
+XM1 OUT IN GND GND sg13_lv_nmos w=0.60u l=0.13u ng=1 m=1 mm_ok=1
+XM2 OUT IN VP VP sg13_lv_pmos w=0.60u l=0.13u ng=1 m=1 mm_ok=1
+.ends
+
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/schematics/divider/schematics/passgate_scaled.sym # of pins=6
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/passgate_scaled.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/passgate_scaled.sch
+.subckt passgate_scaled en_ VP GND en IO OI
+*.iopin OI
+*.iopin IO
+*.iopin VP
+*.iopin GND
+*.ipin en_
+*.ipin en
+XM1 IO en OI GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM2 IO en_ OI VP sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+.ends
+
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/schematics/divider/schematics/div_with_reset.sym # of pins=10
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/div_with_reset.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/div_with_reset.sch
+.subckt div_with_reset gd vp in reset div2 div4 div8 div16 div32 div64
+*.iopin gd
+*.ipin in
+*.iopin vp
+*.opin div2
+*.opin div4
+*.opin div8
+*.opin div16
+*.opin div32
+*.opin div64
+*.ipin reset
+x1 net1 vp gd div4 net2 div4 reset d_flip_flop_reset
+x2 net2 vp gd div2 in div2 reset d_flip_flop_reset
+x3 net6 vp gd div64 net5 div64 reset d_flip_flop_reset
+x4 net5 vp gd div32 net4 div32 reset d_flip_flop_reset
+x5 net4 vp gd div16 net3 div16 reset d_flip_flop_reset
+x6 net3 vp gd div8 net1 div8 reset d_flip_flop_reset
+.ends
+
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/schematics/divider/schematics/count_data_check.sym # of pins=15
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/count_data_check.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/count_data_check.sch
+.subckt count_data_check out VP GND c0 c1 c2 c3 c4 c5 d0 d1 d2 d3 d4 d5
+*.iopin GND
+*.ipin c0
+*.iopin VP
+*.ipin c1
+*.opin out
+*.ipin c2
+*.ipin c3
+*.ipin c4
+*.ipin c5
+*.ipin d0
+*.ipin d1
+*.ipin d3
+*.ipin d4
+*.ipin d5
+*.ipin d2
+x7 VP GND y0 and012 y1 y2 NAND_3in
+x8 VP GND y3 and345 y4 y5 NAND_3in
+x9 VP GND and012 out and345 NOR_2in
+x1 VP GND d0 y0 c0 XNOR
+x2 VP GND d1 y1 c1 XNOR
+x3 VP GND d2 y2 c2 XNOR
+x4 VP GND d3 y3 c3 XNOR
+x5 VP GND d4 y4 c4 XNOR
+x6 VP GND d5 y5 c5 XNOR
+.ends
+
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/schematics/divider/schematics/d_flip_flop_reset.sym # of pins=7
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/d_flip_flop_reset.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/d_flip_flop_reset.sch
+.subckt d_flip_flop_reset q VP GND q_ clk d reset
+*.iopin GND
+*.ipin clk
+*.iopin VP
+*.ipin d
+*.opin q
+*.opin q_
+*.ipin reset
+x3 VP GND net4 net2 net1 NAND_2in
+x2 VP GND q q_ net3 reset NAND_3in_x2
+x5 VP GND net3 net4 d reset NAND_3in_x2
+x6 VP GND net2 net1 clk reset NAND_3in_x2
+x4 VP GND net1 q q_ NAND_2in_x2
+x1 VP GND net1 net3 clk net4 NAND_3in
+.ends
+
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/schematics/divider/schematics/XNOR.sym # of pins=5
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/XNOR.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/XNOR.sch
+.subckt XNOR VP GND a y b
+*.opin y
+*.iopin GND
+*.ipin a
+*.iopin VP
+*.ipin b
+XM1 y a net1 GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM3 net1 _b GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM2 net2 a VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1 m=4 mm_ok=1
+XM4 net3 _a VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1 m=4 mm_ok=1
+XM5 y _a net4 GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM6 net4 b GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM7 y b net2 VP sg13_lv_pmos w=0.15u l=0.13u ng=1 m=4 mm_ok=1
+XM8 y _b net3 VP sg13_lv_pmos w=0.15u l=0.13u ng=1 m=4 mm_ok=1
+x1 a _a VP GND inverter
+x2 b _b VP GND inverter
+.ends
+
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in.sym # of pins=5
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in.sch
+.subckt NAND_2in VP GND a y b
+*.opin y
+*.iopin GND
+*.ipin a
+*.iopin VP
+*.ipin b
+XM1 y a net1 GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM3 net1 b GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM2 y b VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM4 y a VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+.ends
+
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in_x2.sym # of pins=6
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in_x2.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in_x2.sch
+.subckt NAND_3in_x2 VP GND a y b c
+*.opin y
+*.iopin GND
+*.ipin a
+*.iopin VP
+*.ipin b
+*.ipin c
+XM1 y a net2 GND sg13_lv_nmos w=0.150u l=0.13u ng=1 m=8 mm_ok=1
+XM3 net2 b net1 GND sg13_lv_nmos w=0.150u l=0.13u ng=1 m=8 mm_ok=1
+XM4 net1 c GND GND sg13_lv_nmos w=0.150u l=0.13u ng=1 m=8 mm_ok=1
+XM7 y c VP VP sg13_lv_pmos w=0.150u l=0.13u ng=1 m=2 mm_ok=1
+XM2 y a VP VP sg13_lv_pmos w=0.150u l=0.13u ng=1 m=2 mm_ok=1
+XM5 y b VP VP sg13_lv_pmos w=0.150u l=0.13u ng=1 m=2 mm_ok=1
+.ends
+
+
+* expanding   symbol:  /foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in_x2.sym # of pins=5
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in_x2.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in_x2.sch
+.subckt NAND_2in_x2 VP GND a y b
+*.opin y
+*.iopin GND
+*.ipin a
+*.iopin VP
+*.ipin b
+XM1 y a net1 GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=4 mm_ok=1
+XM3 net1 b GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1 m=4 mm_ok=1
+XM2 y b VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1 m=2 mm_ok=1
+XM4 y a VP VP sg13_lv_pmos w=0.150u l=0.13u ng=1 m=2 mm_ok=1
+.ends
+
+.end

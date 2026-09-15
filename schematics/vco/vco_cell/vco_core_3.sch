@@ -73,14 +73,6 @@ N 1210 -470 1440 -470 {lab=4th}
 N 1570 280 1690 280 {lab=#net9}
 N -470 280 -370 280 {lab=11_1st}
 N -450 -540 -410 -540 {lab=en5}
-N -300 -90 -200 -90 {lab=en5}
-N -200 -90 -200 -40 {lab=en5}
-N -160 -110 -160 -70 {lab=en11}
-N -160 -110 -110 -110 {lab=en11}
-N -160 -140 -160 -110 {lab=en11}
-N -200 -170 -200 -90 {lab=en5}
-N -160 -40 -160 50 {lab=gnd}
-N -160 -240 -160 -170 {lab=vp}
 N 1650 -760 1690 -760 {lab=#net9}
 N 1690 -760 1690 -710 {lab=#net9}
 N 1530 -760 1580 -760 {lab=en5}
@@ -117,6 +109,7 @@ N 1840 50 1840 100 {lab=vp}
 N 1840 160 1840 210 {lab=gnd}
 N 1970 130 1970 180 {lab=vp}
 N 1970 240 1970 290 {lab=gnd}
+N -450 -490 -410 -490 {lab=en5}
 C {sg13g2_pr/sg13_lv_nmos.sym} -230 -360 0 0 {name=M1
 l=4.7*4u
 w=0.8u
@@ -251,30 +244,6 @@ C {lab_wire.sym} 1660 -310 0 0 {name=p36 sig_type=std_logic lab=5th
 }
 C {lab_wire.sym} -410 280 0 0 {name=p64 sig_type=std_logic lab=11_1st
 }
-C {lab_wire.sym} -260 -90 0 0 {name=p66 sig_type=std_logic lab=en5
-}
-C {sg13g2_pr/sg13_lv_pmos.sym} -180 -170 0 0 {name=M3
-l=0.18*4u
-w=1.2u
-ng=1
-m=1
-model=sg13_lv_pmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_nmos.sym} -180 -40 0 0 {name=M4
-l=0.18*4u
-w=0.8u
-ng=1
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
-C {lab_wire.sym} -160 -240 0 0 {name=p67 sig_type=std_logic lab=vp
-}
-C {lab_wire.sym} -160 50 0 0 {name=p68 sig_type=std_logic lab=gnd
-}
-C {lab_wire.sym} -110 -110 0 0 {name=p69 sig_type=std_logic lab=en11
-}
 C {ipin.sym} -450 -540 0 0 {name=p70 lab=en5}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 1600 -760 0 0 {name=x6}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate.sym} 1690 -660 0 0 {name=x14}
@@ -326,3 +295,4 @@ C {lab_wire.sym} 2100 210 0 0 {name=p85 sig_type=std_logic lab=5th
 }
 C {lab_wire.sym} 1970 290 0 0 {name=p37 sig_type=std_logic lab=gnd
 }
+C {ipin.sym} -450 -490 0 0 {name=p62 lab=en11}

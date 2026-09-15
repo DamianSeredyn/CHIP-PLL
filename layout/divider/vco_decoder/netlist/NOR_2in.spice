@@ -1,0 +1,8 @@
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/NOR_2in.sch
+.subckt NOR_2in VP GND a y b
+*.PININFO y:O GND:B a:I VP:B b:I
+MM3 y a GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM2 y b net1 VP sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM4 net1 a VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM5 y b GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+.ends

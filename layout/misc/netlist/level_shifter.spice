@@ -13,13 +13,7 @@ MM9 4 1_stage_out net2 vph sg13_hv_pmos w=1u l=0.45u ng=1
 MM10 3_stage_out 2_stage_out net3 vph sg13_hv_pmos w=2u l=0.45u ng=1
 MM11 net3 4 vph vph sg13_hv_pmos w=2u l=0.45u ng=1
 MM12 4 1_stage_out gd gd sg13_hv_nmos w=2u l=0.45u ng=1
-MM15 buf_out_1 3_stage_out vph vph sg13_hv_pmos w=2u l=0.45u ng=1
-MM14 buf_out_1 3_stage_out net5 gd sg13_hv_nmos w=1u l=0.45u ng=1
+MM15 out 3_stage_out vph vph sg13_hv_pmos w=2u l=0.45u ng=1
+MM14 out 3_stage_out net5 gd sg13_hv_nmos w=1u l=0.45u ng=1
 MM13 net5 3_stage_out gd gd sg13_hv_nmos w=1u l=0.45u ng=1
-MM16 buf_out_2 buf_out_1 vph vph sg13_hv_pmos w=4u l=0.45u ng=1 m=2
-MM17 buf_out_2 buf_out_1 net6 gd sg13_hv_nmos w=2u l=0.45u ng=1 m=2
-MM18 net6 buf_out_1 gd gd sg13_hv_nmos w=2u l=0.45u ng=1 m=2
-MM19 out buf_out_2 vph vph sg13_hv_pmos w=4u l=0.45u ng=1 m=8
-MM20 out buf_out_2 net7 gd sg13_hv_nmos w=4u l=0.45u ng=1 m=4
-MM21 net7 buf_out_2 gd gd sg13_hv_nmos w=4u l=0.45u ng=1 m=4
 .ends
