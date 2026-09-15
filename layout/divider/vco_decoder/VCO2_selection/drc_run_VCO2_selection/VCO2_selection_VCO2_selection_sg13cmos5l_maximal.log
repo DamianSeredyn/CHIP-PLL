@@ -1,0 +1,9 @@
+# Logfile created on 2026-09-08 21:37:50 +0200 by logger.rb/v1.5.3
+2026-09-08 21:37:50 +0200: Memory Usage (456628K) : Starting running IHP-SG13CMOS5L Klayout DRC maximum runset on /foss/designs/CHIP-PLL/layout/vco/vco_decoder/VCO2_selection/VCO2_selection.gds
+2026-09-08 21:37:50 +0200: Memory Usage (456628K) : Ruby Version for klayout: 3.2.3
+2026-09-08 21:37:50 +0200: Memory Usage (458068K) : Loading database to memory is complete.
+2026-09-08 21:37:50 +0200: Memory Usage (458068K) : IHP-SG13CMOS5L Klayout DRC maximum runset output at: /foss/designs/CHIP-PLL/layout/vco/vco_decoder/VCO2_selection/drc_run_VCO2_selection/VCO2_selection_VCO2_selection_sg13cmos5l_maximal.lyrdb
+2026-09-08 21:37:50 +0200: Memory Usage (458196K) : Evaluate switches.
+2026-09-08 21:37:50 +0200: Memory Usage (458196K) : Klayout will use  thread(s)
+2026-09-08 21:37:50 +0200: Memory Usage (458196K) : deep mode is enabled for sg13cmos5l_maximal runset.
+2026-09-08 21:37:57 +0200: Memory Usage (486836K) : KLayout DRC run for maximum ruleSet completed in 6.91 seconds

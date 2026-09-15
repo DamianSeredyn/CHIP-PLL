@@ -1,12 +1,8 @@
-** sch_path: /foss/designs/CHIP-PLL/PFD/PFD_passgate.sch
-**.subckt PFD_passgate in_n vp A B gnd in_p
-*.ipin in_n
-*.ipin in_p
-*.iopin vp
-*.iopin gnd
-*.iopin B
-*.iopin A
-XM4 B in_p A A sg13_lv_pmos w=0.3u l=0.15u ng=1 m=4
-XM5 B in_n A A sg13_lv_nmos w=0.15u l=0.15u ng=1 m=4
-**.ends
-.end
+** sch_path: /foss/designs/CHIP-PLL/schematics/PFD/PFD_passgate.sch
+.subckt PFD_passgate in_n vp A B gnd in_p
+*.PININFO in_n:I in_p:I vp:B gnd:B B:B A:B
+MM4 B in_p A net1 sg13_lv_pmos w=0.3u l=0.15u ng=1
+MM5 B in_n A net2 sg13_lv_nmos w=0.3u l=0.15u ng=1
+RR1 vp net1 ntap1 A=6.084e-13 P=3.12e-06
+RR2 gnd net2 ptap1 A=6.084e-13 P=3.12e-06
+.ends

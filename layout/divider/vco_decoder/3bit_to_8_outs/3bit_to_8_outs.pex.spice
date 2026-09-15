@@ -1,0 +1,271 @@
+* PEX produced on Fri Sep  4 12:06:08 AM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
+* NGSPICE file created from 3bit_to_8_outs.ext - technology: ihp-sg13g2
+
+.subckt x3bit_to_8_outs coarse_5 coarse_4 coarse_3 coarse_2 coarse_0 coarse_1 c2 c1
++ c0 coarse_7 coarse_6 VP gd
+X0 a_2670_4691# c2_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X1 VP c1 NAND_3in_6.y VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X2 c2_n c2 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X3 coarse_5 NAND_3in_3.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X4 a_2206_4691# c1_n a_1990_4691# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X5 NAND_3in_6.y c0_n VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X6 coarse_7 NAND_3in_0.y VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X7 NAND_3in_6.y c2_n VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X8 coarse_0 NAND_3in_5.y VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X9 VP c1 NAND_3in_7.y VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X10 a_2886_4373# c1 a_2670_4373# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X11 NAND_3in_6.y c0_n a_2886_4373# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X12 c2_n c2 VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X13 coarse_5 NAND_3in_3.y VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X14 coarse_6 NAND_3in_1.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X15 coarse_0 NAND_3in_5.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X16 NAND_3in_4.y c0_n a_2206_3047# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X17 a_2670_4373# c2_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X18 a_1990_3047# c2 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X19 a_2206_4373# c1 a_1990_4373# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X20 coarse_3 NAND_3in_7.y VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X21 NAND_3in_4.y c0_n VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X22 NAND_3in_4.y c2 VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X23 NAND_3in_0.y c0 a_2206_2729# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X24 a_2886_3047# c1_n a_2670_3047# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X25 a_1990_2729# c2 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X26 coarse_6 NAND_3in_1.y VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X27 coarse_3 NAND_3in_7.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X28 NAND_3in_3.y c0 a_2886_3047# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X29 c0_n c0 VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X30 coarse_1 NAND_3in_2.y VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X31 a_2670_3047# c2 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X32 a_2206_3047# c1_n a_1990_3047# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X33 coarse_1 NAND_3in_2.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X34 VP c1_n NAND_3in_3.y VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X35 c0_n c0 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X36 NAND_3in_3.y c0 VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X37 a_2886_2729# c1 a_2670_2729# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X38 NAND_3in_1.y c0_n a_2886_2729# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X39 NAND_3in_0.y c0 VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X40 NAND_3in_5.y c0_n VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X41 NAND_3in_3.y c2 VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X42 NAND_3in_0.y c2 VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X43 c1_n c1 VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X44 coarse_2 NAND_3in_6.y VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X45 VP c1_n NAND_3in_4.y VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X46 a_2670_2729# c2 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X47 NAND_3in_5.y c2_n VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X48 coarse_4 NAND_3in_4.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X49 a_2206_2729# c1 a_1990_2729# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X50 NAND_3in_5.y c0_n a_2206_4691# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X51 a_1990_4691# c2_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X52 coarse_2 NAND_3in_6.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X53 c1_n c1 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X54 NAND_3in_7.y c0 VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X55 VP c1 NAND_3in_1.y VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X56 NAND_3in_1.y c0_n VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X57 VP c1_n NAND_3in_2.y VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X58 coarse_4 NAND_3in_4.y VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X59 coarse_7 NAND_3in_0.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X60 NAND_3in_2.y c0 VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X61 NAND_3in_7.y c2_n VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X62 NAND_3in_1.y c2 VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X63 NAND_3in_2.y c2_n VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X64 VP c1 NAND_3in_0.y VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X65 VP c1_n NAND_3in_5.y VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X66 a_2886_4691# c1_n a_2670_4691# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X67 NAND_3in_2.y c0 a_2886_4691# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X68 NAND_3in_7.y c0 a_2206_4373# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X69 a_1990_4373# c2_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+C0 a_2670_4373# a_2886_4373# 0.02238f
+C1 c0 c1 6.58794f
+C2 NAND_3in_2.y a_2670_4691# 0.01087f
+C3 c2_n VP 0.52032f
+C4 coarse_1 NAND_3in_5.y 0.65208f
+C5 coarse_3 coarse_0 0.04504f
+C6 c0_n a_2206_4691# 0.01039f
+C7 VP NAND_3in_0.y 0.48189f
+C8 coarse_2 NAND_3in_7.y 0.65208f
+C9 NAND_3in_6.y a_2886_4373# 0.06651f
+C10 NAND_3in_4.y a_2670_3047# 0.01403f
+C11 VP NAND_3in_2.y 0.5009f
+C12 NAND_3in_1.y c2 0.52425f
+C13 c2_n NAND_3in_7.y 2.06995f
+C14 a_2670_3047# NAND_3in_3.y 0.01087f
+C15 coarse_2 m2_3309_4034# 0.17579f
+C16 c1_n c2 0.98377f
+C17 c2_n NAND_3in_5.y 2.06966f
+C18 c0 c2 0.45356f
+C19 NAND_3in_5.y a_2670_4691# 0.01403f
+C20 coarse_5 c2 0.01131f
+C21 a_1990_4691# a_2206_4691# 0.02238f
+C22 c0 c1_n 2.52554f
+C23 NAND_3in_6.y c0_n 0.54004f
+C24 a_1990_3047# a_2206_3047# 0.02238f
+C25 VP NAND_3in_7.y 0.48557f
+C26 NAND_3in_2.y NAND_3in_5.y 0.36477f
+C27 NAND_3in_6.y NAND_3in_3.y 0.10377f
+C28 VP NAND_3in_5.y 0.48265f
+C29 m2_3309_3376# NAND_3in_3.y 0.2121f
+C30 a_2886_2729# NAND_3in_1.y 0.06651f
+C31 NAND_3in_1.y a_2670_2729# 0.01087f
+C32 NAND_3in_4.y a_2206_3047# 0.07661f
+C33 NAND_3in_6.y c1 0.59599f
+C34 coarse_3 coarse_2 0.4315f
+C35 a_2670_3047# a_2886_3047# 0.02238f
+C36 a_2670_2729# c2 0.0131f
+C37 a_2670_3047# c2 0.0131f
+C38 coarse_4 VP 0.37928f
+C39 NAND_3in_7.y NAND_3in_5.y 0.17759f
+C40 NAND_3in_1.y coarse_6 0.41505f
+C41 coarse_6 c2 0.01131f
+C42 m2_3309_5020# m2_3581_5020# 0.01344f
+C43 coarse_4 m2_3581_3376# 0.17552f
+C44 coarse_7 coarse_6 0.4315f
+C45 m2_3581_2390# coarse_7 0.17552f
+C46 a_2206_2729# a_1990_2729# 0.02238f
+C47 coarse_6 coarse_5 0.04313f
+C48 coarse_3 VP 0.37928f
+C49 c0_n c2_n 1.80627f
+C50 NAND_3in_4.y c2_n 0.07444f
+C51 a_2886_2729# a_2670_2729# 0.02238f
+C52 coarse_0 m2_3581_5020# 0.17552f
+C53 c0_n NAND_3in_0.y 0.45465f
+C54 NAND_3in_4.y NAND_3in_0.y 0.17759f
+C55 a_2886_4373# NAND_3in_7.y 0.01203f
+C56 m2_3309_3376# coarse_5 0.17579f
+C57 NAND_3in_1.y m2_3309_2390# 0.2121f
+C58 c2_n c1 0.46692f
+C59 a_1990_2729# c2 0.0131f
+C60 a_2206_4373# a_1990_4373# 0.02238f
+C61 coarse_3 NAND_3in_7.y 0.38233f
+C62 c0_n VP 1.58606f
+C63 NAND_3in_4.y VP 0.48555f
+C64 c2_n a_1990_4691# 0.01315f
+C65 NAND_3in_0.y c1 0.70372f
+C66 VP NAND_3in_3.y 0.50587f
+C67 a_2206_2729# NAND_3in_0.y 0.07661f
+C68 VP c1 0.4594f
+C69 NAND_3in_4.y m2_3581_3376# 0.17547f
+C70 c0_n NAND_3in_7.y 0.45314f
+C71 coarse_3 coarse_4 0.04163f
+C72 NAND_3in_4.y NAND_3in_7.y 0.05233f
+C73 c2_n c2 0.739f
+C74 c0_n NAND_3in_5.y 0.48759f
+C75 coarse_2 coarse_5 0.04472f
+C76 NAND_3in_6.y a_2670_4373# 0.01087f
+C77 c2_n c1_n 4.74896f
+C78 NAND_3in_1.y NAND_3in_0.y 0.36477f
+C79 c1 NAND_3in_7.y 0.70106f
+C80 c2_n c0 1.04353f
+C81 NAND_3in_0.y c2 2.07099f
+C82 c2_n a_1990_4373# 0.01315f
+C83 coarse_1 m2_3309_5020# 0.17579f
+C84 NAND_3in_4.y coarse_4 0.38233f
+C85 coarse_7 NAND_3in_0.y 0.38233f
+C86 NAND_3in_1.y VP 0.5009f
+C87 c0 NAND_3in_0.y 0.37871f
+C88 VP c2 0.42889f
+C89 coarse_6 m2_3309_2390# 0.17579f
+C90 NAND_3in_2.y c1_n 0.59595f
+C91 a_1990_4691# NAND_3in_5.y 0.02085f
+C92 m2_3581_2390# m2_3309_2390# 0.01344f
+C93 coarse_1 coarse_0 0.4315f
+C94 VP c1_n 0.53525f
+C95 c0 NAND_3in_2.y 0.54002f
+C96 coarse_7 VP 0.37873f
+C97 VP c0 1.5341f
+C98 VP coarse_5 0.21382f
+C99 a_2670_4691# a_2886_4691# 0.02238f
+C100 a_2886_2729# NAND_3in_0.y 0.01203f
+C101 NAND_3in_2.y a_2886_4691# 0.06651f
+C102 NAND_3in_7.y c1_n 0.07709f
+C103 NAND_3in_4.y a_1990_3047# 0.02085f
+C104 a_2670_2729# NAND_3in_0.y 0.01403f
+C105 c0 NAND_3in_7.y 0.41738f
+C106 c2_n a_2670_4373# 0.01312f
+C107 NAND_3in_7.y a_1990_4373# 0.02085f
+C108 c1_n NAND_3in_5.y 0.70113f
+C109 NAND_3in_2.y m2_3309_5020# 0.2121f
+C110 c0 NAND_3in_5.y 0.45239f
+C111 coarse_2 NAND_3in_6.y 0.41505f
+C112 NAND_3in_4.y c0_n 0.41745f
+C113 coarse_6 NAND_3in_0.y 0.65208f
+C114 m2_3581_2390# NAND_3in_0.y 0.17547f
+C115 NAND_3in_5.y m2_3581_5020# 0.17547f
+C116 NAND_3in_6.y c2_n 0.52425f
+C117 NAND_3in_4.y NAND_3in_3.y 0.36477f
+C118 coarse_7 coarse_4 0.04504f
+C119 VP coarse_6 0.21256f
+C120 coarse_4 coarse_5 0.4315f
+C121 coarse_0 VP 0.37873f
+C122 c0_n c1 1.86958f
+C123 NAND_3in_5.y a_2886_4691# 0.01203f
+C124 coarse_2 coarse_1 0.04313f
+C125 NAND_3in_7.y m2_3581_4034# 0.17547f
+C126 NAND_3in_5.y a_2206_4691# 0.07661f
+C127 NAND_3in_6.y NAND_3in_2.y 0.05633f
+C128 coarse_1 c2_n 0.01131f
+C129 NAND_3in_6.y VP 0.50587f
+C130 a_2670_4373# NAND_3in_7.y 0.01403f
+C131 NAND_3in_0.y a_1990_2729# 0.02085f
+C132 a_1990_3047# c2 0.0131f
+C133 m2_3309_4034# m2_3581_4034# 0.01344f
+C134 coarse_0 NAND_3in_5.y 0.38233f
+C135 NAND_3in_1.y c0_n 0.54004f
+C136 NAND_3in_4.y a_2886_3047# 0.01203f
+C137 coarse_1 NAND_3in_2.y 0.41505f
+C138 coarse_2 c2_n 0.01131f
+C139 c0_n c2 4.58879f
+C140 NAND_3in_6.y NAND_3in_7.y 0.36477f
+C141 m2_3309_3376# m2_3581_3376# 0.01344f
+C142 coarse_1 VP 0.21256f
+C143 NAND_3in_4.y c2 2.06986f
+C144 a_2886_3047# NAND_3in_3.y 0.06651f
+C145 NAND_3in_1.y NAND_3in_3.y 0.05633f
+C146 NAND_3in_7.y a_2206_4373# 0.07661f
+C147 c0_n c1_n 6.37934f
+C148 c2 NAND_3in_3.y 0.52431f
+C149 NAND_3in_4.y c1_n 0.70099f
+C150 c2_n a_2670_4691# 0.01312f
+C151 c0_n c0 2.31619f
+C152 NAND_3in_4.y c0 0.45306f
+C153 NAND_3in_4.y coarse_5 0.65208f
+C154 c1_n NAND_3in_3.y 0.59597f
+C155 NAND_3in_1.y c1 0.59595f
+C156 m2_3309_4034# NAND_3in_6.y 0.2121f
+C157 c2_n NAND_3in_0.y 0.02839f
+C158 c0 NAND_3in_3.y 0.53998f
+C159 c1 c2 4.24728f
+C160 coarse_5 NAND_3in_3.y 0.41505f
+C161 coarse_2 VP 0.21382f
+C162 coarse_3 m2_3581_4034# 0.17552f
+C163 c1 c1_n 0.90128f
+C164 c2_n NAND_3in_2.y 0.52425f
+C165 coarse_7 gd 1.70936f
+C166 coarse_6 gd 0.59487f
+C167 coarse_4 gd 0.61936f
+C168 coarse_5 gd 0.50405f
+C169 coarse_3 gd 0.61935f
+C170 coarse_2 gd 1.56686f
+C171 coarse_0 gd 0.68246f
+C172 coarse_1 gd 0.59479f
+C173 VP gd 6.89096f
+C174 m2_3581_2390# gd 0.01174f ; **FLOATING
+C175 m2_3581_3376# gd 0.01174f ; **FLOATING
+C176 m2_3581_4034# gd 0.01174f ; **FLOATING
+C177 m2_3581_5020# gd 0.01174f ; **FLOATING
+C178 a_2886_2729# gd 0.08446f
+C179 a_2670_2729# gd 0.10512f
+C180 a_2206_2729# gd 2.11086f
+C181 a_1990_2729# gd 0.10513f
+C182 a_2886_3047# gd 0.08446f
+C183 a_2670_3047# gd 0.10512f
+C184 a_2206_3047# gd 0.08448f
+C185 a_1990_3047# gd 0.10513f
+C186 a_2886_4373# gd 0.08446f
+C187 a_2670_4373# gd 0.10512f
+C188 a_2206_4373# gd 0.08448f
+C189 a_1990_4373# gd 0.10513f
+C190 a_2886_4691# gd 0.08446f
+C191 a_2670_4691# gd 0.84585f
+C192 a_2206_4691# gd 0.73238f
+C193 a_1990_4691# gd 0.75302f
+.ends
+

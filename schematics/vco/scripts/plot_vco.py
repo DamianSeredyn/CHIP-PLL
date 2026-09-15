@@ -5,21 +5,39 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import glob
 import os
+from collections import defaultdict
 
 SCRIPT_DIR  = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR    = os.path.join(SCRIPT_DIR, '../results/data')
 RESULTS_DIR = os.path.join(SCRIPT_DIR, '../results')
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
+# Tryb pomiaru KVCO wlaczany flaga --meas (przekazywana z run_vco.sh -meas)
+USE_MEAS  = '--meas'  in sys.argv[1:]
+USE_DEBUG = '--debug' in sys.argv[1:]
+
+def dbg(*args):
+    """Wypisuje komunikat debugowania na stderr tylko gdy USE_DEBUG=1."""
+    if USE_DEBUG:
+        sys.stderr.write('[DEBUG] ' + ' '.join(str(a) for a in args) + '\n')
+
+if USE_DEBUG:
+    dbg('plot_vco.py w trybie debug.')
+    dbg('USE_MEAS =', USE_MEAS)
+    dbg('DATA_DIR =', DATA_DIR)
+    dbg('RESULTS_DIR =', RESULTS_DIR)
+
 # ── Wczytanie pliku .dat (format ngspice wrdata) ───────────────────────────────
-# wrdata zapisuje: t v(out_pb)  t v(out)  t i(V2)  — 6 kolumn
+# wrdata zapisuje kolumny parami (t, wartosc). Kolejnosc sygnalow:
+#   v(out_pb), v(out), i(V2), v(x2.pgt)   -> 8 kolumn (4 pary)
+# Starszy format (bez pgt) mial 6 kolumn; obslugujemy oba.
 def load_dat(path):
     try:
         data = np.loadtxt(path, skiprows=1)
         if data.ndim < 2 or data.shape[1] < 6:
-            print(f"  [WARN] {path}: oczekiwano 6 kolumn, jest {data.shape}")
+            print(f"  [WARN] {path}: oczekiwano >=6 kolumn, jest {data.shape}")
             return None
-        return {
+        d = {
             'time_pb':  data[:, 0],
             'v_out_pb': data[:, 1],
             'time_out': data[:, 2],
@@ -27,9 +45,52 @@ def load_dat(path):
             'time_i':   data[:, 4],
             'i_v2':     data[:, 5],
         }
+        # Kolumny pgt obecne tylko w nowym formacie (tryb -meas)
+        if data.shape[1] >= 8:
+            d['time_pgt'] = data[:, 6]
+            d['v_pgt']    = data[:, 7]
+        else:
+            d['time_pgt'] = None
+            d['v_pgt']    = None
+        dbg(f'load_dat {os.path.basename(path)}: shape={data.shape}, '
+            f'pgt={"tak" if d["v_pgt"] is not None else "nie"}')
+        return d
     except Exception as e:
         print(f"  [WARN] Nie mozna odczytac {path}: {e}")
         return None
+
+
+# ── Wczytanie pliku .acdat (analiza .ac, jeden punkt 1 MHz) ────────────────────
+# wrdata dla .ac zapisuje: freq  real(i(v1))  freq  imag(i(v1))  -> 4 kolumny.
+# Zwraca (freq, re, im) lub None.
+def load_acdat(path):
+    try:
+        data = np.loadtxt(path)
+        data = np.atleast_2d(data)
+        if data.shape[1] < 4:
+            dbg(f'load_acdat {os.path.basename(path)}: za malo kolumn {data.shape}')
+            return None
+        freq = float(data[0, 0])
+        re_i = float(data[0, 1])
+        im_i = float(data[0, 3])
+        dbg(f'load_acdat {os.path.basename(path)}: f={freq:.3e} '
+            f're(i)={re_i:.3e} im(i)={im_i:.3e}')
+        return freq, re_i, im_i
+    except Exception as e:
+        dbg(f'load_acdat {os.path.basename(path)}: blad {e}')
+        return None
+
+
+# C = |Im(i(V1))| / (2*pi*f). Zwraca C w faradach lub None.
+def extract_c(acdat_path):
+    r = load_acdat(acdat_path)
+    if r is None:
+        return None
+    freq, re_i, im_i = r
+    if freq <= 0:
+        return None
+    c = abs(im_i) / (2.0 * np.pi * freq)
+    return c
 
 # ── Analiza sygnalu — ostatnie 30% symulacji ───────────────────────────────────
 def analyze_signal(time, voltage, last_fraction=0.3):
@@ -123,7 +184,7 @@ def make_plot(d, metrics, tag, out_path):
     corner, temp, vp, vin = parse_tag(tag)
 
     fig = plt.figure(figsize=(16, 10))
-    fig.suptitle(f'VCO Charakterystyka — {tag}', fontsize=13, fontweight='bold')
+    fig.suptitle(f'VCO Charakterystyka - {tag}', fontsize=13, fontweight='bold')
 
     def safe(arr):
         a = np.array(arr, dtype=np.float64)
@@ -258,6 +319,265 @@ def _color_dc(table, rows):
                 pass
 
 
+# ── KVCO: nachylenie f(out) vs Vin, grupowane po (corner, temp, vp) ─────────────
+def compute_kvco(summary):
+    """
+    Grupuje wyniki po (corner, temp, vp), sortuje po Vin i liczy KVCO:
+      - kvco_fit    : nachylenie z dopasowania liniowego po calym zakresie [Hz/V]
+      - kvco_local  : lokalne nachylenia miedzy sasiednimi punktami [Hz/V]
+    Uzywa freq_out (sygnal z bufora, czysty pelny swing).
+    """
+    groups = defaultdict(list)
+    for tag, corner, temp, vp, vin, m in summary:
+        f = m.get('freq_out')
+        if f is None:
+            continue
+        try:
+            groups[(corner, temp, vp)].append((float(vin), f))
+        except (TypeError, ValueError):
+            continue
+
+    results = {}
+    for key, pts in groups.items():
+        # usun ewentualne duplikaty Vin (ostatni wygrywa), potem sortuj
+        dedup = {}
+        for v, f in pts:
+            dedup[v] = f
+        pts = sorted(dedup.items())
+        if len(pts) < 2:
+            continue
+        v = np.array([p[0] for p in pts])
+        f = np.array([p[1] for p in pts])
+        slope, intercept = np.polyfit(v, f, 1)     # Hz/V
+        local = np.diff(f) / np.diff(v)            # Hz/V
+        results[key] = {
+            'v': v,
+            'f': f,
+            'kvco_fit': float(slope),
+            'intercept': float(intercept),
+            'kvco_local': local,
+            'v_mid': (v[:-1] + v[1:]) / 2,
+        }
+    return results
+
+
+def plot_kvco_curve(key, r, out_path):
+    corner, temp, vp = key
+    fig, (axf, axk) = plt.subplots(1, 2, figsize=(12, 5))
+    fig.suptitle(f'KVCO - {corner} T{temp}C VDD{vp}V', fontweight='bold')
+
+    # lewy panel: krzywa strojenia + linia dopasowania
+    axf.plot(r['v'], r['f']/1e6, 'o', color='royalblue', label='symulacja')
+    v_fit = np.linspace(r['v'].min(), r['v'].max(), 100)
+    f_fit = (r['kvco_fit'] * v_fit + r['intercept']) / 1e6
+    axf.plot(v_fit, f_fit, '-', color='navy', alpha=0.7,
+             label=f"fit: {r['kvco_fit']/1e6:.2f} MHz/V")
+    axf.set_xlabel('Vin [V]')
+    axf.set_ylabel('f(out) [MHz]')
+    axf.set_title('Krzywa strojenia')
+    axf.legend(fontsize=9)
+    axf.grid(True, alpha=0.3)
+
+    # prawy panel: lokalne KVCO
+    axk.plot(r['v_mid'], r['kvco_local']/1e6, 's-', color='crimson')
+    axk.set_xlabel('Vin [V]')
+    axk.set_ylabel('lokalne KVCO [MHz/V]')
+    axk.set_title('Lokalne nachylenie vs Vin')
+    axk.grid(True, alpha=0.3)
+
+    plt.tight_layout()
+    plt.savefig(out_path, dpi=150)
+    plt.close()
+
+
+def _fmt(v, scale=1.0, unit=''):
+    if v is None or not np.isfinite(v):
+        return 'N/A'
+    return f'{v*scale:.3g} {unit}'.strip()
+
+
+# ── R/C i wzmocnienia VCO: rozdzielczosc per (corner, temp, vp) ─────────────────
+def compute_rc(summary):
+    """
+    Dla kazdej grupy (corner, temp, vp) sortuje po Vin i liczy (roznice skonczone
+    miedzy sasiednimi punktami Vin, ocena w srodku przedzialu v_mid):
+
+      K       = d f_out / d Vin           [Hz/V]   (wzmocnienie napieciowe VCO)
+      gm_vco  = d i_osc / d Vin           [A/V]    (transkonduktancja V2I)
+      K_CCO   = d f_out / d i_osc         [Hz/A]   (wzmocnienie pradowe CCO)
+      r_vco   = d v_osc / d i_osc         [Ohm]    (dv amplitudy / di rdzenia)
+
+    Oraz punktowo (bez roznicy):
+      C_in(Vin)  z analizy .ac            [F]
+
+    i_osc w [A] (metrics['i_osc']), v_osc w [V] (pk-pk v(out)).
+    Punkty z brakiem danych (None/NaN) sa pomijane w roznicach; potrzeba >=2 pkt.
+    """
+    groups = defaultdict(list)
+    for tag, corner, temp, vp, vin, m in summary:
+        try:
+            vinf = float(vin)
+        except (TypeError, ValueError):
+            continue
+        groups[(corner, temp, vp)].append({
+            'vin':   vinf,
+            'f':     m.get('freq_out'),
+            'i_osc': m.get('i_osc'),
+            'v_osc': m.get('v_osc'),
+            'v_pgt': m.get('v_pgt'),
+            'c_in':  m.get('c_in'),
+        })
+
+    results = {}
+    for key, pts in groups.items():
+        dd = {}
+        for p in pts:
+            dd[p['vin']] = p
+        pts = [dd[k] for k in sorted(dd)]
+
+        vin = np.array([p['vin'] for p in pts], dtype=float)
+
+        def col(name):
+            return np.array([np.nan if p[name] is None else float(p[name])
+                             for p in pts], dtype=float)
+
+        f     = col('f')
+        i_osc = col('i_osc')
+        v_osc = col('v_osc')
+        v_pgt = col('v_pgt')
+        c_in  = col('c_in')
+
+        dbg(f'compute_rc {key}: vin={vin.tolist()}')
+        dbg(f'   f     ={f.tolist()}')
+        dbg(f'   i_osc ={i_osc.tolist()}')
+        dbg(f'   v_osc ={v_osc.tolist()}')
+        dbg(f'   c_in  ={c_in.tolist()}')
+
+        v_mid = (vin[:-1] + vin[1:]) / 2.0
+
+        def safe_diff_ratio(num, den):
+            dn = np.diff(num)
+            dd_ = np.diff(den)
+            with np.errstate(divide='ignore', invalid='ignore'):
+                out = dn / dd_
+            out[~np.isfinite(out)] = np.nan
+            return out
+
+        K     = safe_diff_ratio(f,     vin)     # Hz/V
+        gm    = safe_diff_ratio(i_osc, vin)     # A/V
+        k_cco = safe_diff_ratio(f,     i_osc)   # Hz/A
+        r_vco = safe_diff_ratio(v_osc, i_osc)   # Ohm
+
+        def rep(a):
+            a = a[np.isfinite(a)]
+            return float(np.median(a)) if a.size else None
+
+        results[key] = {
+            'vin':   vin, 'v_mid': v_mid,
+            'f': f, 'i_osc': i_osc, 'v_osc': v_osc, 'v_pgt': v_pgt, 'c_in': c_in,
+            'K': K, 'gm': gm, 'k_cco': k_cco, 'r_vco': r_vco,
+            'K_rep':     rep(K),
+            'gm_rep':    rep(gm),
+            'k_cco_rep': rep(k_cco),
+            'r_vco_rep': rep(r_vco),
+            'c_in_rep':  rep(c_in),
+        }
+    return results
+
+
+def plot_rc_curves(key, r, out_path):
+    corner, temp, vp = key
+    fig, axes = plt.subplots(2, 3, figsize=(16, 9))
+    fig.suptitle(f'VCO R/C i wzmocnienia - {corner} T{temp}C VDD{vp}V',
+                 fontweight='bold')
+
+    vm = r['v_mid']
+    vin = r['vin']
+
+    def plot_ax(ax, x, y, ylabel, title, color, scale=1.0, marker='o-'):
+        yy = np.array(y, dtype=float) * scale
+        ax.plot(x, yy, marker, color=color)
+        ax.set_xlabel('Vin [V]')
+        ax.set_ylabel(ylabel)
+        ax.set_title(title)
+        ax.grid(True, alpha=0.3)
+
+    plot_ax(axes[0, 0], vm, r['K'], 'K [Hz/V]',
+            f"K (df/dVin), med={_fmt(r['K_rep'],1,'Hz/V')}", 'navy', 1)
+    plot_ax(axes[0, 1], vm, r['gm'], 'gm [mA/V]',
+            f"gm_vco (di/dVin), med={_fmt(r['gm_rep'],1e3,'mA/V')}", 'teal', 1e3)
+    # Hz/A -> THz/A : scale 1e-12
+    plot_ax(axes[0, 2], vm, r['k_cco'], 'K_CCO [THz/A]',
+            f"K_CCO (df/di), med={_fmt(r['k_cco_rep'],1e-12,'THz/A')}",
+            'purple', 1e-12)
+    plot_ax(axes[1, 0], vm, r['r_vco'], 'r_vco [kOhm]',
+            f"r_vco (dv_osc/di), med={_fmt(r['r_vco_rep'],1e-3,'kOhm')}",
+            'crimson', 1e-3)
+    plot_ax(axes[1, 1], vin, r['c_in'], 'C_in [fF]',
+            f"C_in @1MHz, med={_fmt(r['c_in_rep'],1e15,'fF')}",
+            'darkorange', 1e15)
+
+    ax = axes[1, 2]
+    ax.plot(vin, np.array(r['v_osc'], dtype=float), 'o-', color='royalblue',
+            label='v_osc pk-pk')
+    ax.set_xlabel('Vin [V]')
+    ax.set_ylabel('v_osc [V]', color='royalblue')
+    ax.tick_params(axis='y', labelcolor='royalblue')
+    ax.grid(True, alpha=0.3)
+    ax2 = ax.twinx()
+    ax2.plot(vin, np.array(r['i_osc'], dtype=float)*1e3, 's--', color='green',
+             label='i_osc')
+    ax2.set_ylabel('i_osc [mA]', color='green')
+    ax2.tick_params(axis='y', labelcolor='green')
+    ax.set_title('Amplituda v(out) i prad rdzenia')
+
+    plt.tight_layout()
+    plt.savefig(out_path, dpi=150)
+    plt.close()
+
+
+
+
+# ── Metryki duzosygnalowe w oknie ustalonym (ostatnie last_fraction) ────────────
+def settled_metrics(d, last_fraction=0.3):
+    """
+    Liczy w oknie ustalonym:
+      i_osc   [A]  = srednia z i(V2) (prad rdzenia; znak: pobierany z VDD > 0)
+      v_osc   [V]  = amplituda peak-peak v(out) (amplituda na inwerterach)
+      v_pgt   [V]  = srednia v(x2.pgt) (wezel lustra; do debugu/referencji)
+    Zwraca slownik z tymi wartosciami (None gdy brak danych).
+    """
+    out = {'i_osc': None, 'v_osc': None, 'v_pgt': None}
+    if d is None:
+        return out
+
+    # i_osc ze sladu i(V2)
+    t_i = d['time_i']
+    i_v2 = d['i_v2']
+    t0 = t_i[-1] * (1.0 - last_fraction)
+    m = t_i >= t0
+    if np.any(m):
+        out['i_osc'] = float(-np.mean(i_v2[m]))   # A, dodatni = pobór z VDD
+
+    # v_osc jako pk-pk v(out) w oknie ustalonym
+    t_o = d['time_out']
+    v_o = d['v_out']
+    m2 = t_o >= (t_o[-1] * (1.0 - last_fraction))
+    if np.any(m2):
+        seg = v_o[m2]
+        out['v_osc'] = float(seg.max() - seg.min())   # V, peak-peak
+
+    # v_pgt srednia (jesli dostepne)
+    if d.get('v_pgt') is not None:
+        t_p = d['time_pgt']
+        v_p = d['v_pgt']
+        m3 = t_p >= (t_p[-1] * (1.0 - last_fraction))
+        if np.any(m3):
+            out['v_pgt'] = float(np.mean(v_p[m3]))
+
+    return out
+
+
 # ── Glowna petla ───────────────────────────────────────────────────────────────
 dat_files = sorted(glob.glob(os.path.join(DATA_DIR, 'vco_*.dat')))
 if not dat_files:
@@ -291,6 +611,28 @@ for idx, filepath in enumerate(dat_files, 1):
             'i_max_v2': i_max,
         }
 
+        # Metryki dla ekstrakcji R/C (tylko potrzebne w -meas, ale liczymy zawsze
+        # jesli dane sa dostepne; sa tanie).
+        sm = settled_metrics(d)
+        metrics['i_osc'] = sm['i_osc']    # A (srednia i(V2) w oknie ustalonym)
+        metrics['v_osc'] = sm['v_osc']    # V (pk-pk v(out))
+        metrics['v_pgt'] = sm['v_pgt']    # V (srednia v(x2.pgt), debug/ref)
+
+        # C z analizy .ac (tylko gdy -meas i istnieje plik .acdat)
+        if USE_MEAS:
+            acdat = filepath[:-4] + '.acdat'   # vco_<tag>.dat -> vco_<tag>.acdat
+            if os.path.isfile(acdat):
+                c_val = extract_c(acdat)
+                metrics['c_in'] = c_val       # F
+                dbg(f'{tag}: C_in = {c_val}')
+            else:
+                metrics['c_in'] = None
+                dbg(f'{tag}: brak {os.path.basename(acdat)} - C_in=None')
+
+        if USE_DEBUG:
+            dbg(f'{tag}: f_out={freq_out}, i_osc={sm["i_osc"]}, '
+                f'v_osc(pkpk)={sm["v_osc"]}, v_pgt={sm["v_pgt"]}')
+
     out_png = os.path.join(RESULTS_DIR, f'vco_{tag}.png')
     try:
         make_plot(d, metrics, tag, out_png)
@@ -303,10 +645,39 @@ for idx, filepath in enumerate(dat_files, 1):
 
     summary.append((tag, corner, temp, vp, vin, metrics))
 
-print()  # nowa linia po zakończeniu pętli
+print()  # nowa linia po zakonczeniu petli
 
 corner_order = {'mos_tt': 0, 'mos_ss': 1, 'mos_ff': 2, 'mos_sf': 3, 'mos_fs': 4}
 summary.sort(key=lambda x: (corner_order.get(x[1], 99), float(x[4]), float(x[2]), float(x[3])))
+
+# ── KVCO: obliczenie i wykresy per grupa (corner, temp, vp) ─────────────────────
+# Tylko w trybie -meas. Bez niego kvco pozostaje puste i sekcje KVCO sa pomijane.
+kvco = {}
+rc = {}
+if USE_MEAS:
+    kvco = compute_kvco(summary)
+    for key, r in sorted(kvco.items()):
+        corner, temp, vp = key
+        png = os.path.join(RESULTS_DIR, f'kvco_{corner}_T{temp}_Vp{vp}.png')
+        try:
+            plot_kvco_curve(key, r, png)
+        except Exception as e:
+            sys.stderr.write(f"  [WARN] Blad wykresu KVCO {key}: {e}\n")
+            plt.close('all')
+
+    # R/C i wzmocnienia (K, gm_vco, K_CCO, r_vco) + C_in
+    rc = compute_rc(summary)
+    for key, r in sorted(rc.items()):
+        corner, temp, vp = key
+        png = os.path.join(RESULTS_DIR, f'rc_{corner}_T{temp}_Vp{vp}.png')
+        try:
+            plot_rc_curves(key, r, png)
+        except Exception as e:
+            sys.stderr.write(f"  [WARN] Blad wykresu R/C {key}: {e}\n")
+            if USE_DEBUG:
+                import traceback
+                traceback.print_exc()
+            plt.close('all')
 
 
 # ── HTML ───────────────────────────────────────────────────────────────────────
@@ -355,7 +726,7 @@ for tag, corner, temp, vp, vin, m in summary:
         if current_corner_t == corner:
             print(f'  -- Vin = {vin} V --')
     row = [
-        f'{temp}°C',
+        f'{temp}C',
         f'{vp}V',
         f'{vin}V',
         fmth(m.get('freq_out'), 1e-6, 'MHz', 3),
@@ -370,8 +741,47 @@ for tag, corner, temp, vp, vin, m in summary:
     print('  ' + _row_str(row))
 print()
 
+# ── Terminal KVCO summary ──────────────────────────────────────────────────────
+if kvco:
+    print("\nKVCO (dopasowanie liniowe po calym zakresie Vin):")
+    for (corner, temp, vp), r in sorted(kvco.items()):
+        print(f"  {corner} T{temp}C VDD{vp}V: "
+              f"KVCO = {r['kvco_fit']/1e6:8.2f} MHz/V  "
+              f"(f: {r['f'].min()/1e6:.1f} - {r['f'].max()/1e6:.1f} MHz, "
+              f"{len(r['v'])} pkt)")
+    print()
+
+# ── Terminal R/C summary ───────────────────────────────────────────────────────
+if rc:
+    print("\nParametry R/C VCO (mediana po sweepie Vin):")
+    print("  {:<26} {:>12} {:>12} {:>14} {:>12} {:>10}".format(
+        'corner/T/VDD', 'K[Hz/V]', 'gm[mA/V]', 'K_CCO[THz/A]',
+        'r_vco[kOhm]', 'C[fF]'))
+    print("  " + "-" * 90)
+    for (corner, temp, vp), r in sorted(rc.items()):
+        def s(v, sc, fmt='.3g'):
+            return f'{v*sc:{fmt}}' if (v is not None and np.isfinite(v)) else 'N/A'
+        print("  {:<26} {:>12} {:>12} {:>14} {:>12} {:>10}".format(
+            f'{corner} T{temp} {vp}V',
+            s(r['K_rep'],     1),      # Hz/V
+            s(r['gm_rep'],    1e3),    # mA/V  (A/V * 1e3)
+            s(r['k_cco_rep'], 1e-12),  # THz/A (Hz/A * 1e-12)
+            s(r['r_vco_rep'], 1e-3),   # kOhm
+            s(r['c_in_rep'],  1e15),   # fF
+        ))
+    print()
+    print("  Uwaga: K = df/dVin [Hz/V], gm = di_osc/dVin [mA/V],")
+    print("         K_CCO = df/di_osc [THz/A], r_vco = dv_osc(pk-pk)/di_osc [kOhm],")
+    print("         C = |Im(i(V1))|/(2pi f) @1MHz [fF].")
+    print("         Wartosci to mediana lokalnych roznic po sweepie Vin.")
+    print()
+
 # ── HTML tabs ──────────────────────────────────────────────────────────────────
 html_tabs = '<button class="tab active" onclick="showTab(\'summary\', this)">Podsumowanie</button>\n'
+if kvco:
+    html_tabs += '<button class="tab" onclick="showTab(\'kvco\', this)">KVCO</button>\n'
+if rc:
+    html_tabs += '<button class="tab" onclick="showTab(\'rc\', this)">R/C</button>\n'
 for tag, corner, temp, vp, vin, _ in summary:
     label = f'{corner} T{temp} {vp}V Vin{vin}V'
     html_tabs += f'<button class="tab" onclick="showTab(\'{tag}\', this)">{label}</button>\n'
@@ -391,7 +801,7 @@ for tag, corner, temp, vp, vin, m in summary:
     dc_out = m.get('dc_out')
     dc_pb  = m.get('dc_pb')
     summary_rows += f'''<tr>
-        <td>{temp} °C</td><td>{vp} V</td><td>{vin} V</td>
+        <td>{temp} C</td><td>{vp} V</td><td>{vin} V</td>
         <td>{fmth(m.get("freq_out"), 1e-6, "MHz", 3)}</td>
         <td>{fmth(m.get("freq_pb"),  1e-6, "MHz", 3)}</td>
         <td>{fmth(m.get("tr_pb"),    1,    "ps",  1)}</td>
@@ -404,7 +814,7 @@ for tag, corner, temp, vp, vin, m in summary:
 
 html_summary_panel = f'''
 <div id="summary" class="panel active">
-    <h2>Podsumowanie — VCO po cornerach</h2>
+    <h2>Podsumowanie - VCO po cornerach</h2>
     <table class="summary">
         <thead><tr>
             <th>TEMP</th><th>VDD</th><th>Vin</th>
@@ -416,10 +826,94 @@ html_summary_panel = f'''
         <tbody>{summary_rows}</tbody>
     </table>
     <div class="legend">
-        <span class="leg-ok">&#9632; DC OK (&lt;±5% od 50%)</span>
-        <span class="leg-warn">&#9632; DC ostrzezenie (&gt;±5%)</span>
-        <span class="leg-err">&#9632; DC przekroczenie (&gt;±10%)</span>
+        <span class="leg-ok">&#9632; DC OK (&lt;5% od 50%)</span>
+        <span class="leg-warn">&#9632; DC ostrzezenie (&gt;5%)</span>
+        <span class="leg-err">&#9632; DC przekroczenie (&gt;10%)</span>
     </div>
+</div>'''
+
+# ── HTML KVCO panel ────────────────────────────────────────────────────────────
+html_kvco_panel = ''
+if kvco:
+    kvco_rows = ''
+    kvco_imgs = ''
+    for (corner, temp, vp), r in sorted(kvco.items()):
+        kvco_rows += f'''<tr>
+            <td>{corner}</td><td>{temp} C</td><td>{vp} V</td>
+            <td><b>{r['kvco_fit']/1e6:.2f}</b></td>
+            <td>{r['f'].min()/1e6:.2f}</td>
+            <td>{r['f'].max()/1e6:.2f}</td>
+            <td>{len(r['v'])}</td>
+        </tr>'''
+        png_name = f'kvco_{corner}_T{temp}_Vp{vp}.png'
+        kvco_imgs += f'''<div class="card">
+            <h3>{corner} - T={temp}C - VDD={vp}V</h3>
+            <img src="{png_name}" style="max-width:100%">
+        </div>'''
+
+    html_kvco_panel = f'''
+<div id="kvco" class="panel">
+    <h2>KVCO - wzmocnienie strojenia VCO</h2>
+    <table class="summary">
+        <thead><tr>
+            <th>Corner</th><th>TEMP</th><th>VDD</th>
+            <th>KVCO [MHz/V]</th><th>f<sub>min</sub> [MHz]</th>
+            <th>f<sub>max</sub> [MHz]</th><th>Punkty</th>
+        </tr></thead>
+        <tbody>{kvco_rows}</tbody>
+    </table>
+    <p style="font-size:13px;color:#555;margin-top:10px">
+        KVCO liczone jako nachylenie dopasowania liniowego f(out) vs Vin
+        po calym zakresie sweepa. Krzywe strojenia ponizej pokazuja tez
+        lokalne nachylenie (liniowosc strojenia).
+    </p>
+    {kvco_imgs}
+</div>'''
+
+# ── HTML R/C panel ─────────────────────────────────────────────────────────────
+html_rc_panel = ''
+if rc:
+    def sc(v, scale):
+        return f'{v*scale:.3g}' if (v is not None and np.isfinite(v)) else 'N/A'
+    rc_rows = ''
+    rc_imgs = ''
+    for (corner, temp, vp), r in sorted(rc.items()):
+        rc_rows += f'''<tr>
+            <td>{corner}</td><td>{temp} C</td><td>{vp} V</td>
+            <td><b>{sc(r['K_rep'], 1)}</b></td>
+            <td>{sc(r['gm_rep'], 1e3)}</td>
+            <td>{sc(r['k_cco_rep'], 1e-12)}</td>
+            <td>{sc(r['r_vco_rep'], 1e-3)}</td>
+            <td>{sc(r['c_in_rep'], 1e15)}</td>
+        </tr>'''
+        png_name = f'rc_{corner}_T{temp}_Vp{vp}.png'
+        rc_imgs += f'''<div class="card">
+            <h3>{corner} - T={temp}C - VDD={vp}V</h3>
+            <img src="{png_name}" style="max-width:100%">
+        </div>'''
+
+    html_rc_panel = f'''
+<div id="rc" class="panel">
+    <h2>R/C i wzmocnienia VCO</h2>
+    <table class="summary">
+        <thead><tr>
+            <th>Corner</th><th>TEMP</th><th>VDD</th>
+            <th>K [Hz/V]</th><th>gm [mA/V]</th>
+            <th>K<sub>CCO</sub> [THz/A]</th><th>r<sub>vco</sub> [kOhm]</th>
+            <th>C [fF]</th>
+        </tr></thead>
+        <tbody>{rc_rows}</tbody>
+    </table>
+    <p style="font-size:13px;color:#555;margin-top:10px">
+        Definicje: K = df/dVin [Hz/V], gm = di<sub>osc</sub>/dVin [mA/V],
+        K<sub>CCO</sub> = df/di<sub>osc</sub> [THz/A],
+        r<sub>vco</sub> = dv<sub>osc</sub>(pk-pk)/di<sub>osc</sub> [kOhm].
+        i<sub>osc</sub> = srednia i(V2) (prad rdzenia), v<sub>osc</sub> = amplituda
+        pk-pk v(out). C z analizy .ac: C = |Im(i(V1))| / (2&pi;f) przy f = 1 MHz.
+        Wartosci w tabeli to mediana lokalnych roznic po sweepie Vin; krzywe
+        ponizej pokazuja zaleznosc od Vin.
+    </p>
+    {rc_imgs}
 </div>'''
 
 html_detail_panels = ''
@@ -428,7 +922,7 @@ for tag, corner, temp, vp, vin, m in summary:
     freq_out = m.get('freq_out')
     color = '#2a2' if freq_out else 'gray'
     inner = f'''
-    <h2>{corner} — T={temp}°C — VDD={vp}V — Vin={vin}V</h2>
+    <h2>{corner} - T={temp}C - VDD={vp}V - Vin={vin}V</h2>
     <div class="card">
         <h3>f<sub>out</sub> = <span style="color:{color};font-weight:bold">
         {fmth(freq_out, 1e-6, "MHz", 3)}</span></h3>
@@ -504,6 +998,8 @@ html = f'''<!DOCTYPE html>
 {html_tabs}
 </div>
 {html_summary_panel}
+{html_kvco_panel}
+{html_rc_panel}
 {html_detail_panels}
 <script>
 function showTab(id, btn) {{

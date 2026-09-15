@@ -1,0 +1,47 @@
+* PEX produced on Fri Aug 28 03:48:45 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
+* NGSPICE file created from XNOR.ext - technology: ihp-sg13cmos5l
+
+.subckt XNOR y GND VP a b
+X0 a_1354_n176# a_622_n917# y VP sg13_lv_pmos ad=0.114p pd=0.98u as=0.204p ps=1.88u w=0.6u l=0.13u
+X1 a_940_n917# a_622_n917# GND GND sg13_lv_nmos ad=55.5f pd=0.74u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X2 a_266_n917# a VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X3 y b a_938_n176# VP sg13_lv_pmos ad=0.204p pd=1.88u as=0.114p ps=0.98u w=0.6u l=0.13u
+X4 a_622_n917# b GND GND sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X5 a_1348_n917# a_266_n917# y GND sg13_lv_nmos ad=55.5f pd=0.74u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X6 a_622_n917# b VP VP sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X7 y a a_940_n917# GND sg13_lv_nmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.13u
+X8 VP a_266_n917# a_1354_n176# VP sg13_lv_pmos ad=0.204p pd=1.88u as=0.114p ps=0.98u w=0.6u l=0.13u
+X9 GND b a_1348_n917# GND sg13_lv_nmos ad=0.1005p pd=1.34u as=55.5f ps=0.74u w=0.15u l=0.13u
+X10 a_938_n176# a VP VP sg13_lv_pmos ad=0.114p pd=0.98u as=0.204p ps=1.88u w=0.6u l=0.13u
+X11 a_266_n917# a GND GND sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+C0 a_622_n917# y 0.26207f
+C1 VP a_266_n917# 0.36867f
+C2 VP y 0.15302f
+C3 a b 0.40448f
+C4 a_622_n917# b 1.14927f
+C5 VP b 0.50305f
+C6 a a_940_n917# 0.01014f
+C7 VP a_1354_n176# 0.09529f
+C8 a_622_n917# a 0.44998f
+C9 y a_266_n917# 0.19153f
+C10 VP a 0.47731f
+C11 y a_1348_n917# 0.04319f
+C12 VP a_938_n176# 0.09529f
+C13 a_622_n917# VP 0.53214f
+C14 b a_266_n917# 0.98683f
+C15 a_1354_n176# a_266_n917# 0.01178f
+C16 y b 0.32562f
+C17 y a_1354_n176# 0.07825f
+C18 a a_266_n917# 0.97793f
+C19 y a 0.0863f
+C20 y a_940_n917# 0.04296f
+C21 y a_938_n176# 0.07813f
+C22 a_622_n917# a_266_n917# 0.2366f
+C23 y GND 1.58179f
+C24 VP GND 0.83035f
+C25 a_1348_n917# GND 0.72481f
+C26 a_940_n917# GND 0.06565f
+C27 a_1354_n176# GND 0.26728f
+C28 a_938_n176# GND 0.35024f
+.ends
+
