@@ -171,7 +171,7 @@ tclcommand="xschem raw_read $netlist_dir/PFD_tb.raw tran"
 C {devices/vsource.sym} -640 -90 0 0 {name=Vp value="dc \{Vp\}"}
 C {/foss/designs/CHIP-PLL/schematics/misc/buffer_hv.sym} -280 -80 0 0 {name=x2}
 C {lab_wire.sym} -450 -80 0 0 {name=p5 sig_type=std_logic lab=CRef_prebuf}
-C {PFD_cell_2.sym} -40 -50 0 0 {name=x1}
+C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_cell_2.sym} -40 -50 0 0 {name=x1}
 C {lab_wire.sym} 150 -160 0 0 {name=p7 sig_type=std_logic lab=vp
 }
 C {/foss/designs/CHIP-PLL/schematics/charge_pump/charge_pump_cell.sym} 480 -50 0 0 {name=x3}

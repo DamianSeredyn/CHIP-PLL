@@ -17,13 +17,13 @@ C {lab_pin.sym} 230 120 0 0 {name=p4 sig_type=std_logic lab=gd}
 C {lab_pin.sym} 50 230 0 0 {name=p3 sig_type=std_logic lab=gd}
 C {ipin.sym} 280 190 0 0 {name=gd lab=gd}
 C {res.sym} 50 50 0 0 {name=R1
-value=100k
+value=50k
 footprint=1206
 device=resistor
 m=1}
 C {capa.sym} 50 120 0 0 {name=C1
 m=1
-value=10p
+value=1p
 footprint=1206
 device="ceramic capacitor"}
 C {capa.sym} 230 60 0 0 {name=C2
