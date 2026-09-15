@@ -25,6 +25,12 @@
 # (the golden table has a distinct Vco5-11 entry). Until the .sch is fixed,
 # VCO5-11 codes cannot be independently verified — the report flags this.
 #
+# NOTE: like run_sweep_pdiv_optimized.sh, this script consumes an ALREADY
+# NETLISTED .spice file — it does not invoke xschem itself. Netlist
+# VCO_decoder_tb.sch to VCO_decoder_tb.spice yourself (xschem batch mode,
+# or File > Netlist) and drop it in simulations/, or point at it directly
+# with --spice <path>.
+#
 # File naming: vcodec_<corner>_T<temp>_Vp<vp>.dat
 #
 # Place in vco_decoder/scripts/ and run from there (mirrors divider/scripts/).
@@ -44,7 +50,7 @@ source $ROOT_DIR/configs/corner_data
 FILTER_CORNERS=""
 FILTER_TEMPS=""
 FILTER_VPS=""
-SCH_OVERRIDE=""
+SPICE_OVERRIDE=""
 
 resolve_var() {
     local name="$1"
@@ -83,15 +89,15 @@ while [[ $# -gt 0 ]]; do
             [[ $# -eq 0 || "$1" == -* ]] && { echo "Error: -v requires a value"; exit 1; }
             while [[ $# -gt 0 && "$1" != -* ]]; do FILTER_VPS="$FILTER_VPS $(resolve_var "$1")"; shift; done
             ;;
-        --sch)
+        --spice)
             shift
-            [[ $# -eq 0 ]] && { echo "Error: --sch requires a path"; exit 1; }
-            SCH_OVERRIDE="$1"
+            [[ $# -eq 0 ]] && { echo "Error: --spice requires a path"; exit 1; }
+            SPICE_OVERRIDE="$1"
             shift
             ;;
         -h|--help)
             sed -n '/^# ===/,/^# ===/p' "$0" | sed 's/^# \?//' | head -40
-            echo "Extra option: --sch <path>   override path to VCO_decoder_tb.sch"
+            echo "Extra option: --spice <path>   override path to the netlisted VCO_decoder_tb.spice"
             exit 0
             ;;
         *)
@@ -127,39 +133,20 @@ fi
 
 # ── Configuration ──────────────────────────────────────────────────────────────
 SIM_NAME="vcodec"
-SCH="${SCH_OVERRIDE:-$DECODER_DIR/simulations/VCO_decoder_tb.sch}"
-NETLIST_DIR="$DECODER_DIR/simulations"
-NETLIST="$NETLIST_DIR/VCO_decoder_tb.spice"
+NETLIST="${SPICE_OVERRIDE:-$DECODER_DIR/simulations/VCO_decoder_tb.spice}"
 DATA_DIR=$DECODER_DIR/results/data
 RESULTS_DIR=$DECODER_DIR/results
 
 TSTEP="50p"
 TSTOP="801n"     # 512 codes * 1.5625ns tick + margin
 
-if [[ ! -f "$SCH" ]]; then
-    echo "Error: schematic not found: $SCH"
-    echo "Pass its location with --sch <path> if your layout differs."
+# ── Load an already-netlisted .spice file (same convention as
+#    run_sweep_pdiv_optimized.sh / pdiv_sym_tb.spice — no xschem call here) ────
+if [[ ! -f "$NETLIST" ]]; then
+    echo "Error: netlist not found: $NETLIST"
+    echo "Netlist VCO_decoder_tb.sch to VCO_decoder_tb.spice first (xschem batch"
+    echo "mode or File > Netlist), or point at it with --spice <path>."
     exit 1
-fi
-
-# ── Netlist the schematic with xschem (batch mode) if needed ──────────────────
-# Re-netlist whenever the .sch is newer than any existing .spice, or the
-# .spice is simply missing.
-if [[ ! -f "$NETLIST" || "$SCH" -nt "$NETLIST" ]]; then
-    if ! command -v xschem &>/dev/null; then
-        echo "Error: xschem not found on PATH and no up-to-date netlist exists at:"
-        echo "  $NETLIST"
-        echo "Install/enable xschem, or netlist manually and re-run."
-        exit 1
-    fi
-    echo "Netlisting $SCH with xschem..."
-    mkdir -p "$NETLIST_DIR"
-    xschem -q -x -n --tcl "set netlist_dir {$NETLIST_DIR}" "$SCH" >/tmp/xschem_netlist.log 2>&1
-    if [[ ! -f "$NETLIST" ]]; then
-        echo "Error: xschem did not produce $NETLIST"
-        echo "Check /tmp/xschem_netlist.log and your xschemrc netlist_dir setting."
-        exit 1
-    fi
 fi
 
 # ── Sanity-check the known duplicate-net-name issue (see header) ──────────────
