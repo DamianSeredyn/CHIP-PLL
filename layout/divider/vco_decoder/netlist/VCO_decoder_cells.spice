@@ -1,6 +1,6 @@
 ** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/VCO_decoder_cells.sch
-.subckt VCO_decoder_cells gd VP c1 c2 f0 f1 c0 VCO2_11_sel VCO2_5_sel VCO_sel VCO3_11_sel VCO3_5_sel VCO4_11_sel VCO4_5_sel
-+ VCO5_11_sel f2 f3 f4 f5
+.subckt VCO_decoder_cells gd VP c0 c1 c2 f0 f1 f2 f3 f4 f5 VCO_sel VCO2_11_sel VCO2_5_sel VCO3_11_sel VCO3_5_sel VCO4_11_sel
++ VCO4_5_sel VCO5_11_sel
 *.PININFO gd:B VP:B c1:I c2:I f0:I f1:I c0:I VCO2_11_sel:O VCO2_5_sel:O VCO_sel:O VCO3_11_sel:O VCO3_5_sel:O VCO4_11_sel:O
 *+ VCO4_5_sel:O VCO5_11_sel:O f2:I f3:I f4:I f5:I
 x6 gd VP c0 c1 c2 000 001 010 011 100 101 110 111 3bit_to_8_outs
@@ -12,7 +12,7 @@ x2 gd VP f0 f1 000 after_000111 after_001111_n 010 after_000011_n 011 001 after_
 + VCO4_selection
 x1 VCO_sel after_000111 111 gd VP after_001111 110 101 f5 VCO_selection
 x5 gd VP f5_n f0 after_000111_n 001 f1 110 011 101 000 after_000011_n after_000111 after_001111 100 after_001111_n after_000011
-+ 010 VCO3_11_sel VCO3_5_sel VCO3_selection
++ 010 VCO3_11_sel VCO3_5_sel f5 VCO3_selection
 x3 gd VP VCO5_11_sel f0 f1 000 after_000011_n 010 f1_n 001 VCO5_selection
 .ends
 
@@ -141,19 +141,19 @@ x14 VP gd net1 VCO_sel net2 net3 NAND_3in
 .ends
 
 
-* expanding   symbol:  VCO3_selection.sym # of pins=20
+* expanding   symbol:  VCO3_selection.sym # of pins=21
 ** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/VCO3_selection.sym
 ** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/VCO3_selection.sch
 .subckt VCO3_selection gd VP f5_n f0 after_000111_n 001 f1 110 011 101 000 after_000011_n after_000111 after_001111 100
-+ after_001111_n after_000011 010 VCO3_11_sel VCO3_5_sel
++ after_001111_n after_000011 010 VCO3_11_sel VCO3_5_sel f5
 *.PININFO gd:B VP:B f0:I f1:I VCO3_11_sel:O VCO3_5_sel:O 011:I after_000111:I after_001111_n:I 010:I 001:I 101:I f5_n:I 100:I
-*+ after_000011:I after_000011_n:I 110:I 000:I after_000111_n:I after_001111:I
+*+ after_000011:I after_000011_n:I 110:I 000:I after_000111_n:I after_001111:I f5:I
 x45 VP gd 011 net1 after_000111 after_001111_n NAND_3in
 x46 net1 net2 VP gd inverter
 x47 VP gd 010 net3 after_000111 f5_n NAND_3in
 x48 net3 net4 VP gd inverter
 x49 net5 net6 VP gd inverter
-x50 VP gd 001 net5 f5_n NAND_2in
+x50 VP gd 001 net5 f5 NAND_2in
 x51 net7 net8 VP gd inverter
 x52 VP gd 101 net7 after_000011_n NAND_2in
 x53 VP gd 100 net9 after_000011 after_000111_n NAND_3in
