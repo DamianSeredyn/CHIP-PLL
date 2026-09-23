@@ -1,0 +1,38 @@
+* PEX produced on Wed Sep 23 07:17:50 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
+* NGSPICE file created from vco_delay_cell_2.ext - technology: ihp-sg13cmos5l
+
+.subckt vco_delay_cell_2 pgt out ngt in vp gnd
+X0 out in a_n14_n454# gnd sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
+X1 a_n14_n454# a_n248_n910# gnd gnd sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
+X2 a_n14_292# a_n248_712# vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
+X3 out in a_n14_292# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
+C0 in vp 1.08845f
+C1 a_n14_292# vp 0.27518f
+C2 a_n248_n910# ngt 0.26682f
+C3 a_n248_712# a_n248_n910# 0.02399f
+C4 in a_n248_n910# 0.19991f
+C5 out a_n14_n454# 0.04416f
+C6 in ngt 0.07f
+C7 out vp 0.12362f
+C8 a_n248_712# in 0.16855f
+C9 a_n248_712# a_n14_292# 0.31509f
+C10 in a_n14_292# 0.19441f
+C11 in out 0.28731f
+C12 a_n14_292# out 0.03795f
+C13 pgt vp 0.14232f
+C14 a_n14_n454# vp 0.01328f
+C15 a_n248_n910# a_n14_n454# 0.32576f
+C16 a_n248_712# pgt 0.26682f
+C17 a_n248_n910# vp 0.01155f
+C18 pgt in 0.06649f
+C19 in a_n14_n454# 0.21574f
+C20 a_n248_712# vp 2.5134f
+C21 a_n14_292# a_n14_n454# 0.01796f
+C22 ngt gnd 0.30275f
+C23 pgt gnd 0.16299f
+C24 out gnd 0.70934f
+C25 vp gnd 0.27766f
+C26 a_n14_n454# gnd 2.05761f
+C27 a_n14_292# gnd 0.13685f
+.ends
+
