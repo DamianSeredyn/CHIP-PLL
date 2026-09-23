@@ -9,14 +9,14 @@ Switching to WIRING tool.
 Switching to NETLIST tool.
 Switching to PICK tool.
 Switching to BOX tool.
-Sourcing design .magicrc for technology ihp-sg13g2 ...
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
 2 Magic internal units = 1 Lambda
-Input style sg13g2(): scaleFactor=2, multiplier=2
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
 The following types are not handled by extraction and will be treated as non-electrical types:
-    pblock sealcont difffill nemitter hvnemitter hvisodiffres sealvia1 sealvia2 sealvia3 sealvia4 sealvia5 sealvia6 pillar solder seal glass thruvia inductor 
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
 Scaled tech values by 2 / 1 to match internal grid scaling
-Loading ihp-sg13g2 Device Generator Menu ...
-Loading "/foss/designs/CHIP-PLL/layout/divider/vco_decoder/VCO_decoder_cells/pex_VCO_decoder_cells.tcl" from command line.
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Loading "/foss/designs/CHIP-PLL/layout/divider/vco_decoder/VCO_decoder_cells/VCO_decoder_cells_wide/pex_VCO_decoder_cells.tcl" from command line.
 Warning: Calma reading is not undoable!  I hope that's OK.
 Library written using GDS-II Release 6.0
 Library name: LIB
@@ -179,46 +179,27 @@ Reading "Via$16$3".
 Reading "Via$15$3".
 Reading "Via$12$3".
 Reading "Via$11$1".
-Reading "VCO3_selection".
-Reading "Via$49".
-Reading "Via$47".
-Reading "Via$44".
-Reading "Via$42".
+Reading "Via$48".
 Reading "Via$41".
-Reading "Via$40".
+Reading "Via$44".
+Reading "Via$47".
+Reading "Via$42".
+Reading "Via$49".
+Reading "VCO3_selection".
 Reading "VCO2_selection".
 Reading "VCO_selection".
 Reading "VCO4_selection".
-Error while reading cell "VCO4_selection" (byte position 137382): Warning: cell "Via$19$2" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "VCO4_selection" (byte position 137640): Warning: cell "Via$19$2" placed on top of itself.  Ignoring the extra one.
 Reading "VCO5_selection".
 Reading "row_section_decoding".
 Reading "3bit_to_8_outs".
-Error while reading cell "3bit_to_8_outs" (byte position 160164): Warning: cell "Via$12$3" placed on top of itself.  Ignoring the extra one.
-Error while reading cell "3bit_to_8_outs" (byte position 161092): Warning: cell "Via$12$3" placed on top of itself.  Ignoring the extra one.
-Error while reading cell "3bit_to_8_outs" (byte position 161242): Warning: cell "Via$12$3" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "3bit_to_8_outs" (byte position 160422): Warning: cell "Via$12$3" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "3bit_to_8_outs" (byte position 161350): Warning: cell "Via$12$3" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "3bit_to_8_outs" (byte position 161500): Warning: cell "Via$12$3" placed on top of itself.  Ignoring the extra one.
 Reading "Via$50".
 Reading "Via$51".
+Reading "Via$52".
 Reading "VCO_decoder_cells".
-Making label "f1" on type hvpsubdiff in cell VCO_decoder_cells sticky.
-Making label "f5" on type hvpsubdiff in cell VCO_decoder_cells sticky.
-Making label "f0" on type hvpsubdiff in cell VCO_decoder_cells sticky.
-Making label "000" on type hvpsubdiff in cell VCO_decoder_cells sticky.
-Making label "f5_n" on type hvpsubdiff in cell VCO_decoder_cells sticky.
-Making label "001" on type hvpsubdiff in cell VCO_decoder_cells sticky.
-Making label "010" on type hvpsubdiff in cell VCO_decoder_cells sticky.
-Making label "011" on type hvpsubdiff in cell VCO_decoder_cells sticky.
-Making label "100" on type hvpsubdiff in cell VCO_decoder_cells sticky.
-Making label "101" on type hvpsubdiff in cell VCO_decoder_cells sticky.
-Making label "after_000111" on type hvpsubdiff in cell VCO_decoder_cells sticky.
-Making label "110" on type hvpsubdiff in cell VCO_decoder_cells sticky.
-Making label "111" on type hvpsubdiff in cell VCO_decoder_cells sticky.
-Making label "after_000011_n" on type hvpsubdiff in cell VCO_decoder_cells sticky.
-Making label "f1_n" on type hvpsubdiff in cell VCO_decoder_cells sticky.
-Making label "after_001111" on type hvpsubdiff in cell VCO_decoder_cells sticky.
-Making label "after_000011" on type hvpsubdiff in cell VCO_decoder_cells sticky.
-Making label "after_000111_n" on type hvpsubdiff in cell VCO_decoder_cells sticky.
-Making label "after_001111_n" on type hvpsubdiff in cell VCO_decoder_cells sticky.
-Making label "f2" on type hvpsubdiff in cell VCO_decoder_cells sticky.
-Extracting VCO_decoder_cells into /foss/designs/CHIP-PLL/layout/divider/vco_decoder/VCO_decoder_cells/VCO_decoder_cells.ext:
+Extracting VCO_decoder_cells into /foss/designs/CHIP-PLL/layout/divider/vco_decoder/VCO_decoder_cells/VCO_decoder_cells_wide/VCO_decoder_cells.ext:
 Processing VCO_decoder_cells
 exttospice finished.
