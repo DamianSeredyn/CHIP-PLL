@@ -58,7 +58,7 @@ N 1760 -1940 1760 -1930 {lab=VP}
 N 1690 -1900 1740 -1900 {lab=#net5}
 N 1810 -1900 1890 -1900 {lab=#net6}
 N 1370 -1940 1390 -1940 {lab=001}
-N 1370 -1920 1390 -1920 {lab=f5_n}
+N 1370 -1920 1390 -1920 {lab=f5}
 N 1690 -1800 1710 -1800 {lab=gd}
 N 1690 -1820 1710 -1820 {lab=VP}
 N 1760 -1750 1760 -1740 {lab=gd}
@@ -228,6 +228,7 @@ N 2190 -2770 2210 -2770 {lab=110}
 N 2190 -2750 2210 -2750 {lab=000}
 N 2190 -2790 2210 -2790 {lab=after_000111_n}
 N 2190 -2730 2210 -2730 {lab=after_001111}
+N 1940 -2650 1960 -2650 {lab=f5}
 C {NAND_3in.sym} 1540 -2160 0 0 {name=x45}
 C {lab_wire.sym} 1710 -2180 2 0 {name=p221 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 1710 -2160 2 0 {name=p222 sig_type=std_logic lab=gd}
@@ -292,7 +293,7 @@ C {lab_wire.sym} 1370 -2160 0 0 {name=p263 sig_type=std_logic lab=after_000111}
 C {lab_wire.sym} 1370 -2140 0 0 {name=p264 sig_type=std_logic lab=after_001111_n}
 C {lab_wire.sym} 1370 -2040 0 0 {name=p265 sig_type=std_logic lab=after_000111}
 C {lab_wire.sym} 1370 -2020 0 0 {name=p266 sig_type=std_logic lab=f5_n}
-C {lab_wire.sym} 1370 -1920 0 0 {name=p267 sig_type=std_logic lab=f5_n}
+C {lab_wire.sym} 1370 -1920 0 0 {name=p267 sig_type=std_logic lab=f5}
 C {lab_wire.sym} 1370 -1800 0 0 {name=p268 sig_type=std_logic lab=after_000011_n}
 C {lab_wire.sym} 1370 -1680 0 0 {name=p269 sig_type=std_logic lab=after_000011}
 C {lab_wire.sym} 1370 -1660 0 0 {name=p270 sig_type=std_logic lab=after_000111_n}
@@ -409,3 +410,5 @@ C {ipin.sym} 2190 -2790 0 0 {name=p33 lab=after_000111_n}
 C {lab_wire.sym} 2210 -2790 2 0 {name=p34 sig_type=std_logic lab=after_000111_n}
 C {ipin.sym} 2190 -2730 0 0 {name=p39 lab=after_001111}
 C {lab_wire.sym} 2210 -2730 2 0 {name=p40 sig_type=std_logic lab=after_001111}
+C {ipin.sym} 1940 -2650 0 0 {name=p2 lab=f5}
+C {lab_wire.sym} 1960 -2650 2 0 {name=p20 sig_type=std_logic lab=f5}
