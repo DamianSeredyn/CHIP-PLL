@@ -70,46 +70,42 @@ N 1430 170 1430 220 {lab=vp}
 N 1430 340 1430 390 {lab=gnd}
 N 1190 280 1290 280 {lab=#net8}
 N 1210 -470 1440 -470 {lab=4th}
-N 1570 280 1690 280 {lab=#net9}
+N 1570 280 1690 280 {lab=11_lst}
 N -470 280 -370 280 {lab=11_1st}
 N -450 -540 -410 -540 {lab=en5}
-N 1610 -670 1650 -670 {lab=#net9}
-N 1650 -670 1650 -620 {lab=#net9}
+N 1610 -670 1650 -670 {lab=nen5}
+N 1650 -670 1650 -620 {lab=nen5}
 N 1490 -670 1540 -670 {lab=en5}
 N 1490 -670 1490 -520 {lab=en5}
 N 1490 -520 1650 -520 {lab=en5}
 N 1650 -560 1650 -520 {lab=en5}
 N 1570 -590 1630 -590 {lab=4th}
 N 1710 -590 1820 -590 {lab=5th}
-N 1560 -750 1560 -700 {lab=vp}
-N 1560 -640 1560 -590 {lab=gnd}
 N 1690 -560 1690 -510 {lab=gnd}
 N 1690 -670 1690 -620 {lab=vp}
-N 350 -150 390 -150 {lab=#net10}
-N 390 -150 390 -100 {lab=#net10}
+N 350 -150 390 -150 {lab=nen11}
+N 390 -150 390 -100 {lab=nen11}
 N 230 -150 280 -150 {lab=en11}
 N 230 -150 230 0 {lab=en11}
 N 230 0 390 0 {lab=en11}
 N 390 -40 390 0 {lab=en11}
 N 310 -70 370 -70 {lab=4th}
 N 450 -70 560 -70 {lab=11_1st}
-N 300 -230 300 -180 {lab=vp}
-N 300 -120 300 -70 {lab=gnd}
 N 430 -40 430 10 {lab=gnd}
 N 430 -150 430 -100 {lab=vp}
-N 1890 130 1930 130 {lab=#net11}
-N 1930 130 1930 180 {lab=#net11}
+N 1890 130 1930 130 {lab=#net9}
+N 1930 130 1930 180 {lab=#net9}
 N 1770 130 1820 130 {lab=en11}
 N 1770 130 1770 280 {lab=en11}
 N 1770 280 1930 280 {lab=en11}
 N 1930 240 1930 280 {lab=en11}
 N 1850 210 1910 210 {lab=11_lst}
-N 1990 210 2100 210 {lab=11_1st}
-N 1840 50 1840 100 {lab=vp}
-N 1840 160 1840 210 {lab=gnd}
+N 1990 210 2100 210 {lab=5th}
 N 1970 240 1970 290 {lab=gnd}
 N 1970 130 1970 180 {lab=vp}
-N -450 -490 -410 -490 {lab=en5}
+N -450 -490 -410 -490 {lab=en11}
+N -440 -440 -400 -440 {lab=nen11}
+N -450 -410 -410 -410 {lab=nen5}
 C {sg13g2_pr/sg13_lv_nmos.sym} -230 -360 0 0 {name=M1
 l=1.5*4u
 w=0.8u
@@ -245,7 +241,6 @@ C {lab_wire.sym} 1660 -310 0 0 {name=p36 sig_type=std_logic lab=5th
 C {lab_wire.sym} -410 280 0 0 {name=p64 sig_type=std_logic lab=11_1st
 }
 C {ipin.sym} -450 -540 0 0 {name=p70 lab=en5}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 1560 -670 0 0 {name=x6}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate.sym} 1650 -570 0 0 {name=x14}
 C {lab_wire.sym} 1490 -670 0 0 {name=p65 sig_type=std_logic lab=en5
 }
@@ -253,23 +248,14 @@ C {lab_wire.sym} 1600 -590 0 0 {name=p71 sig_type=std_logic lab=4th
 }
 C {lab_wire.sym} 1780 -590 0 0 {name=p72 sig_type=std_logic lab=5th
 }
-C {lab_wire.sym} 1560 -750 0 0 {name=p73 sig_type=std_logic lab=vp
-}
-C {lab_wire.sym} 1560 -590 0 0 {name=p74 sig_type=std_logic lab=gnd
-}
 C {lab_wire.sym} 1690 -510 0 0 {name=p75 sig_type=std_logic lab=gnd
 }
 C {lab_wire.sym} 1690 -670 0 0 {name=p76 sig_type=std_logic lab=vp
 }
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 300 -150 0 0 {name=x15}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate.sym} 390 -50 0 0 {name=x16}
 C {lab_wire.sym} 230 -150 0 0 {name=p28 sig_type=std_logic lab=en11
 }
 C {lab_wire.sym} 340 -70 0 0 {name=p29 sig_type=std_logic lab=4th
-}
-C {lab_wire.sym} 300 -230 0 0 {name=p77 sig_type=std_logic lab=vp
-}
-C {lab_wire.sym} 300 -70 0 0 {name=p78 sig_type=std_logic lab=gnd
 }
 C {lab_wire.sym} 430 10 0 0 {name=p79 sig_type=std_logic lab=gnd
 }
@@ -279,15 +265,10 @@ C {lab_wire.sym} 560 -70 0 0 {name=p81 sig_type=std_logic lab=11_1st
 }
 C {lab_wire.sym} 1680 280 0 0 {name=p30 sig_type=std_logic lab=11_lst
 }
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 1840 130 0 0 {name=x17}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate.sym} 1930 230 0 0 {name=x18}
 C {lab_wire.sym} 1770 130 0 0 {name=p82 sig_type=std_logic lab=en11
 }
 C {lab_wire.sym} 1880 210 0 0 {name=p83 sig_type=std_logic lab=11_lst
-}
-C {lab_wire.sym} 1840 50 0 0 {name=p84 sig_type=std_logic lab=vp
-}
-C {lab_wire.sym} 1840 210 0 0 {name=p85 sig_type=std_logic lab=gnd
 }
 C {lab_wire.sym} 1970 290 0 0 {name=p86 sig_type=std_logic lab=gnd
 }
@@ -296,3 +277,11 @@ C {lab_wire.sym} 1970 130 0 0 {name=p87 sig_type=std_logic lab=vp
 C {lab_wire.sym} 2100 210 0 0 {name=p88 sig_type=std_logic lab=5th
 }
 C {ipin.sym} -450 -490 0 0 {name=p31 lab=en11}
+C {lab_wire.sym} 370 -150 0 0 {name=p34 sig_type=std_logic lab=nen11
+}
+C {lab_wire.sym} 1620 -670 0 0 {name=p35 sig_type=std_logic lab=nen5
+}
+C {lab_wire.sym} 1900 130 0 0 {name=p37 sig_type=std_logic lab=nen11
+}
+C {ipin.sym} -440 -440 0 0 {name=p63 lab=nen11}
+C {ipin.sym} -450 -410 0 0 {name=p66 lab=nen5}

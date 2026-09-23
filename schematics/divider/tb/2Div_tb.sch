@@ -40,7 +40,6 @@ N 250 180 300 180 {lab=0}
 N 300 180 350 180 {lab=0}
 N 350 180 400 180 {lab=0}
 N 150 160 150 180 {lab=0}
-C {/foss/designs/CHIP-PLL/divider/schematics/2Div.sym} -20 0 0 0 {name=x1}
 C {vsource.sym} -430 -210 0 0 {name=V1 value=\{vdd\} savecurrent=false}
 C {vsource.sym} -430 -30 0 0 {name=V2 value="PULSE(0 \{vdd\} 0 100p 100p 1.5625n 3.125n)" savecurrent=false}
 C {gnd.sym} -430 -160 0 0 {name=l1 lab=0
@@ -128,3 +127,4 @@ C {lab_wire.sym} 150 80 2 0 {name=p17 sig_type=std_logic lab=div128
 }
 C {gnd.sym} 150 200 0 0 {name=l4 lab=0
 }
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/2Div.sym} -20 0 0 0 {name=x1}

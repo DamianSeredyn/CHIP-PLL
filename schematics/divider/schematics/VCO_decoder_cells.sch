@@ -126,6 +126,7 @@ N 1460 -1460 1490 -1460 {lab=001}
 N 1460 -1480 1490 -1480 {lab=after_000111_n}
 N 1460 -1500 1490 -1500 {lab=f0}
 N 1460 -1520 1490 -1520 {lab=f5_n}
+N 1460 -1200 1490 -1200 {lab=f5}
 C {iopin.sym} 980 -1970 2 0 {name=p46 lab=gd}
 C {lab_wire.sym} 1000 -1970 2 0 {name=p53 sig_type=std_logic lab=gd}
 C {iopin.sym} 980 -1950 2 0 {name=p54 lab=VP}
@@ -273,3 +274,4 @@ C {VCO4_selection.sym} 970 -940 0 0 {name=x2}
 C {VCO_selection.sym} 1630 -930 0 0 {name=x1}
 C {VCO3_selection.sym} 1640 -1370 0 0 {name=x5}
 C {VCO5_selection.sym} 1610 -1810 0 0 {name=x3}
+C {lab_wire.sym} 1460 -1200 0 0 {name=p141 sig_type=std_logic lab=f5}
