@@ -80,97 +80,92 @@ N -110 -280 -100 -280 {lab=vp}
 N -110 -280 -110 -260 {lab=vp}
 N -110 -180 -100 -180 {lab=gd}
 N -110 -200 -110 -180 {lab=gd}
-N -160 -230 -130 -230 {lab=en8_}
-N -60 -230 -30 -230 {lab=en8}
-N -160 -230 -160 -210 {lab=en8_}
-N -170 -230 -160 -230 {lab=en8_}
-N -30 -230 -30 -200 {lab=en8}
+N -60 -230 -30 -230 {lab=en1}
+N -160 -230 -130 -230 {lab=en1_}
+N -30 -230 -30 -200 {lab=en1}
 N -170 -130 -160 -130 {lab=vp}
 N -170 -110 -160 -110 {lab=gd}
 N -110 -140 -100 -140 {lab=vp}
 N -110 -140 -110 -120 {lab=vp}
 N -110 -40 -100 -40 {lab=gd}
 N -110 -60 -110 -40 {lab=gd}
-N -160 -90 -130 -90 {lab=en7_}
-N -60 -90 -30 -90 {lab=en7}
-N -160 -90 -160 -70 {lab=en7_}
-N -170 -90 -160 -90 {lab=en7_}
-N -30 -90 -30 -60 {lab=en7}
+N -160 -90 -130 -90 {lab=en2_}
+N -60 -90 -30 -90 {lab=en2}
+N -160 -90 -160 -70 {lab=en2_}
+N -170 -90 -160 -90 {lab=en2_}
+N -30 -90 -30 -60 {lab=en2}
 N -170 10 -160 10 {lab=vp}
 N -170 30 -160 30 {lab=gd}
 N -110 0 -100 0 {lab=vp}
 N -110 0 -110 20 {lab=vp}
 N -110 100 -100 100 {lab=gd}
 N -110 80 -110 100 {lab=gd}
-N -160 50 -130 50 {lab=en6_}
-N -60 50 -30 50 {lab=en6}
-N -160 50 -160 70 {lab=en6_}
-N -170 50 -160 50 {lab=en6_}
-N -30 50 -30 80 {lab=en6}
+N -160 50 -130 50 {lab=en3_}
+N -60 50 -30 50 {lab=en3}
+N -160 50 -160 70 {lab=en3_}
+N -170 50 -160 50 {lab=en3_}
+N -30 50 -30 80 {lab=en3}
 N -170 150 -160 150 {lab=vp}
 N -170 170 -160 170 {lab=gd}
 N -110 140 -100 140 {lab=vp}
 N -110 140 -110 160 {lab=vp}
 N -110 240 -100 240 {lab=gd}
 N -110 220 -110 240 {lab=gd}
-N -160 190 -130 190 {lab=en5_}
-N -60 190 -30 190 {lab=en5}
-N -160 190 -160 210 {lab=en5_}
-N -170 190 -160 190 {lab=en5_}
-N -30 190 -30 220 {lab=en5}
+N -160 190 -130 190 {lab=en4_}
+N -60 190 -30 190 {lab=en4}
+N -160 190 -160 210 {lab=en4_}
+N -170 190 -160 190 {lab=en4_}
+N -30 190 -30 220 {lab=en4}
 N -170 290 -160 290 {lab=vp}
 N -170 310 -160 310 {lab=gd}
 N -110 280 -100 280 {lab=vp}
 N -110 280 -110 300 {lab=vp}
 N -110 380 -100 380 {lab=gd}
 N -110 360 -110 380 {lab=gd}
-N -160 330 -130 330 {lab=en4_}
-N -60 330 -30 330 {lab=en4}
-N -160 330 -160 350 {lab=en4_}
-N -170 330 -160 330 {lab=en4_}
-N -30 330 -30 360 {lab=en4}
+N -160 330 -130 330 {lab=en5_}
+N -60 330 -30 330 {lab=en5}
+N -160 330 -160 350 {lab=en5_}
+N -170 330 -160 330 {lab=en5_}
+N -30 330 -30 360 {lab=en5}
 N -170 430 -160 430 {lab=vp}
 N -170 450 -160 450 {lab=gd}
 N -110 420 -100 420 {lab=vp}
 N -110 420 -110 440 {lab=vp}
 N -110 520 -100 520 {lab=gd}
 N -110 500 -110 520 {lab=gd}
-N -160 470 -130 470 {lab=en3_}
-N -60 470 -30 470 {lab=en3}
-N -160 470 -160 490 {lab=en3_}
-N -170 470 -160 470 {lab=en3_}
-N -30 470 -30 500 {lab=en3}
+N -160 470 -130 470 {lab=en6_}
+N -60 470 -30 470 {lab=en6}
+N -160 470 -160 490 {lab=en6_}
+N -170 470 -160 470 {lab=en6_}
+N -30 470 -30 500 {lab=en6}
 N -170 570 -160 570 {lab=vp}
 N -170 590 -160 590 {lab=gd}
 N -110 560 -100 560 {lab=vp}
 N -110 560 -110 580 {lab=vp}
 N -110 660 -100 660 {lab=gd}
 N -110 640 -110 660 {lab=gd}
-N -160 610 -130 610 {lab=en2_}
-N -60 610 -30 610 {lab=en2}
-N -160 610 -160 630 {lab=en2_}
-N -170 610 -160 610 {lab=en2_}
-N -30 610 -30 640 {lab=en2}
+N -160 610 -130 610 {lab=en7_}
+N -60 610 -30 610 {lab=en7}
+N -160 610 -160 630 {lab=en7_}
+N -170 610 -160 610 {lab=en7_}
+N -30 610 -30 640 {lab=en7}
 N -170 710 -160 710 {lab=vp}
 N -170 730 -160 730 {lab=gd}
 N -110 700 -100 700 {lab=vp}
 N -110 700 -110 720 {lab=vp}
 N -110 800 -100 800 {lab=gd}
 N -110 780 -110 800 {lab=gd}
-N -160 750 -130 750 {lab=en1_}
-N -60 750 -30 750 {lab=en1}
-N -160 750 -160 770 {lab=en1_}
-N -170 750 -160 750 {lab=en1_}
-N -30 750 -30 780 {lab=en1}
+N -160 750 -130 750 {lab=en8_}
+N -60 750 -30 750 {lab=en8}
+N -160 750 -160 770 {lab=en8_}
+N -170 750 -160 750 {lab=en8_}
+N -30 750 -30 780 {lab=en8}
 N -630 470 -630 750 {lab=A0}
 N -740 -270 -740 -200 {lab=A0}
-N -750 -270 -740 -270 {lab=A0}
 N -740 -200 -630 -200 {lab=A0}
 N -740 -100 -740 -30 {lab=A1}
-N -750 -100 -740 -100 {lab=A1}
 N -740 -30 -610 -30 {lab=A1}
 N -740 60 -740 130 {lab=A2}
-N -750 60 -740 60 {lab=A2}
 N -740 130 -590 130 {lab=A2}
 N -660 -270 -570 -270 {lab=#net1}
 N -660 -100 -550 -100 {lab=#net2}
@@ -256,6 +251,11 @@ N 390 -390 410 -390 {lab=out}
 N 300 -390 320 -390 {lab=out_unb}
 N 270 310 290 310 {lab=en5_}
 N 290 310 290 360 {lab=en5_}
+N -160 -230 -160 -210 {lab=en1_}
+N -170 -230 -160 -230 {lab=en1_}
+N -860 -270 -740 -270 {lab=A0}
+N -860 60 -740 60 {lab=A2}
+N -860 -100 -740 -100 {lab=A1}
 C {iopin.sym} -970 -290 2 0 {name=p1 lab=gd}
 C {lab_pin.sym} -950 -290 2 0 {name=p4 sig_type=std_logic lab=gd}
 C {iopin.sym} -970 -270 2 0 {name=p5 lab=vp}
@@ -321,13 +321,13 @@ C {lab_pin.sym} 560 390 0 0 {name=p69 sig_type=std_logic lab=in1}
 C {lab_pin.sym} 770 390 2 0 {name=p70 sig_type=std_logic lab=out_unb}
 C {lab_pin.sym} -700 -220 2 0 {name=p71 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -700 -320 2 0 {name=p72 sig_type=std_logic lab=vp}
-C {ipin.sym} -750 -270 0 0 {name=p73 lab=A0}
+C {ipin.sym} -860 -270 0 0 {name=p73 lab=A0}
 C {lab_pin.sym} -700 -50 2 0 {name=p74 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -700 -150 2 0 {name=p75 sig_type=std_logic lab=vp}
-C {ipin.sym} -750 -100 0 0 {name=p76 lab=A1}
+C {ipin.sym} -860 -100 0 0 {name=p76 lab=A1}
 C {lab_pin.sym} -700 110 2 0 {name=p77 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -700 10 2 0 {name=p78 sig_type=std_logic lab=vp}
-C {ipin.sym} -750 60 0 0 {name=p79 lab=A2}
+C {ipin.sym} -860 60 0 0 {name=p79 lab=A2}
 C {lab_pin.sym} 330 -250 1 0 {name=p24 sig_type=std_logic lab=vp}
 C {lab_pin.sym} 730 -250 1 0 {name=p30 sig_type=std_logic lab=vp}
 C {lab_pin.sym} 330 -50 1 0 {name=p36 sig_type=std_logic lab=vp}
@@ -340,50 +340,46 @@ C {lab_pin.sym} -160 -270 2 0 {name=p80 sig_type=std_logic lab=vp}
 C {lab_pin.sym} -160 -250 2 0 {name=p81 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 -180 2 0 {name=p82 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 -280 2 0 {name=p83 sig_type=std_logic lab=vp}
-C {lab_pin.sym} -160 -210 3 0 {name=p84 sig_type=std_logic lab=en8_}
-C {lab_pin.sym} -30 -200 3 0 {name=p85 sig_type=std_logic lab=en8}
+C {lab_pin.sym} -160 770 3 0 {name=p84 sig_type=std_logic lab=en8_}
+C {lab_pin.sym} -30 780 3 0 {name=p85 sig_type=std_logic lab=en8}
 C {lab_pin.sym} -160 -130 2 0 {name=p86 sig_type=std_logic lab=vp}
 C {lab_pin.sym} -160 -110 2 0 {name=p87 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 -40 2 0 {name=p88 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 -140 2 0 {name=p89 sig_type=std_logic lab=vp}
-C {lab_pin.sym} -160 -70 3 0 {name=p90 sig_type=std_logic lab=en7_}
-C {lab_pin.sym} -30 -60 3 0 {name=p91 sig_type=std_logic lab=en7}
 C {lab_pin.sym} -160 10 2 0 {name=p92 sig_type=std_logic lab=vp}
 C {lab_pin.sym} -160 30 2 0 {name=p93 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 100 2 0 {name=p94 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 0 2 0 {name=p95 sig_type=std_logic lab=vp}
-C {lab_pin.sym} -160 70 3 0 {name=p96 sig_type=std_logic lab=en6_}
-C {lab_pin.sym} -30 80 3 0 {name=p97 sig_type=std_logic lab=en6}
+C {lab_pin.sym} -160 490 3 0 {name=p96 sig_type=std_logic lab=en6_}
+C {lab_pin.sym} -30 500 3 0 {name=p97 sig_type=std_logic lab=en6}
 C {lab_pin.sym} -160 150 2 0 {name=p98 sig_type=std_logic lab=vp}
 C {lab_pin.sym} -160 170 2 0 {name=p99 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 240 2 0 {name=p100 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 140 2 0 {name=p101 sig_type=std_logic lab=vp}
-C {lab_pin.sym} -160 210 3 0 {name=p102 sig_type=std_logic lab=en5_}
-C {lab_pin.sym} -30 220 3 0 {name=p103 sig_type=std_logic lab=en5}
+C {lab_pin.sym} -160 340 3 0 {name=p102 sig_type=std_logic lab=en5_}
+C {lab_pin.sym} -30 350 3 0 {name=p103 sig_type=std_logic lab=en5}
 C {lab_pin.sym} -160 290 2 0 {name=p104 sig_type=std_logic lab=vp}
 C {lab_pin.sym} -160 310 2 0 {name=p105 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 380 2 0 {name=p106 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 280 2 0 {name=p107 sig_type=std_logic lab=vp}
-C {lab_pin.sym} -160 350 3 0 {name=p108 sig_type=std_logic lab=en4_}
-C {lab_pin.sym} -30 360 3 0 {name=p109 sig_type=std_logic lab=en4}
+C {lab_pin.sym} -160 210 3 0 {name=p108 sig_type=std_logic lab=en4_}
+C {lab_pin.sym} -30 220 3 0 {name=p109 sig_type=std_logic lab=en4}
 C {lab_pin.sym} -160 430 2 0 {name=p110 sig_type=std_logic lab=vp}
 C {lab_pin.sym} -160 450 2 0 {name=p111 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 520 2 0 {name=p112 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 420 2 0 {name=p113 sig_type=std_logic lab=vp}
-C {lab_pin.sym} -160 490 3 0 {name=p114 sig_type=std_logic lab=en3_}
-C {lab_pin.sym} -30 500 3 0 {name=p115 sig_type=std_logic lab=en3}
+C {lab_pin.sym} -160 70 3 0 {name=p114 sig_type=std_logic lab=en3_}
+C {lab_pin.sym} -30 80 3 0 {name=p115 sig_type=std_logic lab=en3}
 C {lab_pin.sym} -160 570 2 0 {name=p116 sig_type=std_logic lab=vp}
 C {lab_pin.sym} -160 590 2 0 {name=p117 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 660 2 0 {name=p118 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 560 2 0 {name=p119 sig_type=std_logic lab=vp}
-C {lab_pin.sym} -160 630 3 0 {name=p120 sig_type=std_logic lab=en2_}
-C {lab_pin.sym} -30 640 3 0 {name=p121 sig_type=std_logic lab=en2}
+C {lab_pin.sym} -160 -70 3 0 {name=p120 sig_type=std_logic lab=en2_}
+C {lab_pin.sym} -30 -60 3 0 {name=p121 sig_type=std_logic lab=en2}
 C {lab_pin.sym} -160 710 2 0 {name=p122 sig_type=std_logic lab=vp}
 C {lab_pin.sym} -160 730 2 0 {name=p123 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 800 2 0 {name=p124 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 700 2 0 {name=p125 sig_type=std_logic lab=vp}
-C {lab_pin.sym} -160 770 3 0 {name=p126 sig_type=std_logic lab=en1_}
-C {lab_pin.sym} -30 780 3 0 {name=p127 sig_type=std_logic lab=en1}
 C {lab_pin.sym} 190 -250 1 0 {name=p136 sig_type=std_logic lab=vp}
 C {lab_pin.sym} 190 -170 3 0 {name=p137 sig_type=std_logic lab=gd}
 C {lab_pin.sym} 190 -50 1 0 {name=p138 sig_type=std_logic lab=vp}
@@ -441,3 +437,8 @@ C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} -320 310 0
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} -320 450 0 0 {name=x22}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} -320 590 0 0 {name=x24}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} -320 730 0 0 {name=x26}
+C {lab_pin.sym} -30 -200 3 0 {name=p128 sig_type=std_logic lab=en1}
+C {lab_pin.sym} -160 -210 3 0 {name=p129 sig_type=std_logic lab=en1_
+_}
+C {lab_pin.sym} -160 630 3 0 {name=p126 sig_type=std_logic lab=en7_}
+C {lab_pin.sym} -30 640 3 0 {name=p127 sig_type=std_logic lab=en7}
