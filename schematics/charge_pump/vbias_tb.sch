@@ -14,18 +14,14 @@ C {vsource.sym} -320 -160 0 0 {name=Vp
 value=1.08 savecurrent=false}
 C {gnd.sym} -320 -130 0 0 {name=l3 lab=0}
 C {lab_pin.sym} -180 90 0 1 {name=p4 sig_type=std_logic lab=vb}
-C {devices/code_shown.sym} 90 -450 0 0 {name=MODEL only_toplevel=true
-format="tcleval( @value )"
-value=".lib cornerMOSlv.lib mos_tt
-"}
 C {devices/code_shown.sym} -120 -230 0 0 {name=NGSPICE only_toplevel=true 
 value="
-.temp -25
+.temp 125
 .control
 
 .param rsh_rppd = 500
 
-dc Vvp 0 1.32 0.01
+op
 plot v(vb)
 save all
 write vbias.raw
@@ -34,9 +30,12 @@ show all
 .endc
 "}
 C {gnd.sym} -320 70 0 0 {name=l5 lab=0}
-C {/foss/designs/CHIP-PLL/charge_pump/vbias.sym} -470 70 0 0 {name=x1}
-C {devices/code_shown.sym} -590 190 0 0 {name=MODEL1 only_toplevel=true
+C {/foss/designs/CHIP-PLL/schematics/charge_pump/vbias.sym} -470 70 0 0 {name=x1}
+C {devices/code_shown.sym} -530 230 0 0 {name=MODEL2 only_toplevel=true
 format="tcleval( @value )"
-value=".lib cornerMOSlv.lib mos_ss
-.include /foss/pdks/ihp-sg13g2/libs.tech/ngspice/models/resistors_mod.lib
+value=".lib cornerMOSlv.lib mos_ff
+.lib cornerRES.lib res_typ
+
+
+
 "}

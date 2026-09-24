@@ -18,11 +18,10 @@ img { max-width: 900px; border: 1px solid #ccc; }
 </style>
 </head>
 <body>
-<h1>Charge pump - post-layout, sweep PVT</h1>
-<p>Vout/Vbias/Iref: srednia wazona czasem w oknie 90-100us (stan ustalony).
-Iup: srednia wazona czasem TYLKO gdy zrodlo Vup2 = 1 (v(up) &gt; 0.5V).
-Idn: srednia wazona czasem TYLKO gdy zrodlo Vdn2 = 1 (v(dn) &gt; 0.5V).
-Na wykresach (panel 4) zacieniowanie pokazuje dokladnie te przedzialy.</p>
+<h1>Charge pump - schematic, sweep PVT</h1>
+<p>Vout/Vbias/Iref: srednia wazona czasem w oknie 90-100us.
+Iup/Idn: srednia wazona czasem (trapez), liczona tylko w oknach, gdy
+odpowiednie zrodlo sterujace (UP/DN) jest aktywne </p>
 
 <table>
 <thead>
@@ -30,94 +29,94 @@ Na wykresach (panel 4) zacieniowanie pokazuje dokladnie te przedzialy.</p>
 <th>Iref [uA]</th><th>Iup [uA]</th><th>Idn [uA]</th><th>Rozbieżność [%]</th><th></th></tr>
 </thead>
 <tbody>
-<tr><td>mos_tt</td><td>-40</td><td>1.08</td><td>0.4458</td><td>0.6362</td><td>0.556</td><td>0.118</td><td>0.118</td><td>0.57</td><td><a href="#" onclick="show('mos_tt_T-40_Vp1.08');return false;">wykres</a></td></tr>
-<tr><td>mos_tt</td><td>-40</td><td>1.2</td><td>0.4929</td><td>0.6807</td><td>1.066</td><td>0.235</td><td>0.232</td><td>0.92</td><td><a href="#" onclick="show('mos_tt_T-40_Vp1.2');return false;">wykres</a></td></tr>
-<tr><td>mos_tt</td><td>-40</td><td>1.32</td><td>0.5535</td><td>0.7164</td><td>1.688</td><td>0.384</td><td>0.380</td><td>1.04</td><td><a href="#" onclick="show('mos_tt_T-40_Vp1.32');return false;">wykres</a></td></tr>
-<tr><td>mos_tt</td><td>27</td><td>1.08</td><td>0.4788</td><td>0.5698</td><td>0.845</td><td>0.209</td><td>0.208</td><td>0.30</td><td><a href="#" onclick="show('mos_tt_T27_Vp1.08');return false;">wykres</a></td></tr>
-<tr><td>mos_tt</td><td>27</td><td>1.2</td><td>0.5318</td><td>0.6124</td><td>1.359</td><td>0.343</td><td>0.342</td><td>0.48</td><td><a href="#" onclick="show('mos_tt_T27_Vp1.2');return false;">wykres</a></td></tr>
-<tr><td>mos_tt</td><td>27</td><td>1.32</td><td>0.5954</td><td>0.6485</td><td>1.954</td><td>0.504</td><td>0.502</td><td>0.58</td><td><a href="#" onclick="show('mos_tt_T27_Vp1.32');return false;">wykres</a></td></tr>
-<tr><td>mos_tt</td><td>125</td><td>1.08</td><td>0.4895</td><td>0.4662</td><td>1.317</td><td>0.380</td><td>0.378</td><td>0.61</td><td><a href="#" onclick="show('mos_tt_T125_Vp1.08');return false;">wykres</a></td></tr>
-<tr><td>mos_tt</td><td>125</td><td>1.2</td><td>0.5487</td><td>0.5072</td><td>1.817</td><td>0.532</td><td>0.527</td><td>0.94</td><td><a href="#" onclick="show('mos_tt_T125_Vp1.2');return false;">wykres</a></td></tr>
-<tr><td>mos_tt</td><td>125</td><td>1.32</td><td>0.6190</td><td>0.5435</td><td>2.366</td><td>0.704</td><td>0.695</td><td>1.28</td><td><a href="#" onclick="show('mos_tt_T125_Vp1.32');return false;">wykres</a></td></tr>
-<tr><td>mos_ss</td><td>-40</td><td>1.08</td><td>0.4084</td><td>0.6591</td><td>0.136</td><td>0.024</td><td>0.025</td><td>-1.16</td><td><a href="#" onclick="show('mos_ss_T-40_Vp1.08');return false;">wykres</a></td></tr>
-<tr><td>mos_ss</td><td>-40</td><td>1.2</td><td>0.4327</td><td>0.7260</td><td>0.447</td><td>0.083</td><td>0.082</td><td>0.91</td><td><a href="#" onclick="show('mos_ss_T-40_Vp1.2');return false;">wykres</a></td></tr>
-<tr><td>mos_ss</td><td>-40</td><td>1.32</td><td>0.4718</td><td>0.7722</td><td>0.908</td><td>0.175</td><td>0.172</td><td>1.49</td><td><a href="#" onclick="show('mos_ss_T-40_Vp1.32');return false;">wykres</a></td></tr>
-<tr><td>mos_ss</td><td>27</td><td>1.08</td><td>0.4310</td><td>0.6094</td><td>0.374</td><td>0.081</td><td>0.081</td><td>0.31</td><td><a href="#" onclick="show('mos_ss_T27_Vp1.08');return false;">wykres</a></td></tr>
-<tr><td>mos_ss</td><td>27</td><td>1.2</td><td>0.4654</td><td>0.6630</td><td>0.745</td><td>0.166</td><td>0.165</td><td>0.80</td><td><a href="#" onclick="show('mos_ss_T27_Vp1.2');return false;">wykres</a></td></tr>
-<tr><td>mos_ss</td><td>27</td><td>1.32</td><td>0.5113</td><td>0.7056</td><td>1.214</td><td>0.278</td><td>0.275</td><td>1.03</td><td><a href="#" onclick="show('mos_ss_T27_Vp1.32');return false;">wykres</a></td></tr>
-<tr><td>mos_ss</td><td>125</td><td>1.08</td><td>0.4669</td><td>0.5143</td><td>0.806</td><td>0.212</td><td>0.212</td><td>0.11</td><td><a href="#" onclick="show('mos_ss_T125_Vp1.08');return false;">wykres</a></td></tr>
-<tr><td>mos_ss</td><td>125</td><td>1.2</td><td>0.5102</td><td>0.5606</td><td>1.208</td><td>0.323</td><td>0.321</td><td>0.38</td><td><a href="#" onclick="show('mos_ss_T125_Vp1.2');return false;">wykres</a></td></tr>
-<tr><td>mos_ss</td><td>125</td><td>1.32</td><td>0.5623</td><td>0.6007</td><td>1.666</td><td>0.453</td><td>0.450</td><td>0.61</td><td><a href="#" onclick="show('mos_ss_T125_Vp1.32');return false;">wykres</a></td></tr>
-<tr><td>mos_ff</td><td>-40</td><td>1.08</td><td>0.5184</td><td>0.5934</td><td>1.245</td><td>0.308</td><td>0.307</td><td>0.40</td><td><a href="#" onclick="show('mos_ff_T-40_Vp1.08');return false;">wykres</a></td></tr>
-<tr><td>mos_ff</td><td>-40</td><td>1.2</td><td>0.5904</td><td>0.6288</td><td>1.936</td><td>0.493</td><td>0.490</td><td>0.49</td><td><a href="#" onclick="show('mos_ff_T-40_Vp1.2');return false;">wykres</a></td></tr>
-<tr><td>mos_ff</td><td>-40</td><td>1.32</td><td>0.6747</td><td>0.6591</td><td>2.717</td><td>0.708</td><td>0.705</td><td>0.53</td><td><a href="#" onclick="show('mos_ff_T-40_Vp1.32');return false;">wykres</a></td></tr>
-<tr><td>mos_ff</td><td>27</td><td>1.08</td><td>0.5522</td><td>0.5245</td><td>1.524</td><td>0.420</td><td>0.420</td><td>0.01</td><td><a href="#" onclick="show('mos_ff_T27_Vp1.08');return false;">wykres</a></td></tr>
-<tr><td>mos_ff</td><td>27</td><td>1.2</td><td>0.6258</td><td>0.5609</td><td>2.180</td><td>0.612</td><td>0.612</td><td>0.13</td><td><a href="#" onclick="show('mos_ff_T27_Vp1.2');return false;">wykres</a></td></tr>
-<tr><td>mos_ff</td><td>27</td><td>1.32</td><td>0.7115</td><td>0.5928</td><td>2.905</td><td>0.830</td><td>0.828</td><td>0.31</td><td><a href="#" onclick="show('mos_ff_T27_Vp1.32');return false;">wykres</a></td></tr>
-<tr><td>mos_ff</td><td>125</td><td>1.08</td><td>0.4731</td><td>0.4205</td><td>1.997</td><td>0.636</td><td>0.614</td><td>3.47</td><td><a href="#" onclick="show('mos_ff_T125_Vp1.08');return false;">wykres</a></td></tr>
-<tr><td>mos_ff</td><td>125</td><td>1.2</td><td>0.5504</td><td>0.4575</td><td>2.601</td><td>0.835</td><td>0.805</td><td>3.56</td><td><a href="#" onclick="show('mos_ff_T125_Vp1.2');return false;">wykres</a></td></tr>
-<tr><td>mos_ff</td><td>125</td><td>1.32</td><td>0.6388</td><td>0.4907</td><td>3.247</td><td>1.054</td><td>1.015</td><td>3.62</td><td><a href="#" onclick="show('mos_ff_T125_Vp1.32');return false;">wykres</a></td></tr>
-<tr><td>mos_sf</td><td>-40</td><td>1.08</td><td>0.4395</td><td>0.6820</td><td>0.515</td><td>0.102</td><td>0.102</td><td>0.61</td><td><a href="#" onclick="show('mos_sf_T-40_Vp1.08');return false;">wykres</a></td></tr>
-<tr><td>mos_sf</td><td>-40</td><td>1.2</td><td>0.4828</td><td>0.7272</td><td>1.009</td><td>0.208</td><td>0.206</td><td>1.03</td><td><a href="#" onclick="show('mos_sf_T-40_Vp1.2');return false;">wykres</a></td></tr>
-<tr><td>mos_sf</td><td>-40</td><td>1.32</td><td>0.5391</td><td>0.7633</td><td>1.614</td><td>0.345</td><td>0.341</td><td>1.18</td><td><a href="#" onclick="show('mos_sf_T-40_Vp1.32');return false;">wykres</a></td></tr>
-<tr><td>mos_sf</td><td>27</td><td>1.08</td><td>0.4727</td><td>0.6172</td><td>0.812</td><td>0.190</td><td>0.189</td><td>0.39</td><td><a href="#" onclick="show('mos_sf_T27_Vp1.08');return false;">wykres</a></td></tr>
-<tr><td>mos_sf</td><td>27</td><td>1.2</td><td>0.5227</td><td>0.6601</td><td>1.313</td><td>0.316</td><td>0.314</td><td>0.61</td><td><a href="#" onclick="show('mos_sf_T27_Vp1.2');return false;">wykres</a></td></tr>
-<tr><td>mos_sf</td><td>27</td><td>1.32</td><td>0.5832</td><td>0.6964</td><td>1.895</td><td>0.467</td><td>0.464</td><td>0.72</td><td><a href="#" onclick="show('mos_sf_T27_Vp1.32');return false;">wykres</a></td></tr>
-<tr><td>mos_sf</td><td>125</td><td>1.08</td><td>0.5118</td><td>0.5152</td><td>1.291</td><td>0.359</td><td>0.357</td><td>0.40</td><td><a href="#" onclick="show('mos_sf_T125_Vp1.08');return false;">wykres</a></td></tr>
-<tr><td>mos_sf</td><td>125</td><td>1.2</td><td>0.5706</td><td>0.5561</td><td>1.782</td><td>0.504</td><td>0.500</td><td>0.78</td><td><a href="#" onclick="show('mos_sf_T125_Vp1.2');return false;">wykres</a></td></tr>
-<tr><td>mos_sf</td><td>125</td><td>1.32</td><td>0.6404</td><td>0.5924</td><td>2.321</td><td>0.668</td><td>0.660</td><td>1.18</td><td><a href="#" onclick="show('mos_sf_T125_Vp1.32');return false;">wykres</a></td></tr>
-<tr><td>mos_fs</td><td>-40</td><td>1.08</td><td>0.4533</td><td>0.5934</td><td>0.606</td><td>0.138</td><td>0.137</td><td>0.54</td><td><a href="#" onclick="show('mos_fs_T-40_Vp1.08');return false;">wykres</a></td></tr>
-<tr><td>mos_fs</td><td>-40</td><td>1.2</td><td>0.5048</td><td>0.6369</td><td>1.136</td><td>0.266</td><td>0.264</td><td>0.81</td><td><a href="#" onclick="show('mos_fs_T-40_Vp1.2');return false;">wykres</a></td></tr>
-<tr><td>mos_fs</td><td>-40</td><td>1.32</td><td>0.5701</td><td>0.6721</td><td>1.780</td><td>0.429</td><td>0.425</td><td>0.90</td><td><a href="#" onclick="show('mos_fs_T-40_Vp1.32');return false;">wykres</a></td></tr>
-<tr><td>mos_fs</td><td>27</td><td>1.08</td><td>0.4851</td><td>0.5255</td><td>0.886</td><td>0.230</td><td>0.229</td><td>0.21</td><td><a href="#" onclick="show('mos_fs_T27_Vp1.08');return false;">wykres</a></td></tr>
-<tr><td>mos_fs</td><td>27</td><td>1.2</td><td>0.5413</td><td>0.5677</td><td>1.414</td><td>0.374</td><td>0.373</td><td>0.36</td><td><a href="#" onclick="show('mos_fs_T27_Vp1.2');return false;">wykres</a></td></tr>
-<tr><td>mos_fs</td><td>27</td><td>1.32</td><td>0.6085</td><td>0.6036</td><td>2.025</td><td>0.546</td><td>0.544</td><td>0.44</td><td><a href="#" onclick="show('mos_fs_T27_Vp1.32');return false;">wykres</a></td></tr>
-<tr><td>mos_fs</td><td>125</td><td>1.08</td><td>0.4536</td><td>0.4208</td><td>1.351</td><td>0.407</td><td>0.401</td><td>1.51</td><td><a href="#" onclick="show('mos_fs_T125_Vp1.08');return false;">wykres</a></td></tr>
-<tr><td>mos_fs</td><td>125</td><td>1.2</td><td>0.5126</td><td>0.4616</td><td>1.861</td><td>0.565</td><td>0.556</td><td>1.73</td><td><a href="#" onclick="show('mos_fs_T125_Vp1.2');return false;">wykres</a></td></tr>
-<tr><td>mos_fs</td><td>125</td><td>1.32</td><td>0.5829</td><td>0.4979</td><td>2.421</td><td>0.744</td><td>0.730</td><td>1.92</td><td><a href="#" onclick="show('mos_fs_T125_Vp1.32');return false;">wykres</a></td></tr>
+<tr><td>mos_tt</td><td>-25</td><td>1.08</td><td>0.4237</td><td>0.6104</td><td>0.617</td><td>0.137</td><td>0.128</td><td style="background:#f8d0d0;">6.42</td><td><a href="#" onclick="show('mos_tt_T-25_Vp1.08');return false;">wykres</a></td></tr>
+<tr><td>mos_tt</td><td>-25</td><td>1.2</td><td>1.0698</td><td>0.6530</td><td>1.128</td><td>0.268</td><td>0.255</td><td>4.79</td><td><a href="#" onclick="show('mos_tt_T-25_Vp1.2');return false;">wykres</a></td></tr>
+<tr><td>mos_tt</td><td>-25</td><td>1.32</td><td>1.2744</td><td>0.6875</td><td>1.745</td><td>0.387</td><td>0.405</td><td>-4.56</td><td><a href="#" onclick="show('mos_tt_T-25_Vp1.32');return false;">wykres</a></td></tr>
+<tr><td>mos_tt</td><td>27</td><td>1.08</td><td>0.5946</td><td>0.5559</td><td>0.845</td><td>0.212</td><td>0.203</td><td>3.82</td><td><a href="#" onclick="show('mos_tt_T27_Vp1.08');return false;">wykres</a></td></tr>
+<tr><td>mos_tt</td><td>27</td><td>1.2</td><td>1.1611</td><td>0.5971</td><td>1.359</td><td>0.339</td><td>0.341</td><td>-0.64</td><td><a href="#" onclick="show('mos_tt_T27_Vp1.2');return false;">wykres</a></td></tr>
+<tr><td>mos_tt</td><td>27</td><td>1.32</td><td>1.2630</td><td>0.6317</td><td>1.954</td><td>0.457</td><td>0.499</td><td style="background:#cfe0f7;">-8.30</td><td><a href="#" onclick="show('mos_tt_T27_Vp1.32');return false;">wykres</a></td></tr>
+<tr><td>mos_tt</td><td>125</td><td>1.08</td><td>1.0277</td><td>0.4463</td><td>1.317</td><td>0.386</td><td>0.378</td><td>1.84</td><td><a href="#" onclick="show('mos_tt_T125_Vp1.08');return false;">wykres</a></td></tr>
+<tr><td>mos_tt</td><td>125</td><td>1.2</td><td>1.1284</td><td>0.4856</td><td>1.817</td><td>0.493</td><td>0.523</td><td style="background:#cfe0f7;">-5.89</td><td><a href="#" onclick="show('mos_tt_T125_Vp1.2');return false;">wykres</a></td></tr>
+<tr><td>mos_tt</td><td>125</td><td>1.32</td><td>1.2241</td><td>0.5204</td><td>2.366</td><td>0.606</td><td>0.670</td><td style="background:#cfe0f7;">-9.47</td><td><a href="#" onclick="show('mos_tt_T125_Vp1.32');return false;">wykres</a></td></tr>
+<tr><td>mos_ss</td><td>-25</td><td>1.08</td><td>0.5484</td><td>0.6398</td><td>0.182</td><td>0.035</td><td>0.034</td><td>2.96</td><td><a href="#" onclick="show('mos_ss_T-25_Vp1.08');return false;">wykres</a></td></tr>
+<tr><td>mos_ss</td><td>-25</td><td>1.2</td><td>0.7779</td><td>0.7012</td><td>0.511</td><td>0.101</td><td>0.098</td><td>2.92</td><td><a href="#" onclick="show('mos_ss_T-25_Vp1.2');return false;">wykres</a></td></tr>
+<tr><td>mos_ss</td><td>-25</td><td>1.32</td><td>1.0736</td><td>0.7450</td><td>0.975</td><td>0.200</td><td>0.194</td><td>3.18</td><td><a href="#" onclick="show('mos_ss_T-25_Vp1.32');return false;">wykres</a></td></tr>
+<tr><td>mos_ss</td><td>27</td><td>1.08</td><td>0.2442</td><td>0.5967</td><td>0.374</td><td>0.081</td><td>0.068</td><td style="background:#f8d0d0;">15.97</td><td><a href="#" onclick="show('mos_ss_T27_Vp1.08');return false;">wykres</a></td></tr>
+<tr><td>mos_ss</td><td>27</td><td>1.2</td><td>0.8944</td><td>0.6490</td><td>0.745</td><td>0.170</td><td>0.165</td><td>2.93</td><td><a href="#" onclick="show('mos_ss_T27_Vp1.2');return false;">wykres</a></td></tr>
+<tr><td>mos_ss</td><td>27</td><td>1.32</td><td>1.2667</td><td>0.6902</td><td>1.214</td><td>0.290</td><td>0.276</td><td>4.81</td><td><a href="#" onclick="show('mos_ss_T27_Vp1.32');return false;">wykres</a></td></tr>
+<tr><td>mos_ss</td><td>125</td><td>1.08</td><td>0.6545</td><td>0.4957</td><td>0.806</td><td>0.216</td><td>0.208</td><td>3.58</td><td><a href="#" onclick="show('mos_ss_T125_Vp1.08');return false;">wykres</a></td></tr>
+<tr><td>mos_ss</td><td>125</td><td>1.2</td><td>1.1612</td><td>0.5405</td><td>1.208</td><td>0.329</td><td>0.322</td><td>2.16</td><td><a href="#" onclick="show('mos_ss_T125_Vp1.2');return false;">wykres</a></td></tr>
+<tr><td>mos_ss</td><td>125</td><td>1.32</td><td>1.2636</td><td>0.5791</td><td>1.666</td><td>0.426</td><td>0.449</td><td style="background:#cfe0f7;">-5.17</td><td><a href="#" onclick="show('mos_ss_T125_Vp1.32');return false;">wykres</a></td></tr>
+<tr><td>mos_ff</td><td>-25</td><td>1.08</td><td>1.0221</td><td>0.5660</td><td>1.303</td><td>0.345</td><td>0.330</td><td>4.36</td><td><a href="#" onclick="show('mos_ff_T-25_Vp1.08');return false;">wykres</a></td></tr>
+<tr><td>mos_ff</td><td>-25</td><td>1.2</td><td>1.1419</td><td>0.6002</td><td>1.986</td><td>0.451</td><td>0.511</td><td style="background:#cfe0f7;">-11.73</td><td><a href="#" onclick="show('mos_ff_T-25_Vp1.2');return false;">wykres</a></td></tr>
+<tr><td>mos_ff</td><td>-25</td><td>1.32</td><td>1.2381</td><td>0.6294</td><td>2.755</td><td>0.603</td><td>0.693</td><td style="background:#cfe0f7;">-13.04</td><td><a href="#" onclick="show('mos_ff_T-25_Vp1.32');return false;">wykres</a></td></tr>
+<tr><td>mos_ff</td><td>27</td><td>1.08</td><td>1.0325</td><td>0.5097</td><td>1.524</td><td>0.399</td><td>0.417</td><td>-4.31</td><td><a href="#" onclick="show('mos_ff_T27_Vp1.08');return false;">wykres</a></td></tr>
+<tr><td>mos_ff</td><td>27</td><td>1.2</td><td>1.1297</td><td>0.5446</td><td>2.180</td><td>0.529</td><td>0.593</td><td style="background:#cfe0f7;">-10.77</td><td><a href="#" onclick="show('mos_ff_T27_Vp1.2');return false;">wykres</a></td></tr>
+<tr><td>mos_ff</td><td>27</td><td>1.32</td><td>1.2253</td><td>0.5749</td><td>2.905</td><td>0.628</td><td>0.724</td><td style="background:#cfe0f7;">-13.27</td><td><a href="#" onclick="show('mos_ff_T27_Vp1.32');return false;">wykres</a></td></tr>
+<tr><td>mos_ff</td><td>125</td><td>1.08</td><td>0.9790</td><td>0.3995</td><td>1.997</td><td>0.554</td><td>0.570</td><td>-2.75</td><td><a href="#" onclick="show('mos_ff_T125_Vp1.08');return false;">wykres</a></td></tr>
+<tr><td>mos_ff</td><td>125</td><td>1.2</td><td>1.0723</td><td>0.4348</td><td>2.601</td><td>0.611</td><td>0.642</td><td>-4.74</td><td><a href="#" onclick="show('mos_ff_T125_Vp1.2');return false;">wykres</a></td></tr>
+<tr><td>mos_ff</td><td>125</td><td>1.32</td><td>1.1564</td><td>0.4665</td><td>3.247</td><td>0.675</td><td>0.700</td><td>-3.59</td><td><a href="#" onclick="show('mos_ff_T125_Vp1.32');return false;">wykres</a></td></tr>
+<tr><td>mos_sf</td><td>-25</td><td>1.08</td><td>0.6929</td><td>0.6574</td><td>0.578</td><td>0.122</td><td>0.118</td><td>2.64</td><td><a href="#" onclick="show('mos_sf_T-25_Vp1.08');return false;">wykres</a></td></tr>
+<tr><td>mos_sf</td><td>-25</td><td>1.2</td><td>1.0113</td><td>0.7004</td><td>1.074</td><td>0.235</td><td>0.228</td><td>2.64</td><td><a href="#" onclick="show('mos_sf_T-25_Vp1.2');return false;">wykres</a></td></tr>
+<tr><td>mos_sf</td><td>-25</td><td>1.32</td><td>1.2692</td><td>0.7351</td><td>1.675</td><td>0.356</td><td>0.367</td><td>-2.96</td><td><a href="#" onclick="show('mos_sf_T-25_Vp1.32');return false;">wykres</a></td></tr>
+<tr><td>mos_sf</td><td>27</td><td>1.08</td><td>0.6988</td><td>0.6040</td><td>0.812</td><td>0.193</td><td>0.188</td><td>2.79</td><td><a href="#" onclick="show('mos_sf_T27_Vp1.08');return false;">wykres</a></td></tr>
+<tr><td>mos_sf</td><td>27</td><td>1.2</td><td>1.1477</td><td>0.6454</td><td>1.313</td><td>0.317</td><td>0.314</td><td>0.81</td><td><a href="#" onclick="show('mos_sf_T27_Vp1.2');return false;">wykres</a></td></tr>
+<tr><td>mos_sf</td><td>27</td><td>1.32</td><td>1.2597</td><td>0.6801</td><td>1.895</td><td>0.428</td><td>0.462</td><td style="background:#cfe0f7;">-7.32</td><td><a href="#" onclick="show('mos_sf_T27_Vp1.32');return false;">wykres</a></td></tr>
+<tr><td>mos_sf</td><td>125</td><td>1.08</td><td>1.0242</td><td>0.4959</td><td>1.291</td><td>0.356</td><td>0.356</td><td>-0.12</td><td><a href="#" onclick="show('mos_sf_T125_Vp1.08');return false;">wykres</a></td></tr>
+<tr><td>mos_sf</td><td>125</td><td>1.2</td><td>1.1275</td><td>0.5351</td><td>1.782</td><td>0.461</td><td>0.495</td><td style="background:#cfe0f7;">-6.93</td><td><a href="#" onclick="show('mos_sf_T125_Vp1.2');return false;">wykres</a></td></tr>
+<tr><td>mos_sf</td><td>125</td><td>1.32</td><td>1.2242</td><td>0.5698</td><td>2.321</td><td>0.577</td><td>0.640</td><td style="background:#cfe0f7;">-9.88</td><td><a href="#" onclick="show('mos_sf_T125_Vp1.32');return false;">wykres</a></td></tr>
+<tr><td>mos_fs</td><td>-25</td><td>1.08</td><td>0.3710</td><td>0.5668</td><td>0.665</td><td>0.157</td><td>0.142</td><td style="background:#f8d0d0;">9.73</td><td><a href="#" onclick="show('mos_fs_T-25_Vp1.08');return false;">wykres</a></td></tr>
+<tr><td>mos_fs</td><td>-25</td><td>1.2</td><td>1.1677</td><td>0.6086</td><td>1.195</td><td>0.298</td><td>0.287</td><td>3.77</td><td><a href="#" onclick="show('mos_fs_T-25_Vp1.2');return false;">wykres</a></td></tr>
+<tr><td>mos_fs</td><td>-25</td><td>1.32</td><td>1.2694</td><td>0.6427</td><td>1.831</td><td>0.419</td><td>0.449</td><td style="background:#cfe0f7;">-6.54</td><td><a href="#" onclick="show('mos_fs_T-25_Vp1.32');return false;">wykres</a></td></tr>
+<tr><td>mos_fs</td><td>27</td><td>1.08</td><td>0.5498</td><td>0.5112</td><td>0.886</td><td>0.233</td><td>0.221</td><td style="background:#f8d0d0;">5.17</td><td><a href="#" onclick="show('mos_fs_T27_Vp1.08');return false;">wykres</a></td></tr>
+<tr><td>mos_fs</td><td>27</td><td>1.2</td><td>1.1572</td><td>0.5520</td><td>1.414</td><td>0.363</td><td>0.372</td><td>-2.51</td><td><a href="#" onclick="show('mos_fs_T27_Vp1.2');return false;">wykres</a></td></tr>
+<tr><td>mos_fs</td><td>27</td><td>1.32</td><td>1.2580</td><td>0.5865</td><td>2.025</td><td>0.488</td><td>0.540</td><td style="background:#cfe0f7;">-9.49</td><td><a href="#" onclick="show('mos_fs_T27_Vp1.32');return false;">wykres</a></td></tr>
+<tr><td>mos_fs</td><td>125</td><td>1.08</td><td>1.0170</td><td>0.4005</td><td>1.351</td><td>0.430</td><td>0.405</td><td style="background:#f8d0d0;">5.79</td><td><a href="#" onclick="show('mos_fs_T125_Vp1.08');return false;">wykres</a></td></tr>
+<tr><td>mos_fs</td><td>125</td><td>1.2</td><td>1.1183</td><td>0.4398</td><td>1.861</td><td>0.529</td><td>0.554</td><td>-4.55</td><td><a href="#" onclick="show('mos_fs_T125_Vp1.2');return false;">wykres</a></td></tr>
+<tr><td>mos_fs</td><td>125</td><td>1.32</td><td>1.2132</td><td>0.4745</td><td>2.421</td><td>0.635</td><td>0.694</td><td style="background:#cfe0f7;">-8.45</td><td><a href="#" onclick="show('mos_fs_T125_Vp1.32');return false;">wykres</a></td></tr>
 
 </tbody>
 </table>
 
-<div class="tabs"><a href="#" onclick="show('mos_tt_T-40_Vp1.08');return false;">mos_tt T-40 Vp1.08</a>
-<a href="#" onclick="show('mos_tt_T-40_Vp1.2');return false;">mos_tt T-40 Vp1.2</a>
-<a href="#" onclick="show('mos_tt_T-40_Vp1.32');return false;">mos_tt T-40 Vp1.32</a>
+<div class="tabs"><a href="#" onclick="show('mos_tt_T-25_Vp1.08');return false;">mos_tt T-25 Vp1.08</a>
+<a href="#" onclick="show('mos_tt_T-25_Vp1.2');return false;">mos_tt T-25 Vp1.2</a>
+<a href="#" onclick="show('mos_tt_T-25_Vp1.32');return false;">mos_tt T-25 Vp1.32</a>
 <a href="#" onclick="show('mos_tt_T27_Vp1.08');return false;">mos_tt T27 Vp1.08</a>
 <a href="#" onclick="show('mos_tt_T27_Vp1.2');return false;">mos_tt T27 Vp1.2</a>
 <a href="#" onclick="show('mos_tt_T27_Vp1.32');return false;">mos_tt T27 Vp1.32</a>
 <a href="#" onclick="show('mos_tt_T125_Vp1.08');return false;">mos_tt T125 Vp1.08</a>
 <a href="#" onclick="show('mos_tt_T125_Vp1.2');return false;">mos_tt T125 Vp1.2</a>
 <a href="#" onclick="show('mos_tt_T125_Vp1.32');return false;">mos_tt T125 Vp1.32</a>
-<a href="#" onclick="show('mos_ss_T-40_Vp1.08');return false;">mos_ss T-40 Vp1.08</a>
-<a href="#" onclick="show('mos_ss_T-40_Vp1.2');return false;">mos_ss T-40 Vp1.2</a>
-<a href="#" onclick="show('mos_ss_T-40_Vp1.32');return false;">mos_ss T-40 Vp1.32</a>
+<a href="#" onclick="show('mos_ss_T-25_Vp1.08');return false;">mos_ss T-25 Vp1.08</a>
+<a href="#" onclick="show('mos_ss_T-25_Vp1.2');return false;">mos_ss T-25 Vp1.2</a>
+<a href="#" onclick="show('mos_ss_T-25_Vp1.32');return false;">mos_ss T-25 Vp1.32</a>
 <a href="#" onclick="show('mos_ss_T27_Vp1.08');return false;">mos_ss T27 Vp1.08</a>
 <a href="#" onclick="show('mos_ss_T27_Vp1.2');return false;">mos_ss T27 Vp1.2</a>
 <a href="#" onclick="show('mos_ss_T27_Vp1.32');return false;">mos_ss T27 Vp1.32</a>
 <a href="#" onclick="show('mos_ss_T125_Vp1.08');return false;">mos_ss T125 Vp1.08</a>
 <a href="#" onclick="show('mos_ss_T125_Vp1.2');return false;">mos_ss T125 Vp1.2</a>
 <a href="#" onclick="show('mos_ss_T125_Vp1.32');return false;">mos_ss T125 Vp1.32</a>
-<a href="#" onclick="show('mos_ff_T-40_Vp1.08');return false;">mos_ff T-40 Vp1.08</a>
-<a href="#" onclick="show('mos_ff_T-40_Vp1.2');return false;">mos_ff T-40 Vp1.2</a>
-<a href="#" onclick="show('mos_ff_T-40_Vp1.32');return false;">mos_ff T-40 Vp1.32</a>
+<a href="#" onclick="show('mos_ff_T-25_Vp1.08');return false;">mos_ff T-25 Vp1.08</a>
+<a href="#" onclick="show('mos_ff_T-25_Vp1.2');return false;">mos_ff T-25 Vp1.2</a>
+<a href="#" onclick="show('mos_ff_T-25_Vp1.32');return false;">mos_ff T-25 Vp1.32</a>
 <a href="#" onclick="show('mos_ff_T27_Vp1.08');return false;">mos_ff T27 Vp1.08</a>
 <a href="#" onclick="show('mos_ff_T27_Vp1.2');return false;">mos_ff T27 Vp1.2</a>
 <a href="#" onclick="show('mos_ff_T27_Vp1.32');return false;">mos_ff T27 Vp1.32</a>
 <a href="#" onclick="show('mos_ff_T125_Vp1.08');return false;">mos_ff T125 Vp1.08</a>
 <a href="#" onclick="show('mos_ff_T125_Vp1.2');return false;">mos_ff T125 Vp1.2</a>
 <a href="#" onclick="show('mos_ff_T125_Vp1.32');return false;">mos_ff T125 Vp1.32</a>
-<a href="#" onclick="show('mos_sf_T-40_Vp1.08');return false;">mos_sf T-40 Vp1.08</a>
-<a href="#" onclick="show('mos_sf_T-40_Vp1.2');return false;">mos_sf T-40 Vp1.2</a>
-<a href="#" onclick="show('mos_sf_T-40_Vp1.32');return false;">mos_sf T-40 Vp1.32</a>
+<a href="#" onclick="show('mos_sf_T-25_Vp1.08');return false;">mos_sf T-25 Vp1.08</a>
+<a href="#" onclick="show('mos_sf_T-25_Vp1.2');return false;">mos_sf T-25 Vp1.2</a>
+<a href="#" onclick="show('mos_sf_T-25_Vp1.32');return false;">mos_sf T-25 Vp1.32</a>
 <a href="#" onclick="show('mos_sf_T27_Vp1.08');return false;">mos_sf T27 Vp1.08</a>
 <a href="#" onclick="show('mos_sf_T27_Vp1.2');return false;">mos_sf T27 Vp1.2</a>
 <a href="#" onclick="show('mos_sf_T27_Vp1.32');return false;">mos_sf T27 Vp1.32</a>
 <a href="#" onclick="show('mos_sf_T125_Vp1.08');return false;">mos_sf T125 Vp1.08</a>
 <a href="#" onclick="show('mos_sf_T125_Vp1.2');return false;">mos_sf T125 Vp1.2</a>
 <a href="#" onclick="show('mos_sf_T125_Vp1.32');return false;">mos_sf T125 Vp1.32</a>
-<a href="#" onclick="show('mos_fs_T-40_Vp1.08');return false;">mos_fs T-40 Vp1.08</a>
-<a href="#" onclick="show('mos_fs_T-40_Vp1.2');return false;">mos_fs T-40 Vp1.2</a>
-<a href="#" onclick="show('mos_fs_T-40_Vp1.32');return false;">mos_fs T-40 Vp1.32</a>
+<a href="#" onclick="show('mos_fs_T-25_Vp1.08');return false;">mos_fs T-25 Vp1.08</a>
+<a href="#" onclick="show('mos_fs_T-25_Vp1.2');return false;">mos_fs T-25 Vp1.2</a>
+<a href="#" onclick="show('mos_fs_T-25_Vp1.32');return false;">mos_fs T-25 Vp1.32</a>
 <a href="#" onclick="show('mos_fs_T27_Vp1.08');return false;">mos_fs T27 Vp1.08</a>
 <a href="#" onclick="show('mos_fs_T27_Vp1.2');return false;">mos_fs T27 Vp1.2</a>
 <a href="#" onclick="show('mos_fs_T27_Vp1.32');return false;">mos_fs T27 Vp1.32</a>
@@ -126,408 +125,408 @@ Na wykresach (panel 4) zacieniowanie pokazuje dokladnie te przedzialy.</p>
 <a href="#" onclick="show('mos_fs_T125_Vp1.32');return false;">mos_fs T125 Vp1.32</a>
 </div>
 
-<div id="mos_tt_T-40_Vp1.08" class="panel">
-  <p>mos_tt | T=-40C | Vp=1.08V |
-     V(out)=0.4458V, V(vbias)=0.6362V (okno 90-100us),
-     Iref=0.556uA (okno 90-100us),
-     Iup=0.118uA (tylko gdy Vup2=1),
-     Idn=0.118uA (tylko gdy Vdn2=1)</p>
-  <img src="cp_layout_mos_tt_T-40_Vp1.08.png">
+<div id="mos_tt_T-25_Vp1.08" class="panel">
+  <p>mos_tt | T=-25C | Vp=1.08V |
+     V(out)=0.4237V, V(vbias)=0.6104V (okno 90-100us),
+     Iref=0.617uA (okno 90-100us),
+     Iup=0.137uA,
+     Idn=0.128uA </p>
+  <img src="cp_layout_mos_tt_T-25_Vp1.08.png">
 </div>
 
-<div id="mos_tt_T-40_Vp1.2" class="panel">
-  <p>mos_tt | T=-40C | Vp=1.2V |
-     V(out)=0.4929V, V(vbias)=0.6807V (okno 90-100us),
-     Iref=1.066uA (okno 90-100us),
-     Iup=0.235uA (tylko gdy Vup2=1),
-     Idn=0.232uA (tylko gdy Vdn2=1)</p>
-  <img src="cp_layout_mos_tt_T-40_Vp1.2.png">
+<div id="mos_tt_T-25_Vp1.2" class="panel">
+  <p>mos_tt | T=-25C | Vp=1.2V |
+     V(out)=1.0698V, V(vbias)=0.6530V (okno 90-100us),
+     Iref=1.128uA (okno 90-100us),
+     Iup=0.268uA,
+     Idn=0.255uA </p>
+  <img src="cp_layout_mos_tt_T-25_Vp1.2.png">
 </div>
 
-<div id="mos_tt_T-40_Vp1.32" class="panel">
-  <p>mos_tt | T=-40C | Vp=1.32V |
-     V(out)=0.5535V, V(vbias)=0.7164V (okno 90-100us),
-     Iref=1.688uA (okno 90-100us),
-     Iup=0.384uA (tylko gdy Vup2=1),
-     Idn=0.380uA (tylko gdy Vdn2=1)</p>
-  <img src="cp_layout_mos_tt_T-40_Vp1.32.png">
+<div id="mos_tt_T-25_Vp1.32" class="panel">
+  <p>mos_tt | T=-25C | Vp=1.32V |
+     V(out)=1.2744V, V(vbias)=0.6875V (okno 90-100us),
+     Iref=1.745uA (okno 90-100us),
+     Iup=0.387uA,
+     Idn=0.405uA </p>
+  <img src="cp_layout_mos_tt_T-25_Vp1.32.png">
 </div>
 
 <div id="mos_tt_T27_Vp1.08" class="panel">
   <p>mos_tt | T=27C | Vp=1.08V |
-     V(out)=0.4788V, V(vbias)=0.5698V (okno 90-100us),
+     V(out)=0.5946V, V(vbias)=0.5559V (okno 90-100us),
      Iref=0.845uA (okno 90-100us),
-     Iup=0.209uA (tylko gdy Vup2=1),
-     Idn=0.208uA (tylko gdy Vdn2=1)</p>
+     Iup=0.212uA,
+     Idn=0.203uA </p>
   <img src="cp_layout_mos_tt_T27_Vp1.08.png">
 </div>
 
 <div id="mos_tt_T27_Vp1.2" class="panel">
   <p>mos_tt | T=27C | Vp=1.2V |
-     V(out)=0.5318V, V(vbias)=0.6124V (okno 90-100us),
+     V(out)=1.1611V, V(vbias)=0.5971V (okno 90-100us),
      Iref=1.359uA (okno 90-100us),
-     Iup=0.343uA (tylko gdy Vup2=1),
-     Idn=0.342uA (tylko gdy Vdn2=1)</p>
+     Iup=0.339uA,
+     Idn=0.341uA </p>
   <img src="cp_layout_mos_tt_T27_Vp1.2.png">
 </div>
 
 <div id="mos_tt_T27_Vp1.32" class="panel">
   <p>mos_tt | T=27C | Vp=1.32V |
-     V(out)=0.5954V, V(vbias)=0.6485V (okno 90-100us),
+     V(out)=1.2630V, V(vbias)=0.6317V (okno 90-100us),
      Iref=1.954uA (okno 90-100us),
-     Iup=0.504uA (tylko gdy Vup2=1),
-     Idn=0.502uA (tylko gdy Vdn2=1)</p>
+     Iup=0.457uA,
+     Idn=0.499uA </p>
   <img src="cp_layout_mos_tt_T27_Vp1.32.png">
 </div>
 
 <div id="mos_tt_T125_Vp1.08" class="panel">
   <p>mos_tt | T=125C | Vp=1.08V |
-     V(out)=0.4895V, V(vbias)=0.4662V (okno 90-100us),
+     V(out)=1.0277V, V(vbias)=0.4463V (okno 90-100us),
      Iref=1.317uA (okno 90-100us),
-     Iup=0.380uA (tylko gdy Vup2=1),
-     Idn=0.378uA (tylko gdy Vdn2=1)</p>
+     Iup=0.386uA,
+     Idn=0.378uA </p>
   <img src="cp_layout_mos_tt_T125_Vp1.08.png">
 </div>
 
 <div id="mos_tt_T125_Vp1.2" class="panel">
   <p>mos_tt | T=125C | Vp=1.2V |
-     V(out)=0.5487V, V(vbias)=0.5072V (okno 90-100us),
+     V(out)=1.1284V, V(vbias)=0.4856V (okno 90-100us),
      Iref=1.817uA (okno 90-100us),
-     Iup=0.532uA (tylko gdy Vup2=1),
-     Idn=0.527uA (tylko gdy Vdn2=1)</p>
+     Iup=0.493uA,
+     Idn=0.523uA </p>
   <img src="cp_layout_mos_tt_T125_Vp1.2.png">
 </div>
 
 <div id="mos_tt_T125_Vp1.32" class="panel">
   <p>mos_tt | T=125C | Vp=1.32V |
-     V(out)=0.6190V, V(vbias)=0.5435V (okno 90-100us),
+     V(out)=1.2241V, V(vbias)=0.5204V (okno 90-100us),
      Iref=2.366uA (okno 90-100us),
-     Iup=0.704uA (tylko gdy Vup2=1),
-     Idn=0.695uA (tylko gdy Vdn2=1)</p>
+     Iup=0.606uA,
+     Idn=0.670uA </p>
   <img src="cp_layout_mos_tt_T125_Vp1.32.png">
 </div>
 
-<div id="mos_ss_T-40_Vp1.08" class="panel">
-  <p>mos_ss | T=-40C | Vp=1.08V |
-     V(out)=0.4084V, V(vbias)=0.6591V (okno 90-100us),
-     Iref=0.136uA (okno 90-100us),
-     Iup=0.024uA (tylko gdy Vup2=1),
-     Idn=0.025uA (tylko gdy Vdn2=1)</p>
-  <img src="cp_layout_mos_ss_T-40_Vp1.08.png">
+<div id="mos_ss_T-25_Vp1.08" class="panel">
+  <p>mos_ss | T=-25C | Vp=1.08V |
+     V(out)=0.5484V, V(vbias)=0.6398V (okno 90-100us),
+     Iref=0.182uA (okno 90-100us),
+     Iup=0.035uA,
+     Idn=0.034uA </p>
+  <img src="cp_layout_mos_ss_T-25_Vp1.08.png">
 </div>
 
-<div id="mos_ss_T-40_Vp1.2" class="panel">
-  <p>mos_ss | T=-40C | Vp=1.2V |
-     V(out)=0.4327V, V(vbias)=0.7260V (okno 90-100us),
-     Iref=0.447uA (okno 90-100us),
-     Iup=0.083uA (tylko gdy Vup2=1),
-     Idn=0.082uA (tylko gdy Vdn2=1)</p>
-  <img src="cp_layout_mos_ss_T-40_Vp1.2.png">
+<div id="mos_ss_T-25_Vp1.2" class="panel">
+  <p>mos_ss | T=-25C | Vp=1.2V |
+     V(out)=0.7779V, V(vbias)=0.7012V (okno 90-100us),
+     Iref=0.511uA (okno 90-100us),
+     Iup=0.101uA,
+     Idn=0.098uA </p>
+  <img src="cp_layout_mos_ss_T-25_Vp1.2.png">
 </div>
 
-<div id="mos_ss_T-40_Vp1.32" class="panel">
-  <p>mos_ss | T=-40C | Vp=1.32V |
-     V(out)=0.4718V, V(vbias)=0.7722V (okno 90-100us),
-     Iref=0.908uA (okno 90-100us),
-     Iup=0.175uA (tylko gdy Vup2=1),
-     Idn=0.172uA (tylko gdy Vdn2=1)</p>
-  <img src="cp_layout_mos_ss_T-40_Vp1.32.png">
+<div id="mos_ss_T-25_Vp1.32" class="panel">
+  <p>mos_ss | T=-25C | Vp=1.32V |
+     V(out)=1.0736V, V(vbias)=0.7450V (okno 90-100us),
+     Iref=0.975uA (okno 90-100us),
+     Iup=0.200uA,
+     Idn=0.194uA </p>
+  <img src="cp_layout_mos_ss_T-25_Vp1.32.png">
 </div>
 
 <div id="mos_ss_T27_Vp1.08" class="panel">
   <p>mos_ss | T=27C | Vp=1.08V |
-     V(out)=0.4310V, V(vbias)=0.6094V (okno 90-100us),
+     V(out)=0.2442V, V(vbias)=0.5967V (okno 90-100us),
      Iref=0.374uA (okno 90-100us),
-     Iup=0.081uA (tylko gdy Vup2=1),
-     Idn=0.081uA (tylko gdy Vdn2=1)</p>
+     Iup=0.081uA,
+     Idn=0.068uA </p>
   <img src="cp_layout_mos_ss_T27_Vp1.08.png">
 </div>
 
 <div id="mos_ss_T27_Vp1.2" class="panel">
   <p>mos_ss | T=27C | Vp=1.2V |
-     V(out)=0.4654V, V(vbias)=0.6630V (okno 90-100us),
+     V(out)=0.8944V, V(vbias)=0.6490V (okno 90-100us),
      Iref=0.745uA (okno 90-100us),
-     Iup=0.166uA (tylko gdy Vup2=1),
-     Idn=0.165uA (tylko gdy Vdn2=1)</p>
+     Iup=0.170uA,
+     Idn=0.165uA </p>
   <img src="cp_layout_mos_ss_T27_Vp1.2.png">
 </div>
 
 <div id="mos_ss_T27_Vp1.32" class="panel">
   <p>mos_ss | T=27C | Vp=1.32V |
-     V(out)=0.5113V, V(vbias)=0.7056V (okno 90-100us),
+     V(out)=1.2667V, V(vbias)=0.6902V (okno 90-100us),
      Iref=1.214uA (okno 90-100us),
-     Iup=0.278uA (tylko gdy Vup2=1),
-     Idn=0.275uA (tylko gdy Vdn2=1)</p>
+     Iup=0.290uA,
+     Idn=0.276uA </p>
   <img src="cp_layout_mos_ss_T27_Vp1.32.png">
 </div>
 
 <div id="mos_ss_T125_Vp1.08" class="panel">
   <p>mos_ss | T=125C | Vp=1.08V |
-     V(out)=0.4669V, V(vbias)=0.5143V (okno 90-100us),
+     V(out)=0.6545V, V(vbias)=0.4957V (okno 90-100us),
      Iref=0.806uA (okno 90-100us),
-     Iup=0.212uA (tylko gdy Vup2=1),
-     Idn=0.212uA (tylko gdy Vdn2=1)</p>
+     Iup=0.216uA,
+     Idn=0.208uA </p>
   <img src="cp_layout_mos_ss_T125_Vp1.08.png">
 </div>
 
 <div id="mos_ss_T125_Vp1.2" class="panel">
   <p>mos_ss | T=125C | Vp=1.2V |
-     V(out)=0.5102V, V(vbias)=0.5606V (okno 90-100us),
+     V(out)=1.1612V, V(vbias)=0.5405V (okno 90-100us),
      Iref=1.208uA (okno 90-100us),
-     Iup=0.323uA (tylko gdy Vup2=1),
-     Idn=0.321uA (tylko gdy Vdn2=1)</p>
+     Iup=0.329uA,
+     Idn=0.322uA </p>
   <img src="cp_layout_mos_ss_T125_Vp1.2.png">
 </div>
 
 <div id="mos_ss_T125_Vp1.32" class="panel">
   <p>mos_ss | T=125C | Vp=1.32V |
-     V(out)=0.5623V, V(vbias)=0.6007V (okno 90-100us),
+     V(out)=1.2636V, V(vbias)=0.5791V (okno 90-100us),
      Iref=1.666uA (okno 90-100us),
-     Iup=0.453uA (tylko gdy Vup2=1),
-     Idn=0.450uA (tylko gdy Vdn2=1)</p>
+     Iup=0.426uA,
+     Idn=0.449uA </p>
   <img src="cp_layout_mos_ss_T125_Vp1.32.png">
 </div>
 
-<div id="mos_ff_T-40_Vp1.08" class="panel">
-  <p>mos_ff | T=-40C | Vp=1.08V |
-     V(out)=0.5184V, V(vbias)=0.5934V (okno 90-100us),
-     Iref=1.245uA (okno 90-100us),
-     Iup=0.308uA (tylko gdy Vup2=1),
-     Idn=0.307uA (tylko gdy Vdn2=1)</p>
-  <img src="cp_layout_mos_ff_T-40_Vp1.08.png">
+<div id="mos_ff_T-25_Vp1.08" class="panel">
+  <p>mos_ff | T=-25C | Vp=1.08V |
+     V(out)=1.0221V, V(vbias)=0.5660V (okno 90-100us),
+     Iref=1.303uA (okno 90-100us),
+     Iup=0.345uA,
+     Idn=0.330uA </p>
+  <img src="cp_layout_mos_ff_T-25_Vp1.08.png">
 </div>
 
-<div id="mos_ff_T-40_Vp1.2" class="panel">
-  <p>mos_ff | T=-40C | Vp=1.2V |
-     V(out)=0.5904V, V(vbias)=0.6288V (okno 90-100us),
-     Iref=1.936uA (okno 90-100us),
-     Iup=0.493uA (tylko gdy Vup2=1),
-     Idn=0.490uA (tylko gdy Vdn2=1)</p>
-  <img src="cp_layout_mos_ff_T-40_Vp1.2.png">
+<div id="mos_ff_T-25_Vp1.2" class="panel">
+  <p>mos_ff | T=-25C | Vp=1.2V |
+     V(out)=1.1419V, V(vbias)=0.6002V (okno 90-100us),
+     Iref=1.986uA (okno 90-100us),
+     Iup=0.451uA,
+     Idn=0.511uA </p>
+  <img src="cp_layout_mos_ff_T-25_Vp1.2.png">
 </div>
 
-<div id="mos_ff_T-40_Vp1.32" class="panel">
-  <p>mos_ff | T=-40C | Vp=1.32V |
-     V(out)=0.6747V, V(vbias)=0.6591V (okno 90-100us),
-     Iref=2.717uA (okno 90-100us),
-     Iup=0.708uA (tylko gdy Vup2=1),
-     Idn=0.705uA (tylko gdy Vdn2=1)</p>
-  <img src="cp_layout_mos_ff_T-40_Vp1.32.png">
+<div id="mos_ff_T-25_Vp1.32" class="panel">
+  <p>mos_ff | T=-25C | Vp=1.32V |
+     V(out)=1.2381V, V(vbias)=0.6294V (okno 90-100us),
+     Iref=2.755uA (okno 90-100us),
+     Iup=0.603uA,
+     Idn=0.693uA </p>
+  <img src="cp_layout_mos_ff_T-25_Vp1.32.png">
 </div>
 
 <div id="mos_ff_T27_Vp1.08" class="panel">
   <p>mos_ff | T=27C | Vp=1.08V |
-     V(out)=0.5522V, V(vbias)=0.5245V (okno 90-100us),
+     V(out)=1.0325V, V(vbias)=0.5097V (okno 90-100us),
      Iref=1.524uA (okno 90-100us),
-     Iup=0.420uA (tylko gdy Vup2=1),
-     Idn=0.420uA (tylko gdy Vdn2=1)</p>
+     Iup=0.399uA,
+     Idn=0.417uA </p>
   <img src="cp_layout_mos_ff_T27_Vp1.08.png">
 </div>
 
 <div id="mos_ff_T27_Vp1.2" class="panel">
   <p>mos_ff | T=27C | Vp=1.2V |
-     V(out)=0.6258V, V(vbias)=0.5609V (okno 90-100us),
+     V(out)=1.1297V, V(vbias)=0.5446V (okno 90-100us),
      Iref=2.180uA (okno 90-100us),
-     Iup=0.612uA (tylko gdy Vup2=1),
-     Idn=0.612uA (tylko gdy Vdn2=1)</p>
+     Iup=0.529uA,
+     Idn=0.593uA </p>
   <img src="cp_layout_mos_ff_T27_Vp1.2.png">
 </div>
 
 <div id="mos_ff_T27_Vp1.32" class="panel">
   <p>mos_ff | T=27C | Vp=1.32V |
-     V(out)=0.7115V, V(vbias)=0.5928V (okno 90-100us),
+     V(out)=1.2253V, V(vbias)=0.5749V (okno 90-100us),
      Iref=2.905uA (okno 90-100us),
-     Iup=0.830uA (tylko gdy Vup2=1),
-     Idn=0.828uA (tylko gdy Vdn2=1)</p>
+     Iup=0.628uA,
+     Idn=0.724uA </p>
   <img src="cp_layout_mos_ff_T27_Vp1.32.png">
 </div>
 
 <div id="mos_ff_T125_Vp1.08" class="panel">
   <p>mos_ff | T=125C | Vp=1.08V |
-     V(out)=0.4731V, V(vbias)=0.4205V (okno 90-100us),
+     V(out)=0.9790V, V(vbias)=0.3995V (okno 90-100us),
      Iref=1.997uA (okno 90-100us),
-     Iup=0.636uA (tylko gdy Vup2=1),
-     Idn=0.614uA (tylko gdy Vdn2=1)</p>
+     Iup=0.554uA,
+     Idn=0.570uA </p>
   <img src="cp_layout_mos_ff_T125_Vp1.08.png">
 </div>
 
 <div id="mos_ff_T125_Vp1.2" class="panel">
   <p>mos_ff | T=125C | Vp=1.2V |
-     V(out)=0.5504V, V(vbias)=0.4575V (okno 90-100us),
+     V(out)=1.0723V, V(vbias)=0.4348V (okno 90-100us),
      Iref=2.601uA (okno 90-100us),
-     Iup=0.835uA (tylko gdy Vup2=1),
-     Idn=0.805uA (tylko gdy Vdn2=1)</p>
+     Iup=0.611uA,
+     Idn=0.642uA </p>
   <img src="cp_layout_mos_ff_T125_Vp1.2.png">
 </div>
 
 <div id="mos_ff_T125_Vp1.32" class="panel">
   <p>mos_ff | T=125C | Vp=1.32V |
-     V(out)=0.6388V, V(vbias)=0.4907V (okno 90-100us),
+     V(out)=1.1564V, V(vbias)=0.4665V (okno 90-100us),
      Iref=3.247uA (okno 90-100us),
-     Iup=1.054uA (tylko gdy Vup2=1),
-     Idn=1.015uA (tylko gdy Vdn2=1)</p>
+     Iup=0.675uA,
+     Idn=0.700uA </p>
   <img src="cp_layout_mos_ff_T125_Vp1.32.png">
 </div>
 
-<div id="mos_sf_T-40_Vp1.08" class="panel">
-  <p>mos_sf | T=-40C | Vp=1.08V |
-     V(out)=0.4395V, V(vbias)=0.6820V (okno 90-100us),
-     Iref=0.515uA (okno 90-100us),
-     Iup=0.102uA (tylko gdy Vup2=1),
-     Idn=0.102uA (tylko gdy Vdn2=1)</p>
-  <img src="cp_layout_mos_sf_T-40_Vp1.08.png">
+<div id="mos_sf_T-25_Vp1.08" class="panel">
+  <p>mos_sf | T=-25C | Vp=1.08V |
+     V(out)=0.6929V, V(vbias)=0.6574V (okno 90-100us),
+     Iref=0.578uA (okno 90-100us),
+     Iup=0.122uA,
+     Idn=0.118uA </p>
+  <img src="cp_layout_mos_sf_T-25_Vp1.08.png">
 </div>
 
-<div id="mos_sf_T-40_Vp1.2" class="panel">
-  <p>mos_sf | T=-40C | Vp=1.2V |
-     V(out)=0.4828V, V(vbias)=0.7272V (okno 90-100us),
-     Iref=1.009uA (okno 90-100us),
-     Iup=0.208uA (tylko gdy Vup2=1),
-     Idn=0.206uA (tylko gdy Vdn2=1)</p>
-  <img src="cp_layout_mos_sf_T-40_Vp1.2.png">
+<div id="mos_sf_T-25_Vp1.2" class="panel">
+  <p>mos_sf | T=-25C | Vp=1.2V |
+     V(out)=1.0113V, V(vbias)=0.7004V (okno 90-100us),
+     Iref=1.074uA (okno 90-100us),
+     Iup=0.235uA,
+     Idn=0.228uA </p>
+  <img src="cp_layout_mos_sf_T-25_Vp1.2.png">
 </div>
 
-<div id="mos_sf_T-40_Vp1.32" class="panel">
-  <p>mos_sf | T=-40C | Vp=1.32V |
-     V(out)=0.5391V, V(vbias)=0.7633V (okno 90-100us),
-     Iref=1.614uA (okno 90-100us),
-     Iup=0.345uA (tylko gdy Vup2=1),
-     Idn=0.341uA (tylko gdy Vdn2=1)</p>
-  <img src="cp_layout_mos_sf_T-40_Vp1.32.png">
+<div id="mos_sf_T-25_Vp1.32" class="panel">
+  <p>mos_sf | T=-25C | Vp=1.32V |
+     V(out)=1.2692V, V(vbias)=0.7351V (okno 90-100us),
+     Iref=1.675uA (okno 90-100us),
+     Iup=0.356uA,
+     Idn=0.367uA </p>
+  <img src="cp_layout_mos_sf_T-25_Vp1.32.png">
 </div>
 
 <div id="mos_sf_T27_Vp1.08" class="panel">
   <p>mos_sf | T=27C | Vp=1.08V |
-     V(out)=0.4727V, V(vbias)=0.6172V (okno 90-100us),
+     V(out)=0.6988V, V(vbias)=0.6040V (okno 90-100us),
      Iref=0.812uA (okno 90-100us),
-     Iup=0.190uA (tylko gdy Vup2=1),
-     Idn=0.189uA (tylko gdy Vdn2=1)</p>
+     Iup=0.193uA,
+     Idn=0.188uA </p>
   <img src="cp_layout_mos_sf_T27_Vp1.08.png">
 </div>
 
 <div id="mos_sf_T27_Vp1.2" class="panel">
   <p>mos_sf | T=27C | Vp=1.2V |
-     V(out)=0.5227V, V(vbias)=0.6601V (okno 90-100us),
+     V(out)=1.1477V, V(vbias)=0.6454V (okno 90-100us),
      Iref=1.313uA (okno 90-100us),
-     Iup=0.316uA (tylko gdy Vup2=1),
-     Idn=0.314uA (tylko gdy Vdn2=1)</p>
+     Iup=0.317uA,
+     Idn=0.314uA </p>
   <img src="cp_layout_mos_sf_T27_Vp1.2.png">
 </div>
 
 <div id="mos_sf_T27_Vp1.32" class="panel">
   <p>mos_sf | T=27C | Vp=1.32V |
-     V(out)=0.5832V, V(vbias)=0.6964V (okno 90-100us),
+     V(out)=1.2597V, V(vbias)=0.6801V (okno 90-100us),
      Iref=1.895uA (okno 90-100us),
-     Iup=0.467uA (tylko gdy Vup2=1),
-     Idn=0.464uA (tylko gdy Vdn2=1)</p>
+     Iup=0.428uA,
+     Idn=0.462uA </p>
   <img src="cp_layout_mos_sf_T27_Vp1.32.png">
 </div>
 
 <div id="mos_sf_T125_Vp1.08" class="panel">
   <p>mos_sf | T=125C | Vp=1.08V |
-     V(out)=0.5118V, V(vbias)=0.5152V (okno 90-100us),
+     V(out)=1.0242V, V(vbias)=0.4959V (okno 90-100us),
      Iref=1.291uA (okno 90-100us),
-     Iup=0.359uA (tylko gdy Vup2=1),
-     Idn=0.357uA (tylko gdy Vdn2=1)</p>
+     Iup=0.356uA,
+     Idn=0.356uA </p>
   <img src="cp_layout_mos_sf_T125_Vp1.08.png">
 </div>
 
 <div id="mos_sf_T125_Vp1.2" class="panel">
   <p>mos_sf | T=125C | Vp=1.2V |
-     V(out)=0.5706V, V(vbias)=0.5561V (okno 90-100us),
+     V(out)=1.1275V, V(vbias)=0.5351V (okno 90-100us),
      Iref=1.782uA (okno 90-100us),
-     Iup=0.504uA (tylko gdy Vup2=1),
-     Idn=0.500uA (tylko gdy Vdn2=1)</p>
+     Iup=0.461uA,
+     Idn=0.495uA </p>
   <img src="cp_layout_mos_sf_T125_Vp1.2.png">
 </div>
 
 <div id="mos_sf_T125_Vp1.32" class="panel">
   <p>mos_sf | T=125C | Vp=1.32V |
-     V(out)=0.6404V, V(vbias)=0.5924V (okno 90-100us),
+     V(out)=1.2242V, V(vbias)=0.5698V (okno 90-100us),
      Iref=2.321uA (okno 90-100us),
-     Iup=0.668uA (tylko gdy Vup2=1),
-     Idn=0.660uA (tylko gdy Vdn2=1)</p>
+     Iup=0.577uA,
+     Idn=0.640uA </p>
   <img src="cp_layout_mos_sf_T125_Vp1.32.png">
 </div>
 
-<div id="mos_fs_T-40_Vp1.08" class="panel">
-  <p>mos_fs | T=-40C | Vp=1.08V |
-     V(out)=0.4533V, V(vbias)=0.5934V (okno 90-100us),
-     Iref=0.606uA (okno 90-100us),
-     Iup=0.138uA (tylko gdy Vup2=1),
-     Idn=0.137uA (tylko gdy Vdn2=1)</p>
-  <img src="cp_layout_mos_fs_T-40_Vp1.08.png">
+<div id="mos_fs_T-25_Vp1.08" class="panel">
+  <p>mos_fs | T=-25C | Vp=1.08V |
+     V(out)=0.3710V, V(vbias)=0.5668V (okno 90-100us),
+     Iref=0.665uA (okno 90-100us),
+     Iup=0.157uA,
+     Idn=0.142uA </p>
+  <img src="cp_layout_mos_fs_T-25_Vp1.08.png">
 </div>
 
-<div id="mos_fs_T-40_Vp1.2" class="panel">
-  <p>mos_fs | T=-40C | Vp=1.2V |
-     V(out)=0.5048V, V(vbias)=0.6369V (okno 90-100us),
-     Iref=1.136uA (okno 90-100us),
-     Iup=0.266uA (tylko gdy Vup2=1),
-     Idn=0.264uA (tylko gdy Vdn2=1)</p>
-  <img src="cp_layout_mos_fs_T-40_Vp1.2.png">
+<div id="mos_fs_T-25_Vp1.2" class="panel">
+  <p>mos_fs | T=-25C | Vp=1.2V |
+     V(out)=1.1677V, V(vbias)=0.6086V (okno 90-100us),
+     Iref=1.195uA (okno 90-100us),
+     Iup=0.298uA,
+     Idn=0.287uA </p>
+  <img src="cp_layout_mos_fs_T-25_Vp1.2.png">
 </div>
 
-<div id="mos_fs_T-40_Vp1.32" class="panel">
-  <p>mos_fs | T=-40C | Vp=1.32V |
-     V(out)=0.5701V, V(vbias)=0.6721V (okno 90-100us),
-     Iref=1.780uA (okno 90-100us),
-     Iup=0.429uA (tylko gdy Vup2=1),
-     Idn=0.425uA (tylko gdy Vdn2=1)</p>
-  <img src="cp_layout_mos_fs_T-40_Vp1.32.png">
+<div id="mos_fs_T-25_Vp1.32" class="panel">
+  <p>mos_fs | T=-25C | Vp=1.32V |
+     V(out)=1.2694V, V(vbias)=0.6427V (okno 90-100us),
+     Iref=1.831uA (okno 90-100us),
+     Iup=0.419uA,
+     Idn=0.449uA </p>
+  <img src="cp_layout_mos_fs_T-25_Vp1.32.png">
 </div>
 
 <div id="mos_fs_T27_Vp1.08" class="panel">
   <p>mos_fs | T=27C | Vp=1.08V |
-     V(out)=0.4851V, V(vbias)=0.5255V (okno 90-100us),
+     V(out)=0.5498V, V(vbias)=0.5112V (okno 90-100us),
      Iref=0.886uA (okno 90-100us),
-     Iup=0.230uA (tylko gdy Vup2=1),
-     Idn=0.229uA (tylko gdy Vdn2=1)</p>
+     Iup=0.233uA,
+     Idn=0.221uA </p>
   <img src="cp_layout_mos_fs_T27_Vp1.08.png">
 </div>
 
 <div id="mos_fs_T27_Vp1.2" class="panel">
   <p>mos_fs | T=27C | Vp=1.2V |
-     V(out)=0.5413V, V(vbias)=0.5677V (okno 90-100us),
+     V(out)=1.1572V, V(vbias)=0.5520V (okno 90-100us),
      Iref=1.414uA (okno 90-100us),
-     Iup=0.374uA (tylko gdy Vup2=1),
-     Idn=0.373uA (tylko gdy Vdn2=1)</p>
+     Iup=0.363uA,
+     Idn=0.372uA </p>
   <img src="cp_layout_mos_fs_T27_Vp1.2.png">
 </div>
 
 <div id="mos_fs_T27_Vp1.32" class="panel">
   <p>mos_fs | T=27C | Vp=1.32V |
-     V(out)=0.6085V, V(vbias)=0.6036V (okno 90-100us),
+     V(out)=1.2580V, V(vbias)=0.5865V (okno 90-100us),
      Iref=2.025uA (okno 90-100us),
-     Iup=0.546uA (tylko gdy Vup2=1),
-     Idn=0.544uA (tylko gdy Vdn2=1)</p>
+     Iup=0.488uA,
+     Idn=0.540uA </p>
   <img src="cp_layout_mos_fs_T27_Vp1.32.png">
 </div>
 
 <div id="mos_fs_T125_Vp1.08" class="panel">
   <p>mos_fs | T=125C | Vp=1.08V |
-     V(out)=0.4536V, V(vbias)=0.4208V (okno 90-100us),
+     V(out)=1.0170V, V(vbias)=0.4005V (okno 90-100us),
      Iref=1.351uA (okno 90-100us),
-     Iup=0.407uA (tylko gdy Vup2=1),
-     Idn=0.401uA (tylko gdy Vdn2=1)</p>
+     Iup=0.430uA,
+     Idn=0.405uA </p>
   <img src="cp_layout_mos_fs_T125_Vp1.08.png">
 </div>
 
 <div id="mos_fs_T125_Vp1.2" class="panel">
   <p>mos_fs | T=125C | Vp=1.2V |
-     V(out)=0.5126V, V(vbias)=0.4616V (okno 90-100us),
+     V(out)=1.1183V, V(vbias)=0.4398V (okno 90-100us),
      Iref=1.861uA (okno 90-100us),
-     Iup=0.565uA (tylko gdy Vup2=1),
-     Idn=0.556uA (tylko gdy Vdn2=1)</p>
+     Iup=0.529uA,
+     Idn=0.554uA </p>
   <img src="cp_layout_mos_fs_T125_Vp1.2.png">
 </div>
 
 <div id="mos_fs_T125_Vp1.32" class="panel">
   <p>mos_fs | T=125C | Vp=1.32V |
-     V(out)=0.5829V, V(vbias)=0.4979V (okno 90-100us),
+     V(out)=1.2132V, V(vbias)=0.4745V (okno 90-100us),
      Iref=2.421uA (okno 90-100us),
-     Iup=0.744uA (tylko gdy Vup2=1),
-     Idn=0.730uA (tylko gdy Vdn2=1)</p>
+     Iup=0.635uA,
+     Idn=0.694uA </p>
   <img src="cp_layout_mos_fs_T125_Vp1.32.png">
 </div>
 

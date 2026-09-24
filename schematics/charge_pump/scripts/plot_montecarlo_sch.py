@@ -1,25 +1,5 @@
 #!/usr/bin/env python3
-"""
-plot_montecarlo.py
-Analiza wynikow Monte Carlo (mismatch) charge pumpa - histogram rozkladu
-Iup/Idn i ich rozbieznosci po N niezaleznych iteracjach z rozna losowoscia.
 
-WAZNE: rozbieznosc [%] = (|Iup|-|Idn|)/max(|Iup|,|Idn|)*100 jest MATEMATYCZNIE
-niezalezna od wspolnej skali (jesli Iup i Idn skaluja sie razem x2 w danej
-iteracji, ich stosunek/rozbieznosc % sie NIE zmienia). Ale surowy scatter
-Iup vs Idn wizualnie dominuje wspolny dryf referencji (Iref rozny miedzy
-iteracjami) - to prawdziwa informacja (np. czy uklad pracuje przy niskim
-prądzie blisko progu, gdzie wrazliwosc na mismatch VTH jest wieksza), ale
-utrudnia OKIEM ocenic sam mismatch rozznicowy. Dlatego dodatkowo:
-  - normalizujemy Iup/Iref i Idn/Iref (dzielimy przez REFERENCJE TEJ SAMEJ
-    iteracji) - to usuwa wspolny dryf z WYKRESU (nie ze statystyki %, ktora
-    juz byla niezalezna), pokazujac czysty obraz jak ciasno klastruja sie
-    znormalizowane prady wokol jeden drugiego
-  - scatter rozbieznosc[%] vs Iref - pokazuje CZY mismatch rozniczkowy
-    faktycznie zalezy od punktu pracy (np. wiekszy % przy niskim Iref,
-    blisko progu, w slabej inwersji) - to NOWA informacja, nie widoczna
-    w samym histogramie %.
-"""
 
 import numpy as np
 import matplotlib
@@ -90,14 +70,24 @@ def time_avg_active(values, time_vec, active_mask):
 
 
 def time_avg_window(values, time_vec, mask):
-    """Srednia wazona czasem dla JEDNEGO ciaglego okna - do pomiaru Iref
-    (sygnal ciagly, nie impulsowy jak Iup/Idn)."""
+
     t_win = time_vec[mask]
     v_win = values[mask]
     if len(t_win) < 2:
         return float(np.mean(v_win)) if len(v_win) else float('nan')
     trapz_fn = getattr(np, 'trapezoid', None) or np.trapz
     return float(trapz_fn(v_win, t_win) / (t_win[-1] - t_win[0]))
+
+
+def robust_range(arr, lo_pct=1, hi_pct=99, pad_frac=0.10):
+   
+    lo = float(np.percentile(arr, lo_pct))
+    hi = float(np.percentile(arr, hi_pct))
+    span = hi - lo
+    pad = span * pad_frac if span > 0 else max(abs(hi), 1e-9)
+    lo_view, hi_view = lo - pad, hi + pad
+    n_outside = int(np.sum((arr < lo_view) | (arr > hi_view)))
+    return lo_view, hi_view, n_outside
 
 
 iup_list = []
@@ -194,81 +184,100 @@ print(f"Korelacja rozbieznosc[%] vs Iref: {stats['corr_pct_iref']:.3f} "
       f"(blisko 0 = mismatch NIE zalezy od punktu pracy, "
       f"|>0.3| = zauwazalna zaleznosc)")
 
+iup_lo, iup_hi, iup_n_out = robust_range(iup_arr)
+idn_lo, idn_hi, idn_n_out = robust_range(idn_arr)
+print(f"Iup: {iup_n_out} pkt poza widocznym zakresem wykresu ({iup_lo:.4f} .. {iup_hi:.4f} uA)")
+print(f"Idn: {idn_n_out} pkt poza widocznym zakresem wykresu ({idn_lo:.4f} .. {idn_hi:.4f} uA)")
+if iup_n_out > 0 or idn_n_out > 0:
+    print("  UWAGA: powyzsze punkty NIE sa usuniete z danych/statystyk (tabela")
+    print("  i stats powyzej licza sie z pelnego zbioru) - sa tylko przyciete")
+    print("  z WIDOKU wykresu, zeby reszta rozkladu byla czytelna. Jesli to")
+    print("  wiecej niz pojedyncze iteracje, warto sprawdzic ich logi ngspice.")
+
 # ---------------------------------------------------------------------------
-# Histogramy: Iup, Idn, rozbieznosc %
+# Wykres 1 : histogram rozbieznosci Iup vs Idn
 # ---------------------------------------------------------------------------
-fig, axes = plt.subplots(1, 3, figsize=(15, 4.5))
-
-axes[0].hist(iup_arr, bins=30, color='#ff7f0e', alpha=0.8, edgecolor='white')
-axes[0].axvline(stats['iup_mean'], color='k', linestyle='--', linewidth=1)
-axes[0].set_title(f"Iup [uA]  (mean={stats['iup_mean']:.3f}, std={stats['iup_std']:.3f})")
-axes[0].set_xlabel('Iup [uA]')
-axes[0].set_ylabel('liczba iteracji')
-axes[0].grid(True, alpha=0.3)
-
-axes[1].hist(idn_arr, bins=30, color='#9467bd', alpha=0.8, edgecolor='white')
-axes[1].axvline(stats['idn_mean'], color='k', linestyle='--', linewidth=1)
-axes[1].set_title(f"Idn [uA]  (mean={stats['idn_mean']:.3f}, std={stats['idn_std']:.3f})")
-axes[1].set_xlabel('Idn [uA]')
-axes[1].grid(True, alpha=0.3)
-
-axes[2].hist(pct_arr, bins=30, color='#2ca02c', alpha=0.8, edgecolor='white')
-axes[2].axvline(stats['pct_mean'], color='k', linestyle='--', linewidth=1, label='mean')
-axes[2].axvline(stats['pct_mean'] + 3 * stats['pct_std'], color='r', linestyle=':', linewidth=1, label='+3sigma')
-axes[2].axvline(stats['pct_mean'] - 3 * stats['pct_std'], color='b', linestyle=':', linewidth=1, label='-3sigma')
-axes[2].set_title(f"Rozbieznosc Iup vs Idn [%]  (mean={stats['pct_mean']:.2f}, std={stats['pct_std']:.2f})")
-axes[2].set_xlabel('(|Iup|-|Idn|)/max * 100 [%]')
-axes[2].legend(fontsize=8)
-axes[2].grid(True, alpha=0.3)
-
+fig_pct, ax_pct = plt.subplots(figsize=(8, 5.5))
+ax_pct.hist(pct_arr, bins=30, color='#2ca02c', alpha=0.8, edgecolor='white')
+ax_pct.axvline(stats['pct_mean'], color='k', linestyle='--', linewidth=1.2, label='mean')
+ax_pct.axvline(stats['pct_mean'] + 3 * stats['pct_std'], color='r', linestyle=':', linewidth=1.2, label='+3sigma')
+ax_pct.axvline(stats['pct_mean'] - 3 * stats['pct_std'], color='b', linestyle=':', linewidth=1.2, label='-3sigma')
+ax_pct.set_title(f"Rozbieznosc Iup vs Idn [%]  (mean={stats['pct_mean']:.2f}, std={stats['pct_std']:.2f}, "
+                  f"3-sigma={stats['pct_3sigma']:.2f}%)", fontsize=12)
+ax_pct.set_xlabel('(|Iup|-|Idn|)/max * 100 [%]')
+ax_pct.set_ylabel('liczba iteracji')
+ax_pct.legend(fontsize=9)
+ax_pct.grid(True, alpha=0.3)
 plt.tight_layout()
-hist_path = os.path.join(RESULTS_DIR, 'mc_histogram.png')
-plt.savefig(hist_path, dpi=140, bbox_inches='tight')
+pct_hist_path = os.path.join(RESULTS_DIR, 'mc_pct_histogram.png')
+plt.savefig(pct_hist_path, dpi=140, bbox_inches='tight')
 plt.close()
 
 # ---------------------------------------------------------------------------
-# Scatter 1: surowe Iup vs Idn (dominuje wspolny dryf Iref miedzy iteracjami)
-# Scatter 2: ZNORMALIZOWANE Iup/Iref vs Idn/Iref (usuwa wspolny dryf z obrazu -
-#            to jest "czysty" obraz mismatchu roznicowego)
+# Wykres 2: Iup/Idn 
 # ---------------------------------------------------------------------------
-fig2, axes2 = plt.subplots(1, 2, figsize=(12, 6))
+combined_lo, combined_hi, combined_n_out = robust_range(np.concatenate([iup_arr, idn_arr]))
+bins = np.linspace(combined_lo, combined_hi, 31)
 
-axes2[0].scatter(iup_arr, idn_arr, s=12, alpha=0.6, color='#1f77b4')
+fig_iu, (ax_iu, ax_raw) = plt.subplots(1, 2, figsize=(15, 5.5))
+
+ax_iu.hist(iup_arr, bins=bins, color='#ff7f0e', alpha=0.55, edgecolor='white', label='Iup')
+ax_iu.hist(idn_arr, bins=bins, color='#9467bd', alpha=0.55, edgecolor='white', label='Idn')
+ax_iu.axvline(stats['iup_mean'], color='#ff7f0e', linestyle='--', linewidth=1.2)
+ax_iu.axvline(stats['idn_mean'], color='#9467bd', linestyle='--', linewidth=1.2)
+ax_iu.set_title(f"Iup (mean={stats['iup_mean']:.3f}, std={stats['iup_std']:.3f})  vs  "
+                 f"Idn (mean={stats['idn_mean']:.3f}, std={stats['idn_std']:.3f})  [uA]",
+                 fontsize=11)
+ax_iu.set_xlabel('Prad [uA]')
+ax_iu.set_ylabel('liczba iteracji')
+ax_iu.legend(fontsize=9)
+ax_iu.grid(True, alpha=0.3)
+
+ax_raw.scatter(iup_arr, idn_arr, s=12, alpha=0.6, color='#1f77b4')
 lims = [min(iup_arr.min(), idn_arr.min()), max(iup_arr.max(), idn_arr.max())]
-axes2[0].plot(lims, lims, 'k--', linewidth=1, label='Iup = Idn (idealne)')
-axes2[0].set_xlabel('Iup [uA]')
-axes2[0].set_ylabel('Idn [uA]')
-axes2[0].set_title('SUROWE Iup vs Idn\n(zawiera wspolny dryf referencji)')
-axes2[0].legend(fontsize=9)
-axes2[0].grid(True, alpha=0.3)
-
-axes2[1].scatter(ratio_up_arr, ratio_dn_arr, s=12, alpha=0.6, color='#2ca02c')
-lims2 = [min(ratio_up_arr.min(), ratio_dn_arr.min()), max(ratio_up_arr.max(), ratio_dn_arr.max())]
-axes2[1].plot(lims2, lims2, 'k--', linewidth=1, label='Iup/Iref = Idn/Iref (idealne)')
-axes2[1].set_xlabel('Iup / Iref (tej samej iteracji)')
-axes2[1].set_ylabel('Idn / Iref (tej samej iteracji)')
-axes2[1].set_title('ZNORMALIZOWANE wzgledem Iref\n(czysty mismatch roznicowy)')
-axes2[1].legend(fontsize=9)
-axes2[1].grid(True, alpha=0.3)
+ax_raw.plot(lims, lims, 'k--', linewidth=1, label='Iup = Idn (idealne)')
+ax_raw.set_xlim(iup_lo, iup_hi)
+ax_raw.set_ylim(idn_lo, idn_hi)
+ax_raw.set_xlabel('Iup [uA]')
+ax_raw.set_ylabel('Idn [uA]')
+ax_raw.set_title('Iup vs Idn\n(dryf referencji)')
+ax_raw.legend(fontsize=9)
+ax_raw.grid(True, alpha=0.3)
 
 plt.tight_layout()
-scatter_path = os.path.join(RESULTS_DIR, 'mc_scatter.png')
-plt.savefig(scatter_path, dpi=140, bbox_inches='tight')
+iupidn_hist_path = os.path.join(RESULTS_DIR, 'mc_iup_idn_histogram.png')
+plt.savefig(iupidn_hist_path, dpi=140, bbox_inches='tight')
 plt.close()
 
 # ---------------------------------------------------------------------------
-# Scatter 3: rozbieznosc [%] vs Iref - czy mismatch zalezy od punktu pracy
+# Wykres 3: znormalizowany 
 # ---------------------------------------------------------------------------
-fig3, ax3 = plt.subplots(figsize=(7, 6))
+ratio_up_lo, ratio_up_hi, ratio_up_n_out = robust_range(ratio_up_arr)
+ratio_dn_lo, ratio_dn_hi, ratio_dn_n_out = robust_range(ratio_dn_arr)
+
+fig3, (ax2, ax3) = plt.subplots(1, 2, figsize=(13, 5.5))
+
+ax2.scatter(ratio_up_arr, ratio_dn_arr, s=12, alpha=0.6, color='#2ca02c')
+lims2 = [min(ratio_up_arr.min(), ratio_dn_arr.min()), max(ratio_up_arr.max(), ratio_dn_arr.max())]
+ax2.plot(lims2, lims2, 'k--', linewidth=1, label='Iup/Iref = Idn/Iref (idealne)')
+ax2.set_xlim(ratio_up_lo, ratio_up_hi)
+ax2.set_ylim(ratio_dn_lo, ratio_dn_hi)
+ax2.set_xlabel('Iup / Iref (tej samej iteracji)')
+ax2.set_ylabel('Idn / Iref (tej samej iteracji)')
+ax2.set_title('Znormalizowane wzgledem Iref\n')
+ax2.legend(fontsize=9)
+ax2.grid(True, alpha=0.3)
+
 ax3.scatter(iref_arr, pct_arr, s=14, alpha=0.6, color='#d62728')
 ax3.axhline(0, color='k', linewidth=0.8)
 ax3.set_xlabel('Iref [uA] (tej samej iteracji)')
 ax3.set_ylabel('Rozbieznosc Iup vs Idn [%]')
-ax3.set_title(f'Rozbieznosc vs punkt pracy (korelacja r={stats["corr_pct_iref"]:.3f})')
+ax3.set_title(f'Rozbieznosc vs punkt pracy\n(korelacja r={stats["corr_pct_iref"]:.3f})')
 ax3.grid(True, alpha=0.3)
+
 plt.tight_layout()
-vs_iref_path = os.path.join(RESULTS_DIR, 'mc_pct_vs_iref.png')
-plt.savefig(vs_iref_path, dpi=140, bbox_inches='tight')
+scatter_row_path = os.path.join(RESULTS_DIR, 'mc_scatter_row.png')
+plt.savefig(scatter_row_path, dpi=140, bbox_inches='tight')
 plt.close()
 
 # ---------------------------------------------------------------------------
@@ -280,7 +289,7 @@ html = f'''<!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="utf-8">
-<title>Charge pump - Monte Carlo (mismatch)</title>
+<title>Charge pump - Monte Carlo schematic (mismatch)</title>
 <style>
 body {{ font-family: Arial, sans-serif; font-size: 14px; margin: 20px; color: #111; }}
 h1 {{ font-size: 18px; }}
@@ -294,10 +303,11 @@ img {{ max-width: 100%; border: 1px solid #ccc; margin-bottom: 20px; }}
 </style>
 </head>
 <body>
-<h1>Charge pump - Monte Carlo (mismatch, corner mos_tt_mismatch)</h1>
-<p>N = {stats['n']} iteracji, kazda z innym rndseed. Iup/Idn liczone srednia
-wazona czasem TYLKO gdy odpowiednie zrodlo sterujace (Vup2/Vdn2) jest aktywne.
-Iref usredniony w ostatnich 20% symulacji (stan ustalony).</p>
+<h1>Charge pump - Monte Carlo schematic (mos_tt_mismatch)</h1>
+<p>N = {stats['n']} iteracji.
+Iup/Idn liczone srednia wazona czasem tylko gdy odpowiedni
+sygnal UP/DN jest aktywny. Iref usredniony w ostatnich 20%
+symulacji.</p>
 
 <table>
 <tr><th>Wielkosc</th><th>srednia</th><th>odchylenie std</th><th>min</th><th>max</th></tr>
@@ -314,19 +324,14 @@ Iref usredniony w ostatnich 20% symulacji (stan ustalony).</p>
 <p><b>Korelacja rozbieznosci [%] z Iref:</b> r = {stats['corr_pct_iref']:.3f}
 ({'BRAK zaleznosci od punktu pracy' if abs(stats['corr_pct_iref']) < 0.3 else 'WYRAZNA zaleznosc od punktu pracy - patrz wykres nizej'})</p>
 
-<div class="note">
-Rozbieznosc [%] = (|Iup|-|Idn|)/max(|Iup|,|Idn|)*100 jest matematycznie
-niezalezna od wspolnej skali 
-</div>
+<h2>Rozbieznosc Iup vs Idn</h2>
+<img src="mc_pct_histogram.png">
 
-<h2>Histogramy: Iup, Idn, rozbieznosc %</h2>
-<img src="mc_histogram.png">
+<h2>Iup/Idn - wspolny histogram oraz surowy scatter</h2>
+<img src="mc_iup_idn_histogram.png">
 
-<h2>Surowy vs znormalizowany scatter Iup/Idn</h2>
-<img src="mc_scatter.png">
-
-<h2>Czy mismatch zalezy od punktu pracy (Iref)?</h2>
-<img src="mc_pct_vs_iref.png">
+<h2>Znormalizowany (Iup/Iref vs Idn/Iref) oraz rozbieznosc vs Iref</h2>
+<img src="mc_scatter_row.png">
 
 </body>
 </html>

@@ -393,7 +393,7 @@ N 3020 -780 3020 -770 {lab=VP}
 N 2950 -740 3000 -740 {lab=#net36}
 N 3070 -740 3150 -740 {lab=#net37}
 N 2630 -780 2650 -780 {lab=001}
-N 2630 -760 2650 -760 {lab=f5}
+N 2630 -760 2650 -760 {lab=f5_n}
 N 2950 -640 2970 -640 {lab=gd}
 N 2950 -660 2970 -660 {lab=VP}
 N 3020 -590 3020 -580 {lab=gd}
@@ -703,7 +703,7 @@ C {ipin.sym} 640 0 0 0 {name=p25 lab=f4}
 C {lab_wire.sym} 660 0 2 0 {name=p26 sig_type=std_logic lab=f4}
 C {ipin.sym} 640 20 0 0 {name=p27 lab=f5}
 C {lab_wire.sym} 660 20 2 0 {name=p28 sig_type=std_logic lab=f5}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/3bit_to_8_outs.sym} 50 -20 0 0 {name=x1001}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/3bit_to_8_outs.sym} 50 -20 0 0 {name=x2137}
 C {lab_wire.sym} -120 -90 0 0 {name=p29 sig_type=std_logic lab=c1}
 C {lab_wire.sym} -120 -70 0 0 {name=p30 sig_type=std_logic lab=c2}
 C {lab_wire.sym} -120 -110 0 0 {name=p31 sig_type=std_logic lab=c0}
@@ -954,6 +954,7 @@ C {lab_wire.sym} 3930 -730 2 0 {name=p251 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 3930 -710 2 0 {name=p252 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 2630 -1020 0 0 {name=p253 sig_type=std_logic lab=011}
 C {lab_wire.sym} 2630 -900 0 0 {name=p254 sig_type=std_logic lab=010}
+C {lab_wire.sym} 2630 -780 0 0 {name=p255 sig_type=std_logic lab=001}
 C {lab_wire.sym} 2630 -660 0 0 {name=p256 sig_type=std_logic lab=101}
 C {lab_wire.sym} 2630 -420 0 0 {name=p257 sig_type=std_logic lab=110}
 C {lab_wire.sym} 2630 -540 0 0 {name=p258 sig_type=std_logic lab=100}
@@ -967,7 +968,7 @@ C {lab_wire.sym} 2630 -1000 0 0 {name=p263 sig_type=std_logic lab=after_000111}
 C {lab_wire.sym} 2630 -980 0 0 {name=p264 sig_type=std_logic lab=after_001111_n}
 C {lab_wire.sym} 2630 -880 0 0 {name=p265 sig_type=std_logic lab=after_000111}
 C {lab_wire.sym} 2630 -860 0 0 {name=p266 sig_type=std_logic lab=f5_n}
-C {lab_wire.sym} 2630 -760 0 0 {name=p267 sig_type=std_logic lab=f5}
+C {lab_wire.sym} 2630 -760 0 0 {name=p267 sig_type=std_logic lab=f5_n}
 C {lab_wire.sym} 2630 -640 0 0 {name=p268 sig_type=std_logic lab=after_000011_n}
 C {lab_wire.sym} 2630 -520 0 0 {name=p269 sig_type=std_logic lab=after_000011}
 C {lab_wire.sym} 2630 -500 0 0 {name=p270 sig_type=std_logic lab=after_000111_n}
@@ -1154,4 +1155,3 @@ C {lab_wire.sym} 3100 850 0 0 {name=p405 sig_type=std_logic lab=after_000011_n}
 C {lab_wire.sym} 3100 990 0 0 {name=p406 sig_type=std_logic lab=f1_n}
 C {lab_wire.sym} 3100 970 0 0 {name=p407 sig_type=std_logic lab=after_000011_n}
 C {lab_wire.sym} 3100 950 0 0 {name=p408 sig_type=std_logic lab=010}
-C {lab_wire.sym} 2630 -780 0 0 {name=p55 sig_type=std_logic lab=001}
