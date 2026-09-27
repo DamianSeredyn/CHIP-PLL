@@ -1,339 +1,281 @@
-* PEX produced on Sun Sep 27 01:45:17 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
+* PEX produced on Sun Sep 27 03:38:57 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
 * NGSPICE file created from vco_core_2.ext - technology: ihp-sg13cmos5l
 
-.subckt vco_core_2 out in en11 nen11 en5 nen5 gnd vp
+.subckt vco_core_2 out in vp en11 nen11 en5 nen5 gnd
 X0 a_4678_n1920# in gnd gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
-X1 a_4678_292# vco_delay_cell_2$3_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
-X2 vco_delay_cell_2$3_3.out a_1618_n1956# a_1550_n1920# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
-X3 vco_delay_cell_2$3_3.out vco_delay_cell_2$3_5.out a_1550_n2740# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
-X4 vco_delay_cell_2$3_4.in nen11 vco_delay_cell_2$3_7.out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
-X5 out vco_delay_cell_2$3_6.in a_7262_292# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
-X6 a_6242_n1920# in gnd gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
-X7 a_3114_n2740# vco_delay_cell_2$3_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
-X8 a_1550_292# vco_delay_cell_2$3_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
-X9 vco_delay_cell_2$3_4.out a_n1510_n1956# a_n1578_n1920# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
-X10 vco_delay_cell_2$3_4.out vco_delay_cell_2$3_4.in a_n1578_n2740# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
-X11 vco_delay_cell_2$3_6.in nen11 vco_delay_cell_2$3_0.out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
-X12 a_4678_n2740# vco_delay_cell_2$3_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
-X13 vco_delay_cell_2$3_4.in en11 vco_delay_cell_2$3_7.out gnd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
-X14 vco_delay_cell_2$3_5.out a_54_n1956# a_n14_n1920# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
-X15 vco_delay_cell_2$3_6.in en11 vco_delay_cell_2$3_0.out gnd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
-X16 vco_delay_cell_2$3_5.out vco_delay_cell_2$3_4.out a_n14_n2740# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
-X17 vco_delay_cell_2$3_9.out a_1618_n484# a_1550_n448# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
-X18 a_1550_n1920# in gnd gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
-X19 a_6242_n2740# vco_delay_cell_2$3_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
-X20 vco_delay_cell_2$3_6.in nen5 vco_delay_cell_2$3_7.out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
-X21 vco_delay_cell_2$3_7.out a_4746_n484# a_4678_n448# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
-X22 a_1550_n448# in gnd gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
-X23 vco_delay_cell_2$3_7.out vco_delay_cell_2$3_8.out a_4678_292# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
-X24 vco_delay_cell_2$3_4.pgt in a_n1880_n788# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
-X25 a_n14_n1920# in gnd gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
-X26 vco_delay_cell_2$3_6.in en5 vco_delay_cell_2$3_7.out gnd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
-X27 a_4678_n448# in gnd gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
-X28 a_n1578_n1920# in gnd gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
-X29 a_3114_n448# in gnd gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
-X30 vco_delay_cell_2$3_2.out a_3182_n1956# a_3114_n1920# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
-X31 vco_delay_cell_2$3_2.out vco_delay_cell_2$3_3.out a_3114_n2740# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
-X32 a_1550_n2740# vco_delay_cell_2$3_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
-X33 a_3114_292# vco_delay_cell_2$3_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
-X34 vco_delay_cell_2$3_9.out vco_delay_cell_2$3_10.out a_1550_292# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
-X35 vco_delay_cell_2$3_0.out a_6310_n1956# a_6242_n1920# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
-X36 vco_delay_cell_2$3_0.out vco_delay_cell_2$3_1.out a_6242_n2740# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
-X37 a_n14_n2740# vco_delay_cell_2$3_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
-X38 vco_delay_cell_2$3_4.pgt vco_delay_cell_2$3_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
-X39 a_7262_292# vco_delay_cell_2$3_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
-X40 vco_delay_cell_2$3_10.out a_54_n484# a_n14_n448# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
-X41 a_n1578_n2740# vco_delay_cell_2$3_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
-X42 vco_delay_cell_2$3_8.out vco_delay_cell_2$3_9.out a_3114_292# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
-X43 vco_delay_cell_2$3_1.out a_4746_n1956# a_4678_n1920# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
-X44 vco_delay_cell_2$3_1.out vco_delay_cell_2$3_2.out a_4678_n2740# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
-X45 vco_delay_cell_2$3_8.out a_3182_n484# a_3114_n448# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
-X46 a_7262_n448# in gnd gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
-X47 a_n14_292# vco_delay_cell_2$3_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
-X48 a_n14_n448# in gnd gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
+X1 vco_delay_cell_2$4_3.out vco_delay_cell_2$4_5.out a_1550_n1920# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
+X2 a_4678_n2666# vco_delay_cell_2$4_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
+X3 a_4678_218# vco_delay_cell_2$4_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
+X4 vco_delay_cell_2$4_4.in nen11 vco_delay_cell_2$4_7.out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X5 vco_delay_cell_2$4_3.out vco_delay_cell_2$4_5.out a_1550_n2666# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
+X6 vco_delay_cell_2$4_9.out vco_delay_cell_2$4_10.out a_1550_218# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
+X7 a_6242_n1920# in gnd gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
+X8 a_6242_n2666# vco_delay_cell_2$4_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
+X9 a_1550_218# vco_delay_cell_2$4_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
+X10 vco_delay_cell_2$4_8.out vco_delay_cell_2$4_9.out a_3114_218# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
+X11 a_n1510_n1920# in gnd gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
+X12 vco_delay_cell_2$4_4.in en11 vco_delay_cell_2$4_7.out gnd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X13 vco_delay_cell_2$4_5.out vco_delay_cell_2$4_4.out a_n14_n1920# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
+X14 vco_delay_cell_2$4_5.out vco_delay_cell_2$4_4.out a_n14_n2666# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
+X15 a_n1510_n2666# vco_delay_cell_2$4_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
+X16 vco_delay_cell_2$4_9.out vco_delay_cell_2$4_10.out a_1550_n448# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
+X17 a_1550_n1920# in gnd gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
+X18 vco_delay_cell_2$4_6.in nen11 vco_delay_cell_2$4_0.out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X19 a_1550_n2666# vco_delay_cell_2$4_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
+X20 vco_delay_cell_2$4_6.in nen5 vco_delay_cell_2$4_7.out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X21 vco_delay_cell_2$4_6.in en11 vco_delay_cell_2$4_0.out gnd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X22 vco_delay_cell_2$4_10.out out a_n14_218# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
+X23 vco_delay_cell_2$4_7.out vco_delay_cell_2$4_8.out a_4678_n448# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
+X24 a_1550_n448# in gnd gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
+X25 vco_delay_cell_2$4_4.pgt in a_n1880_n788# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
+X26 a_n14_n1920# in gnd gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
+X27 vco_delay_cell_2$4_6.in en5 vco_delay_cell_2$4_7.out gnd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X28 a_n14_n2666# vco_delay_cell_2$4_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
+X29 out vco_delay_cell_2$4_6.in a_6922_218# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
+X30 a_4678_n448# in gnd gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
+X31 a_3114_n448# in gnd gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
+X32 vco_delay_cell_2$4_2.out vco_delay_cell_2$4_3.out a_3114_n1920# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
+X33 vco_delay_cell_2$4_2.out vco_delay_cell_2$4_3.out a_3114_n2666# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
+X34 a_3114_218# vco_delay_cell_2$4_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
+X35 a_6922_n448# in gnd gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
+X36 vco_delay_cell_2$4_0.out vco_delay_cell_2$4_1.out a_6242_n1920# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
+X37 vco_delay_cell_2$4_0.out vco_delay_cell_2$4_1.out a_6242_n2666# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
+X38 a_6922_218# vco_delay_cell_2$4_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
+X39 vco_delay_cell_2$4_4.pgt vco_delay_cell_2$4_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
+X40 vco_delay_cell_2$4_10.out out a_n14_n448# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
+X41 vco_delay_cell_2$4_4.out vco_delay_cell_2$4_4.in a_n1510_n1920# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
+X42 vco_delay_cell_2$4_1.out vco_delay_cell_2$4_2.out a_4678_n1920# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
+X43 vco_delay_cell_2$4_8.out vco_delay_cell_2$4_9.out a_3114_n448# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
+X44 out vco_delay_cell_2$4_6.in a_6922_n448# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
+X45 vco_delay_cell_2$4_4.out vco_delay_cell_2$4_4.in a_n1510_n2666# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
+X46 vco_delay_cell_2$4_1.out vco_delay_cell_2$4_2.out a_4678_n2666# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
+X47 a_n14_n448# in gnd gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
+X48 a_n14_218# vco_delay_cell_2$4_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
 X49 a_3114_n1920# in gnd gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=6u
-X50 vco_delay_cell_2$3_10.out out a_n14_292# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
-X51 out a_7330_n484# a_7262_n448# gnd sg13_lv_nmos ad=0.272p pd=2.28u as=0.272p ps=2.28u w=0.8u l=3u
-C0 a_4678_n448# a_4746_n484# 0.12018f
-C1 in a_7330_n484# 0.18357f
-C2 vp a_7262_292# 0.28722f
-C3 vco_delay_cell_2$3_4.pgt vco_delay_cell_2$3_6.in 0.35412f
-C4 a_3114_n448# vp 0.01292f
-C5 a_7262_292# out 0.13203f
-C6 a_4746_n1956# vco_delay_cell_2$3_2.out 0.27978f
-C7 a_4678_292# vco_delay_cell_2$3_8.out 0.20593f
-C8 a_7330_n484# a_7262_n448# 0.12018f
-C9 vp vco_delay_cell_2$3_3.out 1.33406f
-C10 a_7262_292# vco_delay_cell_2$3_6.in 0.20277f
-C11 vco_delay_cell_2$3_2.out a_3114_n1920# 0.03784f
-C12 vp a_1550_n1920# 0.01292f
-C13 in vco_delay_cell_2$3_4.in 2.76824f
-C14 in vco_delay_cell_2$3_4.out 0.13368f
-C15 a_4678_n448# en11 0.02071f
-C16 a_4678_292# vco_delay_cell_2$3_7.out 0.03763f
-C17 vco_delay_cell_2$3_4.in a_n14_n448# 0.12442f
-C18 a_4678_292# vp 0.32674f
-C19 in vco_delay_cell_2$3_4.pgt 2.44918f
-C20 vco_delay_cell_2$3_2.out a_3182_n1956# 0.05133f
-C21 a_4678_n448# vco_delay_cell_2$3_4.in 0.12125f
-C22 a_4678_292# out 0.13318f
-C23 a_n1578_n2740# a_n1578_n1920# 0.01756f
-C24 in vco_delay_cell_2$3_5.out 0.13368f
-C25 vco_delay_cell_2$3_4.pgt a_n14_n448# 0.03865f
-C26 a_4678_n2740# a_4678_n1920# 0.01756f
-C27 a_3182_n484# vco_delay_cell_2$3_8.out 0.05133f
-C28 a_3114_n1920# a_3182_n1956# 0.12018f
-C29 a_4678_n448# vco_delay_cell_2$3_4.pgt 0.01635f
-C30 vp a_n1578_n1920# 0.01292f
-C31 a_3114_n448# in 0.34485f
-C32 vco_delay_cell_2$3_4.in a_54_n484# 0.03802f
-C33 a_n14_n2740# vco_delay_cell_2$3_4.out 0.2073f
-C34 a_n14_292# vp 0.3309f
-C35 a_4678_n2740# vco_delay_cell_2$3_1.out 0.03999f
-C36 a_4678_n2740# vp 0.33867f
-C37 a_n14_292# out 0.30973f
-C38 vp a_3114_n2740# 0.33867f
-C39 a_n14_n2740# vco_delay_cell_2$3_4.pgt 0.3623f
-C40 in vco_delay_cell_2$3_3.out 0.13368f
-C41 vco_delay_cell_2$3_8.out vco_delay_cell_2$3_7.out 0.27631f
-C42 a_7262_292# a_7262_n448# 0.01756f
-C43 vp vco_delay_cell_2$3_8.out 1.29974f
-C44 a_54_n484# vco_delay_cell_2$3_4.pgt 0.02981f
-C45 a_54_n1956# vco_delay_cell_2$3_4.out 0.27978f
-C46 a_4678_n1920# vco_delay_cell_2$3_1.out 0.03784f
-C47 in a_1550_n1920# 0.35402f
-C48 vp a_4678_n1920# 0.01292f
-C49 a_n14_n2740# vco_delay_cell_2$3_5.out 0.03999f
-C50 vco_delay_cell_2$3_8.out out 0.24112f
-C51 a_3114_292# vco_delay_cell_2$3_9.out 0.20593f
-C52 vco_delay_cell_2$3_0.out vco_delay_cell_2$3_1.out 0.26277f
-C53 a_54_n1956# vco_delay_cell_2$3_4.pgt 0.02968f
-C54 vco_delay_cell_2$3_0.out vp 0.41986f
-C55 a_1550_n2740# vco_delay_cell_2$3_4.pgt 0.36384f
-C56 vp a_n1578_n2740# 0.33941f
-C57 a_6242_n1920# vco_delay_cell_2$3_4.pgt 0.02538f
-C58 a_1550_n448# vco_delay_cell_2$3_4.in 0.12451f
-C59 a_n1510_n1956# vco_delay_cell_2$3_4.in 0.30492f
-C60 vp vco_delay_cell_2$3_1.out 1.33525f
-C61 vp vco_delay_cell_2$3_7.out 0.45925f
-C62 vco_delay_cell_2$3_10.out vco_delay_cell_2$3_4.in 0.19249f
-C63 a_54_n1956# vco_delay_cell_2$3_5.out 0.05133f
-C64 a_6242_n2740# vco_delay_cell_2$3_4.pgt 0.36009f
-C65 vco_delay_cell_2$3_9.out vco_delay_cell_2$3_4.in 0.19249f
-C66 vco_delay_cell_2$3_4.out a_n14_n1920# 0.07619f
-C67 a_1550_n2740# vco_delay_cell_2$3_5.out 0.2073f
-C68 vco_delay_cell_2$3_4.out a_n1510_n1956# 0.05133f
-C69 vco_delay_cell_2$3_7.out out 0.12954f
-C70 vp out 2.13605f
-C71 vco_delay_cell_2$3_0.out vco_delay_cell_2$3_6.in 0.44722f
-C72 a_1550_n448# vco_delay_cell_2$3_4.pgt 0.0163f
-C73 vco_delay_cell_2$3_4.pgt a_n14_n1920# 0.02588f
-C74 a_1550_n448# a_1550_292# 0.01756f
-C75 a_4678_292# a_4678_n448# 0.01756f
-C76 vco_delay_cell_2$3_10.out vco_delay_cell_2$3_4.pgt 0.42395f
-C77 in a_n1578_n1920# 0.35402f
-C78 vco_delay_cell_2$3_7.out vco_delay_cell_2$3_6.in 0.62155f
-C79 vco_delay_cell_2$3_9.out vco_delay_cell_2$3_4.pgt 0.40613f
-C80 vp vco_delay_cell_2$3_6.in 1.30547f
-C81 vp vco_delay_cell_2$3_6.in 0.141f
-C82 vco_delay_cell_2$3_10.out a_1550_292# 0.20593f
-C83 vco_delay_cell_2$3_2.out vco_delay_cell_2$3_4.pgt 0.55139f
-C84 vco_delay_cell_2$3_9.out a_1550_292# 0.03774f
-C85 vco_delay_cell_2$3_5.out a_n14_n1920# 0.03784f
-C86 vco_delay_cell_2$3_6.in out 0.51128f
-C87 in a_1618_n1956# 0.20023f
-C88 a_1550_n2740# vco_delay_cell_2$3_3.out 0.03999f
-C89 a_4746_n1956# vco_delay_cell_2$3_4.pgt 0.03231f
-C90 a_6310_n1956# vco_delay_cell_2$3_4.pgt 0.03011f
-C91 a_1550_n2740# a_1550_n1920# 0.01756f
-C92 a_1618_n484# in 0.18244f
-C93 in a_3182_n484# 0.18244f
-C94 a_n14_292# a_n14_n448# 0.01756f
-C95 a_3114_n1920# vco_delay_cell_2$3_4.pgt 0.02693f
-C96 a_3114_n448# vco_delay_cell_2$3_9.out 0.07474f
-C97 nen11 vp 0.16536f
-C98 in a_4678_n1920# 0.35402f
-C99 vco_delay_cell_2$3_0.out in 0.06968f
-C100 a_4678_n448# vco_delay_cell_2$3_8.out 0.07474f
-C101 in vco_delay_cell_2$3_1.out 0.13368f
-C102 in vco_delay_cell_2$3_7.out 0.02433f
-C103 vco_delay_cell_2$3_4.pgt a_3182_n1956# 0.03217f
-C104 in vp 0.13417f
-C105 in vp 0.10857f
-C106 vco_delay_cell_2$3_2.out vco_delay_cell_2$3_3.out 0.28028f
-C107 a_4746_n484# vco_delay_cell_2$3_4.in 0.03959f
-C108 vp a_n14_n448# 0.01292f
-C109 a_4678_n448# vco_delay_cell_2$3_7.out 0.06078f
-C110 a_3114_n1920# vco_delay_cell_2$3_3.out 0.07619f
-C111 a_4678_n448# vp 0.01292f
-C112 vp a_7262_n448# 0.01292f
-C113 a_4746_n484# vco_delay_cell_2$3_4.pgt 0.03189f
-C114 in vco_delay_cell_2$3_6.in 0.38053f
-C115 a_n14_n448# out 0.06599f
-C116 in en5 0.01267f
-C117 a_7262_n448# out 0.03411f
-C118 nen11 vp 0.16237f
-C119 a_n1510_n1956# a_n1578_n1920# 0.12018f
-C120 vp a_n14_n2740# 0.33867f
-C121 nen11 out 0.0167f
-C122 a_3182_n1956# vco_delay_cell_2$3_3.out 0.27978f
-C123 a_7262_n448# vco_delay_cell_2$3_6.in 0.16048f
-C124 vco_delay_cell_2$3_10.out a_n14_292# 0.03618f
-C125 vco_delay_cell_2$3_4.in en11 0.01085f
-C126 vco_delay_cell_2$3_0.out a_6242_n1920# 0.03777f
-C127 a_1550_n448# a_1618_n484# 0.12018f
-C128 a_54_n484# out 0.27719f
-C129 a_3114_292# vco_delay_cell_2$3_4.pgt 0.34636f
-C130 a_6242_n2740# vco_delay_cell_2$3_0.out 0.03984f
-C131 a_6242_n1920# vco_delay_cell_2$3_1.out 0.07619f
-C132 a_1618_n484# vco_delay_cell_2$3_10.out 0.27978f
-C133 vp a_1550_n2740# 0.33867f
-C134 a_4678_n2740# vco_delay_cell_2$3_2.out 0.2073f
-C135 vco_delay_cell_2$3_2.out a_3114_n2740# 0.03999f
-C136 vp a_6242_n1920# 0.01292f
-C137 a_1618_n484# vco_delay_cell_2$3_9.out 0.05133f
-C138 in a_n1880_n788# 0.03255f
-C139 a_3182_n484# vco_delay_cell_2$3_9.out 0.27978f
-C140 vco_delay_cell_2$3_4.out vco_delay_cell_2$3_4.in 0.27538f
-C141 vco_delay_cell_2$3_9.out vco_delay_cell_2$3_8.out 0.28028f
-C142 a_6242_n2740# vco_delay_cell_2$3_1.out 0.2073f
-C143 a_6242_n2740# vp 0.31763f
-C144 vco_delay_cell_2$3_4.in vco_delay_cell_2$3_4.pgt 0.9294f
-C145 a_4678_n1920# vco_delay_cell_2$3_2.out 0.07619f
-C146 a_3114_n448# a_3114_292# 0.01756f
-C147 a_3114_n1920# a_3114_n2740# 0.01756f
-C148 a_1550_n448# vp 0.01292f
-C149 in a_n14_n448# 0.34485f
-C150 vp a_n14_n1920# 0.01292f
-C151 vco_delay_cell_2$3_4.out vco_delay_cell_2$3_4.pgt 0.50533f
-C152 a_4746_n1956# a_4678_n1920# 0.12018f
-C153 vco_delay_cell_2$3_10.out vp 1.28253f
-C154 in a_4678_n448# 0.34304f
-C155 vco_delay_cell_2$3_9.out vp 1.30484f
-C156 in a_7262_n448# 0.33809f
-C157 vco_delay_cell_2$3_2.out vco_delay_cell_2$3_1.out 0.28028f
-C158 vco_delay_cell_2$3_0.out a_6310_n1956# 0.05157f
-C159 vp vco_delay_cell_2$3_2.out 1.33406f
-C160 vco_delay_cell_2$3_10.out out 0.54146f
-C161 vco_delay_cell_2$3_4.out vco_delay_cell_2$3_5.out 0.28028f
-C162 a_1550_292# vco_delay_cell_2$3_4.pgt 0.34653f
-C163 vco_delay_cell_2$3_9.out out 0.24112f
-C164 a_3114_n448# vco_delay_cell_2$3_4.in 0.12451f
-C165 a_4746_n1956# vco_delay_cell_2$3_1.out 0.05133f
-C166 a_6310_n1956# vco_delay_cell_2$3_1.out 0.27978f
-C167 vco_delay_cell_2$3_5.out vco_delay_cell_2$3_4.pgt 0.56401f
-C168 in a_54_n484# 0.18244f
-C169 vp a_3114_n1920# 0.01292f
-C170 vco_delay_cell_2$3_4.pgt a_7262_292# 0.31879f
-C171 a_3114_n448# vco_delay_cell_2$3_4.pgt 0.01615f
-C172 a_54_n1956# in 0.20023f
-C173 a_54_n484# a_n14_n448# 0.12018f
-C174 in a_6242_n1920# 0.35244f
-C175 vp nen5 0.16092f
-C176 a_4746_n484# vco_delay_cell_2$3_8.out 0.27978f
-C177 vco_delay_cell_2$3_4.pgt vco_delay_cell_2$3_3.out 0.54651f
-C178 nen5 out 0.01665f
-C179 a_1550_n1920# vco_delay_cell_2$3_4.pgt 0.02701f
-C180 a_1550_n448# in 0.34485f
-C181 vco_delay_cell_2$3_5.out vco_delay_cell_2$3_3.out 0.28028f
-C182 in a_n14_n1920# 0.35402f
-C183 in a_n1510_n1956# 0.20023f
-C184 vco_delay_cell_2$3_5.out a_1550_n1920# 0.07619f
-C185 a_4746_n484# vco_delay_cell_2$3_7.out 0.05268f
-C186 a_4678_292# vco_delay_cell_2$3_4.pgt 0.34565f
-C187 in vco_delay_cell_2$3_2.out 0.13368f
-C188 vco_delay_cell_2$3_4.in a_n1578_n1920# 0.09308f
-C189 a_3114_292# vco_delay_cell_2$3_8.out 0.03774f
-C190 vco_delay_cell_2$3_10.out a_n14_n448# 0.03561f
-C191 a_4746_n1956# in 0.20023f
-C192 vco_delay_cell_2$3_4.out a_n1578_n1920# 0.03784f
-C193 in a_6310_n1956# 0.20023f
-C194 in a_3114_n1920# 0.35402f
-C195 a_1618_n484# vco_delay_cell_2$3_4.in 0.03802f
-C196 a_1550_n1920# vco_delay_cell_2$3_3.out 0.03784f
-C197 a_3182_n484# vco_delay_cell_2$3_4.in 0.03802f
-C198 vco_delay_cell_2$3_8.out vco_delay_cell_2$3_4.in 0.19265f
-C199 a_n14_n2740# a_n14_n1920# 0.01756f
-C200 a_n14_292# vco_delay_cell_2$3_4.pgt 0.38098f
-C201 a_7330_n484# out 0.05068f
-C202 a_3114_292# vp 0.33867f
-C203 a_1618_n1956# vco_delay_cell_2$3_4.pgt 0.03232f
-C204 a_4678_n2740# vco_delay_cell_2$3_4.pgt 0.36395f
-C205 vco_delay_cell_2$3_4.pgt a_3114_n2740# 0.36371f
-C206 a_6242_n2740# a_6242_n1920# 0.01756f
-C207 a_3114_292# out 0.1327f
-C208 a_n1578_n2740# vco_delay_cell_2$3_4.in 0.1944f
-C209 a_1618_n484# vco_delay_cell_2$3_4.pgt 0.03182f
-C210 vco_delay_cell_2$3_10.out a_54_n484# 0.05133f
-C211 in a_3182_n1956# 0.20023f
-C212 a_3182_n484# vco_delay_cell_2$3_4.pgt 0.03167f
-C213 a_7330_n484# vco_delay_cell_2$3_6.in 0.34187f
-C214 vco_delay_cell_2$3_8.out vco_delay_cell_2$3_4.pgt 0.41131f
-C215 a_54_n1956# a_n14_n1920# 0.12018f
-C216 a_1618_n1956# vco_delay_cell_2$3_5.out 0.27978f
-C217 vco_delay_cell_2$3_7.out vco_delay_cell_2$3_4.in 0.98541f
-C218 a_4678_n1920# vco_delay_cell_2$3_4.pgt 0.0271f
-C219 a_n1578_n2740# vco_delay_cell_2$3_4.out 0.03999f
-C220 vp vco_delay_cell_2$3_4.in 0.13694f
-C221 vp vco_delay_cell_2$3_4.in 1.1264f
-C222 vco_delay_cell_2$3_0.out vco_delay_cell_2$3_4.pgt 0.0632f
-C223 vco_delay_cell_2$3_4.in out 0.12026f
-C224 a_n1578_n2740# vco_delay_cell_2$3_4.pgt 0.34074f
-C225 vp vco_delay_cell_2$3_4.out 1.33476f
-C226 in a_4746_n484# 0.18244f
-C227 vco_delay_cell_2$3_1.out vco_delay_cell_2$3_4.pgt 0.54198f
-C228 vco_delay_cell_2$3_7.out vco_delay_cell_2$3_4.pgt 0.05577f
-C229 a_3114_n448# a_3182_n484# 0.12018f
-C230 en5 en11 0.04309f
-C231 vp vco_delay_cell_2$3_4.pgt 18.5139f
-C232 a_3114_n448# vco_delay_cell_2$3_8.out 0.03561f
-C233 vp vco_delay_cell_2$3_4.pgt 18.1449f
-C234 nen11 nen5 0.04467f
-C235 vco_delay_cell_2$3_4.in vco_delay_cell_2$3_6.in 0.01049f
-C236 a_1550_292# vp 0.33867f
-C237 a_6310_n1956# a_6242_n1920# 0.12018f
-C238 a_1618_n1956# vco_delay_cell_2$3_3.out 0.05133f
-C239 a_1550_n448# vco_delay_cell_2$3_10.out 0.07474f
-C240 vco_delay_cell_2$3_4.pgt out 2.71571f
-C241 a_1550_n448# vco_delay_cell_2$3_9.out 0.03561f
-C242 a_3114_n2740# vco_delay_cell_2$3_3.out 0.2073f
-C243 a_1618_n1956# a_1550_n1920# 0.12018f
-C244 a_1550_292# out 0.13308f
-C245 vp vco_delay_cell_2$3_5.out 1.33406f
-C246 vco_delay_cell_2$3_10.out vco_delay_cell_2$3_9.out 0.28028f
-C247 out gnd 0.22735f
-C248 vp gnd 1.08741f
-C249 vp gnd 4.48451f
-C250 a_6242_n2740# gnd 0.31089f
-C251 a_4678_n2740# gnd 0.68072f
-C252 a_3114_n2740# gnd 0.55253f
-C253 a_1550_n2740# gnd 0.29616f
-C254 a_n14_n2740# gnd 0.79893f
-C255 a_n1578_n2740# gnd 0.77269f
-C256 vco_delay_cell_2$3_0.out gnd 1.02029f
-C257 vco_delay_cell_2$3_1.out gnd 0.89731f
-C258 vco_delay_cell_2$3_5.out gnd 1.01552f
-C259 a_6242_n1920# gnd 0.47631f
-C260 a_4678_n1920# gnd 14.81126f
-C261 a_3114_n1920# gnd 0.47911f
-C262 a_1550_n1920# gnd 0.47882f
-C263 a_n14_n1920# gnd 0.47911f
-C264 a_n1578_n1920# gnd 0.49215f
-C265 a_n1880_n788# gnd 0.04468f
-C266 a_7262_n448# gnd 0.47833f
-C267 a_4678_n448# gnd 0.44843f
-C268 a_3114_n448# gnd 0.47911f
-C269 a_1550_n448# gnd 0.47882f
-C270 a_n14_n448# gnd 0.47426f
-C271 vco_delay_cell_2$3_4.in gnd 0.07697f
-C272 vco_delay_cell_2$3_6.in gnd 0.1907f
-C273 vco_delay_cell_2$3_7.out gnd 1.16763f
-C274 vco_delay_cell_2$3_8.out gnd 0.76366f
-C275 vco_delay_cell_2$3_10.out gnd 0.92489f
-C276 a_7262_292# gnd 0.79936f
-C277 a_4678_292# gnd 3.65236f
-C278 a_3114_292# gnd 0.54707f
-C279 a_1550_292# gnd 0.2977f
-C280 a_n14_292# gnd 0.7077f
+X50 vco_delay_cell_2$4_7.out vco_delay_cell_2$4_8.out a_4678_218# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=3u
+X51 a_3114_n2666# vco_delay_cell_2$4_4.pgt vp vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=6u
+C0 a_1550_218# vp 0.33867f
+C1 a_1550_218# vco_delay_cell_2$4_9.out 0.03776f
+C2 vco_delay_cell_2$4_7.out a_4678_n448# 0.06097f
+C3 a_3114_n448# vco_delay_cell_2$4_4.in 0.12451f
+C4 vco_delay_cell_2$4_0.out in 0.04742f
+C5 vco_delay_cell_2$4_4.pgt a_1550_n1920# 0.02629f
+C6 vco_delay_cell_2$4_6.in vco_delay_cell_2$4_0.out 0.45466f
+C7 vco_delay_cell_2$4_6.in in 0.59738f
+C8 vp a_3114_n1920# 0.01559f
+C9 a_n14_n448# in 0.34485f
+C10 vco_delay_cell_2$4_10.out in 0.18541f
+C11 vco_delay_cell_2$4_5.out in 0.34789f
+C12 a_n14_n448# vco_delay_cell_2$4_10.out 0.03583f
+C13 vco_delay_cell_2$4_4.out a_n1510_n2666# 0.04001f
+C14 vco_delay_cell_2$4_4.pgt a_4678_n448# 0.01563f
+C15 vp vco_delay_cell_2$4_0.out 0.30839f
+C16 a_n14_218# out 0.31551f
+C17 vp in 0.12843f
+C18 vco_delay_cell_2$4_4.pgt a_n14_n1920# 0.02515f
+C19 vco_delay_cell_2$4_7.out vco_delay_cell_2$4_4.in 0.9967f
+C20 vp vco_delay_cell_2$4_6.in 0.14424f
+C21 vp in 0.15896f
+C22 vco_delay_cell_2$4_9.out in 0.18541f
+C23 vp vco_delay_cell_2$4_5.out 1.33676f
+C24 vco_delay_cell_2$4_6.in vp 1.26108f
+C25 out vco_delay_cell_2$4_7.out 0.12546f
+C26 a_n14_n448# vp 0.01559f
+C27 vco_delay_cell_2$4_10.out vp 1.28891f
+C28 vco_delay_cell_2$4_10.out vco_delay_cell_2$4_9.out 0.33263f
+C29 vco_delay_cell_2$4_4.pgt vco_delay_cell_2$4_4.in 0.93144f
+C30 a_3114_n2666# vco_delay_cell_2$4_3.out 0.20769f
+C31 vp nen11 0.15972f
+C32 nen11 vp 0.15936f
+C33 in vco_delay_cell_2$4_8.out 0.1854f
+C34 vco_delay_cell_2$4_1.out vco_delay_cell_2$4_4.pgt 0.56834f
+C35 vco_delay_cell_2$4_4.pgt out 2.79513f
+C36 vco_delay_cell_2$4_9.out vp 1.31121f
+C37 vco_delay_cell_2$4_4.pgt vco_delay_cell_2$4_3.out 0.57489f
+C38 a_4678_218# vco_delay_cell_2$4_7.out 0.03867f
+C39 vco_delay_cell_2$4_1.out a_4678_n2666# 0.04001f
+C40 a_3114_n2666# vco_delay_cell_2$4_2.out 0.04001f
+C41 out a_3114_218# 0.13218f
+C42 vco_delay_cell_2$4_4.pgt a_4678_n1920# 0.02638f
+C43 vco_delay_cell_2$4_4.pgt vco_delay_cell_2$4_2.out 0.57965f
+C44 vp vco_delay_cell_2$4_8.out 1.30614f
+C45 vco_delay_cell_2$4_9.out vco_delay_cell_2$4_8.out 0.33263f
+C46 a_4678_218# vco_delay_cell_2$4_4.pgt 0.34585f
+C47 a_6922_218# vco_delay_cell_2$4_4.pgt 0.32274f
+C48 a_4678_n2666# a_4678_n1920# 0.01895f
+C49 a_4678_n2666# vco_delay_cell_2$4_2.out 0.20769f
+C50 vco_delay_cell_2$4_1.out a_6242_n2666# 0.20769f
+C51 a_1550_n1920# in 0.35402f
+C52 vco_delay_cell_2$4_1.out a_6242_n1920# 0.21377f
+C53 a_n14_n2666# vco_delay_cell_2$4_4.pgt 0.3623f
+C54 a_1550_n2666# vco_delay_cell_2$4_4.pgt 0.36384f
+C55 vco_delay_cell_2$4_5.out a_1550_n1920# 0.21377f
+C56 en11 a_4678_n448# 0.02071f
+C57 vco_delay_cell_2$4_4.pgt vco_delay_cell_2$4_4.out 0.52907f
+C58 in a_4678_n448# 0.34304f
+C59 vp a_1550_n1920# 0.01559f
+C60 a_n1510_n1920# in 0.35458f
+C61 a_1550_218# out 0.13261f
+C62 in a_n14_n1920# 0.35402f
+C63 vco_delay_cell_2$4_4.pgt a_n1510_n2666# 0.34058f
+C64 vco_delay_cell_2$4_5.out a_n14_n1920# 0.0384f
+C65 vp a_n1510_n1920# 0.01559f
+C66 vp a_n14_n1920# 0.01559f
+C67 en11 vco_delay_cell_2$4_4.in 0.01085f
+C68 vp a_4678_n448# 0.01559f
+C69 vco_delay_cell_2$4_4.in in 2.97698f
+C70 vco_delay_cell_2$4_3.out a_3114_n1920# 0.21377f
+C71 vco_delay_cell_2$4_6.in vco_delay_cell_2$4_4.in 0.01729f
+C72 vco_delay_cell_2$4_1.out vco_delay_cell_2$4_0.out 0.3305f
+C73 a_n14_n448# vco_delay_cell_2$4_4.in 0.12442f
+C74 vco_delay_cell_2$4_10.out vco_delay_cell_2$4_4.in 0.26016f
+C75 vco_delay_cell_2$4_1.out in 0.34789f
+C76 out in 0.19107f
+C77 vco_delay_cell_2$4_4.pgt a_1550_n448# 0.01557f
+C78 nen11 nen5 0.04467f
+C79 vco_delay_cell_2$4_3.out in 0.34789f
+C80 vco_delay_cell_2$4_6.in out 0.51287f
+C81 a_n14_n448# out 0.20304f
+C82 vp vco_delay_cell_2$4_4.in 1.12658f
+C83 nen5 vp 0.16226f
+C84 vco_delay_cell_2$4_10.out out 0.58373f
+C85 en5 en11 0.04309f
+C86 vco_delay_cell_2$4_2.out a_3114_n1920# 0.0384f
+C87 en5 in 0.01295f
+C88 a_4678_n448# vco_delay_cell_2$4_8.out 0.21187f
+C89 vco_delay_cell_2$4_5.out vco_delay_cell_2$4_3.out 0.33262f
+C90 vp vco_delay_cell_2$4_4.in 0.14742f
+C91 vco_delay_cell_2$4_1.out vp 1.3292f
+C92 vco_delay_cell_2$4_9.out vco_delay_cell_2$4_4.in 0.26017f
+C93 a_6922_n448# in 0.33668f
+C94 in a_4678_n1920# 0.35402f
+C95 vco_delay_cell_2$4_4.pgt a_3114_n448# 0.01542f
+C96 vp vco_delay_cell_2$4_3.out 1.33743f
+C97 nen11 out 0.03141f
+C98 vco_delay_cell_2$4_2.out in 0.34789f
+C99 a_6922_n448# vco_delay_cell_2$4_6.in 0.30287f
+C100 out vp 2.0745f
+C101 out vco_delay_cell_2$4_9.out 0.22822f
+C102 a_n14_218# vco_delay_cell_2$4_4.pgt 0.38074f
+C103 vco_delay_cell_2$4_6.in a_6922_218# 0.21608f
+C104 a_3114_n448# a_3114_218# 0.01895f
+C105 vco_delay_cell_2$4_4.in vco_delay_cell_2$4_8.out 0.26189f
+C106 vp a_4678_n1920# 0.01559f
+C107 vp vco_delay_cell_2$4_2.out 1.33743f
+C108 a_4678_218# nen11 0.01416f
+C109 a_6922_n448# vp 0.01559f
+C110 vco_delay_cell_2$4_4.pgt vco_delay_cell_2$4_7.out 0.0534f
+C111 vco_delay_cell_2$4_4.out in 0.34284f
+C112 out vco_delay_cell_2$4_8.out 0.22822f
+C113 a_n14_n2666# vco_delay_cell_2$4_5.out 0.04001f
+C114 a_4678_218# vp 0.32137f
+C115 a_1550_n2666# vco_delay_cell_2$4_5.out 0.20769f
+C116 a_1550_218# a_1550_n448# 0.01895f
+C117 a_6922_218# vp 0.27837f
+C118 vco_delay_cell_2$4_4.pgt a_3114_n2666# 0.36371f
+C119 vp a_n14_n2666# 0.33739f
+C120 vp a_1550_n2666# 0.33867f
+C121 vco_delay_cell_2$4_5.out vco_delay_cell_2$4_4.out 0.33396f
+C122 vp vco_delay_cell_2$4_4.out 1.32536f
+C123 a_4678_218# vco_delay_cell_2$4_8.out 0.20636f
+C124 vco_delay_cell_2$4_4.pgt a_4678_n2666# 0.36395f
+C125 vco_delay_cell_2$4_4.pgt a_3114_218# 0.34635f
+C126 vp a_n1510_n2666# 0.34931f
+C127 vco_delay_cell_2$4_3.out a_1550_n1920# 0.0384f
+C128 a_1550_n448# in 0.34485f
+C129 vco_delay_cell_2$4_4.in a_4678_n448# 0.12125f
+C130 a_n1510_n1920# vco_delay_cell_2$4_4.in 0.22995f
+C131 a_1550_n448# vco_delay_cell_2$4_10.out 0.21187f
+C132 vco_delay_cell_2$4_4.pgt a_6242_n2666# 0.36009f
+C133 vco_delay_cell_2$4_4.pgt a_6242_n1920# 0.02466f
+C134 a_3114_n448# in 0.34485f
+C135 a_1550_n448# vp 0.01559f
+C136 a_1550_n448# vco_delay_cell_2$4_9.out 0.03583f
+C137 a_1550_218# vco_delay_cell_2$4_4.pgt 0.34655f
+C138 nen5 out 0.03395f
+C139 a_n14_218# a_n14_n448# 0.01895f
+C140 a_n14_218# vco_delay_cell_2$4_10.out 0.03619f
+C141 a_1550_n2666# a_1550_n1920# 0.01895f
+C142 a_4678_218# a_4678_n448# 0.01895f
+C143 a_3114_n2666# a_3114_n1920# 0.01895f
+C144 out vco_delay_cell_2$4_4.in 0.17933f
+C145 vco_delay_cell_2$4_7.out in 0.02601f
+C146 a_3114_n448# vp 0.01559f
+C147 a_3114_n448# vco_delay_cell_2$4_9.out 0.21187f
+C148 vco_delay_cell_2$4_6.in vco_delay_cell_2$4_7.out 0.63589f
+C149 a_6242_n1920# a_6242_n2666# 0.01895f
+C150 vco_delay_cell_2$4_4.pgt a_3114_n1920# 0.02621f
+C151 a_n14_218# vp 0.3309f
+C152 a_n14_n2666# a_n14_n1920# 0.01895f
+C153 vco_delay_cell_2$4_0.out vco_delay_cell_2$4_4.pgt 0.06222f
+C154 vco_delay_cell_2$4_4.pgt in 2.47459f
+C155 a_n1510_n1920# vco_delay_cell_2$4_4.out 0.0384f
+C156 vco_delay_cell_2$4_4.out a_n14_n1920# 0.21459f
+C157 a_3114_n448# vco_delay_cell_2$4_8.out 0.03583f
+C158 vco_delay_cell_2$4_1.out a_4678_n1920# 0.0384f
+C159 vco_delay_cell_2$4_6.in vco_delay_cell_2$4_4.pgt 0.44253f
+C160 vco_delay_cell_2$4_1.out vco_delay_cell_2$4_2.out 0.33262f
+C161 vp a_3114_n2666# 0.33867f
+C162 a_6922_n448# out 0.03509f
+C163 a_n14_n448# vco_delay_cell_2$4_4.pgt 0.03793f
+C164 vco_delay_cell_2$4_7.out vp 0.46458f
+C165 vco_delay_cell_2$4_4.pgt vco_delay_cell_2$4_10.out 0.45049f
+C166 vco_delay_cell_2$4_3.out vco_delay_cell_2$4_2.out 0.33262f
+C167 vco_delay_cell_2$4_5.out vco_delay_cell_2$4_4.pgt 0.5913f
+C168 a_4678_218# out 0.12988f
+C169 a_6922_218# out 0.12656f
+C170 a_n1880_n788# in 0.03255f
+C171 vp vco_delay_cell_2$4_4.pgt 18.184f
+C172 a_n1510_n1920# a_n1510_n2666# 0.01895f
+C173 vco_delay_cell_2$4_4.out vco_delay_cell_2$4_4.in 0.32892f
+C174 vp a_4678_n2666# 0.33867f
+C175 vco_delay_cell_2$4_4.pgt vp 18.5222f
+C176 vco_delay_cell_2$4_4.pgt vco_delay_cell_2$4_9.out 0.43385f
+C177 vco_delay_cell_2$4_7.out vco_delay_cell_2$4_8.out 0.32669f
+C178 vco_delay_cell_2$4_2.out a_4678_n1920# 0.21377f
+C179 a_1550_n2666# vco_delay_cell_2$4_3.out 0.04001f
+C180 vco_delay_cell_2$4_0.out a_6242_n2666# 0.03986f
+C181 a_6922_n448# a_6922_218# 0.01895f
+C182 en11 vco_delay_cell_2$4_0.out 0.01345f
+C183 vco_delay_cell_2$4_0.out a_6242_n1920# 0.03832f
+C184 a_6242_n1920# in 0.35244f
+C185 vp a_3114_218# 0.33867f
+C186 vco_delay_cell_2$4_4.in a_n1510_n2666# 0.19487f
+C187 vco_delay_cell_2$4_9.out a_3114_218# 0.20636f
+C188 vco_delay_cell_2$4_4.pgt vco_delay_cell_2$4_8.out 0.43895f
+C189 vp a_6242_n2666# 0.30527f
+C190 vp a_6242_n1920# 0.01559f
+C191 a_1550_218# vco_delay_cell_2$4_10.out 0.20636f
+C192 a_1550_n448# vco_delay_cell_2$4_4.in 0.12451f
+C193 a_3114_218# vco_delay_cell_2$4_8.out 0.03776f
+C194 a_n14_n2666# vco_delay_cell_2$4_4.out 0.20892f
+C195 in a_3114_n1920# 0.35402f
+C196 vp gnd 4.30225f
+C197 vp gnd 1.2184f
+C198 a_6242_n2666# gnd 0.02763f
+C199 a_4678_n2666# gnd 3.21695f
+C200 a_n1510_n2666# gnd 0.02428f
+C201 vco_delay_cell_2$4_0.out gnd 0.79844f
+C202 vco_delay_cell_2$4_1.out gnd 0.77486f
+C203 vco_delay_cell_2$4_5.out gnd 0.45197f
+C204 vco_delay_cell_2$4_4.out gnd 0.91103f
+C205 a_6242_n1920# gnd 0.68013f
+C206 a_4678_n1920# gnd 15.21971f
+C207 a_3114_n1920# gnd 0.90538f
+C208 a_1550_n1920# gnd 0.68383f
+C209 a_n14_n1920# gnd 0.69229f
+C210 a_n1510_n1920# gnd 1.17109f
+C211 a_n1880_n788# gnd 0.0445f
+C212 a_6922_n448# gnd 0.23137f
+C213 a_4678_n448# gnd 0.97495f
+C214 a_3114_n448# gnd 0.24129f
+C215 a_1550_n448# gnd 0.24129f
+C216 a_n14_n448# gnd 0.69405f
+C217 vco_delay_cell_2$4_7.out gnd 1.37473f
+C218 vco_delay_cell_2$4_10.out gnd 0.94704f
+C219 a_6922_218# gnd 0.97031f
+C220 a_3114_218# gnd 0.66525f
+C221 a_1550_218# gnd 0.45054f
+C222 a_n14_218# gnd 0.49724f
 .ends
 
