@@ -1,30 +1,17 @@
 #!/usr/bin/env python3
 # ==============================================================================
-# VCO DECODER — Functional Check and HTML Report
+# VCO DECODER (DC sweep) — Functional Check and HTML Report
 # ==============================================================================
-# run_vco_decoder_tb.sh drives VCO_decoder_tb.sch once per PVT point. Because
-# c0,c1,c2,f0-f5 are binary-weighted PULSE sources (periods 3.125n * 2^bit),
-# a single 801ns transient sweeps through all 512 (coarse,fine) codes, each
-# held for a 1.5625ns "tick":
+# Companion to run_vco_decoder_dc_sweep.sh. Unlike plot_vco_decoder.py (which
+# had to reconstruct code(t) from a single PULSE-driven transient and sample
+# each 1.5625ns window), here every code already has its own small .dat file
+# with c0,c1,c2,f0-f5 hardwired as DC sources — so there's nothing to decode
+# from time, and no settle-fraction/window guessing. We just read the last
+# row of each file as the settled value.
 #
-#     code(t) = floor(t / 1.5625ns) mod 512     (bit0=f0 ... bit8=c2)
-#     coarse  = code >> 6     (0..7,  from c0,c1,c2)
-#     fine    = code & 0x3F   (0..63, from f0..f5)
-#
-# For each code we sample the decoder's select outputs late in the tick
-# (after the ~10ps PULSE edges have settled) and compare the asserted
-# VCO/mode against a golden table taken directly from vco_dec.ods.
-#
-# GOLDEN TABLE NOTE: fine=0 and fine=63 are illegal for every coarse code
-# (matches "nielegalny" rows in the source spreadsheet), and column 111
-# (coarse=7) additionally goes illegal from fine=39 upward. All other
-# (coarse,fine) pairs map to exactly one of: Vco0, Vco2-5, Vco2-11, Vco3-5,
-# Vco3-11, Vco4-5, Vco4-11, Vco5-11.
-#
-# KNOWN SCHEMATIC CAVEAT: VCO_decoder_tb.sch currently has TWO ports labeled
-# "VCO2_11_sel" (one of them almost certainly should be "VCO5_11_sel"). Until
-# that's fixed, this script marks all Vco5-11 codes UNTESTABLE rather than
-# silently reporting a false pass/fail.
+# Golden table, label<->signal mapping and HTML report are unchanged from
+# plot_vco_decoder.py (same GOLDEN_TABLE, same visual layout) so the two
+# reports stay directly comparable.
 # ==============================================================================
 
 import os
@@ -33,16 +20,13 @@ import sys
 import numpy as np
 from pathlib import Path
 from datetime import datetime
-from collections import defaultdict
 
 # ──────────────────────────────────────────────────────────────────────────────
 # CONFIGURATION
 # ──────────────────────────────────────────────────────────────────────────────
 
-BASE_HALF = 1.5625e-9   # f0's PULSE half-period = one "tick" = one code's dwell time
 N_CODES = 512
-SETTLE_FRACTION = 0.7   # ignore the first 70% of each tick (PULSE edges + decoder delay)
-VOH_FRACTION = 0.5      # fraction of vdd above which an output counts as HIGH
+VOH_FRACTION = 0.5   # fraction of vdd above which an output counts as HIGH
 
 # Golden table, from vco_dec.ods, coarse-major, fine=1..62 (fine=0/63 always
 # illegal and are not stored). Each entry is a 2-char code:
@@ -75,6 +59,11 @@ LABEL_TO_SIGNAL = {
 SELECT_SIGNALS = list(LABEL_TO_SIGNAL.values())
 SIGNAL_TO_LABEL = {v: k for k, v in LABEL_TO_SIGNAL.items()}
 
+# fixed signal order written by run_vco_decoder_dc_sweep.sh's wrdata line
+SIGNAL_ORDER = ['c0', 'c1', 'c2', 'f0', 'f1', 'f2', 'f3', 'f4', 'f5',
+                 'VCO_sel', 'VCO2_5_sel', 'VCO2_11_sel',
+                 'VCO3_5_sel', 'VCO3_11_sel', 'VCO4_5_sel', 'VCO4_11_sel', 'VCO5_11_sel']
+
 
 def golden_label(coarse, fine):
     """Expected VCO label ('Vco2-5', ...) or None (illegal) for a given code."""
@@ -85,13 +74,14 @@ def golden_label(coarse, fine):
 
 # ──────────────────────────────────────────────────────────────────────────────
 
-def load_dat(dat_path, siglist_path):
-    """Load an ngspice wrdata file. Returns (time, {signal_name: voltage_array}) or (None, None)."""
-    if not os.path.exists(dat_path) or not os.path.exists(siglist_path):
-        return None, None
-    with open(siglist_path) as f:
-        sig_names = f.read().split()
-
+def load_settled_values(dat_path):
+    """
+    Load one per-code .dat file (wrdata output for a short tran on DC-only
+    sources) and return the LAST row's value for each signal in
+    SIGNAL_ORDER. Returns None on any read failure.
+    """
+    if not os.path.exists(dat_path):
+        return None
     try:
         with open(dat_path) as f:
             lines = f.readlines()
@@ -107,60 +97,44 @@ def load_dat(dat_path, siglist_path):
             except (ValueError, IndexError):
                 continue
         data = np.loadtxt(dat_path, skiprows=data_start)
-        if data.ndim < 2 or data.size == 0:
-            return None, None
-        time = data[:, 0]
-        # wrdata repeats time before every signal's value column: t v0 t v1 t v2 ...
-        value_cols = [1 + 2 * i for i in range(len(sig_names))]
-        value_cols = [c for c in value_cols if c < data.shape[1]]
-        signals = {name: data[:, col] for name, col in zip(sig_names, value_cols)}
-        return time, signals
+        if data.ndim == 1:
+            data = data.reshape(1, -1)
+        if data.size == 0:
+            return None
+        last_row = data[-1]
+        # wrdata repeats time before every signal's value column: t v0 t v1 ...
+        value_cols = [1 + 2 * i for i in range(len(SIGNAL_ORDER))]
+        value_cols = [c for c in value_cols if c < len(last_row)]
+        return {name: last_row[col] for name, col in zip(SIGNAL_ORDER, value_cols)}
     except Exception as e:
         print(f"  WARN: could not load {dat_path}: {e}", file=sys.stderr)
-        return None, None
+        return None
 
 
-def analyze_pvt(time, signals, vdd):
+def analyze_pvt(data_dir, sim_name, tag, vdd):
     """
-    For every one of the 512 codes, sample the select outputs near the end
-    of that code's 1.5625ns tick and figure out which one (if any) is
-    asserted. Returns a dict: (coarse,fine) -> result dict.
+    For every one of the 512 codes, read its settled .dat file and figure out
+    which select output (if any) is asserted. Returns dict:
+    (coarse,fine) -> result dict.
     """
     results = {}
-    has_vco5 = 'VCO5_11_sel' in signals
 
     for code in range(N_CODES):
-        t_lo = code * BASE_HALF
-        t_hi = (code + 1) * BASE_HALF
-        t_sample = t_lo + SETTLE_FRACTION * (t_hi - t_lo)
-        mask = (time >= t_sample) & (time < t_hi)
-        if not np.any(mask):
-            # window too fine for the chosen TSTEP right at the very end of
-            # the sim; fall back to nearest sample
-            idx = np.argmin(np.abs(time - (t_lo + t_hi) / 2))
-            mask = np.zeros_like(time, dtype=bool)
-            mask[idx] = True
+        nnn = f"{code:03d}"
+        dat_path = data_dir / f"{sim_name}_{tag}_code{nnn}.dat"
+        values = load_settled_values(str(dat_path))
 
         coarse = code >> 6
         fine = code & 0x3F
         expected = golden_label(coarse, fine)
 
-        high_signals = []
-        for sig in SELECT_SIGNALS:
-            if sig not in signals:
-                continue
-            v = np.mean(signals[sig][mask])
-            if v > VOH_FRACTION * vdd:
-                high_signals.append(sig)
+        if values is None:
+            results[(coarse, fine)] = dict(expected=expected, actual=None, status='missing')
+            continue
 
-        untestable = (expected == 'Vco5-11' or any(
-            SIGNAL_TO_LABEL.get(s) == 'Vco5-11' for s in high_signals
-        )) and not has_vco5
+        high_signals = [sig for sig in SELECT_SIGNALS if values.get(sig, 0.0) > VOH_FRACTION * vdd]
 
-        if untestable:
-            status = 'untestable'
-            actual = None
-        elif len(high_signals) == 0:
+        if len(high_signals) == 0:
             actual = None
             status = 'pass' if expected is None else 'fail'
         elif len(high_signals) == 1:
@@ -168,7 +142,7 @@ def analyze_pvt(time, signals, vdd):
             status = 'pass' if actual == expected else 'fail'
         else:
             actual = '+'.join(SIGNAL_TO_LABEL.get(s, s) for s in high_signals)
-            status = 'multi'  # more than one select asserted at once - always a bug
+            status = 'multi'
 
         results[(coarse, fine)] = dict(expected=expected, actual=actual, status=status)
 
@@ -176,15 +150,15 @@ def analyze_pvt(time, signals, vdd):
 
 
 # ──────────────────────────────────────────────────────────────────────────────
-# HTML REPORT
+# HTML REPORT (same visual layout as plot_vco_decoder.py)
 # ──────────────────────────────────────────────────────────────────────────────
 
 STATUS_STYLE = {
-    'pass':       ('#1b7a1b', '#eaf7ea'),   # green text, light green bg
-    'fail':       ('#b30000', '#fbe6e6'),   # red text, light red bg
-    'multi':      ('#b30000', '#ffd9d9'),   # red, stronger — multiple drivers
-    'untestable': ('#8a6d00', '#fff6d9'),   # amber
-    'illegal-ok': ('#555555', '#1a1a1a'),   # both say illegal: dark cell, grey text
+    'pass':       ('#1b7a1b', '#eaf7ea'),
+    'fail':       ('#b30000', '#fbe6e6'),
+    'multi':      ('#b30000', '#ffd9d9'),
+    'missing':    ('#8a6d00', '#fff6d9'),
+    'illegal-ok': ('#555555', '#1a1a1a'),
 }
 
 CSS = """
@@ -202,7 +176,6 @@ table.vco th, table.vco td { border:1px solid #ccc; padding:3px 6px; text-align:
 table.vco th { background:#333; color:white; }
 table.vco td.rowhdr { background:#7a0032; color:white; font-weight:bold; }
 caption { caption-side:top; text-align:left; font-weight:bold; margin-bottom:6px; }
-.legend span { display:inline-block; padding:2px 8px; border-radius:4px; margin-right:8px; font-size:12px; }
 .notes { background:white; border-radius:8px; padding:16px; box-shadow:0 2px 4px rgba(0,0,0,.1); }
 .notes code { background:#eee; padding:1px 4px; border-radius:3px; }
 """
@@ -218,9 +191,9 @@ def cell_html(res):
         color, bg = STATUS_STYLE['illegal-ok']
         text = '—'
     else:
-        color, bg = STATUS_STYLE[status]
+        color, bg = STATUS_STYLE.get(status, STATUS_STYLE['fail'])
         text = actual if actual else ('NONE' if expected else '—')
-    title = f"expected={expected or 'illegal'} actual={actual or 'none'}"
+    title = f"expected={expected or 'illegal'} actual={actual or 'none'} status={status}"
     return f'<td style="color:{color};background:{bg}" title="{title}">{text}</td>'
 
 
@@ -242,7 +215,7 @@ def render_pvt_table(tag, results):
 
 
 def generate_html_report(results_by_pvt, output_path):
-    total_pass = total_fail = total_multi = total_untestable = 0
+    total_pass = total_fail = total_multi = total_missing = 0
     for results in results_by_pvt.values():
         for r in results.values():
             if r['status'] == 'pass':
@@ -251,24 +224,24 @@ def generate_html_report(results_by_pvt, output_path):
                 total_fail += 1
             elif r['status'] == 'multi':
                 total_multi += 1
-            elif r['status'] == 'untestable':
-                total_untestable += 1
+            elif r['status'] == 'missing':
+                total_missing += 1
 
     html = ['<!DOCTYPE html><html><head><meta charset="UTF-8">',
-            '<title>VCO Decoder Functional Report</title>',
+            '<title>VCO Decoder Functional Report (DC sweep)</title>',
             f'<style>{CSS}</style></head><body>']
 
     html.append(f"""
     <div class="header">
-      <h1>VCO Decoder — Functional Check Report</h1>
+      <h1>VCO Decoder — Functional Check Report (DC sweep, one sim per code)</h1>
       <p>Generated {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
-      <p>{len(results_by_pvt)} PVT point(s), 512 codes each (all fine/coarse combinations)</p>
+      <p>{len(results_by_pvt)} PVT point(s), 512 codes each, one ngspice run per code</p>
     </div>
     <div class="summary">
       <div class="card"><div class="n" style="color:#1b7a1b">{total_pass}</div>PASS</div>
       <div class="card"><div class="n" style="color:#b30000">{total_fail}</div>FAIL</div>
       <div class="card"><div class="n" style="color:#b30000">{total_multi}</div>MULTI-DRIVE</div>
-      <div class="card"><div class="n" style="color:#8a6d00">{total_untestable}</div>UNTESTABLE (Vco5-11)</div>
+      <div class="card"><div class="n" style="color:#8a6d00">{total_missing}</div>MISSING (sim failed)</div>
     </div>
     """)
 
@@ -276,9 +249,9 @@ def generate_html_report(results_by_pvt, output_path):
         n_pass = sum(1 for r in results.values() if r['status'] == 'pass')
         n_fail = sum(1 for r in results.values() if r['status'] == 'fail')
         n_multi = sum(1 for r in results.values() if r['status'] == 'multi')
-        n_unt = sum(1 for r in results.values() if r['status'] == 'untestable')
+        n_miss = sum(1 for r in results.values() if r['status'] == 'missing')
         html.append('<div class="pvt-block">')
-        html.append(f'<h2>{tag} — {n_pass} pass / {n_fail} fail / {n_multi} multi-drive / {n_unt} untestable</h2>')
+        html.append(f'<h2>{tag} — {n_pass} pass / {n_fail} fail / {n_multi} multi-drive / {n_miss} missing</h2>')
         html.append(render_pvt_table(tag, results))
         html.append('</div>')
 
@@ -286,27 +259,24 @@ def generate_html_report(results_by_pvt, output_path):
     <div class="notes">
       <p><strong>How this report was built:</strong></p>
       <ul>
-        <li>c0,c1,c2,f0-f5 are binary-weighted PULSE sources, so one 801ns transient
-            sweeps <code>code(t) = floor(t / 1.5625ns) mod 512</code> through all
-            512 (coarse,fine) combinations. Each output is sampled in the last
-            30% of its 1.5625ns window, after PULSE edges and decoder
-            propagation delay have settled.</li>
-        <li><strong>Golden table</strong> comes directly from <code>vco_dec.ods</code>
-            (not re-derived), row/column headers match the fine/coarse binary
-            codes 1:1.</li>
+        <li>Each of the 512 codes was simulated in its own ngspice run, with
+            c0,c1,c2,f0-f5 hardwired as plain DC sources (no PULSE, no time
+            windows) — see <code>run_vco_decoder_dc_sweep.sh</code>. The last
+            row of each code's <code>.dat</code> file is taken as the
+            settled value.</li>
+        <li><strong>Golden table</strong> comes directly from <code>vco_dec.ods</code>.</li>
         <li><strong>PASS</strong> (green): exactly the expected select line is
             asserted, or the code is legitimately illegal and nothing is
             asserted. <strong>FAIL</strong> (red): wrong select line asserted,
             or none asserted when one was expected. <strong>MULTI-DRIVE</strong>:
-            more than one select line asserted simultaneously — always a bug.
-            <strong>UNTESTABLE</strong> (amber): Vco5-11 codes, blocked by the
-            duplicate <code>VCO2_11_sel</code> net name in
-            <code>VCO_decoder_tb.sch</code> (see header comments in both
-            scripts) — fix the schematic port label to
-            <code>VCO5_11_sel</code> and re-run to get real coverage here.</li>
+            more than one select line asserted at once — always a bug.
+            <strong>MISSING</strong> (amber): that code's ngspice run failed
+            or produced no data — check <code>/tmp/vcodec_dc_&lt;tag&gt;_code&lt;NNN&gt;.log</code>.</li>
         <li>fine=0 and fine=63 are illegal for every coarse code; coarse=111
-            additionally goes illegal from fine=39 upward — matches the
-            "nielegalny" rows/regions in the source spreadsheet.</li>
+            additionally goes illegal from fine=39 upward.</li>
+        <li>This report does NOT exercise code-to-code transitions/glitches —
+            see <code>plot_vco_decoder.py</code> (the PULSE-based testbench)
+            for that coverage.</li>
       </ul>
     </div>
     </body></html>
@@ -324,37 +294,35 @@ def main():
     script_dir = Path(__file__).resolve().parent
     decoder_dir = script_dir.parent
     data_dir = decoder_dir / 'results' / 'data'
-    report_path = decoder_dir / 'results' / 'vcodec_report.html'
+    report_path = decoder_dir / 'results' / 'vcodec_dc_report.html'
+    sim_name = 'vcodec_dc'
 
     if not data_dir.exists():
         print(f"Error: data directory not found: {data_dir}")
         sys.exit(1)
 
-    dat_files = sorted(data_dir.glob('vcodec_*.dat'))
+    dat_files = sorted(data_dir.glob(f'{sim_name}_*_code*.dat'))
     if not dat_files:
-        print(f"Error: no .dat files found in {data_dir}")
+        print(f"Error: no {sim_name}_*_code*.dat files found in {data_dir}")
         sys.exit(1)
 
+    # discover PVT tags from filenames: vcodec_dc_<tag>_code<NNN>.dat
+    tags = set()
+    pat = re.compile(rf'{re.escape(sim_name)}_(.+)_code\d{{3}}\.dat')
+    for p in dat_files:
+        m = pat.match(p.name)
+        if m:
+            tags.add(m.group(1))
+
     results_by_pvt = {}
-
-    for dat_path in dat_files:
-        m = re.match(r'vcodec_(.*?)_T(.*?)_Vp([\d.]+)\.dat', dat_path.name)
-        if not m:
-            print(f"WARN: skipping {dat_path.name} (doesn't match pattern)")
-            continue
-        corner, temp, vp = m.groups()
-        tag = f"{corner}_T{temp}_Vp{vp}"
-
-        print(f"Analyzing {dat_path.name}...", end=' ', flush=True)
-        siglist_path = str(dat_path) + '.siglist'
-        time, signals = load_dat(str(dat_path), siglist_path)
-        if time is None:
-            print("SKIP (could not load)")
-            continue
-
-        results_by_pvt[tag] = analyze_pvt(time, signals, float(vp))
+    for tag in sorted(tags):
+        m = re.search(r'Vp([\d.]+)$', tag)
+        vp = float(m.group(1)) if m else 1.2
+        print(f"Analyzing {tag} (512 codes)...", end=' ', flush=True)
+        results_by_pvt[tag] = analyze_pvt(data_dir, sim_name, tag, vp)
         n_fail = sum(1 for r in results_by_pvt[tag].values() if r['status'] in ('fail', 'multi'))
-        print(f"OK ({n_fail} issues)")
+        n_miss = sum(1 for r in results_by_pvt[tag].values() if r['status'] == 'missing')
+        print(f"OK ({n_fail} issues, {n_miss} missing)")
 
     if not results_by_pvt:
         print("Error: no valid results to report")
