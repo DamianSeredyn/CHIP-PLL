@@ -53,7 +53,7 @@ C {lab_pin.sym} 330 -80 0 1 {name=p6 sig_type=std_logic lab=gd}
 C {lab_pin.sym} 570 -80 0 1 {name=p7 sig_type=std_logic lab=vp}
 C {/foss/pdks/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_pr/sg13_lv_pmos.sym} 140 -410 0 1 {name=M5
 l=0.6u
-w=1.2u
+w=0.4u
 ng=1
 m=1
 mm_ok=1

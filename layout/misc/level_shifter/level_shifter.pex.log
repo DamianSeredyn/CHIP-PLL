@@ -21,22 +21,23 @@ Warning: Calma reading is not undoable!  I hope that's OK.
 Library written using GDS-II Release 6.0
 Library name: LIB
 Reading "$$$CONTEXT_INFO$$$".
-Reading "Via$3".
-Reading "Via".
-Reading "pmos".
-Reading "nmos".
-Reading "ntap1".
+Reading "ntap1$2".
+Reading "ptap1$2".
+Moving label "sub!" from space to ptapdiff in cell ptap1$2.
+Reading "nmosHV$2".
+Reading "Via$7".
+Reading "Via$2".
+Reading "pmosHV$1".
+Reading "nmosHV$1".
+Reading "nmosHV".
+Reading "pmosHV".
 Reading "ptap1".
 Moving label "sub!" from space to ptapdiff in cell ptap1.
-Reading "pmosHV".
-Reading "nmosHV".
-Reading "nmosHV$1".
-Reading "pmosHV$1".
-Reading "ptap1$1".
-Moving label "sub!" from space to ptapdiff in cell ptap1$1.
-Reading "Via$2".
-Reading "Via$7".
-Reading "ntap1$1".
+Reading "ntap1".
+Reading "nmos".
+Reading "pmos".
+Reading "Via".
+Reading "Via$3".
 Reading "level_shifter".
 Extracting level_shifter into /foss/designs/CHIP-PLL/layout/misc/level_shifter/level_shifter.ext:
 Processing level_shifter
