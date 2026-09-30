@@ -143,7 +143,7 @@ op
 print all
 save all
 
-tran 50p 20u
+tran 50p 2u
 write divider_top_tb.raw 
 set appendwrite
 
