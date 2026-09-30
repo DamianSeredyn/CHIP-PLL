@@ -364,7 +364,7 @@ N 2910 490 2930 490 {lab=gd}
 N 2910 470 2930 470 {lab=VP}
 N 2910 510 3020 510 {lab=#net30}
 N 2590 470 2610 470 {lab=000}
-N 2590 510 2610 510 {lab=after_000011_n}
+N 2590 490 2610 490 {lab=after_000011_n}
 N 3320 530 3340 530 {lab=gd}
 N 3320 510 3340 510 {lab=VP}
 N 3320 550 3370 550 {lab=VCO5_11_sel}
@@ -730,7 +730,6 @@ C {lab_wire.sym} 1540 760 2 0 {name=p369 sig_type=std_logic lab=VCO4_11_sel}
 C {lab_wire.sym} 1020 440 0 0 {name=p371 sig_type=std_logic lab=after_001111_n}
 C {lab_wire.sym} 1020 420 0 0 {name=p372 sig_type=std_logic lab=after_000011}
 C {lab_wire.sym} 1020 580 0 0 {name=p373 sig_type=std_logic lab=after_000011_n}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} 2760 490 0 0 {name=x95}
 C {lab_wire.sym} 2930 470 2 0 {name=p390 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2930 490 2 0 {name=p391 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 3370 550 2 0 {name=p389 sig_type=std_logic lab=VCO5_11_sel}
@@ -738,7 +737,7 @@ C {lab_wire.sym} 3340 510 2 0 {name=p400 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 3340 530 2 0 {name=p401 sig_type=std_logic lab=gd}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in.sym} 3170 530 0 0 {name=x106}
 C {lab_wire.sym} 2590 470 0 0 {name=p216 sig_type=std_logic lab=000}
-C {lab_wire.sym} 2590 510 0 0 {name=p402 sig_type=std_logic lab=after_000011_n}
+C {lab_wire.sym} 2590 490 0 0 {name=p402 sig_type=std_logic lab=after_000011_n}
 C {lab_wire.sym} 2590 560 0 0 {name=p407 sig_type=std_logic lab=000000}
 C {lab_wire.sym} 2590 540 0 0 {name=p408 sig_type=std_logic lab=010}
 C {lab_wire.sym} 2630 -570 0 0 {name=p55 sig_type=std_logic lab=001}
@@ -816,3 +815,4 @@ C {lab_wire.sym} 1020 500 0 0 {name=p190 sig_type=std_logic lab=after_000111_n}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in.sym} 1190 660 0 0 {name=x46}
 C {lab_wire.sym} 1020 660 0 0 {name=p191 sig_type=std_logic lab=000000}
 C {lab_wire.sym} 1020 600 0 0 {name=p192 sig_type=std_logic lab=000000_n}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in.sym} 2760 490 0 0 {name=x41}
