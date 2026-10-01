@@ -80,22 +80,22 @@ C {lab_wire.sym} -270 340 1 0 {name=p51 sig_type=std_logic lab=d1
 C {lab_wire.sym} -270 520 1 0 {name=p50 sig_type=std_logic lab=d4
 }
 C {vsource.sym} -270 580 0 0 {name=V8 value=0 savecurrent=false}
-C {vsource.sym} -150 580 0 0 {name=V9 value=\{vdd\} savecurrent=false}
-C {vsource.sym} -390 400 0 0 {name=V11 value=0 savecurrent=false}
-C {vsource.sym} -270 400 0 0 {name=V10 value=\{vdd\}  savecurrent=false}
-C {vsource.sym} -150 400 0 0 {name=V12 value=\{vdd\} savecurrent=false}
+C {vsource.sym} -150 580 0 0 {name=V9 value=0 savecurrent=false}
+C {vsource.sym} -390 400 0 0 {name=V11 value=1.2 savecurrent=false}
+C {vsource.sym} -270 400 0 0 {name=V10 value=0  savecurrent=false}
+C {vsource.sym} -150 400 0 0 {name=V12 value=0 savecurrent=false}
 C {vsource.sym} -390 580 0 0 {name=V7 value=0 savecurrent=false}
-C {vsource.sym} -80 500 0 0 {name=V5 value=\{vdd\} savecurrent=false}
+C {vsource.sym} -80 500 0 0 {name=V5 value=0 savecurrent=false}
 C {lab_wire.sym} -80 450 0 0 {name=p24 sig_type=std_logic lab=a1
 }
 C {gnd.sym} -80 550 0 0 {name=l15 lab=0
 }
-C {vsource.sym} -80 350 0 0 {name=V6 value=\{vdd\} savecurrent=false}
+C {vsource.sym} -80 350 0 0 {name=V6 value=0 savecurrent=false}
 C {lab_wire.sym} -80 300 0 0 {name=p25 sig_type=std_logic lab=a0
 }
 C {gnd.sym} -80 400 0 0 {name=l16 lab=0
 }
-C {vsource.sym} -80 650 0 0 {name=V13 value=\{vdd\} savecurrent=false}
+C {vsource.sym} -80 650 0 0 {name=V13 value=0 savecurrent=false}
 C {lab_wire.sym} -80 600 0 0 {name=p27 sig_type=std_logic lab=a2
 }
 C {gnd.sym} -80 700 0 0 {name=l17 lab=0
@@ -143,7 +143,7 @@ op
 print all
 save all
 
-tran 50p 20u
+tran 50p 500n
 write divider_top_tb.raw 
 set appendwrite
 
