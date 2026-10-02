@@ -121,6 +121,8 @@ C {gnd.sym} -590 470 0 0 {name=l4 lab=0
 C {lab_wire.sym} -590 380 0 0 {name=p12 sig_type=std_logic lab=VCO5
 }
 C {vsource.sym} -240 250 0 0 {name=V2 value="PWL(
++ 0 0
++ 40n 0
 + 40.01n \{vdd\}
 + 110n \{vdd\}
 + 110.01n 0)" savecurrent=false}
@@ -133,6 +135,8 @@ C {lab_wire.sym} 180 220 0 0 {name=p14 sig_type=std_logic lab=VCO_sel
 C {lab_wire.sym} 180 240 0 0 {name=p15 sig_type=std_logic lab=VCO2_sel
 }
 C {vsource.sym} -240 390 0 0 {name=V4 value="PWL(
++ 0 0
++ 110n 0
 + 110.01n \{vdd\}
 + 240n \{vdd\}
 + 240.01n 0)" savecurrent=false}
@@ -143,6 +147,8 @@ C {gnd.sym} -240 430 0 0 {name=l6 lab=0
 C {lab_wire.sym} 180 260 0 0 {name=p17 sig_type=std_logic lab=VCO3_sel
 }
 C {vsource.sym} -90 110 0 0 {name=V5 value="PWL(
++ 0 0
++ 240n 0
 + 240.01n \{vdd\}
 + 500n \{vdd\}
 + 500.01n 0)" savecurrent=false}
@@ -153,6 +159,8 @@ C {gnd.sym} -90 150 0 0 {name=l7 lab=0
 C {lab_wire.sym} 180 280 0 0 {name=p19 sig_type=std_logic lab=VCO4_sel
 }
 C {vsource.sym} -90 250 0 0 {name=V6 value="PWL(
++ 0 0
++ 500n 0
 + 500.01n \{vdd\}
 + 1100n \{vdd\}
 + 1100.01n 0)" savecurrent=false}

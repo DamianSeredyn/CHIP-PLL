@@ -13,13 +13,19 @@
 #
 # For each code we sample the decoder's select outputs late in the tick
 # (after the ~10ps PULSE edges have settled) and compare the asserted
-# VCO/mode against a golden table taken directly from vco_dec.ods.
+# VCO/mode against a golden table taken directly from vco_dec_v2_codes.ods.
 #
-# GOLDEN TABLE NOTE: fine=0 and fine=63 are illegal for every coarse code
-# (matches "nielegalny" rows in the source spreadsheet), and column 111
-# (coarse=7) additionally goes illegal from fine=39 upward. All other
-# (coarse,fine) pairs map to exactly one of: Vco0, Vco2-5, Vco2-11, Vco3-5,
-# Vco3-11, Vco4-5, Vco4-11, Vco5-11.
+# GOLDEN TABLE NOTE (v2 codes, from vco_dec_v2_codes.ods): the spreadsheet lists
+# fine = 0..63 (binary 000000..111111) for every coarse code (8 columns).
+# Cells marked "X" in the spreadsheet (all of fine=63, and coarse=111 from
+# fine=39 / 100111 upward) are DON'T-CARE: they are not sampled, not compared
+# and not counted as pass/fail - whatever the decoder outputs there is ignored.
+# Every other (coarse,fine) pair maps to exactly one of: Vco0, Vco2-5, Vco2-11,
+# Vco3-5, Vco3-11, Vco4-5, Vco4-11, Vco5-11.
+#
+# Bit order assumption: the binary strings in the spreadsheet are read as plain
+# numbers, i.e. coarse = c2c1c0 (c2 = MSB) and fine = f5..f0 (f5 = MSB), the
+# same convention as the previous version of this script.
 #
 # KNOWN SCHEMATIC CAVEAT: VCO_decoder_tb.sch currently has TWO ports labeled
 # "VCO2_11_sel" (one of them almost certainly should be "VCO5_11_sel"). Until
@@ -44,25 +50,28 @@ N_CODES = 512
 SETTLE_FRACTION = 0.7   # ignore the first 70% of each tick (PULSE edges + decoder delay)
 VOH_FRACTION = 0.5      # fraction of vdd above which an output counts as HIGH
 
-# Golden table, from vco_dec.ods, coarse-major, fine=1..62 (fine=0/63 always
-# illegal and are not stored). Each entry is a 2-char code:
+# Golden table, from vco_dec_v2_codes.ods, coarse-major, fine=0..63 (64 entries
+# per coarse code, 2 chars each, index = fine*2). Entry codes:
 #   V0=Vco0  25=Vco2-5 2B=Vco2-11  35=Vco3-5 3B=Vco3-11  45=Vco4-5 4B=Vco4-11
-#   5B=Vco5-11   --=illegal (no VCO covers this code)
+#   5B=Vco5-11   --=X in the spreadsheet = DON'T CARE (excluded from all checks)
 GOLDEN_TABLE = {
-    0: "5B4B4B4B4B4B4B45454545454545453B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B",
-    1: "5B4B4B454545453B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B35353535353535353535353535353535353535353535353535353535353535",
-    2: "5B45453B3B3B3B3535353535353535353535353535353535353535353535352B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B",
-    3: "45453B3B3B3B3B35353535353535352B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B",
-    4: "3B3B3B353535352B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B25252525252525252525252525252525252525252525252525252525252525",
-    5: "3535352B2B2B2B252525252525252525252525252525252525252525252525V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0",
-    6: "35352B2B2B2B2B2525252525252525V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0",
-    7: "2B2B2B25252525V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0------------------------------------------------",
+    0: "5B5B5B5B4545454545454545454545453B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B--",
+    1: "4B4B4B4B454545453B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B3B35353535353535353535353535353535353535353535353535353535353535--",
+    2: "5B4545453B3B3B3B3535353535353535353535353535353535353535353535352B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B--",
+    3: "453B3B3B3B3B3B3B35353535353535352B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B--",
+    4: "3B353535353535352B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B25252525252525252525252525252525252525252525252525252525252525--",
+    5: "353535352B2B2B2B252525252525252525252525252525252525252525252525V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0--",
+    6: "352B2B2B2B2B2B2B2525252525252525V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0--",
+    7: "2B2B2B2B25252525V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0V0--------------------------------------------------",
 }
+assert all(len(v) == 128 for v in GOLDEN_TABLE.values())
+
+DONT_CARE = 'X'   # sentinel returned by golden_label() for X cells
 
 CODE_TO_LABEL = {
     'V0': 'Vco0', '25': 'Vco2-5', '2B': 'Vco2-11', '35': 'Vco3-5',
     '3B': 'Vco3-11', '45': 'Vco4-5', '4B': 'Vco4-11', '5B': 'Vco5-11',
-    '--': None,
+    '--': DONT_CARE,
 }
 
 LABEL_TO_SIGNAL = {
@@ -77,10 +86,8 @@ SIGNAL_TO_LABEL = {v: k for k, v in LABEL_TO_SIGNAL.items()}
 
 
 def golden_label(coarse, fine):
-    """Expected VCO label ('Vco2-5', ...) or None (illegal) for a given code."""
-    if fine == 0 or fine == 63:
-        return None
-    return CODE_TO_LABEL[GOLDEN_TABLE[coarse][(fine - 1) * 2:(fine - 1) * 2 + 2]]
+    """Expected VCO label ('Vco2-5', ...) or DONT_CARE ('X') for a given code."""
+    return CODE_TO_LABEL[GOLDEN_TABLE[coarse][fine * 2:fine * 2 + 2]]
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -145,6 +152,11 @@ def analyze_pvt(time, signals, vdd):
         fine = code & 0x3F
         expected = golden_label(coarse, fine)
 
+        if expected == DONT_CARE:
+            # "X" in the spreadsheet: completely ignored - no sampling, no check
+            results[(coarse, fine)] = dict(expected=expected, actual=None, status='dontcare')
+            continue
+
         high_signals = []
         for sig in SELECT_SIGNALS:
             if sig not in signals:
@@ -162,7 +174,7 @@ def analyze_pvt(time, signals, vdd):
             actual = None
         elif len(high_signals) == 0:
             actual = None
-            status = 'pass' if expected is None else 'fail'
+            status = 'fail'   # nothing asserted, but a VCO was expected
         elif len(high_signals) == 1:
             actual = SIGNAL_TO_LABEL.get(high_signals[0], high_signals[0])
             status = 'pass' if actual == expected else 'fail'
@@ -184,7 +196,7 @@ STATUS_STYLE = {
     'fail':       ('#b30000', '#fbe6e6'),   # red text, light red bg
     'multi':      ('#b30000', '#ffd9d9'),   # red, stronger — multiple drivers
     'untestable': ('#8a6d00', '#fff6d9'),   # amber
-    'illegal-ok': ('#555555', '#1a1a1a'),   # both say illegal: dark cell, grey text
+    'dontcare':   ('#888888', '#e4e4e4'),   # X in spreadsheet: ignored, neutral grey
 }
 
 CSS = """
@@ -214,13 +226,11 @@ def cell_html(res):
     if res is None:
         return '<td>?</td>'
     expected, actual, status = res['expected'], res['actual'], res['status']
-    if expected is None and actual is None and status == 'pass':
-        color, bg = STATUS_STYLE['illegal-ok']
-        text = '—'
-    else:
-        color, bg = STATUS_STYLE[status]
-        text = actual if actual else ('NONE' if expected else '—')
-    title = f"expected={expected or 'illegal'} actual={actual or 'none'}"
+    color, bg = STATUS_STYLE[status]
+    if status == 'dontcare':
+        return f'<td style="color:{color};background:{bg}" title="X in spreadsheet - not checked">X</td>'
+    text = actual if actual else 'NONE'
+    title = f"expected={expected} actual={actual or 'none'}"
     return f'<td style="color:{color};background:{bg}" title="{title}">{text}</td>'
 
 
@@ -232,17 +242,14 @@ def render_pvt_table(tag, results):
     for fine in range(0, 64):
         cells = []
         for coarse in range(8):
-            if fine == 0 or fine == 63:
-                cells.append('<td style="color:#555;background:#1a1a1a">illegal</td>')
-            else:
-                cells.append(cell_html(results.get((coarse, fine))))
+            cells.append(cell_html(results.get((coarse, fine))))
         rows.append(f'<tr><td class="rowhdr">{fine:06b} ({fine})</td>' + ''.join(cells) + '</tr>')
     rows.append('</table>')
     return '\n'.join(rows)
 
 
 def generate_html_report(results_by_pvt, output_path):
-    total_pass = total_fail = total_multi = total_untestable = 0
+    total_pass = total_fail = total_multi = total_untestable = total_dc = 0
     for results in results_by_pvt.values():
         for r in results.values():
             if r['status'] == 'pass':
@@ -253,6 +260,8 @@ def generate_html_report(results_by_pvt, output_path):
                 total_multi += 1
             elif r['status'] == 'untestable':
                 total_untestable += 1
+            elif r['status'] == 'dontcare':
+                total_dc += 1
 
     html = ['<!DOCTYPE html><html><head><meta charset="UTF-8">',
             '<title>VCO Decoder Functional Report</title>',
@@ -269,6 +278,7 @@ def generate_html_report(results_by_pvt, output_path):
       <div class="card"><div class="n" style="color:#b30000">{total_fail}</div>FAIL</div>
       <div class="card"><div class="n" style="color:#b30000">{total_multi}</div>MULTI-DRIVE</div>
       <div class="card"><div class="n" style="color:#8a6d00">{total_untestable}</div>UNTESTABLE (Vco5-11)</div>
+      <div class="card"><div class="n" style="color:#888888">{total_dc}</div>X / NOT CHECKED</div>
     </div>
     """)
 
@@ -277,8 +287,9 @@ def generate_html_report(results_by_pvt, output_path):
         n_fail = sum(1 for r in results.values() if r['status'] == 'fail')
         n_multi = sum(1 for r in results.values() if r['status'] == 'multi')
         n_unt = sum(1 for r in results.values() if r['status'] == 'untestable')
+        n_dc = sum(1 for r in results.values() if r['status'] == 'dontcare')
         html.append('<div class="pvt-block">')
-        html.append(f'<h2>{tag} — {n_pass} pass / {n_fail} fail / {n_multi} multi-drive / {n_unt} untestable</h2>')
+        html.append(f'<h2>{tag} — {n_pass} pass / {n_fail} fail / {n_multi} multi-drive / {n_unt} untestable / {n_dc} X (not checked)</h2>')
         html.append(render_pvt_table(tag, results))
         html.append('</div>')
 
@@ -291,11 +302,10 @@ def generate_html_report(results_by_pvt, output_path):
             512 (coarse,fine) combinations. Each output is sampled in the last
             30% of its 1.5625ns window, after PULSE edges and decoder
             propagation delay have settled.</li>
-        <li><strong>Golden table</strong> comes directly from <code>vco_dec.ods</code>
+        <li><strong>Golden table</strong> comes directly from <code>vco_dec_v2_codes.ods</code>
             (not re-derived), row/column headers match the fine/coarse binary
             codes 1:1.</li>
         <li><strong>PASS</strong> (green): exactly the expected select line is
-            asserted, or the code is legitimately illegal and nothing is
             asserted. <strong>FAIL</strong> (red): wrong select line asserted,
             or none asserted when one was expected. <strong>MULTI-DRIVE</strong>:
             more than one select line asserted simultaneously — always a bug.
@@ -304,9 +314,10 @@ def generate_html_report(results_by_pvt, output_path):
             <code>VCO_decoder_tb.sch</code> (see header comments in both
             scripts) — fix the schematic port label to
             <code>VCO5_11_sel</code> and re-run to get real coverage here.</li>
-        <li>fine=0 and fine=63 are illegal for every coarse code; coarse=111
-            additionally goes illegal from fine=39 upward — matches the
-            "nielegalny" rows/regions in the source spreadsheet.</li>
+        <li><strong>X (grey)</strong>: cells marked "X" in the spreadsheet
+            (all of fine=63, and coarse=111 from fine=39 upward) are
+            don't-care. They are not sampled or compared and are excluded
+            from the PASS/FAIL/MULTI-DRIVE counts.</li>
       </ul>
     </div>
     </body></html>
