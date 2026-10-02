@@ -46,9 +46,9 @@ N 160 -1400 180 -1400 {lab=f5}
 N 160 -1480 180 -1480 {lab=f1}
 N 480 -1500 520 -1500 {lab=after_000011}
 N 480 -1480 520 -1480 {lab=after_000011_n}
-N 480 -1460 520 -1460 {lab=f1_n}
+N 480 -1460 520 -1460 {lab=000000}
 N 480 -1440 520 -1440 {lab=f5_n}
-N 480 -1400 520 -1400 {lab=after_000111}
+N 480 -1380 520 -1380 {lab=after_000111}
 N 480 -1360 520 -1360 {lab=after_000111_n}
 N 480 -1340 520 -1340 {lab=after_001111}
 N 480 -1320 520 -1320 {lab=after_001111_n}
@@ -79,13 +79,10 @@ N 790 -840 820 -840 {lab=after_000111_n}
 N 1610 -1720 1610 -1690 {lab=gd}
 N 1610 -1940 1610 -1900 {lab=VP}
 N 1760 -1830 1790 -1830 {lab=VCO5_11_sel}
-N 1420 -1870 1460 -1870 {lab=f0}
-N 1420 -1850 1460 -1850 {lab=f1}
 N 1420 -1830 1460 -1830 {lab=000}
 N 1420 -1810 1460 -1810 {lab=after_000011_n}
 N 1420 -1790 1460 -1790 {lab=010}
-N 1420 -1770 1460 -1770 {lab=f1_n}
-N 1420 -1750 1460 -1750 {lab=001}
+N 1420 -1770 1460 -1770 {lab=000000}
 N 390 -1200 390 -1150 {lab=VP}
 N 390 -790 390 -750 {lab=gd}
 N 540 -1080 560 -1080 {lab=VCO2_5_sel}
@@ -127,6 +124,8 @@ N 1460 -1480 1490 -1480 {lab=after_000111_n}
 N 1460 -1500 1490 -1500 {lab=f0}
 N 1460 -1520 1490 -1520 {lab=f5_n}
 N 1460 -1200 1490 -1200 {lab=f5}
+N 480 -1420 520 -1420 {lab=000000_n}
+N 160 -1500 180 -1500 {lab=f0}
 C {iopin.sym} 980 -1970 2 0 {name=p46 lab=gd}
 C {lab_wire.sym} 1000 -1970 2 0 {name=p53 sig_type=std_logic lab=gd}
 C {iopin.sym} 980 -1950 2 0 {name=p54 lab=VP}
@@ -185,12 +184,12 @@ C {lab_wire.sym} 160 -1440 0 0 {name=p95 sig_type=std_logic lab=f3}
 C {lab_wire.sym} 160 -1420 0 0 {name=p96 sig_type=std_logic lab=f4}
 C {lab_wire.sym} 160 -1400 0 0 {name=p97 sig_type=std_logic lab=f5}
 C {lab_wire.sym} 160 -1480 0 0 {name=p99 sig_type=std_logic lab=f1}
-C {lab_wire.sym} 520 -1400 2 0 {name=p100 sig_type=std_logic lab=after_000111}
+C {lab_wire.sym} 520 -1380 2 0 {name=p100 sig_type=std_logic lab=after_000111}
 C {lab_wire.sym} 520 -1360 2 0 {name=p102 sig_type=std_logic lab=after_000111_n}
 C {lab_wire.sym} 520 -1340 2 0 {name=p104 sig_type=std_logic lab=after_001111}
 C {lab_wire.sym} 520 -1320 2 0 {name=p113 sig_type=std_logic lab=after_001111_n}
 C {lab_wire.sym} 520 -1440 2 0 {name=p114 sig_type=std_logic lab=f5_n}
-C {lab_wire.sym} 520 -1460 2 0 {name=p115 sig_type=std_logic lab=f1_n}
+C {lab_wire.sym} 520 -1460 2 0 {name=p115 sig_type=std_logic lab=000000}
 C {lab_wire.sym} 520 -1480 2 0 {name=p116 sig_type=std_logic lab=after_000011_n}
 C {lab_wire.sym} 520 -1500 2 0 {name=p117 sig_type=std_logic lab=after_000011}
 C {lab_wire.sym} 1630 -1050 2 0 {name=p34 sig_type=std_logic lab=VP}
@@ -220,13 +219,10 @@ C {lab_wire.sym} 790 -840 0 0 {name=p68 sig_type=std_logic lab=after_000111_n}
 C {lab_wire.sym} 1610 -1940 2 0 {name=p69 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 1610 -1690 2 0 {name=p70 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 1790 -1830 2 0 {name=p71 sig_type=std_logic lab=VCO5_11_sel}
-C {lab_wire.sym} 1420 -1870 0 0 {name=p72 sig_type=std_logic lab=f0}
-C {lab_wire.sym} 1420 -1850 0 0 {name=p73 sig_type=std_logic lab=f1}
 C {lab_wire.sym} 1420 -1830 0 0 {name=p74 sig_type=std_logic lab=000}
 C {lab_wire.sym} 1420 -1810 0 0 {name=p75 sig_type=std_logic lab=after_000011_n}
 C {lab_wire.sym} 1420 -1790 0 0 {name=p76 sig_type=std_logic lab=010}
-C {lab_wire.sym} 1420 -1770 0 0 {name=p77 sig_type=std_logic lab=f1_n}
-C {lab_wire.sym} 1420 -1750 0 0 {name=p78 sig_type=std_logic lab=001}
+C {lab_wire.sym} 1420 -1770 0 0 {name=p77 sig_type=std_logic lab=000000}
 C {lab_wire.sym} 390 -1200 2 0 {name=p79 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 390 -750 2 0 {name=p80 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 560 -1060 2 0 {name=p81 sig_type=std_logic lab=VCO2_11_sel}
@@ -275,3 +271,5 @@ C {VCO_selection.sym} 1630 -930 0 0 {name=x1}
 C {VCO3_selection.sym} 1640 -1370 0 0 {name=x5}
 C {VCO5_selection.sym} 1610 -1810 0 0 {name=x3}
 C {lab_wire.sym} 1460 -1200 0 0 {name=p141 sig_type=std_logic lab=f5}
+C {lab_wire.sym} 520 -1420 2 0 {name=p142 sig_type=std_logic lab=000000_n}
+C {lab_wire.sym} 160 -1500 0 0 {name=p72 sig_type=std_logic lab=f0}
