@@ -36,7 +36,6 @@ N 50 190 360 190 {lab=gd}
 N 360 180 360 190 {lab=gd}
 N 50 510 360 510 {lab=gd}
 N 360 500 360 510 {lab=gd}
-N 290 1070 600 1070 {lab=#net6}
 N 360 810 360 820 {lab=gd}
 N 50 1210 360 1210 {lab=gd}
 N 360 1200 360 1210 {lab=gd}
@@ -50,13 +49,11 @@ N 50 10 360 10 {lab=VP}
 N 360 10 360 20 {lab=VP}
 N 50 -300 360 -300 {lab=VP}
 N 360 -300 360 -290 {lab=VP}
-N -180 120 -130 120 {lab=VCO2_5_sel}
-N -180 150 -130 150 {lab=VCO2_11_sel}
-N -180 440 -130 440 {lab=VCO3_5_sel}
-N -180 470 -130 470 {lab=VCO3_11_sel}
-N -180 750 -130 750 {lab=VCO4_5_sel}
-N -180 780 -130 780 {lab=VCO4_11_sel}
-N -180 1110 -130 1110 {lab=vco_in}
+N -180 130 -130 130 {lab=VCO2_11_sel}
+N -180 150 -130 150 {lab=nVCO2_11_sel}
+N -180 470 -130 470 {lab=nVCO3_11_sel}
+N -180 780 -130 780 {lab=nVCO4_11_sel}
+N -180 1120 -130 1120 {lab=vco_in}
 N -180 -210 -130 -210 {lab=vco_in}
 N -830 260 -830 330 {lab=VCO2_11_sel}
 N -810 260 -810 330 {lab=VCO2_5_sel}
@@ -79,14 +76,18 @@ N -1080 480 -1060 480 {lab=f3}
 N -1080 500 -1060 500 {lab=f4}
 N -1080 520 -1060 520 {lab=f5}
 N -1060 40 -1040 40 {lab=vco_in}
-N -180 720 -130 720 {lab=vco_in}
-N -180 410 -130 410 {lab=vco_in}
-N -180 90 -130 90 {lab=vco_in}
-N -850 140 -850 330 {lab=VCO_sel}
-N -850 140 -810 140 {lab=VCO_sel}
-N -710 150 -710 330 {lab=VCO5_11_sel}
-N -710 150 -690 150 {lab=VCO5_11_sel}
+N -180 730 -130 730 {lab=vco_in}
+N -180 420 -130 420 {lab=vco_in}
+N -180 100 -130 100 {lab=vco_in}
 N 50 820 360 820 {lab=gd}
+N -190 50 -130 50 {lab=VCO2_5_sel}
+N -180 70 -130 70 {lab=nVCO2_5_sel}
+N -170 450 -130 450 {lab=VCO3_11_sel}
+N -180 370 -130 370 {lab=VCO3_5_sel}
+N -170 390 -130 390 {lab=nVCO3_5_sel}
+N -170 700 -130 700 {lab=nVCO4_5_sel}
+N -170 680 -130 680 {lab=VCO4_5_sel}
+N -170 760 -130 760 {lab=VCO4_11_sel}
 C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_core_0.sym} 50 -210 0 0 {name=x1}
 C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_core_1.sym} 50 100 0 0 {name=x2}
 C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_core_2.sym} 50 420 0 0 {name=x3}
@@ -135,20 +136,18 @@ C {lab_wire.sym} 220 190 2 0 {name=p12 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 220 510 2 0 {name=p13 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 220 820 2 0 {name=p14 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 220 1210 2 0 {name=p15 sig_type=std_logic lab=gd}
-C {lab_wire.sym} -170 150 2 1 {name=p95 sig_type=std_logic lab=VCO2_11_sel}
-C {lab_wire.sym} -170 120 2 1 {name=p99 sig_type=std_logic lab=VCO2_5_sel}
-C {lab_wire.sym} -170 470 2 1 {name=p16 sig_type=std_logic lab=VCO3_11_sel}
-C {lab_wire.sym} -170 440 2 1 {name=p17 sig_type=std_logic lab=VCO3_5_sel}
-C {lab_wire.sym} -170 780 2 1 {name=p18 sig_type=std_logic lab=VCO4_11_sel}
-C {lab_wire.sym} -170 750 2 1 {name=p29 sig_type=std_logic lab=VCO4_5_sel}
-C {lab_wire.sym} -850 320 3 1 {name=p32 sig_type=std_logic lab=VCO_sel}
+C {lab_wire.sym} -180 130 2 1 {name=p95 sig_type=std_logic lab=VCO2_11_sel}
+C {lab_wire.sym} -190 50 2 1 {name=p99 sig_type=std_logic lab=VCO2_5_sel}
+C {lab_wire.sym} -170 450 2 1 {name=p16 sig_type=std_logic lab=VCO3_11_sel}
+C {lab_wire.sym} -180 370 2 1 {name=p17 sig_type=std_logic lab=VCO3_5_sel}
+C {lab_wire.sym} -170 760 2 1 {name=p18 sig_type=std_logic lab=VCO4_11_sel}
+C {lab_wire.sym} -170 680 2 1 {name=p29 sig_type=std_logic lab=VCO4_5_sel}
 C {lab_wire.sym} -830 320 3 1 {name=p33 sig_type=std_logic lab=VCO2_11_sel}
 C {lab_wire.sym} -810 320 3 1 {name=p35 sig_type=std_logic lab=VCO2_5_sel}
 C {lab_wire.sym} -790 320 3 1 {name=p36 sig_type=std_logic lab=VCO3_11_sel}
 C {lab_wire.sym} -770 320 3 1 {name=p37 sig_type=std_logic lab=VCO3_5_sel}
 C {lab_wire.sym} -750 320 3 1 {name=p38 sig_type=std_logic lab=VCO4_11_sel}
 C {lab_wire.sym} -730 320 3 1 {name=p39 sig_type=std_logic lab=VCO4_5_sel}
-C {lab_wire.sym} -710 320 3 1 {name=p40 sig_type=std_logic lab=VCO5_11_sel}
 C {lab_wire.sym} 540 -210 2 0 {name=p34 sig_type=std_logic lab=vco_0_out}
 C {lab_wire.sym} 530 100 2 0 {name=p41 sig_type=std_logic lab=vco_1_out}
 C {lab_wire.sym} 530 420 2 0 {name=p42 sig_type=std_logic lab=vco_2_out}
@@ -171,9 +170,43 @@ C {lab_wire.sym} -1080 520 2 1 {name=p70 sig_type=std_logic lab=f5}
 C {ipin.sym} -1060 40 0 0 {name=p30 lab=vco_in}
 C {lab_wire.sym} -1040 40 2 0 {name=p31 sig_type=std_logic lab=vco_in}
 C {lab_wire.sym} -170 -210 2 1 {name=p71 sig_type=std_logic lab=vco_in}
-C {lab_wire.sym} -170 90 2 1 {name=p72 sig_type=std_logic lab=vco_in}
-C {lab_wire.sym} -170 410 2 1 {name=p73 sig_type=std_logic lab=vco_in}
-C {lab_wire.sym} -170 720 2 1 {name=p74 sig_type=std_logic lab=vco_in}
-C {lab_wire.sym} -170 1110 2 1 {name=p75 sig_type=std_logic lab=vco_in}
-C {connector.sym} -810 140 0 1 {name=c2 footprint=connector(1,1)}
-C {connector.sym} -690 150 0 1 {name=c1 footprint=connector(1,1)}
+C {lab_wire.sym} -170 100 2 1 {name=p72 sig_type=std_logic lab=vco_in}
+C {lab_wire.sym} -170 420 2 1 {name=p73 sig_type=std_logic lab=vco_in}
+C {lab_wire.sym} -170 730 2 1 {name=p74 sig_type=std_logic lab=vco_in}
+C {lab_wire.sym} -170 1120 2 1 {name=p75 sig_type=std_logic lab=vco_in}
+C {lab_wire.sym} -180 70 2 1 {name=p32 sig_type=std_logic lab=nVCO2_5_sel}
+C {lab_wire.sym} -170 150 2 1 {name=p40 sig_type=std_logic lab=nVCO2_11_sel}
+C {lab_wire.sym} -170 390 2 1 {name=p76 sig_type=std_logic lab=nVCO3_5_sel}
+C {lab_wire.sym} -170 470 2 1 {name=p77 sig_type=std_logic lab=nVCO3_11_sel}
+C {lab_wire.sym} -170 700 2 1 {name=p78 sig_type=std_logic lab=nVCO4_5_sel}
+C {lab_wire.sym} -170 780 2 1 {name=p79 sig_type=std_logic lab=nVCO4_11_sel}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} -470 90 0 0 {name=x12}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} -460 220 0 0 {name=x13}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} -450 370 0 0 {name=x14}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} -450 490 0 0 {name=x15}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} -460 630 0 0 {name=x16}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} -470 760 0 0 {name=x17}
+C {lab_wire.sym} -470 60 2 0 {name=p80 sig_type=std_logic lab=VP}
+C {lab_wire.sym} -460 190 2 0 {name=p81 sig_type=std_logic lab=VP}
+C {lab_wire.sym} -450 340 2 0 {name=p82 sig_type=std_logic lab=VP}
+C {lab_wire.sym} -450 460 2 0 {name=p83 sig_type=std_logic lab=VP}
+C {lab_wire.sym} -460 600 2 0 {name=p84 sig_type=std_logic lab=VP}
+C {lab_wire.sym} -470 730 2 0 {name=p85 sig_type=std_logic lab=VP}
+C {lab_wire.sym} -470 790 2 0 {name=p86 sig_type=std_logic lab=gd}
+C {lab_wire.sym} -460 660 2 0 {name=p87 sig_type=std_logic lab=gd}
+C {lab_wire.sym} -450 520 2 0 {name=p88 sig_type=std_logic lab=gd}
+C {lab_wire.sym} -450 400 2 0 {name=p89 sig_type=std_logic lab=gd}
+C {lab_wire.sym} -460 250 2 0 {name=p90 sig_type=std_logic lab=gd}
+C {lab_wire.sym} -470 120 2 0 {name=p91 sig_type=std_logic lab=gd}
+C {lab_wire.sym} -490 90 2 1 {name=p92 sig_type=std_logic lab=VCO2_5_sel}
+C {lab_wire.sym} -420 90 2 1 {name=p93 sig_type=std_logic lab=nVCO2_5_sel}
+C {lab_wire.sym} -410 220 2 1 {name=p94 sig_type=std_logic lab=nVCO2_11_sel}
+C {lab_wire.sym} -480 220 2 1 {name=p96 sig_type=std_logic lab=VCO2_11_sel}
+C {lab_wire.sym} -400 370 2 1 {name=p97 sig_type=std_logic lab=nVCO3_5_sel}
+C {lab_wire.sym} -470 370 2 1 {name=p98 sig_type=std_logic lab=VCO3_5_sel}
+C {lab_wire.sym} -470 490 2 1 {name=p100 sig_type=std_logic lab=VCO3_11_sel}
+C {lab_wire.sym} -400 490 2 1 {name=p101 sig_type=std_logic lab=nVCO3_11_sel}
+C {lab_wire.sym} -410 630 2 1 {name=p102 sig_type=std_logic lab=nVCO4_5_sel}
+C {lab_wire.sym} -480 630 2 1 {name=p103 sig_type=std_logic lab=VCO4_5_sel}
+C {lab_wire.sym} -490 760 2 1 {name=p104 sig_type=std_logic lab=VCO4_11_sel}
+C {lab_wire.sym} -420 760 2 1 {name=p105 sig_type=std_logic lab=nVCO4_11_sel}

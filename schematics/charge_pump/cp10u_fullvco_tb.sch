@@ -43,17 +43,17 @@ device=resistor
 m=1}
 C {capa.sym} 510 40 0 0 {name=C1
 m=1
-value=1p
+value=40p
 footprint=1206
 device="ceramic capacitor"}
 C {capa.sym} 610 -10 0 0 {name=C2
 m=1
-value=50p
+value=1000p
 footprint=1206
 device="ceramic capacitor"}
 C {gnd.sym} 240 -30 0 0 {name=l8 lab=0}
 C {gnd.sym} 560 100 0 0 {name=l1 lab=0}
-C {devices/code_shown.sym} 90 -480 0 0 {name=MODEL only_toplevel=true
+C {devices/code_shown.sym} 210 -390 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_tt
 .lib cornerRES.lib res_typ
@@ -61,17 +61,17 @@ value=".lib cornerMOSlv.lib mos_tt
 
 
 "}
-C {devices/code_shown.sym} -150 -560 0 0 {name=NGSPICE1 only_toplevel=true 
+C {devices/code_shown.sym} -160 -520 0 0 {name=NGSPICE1 only_toplevel=true 
 value="
 .temp 25
 .param Vp=1.2
 
+.save v(up) v(rst) v(dn) v(voutvco) v(vco_in)
 .control
 
-tran 50n 50u
-plot v(voutvco) v(rst) v(vco_in)
-wrdata cp_vco_tb.txt v(voutvco) v(vco_in)
-write aa_cp_vco.raw
+tran 500p 1m
+
+write aa_cp_vco2.raw
 
 set filetype=ascii
 
@@ -83,7 +83,7 @@ value=\{Vp\} savecurrent=false}
 C {gnd.sym} -140 10 0 0 {name=l16 lab=0}
 C {lab_pin.sym} -140 -50 0 0 {name=p47 sig_type=std_logic lab=vp}
 C {vsource.sym} -30 30 0 0 {name=Vup2
-value=1 savecurrent=false}
+value="PULSE(0 1.2 4u 1n 1n 1G 2G)" savecurrent=false}
 C {gnd.sym} -30 60 0 0 {name=l11 lab=0}
 C {vsource.sym} -30 140 0 0 {name=Vdn2
 value=0 savecurrent=false}
@@ -114,7 +114,7 @@ C {gnd.sym} 770 -500 0 0 {name=l4 lab=0}
 C {lab_pin.sym} 90 -140 0 0 {name=p23 sig_type=std_logic lab=up}
 C {lab_pin.sym} 90 -80 0 0 {name=p24 sig_type=std_logic lab=dn}
 C {vsource.sym} 250 120 0 0 {name=Vrst
-value="PULSE(1.2 0 0 1n 1n 2u 1)" savecurrent=false}
+value="PULSE(1.2 0 0 1n 1n 4u 1)" savecurrent=false}
 C {gnd.sym} 250 150 0 0 {name=l5 lab=0}
 C {lab_pin.sym} 250 90 0 1 {name=p25 sig_type=std_logic lab=rst}
 C {lab_pin.sym} 390 -80 0 1 {name=p26 sig_type=std_logic lab=rst}
@@ -142,7 +142,7 @@ C {lab_wire.sym} 1090 -580 2 1 {name=p27 sig_type=std_logic lab=f5}
 C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_top.sym} 870 -210 0 0 {name=x2}
 C {capa.sym} 1370 -170 0 0 {name=C3
 m=1
-value=1p
+value=10p
 footprint=1206
 device="ceramic capacitor"}
 C {gnd.sym} 1370 -90 0 0 {name=l6 lab=0}
