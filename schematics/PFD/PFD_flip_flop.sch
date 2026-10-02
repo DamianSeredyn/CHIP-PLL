@@ -129,7 +129,7 @@ C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_passgate.sym} -90 -70 0 0 {name=x1}
 C {lab_wire.sym} 120 190 0 0 {name=p44 sig_type=std_logic lab=post_NOR}
 C {sg13cmos5l_pr/sg13_lv_nmos.sym} -100 380 1 0 {name=M1
 l=5u
-w=5u
+w=10u
 ng=1
 m=1
 mm_ok=1
@@ -139,7 +139,7 @@ spiceprefix=X
 C {lab_wire.sym} 440 330 0 0 {name=p40 sig_type=std_logic lab=gd}
 C {sg13cmos5l_pr/sg13_lv_nmos.sym} 440 220 1 0 {name=M2
 l=5u
-w=5u
+w=10u
 ng=1
 m=1
 mm_ok=1
@@ -149,11 +149,10 @@ spiceprefix=X
 C {lab_wire.sym} 260 60 0 0 {name=p41 sig_type=std_logic lab=gd}
 C {sg13cmos5l_pr/sg13_lv_nmos.sym} 260 -50 1 0 {name=M3
 l=5u
-w=5u
+w=10u
 ng=1
 m=1
 mm_ok=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
-

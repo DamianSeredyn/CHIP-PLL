@@ -63,11 +63,11 @@ value="
 .param Vp=1.2
 .param Vph=3.3
 .control
-save v(rst) v(out) v(xPLL.cvco) v(xPLL.cref) v(xPLL.UP) v(xPLL.DOWN) v(xPLL.vout_preRC) v(xPLL.vco_out_prebuff) v(xPLL.vout_aftRC) v(xPLL.vco_out_buffered) 
-tran 0.05n 1.5m
+save v(rst) v(out) v(xPLL.cvco) v(xPLL.cref) v(xPLL.UP) v(xPLL.DOWN) v(xPLL.vout) v(xPLL.vco_out_prebuff) v(xPLL.vout_aftRC) v(xPLL.vco_out_buffered) v(xPLL.out_PLL_divided) v(xPLL.pre_LS) v(xPLL.aft_LS) 
+tran 0.05n 312.5u
 
-meas tran t1 WHEN v(out)=1.65 RISE=1 FROM=1m
-meas tran t2 WHEN v(out)=1.65 RISE=2 FROM=1m
+meas tran t1 WHEN v(out)=1.65 RISE=1 FROM=0.7m
+meas tran t2 WHEN v(out)=1.65 RISE=2 FROM=0.7m
 meas tran period PARAM='t2-t1'
 meas tran freq PARAM='1/period'
 
@@ -162,7 +162,7 @@ C {lab_wire.sym} -50 110 0 0 {name=p15 sig_type=std_logic lab=a1
 }
 C {lab_wire.sym} -70 110 0 0 {name=p16 sig_type=std_logic lab=a2
 }
-C {PLL_top.sym} 50 -70 0 0 {name=xPLL}
+C {/foss/designs/CHIP-PLL/schematics/top/PLL_top.sym} 50 -70 0 0 {name=xPLL}
 C {devices/vsource.sym} -770 330 0 0 {name=Vp1 value="dc 0 ac 0 PULSE(\{Vp\} 0 63u 1p 1p 1 2"}
 C {lab_wire.sym} -770 230 0 0 {name=p17 sig_type=std_logic lab=rst}
 C {gnd.sym} -770 380 0 0 {name=l15 lab=GND
