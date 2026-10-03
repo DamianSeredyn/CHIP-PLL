@@ -38,8 +38,8 @@ def load_file(filepath):
         return None, None, None, None
     data = np.array(data)
     dly   = data[:,0]
-    pw_up = data[:,1]
-    pw_dn = data[:,2]
+    pw_up = data[:,2]
+    pw_dn = data[:,1]
     delta = pw_up - pw_dn
     phi_deg = (dly / T - 0.5) * 360
     idx = np.argsort(phi_deg)

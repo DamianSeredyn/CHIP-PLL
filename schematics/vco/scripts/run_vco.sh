@@ -1,4 +1,37 @@
 #!/bin/bash
+# =============================================================================
+# run_vco.sh - symulacja VCO (PVT + sweep Vin) i przygotowanie danych do R/C
+# =============================================================================
+#
+# CO JEST MIERZONE I JAK (skrot; pelne wzory w plot_vco.py)
+# -----------------------------------------------------------------------------
+# Dla kazdej kombinacji corner/temp/vp oraz kazdego Vin z VIN_SWEEP uruchamiane
+# sa DWIE analizy ngspice na tej samej (regenerowanej) netliscie:
+#
+#  A) TRANSIENT: tran 200p 160u
+#     Zapis (wrdata): v(out_pb) v(out) i(v2) v(x2.pgt)
+#       - v(out)    : przebieg wyjscia pierscienia -> f_out, v_osc (pk-pk)
+#       - i(v2)     : prad zasilania rdzenia (V2) -> i_osc = -mean(i(v2))
+#                     (V2I zasilane osobno z V4, wiec i(v2) to czysty prad rdzenia)
+#       - v(x2.pgt) : wezel lustra pradowego (referencja/debug)
+#     Parametry liczone sa w oknie ustalonym (ostatnie 30% czasu symulacji).
+#
+#  B) AC (tylko -meas): ac lin 1 1meg 1meg  (jeden punkt, f = 1 MHz)
+#     Zrodlo V1 ma 'ac 1'. Zapis: real(i(v1)) imag(i(v1)).
+#     Pojemnosc wejsciowa wezla 'in':  C = |Im(i(v1))| / (2*pi*f)  @ 1 MHz.
+#
+# WZMOCNIENIA (liczone w plot_vco.py jako roznice skonczone po sweepie Vin):
+#   K      = d f_out / d Vin     [Hz/V]   (K_VCO)
+#   gm_vco = d i_osc / d Vin     [A/V]
+#   K_CCO  = d f_out / d i_osc   [Hz/A]   (K_VCO = gm_vco * K_CCO)
+#   r_vco  = d v_osc / d i_osc   [Ohm]
+#
+# UWAGA dot. '.save': netlista moze zawierac '.save i(v1)' (potrzebne do .ac).
+# Jawne '.save' powoduje ze ngspice zapisuje TYLKO wymienione wektory, przez co
+# transient zwracalby puste (zero-length) out/out_pb/i(v2). Dlatego skrypt
+# USUWA linie '.save' z regenerowanej netlisty, a kazdy blok .control sam
+# deklaruje 'save' z potrzebnymi sygnalami.
+# =============================================================================
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -268,15 +301,54 @@ for name, pex in selected.items():
 
     sch_ports = subckts[name]['ports']
 
-    if set(ext_ports) != set(sch_ports):
+    # Mapowanie portow po NAZWIE (nie po pozycji), bo ekstrakcja moze miec
+    # inna kolejnosc i inna liczbe portow niz schemat.
+    #   sch_ports (5): vp gnd out in v2i_vp
+    #   ext_ports (4): in out gnd vp    (brak v2i_vp)
+    # Porty ekstrakcji, ktore istnieja w schemacie -> mapujemy 1:1 po nazwie.
+    # Porty schematu nieobecne w ekstrakcji (tu: v2i_vp) -> nie ida do xpex,
+    # ale zwieramy je wewnatrz adaptera do 'vp' (w layoucie V2I dzieli vp).
+    #
+    # Konfigurowalne zwarcia: port_schematu -> z czym zewrzec, gdy brak w ext.
+    # (Gdyby ekstrakcja miala inne braki, dopisz tu regule.)
+    shorts = {'v2i_vp': 'vp'}
+
+    ext_set = set(ext_ports)
+    sch_set = set(sch_ports)
+
+    # Porty ekstrakcji muszą istniec w schemacie (po ewentualnym uwzglednieniu
+    # zwarcia). Jesli ekstrakcja ma port nieznany schematowi -> nie umiemy go
+    # podlaczyc, ostrzegamy i pomijamy komorke.
+    unknown_ext = [p for p in ext_ports if p not in sch_set]
+    if unknown_ext:
         sys.stderr.write(
-            f'[-ext] UWAGA: nazwy portow roznia sie miedzy schematem a '
-            f'ekstrakcja dla {name}.\n'
-            f'        schemat:   {sch_ports}\n'
-            f'        ekstrakcja:{ext_ports}\n'
-            f'        Nie mozna bezpiecznie zbudowac adaptera; pomijam ta komorke.\n'
+            f'[-ext] UWAGA: ekstrakcja {name} ma porty nieznane schematowi: '
+            f'{unknown_ext}\n'
+            f'        schemat:    {sch_ports}\n'
+            f'        ekstrakcja: {ext_ports}\n'
+            f'        Nie umiem ich podlaczyc; pomijam ta komorke.\n'
         )
         continue
+
+    # Porty schematu nieobecne w ekstrakcji: musza miec regule zwarcia,
+    # inaczej zwisalyby (np. v2i_vp). Sprawdzamy.
+    missing_in_ext = [p for p in sch_ports if p not in ext_set]
+    unshorted = [p for p in missing_in_ext if p not in shorts]
+    if unshorted:
+        sys.stderr.write(
+            f'[-ext] UWAGA: porty schematu {name} nieobecne w ekstrakcji i bez '
+            f'reguly zwarcia: {unshorted}\n'
+            f'        schemat:    {sch_ports}\n'
+            f'        ekstrakcja: {ext_ports}\n'
+            f'        Dodaj regule do "shorts" w skrypcie. Pomijam ta komorke.\n'
+        )
+        continue
+
+    if missing_in_ext:
+        sys.stderr.write(
+            f'[-ext] INFO {name}: porty {missing_in_ext} nieobecne w ekstrakcji; '
+            f'zwieram je zgodnie z regula {shorts}.\n'
+        )
 
     block_re = re.compile(
         r'^[ \t]*\.subckt[ \t]+' + re.escape(name) + r'\b.*?^[ \t]*\.ends\b[^\n]*\n?',
@@ -293,11 +365,27 @@ for name, pex in selected.items():
         flags=re.IGNORECASE | re.MULTILINE,
     )
 
+    # Wywolanie xpex: dla kazdego portu ekstrakcji podajemy odpowiadajacy
+    # wezel adaptera. Poniewaz mapujemy po nazwie, a porty adaptera to
+    # sch_ports, wezel = ta sama nazwa (port ekstrakcji istnieje w schemacie).
+    xpex_nodes = ' '.join(ext_ports)
+
+    # Zwarcia dla portow schematu nieobecnych w ekstrakcji: R=0 (albo alias).
+    # Uzywamy 0-omowego rezystora, bo ngspice nie ma prostszego aliasu wezlow
+    # wewnatrz .subckt. Znak: to laczy np. v2i_vp z vp.
+    short_lines = ''
+    for i, p in enumerate(missing_in_ext):
+        tgt = shorts[p]
+        short_lines += f'R_short_{i} {p} {tgt} 0\n'
+
     adapter = (
-        f'* ---- PEX adapter dla {name} '
-        f'(kolejnosc schematu: {" ".join(sch_ports)}) ----\n'
+        f'* ---- PEX adapter dla {name} ----\n'
+        f'*   porty schematu (zachowane): {" ".join(sch_ports)}\n'
+        f'*   porty ekstrakcji (xpex):    {" ".join(ext_ports)}\n'
+        f'*   zwarcia (brak w ext):       {missing_in_ext} -> {shorts}\n'
         f'.subckt {name} {" ".join(sch_ports)}\n'
-        f'xpex {" ".join(ext_ports)} {pex_name}\n'
+        f'xpex {xpex_nodes} {pex_name}\n'
+        f'{short_lines}'
         f'.ends\n'
         f'{ext_renamed.rstrip()}\n'
     )
@@ -443,19 +531,33 @@ def ensure_ac_on_v1(text):
 
 spice_ac, ac_note = ensure_ac_on_v1(spice)
 
-# Wezel pgt jest wewnatrz instancji x2 (vco_core_0), wiec nazwa hierarchiczna.
-# W ngspice: v(x2.pgt). Uzywany do referencji/debugu (v_osc bierzemy z v(out)).
+# Wezel pgt jest wewnatrz instancji x2 (vco_core_0), nazwa hierarchiczna
+# v(x2.pgt). Uzywany tylko jako referencja/debug (v_osc bierzemy z v(out)).
 #
-# PRZYCZYNA ZERO-LENGTH: netlista zawiera '.save i(v1)'. Gdy ngspice widzi
-# jawne '.save', zapisuje TYLKO wymienione wektory (tu: i(v1)) i odrzuca reszte
-# (out, out_pb, i(v2) itd.), stad "zero length" w transiencie. Analiza .ac
-# dzialala, bo potrzebuje tylko i(v1). Naprawa: w bloku transientu jawnie
-# zapisujemy potrzebne sygnaly przez 'save' (nadpisuje liste .save z netlisty).
+# UWAGA (-ext / PEX): w netliscie post-layout wnetrze vco_core_0 jest
+# zastapione ekstrakcja, przez co wezel 'pgt' NIE istnieje jako x2.pgt
+# (ngspice zwraca "no such vector x2.pgt..."). Dlatego pgt jest OPCJONALNY:
+# dodajemy go do save/wrdata tylko gdy w netliscie widac schematyczny rdzen
+# (linia 'XM1 pgt in gnd' w .subckt vco_core_0). Gdy go nie ma (PEX),
+# zapisujemy 6 kolumn zamiast 8, a plot_vco.py to obsluguje (v_pgt=None).
+pgt_present = bool(re.search(r'^\s*XM1\s+pgt\s+in\s+gnd\b', spice,
+                             re.IGNORECASE | re.MULTILINE))
+pgt_save = ' v(x2.pgt)' if pgt_present else ''
+pgt_wr   = ' v(x2.pgt)' if pgt_present else ''
+
+if use_debug:
+    sys.stderr.write(f"[DEBUG-PY] pgt_present={pgt_present} "
+                     f"(v(x2.pgt) {'wlaczony' if pgt_present else 'POMINIETY'})\n")
+
+# PRZYCZYNA ZERO-LENGTH (schematyczna): netlista zawiera '.save i(v1)'. Gdy
+# ngspice widzi jawne '.save', zapisuje TYLKO wymienione wektory i odrzuca
+# reszte. Naprawa: usuwamy '.save' z netlisty (wyzej), a tu jawnie 'save'
+# potrzebne sygnaly.
 tran_control = f"""
 .control
-save v(out_pb) v(out) i(v2) v(x2.pgt)
+save v(out_pb) v(out) i(v2){pgt_save}
 tran 200p 160u
-wrdata {dat_path} v(out_pb) v(out) i(v2) v(x2.pgt)
+wrdata {dat_path} v(out_pb) v(out) i(v2){pgt_wr}
 exit
 .endc
 """

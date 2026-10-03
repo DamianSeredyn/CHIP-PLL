@@ -14,11 +14,9 @@ N -540 -220 -520 -220 {lab=f1}
 N -540 -310 -520 -310 {lab=c0}
 N -540 60 -520 60 {lab=VCO2_11_sel}
 N -540 80 -520 80 {lab=VCO2_5_sel}
-N -540 40 -520 40 {lab=VCO_sel}
 N -540 100 -520 100 {lab=VCO3_11_sel}
 N -540 120 -520 120 {lab=VCO3_5_sel}
 N -540 160 -520 160 {lab=VCO4_5_sel}
-N -540 180 -520 180 {lab=VCO5_11_sel}
 N -540 140 -520 140 {lab=VCO4_11_sel}
 N -540 -200 -520 -200 {lab=f2}
 N -540 -180 -520 -180 {lab=f3}
@@ -106,8 +104,6 @@ C {opin.sym} -540 60 0 1 {name=p6 lab=VCO2_11_sel}
 C {lab_wire.sym} -520 60 2 0 {name=p7 sig_type=std_logic lab=VCO2_11_sel}
 C {opin.sym} -540 80 0 1 {name=p8 lab=VCO2_5_sel}
 C {lab_wire.sym} -520 80 2 0 {name=p9 sig_type=std_logic lab=VCO2_5_sel}
-C {opin.sym} -540 40 0 1 {name=p14 lab=VCO_sel}
-C {lab_wire.sym} -520 40 2 0 {name=p15 sig_type=std_logic lab=VCO_sel}
 C {opin.sym} -540 100 0 1 {name=p10 lab=VCO3_11_sel}
 C {lab_wire.sym} -520 100 2 0 {name=p11 sig_type=std_logic lab=VCO3_11_sel}
 C {opin.sym} -540 120 0 1 {name=p12 lab=VCO3_5_sel}
@@ -116,8 +112,6 @@ C {opin.sym} -540 140 0 1 {name=p3 lab=VCO4_11_sel}
 C {lab_wire.sym} -520 140 2 0 {name=p4 sig_type=std_logic lab=VCO4_11_sel}
 C {opin.sym} -540 160 0 1 {name=p5 lab=VCO4_5_sel}
 C {lab_wire.sym} -520 160 2 0 {name=p16 sig_type=std_logic lab=VCO4_5_sel}
-C {opin.sym} -540 180 0 1 {name=p17 lab=VCO5_11_sel}
-C {lab_wire.sym} -520 180 2 0 {name=p18 sig_type=std_logic lab=VCO5_11_sel}
 C {ipin.sym} -540 -200 0 0 {name=p19 lab=f2}
 C {lab_wire.sym} -520 -200 2 0 {name=p22 sig_type=std_logic lab=f2}
 C {ipin.sym} -540 -180 0 0 {name=p23 lab=f3}

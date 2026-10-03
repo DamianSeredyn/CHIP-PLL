@@ -1,0 +1,114 @@
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/VCO_decoder_cells/VCO2_selection.sch
+.subckt VCO2_selection gd VP after_001111_n after_000111 f0 f1 110 VCO2_11_sel VCO2_5_sel 101 f5_n 100 f5 011 after_000111_n
++ after_000011 111 after_000011_n 010 after_001111
+*.PININFO gd:B VP:B after_001111_n:I after_000111:I f0:I f1:I 110:I VCO2_11_sel:O VCO2_5_sel:O 101:I f5_n:I 100:I f5:I 011:I
+*+ after_000111_n:I after_000011:I 111:I after_000011_n:I 010:I after_001111:I
+x15 VP gd 110 net1 after_001111_n after_000111 NAND_3in
+x16 VP gd 100 net3 f5 NAND_2in
+x17 VP gd 101 net2 after_000111 f5_n NAND_3in
+x18 VP gd 111 net4 after_000011 after_000111_n NAND_3in
+x19 VP gd net1 VCO2_5_sel net2 net3 net4 NAND_4in
+x20 VP gd net5 VCO2_11_sel net6 net7 NAND_3in
+x21 VP gd net9 net5 net11 NOR_2in
+x22 VP gd net13 net6 net15 NOR_2in
+x23 VP gd net17 net7 net23 NOR_2in
+x24 VP gd 100 net8 after_000111 f5_n NAND_3in
+x25 VP gd 011 net10 after_001111 NAND_2in
+x26 net8 net9 VP gd inverter
+x27 net10 net11 VP gd inverter
+x28 VP gd 010 net12 f5 NAND_2in
+x29 net12 net13 VP gd inverter
+x30 VP gd 111 net14 after_000011_n NAND_2in
+x31 net14 net15 VP gd inverter
+x32 VP gd 101 net16 after_000011 after_000111_n NAND_3in
+x33 net16 net17 VP gd inverter
+x34 VP gd 110 net18 after_000011_n net24 NAND_3in
+x35 net18 net19 VP gd inverter
+x36 VP gd 110 net20 after_000011 after_000111_n NAND_3in
+x37 net20 net21 VP gd inverter
+x38 VP gd net19 net22 net21 NOR_2in
+x40 net22 net23 VP gd inverter
+x39 VP gd f0 net24 f1 XNOR
+.ends
+
+* expanding   symbol:  NAND_3in.sym # of pins=6
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sch
+.subckt NAND_3in VP GND a y b c
+*.PININFO y:O GND:B a:I VP:B b:I c:I
+MM1 y a net2 GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM3 net2 b net1 GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM4 net1 c GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM7 y c VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM2 y a VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM5 y b VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1
+.ends
+
+
+* expanding   symbol:  NAND_2in.sym # of pins=5
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in.sch
+.subckt NAND_2in VP GND a y b
+*.PININFO y:O GND:B a:I VP:B b:I
+MM1 y a net1 GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM3 net1 b GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM2 y b VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM4 y a VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1
+.ends
+
+
+* expanding   symbol:  NAND_4in.sym # of pins=7
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_4in.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_4in.sch
+.subckt NAND_4in VP GND a y b c d
+*.PININFO y:O GND:B a:I VP:B b:I c:I d:I
+MM1 y a net2 GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM3 net3 c net1 GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM4 net1 d GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM7 y c VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM2 y a VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM5 y b VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM6 y d VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM8 net2 b net3 GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+.ends
+
+
+* expanding   symbol:  NOR_2in.sym # of pins=5
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/NOR_2in.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/NOR_2in.sch
+.subckt NOR_2in VP GND a y b
+*.PININFO y:O GND:B a:I VP:B b:I
+MM3 y a GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM2 y b net1 VP sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM4 net1 a VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1
+MM5 y b GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+.ends
+
+
+* expanding   symbol:  inverter.sym # of pins=4
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sch
+.subckt inverter IN OUT VP GND
+*.PININFO IN:I VP:B OUT:O GND:B
+MM1 OUT IN GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM2 OUT IN VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1
+.ends
+
+
+* expanding   symbol:  XNOR.sym # of pins=5
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/XNOR.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/XNOR.sch
+.subckt XNOR VP GND a y b
+*.PININFO y:O GND:B a:I VP:B b:I
+MM1 y a net1 GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM3 net1 _b GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM2 net2 a VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1 m=4
+MM4 net3 _a VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1 m=4
+MM5 y _a net4 GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM6 net4 b GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM7 y b net2 VP sg13_lv_pmos w=0.15u l=0.13u ng=1 m=4
+MM8 y _b net3 VP sg13_lv_pmos w=0.15u l=0.13u ng=1 m=4
+x1 a _a VP GND inverter
+x2 b _b VP GND inverter
+.ends
+
