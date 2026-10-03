@@ -1,0 +1,11 @@
+26-Sep-2026 16:58:20 | INFO    | KLayout version detected: 0.30.9 (required >= 0.30.5)
+26-Sep-2026 16:58:20 | INFO    | Using DRC JSON file: /foss/pdks/ihp-sg13g2/libs.tech/klayout/python/sg13g2_pycell_lib/sg13g2_tech_mod.json
+26-Sep-2026 16:58:20 | INFO    | Running IHP-SG13G2 main checks on design /foss/designs/CHIP-PLL/layout/divider/count_data_check.klay.gds, topcell: count_data_check
+26-Sep-2026 16:58:29 | INFO    | Running IHP-SG13G2 sg13g2_maximal checks on design /foss/designs/CHIP-PLL/layout/divider/count_data_check.klay.gds, topcell: count_data_check
+26-Sep-2026 16:58:44 | INFO    | Completed running Sg13g2_maximal checks.
+26-Sep-2026 16:58:44 | ERROR   | ==================================================================================
+26-Sep-2026 16:58:44 | ERROR   | ❌ --- KLayout DRC Check Failed: Violations were detected in the layout. --- ❌
+26-Sep-2026 16:58:44 | ERROR   | ==================================================================================
+26-Sep-2026 16:58:44 | ERROR   | Violated rules are : {'M2.d'}
+
+26-Sep-2026 16:58:44 | INFO    | Total DRC Run time: 24.46 seconds (including execution, analysis, and reporting)
