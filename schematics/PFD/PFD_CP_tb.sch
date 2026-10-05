@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.00016300861
-x2=3.6991334e-05
+x1=-0.00028300861
+x2=-8.3008639e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -35,8 +35,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.00016300861
-x2=3.6991334e-05
+x1=-0.00028300861
+x2=-8.3008639e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -56,8 +56,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.00016300861
-x2=3.6991334e-05
+x1=-0.00028300861
+x2=-8.3008639e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -77,8 +77,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-0.00016300861
-x2=3.6991334e-05
+x1=-0.00028300861
+x2=-8.3008639e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -116,7 +116,6 @@ N 200 -20 330 -20 {lab=DOWN}
 N 480 60 960 60 {lab=GND}
 N -40 -160 480 -160 {lab=vp}
 N -370 -160 -40 -160 {lab=vp}
-N 630 -60 820 -60 {lab=out_preRC}
 N 480 -160 480 -130 {lab=vp}
 N -850 -30 -850 60 {lab=GND}
 N -850 -160 -850 -90 {lab=rst}
@@ -128,9 +127,9 @@ N 450 130 500 130 {lab=rst_n}
 N 400 80 400 100 {lab=vp}
 N 400 160 400 180 {lab=GND}
 N 960 -10 960 60 {lab=GND}
-N 1000 -60 1070 -60 {lab=out}
 N 480 30 480 60 {lab=GND}
 N -40 60 480 60 {lab=GND}
+N 630 -60 1050 -60 {lab=out}
 C {devices/code_shown.sym} -580 -320 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_tt
@@ -164,7 +163,7 @@ C {lab_wire.sym} 200 -20 0 0 {name=p4 sig_type=std_logic lab=DOWN
 
 }
 C {devices/vsource.sym} -560 -40 0 0 {name=Vref value="dc 0 ac 0 pulse(0 \{Vph\} \{T/2\} 10n 10n \{T/2\} \{T\}) "}
-C {devices/vsource.sym} -500 20 0 0 {name=Vco value="dc 0 ac 0 pulse(0 \{Vp\} \{T/2\} 10n 10n 15u 30u) "}
+C {devices/vsource.sym} -500 20 0 0 {name=Vco value="dc 0 ac 0 pulse(0 \{Vp\} \{T/4\} 10n 10n \{T\} \{2*T\}) "}
 C {launcher.sym} 580 -210 0 0 {name=h5
 descr="load waves"
 tclcommand="xschem raw_read $netlist_dir/PFD_tb.raw tran"
@@ -173,9 +172,6 @@ C {devices/vsource.sym} -640 -90 0 0 {name=Vp value="dc \{Vp\}"}
 C {/foss/designs/CHIP-PLL/schematics/misc/buffer_hv.sym} -280 -80 0 0 {name=x2}
 C {lab_wire.sym} -450 -80 0 0 {name=p5 sig_type=std_logic lab=CRef_prebuf}
 C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_cell_2.sym} -40 -50 0 0 {name=x1}
-C {lab_wire.sym} 700 -60 0 0 {name=p6 sig_type=std_logic lab=out_preRC
-
-}
 C {lab_wire.sym} 150 -160 0 0 {name=p7 sig_type=std_logic lab=vp
 }
 C {/foss/designs/CHIP-PLL/schematics/charge_pump/charge_pump_cell.sym} 480 -50 0 0 {name=x3}
@@ -190,6 +186,6 @@ C {lab_wire.sym} 400 80 0 0 {name=p13 sig_type=std_logic lab=vp
 }
 C {gnd.sym} 400 180 0 0 {name=l2 lab=GND
 }
-C {/foss/designs/CHIP-PLL/schematics/misc/RC_filter.sym} 970 -50 0 0 {name=x5}
-C {lab_wire.sym} 1060 -60 0 0 {name=p14 sig_type=std_logic lab=out
+C {lab_wire.sym} 1050 -60 0 0 {name=p14 sig_type=std_logic lab=out
 }
+C {/foss/designs/CHIP-PLL/schematics/misc/RC_filter.sym} 970 -50 0 0 {name=x5}
