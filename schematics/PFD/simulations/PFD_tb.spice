@@ -18,7 +18,7 @@ x1 GND vp CRef UP DOWN CVco rst PFD_cell_2
 .param Vph=3.3
 .control
 save all
-tran 0.5u 250u
+tran 100n 250u
 
 meas tran pw_up avg v(UP) from=120u to=250u
 meas tran pw_down avg v(DOWN) from=120u to=250u
@@ -27,7 +27,7 @@ write PFD_tb.raw
 .endc
 
 
- .lib cornerMOSlv.lib mos_ff
+ .lib cornerMOSlv.lib mos_tt
 .lib cornerRES.lib res_typ
 .lib cornerMOShv.lib mos_tt
 .lib cornerMOSCAP.lib moscap_tt
@@ -54,31 +54,7 @@ XM4 out buf_stage_1 gd gd sg13_hv_nmos w=1u l=0.45u ng=1 m=1 mm_ok=1
 * expanding   symbol:  PFD_cell_2.sym # of pins=7
 ** sym_path: /foss/designs/CHIP-PLL/schematics/PFD/PFD_cell_2.sym
 ** sch_path: /foss/designs/CHIP-PLL/schematics/PFD/PFD_cell_2.sch
-.subckt PFD_cell_2 gnd vp cRef UP DOWN cVco rst
-*.iopin gnd
-*.iopin vp
-*.ipin cRef
-*.ipin cVco
-*.ipin rst
-*.opin UP
-*.opin DOWN
-x9 rst reset_n vp gnd inverter_x4
-XM4 UP rst gnd gnd sg13_lv_nmos w=0.45u l=0.15u ng=1 m=1 mm_ok=1
-XM5 DOWN rst gnd gnd sg13_lv_nmos w=0.45u l=0.15u ng=1 m=1 mm_ok=1
-x4 net2 UP vp gnd inverter_x4
-x6 net1 DOWN vp gnd inverter_x4
-x2 pre_up net2 vp gnd inverter_x4
-x5 pre_down net1 vp gnd inverter_x4
-x1 rst vp flip_flop_reset vp gnd reset_n PFD_passgate
-x3 reset_n vp flip_flop_reset net3 gnd rst PFD_passgate
-x7 vp gnd pre_up post_nand pre_down NAND_2in
-* noconn #net5
-x8 gnd vp net3 net4 PFD_buffor
-x10 post_nand net4 vp gnd inverter_x4
-x11 cRef flip_flop_reset vp pre_up net5 vp gnd PFD_flip_flop
-x12 cVco flip_flop_reset vp pre_down net6 vp gnd PFD_flip_flop
-* noconn #net6
-.ends
+.inc /foss/designs/CHIP-PLL/layout/extraction/PFD_cell_2.pex.spice
 
 
 * expanding   symbol:  /foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym # of pins=4
