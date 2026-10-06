@@ -31,17 +31,17 @@ N -210 -360 -210 -280 {lab=gnd}
 N -250 -580 -250 -530 {lab=pgt}
 N -210 -550 -210 -530 {lab=pgt}
 N -210 -660 -210 -580 {lab=vp}
-N 250 -470 290 -470 {lab=#net1}
-N 570 -470 610 -470 {lab=#net2}
-N 890 -470 930 -470 {lab=#net3}
+N 250 -470 290 -470 {lab=1th}
+N 570 -470 610 -470 {lab=2th}
+N 890 -470 930 -470 {lab=3th}
 N 1210 -510 1250 -510 {lab=pgt}
 N 1210 -430 1250 -430 {lab=in}
 N 1390 -580 1390 -530 {lab=vp}
 N 1390 -410 1390 -360 {lab=gnd}
-N 1210 -470 1250 -470 {lab=5th}
+N 1210 -470 1250 -470 {lab=4th}
 N 1530 -470 1600 -470 {lab=out}
 C {sg13g2_pr/sg13_lv_nmos.sym} -230 -360 0 0 {name=M1
-l=0.16*4u
+l=0.14*4u
 w=0.8u
 ng=1
 m=1
@@ -49,7 +49,7 @@ model=sg13_lv_nmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} -230 -580 0 0 {name=M2
-l=0.16*4u
+l=0.14*4u
 w=1.2u
 ng=1
 m=1
@@ -112,7 +112,13 @@ C {lab_wire.sym} 1390 -580 0 0 {name=p41 sig_type=std_logic lab=vp
 }
 C {lab_wire.sym} 1390 -360 0 0 {name=p42 sig_type=std_logic lab=gnd
 }
-C {lab_wire.sym} 1240 -470 0 0 {name=p36 sig_type=std_logic lab=5th
+C {lab_wire.sym} 1240 -470 0 0 {name=p36 sig_type=std_logic lab=4th
 }
 C {lab_wire.sym} -210 -660 0 0 {name=p12 sig_type=std_logic lab=vp
+}
+C {lab_wire.sym} 280 -470 0 0 {name=p6 sig_type=std_logic lab=1th
+}
+C {lab_wire.sym} 590 -470 0 0 {name=p17 sig_type=std_logic lab=2th
+}
+C {lab_wire.sym} 910 -470 0 0 {name=p22 sig_type=std_logic lab=3th
 }

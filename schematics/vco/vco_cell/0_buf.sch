@@ -115,3 +115,9 @@ C {lab_wire.sym} -60 -190 0 0 {name=p9 sig_type=std_logic lab=vp
 }
 C {lab_wire.sym} -60 120 0 0 {name=p16 sig_type=std_logic lab=gnd
 }
+C {lab_wire.sym} -10 -30 0 0 {name=p1 sig_type=std_logic lab=1_stg
+}
+C {lab_wire.sym} 100 -30 0 0 {name=p2 sig_type=std_logic lab=2_stg
+}
+C {lab_wire.sym} 210 -30 0 0 {name=p4 sig_type=std_logic lab=3_stg
+}

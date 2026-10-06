@@ -31,9 +31,9 @@ N -210 -360 -210 -280 {lab=gnd}
 N -250 -580 -250 -530 {lab=pgt}
 N -210 -550 -210 -530 {lab=pgt}
 N -210 -660 -210 -580 {lab=vp}
-N 250 -470 290 -470 {lab=#net1}
-N 570 -470 610 -470 {lab=#net2}
-N 890 -470 930 -470 {lab=#net3}
+N 250 -470 290 -470 {lab=1th}
+N 570 -470 610 -470 {lab=2th}
+N 890 -470 930 -470 {lab=3th}
 N 1630 -350 1670 -350 {lab=pgt}
 N 1630 -270 1670 -270 {lab=in}
 N 1810 -420 1810 -370 {lab=vp}
@@ -60,15 +60,15 @@ N 870 240 910 240 {lab=pgt}
 N 870 320 910 320 {lab=in}
 N 1050 170 1050 220 {lab=vp}
 N 1050 340 1050 390 {lab=gnd}
-N -90 280 -50 280 {lab=#net4}
-N 230 280 270 280 {lab=#net5}
-N 550 280 590 280 {lab=#net6}
-N 870 280 910 280 {lab=#net7}
+N -90 280 -50 280 {lab=6th}
+N 230 280 270 280 {lab=7th}
+N 550 280 590 280 {lab=8th}
+N 870 280 910 280 {lab=#net1}
 N 1250 240 1290 240 {lab=pgt}
 N 1250 320 1290 320 {lab=in}
 N 1430 170 1430 220 {lab=vp}
 N 1430 340 1430 390 {lab=gnd}
-N 1190 280 1290 280 {lab=#net8}
+N 1190 280 1290 280 {lab=#net2}
 N 1210 -470 1440 -470 {lab=4th}
 N 1570 280 1690 280 {lab=11_lst}
 N -470 280 -370 280 {lab=11_1st}
@@ -93,8 +93,8 @@ N 310 -70 370 -70 {lab=4th}
 N 450 -70 560 -70 {lab=11_1st}
 N 430 -40 430 10 {lab=gnd}
 N 430 -150 430 -100 {lab=vp}
-N 1890 130 1930 130 {lab=#net9}
-N 1930 130 1930 180 {lab=#net9}
+N 1890 130 1930 130 {lab=nen11}
+N 1930 130 1930 180 {lab=nen11}
 N 1770 130 1820 130 {lab=en11}
 N 1770 130 1770 280 {lab=en11}
 N 1770 280 1930 280 {lab=en11}
@@ -285,3 +285,19 @@ C {lab_wire.sym} 1900 130 0 0 {name=p37 sig_type=std_logic lab=nen11
 }
 C {ipin.sym} -440 -440 0 0 {name=p63 lab=nen11}
 C {ipin.sym} -450 -410 0 0 {name=p66 lab=nen5}
+C {lab_wire.sym} 280 -470 0 0 {name=p62 sig_type=std_logic lab=1th
+}
+C {lab_wire.sym} 590 -470 0 0 {name=p67 sig_type=std_logic lab=2th
+}
+C {lab_wire.sym} 910 -470 0 0 {name=p68 sig_type=std_logic lab=3th
+}
+C {lab_wire.sym} -70 280 0 0 {name=p69 sig_type=std_logic lab=6th
+}
+C {lab_wire.sym} 250 280 0 0 {name=p73 sig_type=std_logic lab=7th
+}
+C {lab_wire.sym} 570 280 0 0 {name=p74 sig_type=std_logic lab=8th
+}
+C {lab_wire.sym} 890 280 0 0 {name=p77 sig_type=std_logic lab=9th
+}
+C {lab_wire.sym} 1240 280 0 0 {name=p78 sig_type=std_logic lab=10th
+}
