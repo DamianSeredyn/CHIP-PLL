@@ -145,7 +145,7 @@ value="
 .param Vph=3.3
 .control
 save all
-tran 25n 300u
+tran 250n 2m
 
 meas tran pw_up avg v(UP) from=100u to=1m
 meas tran pw_down avg v(DOWN) from=100u to=300u
@@ -163,7 +163,7 @@ C {lab_wire.sym} 200 -20 0 0 {name=p4 sig_type=std_logic lab=DOWN
 
 }
 C {devices/vsource.sym} -560 -40 0 0 {name=Vref value="dc 0 ac 0 pulse(0 \{Vph\} \{T/2\} 10n 10n \{T/2\} \{T\}) "}
-C {devices/vsource.sym} -500 20 0 0 {name=Vco value="dc 0 ac 0 pulse(0 \{Vp\} \{T/4\} 10n 10n \{T\} \{2*T\}) "}
+C {devices/vsource.sym} -500 20 0 0 {name=Vco value="dc 0 ac 0 pulse(0 \{Vp\} \{T/2\} 10n 10n \{T/4\} \{T/2\}) "}
 C {launcher.sym} 580 -210 0 0 {name=h5
 descr="load waves"
 tclcommand="xschem raw_read $netlist_dir/PFD_tb.raw tran"

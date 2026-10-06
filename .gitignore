@@ -1,0 +1,10 @@
+# Netlisty generowane przez xschem
+*.spice
+*.spi
+*.cir
+
+# ...ale zostaw ekstrakcje parasitics
+!*.pex.spice
+
+# Wyniki symulacji ngspice
+*.raw
