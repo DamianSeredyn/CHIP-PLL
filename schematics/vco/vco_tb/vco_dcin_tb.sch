@@ -70,7 +70,7 @@ C {lab_wire.sym} 560 -10 0 0 {name=p4 sig_type=std_logic lab=out_pb
 }
 C {lab_wire.sym} 360 -130 0 0 {name=p5 sig_type=std_logic lab=vdd
 }
-C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_core_4.sym} 100 -10 0 0 {name=x2}
+C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_core_3.sym} 100 -10 0 0 {name=x2}
 C {gnd.sym} -240 290 0 0 {name=l4 lab=0
 }
 C {lab_wire.sym} -160 150 0 0 {name=p6 sig_type=std_logic lab=in
