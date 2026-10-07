@@ -26,7 +26,7 @@ N 1170 -520 1170 -310 {lab=vp}
 N 1080 -520 1170 -520 {lab=vp}
 N 1080 -560 1080 -520 {lab=vp}
 C {sg13g2_pr/sg13_lv_pmos.sym} 1060 -470 0 0 {name=M23
-l=4.7*4u
+l=4.25*4u
 w=1.2u
 ng=1
 m=1
@@ -34,7 +34,7 @@ model=sg13_lv_pmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} 1060 -310 0 0 {name=M24
-l=4.7*2u
+l=4.25*2u
 w=1.2u
 ng=1
 m=1
@@ -42,7 +42,7 @@ model=sg13_lv_pmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 1060 -130 0 0 {name=M25
-l=4.7*2u
+l=4.25*2u
 w=0.8u
 ng=1
 m=1
@@ -50,7 +50,7 @@ model=sg13_lv_nmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 1060 20 0 0 {name=M26
-l=4.7*4u
+l=4.25*4u
 w=0.8u
 ng=1
 m=1
