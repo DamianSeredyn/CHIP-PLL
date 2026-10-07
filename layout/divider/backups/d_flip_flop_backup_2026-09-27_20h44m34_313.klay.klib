@@ -1,9 +1,0 @@
-{
-    "technology": "",
-    "statements": [
-        {
-            "lib_name": "basic_cells",
-            "lib_path": "/foss/designs/CHIP-PLL/layout/std_cells/basic_cells.oas"
-        }
-    ]
-}
