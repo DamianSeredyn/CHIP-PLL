@@ -12,8 +12,8 @@ N 210 530 210 550 {lab=0}
 N -400 420 -400 440 {lab=reset}
 N -400 500 -400 520 {lab=0}
 N -160 150 -160 170 {lab=0}
-N -140 330 -140 340 {lab=reset}
-N -140 330 -110 330 {lab=reset}
+N -240 330 -240 340 {lab=reset}
+N -240 330 -210 330 {lab=reset}
 N -130 310 -110 310 {lab=clk}
 N 270 530 270 550 {lab=0}
 N 330 530 330 550 {lab=0}
@@ -34,6 +34,10 @@ N 190 350 510 350 {lab=div2}
 N 510 350 510 470 {lab=div2}
 N 190 330 240 330 {lab=VP}
 N 190 310 250 310 {lab=0}
+N -190 260 -170 260 {lab=VP}
+N -190 260 -190 300 {lab=VP}
+N -140 330 -110 330 {lab=#net1}
+N -190 360 -190 380 {lab=0}
 C {devices/code_shown.sym} -290 -20 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_tt
@@ -78,13 +82,12 @@ C {gnd.sym} -400 520 0 0 {name=l4 lab=0
 }
 C {gnd.sym} 210 550 0 0 {name=l11 lab=0
 }
-C {lab_wire.sym} -140 340 3 0 {name=p1 sig_type=std_logic lab=reset
+C {lab_wire.sym} -240 340 3 0 {name=p1 sig_type=std_logic lab=reset
 }
 C {lab_wire.sym} -400 420 0 0 {name=p4 sig_type=std_logic lab=reset
 }
 C {lab_wire.sym} -130 310 0 0 {name=p3 sig_type=std_logic lab=clk
 }
-C {/foss/designs/CHIP-PLL/divider/schematics/div_with_reset.sym} 40 380 0 0 {name=x1}
 C {capa.sym} 270 500 0 0 {name=C1
 m=1
 value=1f
@@ -135,4 +138,10 @@ C {lab_wire.sym} 270 430 2 0 {name=p11 sig_type=std_logic lab=div32
 C {lab_wire.sym} 210 450 2 0 {name=p12 sig_type=std_logic lab=div64
 }
 C {gnd.sym} 250 310 3 0 {name=l10 lab=0
+}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/div_with_reset.sym} 40 380 0 0 {name=x1}
+C {lab_wire.sym} -170 260 2 0 {name=p33 sig_type=std_logic lab=VP
+}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} -190 330 0 0 {name=x8}
+C {gnd.sym} -190 380 0 0 {name=l9 lab=0
 }
