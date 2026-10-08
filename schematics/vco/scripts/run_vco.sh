@@ -553,10 +553,12 @@ if use_debug:
 # ngspice widzi jawne '.save', zapisuje TYLKO wymienione wektory i odrzuca
 # reszte. Naprawa: usuwamy '.save' z netlisty (wyzej), a tu jawnie 'save'
 # potrzebne sygnaly.
+#tran 200p 100u dluga
+#tran 1p 50n krotka
 tran_control = f"""
 .control
 save v(out_pb) v(out) i(v2){pgt_save}
-tran 10p 20n
+tran 1p 20n
 wrdata {dat_path} v(out_pb) v(out) i(v2){pgt_wr}
 exit
 .endc
