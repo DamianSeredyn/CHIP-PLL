@@ -8,3 +8,14 @@
 
 # Wyniki symulacji ngspice
 *.raw
+
+# generated output
+backups/
+drc_run_*/
+lvs_run_*/
+drc_run_*$*/
+*.pex.log
+*.pex.spice
+*:Zone.Identifier
+schematics/*/results/
+schematics/*/results_*/
