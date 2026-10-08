@@ -7,14 +7,14 @@ F {}
 E {}
 N -320 -340 -290 -340 {lab=gnd}
 N -320 -310 -290 -310 {lab=vp}
-N 920 310 930 310 {lab=UP}
+N 920 310 930 310 {lab=DOWN}
 N -590 -30 -540 -30 {lab=vp}
-N 540 -170 540 -70 {lab=pre_down}
-N 540 60 550 60 {lab=pre_up}
+N 540 -170 540 -70 {lab=pre_up}
+N 540 60 550 60 {lab=pre_down}
 N 570 -140 570 -110 {lab=gnd}
 N 180 -70 240 -70 {lab=vp}
 N 180 -50 240 -50 {lab=gnd}
-N 540 -50 540 60 {lab=pre_up}
+N 540 -50 540 60 {lab=pre_down}
 N -770 -170 -770 -140 {lab=vp}
 N -770 -80 -770 -60 {lab=gnd}
 N -480 -90 -480 -60 {lab=vp}
@@ -27,8 +27,8 @@ N 950 -100 950 -90 {lab=gnd}
 N 1000 -130 1000 -90 {lab=gnd}
 N 950 -130 1000 -130 {lab=gnd}
 N 870 -130 910 -130 {lab=rst}
-N 950 -170 950 -160 {lab=DOWN}
-N 950 -170 980 -170 {lab=DOWN}
+N 950 -170 950 -160 {lab=UP}
+N 950 -170 980 -170 {lab=UP}
 N 950 -90 950 -80 {lab=gnd}
 N 920 440 970 440 {lab=gnd}
 N 920 430 920 440 {lab=gnd}
@@ -36,7 +36,7 @@ N 970 400 970 440 {lab=gnd}
 N 920 400 970 400 {lab=gnd}
 N 840 400 880 400 {lab=rst}
 N 920 440 920 450 {lab=gnd}
-N 920 310 920 370 {lab=UP}
+N 920 310 920 370 {lab=DOWN}
 N -340 -30 -300 -30 {lab=flip_flop_reset}
 N -280 -90 -280 -60 {lab=vp}
 N -280 0 -280 30 {lab=gnd}
@@ -44,7 +44,7 @@ N -260 -90 -260 -60 {lab=rst}
 N -260 0 -260 50 {lab=reset_n}
 N -860 -110 -790 -110 {lab=rst}
 N 570 -230 570 -200 {lab=vp}
-N 540 -170 550 -170 {lab=pre_down}
+N 540 -170 550 -170 {lab=pre_up}
 N 690 -140 690 -110 {lab=gnd}
 N 690 -230 690 -200 {lab=vp}
 N 560 340 560 370 {lab=gnd}
@@ -53,15 +53,15 @@ N 660 340 660 370 {lab=gnd}
 N 660 250 660 280 {lab=vp}
 N 610 310 640 310 {lab=#net1}
 N 620 -170 670 -170 {lab=#net2}
-N 210 -170 540 -170 {lab=pre_down}
+N 210 -170 540 -170 {lab=pre_up}
 N -310 160 -270 160 {lab=cVco}
-N 540 70 540 310 {lab=pre_up}
-N 210 -230 210 -170 {lab=pre_down}
-N 20 -230 210 -230 {lab=pre_down}
+N 540 70 540 310 {lab=pre_down}
+N 210 -230 210 -170 {lab=pre_up}
+N 20 -230 210 -230 {lab=pre_up}
 N -270 -170 -260 -170 {lab=cRef}
 N -460 -30 -340 -30 {lab=flip_flop_reset}
-N 740 -170 950 -170 {lab=DOWN}
-N 710 310 920 310 {lab=UP}
+N 740 -170 950 -170 {lab=UP}
+N 710 310 920 310 {lab=DOWN}
 N -340 -30 -340 130 {lab=flip_flop_reset}
 N -70 10 -70 30 {lab=gnd}
 N -70 -90 -70 -70 {lab=vp}
@@ -71,8 +71,8 @@ N 40 0 40 20 {lab=gnd}
 N -30 -30 -10 -30 {lab=#net4}
 N 60 -30 240 -30 {lab=post_nand}
 N -90 -170 120 -170 {lab=#net5}
-N 20 -240 20 -230 {lab=pre_down}
-N -90 -240 20 -240 {lab=pre_down}
+N 20 -240 20 -230 {lab=pre_up}
+N -90 -240 20 -240 {lab=pre_up}
 N -180 -300 -180 -280 {lab=vp}
 N -180 -130 -180 -110 {lab=gnd}
 N -340 -200 -260 -200 {lab=flip_flop_reset}
@@ -81,9 +81,9 @@ N -340 -230 -260 -230 {lab=vp}
 N -100 160 110 160 {lab=#net6}
 N -190 30 -190 50 {lab=vp}
 N -190 200 -190 220 {lab=gnd}
-N -100 70 540 70 {lab=pre_up}
-N 540 60 540 70 {lab=pre_up}
-N -100 70 -100 90 {lab=pre_up}
+N -100 70 540 70 {lab=pre_down}
+N 540 60 540 70 {lab=pre_down}
+N -100 70 -100 90 {lab=pre_down}
 N -310 100 -270 100 {lab=vp}
 N -340 130 -270 130 {lab=flip_flop_reset}
 C {iopin.sym} -290 -340 0 0 {name=p1 lab=gnd}
@@ -102,8 +102,8 @@ C {lab_wire.sym} -480 30 0 1 {name=p26 sig_type=std_logic lab=gnd}
 C {lab_wire.sym} -770 -60 0 0 {name=p27 sig_type=std_logic lab=gnd}
 C {lab_wire.sym} -770 -170 0 0 {name=p28 sig_type=std_logic lab=vp}
 C {lab_wire.sym} -680 -110 0 0 {name=p29 sig_type=std_logic lab=reset_n}
-C {lab_wire.sym} 370 -170 0 1 {name=p32 sig_type=std_logic lab=pre_down}
-C {lab_wire.sym} 350 70 0 0 {name=p33 sig_type=std_logic lab=pre_up}
+C {lab_wire.sym} 350 70 0 1 {name=p32 sig_type=std_logic lab=pre_down}
+C {lab_wire.sym} 390 -170 0 0 {name=p33 sig_type=std_logic lab=pre_up}
 C {lab_wire.sym} 230 -30 0 0 {name=p34 sig_type=std_logic lab=post_nand}
 C {lab_wire.sym} -360 -30 0 0 {name=p35 sig_type=std_logic lab=flip_flop_reset}
 C {sg13cmos5l_pr/sg13_lv_nmos.sym} 930 -130 0 0 {name=M4
@@ -126,9 +126,9 @@ model=sg13_lv_nmos
 spiceprefix=X
 }
 C {lab_wire.sym} 920 450 0 0 {name=p53 sig_type=std_logic lab=gnd}
-C {opin.sym} 930 310 0 0 {name=p55 lab=UP
+C {opin.sym} 980 -170 0 0 {name=p55 lab=UP
 }
-C {opin.sym} 980 -170 0 0 {name=p3 lab=DOWN
+C {opin.sym} 930 310 0 0 {name=p3 lab=DOWN
 }
 C {lab_wire.sym} -280 -90 0 0 {name=p4 sig_type=std_logic lab=vp}
 C {lab_wire.sym} -280 30 0 0 {name=p22 sig_type=std_logic lab=gnd}

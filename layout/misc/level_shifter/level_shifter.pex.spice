@@ -1,7 +1,7 @@
 * PEX produced on Tue Sep  1 11:30:35 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
 * NGSPICE file created from level_shifter.ext - technology: ihp-sg13g2
 
-.subckt level_shifter out in vph vpl gd
+.subckt level_shifter vph out vpl in gd
 X0 out 3_stage_out vph vph sg13_hv_pmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=0.45u
 X1 3_stage_out a_5207_4935# gd gd sg13_hv_nmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=0.45u
 X2 gd a_5207_4935# 3_stage_out gd sg13_hv_nmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=0.45u

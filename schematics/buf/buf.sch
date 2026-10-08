@@ -80,71 +80,79 @@ N 690 -30 850 -30 {lab=GND}
 N 530 -30 690 -30 {lab=GND}
 N 850 -170 940 -170 {lab=OUT}
 N 850 -190 850 -170 {lab=OUT}
-C {sg13g2_pr/sg13_lv_nmos.sym} 330 -130 0 0 {name=M1
-l=0.13u
-w=0.5u
-ng=1
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_pmos.sym} 330 -220 0 0 {name=M2
-l=0.13u
-w=0.75u
-ng=1
-m=1
-model=sg13_lv_pmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_nmos.sym} 510 -130 0 0 {name=M3
-l=0.13u
-w=1.5u
-ng=1
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_pmos.sym} 510 -220 0 0 {name=M4
-l=0.13u
-w=2.25u
-ng=1
-m=1
-model=sg13_lv_pmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_nmos.sym} 670 -130 0 0 {name=M5
-l=0.13u
-w=4.5u
-ng=1
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_pmos.sym} 670 -220 0 0 {name=M6
-l=0.13u
-w=6.75u
-ng=1
-m=1
-model=sg13_lv_pmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_nmos.sym} 830 -130 0 0 {name=M7
-l=0.13u
-w=4.5u
-ng=1
-m=3
-model=sg13_lv_nmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_pmos.sym} 830 -220 0 0 {name=M8
-l=0.13u
-w=6.75u
-ng=1
-m=3
-model=sg13_lv_pmos
-spiceprefix=X
-}
 C {ipin.sym} 240 -170 0 0 {name=p4 lab=INPUT}
 C {iopin.sym} 610 -360 3 0 {name=p1 lab=VDD}
 C {iopin.sym} 610 -30 1 0 {name=p5 lab=GND}
 C {opin.sym} 940 -170 0 0 {name=p6 lab=OUT}
+C {sg13g2_pr/sg13_hv_pmos.sym} 830 -220 0 0 {name=M9
+l=0.4u
+w=10u
+ ng=1
+ m=4
+  mm_ok=1
+ model=sg13_hv_pmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_hv_pmos.sym} 670 -220 0 0 {name=M6
+l=0.4u
+w=10u
+ ng=1
+ m=2
+  mm_ok=1
+ model=sg13_hv_pmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_hv_pmos.sym} 510 -220 0 0 {name=M4
+l=0.4u
+w=10u
+ ng=1
+ m=1
+  mm_ok=1
+ model=sg13_hv_pmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_hv_pmos.sym} 330 -220 0 0 {name=M2
+l=0.4u
+w=5u
+ ng=1
+ m=1
+  mm_ok=1
+ model=sg13_hv_pmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_hv_nmos.sym} 830 -130 0 0 {name=M1
+l=0.45u
+w=10u
+ ng=1
+ m=4
+  mm_ok=1
+ model=sg13_hv_nmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_hv_nmos.sym} 670 -130 0 0 {name=M3
+l=0.45u
+w=10u
+ ng=1
+ m=2
+  mm_ok=1
+ model=sg13_hv_nmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_hv_nmos.sym} 510 -130 0 0 {name=M5
+l=0.45u
+w=10u
+ ng=1
+ m=1
+  mm_ok=1
+ model=sg13_hv_nmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_hv_nmos.sym} 330 -130 0 0 {name=M7
+l=0.45u
+w=5u
+ ng=1
+ m=1
+  mm_ok=1
+ model=sg13_hv_nmos
+spiceprefix=X
+}

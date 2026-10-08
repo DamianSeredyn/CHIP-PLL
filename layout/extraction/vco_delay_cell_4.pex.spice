@@ -1,0 +1,29 @@
+* PEX produced on Mon Oct  5 02:56:30 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
+* NGSPICE file created from vco_delay_cell_4.ext - technology: ihp-sg13g2
+
+.subckt vco_delay_cell_4 vp gnd in pgt out ngt
+X0 vp pgt a_n1622_1271# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=28u
+X1 gnd ngt a_n1622_n351# gnd sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=28u
+X2 out in a_n1622_1271# vp sg13_lv_pmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=14u
+X3 out in a_n1622_n351# gnd sg13_lv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=14u
+C0 in a_n1622_n351# 0.04986f
+C1 vp a_n1622_1271# 0.55578f
+C2 a_n1622_1271# a_n1622_n351# 0.02263f
+C3 out in 0.12571f
+C4 ngt vp 0.10034f
+C5 pgt in 0.29563f
+C6 ngt a_n1622_n351# 0.1684f
+C7 a_n1622_1271# pgt 0.1714f
+C8 ngt pgt 0.01257f
+C9 a_n1622_1271# in 0.06076f
+C10 ngt in 0.35201f
+C11 vp a_n1622_n351# 0.04854f
+C12 out vp 0.1873f
+C13 vp pgt 8.6304f
+C14 vp in 3.22103f
+C15 out gnd 1.78335f
+C16 vp gnd 1.42046f
+C17 a_n1622_n351# gnd 4.77334f
+C18 a_n1622_1271# gnd 2.01343f
+.ends
+

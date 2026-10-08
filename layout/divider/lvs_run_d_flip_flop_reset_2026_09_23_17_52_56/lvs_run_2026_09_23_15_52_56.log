@@ -1,0 +1,19 @@
+23-Sep-2026 17:52:57 | INFO    | Your Klayout version is: KLayout 0.30.9 (required >= 0.30.5)
+23-Sep-2026 17:52:57 | WARNING | No netlist was provided and --net_only was not set. LVS comparison is disabled for this run; forcing --net_only behavior.
+23-Sep-2026 17:52:57 | INFO    | Running SG13G2 LVS checks on design /foss/designs/CHIP-PLL/layout/divider/d_flip_flop_reset.klay.gds on cell d_flip_flop_reset
+23-Sep-2026 17:53:01 | INFO    | ==============================================================================
+23-Sep-2026 17:53:01 | INFO    | Important Summary
+23-Sep-2026 17:53:01 | INFO    | +------------------+-------------------------------------------------------------------------------------+
+23-Sep-2026 17:53:01 | INFO    | | Status           | NET_ONLY                                                                            |
+23-Sep-2026 17:53:01 | INFO    | | Mode             | NET_ONLY                                                                            |
+23-Sep-2026 17:53:01 | INFO    | | Outcome          | NET_ONLY mode: extracted netlist generated from layout only.                        |
+23-Sep-2026 17:53:01 | INFO    | | Layout           | d_flip_flop_reset.klay.gds                                                          |
+23-Sep-2026 17:53:01 | INFO    | | Top Cell         | d_flip_flop_reset                                                                   |
+23-Sep-2026 17:53:01 | INFO    | | Results Dir      | /foss/designs/CHIP-PLL/layout/divider/lvs_run_d_flip_flop_reset_2026_09_23_17_52_56 |
+23-Sep-2026 17:53:01 | INFO    | | Warnings         | 1                                                                                   |
+23-Sep-2026 17:53:01 | INFO    | | Errors           | 0                                                                                   |
+23-Sep-2026 17:53:01 | INFO    | | Run Time (s)     | 4.7                                                                                 |
+23-Sep-2026 17:53:01 | INFO    | +------------------+-------------------------------------------------------------------------------------+
+23-Sep-2026 17:53:01 | WARNING | Key warnings:
+23-Sep-2026 17:53:01 | WARNING |   - No netlist was provided and --net_only was not set. LVS comparison is disabled for this run; forcing --net_only behavior.
+23-Sep-2026 17:53:01 | INFO    | ==============================================================================
