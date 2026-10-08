@@ -1,0 +1,1938 @@
+* PEX produced on Thu Oct  8 10:03:05 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
+* NGSPICE file created from VCO_MUX_and_decoder.ext - technology: ihp-sg13cmos5l
+
+.subckt VCO_MUX_and_decoder VCO4_5_sel VCO4_11_sel VCO_sel VCO2_11_sel VCO2_5_sel
++ VCO3_5_sel VCO3_11_sel out VCO4_in VCO2_in VCO5_in VCO_in VCO3_in gd vp c2 c1 c0
++ f0 f1 f2 f3 f4 f5
+X0 vp VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X1 vp VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X2 a_90658_25617# VCO_decoder_cells_0.after_000111 a_90442_25617# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X3 vp VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c VCO2_11_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X4 a_84008_22605# f5 VCO_decoder_cells_0.after_001111_n vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X5 gd VCO3_5_sel NOR_2in_1.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X6 a_84812_29603# VCO_decoder_cells_0.011 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X7 VCO3_in inverter_1.out out gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X8 vp VCO_decoder_cells_0.010 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X9 VCO_MUX_0.inverter_0.out inverter_2.out gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X10 VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n c1 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X11 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y VCO_decoder_cells_0.101 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X12 a_84348_29603# VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y a_84132_29603# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X13 VCO2_11_sel VCO_decoder_cells_0.VCO2_selection_0.inverter_0.out a_91857_28179# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X14 a_85075_31586# VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.b a_84859_31586# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X15 a_84767_30077# VCO_decoder_cells_0.after_000111_n a_84551_30077# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X16 gd VCO_decoder_cells_0.after_001111_n a_85498_30077# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X17 VCO2_5_sel VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a a_91926_30609# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X18 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y VCO_decoder_cells_0.011 a_90658_25143# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X19 vp c1 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_1.in vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X20 vp VCO_decoder_cells_0.111 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.a vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X21 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X22 VCO_decoder_cells_0.010 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_6.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X23 vp VCO_decoder_cells_0.110 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.b vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X24 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y c0 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X25 vp VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c VCO3_11_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X26 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a VCO_decoder_cells_0.010 a_90275_26697# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X27 vp VCO_decoder_cells_0.110 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X28 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.a vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X29 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_2.y VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X30 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y VCO_decoder_cells_0.after_000111_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X31 vp VCO_decoder_cells_0.100 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X32 gd VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.c a_83798_25065# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X33 vp VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.after_000111 vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X34 vp VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X35 VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.a a_91825_25617# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X36 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_6.y VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X37 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b VCO_decoder_cells_0.after_000111_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X38 a_84709_26145# c2 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X39 VCO_decoder_cells_0.100 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X40 a_90961_28179# VCO_decoder_cells_0.after_000011_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X41 a_84744_24561# f0 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.c vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X42 VCO3_in VCO_MUX_0.inverter_4.out out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X43 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.a VCO_decoder_cells_0.000 a_90275_32151# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X44 a_84925_27789# c1 a_84709_27789# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X45 vp VCO_decoder_cells_0.after_000111 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X46 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y VCO_decoder_cells_0.101 a_91171_28653# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X47 vp VCO_decoder_cells_0.001 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.a vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X48 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y VCO_decoder_cells_0.001 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X49 VCO2_11_sel VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.d vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X50 a_91808_23187# VCO_decoder_cells_0.000000 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X51 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in c0 a_84245_27789# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X52 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c VCO_decoder_cells_0.011 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X53 VCO_MUX_0.inverter_1.out VCO_MUX_0.VCO5_sel vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X54 a_84245_26463# VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n a_84029_26463# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X55 gd VCO_decoder_cells_0.111 a_85069_31904# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X56 VCO_decoder_cells_0.000 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X57 a_91128_25617# f5 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X58 a_90491_30135# VCO_decoder_cells_0.after_000011 a_90275_30135# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X59 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d VCO_decoder_cells_0.011 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X60 VCO2_5_sel VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X61 vp VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.after_000011_n vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X62 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b VCO_decoder_cells_0.100 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X63 a_91808_23661# VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c a_91592_23661# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X64 a_85282_29603# VCO_decoder_cells_0.010 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X65 a_90961_30609# f5 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X66 a_84744_23583# VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.a VCO_decoder_cells_0.after_000011 gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X67 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b VCO_decoder_cells_0.after_000111_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X68 vp VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X69 VCO_MUX_0.inverter_0.out inverter_2.out vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X70 a_90955_28653# VCO_decoder_cells_0.after_000111_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X71 VCO4_5_sel VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X72 vp VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_0.y VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_1.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X73 vp VCO_decoder_cells_0.after_000111 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X74 gd VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.after_000111 gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X75 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.y VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X76 vp VCO_decoder_cells_0.VCO2_selection_0.inverter_0.out VCO2_11_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X77 a_91338_23187# VCO_decoder_cells_0.after_000111_n a_91122_23187# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X78 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d VCO_decoder_cells_0.110 a_91128_25143# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X79 a_84245_28107# VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n a_84029_28107# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X80 VCO4_in inverter_2.out out gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X81 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b f5 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X82 vp VCO_decoder_cells_0.010 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.b vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X83 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in c2 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X84 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y VCO_decoder_cells_0.f5_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X85 vp VCO_decoder_cells_0.000000_n VCO_decoder_cells_0.000000 vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X86 VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n c1 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X87 a_91926_29157# VCO3_11_sel vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X88 vp VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a VCO2_5_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X89 a_84081_30077# VCO_decoder_cells_0.001 VCO_decoder_cells_0.VCO4_selection_0.NAND_2in_0.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X90 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y VCO_decoder_cells_0.001 a_90658_21705# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X91 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.b VCO_decoder_cells_0.101 a_91190_30135# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X92 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.y VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a a_91452_26697# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X93 vp VCO_decoder_cells_0.011 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.b vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X94 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b VCO_decoder_cells_0.010 a_90658_23187# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X95 vp VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.c VCO_decoder_cells_0.000000_n vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X96 gd f2 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.a gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X97 VCO_sel VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.b vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X98 VCO_MUX_0.inverter_1.out VCO_MUX_0.VCO5_sel gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X99 VCO_decoder_cells_0.010 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_6.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X100 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_3.y c0 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X101 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d VCO_decoder_cells_0.after_000111_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X102 a_85498_30077# VCO_decoder_cells_0.after_000011 a_85282_30077# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X103 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_1.in c2 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X104 a_90658_25143# VCO_decoder_cells_0.after_000111 a_90442_25143# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X105 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.a VCO_decoder_cells_0.after_000111 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X106 gd f4 VCO_decoder_cells_0.after_000111_n gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X107 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.d VCO_decoder_cells_0.after_000011_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X108 a_91926_29631# VCO2_11_sel vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X109 VCO3_5_sel VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X110 vp f5 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.c vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X111 gd VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.after_000011_n gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X112 VCO_MUX_0.inverter_3.out VCO_sel gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X113 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b VCO_decoder_cells_0.100 a_90658_23661# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X114 VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.a vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X115 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y VCO_decoder_cells_0.100 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X116 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d VCO_decoder_cells_0.000000 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X117 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_1.y VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_0.y a_91604_21705# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X118 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.b VCO_decoder_cells_0.011 a_90751_26697# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X119 vp VCO_decoder_cells_0.000 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_0.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X120 a_90974_30135# VCO_decoder_cells_0.f5_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X121 VCO_decoder_cells_0.000 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X122 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d VCO_decoder_cells_0.000000 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X123 a_90275_28179# VCO_decoder_cells_0.000000_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X124 a_83798_25065# VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b a_83582_25065# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X125 gd VCO2_5_sel inverter_0.in gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X126 a_85545_31586# VCO_decoder_cells_0.after_001111 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.b gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X127 vp VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.after_001111 vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X128 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d VCO_decoder_cells_0.111 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X129 VCO_decoder_cells_0.111 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X130 vp VCO_decoder_cells_0.010 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X131 vp VCO_decoder_cells_0.101 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X132 a_91122_23187# VCO_decoder_cells_0.000000_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X133 a_91825_25617# VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b a_91609_25617# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X134 a_90275_28653# VCO_decoder_cells_0.f5_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X135 vp VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.a VCO3_5_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X136 vp c1 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_6.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X137 VCO5_in VCO_MUX_0.inverter_1.out out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X138 gd VCO_decoder_cells_0.000000_n VCO_decoder_cells_0.000000 gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X139 gd VCO4_11_sel inverter_2.in gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X140 NOR_2in_1.y VCO3_11_sel gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X141 vp VCO_decoder_cells_0.after_000111 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.b vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X142 a_84709_27789# VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X143 vp VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X144 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.b VCO_decoder_cells_0.010 a_90751_32151# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X145 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.a f5 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X146 vp VCO_decoder_cells_0.after_000111 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X147 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in c0 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X148 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c VCO_decoder_cells_0.110 a_90491_28179# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X149 VCO_decoder_cells_0.VCO2_selection_0.NAND_2in_0.y f5 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X150 vp VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X151 a_84859_31586# VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.a VCO_sel gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X152 a_84484_22605# f5 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X153 a_84245_26145# c1 a_84029_26145# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X154 a_91857_28179# VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y a_91641_28179# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X155 a_90275_30609# VCO_decoder_cells_0.after_000111 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X156 VCO4_in VCO_MUX_0.inverter_0.out out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X157 a_84029_26463# c2 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X158 a_85069_31904# VCO_decoder_cells_0.after_000111 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.a gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X159 a_91926_30609# VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.b a_91710_30609# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X160 VCO_decoder_cells_0.VCO4_selection_0.NAND_2in_0.y VCO_decoder_cells_0.001 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X161 gd f5 a_85545_31904# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X162 VCO_MUX_0.inverter_3.out VCO_sel vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X163 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y VCO_decoder_cells_0.100 a_90491_28653# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X164 vp VCO_decoder_cells_0.000000_n VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X165 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_0.y VCO_decoder_cells_0.000 a_91128_21705# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X166 VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n c2 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X167 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y VCO_decoder_cells_0.after_000011 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X168 a_91592_25143# VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X169 vp f2 a_84268_24561# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X170 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b VCO_decoder_cells_0.010 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X171 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_3.y c0 a_84925_26463# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X172 gd VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.after_001111 gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X173 a_91128_25143# VCO_decoder_cells_0.000000 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X174 VCO_decoder_cells_0.101 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_3.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X175 a_84029_28107# VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X176 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a VCO_decoder_cells_0.110 a_90491_30609# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X177 a_85004_22605# f4 VCO_decoder_cells_0.after_000111_n vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X178 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c VCO_decoder_cells_0.101 a_91128_23661# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X179 VCO5_in VCO_MUX_0.VCO5_sel out gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X180 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.a VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X181 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.a VCO_decoder_cells_0.after_000011_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X182 a_90658_21705# VCO_decoder_cells_0.after_000111 a_90442_21705# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X183 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c VCO_decoder_cells_0.000000_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X184 a_90658_23187# VCO_decoder_cells_0.after_000011 a_90442_23187# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X185 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.a f3 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X186 VCO_decoder_cells_0.000000_n VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X187 VCO_in VCO_sel out gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X188 VCO3_5_sel VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.a a_92024_25143# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X189 a_90442_25617# VCO_decoder_cells_0.f5_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X190 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_2.y c0 a_84925_28107# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X191 gd f1 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.c gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X192 gd inverter_2.in inverter_2.out gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X193 gd VCO_decoder_cells_0.000000_n a_85498_29603# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X194 VCO_decoder_cells_0.111 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X195 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a f5 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X196 vp VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X197 vp VCO4_11_sel a_83446_29099# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X198 a_83916_29603# VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y VCO4_5_sel gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X199 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c VCO_decoder_cells_0.000000_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X200 a_90658_23661# VCO_decoder_cells_0.000000_n a_90442_23661# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X201 a_84132_29603# VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b a_83916_29603# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X202 vp VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_3.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X203 a_91710_30609# VCO_decoder_cells_0.VCO2_selection_0.NAND_2in_0.y a_91494_30609# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X204 gd f4 VCO_decoder_cells_0.after_001111_n gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X205 a_84551_30077# VCO_decoder_cells_0.001 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X206 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_0.y VCO_decoder_cells_0.after_001111 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X207 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c VCO_decoder_cells_0.110 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X208 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.d VCO_decoder_cells_0.111 a_90961_28179# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X209 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.b VCO_decoder_cells_0.after_001111 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X210 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X211 vp VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X212 gd f5 VCO_decoder_cells_0.f5_n gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X213 vp c1 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X214 VCO2_11_sel VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X215 VCO3_11_sel VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X216 a_90275_26697# f5 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X217 gd f3 VCO_decoder_cells_0.after_000111_n gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X218 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c VCO_decoder_cells_0.after_000011_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X219 a_91609_25617# VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X220 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_6.y VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X221 VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n c2 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X222 inverter_2.in VCO4_5_sel gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X223 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a VCO_decoder_cells_0.after_000111 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X224 gd VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.c a_85075_31586# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X225 VCO_decoder_cells_0.011 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X226 VCO2_5_sel VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.b vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X227 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X228 VCO_in VCO_MUX_0.inverter_3.out out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X229 vp VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.a VCO_MUX_0.VCO5_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X230 VCO3_5_sel VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X231 vp VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.a VCO_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X232 VCO_MUX_0.inverter_2.out inverter_0.out vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X233 VCO_decoder_cells_0.101 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_3.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X234 gd f4 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X235 VCO_decoder_cells_0.VCO2_selection_0.NAND_2in_0.y VCO_decoder_cells_0.100 a_90961_30609# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X236 a_84029_26145# c2 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X237 a_90275_32151# VCO_decoder_cells_0.after_000011_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X238 vp VCO_decoder_cells_0.VCO3_selection_0.inverter_0.out VCO3_11_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X239 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y VCO_decoder_cells_0.after_001111_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X240 a_91171_28653# VCO_decoder_cells_0.after_000011 a_90955_28653# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X241 vp VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b VCO_decoder_cells_0.after_000011 vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X242 VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n c0 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X243 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_2.y c0 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X244 a_84245_27789# c1 a_84029_27789# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X245 vp inverter_2.in inverter_2.out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X246 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a VCO_decoder_cells_0.110 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X247 a_91128_21705# VCO_decoder_cells_0.after_001111 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X248 a_84268_24561# f3 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.a vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X249 vp VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X250 a_90275_30135# VCO_decoder_cells_0.after_000111_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X251 vp f1 a_84744_24561# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X252 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_1.in VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n a_84925_26145# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X253 vp VCO_decoder_cells_0.000000_n VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X254 VCO_decoder_cells_0.001 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_2.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X255 inverter_0.in VCO2_11_sel gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X256 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.a VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X257 a_91592_23661# VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X258 VCO4_5_sel VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X259 vp VCO_decoder_cells_0.001 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X260 vp VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b VCO4_5_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X261 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_1.y VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X262 a_91128_23661# VCO_decoder_cells_0.after_000011_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X263 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b VCO_decoder_cells_0.f5_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X264 a_84925_26463# VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n a_84709_26463# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X265 vp VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.b VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X266 vp f4 a_84008_22605# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X267 inverter_0.out inverter_0.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X268 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n a_84245_26463# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X269 VCO_decoder_cells_0.after_000111_n f5 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X270 vp VCO_decoder_cells_0.111 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.d vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X271 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.b VCO_decoder_cells_0.000000 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X272 VCO_MUX_0.inverter_2.out inverter_0.out gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X273 vp f5 VCO_decoder_cells_0.f5_n vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X274 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d VCO_decoder_cells_0.111 a_90491_30135# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X275 gd VCO_decoder_cells_0.VCO4_selection_0.NAND_2in_0.y VCO4_11_sel gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X276 vp VCO_decoder_cells_0.VCO2_selection_0.NAND_2in_0.y VCO2_5_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X277 a_85498_29603# VCO_decoder_cells_0.after_000011_n a_85282_29603# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X278 VCO3_11_sel VCO_decoder_cells_0.VCO3_selection_0.inverter_0.out a_92024_23661# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X279 gd VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b a_84744_23583# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X280 a_91190_30135# VCO_decoder_cells_0.after_000111 a_90974_30135# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X281 VCO_MUX_0.inverter_4.out inverter_1.out gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X282 vp f3 a_85220_22605# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X283 a_83446_29099# VCO4_5_sel inverter_2.in vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X284 VCO_MUX_0.VCO5_sel VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.a a_91227_32151# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X285 a_92024_25143# VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b a_91808_25143# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X286 a_91452_26697# VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.b a_91236_26697# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X287 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.b VCO_decoder_cells_0.after_001111 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X288 a_84925_28107# VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n a_84709_28107# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X289 vp f2 a_85220_24087# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X290 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b f5 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X291 VCO_decoder_cells_0.VCO3_selection_0.inverter_0.out VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_1.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X292 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_3.y c2 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X293 a_85282_30077# VCO_decoder_cells_0.000 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X294 a_90442_25143# VCO_decoder_cells_0.after_001111_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X295 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n a_84245_28107# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X296 gd f4 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X297 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.c VCO_decoder_cells_0.101 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X298 VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X299 vp f4 a_85220_24561# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X300 inverter_1.out NOR_2in_1.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X301 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y c2 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X302 VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n c0 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X303 vp VCO_decoder_cells_0.after_000111 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X304 a_91604_21705# VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X305 a_90751_26697# VCO_decoder_cells_0.after_001111 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X306 gd VCO_decoder_cells_0.after_000011_n a_84081_30077# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X307 gd VCO_decoder_cells_0.000000 a_84812_29603# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X308 a_83582_25065# VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.a VCO_decoder_cells_0.000000_n gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X309 vp VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.c VCO_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X310 VCO_decoder_cells_0.011 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X311 VCO_decoder_cells_0.001 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_2.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X312 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b VCO_decoder_cells_0.010 a_90658_25617# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X313 vp VCO_decoder_cells_0.100 VCO_decoder_cells_0.VCO2_selection_0.NAND_2in_0.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X314 vp VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X315 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_1.in VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X316 VCO_MUX_0.VCO5_sel VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.b vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X317 vp VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c VCO3_5_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X318 VCO_decoder_cells_0.110 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_1.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X319 gd VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d a_84348_29603# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X320 inverter_0.out inverter_0.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X321 VCO_MUX_0.inverter_4.out inverter_1.out vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X322 gd VCO_decoder_cells_0.after_000011 a_84767_30077# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X323 a_90751_32151# VCO_decoder_cells_0.000000 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X324 gd f2 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.a gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X325 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y VCO_decoder_cells_0.f5_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X326 vp c1 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X327 a_90491_28179# VCO_decoder_cells_0.after_000111_n a_90275_28179# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X328 VCO_decoder_cells_0.VCO3_selection_0.inverter_0.out VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_1.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X329 a_84029_27789# VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X330 vp VCO_decoder_cells_0.VCO4_selection_0.NAND_2in_0.y VCO4_11_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X331 gd VCO_decoder_cells_0.110 a_85545_31586# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X332 a_91641_28179# VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c a_91425_28179# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X333 VCO_decoder_cells_0.after_001111_n f5 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X334 VCO3_11_sel VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X335 a_85220_22605# f5 a_85004_22605# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X336 a_85220_24087# f3 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.a vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X337 a_85545_31904# VCO_decoder_cells_0.101 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.c gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X338 vp VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_2.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X339 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y VCO_decoder_cells_0.after_000011_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X340 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b VCO_decoder_cells_0.after_000111_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X341 a_90491_28653# VCO_decoder_cells_0.after_000111 a_90275_28653# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X342 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.b VCO_decoder_cells_0.101 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X343 vp VCO_decoder_cells_0.000 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X344 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X345 a_84925_26145# c1 a_84709_26145# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X346 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_6.y VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n a_84925_27789# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X347 a_84709_26463# c2 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X348 a_85220_24561# f5 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X349 VCO2_in VCO_MUX_0.inverter_2.out out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X350 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.y VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X351 inverter_1.out NOR_2in_1.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X352 VCO_decoder_cells_0.VCO2_selection_0.inverter_0.out VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X353 a_90491_30609# VCO_decoder_cells_0.after_001111_n a_90275_30609# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X354 vp f4 a_84484_22605# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X355 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y c0 a_84245_26145# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X356 NOR_2in_1.y VCO3_5_sel a_91926_29157# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X357 vp VCO_decoder_cells_0.after_000011_n VCO_decoder_cells_0.VCO4_selection_0.NAND_2in_0.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X358 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y VCO_decoder_cells_0.011 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X359 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d VCO_decoder_cells_0.100 a_91808_23187# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X360 vp VCO_decoder_cells_0.000000 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X361 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.b VCO_decoder_cells_0.f5_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X362 a_90442_21705# VCO_decoder_cells_0.f5_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X363 a_91227_32151# VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.b gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X364 inverter_0.in VCO2_5_sel a_91926_29631# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X365 a_91808_25143# VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c a_91592_25143# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X366 a_91236_26697# VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X367 a_84709_28107# VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X368 a_90442_23187# VCO_decoder_cells_0.after_000111_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X369 vp VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.a VCO_decoder_cells_0.000000_n vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X370 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.a VCO_decoder_cells_0.001 a_91128_25617# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X371 VCO_decoder_cells_0.VCO2_selection_0.inverter_0.out VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X372 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.c f0 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X373 VCO_decoder_cells_0.100 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X374 a_92024_23661# VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b a_91808_23661# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X375 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.a f3 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X376 vp VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X377 vp VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d VCO4_5_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X378 VCO_decoder_cells_0.110 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_1.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X379 a_90442_23661# VCO_decoder_cells_0.after_000111_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X380 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b VCO_decoder_cells_0.010 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X381 a_91425_28179# VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.d gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X382 a_91494_30609# VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X383 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c VCO_decoder_cells_0.011 a_91338_23187# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X384 vp VCO_decoder_cells_0.000 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.a vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X385 VCO2_in inverter_0.out out gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+C0 a_85220_24561# VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b 0.08009f
+C1 VCO_decoder_cells_0.f5_n VCO_decoder_cells_0.011 5.25669f
+C2 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n 2.12248f
+C3 VCO_decoder_cells_0.100 VCO_decoder_cells_0.000 0.4926f
+C4 VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y 0.566f
+C5 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in 0.01409f
+C6 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_2.y m2_85348_28436# 0.21959f
+C7 f2 VCO_decoder_cells_0.001 0.05922f
+C8 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a 0.02742f
+C9 VCO_decoder_cells_0.after_000111_n m2_83802_23748# 0.01436f
+C10 inverter_2.in m2_83451_30242# 0.01579f
+C11 VCO2_11_sel VCO_decoder_cells_0.101 0.07042f
+C12 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c 0.91292f
+C13 m2_91643_32058# m2_91939_32058# 0.0146f
+C14 VCO_decoder_cells_0.f5_n VCO_decoder_cells_0.111 0.29958f
+C15 a_85282_29603# a_85498_29603# 0.02909f
+C16 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d a_91592_25143# 0.05499f
+C17 VCO_in vp 0.15838f
+C18 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n 0.07764f
+C19 VCO_decoder_cells_0.f5_n a_90275_28653# 0.01656f
+C20 VCO_decoder_cells_0.000000 a_90442_23187# 0.01015f
+C21 VCO_decoder_cells_0.f5_n VCO_decoder_cells_0.after_000011 1.47782f
+C22 m2_83451_30406# m2_83724_30406# 0.01705f
+C23 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in VCO_decoder_cells_0.011 0.41555f
+C24 c0 VCO_decoder_cells_0.after_001111 0.02665f
+C25 VCO_decoder_cells_0.after_000111 VCO_decoder_cells_0.000000_n 0.37657f
+C26 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b VCO_decoder_cells_0.011 0.40858f
+C27 f2 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b 0.34721f
+C28 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.a VCO_decoder_cells_0.after_001111 0.03592f
+C29 a_84925_27789# VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_6.y 0.07156f
+C30 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.a 0.6529f
+C31 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b VCO_decoder_cells_0.after_000111 0.63577f
+C32 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a 0.75433f
+C33 VCO_decoder_cells_0.f5_n VCO_decoder_cells_0.010 0.47273f
+C34 VCO4_in m2_85300_35182# 0.08511f
+C35 VCO3_in out 0.59433f
+C36 f5 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b 0.43518f
+C37 a_90658_25617# VCO_decoder_cells_0.010 0.01179f
+C38 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.b VCO_decoder_cells_0.001 0.03415f
+C39 inverter_2.in VCO_decoder_cells_0.VCO4_selection_0.NAND_2in_0.y 0.17373f
+C40 f3 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b 0.16577f
+C41 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.after_001111 0.65322f
+C42 VCO_decoder_cells_0.after_000011_n m2_84387_23912# 0.22322f
+C43 c1 VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n 0.97581f
+C44 m2_83364_29510# m2_83364_29428# 0.40984f
+C45 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b 0.57958f
+C46 VCO_decoder_cells_0.after_001111 vp 0.75336f
+C47 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_6.y vp 0.57491f
+C48 VCO_decoder_cells_0.VCO2_selection_0.NAND_2in_0.y a_91710_30609# 0.01462f
+C49 VCO_decoder_cells_0.after_001111_n c0 0.02213f
+C50 a_91825_25617# VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b 0.03626f
+C51 VCO_MUX_0.inverter_0.out VCO_MUX_0.inverter_1.out 0.08088f
+C52 VCO_decoder_cells_0.100 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.b 0.02394f
+C53 VCO_decoder_cells_0.011 VCO_decoder_cells_0.101 0.15598f
+C54 VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.a 0.01352f
+C55 inverter_2.out m2_83451_30406# 0.1797f
+C56 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.a VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d 0.0306f
+C57 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b a_84132_29603# 0.01283f
+C58 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in VCO_decoder_cells_0.010 0.67959f
+C59 VCO_decoder_cells_0.010 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b 0.3864f
+C60 a_90961_28179# VCO_decoder_cells_0.after_000011_n 0.04403f
+C61 m2_85348_25806# m2_85620_25806# 0.01717f
+C62 a_91236_26697# a_91452_26697# 0.02909f
+C63 f4 VCO_decoder_cells_0.000000_n 0.28367f
+C64 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b a_91592_23661# 0.01152f
+C65 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.after_000111 22.7958f
+C66 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_2.y VCO_decoder_cells_0.001 0.49466f
+C67 VCO4_5_sel m2_83364_29428# 0.10281f
+C68 VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.after_000111_n 21.0302f
+C69 VCO_decoder_cells_0.111 VCO_decoder_cells_0.101 1.12176f
+C70 a_84925_26463# VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_3.y 0.07156f
+C71 VCO_decoder_cells_0.after_001111_n vp 0.75241f
+C72 VCO_decoder_cells_0.after_000011 m2_85200_30160# 0.0134f
+C73 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.101 1.77807f
+C74 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c 0.10446f
+C75 a_90751_26697# VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.b 0.07562f
+C76 VCO_decoder_cells_0.after_000011_n m2_84387_23748# 0.1803f
+C77 VCO_decoder_cells_0.VCO2_selection_0.inverter_0.out m2_91849_27026# 0.18068f
+C78 VCO_decoder_cells_0.010 VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n 0.01469f
+C79 VCO_decoder_cells_0.011 VCO_decoder_cells_0.111 0.31815f
+C80 VCO3_in vp 0.16384f
+C81 a_84744_24561# vp 0.12274f
+C82 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c 0.3339f
+C83 m2_85348_27450# m2_85620_27450# 0.01717f
+C84 VCO_decoder_cells_0.f5_n VCO_decoder_cells_0.110 0.15803f
+C85 VCO_decoder_cells_0.010 VCO_decoder_cells_0.101 0.29947f
+C86 m2_91939_32058# m2_91939_31976# 0.16814f
+C87 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.011 0.23767f
+C88 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y VCO_decoder_cells_0.011 0.37884f
+C89 vp VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c 0.74678f
+C90 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.a 1.49205f
+C91 f2 a_85220_24087# 0.04971f
+C92 VCO_MUX_0.inverter_4.out m2_84682_33062# 0.17363f
+C93 out m2_85300_35018# 0.07985f
+C94 VCO3_11_sel a_92024_23661# 0.07888f
+C95 a_90442_25617# VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b 0.0131f
+C96 f0 VCO_decoder_cells_0.after_000111 0.04748f
+C97 VCO_decoder_cells_0.after_000011_n VCO_decoder_cells_0.after_000111 0.9551f
+C98 VCO_decoder_cells_0.000000 f4 0.04405f
+C99 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.b VCO_decoder_cells_0.after_001111 0.40978f
+C100 f5 VCO_decoder_cells_0.after_001111 0.497f
+C101 VCO_in inverter_1.out 0.03418f
+C102 VCO_decoder_cells_0.010 VCO_decoder_cells_0.011 20.6277f
+C103 VCO_decoder_cells_0.100 m2_85620_26792# 0.1797f
+C104 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.c 2.0419f
+C105 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n 0.54097f
+C106 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.111 3.28102f
+C107 VCO_decoder_cells_0.000 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y 0.38324f
+C108 f3 VCO_decoder_cells_0.after_001111 0.04646f
+C109 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y vp 0.54388f
+C110 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a VCO_decoder_cells_0.110 0.38586f
+C111 a_91926_29631# inverter_0.in 0.0797f
+C112 VCO_decoder_cells_0.000000_n VCO_decoder_cells_0.001 0.12088f
+C113 VCO5_in VCO_MUX_0.inverter_1.out 0.34214f
+C114 VCO2_in inverter_0.out 0.52517f
+C115 inverter_1.out m2_91643_31812# 0.17997f
+C116 VCO_decoder_cells_0.010 VCO_decoder_cells_0.111 0.13798f
+C117 m2_92007_21788# VCO_decoder_cells_0.VCO3_selection_0.inverter_0.out 0.09739f
+C118 inverter_2.in m2_83364_29428# 0.27084f
+C119 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b VCO_decoder_cells_0.001 0.44464f
+C120 f1 VCO_decoder_cells_0.f5_n 0.02293f
+C121 VCO_decoder_cells_0.after_000011_n VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y 0.01968f
+C122 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.010 1.20368f
+C123 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b m2_84387_23748# 0.17054f
+C124 f5 VCO_decoder_cells_0.after_001111_n 1.06251f
+C125 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d a_91494_30609# 0.05339f
+C126 c2 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_3.y 0.53843f
+C127 a_90275_30135# VCO_decoder_cells_0.f5_n 0.01091f
+C128 VCO_decoder_cells_0.after_001111_n f3 0.05849f
+C129 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.y vp 0.66903f
+C130 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d 0.53757f
+C131 m2_83451_30160# m2_83724_30160# 0.01705f
+C132 f0 f4 0.05382f
+C133 f4 VCO_decoder_cells_0.after_000011_n 0.04031f
+C134 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b VCO_decoder_cells_0.000000_n 0.68437f
+C135 a_90974_30135# a_91190_30135# 0.02909f
+C136 VCO_in VCO_sel 0.67793f
+C137 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d vp 0.51172f
+C138 VCO_decoder_cells_0.110 VCO_decoder_cells_0.101 14.0302f
+C139 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.b VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.a 0.88942f
+C140 VCO_decoder_cells_0.100 VCO_decoder_cells_0.f5_n 0.77545f
+C141 m2_92007_21870# VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_1.y 0.01141f
+C142 f5 a_90961_30609# 0.04415f
+C143 a_90442_23187# a_90658_23187# 0.02909f
+C144 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c a_91425_28179# 0.01486f
+C145 VCO_decoder_cells_0.VCO4_selection_0.NAND_2in_0.y VCO_decoder_cells_0.001 0.50861f
+C146 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.001 5.17202f
+C147 VCO_decoder_cells_0.110 VCO_decoder_cells_0.011 1.02605f
+C148 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n 0.11309f
+C149 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y c0 0.39237f
+C150 VCO_decoder_cells_0.after_001111_n inverter_1.out 0.01127f
+C151 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y m2_85620_25806# 0.17968f
+C152 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y VCO_decoder_cells_0.011 0.43236f
+C153 a_84348_29603# VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d 0.05317f
+C154 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_0.y VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c 0.0231f
+C155 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_1.y VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d 0.02006f
+C156 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.a 0.01628f
+C157 VCO3_11_sel m2_91847_28736# 0.01042f
+C158 a_84925_28107# VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in 0.01202f
+C159 VCO2_in VCO_MUX_0.inverter_2.out 0.49424f
+C160 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a VCO_decoder_cells_0.100 0.67359f
+C161 VCO3_in inverter_1.out 0.52518f
+C162 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c VCO_decoder_cells_0.000000_n 0.55572f
+C163 VCO_decoder_cells_0.100 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b 0.01401f
+C164 VCO_decoder_cells_0.110 VCO_decoder_cells_0.111 22.7175f
+C165 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.000 0.10323f
+C166 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_2.y 0.48578f
+C167 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_0.y vp 0.3785f
+C168 VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n 5.27335f
+C169 f1 VCO_decoder_cells_0.101 0.04857f
+C170 VCO_decoder_cells_0.after_000111 m2_83802_23748# 0.22367f
+C171 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.110 0.12543f
+C172 a_90491_28179# VCO_decoder_cells_0.110 0.01179f
+C173 VCO_decoder_cells_0.000 vp 6.94525f
+C174 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y VCO_decoder_cells_0.110 0.40488f
+C175 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y vp 0.55019f
+C176 a_84029_27789# VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in 0.02306f
+C177 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d m2_91729_23094# 0.09833f
+C178 m2_85300_35018# m2_85590_35018# 0.01516f
+C179 f4 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b 0.21971f
+C180 VCO_decoder_cells_0.after_000111 a_91190_30135# 0.0141f
+C181 a_85282_30077# VCO_decoder_cells_0.000 0.01179f
+C182 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.y VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.b 0.7354f
+C183 m2_84387_23748# m2_84662_23748# 0.0168f
+C184 f0 VCO_decoder_cells_0.001 0.06267f
+C185 VCO_decoder_cells_0.after_000011_n VCO_decoder_cells_0.001 1.44953f
+C186 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.d vp 0.3468f
+C187 VCO_decoder_cells_0.010 VCO_decoder_cells_0.110 0.26923f
+C188 f1 VCO_decoder_cells_0.011 0.063f
+C189 VCO_MUX_0.inverter_4.out VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.a 0.01652f
+C190 f5 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d 0.01719f
+C191 VCO_decoder_cells_0.010 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y 0.38007f
+C192 VCO_decoder_cells_0.100 VCO_decoder_cells_0.101 17.8453f
+C193 a_84029_27789# VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n 0.01637f
+C194 f2 VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n 0.072f
+C195 VCO3_5_sel a_91926_29157# 0.01383f
+C196 VCO3_in VCO_sel 0.21995f
+C197 f1 VCO_decoder_cells_0.111 0.06724f
+C198 VCO_decoder_cells_0.after_001111 m2_85463_31411# 0.01109f
+C199 VCO_decoder_cells_0.after_000111_n a_90955_28653# 0.04601f
+C200 inverter_2.in m2_83451_30406# 0.18671f
+C201 f0 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b 0.80282f
+C202 VCO_decoder_cells_0.after_001111 VCO_decoder_cells_0.after_000111 22.4039f
+C203 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.y a_91236_26697# 0.0131f
+C204 VCO_decoder_cells_0.100 VCO_decoder_cells_0.011 14.9171f
+C205 a_91808_25143# a_91592_25143# 0.02909f
+C206 f1 VCO_decoder_cells_0.after_000011 0.0394f
+C207 a_84551_30077# VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y 0.01168f
+C208 m2_91148_32058# m2_91643_32058# 0.01536f
+C209 c1 c0 12.4161f
+C210 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.c m2_84777_31493# 0.69509f
+C211 VCO3_11_sel VCO2_11_sel 0.06009f
+C212 VCO3_11_sel VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b 0.99623f
+C213 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_1.in vp 0.57035f
+C214 VCO4_5_sel a_84348_29603# 0.01042f
+C215 VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in vp 0.58225f
+C216 f1 VCO_decoder_cells_0.010 0.04836f
+C217 VCO_decoder_cells_0.100 VCO_decoder_cells_0.111 0.16586f
+C218 VCO_decoder_cells_0.000000 m2_90196_31976# 0.41035f
+C219 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.b vp 0.36306f
+C220 a_84245_26463# VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n 0.01191f
+C221 m2_83451_30242# m2_83451_30160# 0.16814f
+C222 f5 VCO_decoder_cells_0.000 0.49219f
+C223 VCO3_11_sel VCO3_5_sel 6.0196f
+C224 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d 0.47455f
+C225 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d a_91808_23187# 0.07568f
+C226 VCO_decoder_cells_0.100 VCO_decoder_cells_0.after_000011 0.14144f
+C227 out inverter_0.out 0.89399f
+C228 out VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.c 0.01088f
+C229 VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.after_000111 1.87673f
+C230 f3 VCO_decoder_cells_0.000 0.04768f
+C231 c1 vp 0.4967f
+C232 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b VCO_decoder_cells_0.VCO4_selection_0.NAND_2in_0.y 0.61967f
+C233 VCO4_in VCO_MUX_0.inverter_0.out 0.38088f
+C234 f0 m2_85138_24890# 0.41069f
+C235 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.d VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.b 0.0209f
+C236 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_3.y 0.48578f
+C237 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c VCO_decoder_cells_0.after_000011_n 0.76335f
+C238 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b 0.01934f
+C239 VCO3_11_sel VCO_decoder_cells_0.101 0.05949f
+C240 VCO_decoder_cells_0.100 VCO_decoder_cells_0.010 0.33364f
+C241 f4 VCO_decoder_cells_0.after_001111 0.0466f
+C242 VCO2_5_sel VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d 0.15066f
+C243 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.a vp 0.40078f
+C244 VCO5_in m2_85300_34040# 0.08511f
+C245 VCO_decoder_cells_0.VCO2_selection_0.NAND_2in_0.y a_90961_30609# 0.07562f
+C246 VCO_decoder_cells_0.after_000011_n m2_90196_31976# 0.07569f
+C247 a_90442_21705# a_90658_21705# 0.02909f
+C248 a_84709_28107# VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n 0.01634f
+C249 VCO_decoder_cells_0.after_000011_n VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d 0.02232f
+C250 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y VCO_decoder_cells_0.after_000011_n 0.044f
+C251 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b 0.35478f
+C252 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a 0.01695f
+C253 VCO_decoder_cells_0.after_001111_n f4 0.18406f
+C254 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y VCO_decoder_cells_0.after_000111 0.63171f
+C255 VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n a_84029_28107# 0.01637f
+C256 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.a m2_85138_23748# 0.26981f
+C257 c2 VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n 5.03962f
+C258 a_91592_25143# VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c 0.01486f
+C259 VCO_decoder_cells_0.100 m2_91729_23012# 0.01109f
+C260 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.c VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n 0.01158f
+C261 f1 VCO_decoder_cells_0.110 0.06066f
+C262 a_84081_30077# VCO_decoder_cells_0.VCO4_selection_0.NAND_2in_0.y 0.0723f
+C263 VCO_MUX_0.VCO5_sel m2_91148_32058# 0.09896f
+C264 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b VCO_decoder_cells_0.after_000011_n 0.68746f
+C265 a_84551_30077# VCO_decoder_cells_0.after_000111_n 0.0223f
+C266 inverter_0.out vp 3.07008f
+C267 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.c vp 0.52064f
+C268 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b VCO3_5_sel 0.9263f
+C269 VCO2_5_sel m2_91847_29960# 0.08745f
+C270 VCO_MUX_0.inverter_2.out out 1.1677f
+C271 f2 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.c 0.39234f
+C272 m2_91643_32058# m2_91643_31976# 0.16814f
+C273 a_90442_21705# VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y 0.0131f
+C274 a_83446_29099# VCO4_11_sel 0.04884f
+C275 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b VCO_decoder_cells_0.101 0.50288f
+C276 VCO_decoder_cells_0.f5_n c0 0.02063f
+C277 VCO_decoder_cells_0.100 VCO_decoder_cells_0.110 0.41152f
+C278 VCO_decoder_cells_0.after_001111 VCO_decoder_cells_0.001 0.50183f
+C279 VCO_decoder_cells_0.after_000111 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d 0.89198f
+C280 VCO_decoder_cells_0.after_000111_n a_85004_22605# 0.07095f
+C281 m2_85200_30160# VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y 0.1249f
+C282 a_83582_25065# a_83798_25065# 0.02909f
+C283 VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n VCO_decoder_cells_0.000000_n 0.02341f
+C284 a_85004_22605# vp 0.09446f
+C285 out m2_85300_33226# 0.12384f
+C286 VCO_decoder_cells_0.VCO2_selection_0.NAND_2in_0.y VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d 1.15687f
+C287 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.y m2_91849_26780# 0.01049f
+C288 a_90961_28179# VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.d 0.07592f
+C289 a_84081_30077# VCO_decoder_cells_0.after_000011_n 0.04886f
+C290 VCO_decoder_cells_0.VCO2_selection_0.inverter_0.out VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.y 0.56388f
+C291 VCO_decoder_cells_0.f5_n VCO_decoder_cells_0.after_000111_n 3.97418f
+C292 inverter_1.out m2_91643_31976# 0.18043f
+C293 m2_92007_21870# VCO_decoder_cells_0.VCO3_selection_0.inverter_0.out 0.18043f
+C294 a_90955_28653# a_91171_28653# 0.02909f
+C295 VCO_decoder_cells_0.011 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y 0.03352f
+C296 f2 VCO_decoder_cells_0.000000_n 0.05187f
+C297 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c a_90275_28179# 0.0131f
+C298 a_84925_28107# VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_2.y 0.07156f
+C299 VCO_decoder_cells_0.f5_n vp 3.25562f
+C300 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.y VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y 0.01096f
+C301 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in c0 0.43475f
+C302 m2_83724_30242# VCO4_11_sel 0.18043f
+C303 VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.001 0.22105f
+C304 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.b m2_85463_31493# 0.09896f
+C305 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.a 0.04368f
+C306 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in a_84925_27789# 0.01202f
+C307 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b 0.43423f
+C308 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d VCO_decoder_cells_0.VCO3_selection_0.inverter_0.out 0.22909f
+C309 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.a vp 0.32988f
+C310 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y a_84925_26145# 0.01202f
+C311 VCO_MUX_0.inverter_2.out vp 0.33744f
+C312 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y 0.09775f
+C313 VCO_decoder_cells_0.111 m2_84777_31493# 0.03582f
+C314 VCO_decoder_cells_0.100 f1 0.03084f
+C315 a_90658_21705# VCO_decoder_cells_0.001 0.01179f
+C316 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in m2_85620_27450# 0.17968f
+C317 f5 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.c 0.29683f
+C318 VCO3_in m2_84682_33062# 0.08511f
+C319 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y 1.54042f
+C320 VCO_decoder_cells_0.000 VCO_decoder_cells_0.after_000111 0.19289f
+C321 c0 VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n 1.20642f
+C322 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b 1.13626f
+C323 m2_91525_21788# m2_92007_21788# 0.0168f
+C324 vp VCO2_11_sel 0.71765f
+C325 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a vp 0.7686f
+C326 NOR_2in_1.y m2_91643_31812# 0.21174f
+C327 f5 a_90275_30609# 0.01244f
+C328 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in vp 0.55378f
+C329 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_3.y VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_6.y 0.15363f
+C330 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b vp 0.56269f
+C331 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.b VCO_MUX_0.VCO5_sel 0.41788f
+C332 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.y VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.a 0.01268f
+C333 VCO_decoder_cells_0.000000 f2 0.04353f
+C334 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.a a_83582_25065# 0.01311f
+C335 a_85545_31586# VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.b 0.07562f
+C336 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y VCO_decoder_cells_0.001 0.3812f
+C337 a_84709_26145# c2 0.01632f
+C338 VCO3_5_sel vp 0.52657f
+C339 m2_91643_31976# m2_91939_31976# 0.0146f
+C340 a_84245_28107# VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in 0.08164f
+C341 VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n vp 0.57993f
+C342 c0 VCO_decoder_cells_0.011 0.01607f
+C343 inverter_1.out inverter_0.out 7.52573f
+C344 m2_83724_30160# VCO_decoder_cells_0.VCO4_selection_0.NAND_2in_0.y 0.01039f
+C345 VCO_decoder_cells_0.000 m2_85348_28436# 0.01717f
+C346 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.a VCO_MUX_0.VCO5_sel 0.62071f
+C347 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.101 0.20096f
+C348 VCO_decoder_cells_0.after_000111_n m2_85200_30160# 0.19965f
+C349 a_84925_26145# VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_1.in 0.07156f
+C350 VCO_decoder_cells_0.VCO2_selection_0.inverter_0.out VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.d 0.02254f
+C351 VCO_in VCO_MUX_0.inverter_3.out 0.33825f
+C352 a_90275_26697# VCO_decoder_cells_0.010 0.01155f
+C353 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c VCO_decoder_cells_0.011 0.41579f
+C354 vp VCO_decoder_cells_0.101 3.23225f
+C355 f5 VCO_decoder_cells_0.f5_n 14.4096f
+C356 a_91227_32151# VCO_MUX_0.VCO5_sel 0.07548f
+C357 VCO_decoder_cells_0.000000 a_84812_29603# 0.04403f
+C358 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.d VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y 0.09804f
+C359 f4 VCO_decoder_cells_0.000 0.04746f
+C360 f5 a_90658_25617# 0.01165f
+C361 VCO_decoder_cells_0.f5_n f3 0.02589f
+C362 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.a m2_92222_25782# 0.18046f
+C363 VCO_decoder_cells_0.011 m2_85620_27450# 0.1797f
+C364 m2_85300_35182# m2_85300_35018# 0.01858f
+C365 VCO_decoder_cells_0.111 m2_85620_25806# 0.1797f
+C366 a_91452_26697# VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a 0.05025f
+C367 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.011 1.0041f
+C368 m2_84115_23748# m2_84387_23748# 0.01717f
+C369 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b a_84484_22605# 0.08005f
+C370 VCO_decoder_cells_0.after_000011 c0 0.02392f
+C371 VCO_decoder_cells_0.011 vp 2.28258f
+C372 VCO_decoder_cells_0.000000_n a_91338_23187# 0.01187f
+C373 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n 0.43482f
+C374 f3 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.a 0.74907f
+C375 f0 f2 0.55644f
+C376 f2 VCO_decoder_cells_0.after_000011_n 0.04735f
+C377 VCO2_5_sel inverter_0.out 0.0295f
+C378 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.c VCO_decoder_cells_0.000000_n 0.53835f
+C379 VCO_decoder_cells_0.after_001111 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.a 0.02009f
+C380 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b VCO_decoder_cells_0.110 0.33558f
+C381 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a f5 0.76414f
+C382 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y a_90955_28653# 0.0131f
+C383 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.111 0.17846f
+C384 VCO_decoder_cells_0.VCO2_selection_0.NAND_2in_0.y VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.b 0.01766f
+C385 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d 0.03395f
+C386 inverter_0.out VCO_MUX_0.VCO5_sel 0.82584f
+C387 VCO_sel VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.c 0.57397f
+C388 VCO_decoder_cells_0.110 a_91128_25143# 0.01155f
+C389 a_91825_25617# VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in 0.0714f
+C390 VCO_decoder_cells_0.111 vp 1.37919f
+C391 VCO_decoder_cells_0.after_000011_n m2_83724_30160# 0.0169f
+C392 VCO_decoder_cells_0.VCO2_selection_0.inverter_0.out VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in 0.01214f
+C393 VCO_decoder_cells_0.after_000111_n a_90275_28653# 0.01171f
+C394 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.after_000111_n 24.7308f
+C395 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y 0.0904f
+C396 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.a VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d 0.02181f
+C397 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d m2_91847_30042# 0.01219f
+C398 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c a_91592_23661# 0.0194f
+C399 VCO_decoder_cells_0.000000_n m2_91729_23094# 0.01848f
+C400 VCO_decoder_cells_0.after_000011 vp 1.42286f
+C401 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y vp 0.52618f
+C402 inverter_0.out m2_91939_31976# 0.18043f
+C403 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d VCO_decoder_cells_0.011 0.50741f
+C404 a_84925_26463# VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in 0.01202f
+C405 VCO_decoder_cells_0.000000 a_90751_32151# 0.04403f
+C406 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.010 0.15452f
+C407 inverter_0.in VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d 0.01712f
+C408 VCO3_11_sel a_91926_29157# 0.04801f
+C409 VCO_decoder_cells_0.010 vp 1.58405f
+C410 a_85075_31586# VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.c 0.01951f
+C411 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_1.y 0.01256f
+C412 m2_92007_21870# VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y 0.0168f
+C413 f5 VCO_decoder_cells_0.101 1.42704f
+C414 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a inverter_1.out 0.01459f
+C415 VCO_decoder_cells_0.000 VCO_decoder_cells_0.001 21.4209f
+C416 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in a_84245_26463# 0.08164f
+C417 f3 VCO_decoder_cells_0.101 0.04835f
+C418 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d 0.41766f
+C419 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y a_85498_29603# 0.01159f
+C420 VCO_decoder_cells_0.f5_n a_90974_30135# 0.046f
+C421 VCO3_in VCO_MUX_0.inverter_3.out 0.4197f
+C422 a_83446_29099# vp 0.12263f
+C423 f2 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b 0.01797f
+C424 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.b VCO_decoder_cells_0.011 0.37346f
+C425 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.c m2_85463_31411# 0.01938f
+C426 f5 VCO_decoder_cells_0.011 0.72183f
+C427 m2_91847_30042# m2_91847_29960# 0.40984f
+C428 VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.a 0.64412f
+C429 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.c VCO_decoder_cells_0.after_000111 0.55846f
+C430 VCO_decoder_cells_0.100 a_90658_23661# 0.01179f
+C431 VCO_decoder_cells_0.000000 m2_91729_23094# 0.07654f
+C432 f3 VCO_decoder_cells_0.011 0.06222f
+C433 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a VCO_decoder_cells_0.after_001111 1.09177f
+C434 a_84245_28107# VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n 0.01353f
+C435 a_84245_26145# VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y 0.08164f
+C436 VCO2_5_sel VCO2_11_sel 0.77325f
+C437 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a VCO2_5_sel 0.4816f
+C438 VCO_decoder_cells_0.after_000111 a_90275_30609# 0.0183f
+C439 inverter_0.in m2_91847_29960# 0.27737f
+C440 VCO_decoder_cells_0.100 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b 0.3788f
+C441 VCO_decoder_cells_0.after_000011_n a_91128_23661# 0.04403f
+C442 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.b VCO_decoder_cells_0.111 0.02726f
+C443 f5 VCO_decoder_cells_0.111 5.79474f
+C444 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.a m2_92222_25946# 0.18f
+C445 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.000000_n 4.30005f
+C446 f3 VCO_decoder_cells_0.111 0.06074f
+C447 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a VCO_MUX_0.VCO5_sel 0.01326f
+C448 f5 VCO_decoder_cells_0.after_000011 1.0248f
+C449 a_84551_30077# a_84767_30077# 0.02909f
+C450 f5 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y 0.14378f
+C451 a_91609_25617# a_91825_25617# 0.02909f
+C452 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.y VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y 0.69987f
+C453 f0 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.c 0.54555f
+C454 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b a_90442_23187# 0.01159f
+C455 VCO_decoder_cells_0.after_000011 f3 0.16429f
+C456 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.110 6.81707f
+C457 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d 0.04355f
+C458 VCO_decoder_cells_0.000000 a_90658_25143# 0.01064f
+C459 c2 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in 2.12239f
+C460 VCO_decoder_cells_0.110 vp 1.50516f
+C461 VCO_sel m2_85300_33226# 0.17706f
+C462 f5 VCO_decoder_cells_0.010 1.66924f
+C463 a_90275_30609# a_90491_30609# 0.02909f
+C464 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y vp 0.59658f
+C465 a_91171_28653# VCO_decoder_cells_0.101 0.01179f
+C466 f3 VCO_decoder_cells_0.010 0.04836f
+C467 VCO_decoder_cells_0.f5_n VCO_decoder_cells_0.after_000111 1.49192f
+C468 VCO_decoder_cells_0.after_001111 a_91128_21705# 0.04403f
+C469 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_1.in 0.015f
+C470 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y VCO4_11_sel 0.16429f
+C471 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_6.y VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n 0.63468f
+C472 VCO_sel VCO_decoder_cells_0.101 0.01876f
+C473 VCO2_in out 0.60182f
+C474 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.d 1.66243f
+C475 c0 VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n 2.75721f
+C476 f0 VCO_decoder_cells_0.000000_n 0.06197f
+C477 VCO_decoder_cells_0.after_000011_n VCO_decoder_cells_0.000000_n 26.4279f
+C478 a_90442_21705# VCO_decoder_cells_0.f5_n 0.01632f
+C479 VCO_decoder_cells_0.000000 a_91808_23187# 0.01256f
+C480 f2 VCO_decoder_cells_0.after_001111 0.04602f
+C481 VCO_decoder_cells_0.000 m2_90196_31976# 0.01117f
+C482 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d 1.65751f
+C483 a_84008_22605# vp 0.12273f
+C484 f1 VCO_decoder_cells_0.after_000111_n 0.05538f
+C485 f4 a_85004_22605# 0.01429f
+C486 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a VCO_decoder_cells_0.after_000111 0.90668f
+C487 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b VCO_decoder_cells_0.after_000111 0.07191f
+C488 f1 vp 0.4209f
+C489 a_85004_22605# a_85220_22605# 0.02909f
+C490 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.b a_91190_30135# 0.07065f
+C491 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_3.y VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_1.in 0.08826f
+C492 a_90275_30135# VCO_decoder_cells_0.after_000111_n 0.01632f
+C493 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a VCO_decoder_cells_0.VCO2_selection_0.NAND_2in_0.y 0.74631f
+C494 VCO_decoder_cells_0.100 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c 0.18291f
+C495 VCO_decoder_cells_0.after_000011 m2_84387_23912# 0.2263f
+C496 VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n vp 0.60938f
+C497 VCO_decoder_cells_0.f5_n f4 0.05725f
+C498 m2_83724_30406# VCO4_11_sel 0.17997f
+C499 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.d VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y 0.13064f
+C500 VCO_decoder_cells_0.VCO2_selection_0.inverter_0.out VCO2_11_sel 0.65757f
+C501 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_1.y VCO_decoder_cells_0.VCO3_selection_0.inverter_0.out 0.46487f
+C502 a_83446_29099# VCO4_5_sel 0.01589f
+C503 VCO_decoder_cells_0.100 VCO_decoder_cells_0.after_000111_n 0.344f
+C504 VCO_decoder_cells_0.after_001111_n f2 0.0519f
+C505 a_90961_28179# VCO_decoder_cells_0.111 0.01155f
+C506 f5 VCO_decoder_cells_0.110 0.35043f
+C507 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y VCO2_11_sel 1.61372f
+C508 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a a_90491_30609# 0.06976f
+C509 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.d a_91857_28179# 0.01071f
+C510 VCO_decoder_cells_0.100 vp 2.35724f
+C511 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.y VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a 0.72666f
+C512 f3 VCO_decoder_cells_0.110 0.06386f
+C513 VCO_decoder_cells_0.after_000011_n VCO_decoder_cells_0.VCO4_selection_0.NAND_2in_0.y 0.44328f
+C514 a_84551_30077# VCO_decoder_cells_0.001 0.01179f
+C515 VCO_decoder_cells_0.000000 f0 0.05228f
+C516 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.after_000011_n 23.2201f
+C517 VCO_decoder_cells_0.after_000111 VCO_decoder_cells_0.101 1.26557f
+C518 VCO_decoder_cells_0.000 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in 0.59805f
+C519 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.b VCO_decoder_cells_0.after_001111 0.33541f
+C520 c0 VCO4_11_sel 0.03758f
+C521 VCO2_in vp 0.16551f
+C522 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y a_90955_28653# 0.01364f
+C523 a_84132_29603# a_84348_29603# 0.02909f
+C524 a_92024_23661# a_91808_23661# 0.02909f
+C525 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b VCO_decoder_cells_0.000000_n 0.0294f
+C526 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b a_90658_23661# 0.07049f
+C527 VCO3_5_sel a_91592_25143# 0.01145f
+C528 VCO_decoder_cells_0.f5_n a_90442_25617# 0.01632f
+C529 a_91926_29157# vp 0.12263f
+C530 VCO_decoder_cells_0.after_000011 m2_84387_23748# 0.01141f
+C531 VCO_decoder_cells_0.after_000111 VCO_decoder_cells_0.011 1.24352f
+C532 a_90658_25617# a_90442_25617# 0.02909f
+C533 a_90491_30135# VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d 0.07166f
+C534 inverter_2.out VCO4_11_sel 0.09261f
+C535 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in 0.02075f
+C536 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d a_92024_23661# 0.01736f
+C537 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.a NOR_2in_1.y 0.13977f
+C538 a_91808_25143# VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d 0.01274f
+C539 f5 a_84008_22605# 0.01383f
+C540 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y VCO_decoder_cells_0.101 0.50523f
+C541 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_6.y VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_2.y 0.08826f
+C542 vp VCO4_11_sel 0.42306f
+C543 inverter_0.in inverter_0.out 0.33792f
+C544 VCO3_11_sel VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c 0.83753f
+C545 f5 f1 0.23734f
+C546 VCO_decoder_cells_0.after_000111 VCO_decoder_cells_0.111 4.03903f
+C547 VCO4_5_sel VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y 0.81625f
+C548 f1 f3 0.7188f
+C549 VCO_decoder_cells_0.f5_n VCO_decoder_cells_0.001 0.30938f
+C550 f0 VCO_decoder_cells_0.after_000011_n 0.04799f
+C551 f4 VCO_decoder_cells_0.101 0.04831f
+C552 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.after_000111 0.51801f
+C553 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.a VCO_decoder_cells_0.VCO3_selection_0.inverter_0.out 0.048f
+C554 a_90275_28179# VCO_decoder_cells_0.000000_n 0.01632f
+C555 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y VCO_decoder_cells_0.after_000111 0.71282f
+C556 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.a m2_90196_31976# 0.28323f
+C557 VCO3_11_sel vp 0.62882f
+C558 a_83446_29099# inverter_2.in 0.07975f
+C559 VCO_decoder_cells_0.VCO2_selection_0.inverter_0.out VCO_decoder_cells_0.111 0.02164f
+C560 f5 VCO_decoder_cells_0.100 0.81571f
+C561 VCO_decoder_cells_0.010 VCO_decoder_cells_0.after_000111 5.98676f
+C562 VCO_MUX_0.inverter_0.out m2_85300_35018# 0.17363f
+C563 f4 VCO_decoder_cells_0.011 0.06202f
+C564 VCO_decoder_cells_0.000000_n a_90658_23187# 0.01026f
+C565 a_84767_30077# VCO_decoder_cells_0.after_000011 0.01632f
+C566 inverter_0.out VCO_MUX_0.inverter_1.out 0.22465f
+C567 VCO_decoder_cells_0.100 f3 0.03022f
+C568 VCO2_5_sel a_91926_30609# 0.08428f
+C569 NOR_2in_1.y inverter_0.out 0.26947f
+C570 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y 0.83972f
+C571 f4 VCO_decoder_cells_0.111 0.06073f
+C572 NOR_2in_1.y m2_91847_28736# 0.16457f
+C573 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.a VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b 0.02855f
+C574 VCO_decoder_cells_0.after_000011 f4 0.09029f
+C575 VCO_decoder_cells_0.after_001111 VCO_decoder_cells_0.000000_n 0.19708f
+C576 a_91128_23661# VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c 0.07515f
+C577 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_0.y a_91128_21705# 0.07562f
+C578 m2_91847_30042# VCO2_11_sel 0.01035f
+C579 VCO_decoder_cells_0.000 a_91128_21705# 0.01155f
+C580 c0 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y 0.07426f
+C581 VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n VCO_decoder_cells_0.001 0.01489f
+C582 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c a_91122_23187# 0.01305f
+C583 a_84744_24561# VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.c 0.08009f
+C584 a_85545_31586# VCO_decoder_cells_0.after_001111 0.01155f
+C585 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b VCO_decoder_cells_0.after_000011_n 0.24378f
+C586 f4 VCO_decoder_cells_0.010 0.04836f
+C587 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c 1.18329f
+C588 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n 0.48221f
+C589 inverter_0.in VCO2_11_sel 0.15255f
+C590 VCO_decoder_cells_0.001 VCO_decoder_cells_0.101 0.13481f
+C591 VCO3_in VCO_MUX_0.inverter_4.out 0.49424f
+C592 VCO_decoder_cells_0.after_000111_n a_91122_23187# 0.01093f
+C593 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y m2_91847_28736# 0.08575f
+C594 a_84551_30077# VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b 0.07069f
+C595 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b VCO_decoder_cells_0.after_000111_n 0.81664f
+C596 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.b 0.17144f
+C597 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b vp 0.85011f
+C598 f2 VCO_decoder_cells_0.000 0.04803f
+C599 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.a 0.30371f
+C600 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.c VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.a 0.33238f
+C601 VCO_decoder_cells_0.110 m2_85463_31411# 0.07569f
+C602 m2_83364_29510# VCO4_11_sel 0.03048f
+C603 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y 0.62121f
+C604 a_91641_28179# VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y 0.01419f
+C605 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y f2 0.02782f
+C606 VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.000000_n 0.21293f
+C607 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_1.y VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y 0.6025f
+C608 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.c VCO_MUX_0.inverter_3.out 0.0267f
+C609 vp VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y 0.76111f
+C610 VCO_decoder_cells_0.110 VCO_decoder_cells_0.after_000111 0.23697f
+C611 VCO_decoder_cells_0.011 VCO_decoder_cells_0.001 5.21772f
+C612 VCO4_in m2_85300_35018# 0.0535f
+C613 a_85282_30077# VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y 0.07162f
+C614 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.after_001111 0.35454f
+C615 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c VCO2_11_sel 0.82943f
+C616 a_84029_26145# a_84245_26145# 0.02909f
+C617 a_83582_25065# VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b 0.04539f
+C618 VCO4_5_sel VCO4_11_sel 0.86972f
+C619 inverter_2.out out 0.37472f
+C620 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y VCO_decoder_cells_0.f5_n 0.75079f
+C621 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d a_83916_29603# 0.01071f
+C622 NOR_2in_1.y VCO2_11_sel 0.24987f
+C623 a_85069_31904# VCO_decoder_cells_0.111 0.04388f
+C624 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a NOR_2in_1.y 0.01268f
+C625 VCO_decoder_cells_0.111 VCO_decoder_cells_0.001 0.07151f
+C626 m2_85348_26792# m2_85620_26792# 0.01717f
+C627 a_90442_25143# a_90658_25143# 0.02909f
+C628 VCO2_in VCO_MUX_0.VCO5_sel 0.18197f
+C629 out vp 0.78203f
+C630 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.001 0.17309f
+C631 VCO_decoder_cells_0.110 a_90491_30609# 0.01179f
+C632 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_1.in VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n 0.63468f
+C633 inverter_2.in VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n 0.01602f
+C634 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y VCO_decoder_cells_0.001 0.12801f
+C635 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y 0.64208f
+C636 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.a VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c 0.11293f
+C637 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b a_91808_23661# 0.02448f
+C638 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.a a_85220_24087# 0.0797f
+C639 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_3.y VCO_decoder_cells_0.101 0.49466f
+C640 VCO3_5_sel NOR_2in_1.y 1.01143f
+C641 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.after_001111_n 3.77052f
+C642 f2 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_1.in 0.05335f
+C643 f1 VCO_decoder_cells_0.after_000111 0.03864f
+C644 VCO_decoder_cells_0.010 VCO_decoder_cells_0.001 14.2794f
+C645 f4 VCO_decoder_cells_0.110 0.06348f
+C646 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y VCO2_11_sel 0.39981f
+C647 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b 0.36234f
+C648 VCO_decoder_cells_0.after_000111_n c0 0.02378f
+C649 m2_91847_28818# m2_91847_28736# 0.40984f
+C650 c1 VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n 2.0981f
+C651 f0 VCO_decoder_cells_0.after_001111 0.05471f
+C652 VCO_decoder_cells_0.after_001111 VCO_decoder_cells_0.after_000011_n 0.72815f
+C653 c0 vp 1.73555f
+C654 VCO_decoder_cells_0.after_001111_n a_85498_30077# 0.01632f
+C655 VCO_decoder_cells_0.000000 a_90442_25143# 0.01106f
+C656 a_91857_28179# VCO2_11_sel 0.08465f
+C657 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.a 0.01468f
+C658 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_3.y a_84709_26463# 0.0131f
+C659 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c 0.82066f
+C660 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.a vp 0.50779f
+C661 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c vp 0.55591f
+C662 VCO_decoder_cells_0.100 VCO_decoder_cells_0.after_000111 6.72553f
+C663 VCO_decoder_cells_0.after_000011_n a_85282_29603# 0.01682f
+C664 inverter_2.out vp 0.34015f
+C665 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_0.y VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_1.y 0.63268f
+C666 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b a_84744_23583# 0.04134f
+C667 VCO_decoder_cells_0.VCO2_selection_0.NAND_2in_0.y VCO_decoder_cells_0.100 0.37142f
+C668 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in 0.2557f
+C669 VCO_decoder_cells_0.after_000111_n vp 1.25651f
+C670 f4 a_84008_22605# 0.04801f
+C671 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d VCO_decoder_cells_0.101 0.13613f
+C672 inverter_2.in VCO4_11_sel 1.15534f
+C673 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y VCO_decoder_cells_0.101 0.11259f
+C674 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y c2 2.12385f
+C675 VCO_decoder_cells_0.after_001111_n f0 0.06578f
+C676 VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.after_000011_n 0.4617f
+C677 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y a_84709_26145# 0.01402f
+C678 f3 m2_85138_23748# 0.08757f
+C679 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c VCO_decoder_cells_0.111 0.43305f
+C680 f1 f4 0.2687f
+C681 c0 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d 0.02437f
+C682 VCO_sel a_84859_31586# 0.07103f
+C683 a_90275_28653# a_90491_28653# 0.02909f
+C684 VCO4_5_sel a_83916_29603# 0.08178f
+C685 a_91710_30609# VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d 0.01165f
+C686 a_90491_28179# VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c 0.07156f
+C687 f0 a_84744_24561# 0.01407f
+C688 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y VCO_decoder_cells_0.011 0.12504f
+C689 VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in 2.12219f
+C690 VCO_decoder_cells_0.110 VCO_decoder_cells_0.001 0.13551f
+C691 VCO_decoder_cells_0.after_000011_n VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c 0.39068f
+C692 VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in m2_92222_25782# 0.0115f
+C693 VCO4_5_sel VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y 0.62716f
+C694 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.y m2_91849_27026# 0.22771f
+C695 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b m2_84662_23748# 0.4879f
+C696 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.d a_91425_28179# 0.05499f
+C697 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d 0.01534f
+C698 a_90275_32151# VCO_decoder_cells_0.000 0.01155f
+C699 VCO_decoder_cells_0.100 f4 0.03007f
+C700 m2_91847_28818# VCO2_11_sel 0.01172f
+C701 a_90491_30135# VCO_decoder_cells_0.f5_n 0.01022f
+C702 a_84859_31586# a_85075_31586# 0.02909f
+C703 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d vp 0.34091f
+C704 a_90442_23661# a_90658_23661# 0.02909f
+C705 inverter_2.out m2_85590_35018# 0.17968f
+C706 VCO_decoder_cells_0.000 VCO_decoder_cells_0.000000_n 0.12927f
+C707 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y a_90275_28653# 0.01315f
+C708 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y VCO_decoder_cells_0.after_000011 0.04348f
+C709 m2_91049_24968# VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d 0.26623f
+C710 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a VCO2_11_sel 0.01725f
+C711 out inverter_1.out 0.89333f
+C712 a_84709_27789# VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_6.y 0.0131f
+C713 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b a_90442_23661# 0.01159f
+C714 a_91592_23661# a_91808_23661# 0.02909f
+C715 c2 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_1.in 0.53837f
+C716 a_90751_32151# VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.b 0.07562f
+C717 a_84709_26145# VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_1.in 0.0131f
+C718 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.c VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_1.in 0.01798f
+C719 VCO3_5_sel m2_91847_28818# 0.07372f
+C720 m2_85348_26792# VCO_decoder_cells_0.101 0.17997f
+C721 m2_91525_21788# VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_1.y 0.09945f
+C722 f3 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.a 0.61114f
+C723 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c a_91641_28179# 0.01462f
+C724 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b 0.55325f
+C725 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.a VCO_decoder_cells_0.111 0.3906f
+C726 VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d 0.02043f
+C727 VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b 0.26456f
+C728 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d a_91592_23661# 0.04801f
+C729 VCO_sel VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y 0.01456f
+C730 f5 VCO_decoder_cells_0.after_000111_n 1.40989f
+C731 VCO_decoder_cells_0.000000 m2_91148_32058# 0.01774f
+C732 VCO_sel m2_84777_31493# 0.09982f
+C733 VCO_decoder_cells_0.after_001111 m2_83802_23748# 0.1705f
+C734 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.b vp 0.38346f
+C735 f1 VCO_decoder_cells_0.001 0.05941f
+C736 f5 vp 4.54686f
+C737 VCO_decoder_cells_0.after_000111_n f3 0.41729f
+C738 c1 c2 10.4127f
+C739 f3 vp 0.93917f
+C740 a_90751_26697# VCO_decoder_cells_0.after_001111 0.04403f
+C741 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.b VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.c 0.50978f
+C742 c0 VCO4_5_sel 0.05752f
+C743 VCO_decoder_cells_0.f5_n f2 0.02417f
+C744 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.000 0.27961f
+C745 VCO_sel out 0.38776f
+C746 out VCO_MUX_0.VCO5_sel 0.14878f
+C747 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c VCO_decoder_cells_0.110 0.3815f
+C748 VCO_decoder_cells_0.100 VCO_decoder_cells_0.001 0.2339f
+C749 a_84245_27789# VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in 0.08164f
+C750 f1 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b 0.2483f
+C751 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d m2_91729_23012# 0.26504f
+C752 f2 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.a 0.17236f
+C753 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a VCO_decoder_cells_0.011 0.25425f
+C754 a_91641_28179# a_91857_28179# 0.02909f
+C755 VCO_decoder_cells_0.VCO3_selection_0.inverter_0.out VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c 0.07297f
+C756 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n 0.47983f
+C757 VCO5_in inverter_0.out 0.03412f
+C758 VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b 0.72496f
+C759 inverter_1.out vp 0.52059f
+C760 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b VCO_decoder_cells_0.after_000111 0.10807f
+C761 VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.a 0.51418f
+C762 VCO4_5_sel vp 0.55672f
+C763 c1 VCO_decoder_cells_0.000000_n 0.01608f
+C764 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.a a_90275_32151# 0.07562f
+C765 VCO_in VCO3_in 0.21388f
+C766 VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in m2_92222_25946# 0.22771f
+C767 VCO2_5_sel a_91494_30609# 0.01226f
+C768 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d m2_83364_29510# 0.01968f
+C769 VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n 2.00018f
+C770 VCO_decoder_cells_0.f5_n VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.b 0.62675f
+C771 VCO_decoder_cells_0.after_000111_n a_91171_28653# 0.01187f
+C772 VCO_decoder_cells_0.000000 m2_91049_24968# 0.48797f
+C773 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b m2_83724_30242# 0.0168f
+C774 f0 VCO_decoder_cells_0.000 0.05278f
+C775 VCO_decoder_cells_0.000 VCO_decoder_cells_0.after_000011_n 1.33732f
+C776 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_3.y VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n 0.61541f
+C777 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.y a_91452_26697# 0.07132f
+C778 a_91808_25143# VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c 0.01702f
+C779 a_92024_25143# VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d 0.01149f
+C780 VCO_decoder_cells_0.after_000111_n a_90442_23661# 0.01839f
+C781 VCO2_5_sel vp 0.57985f
+C782 a_84767_30077# VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y 0.01865f
+C783 a_90491_30135# VCO_decoder_cells_0.111 0.01179f
+C784 VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.after_001111 0.9783f
+C785 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y 0.27461f
+C786 f5 f3 0.38505f
+C787 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in 0.2557f
+C788 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a VCO_decoder_cells_0.010 0.33603f
+C789 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.d VCO_decoder_cells_0.after_000011_n 0.41662f
+C790 VCO_decoder_cells_0.after_000111_n a_90442_23187# 0.01839f
+C791 VCO4_5_sel VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d 0.15574f
+C792 VCO_sel vp 0.93763f
+C793 VCO_MUX_0.VCO5_sel vp 0.451f
+C794 f2 VCO_decoder_cells_0.101 0.04843f
+C795 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.b 0.41217f
+C796 c0 inverter_2.in 0.02386f
+C797 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.b 1.15871f
+C798 VCO_decoder_cells_0.100 a_90491_28653# 0.01292f
+C799 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c VCO_decoder_cells_0.100 0.09324f
+C800 a_91236_26697# VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.b 0.01161f
+C801 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_6.y m2_85348_27450# 0.21959f
+C802 inverter_2.out inverter_2.in 0.61174f
+C803 f2 VCO_decoder_cells_0.011 0.06251f
+C804 inverter_1.out m2_91643_32058# 0.09739f
+C805 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.a VCO_decoder_cells_0.000000 0.76627f
+C806 c0 VCO_decoder_cells_0.after_000111 0.02904f
+C807 VCO2_in VCO_MUX_0.inverter_1.out 0.42186f
+C808 inverter_2.in vp 0.24373f
+C809 a_91609_25617# VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b 0.05358f
+C810 VCO_decoder_cells_0.after_001111 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y 0.7647f
+C811 VCO_decoder_cells_0.after_001111_n a_90442_25143# 0.01632f
+C812 NOR_2in_1.y a_91926_29157# 0.08009f
+C813 f2 VCO_decoder_cells_0.111 0.09722f
+C814 VCO3_11_sel inverter_0.in 0.02287f
+C815 a_84925_26463# a_84709_26463# 0.02909f
+C816 a_84812_29603# VCO_decoder_cells_0.011 0.01155f
+C817 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.b VCO_decoder_cells_0.101 0.47077f
+C818 VCO_decoder_cells_0.100 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d 0.37099f
+C819 VCO_decoder_cells_0.100 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y 0.40503f
+C820 VCO_decoder_cells_0.after_000011 f2 0.04621f
+C821 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.after_000111 6.3967f
+C822 VCO_decoder_cells_0.VCO2_selection_0.NAND_2in_0.y a_91494_30609# 0.01486f
+C823 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_1.y a_91604_21705# 0.07562f
+C824 VCO4_5_sel m2_83364_29510# 0.01096f
+C825 a_84268_24561# VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.a 0.07673f
+C826 VCO_decoder_cells_0.after_000111 vp 1.29709f
+C827 VCO_MUX_0.inverter_2.out VCO_MUX_0.inverter_4.out 0.02016f
+C828 a_91926_29631# VCO2_11_sel 0.0512f
+C829 f2 VCO_decoder_cells_0.010 0.04836f
+C830 VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_2.y 0.53837f
+C831 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n 0.72478f
+C832 VCO_decoder_cells_0.VCO2_selection_0.NAND_2in_0.y vp 0.34332f
+C833 VCO_decoder_cells_0.f5_n VCO_decoder_cells_0.000000_n 0.39803f
+C834 VCO_decoder_cells_0.000000 inverter_0.out 0.12423f
+C835 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.a VCO_decoder_cells_0.after_000011_n 0.29727f
+C836 a_84767_30077# VCO_decoder_cells_0.after_000111_n 0.01743f
+C837 a_91425_28179# VCO2_11_sel 0.01047f
+C838 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y VCO_decoder_cells_0.001 0.44161f
+C839 VCO_decoder_cells_0.f5_n VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b 0.55584f
+C840 a_84268_24561# vp 0.12274f
+C841 VCO3_11_sel NOR_2in_1.y 0.25956f
+C842 VCO_decoder_cells_0.VCO2_selection_0.inverter_0.out vp 0.58491f
+C843 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y 0.63371f
+C844 a_84132_29603# VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y 0.01462f
+C845 a_91128_23661# VCO_decoder_cells_0.101 0.01155f
+C846 a_90658_21705# VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y 0.07156f
+C847 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b m2_91729_23094# 0.021f
+C848 VCO3_5_sel VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d 0.17442f
+C849 c2 VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n 0.78542f
+C850 a_90658_25617# VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b 0.07156f
+C851 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y vp 0.5716f
+C852 out m2_85300_35182# 0.07978f
+C853 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.b 0.07662f
+C854 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_2.y VCO_decoder_cells_0.011 0.05457f
+C855 c2 VCO_decoder_cells_0.101 0.01469f
+C856 VCO_decoder_cells_0.after_000111_n f4 0.82233f
+C857 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b VCO4_11_sel 0.06287f
+C858 a_84029_26145# c2 0.01632f
+C859 VCO_decoder_cells_0.after_000111_n a_85220_22605# 0.01227f
+C860 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b a_83798_25065# 0.04328f
+C861 f4 vp 0.76313f
+C862 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b VCO_decoder_cells_0.000000_n 0.20768f
+C863 inverter_1.out VCO_MUX_0.VCO5_sel 6.46757f
+C864 VCO_sel inverter_1.out 0.17202f
+C865 VCO3_11_sel VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d 0.28448f
+C866 a_85220_22605# vp 0.12437f
+C867 m2_92222_25782# m2_92222_25700# 0.16814f
+C868 out m2_84682_33062# 0.09843f
+C869 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y m2_92222_25782# 0.01756f
+C870 VCO_decoder_cells_0.011 a_91338_23187# 0.01179f
+C871 c2 a_84709_26463# 0.01632f
+C872 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.f5_n 0.17973f
+C873 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_0.y VCO_decoder_cells_0.after_001111 0.43953f
+C874 inverter_2.in m2_83364_29510# 0.16977f
+C875 VCO_decoder_cells_0.after_001111 VCO_decoder_cells_0.000 0.7973f
+C876 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in m2_85620_26792# 0.17968f
+C877 f5 VCO_decoder_cells_0.after_000111 2.0424f
+C878 f2 VCO_decoder_cells_0.110 0.08424f
+C879 f3 VCO_decoder_cells_0.after_000111 0.03919f
+C880 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.a vp 0.45971f
+C881 VCO_decoder_cells_0.100 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a 0.11172f
+C882 f5 VCO_decoder_cells_0.VCO2_selection_0.NAND_2in_0.y 0.39348f
+C883 a_90275_30135# a_90491_30135# 0.02909f
+C884 VCO_decoder_cells_0.000000_n VCO_decoder_cells_0.101 0.17504f
+C885 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.a VCO3_5_sel 0.81896f
+C886 f1 a_85220_24561# 0.0104f
+C887 inverter_2.out m2_85300_35182# 0.17484f
+C888 m2_83724_30242# m2_83724_30160# 0.16814f
+C889 VCO_decoder_cells_0.111 m2_85463_31493# 0.0345f
+C890 a_83582_25065# VCO_decoder_cells_0.000000_n 0.07203f
+C891 a_90751_32151# VCO_decoder_cells_0.010 0.01155f
+C892 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.c 0.02512f
+C893 VCO4_5_sel inverter_2.in 0.50526f
+C894 inverter_0.out m2_91939_32058# 0.10291f
+C895 a_84859_31586# VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.a 0.02f
+C896 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d 0.19385f
+C897 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b 0.41548f
+C898 VCO_sel VCO_MUX_0.VCO5_sel 0.01281f
+C899 a_84268_24561# f3 0.02588f
+C900 m2_92007_22034# VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_1.y 0.2263f
+C901 VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.000 0.12956f
+C902 f5 a_90491_30609# 0.01094f
+C903 VCO_decoder_cells_0.011 VCO_decoder_cells_0.000000_n 0.22826f
+C904 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.001 0.97797f
+C905 f0 VCO_decoder_cells_0.f5_n 0.03006f
+C906 VCO_decoder_cells_0.f5_n VCO_decoder_cells_0.after_000011_n 0.13799f
+C907 m2_84115_23748# m2_83802_23748# 0.01319f
+C908 a_84245_26145# c0 0.01179f
+C909 vp VCO_decoder_cells_0.001 1.9193f
+C910 VCO_decoder_cells_0.011 a_90658_25143# 0.01179f
+C911 f5 f4 18.9209f
+C912 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.b m2_91643_31812# 0.01536f
+C913 VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n 6.92534f
+C914 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.a VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b 1.04861f
+C915 VCO_decoder_cells_0.110 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.b 0.31322f
+C916 VCO_decoder_cells_0.000000_n VCO_decoder_cells_0.111 13.2709f
+C917 f1 f2 13.2688f
+C918 f4 f3 14.6082f
+C919 a_84709_28107# VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in 0.01402f
+C920 VCO3_11_sel m2_91847_28818# 0.01315f
+C921 out VCO_MUX_0.inverter_1.out 0.3048f
+C922 VCO_sel a_85075_31586# 0.01119f
+C923 m2_91525_21788# VCO_decoder_cells_0.after_001111 0.01774f
+C924 f3 a_85220_22605# 0.04886f
+C925 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.000000_n 0.32985f
+C926 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.101 0.31417f
+C927 VCO_MUX_0.inverter_2.out m2_84682_34204# 0.17363f
+C928 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in a_84029_28107# 0.02306f
+C929 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b m2_92222_25700# 0.01766f
+C930 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b 1.44635f
+C931 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y 1.46085f
+C932 VCO_decoder_cells_0.after_000011_n VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b 0.15487f
+C933 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b vp 0.31104f
+C934 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_0.y VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y 1.23488f
+C935 a_84029_27789# a_84245_27789# 0.02909f
+C936 VCO_decoder_cells_0.after_001111_n m2_91049_24968# 0.01839f
+C937 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_3.y c0 0.63462f
+C938 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y a_90658_25143# 0.07166f
+C939 c1 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_6.y 0.61544f
+C940 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.a m2_92222_25700# 0.09748f
+C941 f5 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.a 0.43579f
+C942 VCO_decoder_cells_0.010 VCO_decoder_cells_0.000000_n 5.52794f
+C943 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.a 0.02115f
+C944 VCO_decoder_cells_0.000 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y 0.56401f
+C945 VCO_decoder_cells_0.100 f2 0.03045f
+C946 a_91425_28179# a_91641_28179# 0.02909f
+C947 VCO2_5_sel VCO_decoder_cells_0.VCO2_selection_0.NAND_2in_0.y 0.89103f
+C948 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.011 1.06524f
+C949 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in 0.08443f
+C950 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.a m2_84777_31493# 0.05606f
+C951 inverter_0.in vp 0.26116f
+C952 f5 a_90442_25617# 0.01533f
+C953 VCO_sel VCO_decoder_cells_0.after_000111 0.03914f
+C954 VCO_decoder_cells_0.after_001111 m2_84115_23748# 0.18308f
+C955 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_2.y VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y 0.01812f
+C956 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b VCO_decoder_cells_0.010 0.39737f
+C957 VCO2_in m2_85300_34040# 0.01858f
+C958 m2_91729_23094# m2_91729_23012# 0.40984f
+C959 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_1.in m2_85348_25806# 0.21959f
+C960 m2_91049_24968# VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c 0.0193f
+C961 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y a_91171_28653# 0.07162f
+C962 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.111 0.60443f
+C963 c2 VCO_decoder_cells_0.110 0.01469f
+C964 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_3.y vp 0.57491f
+C965 VCO_decoder_cells_0.110 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d 0.50749f
+C966 f0 VCO_decoder_cells_0.101 0.05176f
+C967 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n 0.11043f
+C968 VCO_decoder_cells_0.after_000011_n VCO_decoder_cells_0.101 0.77307f
+C969 VCO_decoder_cells_0.after_000111_n a_90491_28653# 0.01094f
+C970 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.after_000011 0.31594f
+C971 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c VCO_decoder_cells_0.after_000111_n 0.58706f
+C972 VCO_decoder_cells_0.110 m2_85463_31493# 0.01068f
+C973 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y 0.26116f
+C974 a_91808_25143# a_92024_25143# 0.02909f
+C975 out VCO_MUX_0.inverter_3.out 0.2274f
+C976 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.b VCO_decoder_cells_0.001 0.0195f
+C977 f5 VCO_decoder_cells_0.001 0.78846f
+C978 VCO_decoder_cells_0.000000_n m2_91729_23012# 0.01839f
+C979 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c a_91808_23661# 0.01565f
+C980 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c vp 0.53901f
+C981 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.a VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b 0.89416f
+C982 VCO_decoder_cells_0.after_001111_n m2_84115_23748# 0.1806f
+C983 VCO_MUX_0.inverter_1.out vp 0.56968f
+C984 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in VCO_decoder_cells_0.101 0.67958f
+C985 f3 VCO_decoder_cells_0.001 0.05912f
+C986 NOR_2in_1.y vp 0.26627f
+C987 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.010 0.91084f
+C988 f0 VCO_decoder_cells_0.011 0.06683f
+C989 VCO_decoder_cells_0.after_000011_n VCO_decoder_cells_0.011 0.16849f
+C990 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c 1.24493f
+C991 m2_83724_30160# VCO4_11_sel 0.09739f
+C992 VCO_decoder_cells_0.after_001111 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.c 0.13363f
+C993 m2_91525_21788# VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y 0.42213f
+C994 VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_2.y 0.6154f
+C995 m2_83451_30242# m2_83724_30242# 0.01705f
+C996 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in a_84709_26463# 0.01402f
+C997 f5 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b 0.35574f
+C998 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y VCO_decoder_cells_0.after_000111_n 0.4431f
+C999 VCO_decoder_cells_0.110 VCO_decoder_cells_0.000000_n 0.23229f
+C1000 f0 VCO_decoder_cells_0.111 0.07875f
+C1001 VCO_decoder_cells_0.after_000011_n VCO_decoder_cells_0.111 0.97124f
+C1002 a_84132_29603# a_83916_29603# 0.02909f
+C1003 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y VCO_decoder_cells_0.000000_n 0.55188f
+C1004 f3 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b 0.04139f
+C1005 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d vp 0.34602f
+C1006 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in a_84709_27789# 0.01402f
+C1007 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y vp 0.64829f
+C1008 VCO_decoder_cells_0.f5_n a_91190_30135# 0.01185f
+C1009 f1 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.c 0.13447f
+C1010 VCO_decoder_cells_0.VCO2_selection_0.NAND_2in_0.y VCO_decoder_cells_0.after_000111 0.30446f
+C1011 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b VCO_decoder_cells_0.VCO3_selection_0.inverter_0.out 1.11984f
+C1012 c0 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in 0.47907f
+C1013 a_85220_24087# vp 0.12274f
+C1014 f0 VCO_decoder_cells_0.after_000011 0.04849f
+C1015 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.after_000011_n 0.58275f
+C1016 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b VCO_decoder_cells_0.after_000111_n 0.85254f
+C1017 VCO2_in VCO5_in 0.21388f
+C1018 c2 VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n 1.19498f
+C1019 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.a a_84744_23583# 0.01379f
+C1020 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.a VCO_decoder_cells_0.110 0.02094f
+C1021 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_0.y VCO_decoder_cells_0.000 0.42463f
+C1022 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b vp 0.60198f
+C1023 VCO_decoder_cells_0.000000 m2_91729_23012# 0.09316f
+C1024 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.y VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in 0.0313f
+C1025 f0 VCO_decoder_cells_0.010 0.05123f
+C1026 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.a vp 0.50238f
+C1027 VCO_decoder_cells_0.100 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_1.y 0.04151f
+C1028 a_90275_26697# VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a 0.07562f
+C1029 VCO_decoder_cells_0.after_000111 a_90491_30609# 0.01847f
+C1030 VCO_decoder_cells_0.010 VCO_decoder_cells_0.after_000011_n 3.73535f
+C1031 a_91710_30609# a_91926_30609# 0.02909f
+C1032 VCO_MUX_0.inverter_3.out vp 0.56959f
+C1033 a_84709_27789# VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n 0.01634f
+C1034 inverter_2.out m2_83451_30160# 0.09711f
+C1035 VCO_decoder_cells_0.f5_n VCO_decoder_cells_0.after_001111 1.77933f
+C1036 VCO_decoder_cells_0.VCO2_selection_0.inverter_0.out m2_91849_26780# 0.09761f
+C1037 m2_83724_30242# VCO_decoder_cells_0.VCO4_selection_0.NAND_2in_0.y 0.01141f
+C1038 f5 m2_85138_24890# 0.07366f
+C1039 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in vp 0.57872f
+C1040 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b a_90658_23187# 0.07054f
+C1041 f4 VCO_decoder_cells_0.after_000111 0.03927f
+C1042 VCO_decoder_cells_0.VCO3_selection_0.inverter_0.out VCO_decoder_cells_0.101 0.02091f
+C1043 f1 VCO_decoder_cells_0.000000_n 0.05244f
+C1044 a_84029_26463# a_84245_26463# 0.02909f
+C1045 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.110 0.77104f
+C1046 VCO_in m2_85300_33226# 0.08511f
+C1047 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.a m2_84662_23748# 0.01263f
+C1048 VCO_decoder_cells_0.VCO2_selection_0.inverter_0.out VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y 1.18758f
+C1049 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y 0.75998f
+C1050 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d 0.05669f
+C1051 VCO_sel VCO_decoder_cells_0.001 0.03124f
+C1052 VCO2_5_sel m2_91847_30042# 0.03548f
+C1053 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.b m2_91148_32058# 0.01482f
+C1054 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_6.y 0.48578f
+C1055 VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.f5_n 19.8531f
+C1056 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b 1.24665f
+C1057 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.b 0.29665f
+C1058 VCO_decoder_cells_0.100 VCO_decoder_cells_0.000000_n 7.70242f
+C1059 a_91190_30135# VCO_decoder_cells_0.101 0.01179f
+C1060 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_1.in 0.48578f
+C1061 m2_91525_21788# VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_0.y 0.01411f
+C1062 VCO2_5_sel inverter_0.in 0.58233f
+C1063 NOR_2in_1.y inverter_1.out 0.36088f
+C1064 f3 a_85220_24087# 0.02016f
+C1065 VCO_MUX_0.inverter_0.out out 0.30505f
+C1066 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.a m2_91148_32058# 0.42209f
+C1067 f2 m2_85138_23748# 0.01316f
+C1068 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a vp 0.50554f
+C1069 f0 VCO_decoder_cells_0.110 0.06447f
+C1070 VCO_decoder_cells_0.000000 f1 0.04351f
+C1071 VCO_decoder_cells_0.110 VCO_decoder_cells_0.after_000011_n 0.41505f
+C1072 a_84484_22605# vp 0.1228f
+C1073 a_91825_25617# VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.a 0.01267f
+C1074 a_90751_26697# VCO_decoder_cells_0.011 0.01155f
+C1075 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_6.y VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n 0.53837f
+C1076 VCO_decoder_cells_0.VCO2_selection_0.inverter_0.out VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.a 0.01274f
+C1077 out m2_85300_34040# 0.12384f
+C1078 a_84709_28107# a_84925_28107# 0.02909f
+C1079 VCO_decoder_cells_0.after_000011_n VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y 0.87705f
+C1080 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y c1 0.72792f
+C1081 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a VCO_decoder_cells_0.after_001111_n 0.57897f
+C1082 c2 a_84029_26463# 0.01632f
+C1083 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y a_91236_26697# 0.01632f
+C1084 m2_92007_22034# VCO_decoder_cells_0.VCO3_selection_0.inverter_0.out 0.17997f
+C1085 VCO_decoder_cells_0.after_001111 VCO_decoder_cells_0.101 0.13601f
+C1086 a_90491_28179# a_90275_28179# 0.02909f
+C1087 a_84709_28107# VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_2.y 0.0131f
+C1088 a_85069_31904# VCO_decoder_cells_0.after_000111 0.02007f
+C1089 VCO_decoder_cells_0.after_000111 VCO_decoder_cells_0.001 1.72508f
+C1090 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.a VCO_decoder_cells_0.000 0.35656f
+C1091 a_84245_27789# c0 0.01183f
+C1092 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.b VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y 0.0203f
+C1093 VCO_decoder_cells_0.after_000011 a_84744_23583# 0.07642f
+C1094 VCO_decoder_cells_0.f5_n VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y 0.5605f
+C1095 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.b m2_84777_31493# 0.01316f
+C1096 c0 VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n 2.85581f
+C1097 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.100 5.77699f
+C1098 VCO_decoder_cells_0.100 a_91808_23187# 0.01155f
+C1099 a_85220_24561# vp 0.12274f
+C1100 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.a VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n 0.01968f
+C1101 VCO_decoder_cells_0.after_001111 VCO_decoder_cells_0.011 0.8917f
+C1102 VCO_MUX_0.inverter_1.out VCO_MUX_0.VCO5_sel 0.64118f
+C1103 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c 0.20993f
+C1104 a_84925_27789# VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n 0.01179f
+C1105 a_85545_31904# VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.c 0.07571f
+C1106 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b VCO4_5_sel 1.05637f
+C1107 inverter_0.out m2_91148_32058# 0.02648f
+C1108 VCO3_in m2_85300_33226# 0.01858f
+C1109 f5 a_91128_25617# 0.04416f
+C1110 inverter_2.out VCO_MUX_0.inverter_0.out 0.54875f
+C1111 inverter_1.out VCO_MUX_0.inverter_3.out 0.22476f
+C1112 VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.101 0.10371f
+C1113 VCO_decoder_cells_0.after_001111_n m2_85200_30160# 0.67555f
+C1114 m2_92007_21870# m2_92007_21788# 0.16814f
+C1115 f0 f1 13.8145f
+C1116 f2 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.a 0.32471f
+C1117 f1 VCO_decoder_cells_0.after_000011_n 0.039f
+C1118 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y a_91171_28653# 0.01159f
+C1119 VCO_decoder_cells_0.010 a_90658_23187# 0.01179f
+C1120 m2_85348_28436# VCO_decoder_cells_0.001 0.17997f
+C1121 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y a_91604_21705# 0.01589f
+C1122 a_84132_29603# VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d 0.01154f
+C1123 VCO_decoder_cells_0.after_001111 VCO_decoder_cells_0.111 0.14613f
+C1124 VCO3_5_sel VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c 1.12464f
+C1125 VCO_MUX_0.inverter_0.out vp 0.33272f
+C1126 c1 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_1.in 0.6154f
+C1127 VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n vp 1.70799f
+C1128 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y m2_83364_29428# 0.01962f
+C1129 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.b VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y 0.04638f
+C1130 VCO_decoder_cells_0.after_000011 m2_84662_23748# 0.26625f
+C1131 a_91122_23187# a_91338_23187# 0.02909f
+C1132 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.after_001111 19.5078f
+C1133 a_84925_26463# c0 0.01179f
+C1134 VCO4_5_sel VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in 0.01884f
+C1135 VCO4_in out 0.14352f
+C1136 VCO_decoder_cells_0.f5_n VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d 0.53042f
+C1137 f4 VCO_decoder_cells_0.001 0.05903f
+C1138 VCO_decoder_cells_0.after_000111_n f2 0.05489f
+C1139 VCO4_11_sel VCO_decoder_cells_0.VCO4_selection_0.NAND_2in_0.y 0.46469f
+C1140 VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.011 0.52545f
+C1141 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.b 1.43796f
+C1142 f5 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a 0.30048f
+C1143 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in VCO_decoder_cells_0.3bit_to_8_outs_0.c1_n 0.72465f
+C1144 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c VCO_decoder_cells_0.101 0.3983f
+C1145 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d 0.22693f
+C1146 f2 vp 1.39476f
+C1147 f5 a_84484_22605# 0.01383f
+C1148 a_83798_25065# VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.c 0.01593f
+C1149 VCO5_in out 0.15366f
+C1150 VCO_decoder_cells_0.100 f0 0.03301f
+C1151 VCO_decoder_cells_0.100 VCO_decoder_cells_0.after_000011_n 0.29046f
+C1152 a_91128_25143# VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d 0.07592f
+C1153 VCO_decoder_cells_0.010 VCO_decoder_cells_0.after_001111 0.46151f
+C1154 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_6.y VCO_decoder_cells_0.010 0.49468f
+C1155 VCO_sel VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b 0.0245f
+C1156 m2_84777_31493# m2_85463_31493# 0.01839f
+C1157 VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.111 0.13105f
+C1158 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in VCO_decoder_cells_0.100 0.41553f
+C1159 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.a VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.b 1.28459f
+C1160 VCO_sel VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.a 1.21811f
+C1161 VCO_decoder_cells_0.000000 VCO3_11_sel 0.01086f
+C1162 VCO_sel VCO_MUX_0.inverter_3.out 0.84043f
+C1163 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.a m2_91643_31976# 0.01594f
+C1164 f4 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b 0.14127f
+C1165 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.a VCO_decoder_cells_0.001 0.42001f
+C1166 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d 0.23607f
+C1167 VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.after_000011 1.38249f
+C1168 VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y 0.53732f
+C1169 VCO_decoder_cells_0.010 a_85282_29603# 0.01179f
+C1170 a_91227_32151# VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.b 0.01232f
+C1171 VCO2_in m2_84682_34204# 0.08511f
+C1172 a_91236_26697# VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a 0.0102f
+C1173 f5 a_85220_24561# 0.01383f
+C1174 a_84925_28107# c0 0.01179f
+C1175 VCO_MUX_0.inverter_0.out m2_85590_35018# 0.1797f
+C1176 VCO_decoder_cells_0.000000_n a_91122_23187# 0.04601f
+C1177 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b VCO_decoder_cells_0.000000_n 0.58527f
+C1178 VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.010 0.1082f
+C1179 a_90442_25143# VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y 0.01318f
+C1180 VCO_decoder_cells_0.VCO2_selection_0.inverter_0.out VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c 0.026f
+C1181 VCO_decoder_cells_0.f5_n VCO_decoder_cells_0.000 0.64166f
+C1182 a_83798_25065# VCO_decoder_cells_0.000000_n 0.01288f
+C1183 VCO4_in inverter_2.out 0.63897f
+C1184 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.b vp 0.47416f
+C1185 c0 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_2.y 0.63466f
+C1186 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.b vp 0.55608f
+C1187 out VCO_MUX_0.inverter_4.out 1.11011f
+C1188 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y 0.27191f
+C1189 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.a a_91227_32151# 0.02046f
+C1190 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y VCO_decoder_cells_0.after_000111 0.57871f
+C1191 VCO4_in vp 0.15522f
+C1192 NOR_2in_1.y VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y 0.02286f
+C1193 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.a 1.12636f
+C1194 a_91609_25617# VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in 0.01151f
+C1195 a_84812_29603# VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d 0.07592f
+C1196 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d VCO_decoder_cells_0.101 0.43464f
+C1197 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.b inverter_0.out 0.01806f
+C1198 f4 m2_85138_24890# 0.01312f
+C1199 c2 c0 0.62635f
+C1200 VCO5_in vp 0.15774f
+C1201 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_0.y a_91604_21705# 0.0156f
+C1202 VCO_decoder_cells_0.010 m2_85348_27450# 0.17997f
+C1203 inverter_2.in m2_83451_30160# 0.02212f
+C1204 f5 f2 1.02262f
+C1205 m2_91847_29960# VCO2_11_sel 0.01308f
+C1206 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y m2_91849_26780# 0.16814f
+C1207 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c a_91338_23187# 0.07166f
+C1208 VCO_decoder_cells_0.after_000111 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.a 0.61909f
+C1209 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.a VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.c 0.4402f
+C1210 VCO_decoder_cells_0.110 VCO_decoder_cells_0.after_001111 2.842f
+C1211 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_2.y vp 0.61635f
+C1212 VCO_decoder_cells_0.VCO2_selection_0.inverter_0.out VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y 0.47489f
+C1213 f3 f2 15.77f
+C1214 a_85498_29603# VCO_decoder_cells_0.000000_n 0.01632f
+C1215 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y 0.63086f
+C1216 a_85545_31904# VCO_decoder_cells_0.101 0.01155f
+C1217 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.a inverter_0.out 0.02284f
+C1218 VCO_decoder_cells_0.010 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_0.y 0.03027f
+C1219 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b 0.05333f
+C1220 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.d VCO2_11_sel 0.20828f
+C1221 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in a_84029_26463# 0.02306f
+C1222 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_1.y vp 0.38234f
+C1223 VCO_decoder_cells_0.000000 a_91128_25143# 0.04412f
+C1224 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y 0.03922f
+C1225 m2_83364_29428# VCO4_11_sel 0.02369f
+C1226 c2 vp 0.45577f
+C1227 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y a_85282_29603# 0.07065f
+C1228 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.c vp 0.30144f
+C1229 a_91926_29631# vp 0.12263f
+C1230 vp VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.d 0.29828f
+C1231 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d VCO_decoder_cells_0.111 0.37247f
+C1232 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n 0.04478f
+C1233 VCO_decoder_cells_0.after_001111_n VCO_decoder_cells_0.110 3.31384f
+C1234 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d 0.83557f
+C1235 c0 VCO_decoder_cells_0.000000_n 1.1252f
+C1236 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_2.y VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d 0.02404f
+C1237 VCO_MUX_0.inverter_4.out vp 0.30083f
+C1238 VCO_decoder_cells_0.000 VCO_decoder_cells_0.101 0.13186f
+C1239 VCO_decoder_cells_0.000 m2_85200_30160# 0.01001f
+C1240 a_85498_30077# VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y 0.01315f
+C1241 f5 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.b 0.01696f
+C1242 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.a VCO_decoder_cells_0.000000_n 0.55102f
+C1243 a_84029_26145# VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y 0.02306f
+C1244 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c VCO_decoder_cells_0.000000_n 0.63142f
+C1245 VCO_decoder_cells_0.110 m2_85348_25806# 0.17997f
+C1246 f1 VCO_decoder_cells_0.after_001111 0.04589f
+C1247 inverter_0.in m2_91847_30042# 0.1649f
+C1248 inverter_2.out m2_83451_30242# 0.18015f
+C1249 VCO_decoder_cells_0.000 VCO_decoder_cells_0.011 0.36569f
+C1250 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.000000_n 4.50475f
+C1251 m2_83724_30406# VCO_decoder_cells_0.VCO4_selection_0.NAND_2in_0.y 0.2263f
+C1252 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.b VCO_decoder_cells_0.after_000011_n 0.17849f
+C1253 VCO_decoder_cells_0.000000_n vp 1.49936f
+C1254 VCO_decoder_cells_0.after_000011_n VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_1.y 0.22628f
+C1255 a_91710_30609# a_91494_30609# 0.02909f
+C1256 VCO_decoder_cells_0.after_001111_n a_84008_22605# 0.0802f
+C1257 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b vp 0.52158f
+C1258 VCO3_11_sel VCO_decoder_cells_0.VCO3_selection_0.inverter_0.out 0.82102f
+C1259 VCO_decoder_cells_0.100 VCO_decoder_cells_0.after_001111 1.5802f
+C1260 VCO_MUX_0.VCO5_sel m2_85300_34040# 0.17251f
+C1261 VCO_decoder_cells_0.000 VCO_decoder_cells_0.111 0.0846f
+C1262 c1 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_10.in 0.72472f
+C1263 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y VCO_decoder_cells_0.111 0.41553f
+C1264 VCO_decoder_cells_0.after_001111_n f1 0.05158f
+C1265 VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in VCO3_5_sel 0.02206f
+C1266 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.a vp 0.37841f
+C1267 VCO_decoder_cells_0.000000 c0 0.03372f
+C1268 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a m2_91849_26780# 0.01849f
+C1269 VCO_decoder_cells_0.after_000011 VCO_decoder_cells_0.000 3.08877f
+C1270 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.b m2_85138_24890# 0.28893f
+C1271 VCO_decoder_cells_0.VCO2_selection_0.inverter_0.out VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a 0.01038f
+C1272 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.a VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a 0.03071f
+C1273 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.d VCO_decoder_cells_0.111 0.50742f
+C1274 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c 0.44956f
+C1275 f1 a_84744_24561# 0.0539f
+C1276 inverter_2.out VCO_decoder_cells_0.VCO4_selection_0.NAND_2in_0.y 0.01166f
+C1277 f3 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.c 0.33535f
+C1278 NOR_2in_1.y inverter_0.in 3.30664f
+C1279 VCO_decoder_cells_0.010 VCO_decoder_cells_0.000 1.11774f
+C1280 c1 VCO_decoder_cells_0.3bit_to_8_outs_0.c2_n 0.69357f
+C1281 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b VCO_decoder_cells_0.001 0.57351f
+C1282 VCO_decoder_cells_0.f5_n inverter_0.out 0.01498f
+C1283 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.after_000111_n 0.56696f
+C1284 VCO_decoder_cells_0.100 VCO_decoder_cells_0.after_001111_n 0.11241f
+C1285 out m2_84682_34204# 0.09864f
+C1286 a_84925_26145# VCO_decoder_cells_0.3bit_to_8_outs_0.c0_n 0.01179f
+C1287 vp VCO_decoder_cells_0.VCO4_selection_0.NAND_2in_0.y 0.3562f
+C1288 VCO2_5_sel VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.b 1.06409f
+C1289 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y a_84348_29603# 0.01486f
+C1290 a_85069_31904# VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.a 0.07548f
+C1291 VCO_decoder_cells_0.000000 vp 0.9348f
+C1292 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.a VCO_decoder_cells_0.001 0.03102f
+C1293 a_91128_25617# VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.a 0.07562f
+C1294 f4 a_84484_22605# 0.04801f
+C1295 VCO_MUX_0.inverter_2.out inverter_0.out 0.7494f
+C1296 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.b a_90974_30135# 0.01159f
+C1297 VCO_sel VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.b 0.65575f
+C1298 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_8.in VCO_decoder_cells_0.001 0.67962f
+C1299 a_84245_28107# a_84029_28107# 0.02909f
+C1300 a_91926_30609# VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d 0.01077f
+C1301 c0 VCO_decoder_cells_0.after_000011_n 0.04215f
+C1302 VCO_decoder_cells_0.100 a_90961_30609# 0.01155f
+C1303 f5 VCO_decoder_cells_0.000000_n 0.20377f
+C1304 f2 VCO_decoder_cells_0.after_000111 0.03874f
+C1305 f3 VCO_decoder_cells_0.000000_n 0.14614f
+C1306 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in c0 0.47975f
+C1307 a_85282_30077# a_85498_30077# 0.02909f
+C1308 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.a VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a 0.0321f
+C1309 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.b 0.01581f
+C1310 VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in m2_92222_25700# 0.01049f
+C1311 f5 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_4.b 0.81355f
+C1312 inverter_1.out VCO_MUX_0.inverter_4.out 0.7494f
+C1313 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y VCO_decoder_cells_0.VCO3_selection_0.inverter_1.in 0.57416f
+C1314 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d VCO_decoder_cells_0.VCO4_selection_0.NAND_2in_0.y 0.01809f
+C1315 f4 a_85220_24561# 0.04972f
+C1316 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.a a_90275_30609# 0.01159f
+C1317 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b m2_85138_23748# 0.41035f
+C1318 VCO5_in VCO_MUX_0.VCO5_sel 0.63791f
+C1319 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.d a_91641_28179# 0.01228f
+C1320 VCO_decoder_cells_0.000000 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d 0.41662f
+C1321 m2_91847_28736# VCO2_11_sel 0.01195f
+C1322 a_84081_30077# VCO_decoder_cells_0.001 0.01155f
+C1323 a_91128_25617# VCO_decoder_cells_0.001 0.01155f
+C1324 f0 VCO_decoder_cells_0.after_000111_n 0.0643f
+C1325 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.after_000011_n 5.79084f
+C1326 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.b a_85075_31586# 0.01004f
+C1327 f0 vp 7.09088f
+C1328 a_84268_24561# f2 0.04869f
+C1329 VCO_decoder_cells_0.after_000011_n vp 1.04404f
+C1330 a_92024_25143# VCO3_5_sel 0.08178f
+C1331 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y a_90491_28653# 0.07175f
+C1332 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_1.c VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y 0.05908f
+C1333 VCO2_5_sel a_91926_29631# 0.01383f
+C1334 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_0.y NOR_2in_1.y 0.21436f
+C1335 VCO_decoder_cells_0.110 VCO_decoder_cells_0.000 0.12359f
+C1336 VCO_decoder_cells_0.010 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.b 0.50233f
+C1337 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_0.y VCO_decoder_cells_0.110 0.67958f
+C1338 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_6.in vp 0.55377f
+C1339 VCO3_5_sel m2_91847_28736# 0.01088f
+C1340 m2_92007_21788# VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_1.y 0.01039f
+C1341 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.c VCO_decoder_cells_0.101 0.34283f
+C1342 a_90275_30135# VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d 0.01313f
+C1343 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.b m2_85463_31411# 0.26568f
+C1344 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_1.a VCO_decoder_cells_0.001 0.03301f
+C1345 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.d a_91808_23661# 0.01047f
+C1346 VCO_decoder_cells_0.000000 f5 1.02624f
+C1347 VCO_decoder_cells_0.after_000111 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.b 0.98936f
+C1348 f4 f2 0.07121f
+C1349 VCO_decoder_cells_0.000000 f3 0.044f
+C1350 VCO_sel VCO_MUX_0.inverter_4.out 0.20201f
+C1351 VCO_MUX_0.inverter_3.out VCO_MUX_0.inverter_1.out 0.0219f
+C1352 VCO3_11_sel VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_1.c 0.11552f
+C1353 VCO_decoder_cells_0.VCO2_selection_0.NAND_2in_0.y VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.b 0.46968f
+C1354 VCO_decoder_cells_0.100 VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.d 0.10144f
+C1355 VCO_decoder_cells_0.VCO5_selection_0.NAND_2in_0.a VCO_decoder_cells_0.010 0.25219f
+C1356 VCO_decoder_cells_0.after_000011_n VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.d 0.05786f
+C1357 VCO_in out 0.14817f
+C1358 VCO_decoder_cells_0.3bit_to_8_outs_0.NAND_3in_3.y m2_85348_26792# 0.21959f
+C1359 VCO_decoder_cells_0.110 m2_91049_24968# 0.01109f
+C1360 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.c VCO_decoder_cells_0.111 0.34766f
+C1361 VCO_decoder_cells_0.VCO2_selection_0.NAND_3in_2.y VCO_decoder_cells_0.VCO2_selection_0.NAND_4in_0.b 0.0577f
+C1362 f1 VCO_decoder_cells_0.000 0.04865f
+C1363 VCO_decoder_cells_0.after_000111_n VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b 0.48214f
+C1364 a_84709_27789# a_84925_27789# 0.02909f
+C1365 VCO_decoder_cells_0.3bit_to_8_outs_0.inverter_1.in VCO_decoder_cells_0.110 0.49466f
+C1366 VCO_decoder_cells_0.000000_n a_90442_23187# 0.0105f
+C1367 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c VCO_decoder_cells_0.VCO3_selection_0.inverter_0.out 0.02684f
+C1368 a_84709_26145# a_84925_26145# 0.02909f
+C1369 VCO_decoder_cells_0.row_section_decoding_0.NAND_2in_0.b vp 0.30087f
+C1370 VCO_decoder_cells_0.f5_n VCO_decoder_cells_0.101 0.24607f
+C1371 a_91609_25617# VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y 0.02242f
+C1372 VCO4_5_sel VCO_decoder_cells_0.VCO4_selection_0.NAND_2in_0.y 0.01731f
+C1373 m2_84662_23748# m2_85138_23748# 0.01756f
+C1374 f5 f0 0.16883f
+C1375 f5 VCO_decoder_cells_0.after_000011_n 0.16169f
+C1376 VCO_decoder_cells_0.VCO4_selection_0.NAND_4in_0.b VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.a 0.01348f
+C1377 m2_85463_31411# m2_85463_31493# 0.40984f
+C1378 f0 f3 0.05461f
+C1379 f3 VCO_decoder_cells_0.after_000011_n 0.09703f
+C1380 VCO3_5_sel VCO2_11_sel 0.01727f
+C1381 VCO_decoder_cells_0.100 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_0.y 0.07101f
+C1382 a_90275_26697# VCO_decoder_cells_0.after_001111 0.0118f
+C1383 NOR_2in_1.y m2_91847_28818# 0.2703f
+C1384 VCO_decoder_cells_0.VCO3_selection_0.inverter_0.out vp 0.43682f
+C1385 VCO3_11_sel gd 2.80841f
+C1386 VCO4_11_sel gd 0.28174f
+C1387 VCO_in gd 1.16275f
+C1388 VCO3_in gd 1.32248f
+C1389 VCO5_in gd 1.02621f
+C1390 VCO2_in gd 1.48446f
+C1391 VCO4_in gd 1.95163f
+C1392 out gd 7.8802f
+C1393 vp gd 63.59254f
+C1394 m2_92007_21788# gd 0.02813f ; **FLOATING
+C1395 m2_91525_21788# gd 0.07766f ; **FLOATING
+C1396 m2_92007_21870# gd 0.01292f ; **FLOATING
+C1397 m2_92007_22034# gd 0.01189f ; **FLOATING
+C1398 m2_91729_23012# gd 0.02084f ; **FLOATING
+C1399 m2_91729_23094# gd 0.03318f ; **FLOATING
+C1400 m2_85138_23748# gd 0.02109f ; **FLOATING
+C1401 m2_84662_23748# gd 0.01384f ; **FLOATING
+C1402 m2_91049_24968# gd 0.01365f ; **FLOATING
+C1403 m2_85138_24890# gd 0.02045f ; **FLOATING
+C1404 m2_92222_25700# gd 0.02063f ; **FLOATING
+C1405 m2_92222_25782# gd 0.0138f ; **FLOATING
+C1406 m2_92222_25946# gd 0.01282f ; **FLOATING
+C1407 m2_85620_25806# gd 0.01195f ; **FLOATING
+C1408 m2_91849_26780# gd 0.01854f ; **FLOATING
+C1409 m2_85620_26792# gd 0.01195f ; **FLOATING
+C1410 m2_91849_27026# gd 0.01191f ; **FLOATING
+C1411 m2_85620_27450# gd 0.01195f ; **FLOATING
+C1412 m2_91847_28736# gd 0.04788f ; **FLOATING
+C1413 m2_91847_28818# gd 0.047f ; **FLOATING
+C1414 m2_83364_29428# gd 0.02125f ; **FLOATING
+C1415 m2_83364_29510# gd 0.04664f ; **FLOATING
+C1416 m2_91847_29960# gd 0.02344f ; **FLOATING
+C1417 m2_91847_30042# gd 0.04877f ; **FLOATING
+C1418 m2_85200_30160# gd 0.02861f ; **FLOATING
+C1419 m2_83724_30160# gd 0.01328f ; **FLOATING
+C1420 m2_83451_30160# gd 0.0196f ; **FLOATING
+C1421 m2_83451_30242# gd 0.01272f ; **FLOATING
+C1422 m2_83451_30406# gd 0.01241f ; **FLOATING
+C1423 m2_85463_31411# gd 0.02051f ; **FLOATING
+C1424 m2_85463_31493# gd 0.03946f ; **FLOATING
+C1425 m2_84777_31493# gd 0.06502f ; **FLOATING
+C1426 m2_91939_31976# gd 0.01335f ; **FLOATING
+C1427 m2_90196_31976# gd 0.02056f ; **FLOATING
+C1428 m2_91939_32058# gd 0.02058f ; **FLOATING
+C1429 m2_91643_32058# gd 0.01393f ; **FLOATING
+C1430 m2_91148_32058# gd 0.03955f ; **FLOATING
+C1431 m2_84682_33062# gd 0.01427f ; **FLOATING
+C1432 m2_84682_34204# gd 0.01427f ; **FLOATING
+C1433 m2_85590_35018# gd 0.01176f ; **FLOATING
+C1434 m2_85300_35018# gd 0.01354f ; **FLOATING
+C1435 m2_85300_35182# gd 0.01093f ; **FLOATING
+C1436 a_91604_21705# gd 0.13307f
+C1437 a_91128_21705# gd 0.13213f
+C1438 a_90658_21705# gd 0.1052f
+C1439 a_90442_21705# gd 0.13255f
+C1440 VCO_decoder_cells_0.VCO3_selection_0.NAND_2in_0.y gd 0.20184f
+C1441 a_85004_22605# gd 0.01751f
+C1442 a_84008_22605# gd 2.55853f
+C1443 a_91808_23187# gd 2.16293f
+C1444 a_91338_23187# gd 0.10277f
+C1445 a_91122_23187# gd 0.1292f
+C1446 a_90658_23187# gd 0.10278f
+C1447 a_90442_23187# gd 0.13013f
+C1448 a_92024_23661# gd 0.10281f
+C1449 a_91808_23661# gd 0.10115f
+C1450 a_91592_23661# gd 0.12753f
+C1451 a_91128_23661# gd 0.25509f
+C1452 a_90658_23661# gd 0.10277f
+C1453 a_84744_23583# gd 0.12992f
+C1454 a_90442_23661# gd 0.13013f
+C1455 VCO_decoder_cells_0.VCO3_selection_0.inverter_0.out gd 0.61592f
+C1456 VCO_decoder_cells_0.VCO3_selection_0.NAND_4in_0.c gd 0.40501f
+C1457 a_84744_24561# gd 0.51139f
+C1458 a_92024_25143# gd 0.4956f
+C1459 a_91808_25143# gd 0.10115f
+C1460 a_91592_25143# gd 0.69132f
+C1461 a_91128_25143# gd 0.12969f
+C1462 a_90658_25143# gd 0.10277f
+C1463 VCO_decoder_cells_0.row_section_decoding_0.NAND_3in_0.c gd 0.40043f
+C1464 a_83798_25065# gd 0.74256f
+C1465 a_83582_25065# gd 1.46999f
+C1466 a_90442_25143# gd 0.13013f
+C1467 a_91825_25617# gd 0.67402f
+C1468 a_91609_25617# gd 0.93376f
+C1469 a_91128_25617# gd 0.12968f
+C1470 a_90658_25617# gd 2.33215f
+C1471 a_90442_25617# gd 2.3595f
+C1472 VCO_decoder_cells_0.VCO3_selection_0.NAND_3in_3.y gd 0.39353f
+C1473 a_84925_26145# gd 0.10276f
+C1474 a_84709_26145# gd 1.57228f
+C1475 a_84245_26145# gd 0.10278f
+C1476 a_84029_26145# gd 0.13014f
+C1477 a_84925_26463# gd 0.10276f
+C1478 a_84709_26463# gd 0.13012f
+C1479 a_84245_26463# gd 0.50373f
+C1480 a_84029_26463# gd 0.53108f
+C1481 a_91452_26697# gd 0.09991f
+C1482 a_91236_26697# gd 0.13016f
+C1483 a_90751_26697# gd 0.12969f
+C1484 a_90275_26697# gd 0.25736f
+C1485 a_84925_27789# gd 0.10276f
+C1486 a_84709_27789# gd 0.13012f
+C1487 a_84245_27789# gd 0.10278f
+C1488 a_84029_27789# gd 0.13013f
+C1489 VCO_decoder_cells_0.VCO2_selection_0.inverter_0.out gd 2.29832f
+C1490 a_91857_28179# gd 1.65422f
+C1491 a_91641_28179# gd 1.32959f
+C1492 a_91425_28179# gd 0.55061f
+C1493 a_90961_28179# gd 3.11215f
+C1494 a_90491_28179# gd 0.10277f
+C1495 a_84925_28107# gd 0.10276f
+C1496 a_84709_28107# gd 0.13012f
+C1497 a_84245_28107# gd 0.10278f
+C1498 a_84029_28107# gd 0.13013f
+C1499 a_90275_28179# gd 0.25607f
+C1500 a_91171_28653# gd 0.10283f
+C1501 a_90955_28653# gd 0.12923f
+C1502 a_90491_28653# gd 0.10279f
+C1503 a_90275_28653# gd 0.13014f
+C1504 a_91926_29157# gd 2.51295f
+C1505 a_83446_29099# gd 0.03911f
+C1506 a_91926_29631# gd 1.75437f
+C1507 VCO_decoder_cells_0.000000_n gd 1.02224f
+C1508 a_85498_29603# gd 0.13013f
+C1509 a_85282_29603# gd 0.10277f
+C1510 a_84812_29603# gd 1.48981f
+C1511 a_84348_29603# gd 1.38968f
+C1512 VCO_decoder_cells_0.VCO4_selection_0.NAND_3in_0.y gd 0.23634f
+C1513 a_84132_29603# gd 0.74956f
+C1514 a_83916_29603# gd 0.84529f
+C1515 a_91190_30135# gd 0.10338f
+C1516 a_90974_30135# gd 0.12949f
+C1517 a_90491_30135# gd 2.06628f
+C1518 a_90275_30135# gd 2.0936f
+C1519 a_85498_30077# gd 2.98288f
+C1520 a_85282_30077# gd 0.10275f
+C1521 a_84767_30077# gd 0.13013f
+C1522 a_84551_30077# gd 0.10277f
+C1523 a_84081_30077# gd 0.12992f
+C1524 a_91926_30609# gd 0.89595f
+C1525 a_91710_30609# gd 0.77806f
+C1526 a_91494_30609# gd 0.35864f
+C1527 a_90961_30609# gd 0.12966f
+C1528 a_90491_30609# gd 0.10277f
+C1529 a_90275_30609# gd 0.13013f
+C1530 inverter_2.in gd 0.03127f
+C1531 a_85545_31586# gd 2.42344f
+C1532 a_85075_31586# gd 0.67542f
+C1533 VCO_decoder_cells_0.VCO_selection_0.NAND_3in_0.b gd 2.15811f
+C1534 a_84859_31586# gd 1.2656f
+C1535 a_85545_31904# gd 0.13195f
+C1536 a_85069_31904# gd 0.12767f
+C1537 NOR_2in_1.y gd 1.22571f
+C1538 a_91227_32151# gd 0.13004f
+C1539 a_90751_32151# gd 0.12968f
+C1540 a_90275_32151# gd 1.29451f
+C1541 VCO_MUX_0.inverter_4.out gd 0.82965f
+C1542 VCO_MUX_0.VCO5_sel gd 1.13047f
+C1543 inverter_2.out gd 0.85445f
+.ends
+

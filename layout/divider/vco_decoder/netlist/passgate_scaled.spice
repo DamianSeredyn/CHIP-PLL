@@ -1,0 +1,6 @@
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/passgate_scaled.sch
+.subckt passgate_scaled en_ VP GND en IO OI
+*.PININFO OI:B IO:B VP:B GND:B en_:I en:I
+MM1 IO en OI GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM2 IO en_ OI VP sg13_lv_pmos w=0.15u l=0.13u ng=1
+.ends
