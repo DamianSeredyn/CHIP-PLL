@@ -34,7 +34,7 @@ N 1420 620 1480 620 {lab=VP}
 N 250 480 280 480 {lab=d4}
 N 250 500 280 500 {lab=d5}
 N 850 280 1300 280 {lab=out}
-N 580 280 780 280 {lab=#net3}
+N 580 280 780 280 {lab=out_pre_buff}
 N 1360 0 1380 0 {lab=VP}
 N 1360 0 1360 40 {lab=VP}
 N 1360 100 1360 130 {lab=gd}
@@ -45,8 +45,8 @@ N 1010 -10 1030 -10 {lab=gd}
 N 1150 -60 1170 -60 {lab=VP}
 N 1150 -60 1150 -20 {lab=VP}
 N 1150 40 1150 70 {lab=gd}
-N 1250 -10 1320 -10 {lab=#net4}
-N 1320 -10 1320 40 {lab=#net4}
+N 1250 -10 1320 -10 {lab=#net3}
+N 1320 -10 1320 40 {lab=#net3}
 N 650 -80 650 -30 {lab=d012}
 N 650 -30 710 -30 {lab=d012}
 N 660 50 680 50 {lab=VP}
@@ -62,8 +62,8 @@ N 340 90 360 90 {lab=d5}
 N 1300 50 1300 70 {lab=clk}
 N 1360 210 1360 250 {lab=VP}
 N 1360 310 1360 340 {lab=gd}
-N 1320 310 1320 350 {lab=#net4}
-N 1250 350 1320 350 {lab=#net4}
+N 1320 310 1320 350 {lab=#net3}
+N 1250 350 1320 350 {lab=#net3}
 N 1320 140 1320 250 {lab=bypass}
 N 1010 10 1010 140 {lab=bypass}
 N 1360 210 1380 210 {lab=VP}
@@ -75,9 +75,9 @@ N 1430 70 1430 280 {lab=#net1}
 N 1430 280 1430 480 {lab=#net1}
 N 1090 480 1430 480 {lab=#net1}
 N 1090 480 1090 600 {lab=#net1}
-N 1200 10 1250 10 {lab=#net4}
-N 1250 10 1250 350 {lab=#net4}
-N 1250 -10 1250 10 {lab=#net4}
+N 1200 10 1250 10 {lab=#net3}
+N 1250 10 1250 350 {lab=#net3}
+N 1250 -10 1250 10 {lab=#net3}
 N 1010 10 1130 10 {lab=bypass}
 N 1010 140 1320 140 {lab=bypass}
 N -10 -90 10 -90 {lab=gd}
@@ -93,7 +93,7 @@ N -10 130 10 130 {lab=out_div}
 N 1020 570 1040 570 {lab=VP}
 N 1020 570 1020 610 {lab=VP}
 N 1020 670 1020 700 {lab=gd}
-N 1070 640 1120 640 {lab=#net5}
+N 1070 640 1120 640 {lab=#net4}
 N -10 -20 10 -20 {lab=reset}
 N 970 640 1000 640 {lab=reset}
 N -220 260 -170 260 {lab=out}
@@ -213,4 +213,6 @@ C {lab_wire.sym} 10 -20 2 0 {name=p21 sig_type=std_logic lab=reset}
 C {lab_wire.sym} 970 640 0 0 {name=p22 sig_type=std_logic lab=reset}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x8.sym} 810 280 0 0 {name=x13}
 C {lab_wire.sym} -220 260 2 0 {name=p23 sig_type=std_logic lab=out
+}
+C {lab_wire.sym} 700 280 2 0 {name=p24 sig_type=std_logic lab=out_pre_buff
 }

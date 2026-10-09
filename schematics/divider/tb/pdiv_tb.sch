@@ -47,7 +47,7 @@ op
 print all
 save v(out_div), v(x1.out), v(x1.div2), v(x1.div4), v(x1.div8), v(x1.div16), v(x1.div32), v(x1.div64)
 
-tran 50p 3u
+tran 50p 1u
 write pdiv_tb.raw 
 set appendwrite
 
