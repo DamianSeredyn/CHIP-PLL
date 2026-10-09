@@ -34,7 +34,6 @@ N 1420 620 1480 620 {lab=VP}
 N 250 480 280 480 {lab=d4}
 N 250 500 280 500 {lab=d5}
 N 850 280 1300 280 {lab=out}
-N -210 260 -170 260 {lab=out}
 N 580 280 780 280 {lab=#net3}
 N 1360 0 1380 0 {lab=VP}
 N 1360 0 1360 40 {lab=VP}
@@ -97,6 +96,7 @@ N 1020 670 1020 700 {lab=gd}
 N 1070 640 1120 640 {lab=#net5}
 N -10 -20 10 -20 {lab=reset}
 N 970 640 1000 640 {lab=reset}
+N -220 260 -170 260 {lab=out}
 C {lab_wire.sym} -190 240 0 0 {name=p3 sig_type=std_logic lab=clk
 }
 C {lab_wire.sym} 160 260 2 0 {name=p5 sig_type=std_logic lab=VP
@@ -130,8 +130,6 @@ C {lab_wire.sym} 250 400 0 0 {name=p17 sig_type=std_logic lab=d0
 C {lab_wire.sym} 250 500 0 0 {name=p47 sig_type=std_logic lab=d5
 }
 C {lab_wire.sym} 250 480 0 0 {name=p48 sig_type=std_logic lab=d4
-}
-C {lab_wire.sym} -190 260 2 0 {name=p28 sig_type=std_logic lab=out
 }
 C {lab_wire.sym} 890 280 2 0 {name=p29 sig_type=std_logic lab=out
 }
@@ -201,7 +199,6 @@ C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} 500 -100 0
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} 510 70 0 0 {name=x7}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NOR_2in.sym} 860 -10 0 0 {name=x5}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 1150 10 0 0 {name=x6}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 800 280 0 0 {name=x8}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate_scaled.sym} 1320 90 0 0 {name=x3}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate_scaled.sym} 1320 300 0 0 {name=x9}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/div_with_reset.sym} -20 310 0 0 {name=x1}
@@ -214,3 +211,6 @@ C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 1020 640 0
 C {ipin.sym} -10 -20 0 0 {name=p20 lab=reset}
 C {lab_wire.sym} 10 -20 2 0 {name=p21 sig_type=std_logic lab=reset}
 C {lab_wire.sym} 970 640 0 0 {name=p22 sig_type=std_logic lab=reset}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x8.sym} 810 280 0 0 {name=x13}
+C {lab_wire.sym} -220 260 2 0 {name=p23 sig_type=std_logic lab=out
+}
