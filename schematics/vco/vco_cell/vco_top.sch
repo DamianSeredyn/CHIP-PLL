@@ -49,7 +49,6 @@ N 50 10 360 10 {lab=VP_vco1}
 N 360 10 360 20 {lab=VP_vco1}
 N 50 -300 360 -300 {lab=VP_vco0}
 N 360 -300 360 -290 {lab=VP_vco0}
-N -180 50 -130 50 {lab=VCO2_5_sel}
 N -180 130 -130 130 {lab=VCO2_11_sel}
 N -180 150 -130 150 {lab=nVCO2_11_sel}
 N -180 470 -130 470 {lab=nVCO3_11_sel}
@@ -81,14 +80,9 @@ N -180 730 -130 730 {lab=vco_in}
 N -180 420 -130 420 {lab=vco_in}
 N -180 100 -130 100 {lab=vco_in}
 N 50 820 360 820 {lab=gd}
-N -190 50 -130 50 {lab=VCO2_5_sel}
 N -180 70 -130 70 {lab=nVCO2_5_sel}
-N -170 450 -130 450 {lab=VCO3_11_sel}
 N -180 370 -130 370 {lab=VCO3_5_sel}
-N -180 450 -130 450 {lab=VCO3_11_sel}
-N -180 420 -130 420 {lab=vco_in}
 N -180 390 -130 390 {lab=nVCO3_5_sel}
-N -180 470 -130 470 {lab=nVCO3_11_sel}
 N -350 260 -350 310 {lab=VP}
 N -350 370 -350 420 {lab=gd}
 N -300 340 -250 340 {lab=nVCO3_5_sel}
@@ -99,9 +93,7 @@ N -300 540 -250 540 {lab=nVCO3_11_sel}
 N -420 540 -370 540 {lab=VCO3_11_sel}
 N -180 680 -130 680 {lab=VCO4_5_sel}
 N -180 760 -130 760 {lab=VCO4_11_sel}
-N -180 730 -130 730 {lab=vco_in}
 N -180 700 -130 700 {lab=nVCO4_5_sel}
-N -180 780 -130 780 {lab=nVCO4_11_sel}
 N -560 720 -560 770 {lab=gd}
 N -510 690 -460 690 {lab=nVCO4_5_sel}
 N -630 690 -580 690 {lab=VCO4_5_sel}
@@ -161,15 +153,25 @@ N 450 -560 450 -510 {lab=nvco4_on}
 N 490 -560 490 -510 {lab=VP}
 N 490 -450 490 -410 {lab=gd}
 N -1440 -520 -1440 -480 {lab=0}
-N -1440 -620 -1440 -580 {lab=en5}
+N -1440 -620 -1440 -580 {lab=vco0_on}
 N -770 -540 -770 -500 {lab=0}
-N -770 -640 -770 -600 {lab=en5}
+N -770 -640 -770 -600 {lab=vco1_on}
 N -400 -530 -400 -490 {lab=0}
-N -400 -630 -400 -590 {lab=en5}
+N -400 -630 -400 -590 {lab=vco2_on}
 N -30 -530 -30 -490 {lab=0}
-N -30 -630 -30 -590 {lab=en5}
+N -30 -630 -30 -590 {lab=vco3_on}
 N 350 -550 350 -510 {lab=0}
-N 350 -650 350 -610 {lab=en5}
+N 350 -650 350 -610 {lab=vco4_on}
+N -190 50 -130 50 {lab=VCO2_5_sel}
+N -180 450 -130 450 {lab=VCO3_11_sel}
+N -490 220 -490 250 {lab=gd}
+N -440 190 -400 190 {lab=nVCO2_11_sel}
+N -540 190 -510 190 {lab=VCO2_11_sel}
+N -490 120 -490 160 {lab=VP}
+N -490 20 -490 50 {lab=gd}
+N -440 -10 -400 -10 {lab=nVCO2_5_sel}
+N -540 -10 -510 -10 {lab=VCO2_5_sel}
+N -490 -80 -490 -40 {lab=VP}
 C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_core_0.sym} 50 -210 0 0 {name=x1}
 C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_core_1.sym} 50 100 0 0 {name=x2}
 C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_core_2.sym} 50 420 0 0 {name=x3}
@@ -298,7 +300,6 @@ C {lab_wire.sym} -560 820 2 0 {name=p102 sig_type=std_logic lab=VP}
 C {lab_wire.sym} -560 950 2 0 {name=p103 sig_type=std_logic lab=gd}
 C {lab_wire.sym} -610 890 2 1 {name=p104 sig_type=std_logic lab=VCO4_11_sel}
 C {lab_wire.sym} -470 890 2 1 {name=p105 sig_type=std_logic lab=nVCO4_11_sel}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate.sym} -1070 -430 0 0 {name=x18}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} -1060 -660 0 0 {name=x19}
 C {lab_wire.sym} -1060 -730 2 0 {name=p107 sig_type=std_logic lab=VP}
 C {lab_wire.sym} -1060 -600 2 0 {name=p108 sig_type=std_logic lab=gd}
@@ -309,7 +310,6 @@ C {lab_wire.sym} -1160 -450 2 0 {name=p112 sig_type=std_logic lab=VP}
 C {lab_wire.sym} -960 -450 2 0 {name=p113 sig_type=std_logic lab=VP_vco0}
 C {lab_wire.sym} -1070 -380 2 1 {name=p114 sig_type=std_logic lab=vco0_on}
 C {lab_wire.sym} -1070 -520 2 1 {name=p115 sig_type=std_logic lab=nvco0_on}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate.sym} -690 -440 0 0 {name=x20}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} -690 -680 0 0 {name=x21}
 C {lab_wire.sym} -690 -750 2 0 {name=p117 sig_type=std_logic lab=VP}
 C {lab_wire.sym} -690 -620 2 0 {name=p118 sig_type=std_logic lab=gd}
@@ -320,7 +320,6 @@ C {lab_wire.sym} -780 -460 2 0 {name=p122 sig_type=std_logic lab=VP}
 C {lab_wire.sym} -580 -460 2 0 {name=p123 sig_type=std_logic lab=VP_vco1}
 C {lab_wire.sym} -690 -390 2 1 {name=p124 sig_type=std_logic lab=vco1_on}
 C {lab_wire.sym} -690 -530 2 1 {name=p125 sig_type=std_logic lab=nvco1_on}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate.sym} -310 -440 0 0 {name=x22}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} -300 -670 0 0 {name=x23}
 C {lab_wire.sym} -300 -740 2 0 {name=p127 sig_type=std_logic lab=VP}
 C {lab_wire.sym} -300 -610 2 0 {name=p128 sig_type=std_logic lab=gd}
@@ -331,7 +330,6 @@ C {lab_wire.sym} -400 -460 2 0 {name=p132 sig_type=std_logic lab=VP}
 C {lab_wire.sym} -200 -460 2 0 {name=p133 sig_type=std_logic lab=VP_vco2}
 C {lab_wire.sym} -310 -390 2 1 {name=p134 sig_type=std_logic lab=vco2_on}
 C {lab_wire.sym} -310 -530 2 1 {name=p135 sig_type=std_logic lab=nvco2_on}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate.sym} 80 -450 0 0 {name=x24}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 90 -680 0 0 {name=x25}
 C {lab_wire.sym} 90 -750 2 0 {name=p137 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 90 -620 2 0 {name=p138 sig_type=std_logic lab=gd}
@@ -342,7 +340,6 @@ C {lab_wire.sym} -10 -470 2 0 {name=p142 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 190 -470 2 0 {name=p143 sig_type=std_logic lab=VP_vco3}
 C {lab_wire.sym} 80 -400 2 1 {name=p144 sig_type=std_logic lab=vco3_on}
 C {lab_wire.sym} 80 -540 2 1 {name=p145 sig_type=std_logic lab=nvco3_on}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate.sym} 450 -460 0 0 {name=x26}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 460 -690 0 0 {name=x27}
 C {lab_wire.sym} 460 -760 2 0 {name=p147 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 460 -630 2 0 {name=p148 sig_type=std_logic lab=gd}
@@ -378,3 +375,8 @@ C {vsource.sym} 350 -580 0 0 {name=V5 value=1 savecurrent=false}
 C {gnd.sym} 350 -510 0 0 {name=l5 lab=0
 }
 C {lab_wire.sym} 350 -640 2 1 {name=p160 sig_type=std_logic lab=vco4_on}
+C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_passgate.sym} -1070 -430 0 0 {name=x28}
+C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_passgate.sym} -690 -440 0 0 {name=x18}
+C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_passgate.sym} -310 -440 0 0 {name=x20}
+C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_passgate.sym} 80 -450 0 0 {name=x22}
+C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_passgate.sym} 450 -460 0 0 {name=x24}
