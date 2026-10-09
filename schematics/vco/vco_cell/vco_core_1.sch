@@ -107,7 +107,7 @@ N -850 -700 -810 -700 {lab=en11}
 N -850 -670 -810 -670 {lab=nen11}
 N -860 -640 -820 -640 {lab=nen5}
 C {sg13g2_pr/sg13_lv_nmos.sym} -230 -360 0 0 {name=M1
-l=0.35*4u
+l=0.44*4u
 w=0.8u
 ng=1
 m=1
@@ -115,7 +115,7 @@ model=sg13_lv_nmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} -230 -580 0 0 {name=M2
-l=0.35*4u
+l=0.44*4u
 w=1.2u
 ng=1
 m=1
