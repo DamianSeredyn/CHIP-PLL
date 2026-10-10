@@ -80,8 +80,8 @@ N -110 -280 -100 -280 {lab=vp}
 N -110 -280 -110 -260 {lab=vp}
 N -110 -180 -100 -180 {lab=gd}
 N -110 -200 -110 -180 {lab=gd}
-N -160 -230 -130 -230 {lab=en1_}
 N -60 -230 -30 -230 {lab=en1}
+N -160 -230 -130 -230 {lab=en1_}
 N -160 -230 -160 -210 {lab=en1_}
 N -170 -230 -160 -230 {lab=en1_}
 N -30 -230 -30 -200 {lab=en1}
@@ -164,13 +164,10 @@ N -170 750 -160 750 {lab=en8_}
 N -30 750 -30 780 {lab=en8}
 N -630 470 -630 750 {lab=A0}
 N -740 -270 -740 -200 {lab=A0}
-N -750 -270 -740 -270 {lab=A0}
 N -740 -200 -630 -200 {lab=A0}
 N -740 -100 -740 -30 {lab=A1}
-N -750 -100 -740 -100 {lab=A1}
 N -740 -30 -610 -30 {lab=A1}
 N -740 60 -740 130 {lab=A2}
-N -750 60 -740 60 {lab=A2}
 N -740 130 -590 130 {lab=A2}
 N -660 -270 -570 -270 {lab=#net1}
 N -660 -100 -550 -100 {lab=#net2}
@@ -256,6 +253,9 @@ N 390 -390 410 -390 {lab=out}
 N 300 -390 320 -390 {lab=out_unb}
 N 270 310 290 310 {lab=en5_}
 N 290 310 290 360 {lab=en5_}
+N -860 -270 -740 -270 {lab=A0}
+N -860 60 -740 60 {lab=A2}
+N -860 -100 -740 -100 {lab=A1}
 C {iopin.sym} -970 -290 2 0 {name=p1 lab=gd}
 C {lab_pin.sym} -950 -290 2 0 {name=p4 sig_type=std_logic lab=gd}
 C {iopin.sym} -970 -270 2 0 {name=p5 lab=vp}
@@ -321,13 +321,13 @@ C {lab_pin.sym} 560 390 0 0 {name=p69 sig_type=std_logic lab=in1}
 C {lab_pin.sym} 770 390 2 0 {name=p70 sig_type=std_logic lab=out_unb}
 C {lab_pin.sym} -700 -220 2 0 {name=p71 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -700 -320 2 0 {name=p72 sig_type=std_logic lab=vp}
-C {ipin.sym} -750 -270 0 0 {name=p73 lab=A0}
+C {ipin.sym} -860 -270 0 0 {name=p73 lab=A0}
 C {lab_pin.sym} -700 -50 2 0 {name=p74 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -700 -150 2 0 {name=p75 sig_type=std_logic lab=vp}
-C {ipin.sym} -750 -100 0 0 {name=p76 lab=A1}
+C {ipin.sym} -860 -100 0 0 {name=p76 lab=A1}
 C {lab_pin.sym} -700 110 2 0 {name=p77 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -700 10 2 0 {name=p78 sig_type=std_logic lab=vp}
-C {ipin.sym} -750 60 0 0 {name=p79 lab=A2}
+C {ipin.sym} -860 60 0 0 {name=p79 lab=A2}
 C {lab_pin.sym} 330 -250 1 0 {name=p24 sig_type=std_logic lab=vp}
 C {lab_pin.sym} 730 -250 1 0 {name=p30 sig_type=std_logic lab=vp}
 C {lab_pin.sym} 330 -50 1 0 {name=p36 sig_type=std_logic lab=vp}
@@ -346,8 +346,6 @@ C {lab_pin.sym} -160 -130 2 0 {name=p86 sig_type=std_logic lab=vp}
 C {lab_pin.sym} -160 -110 2 0 {name=p87 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 -40 2 0 {name=p88 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 -140 2 0 {name=p89 sig_type=std_logic lab=vp}
-C {lab_pin.sym} -160 630 3 0 {name=p90 sig_type=std_logic lab=en7_}
-C {lab_pin.sym} -30 640 3 0 {name=p91 sig_type=std_logic lab=en7}
 C {lab_pin.sym} -160 10 2 0 {name=p92 sig_type=std_logic lab=vp}
 C {lab_pin.sym} -160 30 2 0 {name=p93 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 100 2 0 {name=p94 sig_type=std_logic lab=gd}
@@ -358,7 +356,7 @@ C {lab_pin.sym} -160 150 2 0 {name=p98 sig_type=std_logic lab=vp}
 C {lab_pin.sym} -160 170 2 0 {name=p99 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 240 2 0 {name=p100 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 140 2 0 {name=p101 sig_type=std_logic lab=vp}
-C {lab_pin.sym} -160 350 3 0 {name=p102 sig_type=std_logic lab=en5_}
+C {lab_pin.sym} -160 340 3 0 {name=p102 sig_type=std_logic lab=en5_}
 C {lab_pin.sym} -30 360 3 0 {name=p103 sig_type=std_logic lab=en5}
 C {lab_pin.sym} -160 290 2 0 {name=p104 sig_type=std_logic lab=vp}
 C {lab_pin.sym} -160 310 2 0 {name=p105 sig_type=std_logic lab=gd}
@@ -382,8 +380,6 @@ C {lab_pin.sym} -160 710 2 0 {name=p122 sig_type=std_logic lab=vp}
 C {lab_pin.sym} -160 730 2 0 {name=p123 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 800 2 0 {name=p124 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 700 2 0 {name=p125 sig_type=std_logic lab=vp}
-C {lab_pin.sym} -160 -210 3 0 {name=p126 sig_type=std_logic lab=en1_}
-C {lab_pin.sym} -30 -200 3 0 {name=p127 sig_type=std_logic lab=en1}
 C {lab_pin.sym} 190 -250 1 0 {name=p136 sig_type=std_logic lab=vp}
 C {lab_pin.sym} 190 -170 3 0 {name=p137 sig_type=std_logic lab=gd}
 C {lab_pin.sym} 190 -50 1 0 {name=p138 sig_type=std_logic lab=vp}
@@ -441,3 +437,8 @@ C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} -320 310 0
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} -320 450 0 0 {name=x22}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} -320 590 0 0 {name=x24}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} -320 730 0 0 {name=x26}
+C {lab_pin.sym} -30 -200 3 0 {name=p128 sig_type=std_logic lab=en1}
+C {lab_pin.sym} -160 -210 3 0 {name=p129 sig_type=std_logic lab=en1_
+_}
+C {lab_pin.sym} -160 630 3 0 {name=p126 sig_type=std_logic lab=en7_}
+C {lab_pin.sym} -30 640 3 0 {name=p127 sig_type=std_logic lab=en7}

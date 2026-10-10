@@ -3,6 +3,7 @@ PROJECT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 SIM_DIR="$PROJECT_DIR/charge_pump/simulations"
 
 
+#NETLIST_SRC="/foss/designs/CHIP-PLL/schematics/charge_pump/simulations/charge_pump_tran_tb.spice"
 NETLIST_SRC="/foss/designs/simulations/charge_pump_tran_tb.spice"
 
 DATA_DIR="$PROJECT_DIR/charge_pump/results_tran_sch/data"
@@ -15,7 +16,7 @@ TMP_NETLIST="$SIM_DIR/temp_run_$$.spice"
 # ---------------------------------------------------------------------------
 corners="mos_tt mos_ss mos_ff mos_sf mos_fs"
 #corners="mos_tt mos_ss"
-t_min="-40"
+t_min="-25"
 t_nom="27"
 t_max="125"
 vp_min="1.08"
@@ -81,7 +82,7 @@ prepare_netlist() {
     cat >> "$out" <<EOF
 .control
 save $SIG_VOUT $SIG_VBIAS $SIG_IREF $SIG_IUP $SIG_IDN $SIG_UP $SIG_DN
-tran 10n 300u
+tran 100n 245u
 set filetype=ascii
 wrdata cp_test.txt $SIG_VOUT $SIG_VBIAS $SIG_IREF $SIG_IUP $SIG_IDN $SIG_UP $SIG_DN
 quit

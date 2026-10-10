@@ -1,0 +1,12 @@
+** sch_path: /foss/designs/CHIP-PLL/schematics/PFD/PFD_buffor.sch
+**.subckt PFD_buffor gnd vp out in
+*.iopin gnd
+*.iopin vp
+*.ipin in
+*.iopin out
+XM1 out_stage1 in gnd gnd sg13_lv_nmos w=0.4u l=0.5u ng=1 m=1 mm_ok=1
+XM4 out_stage1 in vp vp sg13_lv_pmos w=0.4u l=0.5u ng=1 m=1 mm_ok=1
+XM2 out out_stage1 gnd gnd sg13_lv_nmos w=0.4u l=0.5u ng=1 m=1 mm_ok=1
+XM3 out out_stage1 vp vp sg13_lv_pmos w=0.4u l=0.5u ng=1 m=1 mm_ok=1
+**.ends
+.end

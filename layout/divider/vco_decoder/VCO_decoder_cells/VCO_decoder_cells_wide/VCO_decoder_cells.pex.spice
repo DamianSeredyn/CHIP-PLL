@@ -1,0 +1,2548 @@
+* PEX produced on Tue Sep 22 09:20:03 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
+* NGSPICE file created from VCO_decoder_cells.ext - technology: ihp-sg13cmos5l
+
+.subckt VCO_decoder_cells VCO5_11_sel VCO2_11_sel VCO2_5_sel VCO4_11_sel VCO4_5_sel
++ VCO_sel VCO3_5_sel VCO3_11_sel vp gd c0 c1 c2 f0 f3 f4 f5 f1 f2
+X0 011 3bit_to_8_outs_0.inverter_10.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X1 VCO2_selection_0.inverter_2.in 010 a_67126_28612# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X2 VCO3_selection_0.NAND_3in_7.y after_000011_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X3 VCO3_selection_0.NAND_2in_3.y 101 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X4 gd after_000111_n a_61747_30268# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X5 VCO3_selection_0.NAND_2in_1.y 100 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X6 vp f5 VCO3_selection_0.NAND_2in_0.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X7 a_69092_28612# VCO2_selection_0.NAND_3in_5.c gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X8 VCO5_selection_0.NOR_2in_0.y VCO5_selection_0.inverter_1.out a_68266_21756# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X9 vp 3bit_to_8_outs_0.c1_n 3bit_to_8_outs_0.inverter_6.in vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X10 VCO4_5_sel VCO4_selection_0.NAND_2in_0.a a_68213_30104# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X11 a_60234_31246# VCO3_selection_0.inverter_5.out VCO3_selection_0.NAND_3in_0.c vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X12 VCO4_selection_0.XNOR_1._a f0 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X13 VCO2_selection_0.NAND_4in_0.d 111 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X14 vp VCO4_selection_0.XNOR_0.y VCO4_selection_0.inverter_4.in vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X15 gd VCO3_selection_0.NAND_3in_6.c a_59974_32214# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X16 3bit_to_8_outs_0.c0_n c0 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X17 a_68763_26656# VCO2_selection_0.NAND_4in_0.c a_68547_26656# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X18 vp VCO3_selection_0.NAND_3in_3.y VCO3_selection_0.inverter_5.out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X19 vp VCO3_selection_0.NAND_3in_9.y VCO3_selection_0.inverter_10.out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X20 gd f5_n a_61067_34644# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X21 vp f0 a_61215_31154# vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X22 VCO2_selection_0.NAND_3in_3.c VCO2_selection_0.XNOR_0._a a_68124_24700# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X23 gd f1 VCO3_selection_0.XNOR_0._b gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X24 a_60851_32688# 110 VCO3_selection_0.NAND_3in_8.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X25 a_67504_23146# VCO5_selection_0.XNOR_0._a vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X26 vp VCO3_selection_0.NOR_2in_4.a a_60251_33666# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X27 gd VCO3_selection_0.NAND_3in_0.c a_59843_30268# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X28 3bit_to_8_outs_0.inverter_10.in 3bit_to_8_outs_0.c2_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X29 VCO_sel VCO_selection_0.NAND_2in_1.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X30 VCO2_selection_0.inverter_4.out VCO2_selection_0.NOR_2in_0.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X31 vp VCO3_selection_0.NOR_2in_0.y VCO3_11_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X32 vp VCO3_selection_0.inverter_1.out a_60041_27808# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X33 VCO2_selection_0.NOR_2in_0.a VCO2_selection_0.NAND_3in_3.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X34 a_62545_22377# f5 a_62329_22377# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X35 gd after_000111_n after_000111 gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X36 VCO5_selection_0.XNOR_0._a f0 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X37 VCO5_selection_0.NAND_2in_0.b 010 a_67248_22260# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X38 a_67311_33514# f0 vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X39 VCO5_selection_0.inverter_0.in after_000011_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X40 VCO2_selection_0.NAND_3in_5.c VCO2_selection_0.inverter_6.out gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X41 vp c1 3bit_to_8_outs_0.inverter_1.in vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X42 VCO2_selection_0.NAND_2in_0.y after_001111 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X43 vp row_section_decoding_0.NAND_2in_0.b after_000011 vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X44 VCO4_selection_0.NAND_2in_0.a VCO4_selection_0.inverter_0.out a_67737_31082# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X45 VCO2_selection_0.NOR_2in_0.b VCO2_selection_0.NAND_3in_7.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X46 vp f0 VCO3_selection_0.XNOR_0._a vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X47 row_section_decoding_0.NAND_2in_0.b f5 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X48 gd VCO3_selection_0.NAND_2in_0.y VCO3_selection_0.NOR_2in_4.a gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X49 gd after_000111_n a_61747_32688# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X50 a_67459_32534# after_000011_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X51 VCO_selection_0.NAND_2in_1.y after_000111 a_66985_36298# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X52 a_68498_26182# after_000011 a_68282_26182# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X53 VCO_selection_0.NAND_2in_2.y f5 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X54 VCO5_selection_0.XNOR_0._b f1 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X55 VCO2_selection_0.XNOR_0._a f0 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X56 vp after_000011_n VCO2_selection_0.NAND_3in_3.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X57 VCO4_selection_0.inverter_0.out VCO4_selection_0.NAND_3in_0.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X58 VCO4_selection_0.NAND_2in_0.a VCO4_selection_0.inverter_2.out gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X59 a_61333_22377# f5 after_001111_n vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X60 a_60755_31154# VCO3_selection_0.XNOR_0._b VCO3_selection_0.NAND_3in_7.c vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X61 a_61747_34644# after_000111 a_61531_34644# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X62 a_67664_24700# VCO2_selection_0.XNOR_0._b gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X63 VCO4_selection_0.inverter_5.in VCO4_selection_0.XNOR_1._b a_67771_33514# vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X64 gd f1 VCO3_selection_0.XNOR_1._b gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X65 VCO4_11_sel VCO4_selection_0.NAND_3in_1.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X66 VCO4_selection_0.XNOR_1._b f1 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X67 VCO2_selection_0.inverter_2.in f5 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X68 a_67658_25112# f0 vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X69 VCO3_selection_0.NAND_3in_2.y after_000111 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X70 VCO2_selection_0.NAND_3in_7.y 110 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X71 VCO5_selection_0.inverter_0.in 001 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X72 a_61061_28786# 000 VCO3_selection_0.inverter_4.in gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X73 3bit_to_8_outs_0.NAND_3in_0.y c0 a_61229_24854# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X74 VCO4_selection_0.NAND_2in_0.b VCO4_selection_0.NOR_2in_0.a gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X75 VCO5_selection_0.inverter_2.in f0 a_67050_22734# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X76 VCO4_selection_0.inverter_1.in VCO4_selection_0.NOR_2in_1.a gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X77 VCO3_selection_0.NAND_3in_0.c VCO3_selection_0.inverter_5.out gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X78 a_66995_32534# VCO4_selection_0.XNOR_0.y a_66779_32534# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X79 vp after_000111 VCO2_selection_0.inverter_1.in vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X80 VCO_sel VCO_selection_0.NAND_2in_1.y a_67195_35980# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X81 a_67675_32060# after_000011 a_67459_32060# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X82 VCO4_selection_0.XNOR_0._a f0 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X83 gd VCO3_selection_0.NAND_3in_9.y VCO3_selection_0.inverter_10.out gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X84 a_61271_34170# 101 VCO3_selection_0.NAND_2in_3.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X85 after_000111_n f5 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X86 vp after_000011_n VCO5_selection_0.NAND_2in_0.b vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X87 010 3bit_to_8_outs_0.NAND_3in_6.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X88 VCO3_selection_0.NAND_3in_9.y after_000111 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X89 gd f5 a_61747_34170# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X90 a_61909_26498# c1 a_61693_26498# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X91 a_61061_28312# 100 VCO3_selection_0.NAND_2in_1.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X92 gd VCO5_selection_0.inverter_1.out VCO5_selection_0.NOR_2in_0.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X93 3bit_to_8_outs_0.inverter_8.in 3bit_to_8_outs_0.c0_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X94 gd VCO2_selection_0.inverter_0.out VCO2_selection_0.NOR_2in_1.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X95 a_68213_30104# VCO4_selection_0.NAND_2in_0.b gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X96 gd VCO3_selection_0.NAND_3in_7.c a_61067_30268# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X97 a_61693_25172# c2 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X98 VCO2_selection_0.NAND_4in_0.d 111 a_67812_26182# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X99 a_67806_24226# VCO2_selection_0.NAND_3in_3.c gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X100 a_61693_26816# 3bit_to_8_outs_0.c2_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X101 gd VCO3_selection_0.inverter_3.out VCO3_selection_0.NOR_2in_0.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X102 a_68285_22734# after_000011_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X103 a_61215_31154# f1 VCO3_selection_0.NAND_3in_7.c vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X104 a_68124_24700# f1 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X105 a_67317_34016# VCO4_selection_0.XNOR_1._b gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X106 vp VCO3_selection_0.NAND_3in_5.y VCO3_selection_0.inverter_11.out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X107 VCO5_selection_0.inverter_1.out VCO5_selection_0.inverter_1.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X108 a_61229_25172# 3bit_to_8_outs_0.c1_n a_61013_25172# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X109 gd VCO3_selection_0.NOR_2in_4.a VCO3_selection_0.NAND_3in_6.b gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X110 a_61229_26816# 3bit_to_8_outs_0.c1_n a_61013_26816# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X111 a_68118_25112# VCO2_selection_0.XNOR_0._a vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X112 VCO2_selection_0.NOR_2in_2.a VCO2_selection_0.inverter_2.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X113 gd f0 VCO3_selection_0.XNOR_0._a gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X114 a_59974_32214# VCO3_selection_0.NAND_3in_6.b a_59758_32214# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X115 gd VCO3_selection_0.inverter_1.out VCO3_selection_0.NOR_2in_1.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X116 a_67126_28138# f5_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X117 VCO4_selection_0.inverter_1.in VCO4_selection_0.inverter_3.out a_68213_31082# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X118 after_001111_n f5 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X119 vp VCO3_selection_0.NAND_3in_6.c VCO3_5_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X120 a_66509_36298# f5 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X121 3bit_to_8_outs_0.NAND_3in_3.y c0 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X122 vp f5 f5_n vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X123 vp 000 VCO5_selection_0.inverter_1.in vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X124 a_59843_30268# VCO3_selection_0.NOR_2in_1.y a_59627_30268# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X125 VCO2_selection_0.XNOR_0._a f0 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X126 VCO5_selection_0.XNOR_0._b f1 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X127 a_67342_26656# after_001111_n a_67126_26656# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X128 VCO4_selection_0.NAND_3in_0.y f1 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X129 VCO4_selection_0.NOR_2in_0.b VCO4_selection_0.inverter_1.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X130 VCO2_selection_0.NOR_2in_0.a VCO2_selection_0.NAND_3in_3.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X131 VCO2_11_sel VCO2_selection_0.NOR_2in_1.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X132 VCO4_selection_0.NAND_3in_1.y after_000111_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X133 100 3bit_to_8_outs_0.inverter_6.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X134 a_67126_28612# f5 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X135 vp VCO2_selection_0.NAND_4in_0.c VCO2_5_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X136 VCO2_selection_0.inverter_0.out VCO2_selection_0.NAND_2in_0.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X137 a_61747_30268# after_000011 a_61531_30268# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X138 VCO5_selection_0.inverter_0.in 001 a_68501_22734# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X139 VCO2_5_sel VCO2_selection_0.NAND_4in_0.a a_68979_26656# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X140 gd row_section_decoding_0.NAND_2in_0.b a_62069_23355# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X141 VCO4_selection_0.XNOR_0._b f1 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X142 VCO3_selection_0.NAND_2in_0.y 001 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X143 vp 110 VCO3_selection_0.NAND_3in_8.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X144 gd VCO2_selection_0.NOR_2in_0.b VCO2_selection_0.NOR_2in_0.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X145 vp f1 f1_n vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X146 gd VCO3_selection_0.inverter_12.out a_61067_32688# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X147 a_68266_21756# VCO5_selection_0.inverter_0.out vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X148 VCO4_selection_0.inverter_4.in after_000011_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X149 vp VCO5_selection_0.NOR_2in_0.y VCO5_11_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X150 VCO4_11_sel VCO4_selection_0.NAND_3in_1.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X151 gd f0 VCO3_selection_0.XNOR_1._a gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X152 a_68547_26656# VCO2_selection_0.NAND_4in_0.d gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X153 VCO2_selection_0.inverter_3.in after_000011_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X154 a_61067_34644# after_000111 a_60851_34644# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X155 vp after_000011 VCO4_selection_0.inverter_3.in vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X156 gd VCO3_selection_0.NAND_3in_7.y VCO3_selection_0.inverter_0.out gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X157 3bit_to_8_outs_0.inverter_6.in c2 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X158 vp after_000011 VCO2_selection_0.NAND_4in_0.d vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X159 vp f1 VCO3_selection_0.XNOR_1._b vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X160 vp after_000111_n VCO3_selection_0.NAND_3in_4.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X161 a_62329_22377# f4 after_000111_n vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X162 VCO4_selection_0.XNOR_1._b f1 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X163 a_67248_22260# after_000011_n a_67032_22260# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X164 gd VCO3_selection_0.NAND_3in_5.y VCO3_selection_0.inverter_11.out gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X165 gd f5 f5_n gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X166 vp 010 VCO3_selection_0.NAND_3in_1.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X167 VCO4_selection_0.XNOR_0.y f1 a_67311_34902# vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X168 VCO4_selection_0.NAND_3in_2.y 011 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X169 VCO2_selection_0.NOR_2in_2.a VCO2_selection_0.inverter_2.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X170 VCO4_selection_0.inverter_5.in f0 a_67317_34016# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X171 after_000011 row_section_decoding_0.NAND_2in_0.a vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X172 a_67737_31082# VCO4_selection_0.inverter_2.out vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X173 3bit_to_8_outs_0.c1_n c1 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X174 vp f2 a_62545_23859# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X175 VCO2_selection_0.NAND_3in_3.c VCO2_selection_0.XNOR_0._b a_68118_25112# vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X176 a_61747_32688# after_000011 a_61531_32688# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X177 vp c1 3bit_to_8_outs_0.NAND_3in_6.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X178 VCO5_selection_0.inverter_1.out VCO5_selection_0.inverter_1.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X179 VCO2_selection_0.NOR_2in_1.y VCO2_selection_0.inverter_0.out a_68832_27634# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X180 VCO3_selection_0.inverter_4.in 000 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X181 a_67871_26656# f5_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X182 a_68213_31082# VCO4_selection_0.NOR_2in_1.a vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X183 VCO2_selection_0.NAND_3in_3.y VCO2_selection_0.NAND_3in_3.c vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X184 VCO2_11_sel VCO2_selection_0.NOR_2in_1.y a_69308_28612# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X185 vp 011 VCO3_selection_0.NAND_3in_3.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X186 a_61693_24854# c2 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X187 vp VCO3_selection_0.XNOR_1._a a_60755_31712# vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X188 VCO5_selection_0.inverter_1.in after_000011_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X189 vp 100 VCO2_selection_0.NAND_4in_0.c vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X190 VCO5_selection_0.inverter_1.in 000 a_66512_22260# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X191 a_66995_30578# after_000111 a_66779_30578# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X192 3bit_to_8_outs_0.NAND_3in_0.y c0 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X193 gd VCO3_selection_0.NAND_3in_8.y VCO3_selection_0.inverter_8.out gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X194 a_61229_24854# c1 a_61013_24854# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X195 VCO3_5_sel VCO3_selection_0.NAND_3in_6.b vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X196 VCO2_selection_0.inverter_1.in f5_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X197 a_66779_32534# after_000011_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X198 a_67459_32060# after_000111_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X199 3bit_to_8_outs_0.NAND_3in_2.y 3bit_to_8_outs_0.c2_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X200 vp VCO3_selection_0.inverter_3.out a_60041_29290# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X201 3bit_to_8_outs_0.NAND_3in_3.y c0 a_61909_25172# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X202 vp after_001111 VCO_selection_0.NAND_2in_0.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X203 3bit_to_8_outs_0.NAND_3in_2.y c0 a_61909_26816# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X204 a_66995_30104# after_000011_n a_66779_30104# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X205 a_67602_28612# after_000011_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X206 gd f4 after_000111_n gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X207 101 3bit_to_8_outs_0.NAND_3in_3.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X208 gd VCO3_selection_0.inverter_7.out VCO3_selection_0.NAND_3in_6.c gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X209 a_61747_34170# 001 VCO3_selection_0.NAND_2in_0.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X210 VCO5_selection_0.NOR_2in_0.y VCO5_selection_0.inverter_0.out gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X211 vp 3bit_to_8_outs_0.c1_n 3bit_to_8_outs_0.inverter_8.in vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X212 vp after_001111_n after_001111 vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X213 a_61067_30268# after_000011_n a_60851_30268# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X214 VCO5_11_sel VCO5_selection_0.NOR_2in_0.y a_68742_22260# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X215 100 3bit_to_8_outs_0.inverter_6.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X216 000 3bit_to_8_outs_0.inverter_8.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X217 VCO4_selection_0.inverter_5.out VCO4_selection_0.inverter_5.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X218 VCO2_selection_0.inverter_0.out VCO2_selection_0.NAND_2in_0.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X219 VCO4_selection_0.XNOR_0._b f1 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X220 gd f1 f1_n gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X221 VCO5_selection_0.inverter_2.in f1 a_67044_23146# vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X222 VCO4_selection_0.NOR_2in_1.a VCO4_selection_0.inverter_4.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X223 VCO2_selection_0.NOR_2in_0.y VCO2_selection_0.NOR_2in_0.b a_69036_23722# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X224 vp after_001111_n VCO2_selection_0.NAND_4in_0.a vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X225 VCO4_selection_0.NAND_3in_2.y 011 a_67675_32534# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X226 a_66995_32060# after_000011 a_66779_32060# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X227 a_61531_28786# 001 VCO3_selection_0.NAND_3in_2.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X228 a_67812_26182# after_000011 a_67596_26182# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X229 VCO4_selection_0.NAND_3in_0.y 010 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X230 gd VCO3_selection_0.NAND_3in_3.y VCO3_selection_0.inverter_5.out gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X231 a_59758_32214# VCO3_selection_0.NAND_3in_6.a VCO3_5_sel gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X232 vp f0 VCO3_selection_0.XNOR_1._a vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X233 3bit_to_8_outs_0.inverter_10.in c0 a_61229_26498# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X234 vp VCO2_selection_0.NAND_4in_0.a VCO2_5_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X235 a_67311_34902# f0 vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X236 a_59627_30268# VCO3_selection_0.NOR_2in_0.y VCO3_11_sel gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X237 a_61013_25172# c2 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X238 a_61531_28312# 010 VCO3_selection_0.NAND_3in_1.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X239 a_67126_26656# after_000111 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X240 a_61013_26816# 3bit_to_8_outs_0.c2_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X241 vp VCO3_selection_0.inverter_12.out VCO3_selection_0.NAND_3in_8.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X242 a_67342_24226# after_000011 a_67126_24226# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X243 VCO2_selection_0.NAND_3in_4.y after_000111_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X244 VCO2_selection_0.inverter_6.out VCO2_selection_0.NAND_3in_4.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X245 vp VCO2_selection_0.NOR_2in_2.y VCO2_11_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X246 VCO_selection_0.NAND_2in_0.y after_001111 a_66509_35980# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X247 VCO4_selection_0.inverter_4.in 001 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X248 VCO2_5_sel VCO2_selection_0.NAND_4in_0.d vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X249 a_67317_34490# VCO4_selection_0.XNOR_0._b gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X250 a_62069_23355# row_section_decoding_0.NAND_2in_0.a after_000011 gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X251 VCO4_selection_0.inverter_2.out VCO4_selection_0.inverter_2.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X252 VCO2_selection_0.NOR_2in_0.y VCO2_selection_0.NOR_2in_0.a gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X253 a_61067_32688# after_000011_n a_60851_32688# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X254 gd f2 row_section_decoding_0.NAND_2in_0.a gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X255 3bit_to_8_outs_0.c1_n c1 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X256 vp VCO3_selection_0.inverter_11.out a_59835_35148# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X257 gd f1 a_60749_30742# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X258 vp VCO3_selection_0.NAND_2in_3.y VCO3_selection_0.NOR_2in_4.b vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X259 VCO4_selection_0.XNOR_0.y VCO4_selection_0.XNOR_0._b a_67771_34902# vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X260 a_66512_22260# after_000011_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X261 VCO2_selection_0.NAND_4in_0.c 100 a_67126_26182# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X262 vp 011 VCO3_selection_0.NAND_3in_5.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X263 VCO4_selection_0.inverter_5.in VCO4_selection_0.XNOR_1._a a_67777_34016# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X264 vp VCO3_selection_0.NAND_3in_1.y VCO3_selection_0.inverter_2.out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X265 VCO4_selection_0.inverter_0.out VCO4_selection_0.NAND_3in_0.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X266 VCO5_selection_0.inverter_2.out VCO5_selection_0.inverter_2.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X267 VCO4_selection_0.inverter_3.in after_000111_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X268 gd VCO3_selection_0.NAND_3in_4.y VCO3_selection_0.inverter_7.out gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X269 VCO2_selection_0.NAND_4in_0.d after_000111_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X270 VCO2_selection_0.inverter_1.in 100 a_67342_28138# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X271 VCO3_selection_0.NAND_3in_4.y after_000011 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X272 VCO4_selection_0.NOR_2in_1.a VCO4_selection_0.inverter_4.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X273 VCO2_selection_0.NAND_4in_0.b f5_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X274 a_60251_33666# VCO3_selection_0.NOR_2in_4.b VCO3_selection_0.NAND_3in_6.b vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X275 VCO2_selection_0.NAND_4in_0.b 101 a_68087_26656# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X276 vp VCO_selection_0.NAND_2in_0.y VCO_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X277 101 3bit_to_8_outs_0.NAND_3in_3.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X278 3bit_to_8_outs_0.inverter_1.in 3bit_to_8_outs_0.c0_n a_61909_24854# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X279 a_60041_27808# VCO3_selection_0.inverter_2.out VCO3_selection_0.NOR_2in_1.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X280 VCO3_selection_0.NAND_3in_6.c VCO3_selection_0.inverter_8.out gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X281 001 3bit_to_8_outs_0.NAND_3in_2.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X282 vp after_000111 VCO4_selection_0.inverter_2.in vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X283 VCO4_selection_0.NAND_3in_1.y 000 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X284 vp 3bit_to_8_outs_0.c1_n 3bit_to_8_outs_0.NAND_3in_3.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X285 gd VCO3_selection_0.XNOR_0._b a_61209_30742# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X286 vp after_000011_n VCO3_selection_0.NAND_2in_3.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X287 vp VCO3_selection_0.NAND_3in_8.y VCO3_selection_0.inverter_8.out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X288 gd after_001111_n after_001111 gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X289 VCO4_selection_0.NAND_2in_0.b VCO4_selection_0.NOR_2in_0.b a_67737_29600# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X290 gd f1 a_60749_32214# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X291 3bit_to_8_outs_0.inverter_1.in c2 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X292 vp after_000011_n VCO3_selection_0.NAND_2in_1.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X293 a_69308_28612# VCO2_selection_0.NOR_2in_2.y a_69092_28612# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X294 VCO4_selection_0.inverter_5.out VCO4_selection_0.inverter_5.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X295 VCO4_selection_0.inverter_4.in 001 a_66995_32534# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X296 111 3bit_to_8_outs_0.NAND_3in_0.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X297 3bit_to_8_outs_0.NAND_3in_2.y c0 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X298 vp VCO3_selection_0.inverter_0.out a_60234_31246# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X299 VCO2_selection_0.NAND_4in_0.c f5 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X300 a_66779_30578# after_001111_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X301 vp c1 3bit_to_8_outs_0.NAND_3in_0.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X302 vp VCO3_selection_0.inverter_7.out a_59833_33192# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X303 a_68979_26656# VCO2_selection_0.NAND_4in_0.b a_68763_26656# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X304 a_68282_26182# after_000111_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X305 gd VCO3_selection_0.inverter_11.out VCO3_selection_0.NAND_3in_6.a gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X306 VCO4_selection_0.XNOR_0.y f0 a_67317_34490# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X307 vp VCO3_selection_0.NAND_3in_6.a VCO3_5_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X308 VCO5_selection_0.inverter_2.in VCO5_selection_0.XNOR_0._b a_67504_23146# vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X309 VCO2_selection_0.inverter_6.out VCO2_selection_0.NAND_3in_4.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X310 000 3bit_to_8_outs_0.inverter_8.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X311 VCO2_selection_0.NOR_2in_2.b VCO2_selection_0.inverter_3.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X312 VCO_selection_0.NAND_2in_1.y 111 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X313 VCO_selection_0.NAND_2in_0.y 110 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X314 a_61531_34644# 011 VCO3_selection_0.NAND_3in_5.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X315 VCO2_selection_0.XNOR_0._b f1 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X316 a_66779_30104# f1 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X317 a_67771_33514# VCO4_selection_0.XNOR_1._a vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X318 3bit_to_8_outs_0.inverter_10.in c0 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X319 VCO5_selection_0.inverter_2.out VCO5_selection_0.inverter_2.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X320 gd VCO3_selection_0.inverter_4.in VCO3_selection_0.inverter_4.out gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X321 vp f3 a_62545_22377# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X322 VCO4_selection_0.NOR_2in_0.b VCO4_selection_0.inverter_1.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X323 vp 001 VCO3_selection_0.NAND_3in_2.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X324 vp 011 VCO3_selection_0.NAND_3in_7.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X325 a_61013_24854# c2 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X326 vp after_000011 VCO2_selection_0.NAND_3in_7.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X327 vp VCO5_selection_0.inverter_2.out VCO5_selection_0.inverter_0.in vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X328 vp after_000111_n VCO3_selection_0.NAND_3in_1.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X329 gd VCO3_selection_0.NAND_2in_3.y VCO3_selection_0.NOR_2in_4.b gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X330 gd VCO3_selection_0.XNOR_1._b a_61209_32214# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X331 a_67050_22734# VCO5_selection_0.XNOR_0._b gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X332 a_67195_35980# VCO_selection_0.NAND_2in_0.y a_66979_35980# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X333 gd VCO3_selection_0.NAND_3in_1.y VCO3_selection_0.inverter_2.out gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X334 VCO2_selection_0.NOR_2in_2.y VCO2_selection_0.NOR_2in_2.b a_68622_29116# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X335 a_59835_35148# VCO3_selection_0.inverter_10.out VCO3_selection_0.NAND_3in_6.a vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X336 a_66779_32060# after_000111_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X337 a_69036_23722# VCO2_selection_0.NOR_2in_0.a vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X338 VCO2_selection_0.NAND_4in_0.a after_000111 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X339 3bit_to_8_outs_0.inverter_8.in 3bit_to_8_outs_0.c2_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X340 vp VCO3_selection_0.NAND_2in_1.y VCO3_selection_0.inverter_1.out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X341 VCO5_selection_0.NAND_2in_0.b f1_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X342 a_61693_26498# 3bit_to_8_outs_0.c2_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X343 a_67596_26182# after_000111_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X344 VCO4_selection_0.inverter_3.out VCO4_selection_0.inverter_3.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X345 vp f4 a_61333_22377# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X346 VCO3_selection_0.NOR_2in_0.y VCO3_selection_0.inverter_4.out gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X347 vp after_000111_n VCO3_selection_0.NAND_3in_3.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X348 vp VCO3_selection_0.XNOR_0._a a_60755_31154# vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X349 VCO2_selection_0.NAND_3in_3.c f0 a_67664_24700# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X350 a_61229_26498# c1 a_61013_26498# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X351 VCO4_selection_0.inverter_2.out VCO4_selection_0.inverter_2.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X352 VCO5_selection_0.inverter_2.in VCO5_selection_0.XNOR_0._a a_67510_22734# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X353 VCO3_selection_0.NAND_3in_6.b VCO3_selection_0.NOR_2in_4.b gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X354 VCO3_selection_0.NAND_3in_8.y after_000011_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X355 vp VCO4_selection_0.NAND_2in_0.a VCO4_5_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X356 a_67126_24226# after_000111_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X357 gd after_001111 a_61061_28786# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X358 VCO3_selection_0.NOR_2in_1.y VCO3_selection_0.inverter_2.out gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X359 gd VCO3_selection_0.inverter_0.out VCO3_selection_0.NAND_3in_0.c gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X360 VCO2_selection_0.inverter_1.in 100 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X361 VCO2_selection_0.NAND_2in_0.y 011 a_67812_28138# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X362 VCO4_selection_0.NAND_3in_1.y 000 a_67675_32060# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X363 a_66509_35980# 110 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X364 gd after_000011_n a_61271_34170# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X365 gd f3 after_000111_n gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X366 vp VCO3_selection_0.NAND_3in_0.c VCO3_11_sel vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X367 a_66985_36298# 111 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X368 vp VCO3_selection_0.NAND_3in_4.y VCO3_selection_0.inverter_7.out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X369 gd after_000011_n a_61061_28312# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X370 VCO4_selection_0.inverter_3.in 001 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X371 3bit_to_8_outs_0.c2_n c2 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X372 VCO2_selection_0.NOR_2in_2.b VCO2_selection_0.inverter_3.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X373 VCO2_selection_0.XNOR_0._b f1 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X374 a_60749_30742# VCO3_selection_0.XNOR_0._a VCO3_selection_0.NAND_3in_7.c gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X375 a_61909_25172# 3bit_to_8_outs_0.c1_n a_61693_25172# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X376 a_67126_26182# f5 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X377 110 3bit_to_8_outs_0.inverter_1.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X378 a_61909_26816# 3bit_to_8_outs_0.c1_n a_61693_26816# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X379 a_67777_34016# f1 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X380 VCO2_selection_0.NAND_3in_3.y 110 a_68022_24226# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X381 VCO5_selection_0.inverter_0.out VCO5_selection_0.inverter_0.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X382 a_61531_30268# 011 VCO3_selection_0.NAND_3in_3.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X383 a_68501_22734# VCO5_selection_0.inverter_2.out a_68285_22734# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X384 VCO2_selection_0.NAND_4in_0.b 101 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X385 gd f5_n a_61747_28786# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X386 a_59833_33192# VCO3_selection_0.inverter_8.out VCO3_selection_0.NAND_3in_6.c vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X387 VCO5_11_sel VCO5_selection_0.NAND_2in_0.b vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X388 001 3bit_to_8_outs_0.NAND_3in_2.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X389 gd f4 after_001111_n gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X390 gd VCO2_selection_0.NOR_2in_2.b VCO2_selection_0.NOR_2in_2.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X391 VCO3_selection_0.NAND_3in_6.a VCO3_selection_0.inverter_10.out gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X392 gd VCO3_selection_0.NAND_3in_2.y VCO3_selection_0.inverter_3.out gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X393 gd VCO3_selection_0.XNOR_1.y VCO3_selection_0.inverter_12.out gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X394 gd after_000111_n a_61747_28312# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X395 vp 010 VCO3_selection_0.NAND_3in_9.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X396 VCO2_selection_0.NAND_4in_0.a 110 a_67342_26656# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X397 3bit_to_8_outs_0.inverter_1.in 3bit_to_8_outs_0.c0_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X398 a_68087_26656# after_000111 a_67871_26656# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X399 VCO2_selection_0.NOR_2in_1.y VCO2_selection_0.inverter_1.out gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X400 vp f0 a_61215_31712# vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X401 VCO2_selection_0.NAND_3in_5.c VCO2_selection_0.inverter_4.out a_68639_25204# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X402 VCO2_selection_0.NAND_3in_4.y 101 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X403 VCO4_selection_0.inverter_2.in after_001111_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X404 VCO4_selection_0.XNOR_0.y VCO4_selection_0.XNOR_0._a a_67777_34490# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X405 a_68622_29116# VCO2_selection_0.NOR_2in_2.a vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X406 a_61209_30742# f0 VCO3_selection_0.NAND_3in_7.c gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X407 gd VCO3_selection_0.NAND_2in_1.y VCO3_selection_0.inverter_1.out gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X408 VCO4_selection_0.inverter_2.in 000 a_66995_30578# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X409 a_67032_22260# f1_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X410 VCO2_5_sel VCO2_selection_0.NAND_4in_0.b vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X411 a_60749_32214# VCO3_selection_0.XNOR_1._a VCO3_selection_0.XNOR_1.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X412 vp after_000011 after_000011_n vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X413 a_67737_29600# VCO4_selection_0.NOR_2in_0.a vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X414 111 3bit_to_8_outs_0.NAND_3in_0.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X415 vp VCO4_selection_0.inverter_5.out VCO4_selection_0.NAND_3in_2.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X416 VCO4_selection_0.inverter_3.out VCO4_selection_0.inverter_3.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X417 a_62545_23859# f3 row_section_decoding_0.NAND_2in_0.a vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X418 vp f4 a_61809_22377# vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X419 VCO4_selection_0.NAND_3in_0.y 010 a_66995_30104# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X420 vp VCO3_selection_0.inverter_4.in VCO3_selection_0.inverter_4.out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X421 vp after_001111_n VCO3_selection_0.NAND_3in_5.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X422 a_61531_32688# 100 VCO3_selection_0.NAND_3in_4.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X423 a_67510_22734# f1 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X424 3bit_to_8_outs_0.NAND_3in_6.y 3bit_to_8_outs_0.c2_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X425 VCO4_5_sel VCO4_selection_0.NAND_2in_0.b vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X426 vp 111 VCO2_selection_0.inverter_3.in vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X427 vp VCO3_selection_0.NAND_3in_7.c VCO3_selection_0.NAND_3in_7.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X428 3bit_to_8_outs_0.inverter_6.in 3bit_to_8_outs_0.c0_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X429 vp c1 3bit_to_8_outs_0.inverter_10.in vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X430 a_60755_31712# VCO3_selection_0.XNOR_1._b VCO3_selection_0.XNOR_1.y vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X431 3bit_to_8_outs_0.NAND_3in_0.y c2 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X432 VCO4_selection_0.inverter_3.in 001 a_66995_32060# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X433 VCO2_selection_0.NAND_3in_7.y after_000111_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X434 3bit_to_8_outs_0.NAND_3in_6.y 3bit_to_8_outs_0.c0_n a_61909_26498# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X435 VCO3_selection_0.NAND_3in_1.y after_000011 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X436 a_61209_32214# f0 VCO3_selection_0.XNOR_1.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X437 vp 011 VCO2_selection_0.NAND_2in_0.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X438 a_60041_29290# VCO3_selection_0.inverter_4.out VCO3_selection_0.NOR_2in_0.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X439 VCO3_11_sel VCO3_selection_0.NOR_2in_1.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X440 VCO5_selection_0.inverter_0.out VCO5_selection_0.inverter_0.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X441 VCO2_selection_0.inverter_1.out VCO2_selection_0.inverter_1.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X442 3bit_to_8_outs_0.c2_n c2 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X443 3bit_to_8_outs_0.c0_n c0 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X444 a_60851_34644# 010 VCO3_selection_0.NAND_3in_9.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X445 011 3bit_to_8_outs_0.inverter_10.in gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X446 vp after_001111 VCO3_selection_0.inverter_4.in vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X447 gd VCO2_selection_0.inverter_4.out VCO2_selection_0.NAND_3in_5.c gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X448 a_68742_22260# VCO5_selection_0.NAND_2in_0.b gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X449 VCO_sel VCO_selection_0.NAND_2in_2.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X450 VCO2_selection_0.NOR_2in_2.y VCO2_selection_0.NOR_2in_2.a gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X451 VCO3_selection_0.NAND_3in_3.y after_000011 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X452 a_61909_24854# c1 a_61693_24854# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X453 VCO2_selection_0.NAND_3in_3.y 110 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X454 gd f4 row_section_decoding_0.NAND_2in_0.b gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X455 VCO4_selection_0.XNOR_1._a f0 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X456 a_67044_23146# f0 vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X457 a_61215_31712# f1 VCO3_selection_0.XNOR_1.y vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X458 a_67675_32534# VCO4_selection_0.inverter_5.out a_67459_32534# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X459 VCO2_selection_0.NAND_3in_4.y 101 a_68498_26182# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X460 vp 101 VCO_selection_0.NAND_2in_2.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X461 VCO4_selection_0.NOR_2in_0.a VCO4_selection_0.NAND_3in_2.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X462 vp 3bit_to_8_outs_0.c1_n 3bit_to_8_outs_0.NAND_3in_2.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X463 gd VCO4_selection_0.inverter_0.out VCO4_selection_0.NAND_2in_0.a gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X464 a_61013_26498# 3bit_to_8_outs_0.c2_n gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X465 gd after_001111_n a_61747_34644# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X466 vp VCO3_selection_0.NAND_3in_7.y VCO3_selection_0.inverter_0.out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X467 VCO2_selection_0.inverter_3.in 111 a_67602_28612# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X468 vp VCO3_selection_0.XNOR_1.y VCO3_selection_0.inverter_12.out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X469 vp 010 VCO2_selection_0.inverter_2.in vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X470 VCO2_selection_0.NAND_3in_3.c f1 a_67658_25112# vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X471 a_68832_27634# VCO2_selection_0.inverter_1.out vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X472 vp f5_n VCO3_selection_0.NAND_3in_2.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X473 110 3bit_to_8_outs_0.inverter_1.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X474 vp after_000111_n after_000111 vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X475 a_67812_28138# after_001111 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X476 gd VCO4_selection_0.NOR_2in_0.b VCO4_selection_0.NAND_2in_0.b gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X477 VCO2_11_sel VCO2_selection_0.NAND_3in_5.c vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X478 gd after_000011 after_000011_n gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X479 VCO2_selection_0.NOR_2in_0.b VCO2_selection_0.NAND_3in_7.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X480 vp VCO3_selection_0.NAND_3in_2.y VCO3_selection_0.inverter_3.out vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X481 VCO2_selection_0.NAND_4in_0.a 110 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X482 VCO5_selection_0.NAND_2in_0.b 010 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X483 vp after_000111 VCO2_selection_0.NAND_4in_0.b vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X484 vp f5_n VCO3_selection_0.NAND_3in_9.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X485 a_61747_28786# after_000111 a_61531_28786# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X486 VCO4_selection_0.inverter_5.in f1 a_67311_33514# vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X487 row_section_decoding_0.NAND_2in_0.a f3 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X488 vp f1 VCO3_selection_0.XNOR_0._b vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X489 a_66979_35980# VCO_selection_0.NAND_2in_2.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X490 a_67771_34902# VCO4_selection_0.XNOR_0._a vp vp sg13_lv_pmos ad=0.204p pd=1.88u as=0.204p ps=1.88u w=0.6u l=0.13u
+X491 a_68022_24226# after_000011_n a_67806_24226# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X492 VCO2_selection_0.inverter_4.out VCO2_selection_0.NOR_2in_0.y vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X493 VCO4_selection_0.inverter_2.in 000 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X494 vp VCO3_selection_0.NAND_2in_0.y VCO3_selection_0.NOR_2in_4.a vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X495 a_61747_28312# after_000011 a_61531_28312# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X496 VCO5_selection_0.XNOR_0._a f0 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X497 3bit_to_8_outs_0.inverter_6.in 3bit_to_8_outs_0.c0_n a_61229_25172# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X498 vp after_000011 VCO2_selection_0.NAND_3in_4.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X499 VCO2_selection_0.NAND_3in_7.y 110 a_67342_24226# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X500 a_68639_25204# VCO2_selection_0.inverter_6.out vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X501 3bit_to_8_outs_0.inverter_8.in 3bit_to_8_outs_0.c0_n a_61229_26816# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X502 a_60851_30268# 011 VCO3_selection_0.NAND_3in_7.y gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X503 a_67777_34490# f1 gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X504 vp 100 VCO3_selection_0.NAND_3in_4.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X505 a_67342_28138# after_000111 a_67126_28138# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X506 VCO_selection_0.NAND_2in_2.y 101 a_66509_36298# gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X507 VCO4_selection_0.XNOR_0._a f0 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X508 3bit_to_8_outs_0.NAND_3in_6.y 3bit_to_8_outs_0.c0_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X509 VCO4_selection_0.NAND_3in_2.y after_000011_n vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X510 VCO4_selection_0.NOR_2in_0.a VCO4_selection_0.NAND_3in_2.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X511 010 3bit_to_8_outs_0.NAND_3in_6.y gd gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X512 vp after_000011_n VCO4_selection_0.NAND_3in_0.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X513 vp after_000111 VCO_selection_0.NAND_2in_1.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X514 a_61809_22377# f5 row_section_decoding_0.NAND_2in_0.b vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X515 VCO2_selection_0.inverter_1.out VCO2_selection_0.inverter_1.in vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X516 gd VCO4_selection_0.inverter_3.out VCO4_selection_0.inverter_1.in gd sg13_lv_nmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X517 vp after_000011 VCO4_selection_0.NAND_3in_1.y vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X518 VCO3_selection_0.NAND_3in_5.y after_000111 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+X519 3bit_to_8_outs_0.NAND_3in_3.y c2 vp vp sg13_lv_pmos ad=0.1005p pd=1.34u as=0.1005p ps=1.34u w=0.15u l=0.13u
+C0 a_66512_22260# 010 0.01074f
+C1 VCO5_selection_0.inverter_0.out a_68266_21756# 0.05153f
+C2 VCO2_selection_0.NAND_3in_4.y VCO2_selection_0.NAND_4in_0.d 0.08025f
+C3 a_60755_31154# vp 0.17108f
+C4 a_61013_26498# 3bit_to_8_outs_0.inverter_10.in 0.02306f
+C5 f2 vp 0.32704f
+C6 VCO_selection_0.NAND_2in_2.y VCO_selection_0.NAND_2in_0.y 0.50978f
+C7 VCO3_selection_0.inverter_4.out m2_59959_28869# 0.01079f
+C8 VCO2_selection_0.NOR_2in_2.y VCO2_selection_0.NAND_3in_5.c 0.2957f
+C9 3bit_to_8_outs_0.inverter_6.in a_61013_25172# 0.02306f
+C10 vp VCO4_selection_0.inverter_4.in 0.57364f
+C11 VCO4_selection_0.inverter_2.out m2_67658_30743# 0.01342f
+C12 3bit_to_8_outs_0.inverter_6.in 3bit_to_8_outs_0.c0_n 0.43482f
+C13 f5 f1_n 0.10809f
+C14 after_000011 f5 1.20305f
+C15 after_000011 row_section_decoding_0.NAND_2in_0.a 0.65283f
+C16 VCO_selection_0.NAND_2in_0.y VCO4_selection_0.XNOR_0._b 0.01688f
+C17 3bit_to_8_outs_0.inverter_10.in c0 0.43475f
+C18 a_66995_32534# 001 0.01219f
+C19 after_000011 VCO4_selection_0.inverter_3.in 0.8679f
+C20 VCO3_selection_0.NAND_3in_1.y a_61531_28312# 0.07156f
+C21 VCO2_selection_0.NOR_2in_2.b m2_68005_28941# 0.22322f
+C22 VCO2_selection_0.NAND_3in_5.c VCO2_5_sel 0.24756f
+C23 a_66979_35980# a_67195_35980# 0.02909f
+C24 VCO4_selection_0.NAND_3in_2.y m2_68072_32699# 0.0115f
+C25 VCO5_selection_0.inverter_2.in VCO2_selection_0.NAND_3in_7.y 0.01126f
+C26 vp a_60251_33666# 0.12263f
+C27 c2 after_001111_n 0.01473f
+C28 VCO3_selection_0.NAND_3in_0.c VCO3_selection_0.NAND_3in_6.a 0.02007f
+C29 VCO4_selection_0.NAND_2in_0.a VCO4_selection_0.NOR_2in_0.b 0.33544f
+C30 VCO4_selection_0.XNOR_0._b f0 0.53511f
+C31 VCO2_selection_0.inverter_1.in after_001111 0.76346f
+C32 f1 m2_60359_32039# 0.01358f
+C33 after_000111_n after_000011_n 2.05557f
+C34 VCO5_selection_0.inverter_2.in VCO5_selection_0.XNOR_0._b 0.66266f
+C35 after_000111 m2_66700_30661# 0.01284f
+C36 100 f3 0.04754f
+C37 a_60755_31712# VCO3_selection_0.XNOR_1._a 0.10751f
+C38 a_68124_24700# VCO2_selection_0.NAND_3in_3.c 0.07768f
+C39 m2_68213_33923# VCO4_selection_0.XNOR_1._b 0.0481f
+C40 after_000011_n a_61747_34170# 0.01233f
+C41 111 000 0.47359f
+C42 VCO3_selection_0.NAND_3in_2.y m2_60704_28869# 0.16872f
+C43 VCO3_selection_0.NOR_2in_0.y VCO3_selection_0.NAND_3in_3.y 0.02897f
+C44 after_000111_n a_67126_24226# 0.01632f
+C45 f2 f1_n 0.017f
+C46 VCO5_selection_0.NAND_2in_0.b after_000011_n 1.05183f
+C47 after_000011 f2 0.04604f
+C48 VCO3_selection_0.NOR_2in_4.a m2_60169_34077# 0.01348f
+C49 VCO3_selection_0.NAND_3in_7.c 011 0.16051f
+C50 after_000011 a_62069_23355# 0.07642f
+C51 VCO3_selection_0.NAND_2in_3.y VCO3_selection_0.NAND_3in_5.y 0.01232f
+C52 101 f3 0.05665f
+C53 after_001111 f5 0.80887f
+C54 VCO4_selection_0.XNOR_0._b VCO4_selection_0.XNOR_0._a 0.62619f
+C55 vp VCO4_selection_0.NOR_2in_0.b 0.25325f
+C56 3bit_to_8_outs_0.inverter_8.in 3bit_to_8_outs_0.c1_n 0.72478f
+C57 VCO5_selection_0.inverter_2.in vp 0.54512f
+C58 a_61693_26816# a_61909_26816# 0.02909f
+C59 VCO2_selection_0.NOR_2in_2.y m2_68543_28777# 0.27137f
+C60 VCO2_selection_0.NAND_4in_0.d f0 0.01849f
+C61 VCO2_selection_0.XNOR_0._a vp 0.36602f
+C62 a_66509_35980# after_001111 0.01155f
+C63 a_68285_22734# after_000011_n 0.02125f
+C64 after_001111 VCO_selection_0.NAND_2in_1.y 0.02009f
+C65 f3 vp 1.1456f
+C66 VCO2_selection_0.inverter_3.in vp 0.39865f
+C67 VCO3_selection_0.NAND_3in_3.y VCO3_selection_0.NAND_3in_7.y 0.45323f
+C68 after_000011_n after_001111_n 0.43031f
+C69 m2_60359_31875# VCO3_selection_0.XNOR_1.y 0.22722f
+C70 VCO3_selection_0.NAND_3in_8.y VCO3_selection_0.XNOR_1._b 0.01232f
+C71 VCO2_selection_0.NAND_3in_5.c VCO2_selection_0.NAND_3in_3.c 0.11228f
+C72 011 VCO4_selection_0.inverter_5.out 0.86775f
+C73 VCO3_selection_0.inverter_2.out m2_60432_28219# 0.17027f
+C74 a_67044_23146# 001 0.01363f
+C75 a_61693_25172# c2 0.01632f
+C76 after_000111_n f1 0.44474f
+C77 f5_n 000 0.1756f
+C78 vp VCO3_selection_0.XNOR_1._a 0.35732f
+C79 VCO2_selection_0.inverter_2.in m2_68543_28777# 0.01859f
+C80 VCO3_selection_0.NAND_3in_6.b VCO3_selection_0.NAND_3in_6.c 1.57365f
+C81 m2_62332_24515# m2_62604_24515# 0.01717f
+C82 VCO3_selection_0.inverter_10.out vp 0.31633f
+C83 VCO4_selection_0.NAND_2in_0.b a_67737_29600# 0.08009f
+C84 a_67050_22734# VCO5_selection_0.XNOR_0._b 0.04746f
+C85 a_61809_22377# f5 0.01383f
+C86 VCO5_selection_0.NAND_2in_0.b m2_68187_22167# 0.41035f
+C87 VCO2_selection_0.inverter_6.out m2_68895_26007# 0.35153f
+C88 111 VCO4_selection_0.NOR_2in_0.a 0.01048f
+C89 VCO2_selection_0.XNOR_0._b VCO2_selection_0.NAND_3in_3.c 0.59738f
+C90 after_001111 f2 0.05431f
+C91 000 f4 0.07328f
+C92 VCO3_selection_0.NOR_2in_4.b a_60251_33666# 0.01383f
+C93 VCO3_selection_0.NAND_3in_6.a a_59758_32214# 0.01188f
+C94 row_section_decoding_0.NAND_2in_0.b vp 0.30309f
+C95 VCO2_selection_0.inverter_0.out VCO2_selection_0.NOR_2in_1.y 0.34524f
+C96 after_000111 010 3.78689f
+C97 a_67311_34902# VCO4_selection_0.XNOR_0.y 0.10845f
+C98 VCO3_selection_0.NAND_3in_6.b VCO3_5_sel 0.67773f
+C99 VCO_sel vp 0.43417f
+C100 m2_61440_23438# f1 0.17808f
+C101 after_000111_n m2_68072_31885# 0.01756f
+C102 f3 f1_n 0.0178f
+C103 m2_59545_30175# VCO3_selection_0.NOR_2in_0.y 0.01083f
+C104 m2_59959_28869# m2_60432_28869# 0.01796f
+C105 after_000011 f3 0.1097f
+C106 VCO3_selection_0.NAND_3in_7.c a_61209_30742# 0.07127f
+C107 after_001111_n f1 1.44734f
+C108 a_61061_28312# after_000011_n 0.04417f
+C109 VCO3_selection_0.NAND_3in_1.y 100 0.57648f
+C110 VCO3_selection_0.NAND_3in_7.c m2_60500_30093# 0.01766f
+C111 a_61215_31712# f0 0.15466f
+C112 a_66512_22260# 000 0.01155f
+C113 a_67342_28138# VCO2_selection_0.inverter_1.in 0.07156f
+C114 f0 VCO4_selection_0.inverter_5.in 0.38556f
+C115 VCO3_selection_0.NAND_3in_6.c VCO3_selection_0.inverter_8.out 0.34188f
+C116 m2_59545_30175# VCO3_11_sel 0.09224f
+C117 VCO4_selection_0.NAND_2in_0.a VCO4_5_sel 0.48656f
+C118 a_60851_30268# a_61067_30268# 0.02909f
+C119 m2_60169_33995# VCO3_selection_0.NAND_3in_6.b 0.27137f
+C120 after_000111 f0 0.15168f
+C121 101 a_68087_26656# 0.0601f
+C122 m2_69013_28695# VCO2_selection_0.NOR_2in_1.y 0.03387f
+C123 after_000011_n a_67602_28612# 0.04481f
+C124 VCO3_selection_0.NAND_3in_1.y m2_60704_28219# 0.17808f
+C125 VCO3_selection_0.inverter_12.out VCO3_selection_0.XNOR_1.y 0.48133f
+C126 010 a_66995_30104# 0.01179f
+C127 VCO5_selection_0.inverter_0.in 001 0.5054f
+C128 c0 c1 10.4506f
+C129 m2_67392_29765# VCO4_selection_0.inverter_0.out 0.17997f
+C130 VCO3_selection_0.XNOR_1.y a_61209_32214# 0.07105f
+C131 VCO3_selection_0.NAND_3in_3.y 000 0.04812f
+C132 a_61909_26816# 3bit_to_8_outs_0.NAND_3in_2.y 0.07156f
+C133 VCO3_selection_0.NAND_3in_9.y vp 0.58684f
+C134 VCO3_selection_0.NAND_2in_1.y 3bit_to_8_outs_0.inverter_8.in 0.02154f
+C135 a_60041_27808# VCO3_selection_0.NOR_2in_1.y 0.08009f
+C136 VCO5_selection_0.inverter_2.out VCO5_selection_0.inverter_0.in 0.6668f
+C137 VCO4_selection_0.inverter_3.out VCO4_selection_0.inverter_1.in 0.82047f
+C138 VCO5_selection_0.inverter_2.in a_67510_22734# 0.07528f
+C139 VCO5_selection_0.NOR_2in_0.y m2_68663_22167# 0.01152f
+C140 a_68282_26182# VCO2_selection_0.NAND_4in_0.d 0.01205f
+C141 VCO3_selection_0.NAND_3in_6.a VCO3_selection_0.inverter_11.out 0.26648f
+C142 VCO4_selection_0.inverter_3.out VCO4_selection_0.XNOR_0.y 0.04684f
+C143 VCO2_selection_0.NAND_3in_3.c a_68118_25112# 0.11751f
+C144 after_000011 row_section_decoding_0.NAND_2in_0.b 1.19833f
+C145 VCO2_selection_0.inverter_6.out VCO2_selection_0.XNOR_0._a 0.02709f
+C146 VCO2_selection_0.NAND_3in_5.c VCO2_selection_0.NOR_2in_1.y 0.3153f
+C147 VCO3_selection_0.NAND_3in_1.y vp 0.56959f
+C148 vp VCO4_5_sel 0.3897f
+C149 a_61333_22377# vp 0.12279f
+C150 f0 VCO4_selection_0.NAND_3in_2.y 0.01551f
+C151 VCO2_selection_0.NAND_3in_4.y after_000111_n 0.53404f
+C152 after_000011_n VCO4_selection_0.XNOR_0.y 0.27568f
+C153 VCO5_selection_0.inverter_1.in VCO5_selection_0.XNOR_0._a 0.03053f
+C154 m2_68419_24051# VCO2_selection_0.NAND_3in_3.c 0.01766f
+C155 VCO4_selection_0.inverter_1.in VCO4_selection_0.inverter_0.out 0.16991f
+C156 3bit_to_8_outs_0.inverter_6.in 3bit_to_8_outs_0.c1_n 0.72465f
+C157 VCO2_11_sel m2_69013_28695# 0.09318f
+C158 after_001111 f3 0.05514f
+C159 f0 a_67771_33514# 0.02644f
+C160 VCO2_selection_0.inverter_3.in after_001111 0.01935f
+C161 VCO2_selection_0.inverter_1.in after_000011_n 0.02067f
+C162 m2_59959_28219# VCO3_selection_0.NOR_2in_1.y 0.16765f
+C163 after_001111_n m2_66700_30661# 0.67442f
+C164 after_000011_n a_61067_30268# 0.01013f
+C165 VCO5_selection_0.inverter_2.out m2_67946_22817# 0.09739f
+C166 3bit_to_8_outs_0.c0_n vp 1.79456f
+C167 c0 a_61909_25172# 0.01179f
+C168 VCO4_selection_0.XNOR_1._b VCO4_selection_0.XNOR_1._a 0.62619f
+C169 111 f5_n 0.06209f
+C170 VCO3_selection_0.XNOR_0._b VCO3_selection_0.NAND_3in_7.c 0.57721f
+C171 a_59833_33192# VCO3_selection_0.inverter_7.out 0.05001f
+C172 VCO3_selection_0.inverter_8.out VCO3_selection_0.NAND_3in_4.y 0.35612f
+C173 VCO2_selection_0.NAND_3in_5.c a_69092_28612# 0.01839f
+C174 011 VCO4_selection_0.XNOR_1._a 0.02477f
+C175 a_66995_32060# VCO4_selection_0.inverter_3.in 0.07156f
+C176 VCO4_selection_0.NAND_3in_1.y a_67459_32060# 0.0131f
+C177 VCO4_selection_0.inverter_3.out VCO4_selection_0.inverter_3.in 0.41883f
+C178 VCO2_selection_0.NAND_3in_5.c VCO2_11_sel 0.6368f
+C179 VCO3_selection_0.NAND_3in_5.y a_61067_34644# 0.01221f
+C180 after_000011_n f5 1.77156f
+C181 111 f4 0.03146f
+C182 VCO3_selection_0.NAND_3in_5.y 011 0.39308f
+C183 after_000111_n 010 0.22685f
+C184 after_000011_n VCO4_selection_0.inverter_3.in 0.02267f
+C185 f5_n VCO3_selection_0.XNOR_1._b 0.1716f
+C186 a_61013_24854# 3bit_to_8_outs_0.NAND_3in_0.y 0.02306f
+C187 m2_68419_23887# m2_68691_23887# 0.01717f
+C188 VCO3_selection_0.NOR_2in_4.a a_60251_33666# 0.05153f
+C189 VCO3_selection_0.inverter_11.out VCO3_selection_0.NAND_3in_5.y 0.56099f
+C190 VCO3_selection_0.NAND_3in_1.y after_000011 0.58046f
+C191 010 a_60851_34644# 0.01179f
+C192 VCO5_selection_0.NAND_2in_0.b VCO5_selection_0.inverter_0.out 0.46886f
+C193 m2_59751_32771# VCO3_selection_0.NAND_3in_6.c 0.16521f
+C194 m2_67392_29929# VCO4_selection_0.NOR_2in_0.b 0.01796f
+C195 VCO4_selection_0.XNOR_0.y f1 0.99743f
+C196 a_60234_31246# vp 0.12263f
+C197 a_67459_32534# a_67675_32534# 0.02909f
+C198 m2_59753_34727# VCO3_selection_0.inverter_10.out 0.01079f
+C199 VCO5_selection_0.NAND_2in_0.b 010 0.38184f
+C200 m2_68957_24133# VCO2_selection_0.NOR_2in_0.a 0.42211f
+C201 a_67504_23146# f0 0.02644f
+C202 m2_67047_24133# VCO2_selection_0.XNOR_0._b 0.03546f
+C203 a_67658_25112# f0 0.15347f
+C204 VCO2_selection_0.inverter_0.out m2_68753_27963# 0.0378f
+C205 VCO2_selection_0.NAND_4in_0.c 111 0.19692f
+C206 111 VCO_selection_0.NAND_2in_2.y 0.34936f
+C207 c1 3bit_to_8_outs_0.inverter_1.in 0.6154f
+C208 after_000111_n f0 0.2227f
+C209 3bit_to_8_outs_0.c0_n f1_n 0.02279f
+C210 VCO4_selection_0.NAND_3in_1.y VCO4_selection_0.NAND_3in_2.y 0.04095f
+C211 VCO2_selection_0.NOR_2in_2.b VCO4_selection_0.NAND_2in_0.a 0.01041f
+C212 after_000011 3bit_to_8_outs_0.c0_n 0.01336f
+C213 m2_59753_34809# VCO3_selection_0.inverter_11.out 0.01574f
+C214 3bit_to_8_outs_0.inverter_6.in 3bit_to_8_outs_0.NAND_3in_0.y 0.2557f
+C215 VCO3_selection_0.inverter_2.out VCO3_selection_0.NAND_3in_1.y 0.50358f
+C216 VCO3_selection_0.inverter_1.out VCO3_selection_0.NAND_2in_1.y 0.59972f
+C217 VCO2_selection_0.NAND_2in_0.y VCO2_selection_0.NAND_4in_0.b 0.02117f
+C218 VCO2_selection_0.inverter_0.out VCO2_selection_0.NAND_4in_0.a 0.0351f
+C219 a_67032_22260# f1_n 0.01632f
+C220 after_000011_n f2 0.06044f
+C221 a_61809_22377# row_section_decoding_0.NAND_2in_0.b 0.08005f
+C222 after_000111 000 1.21759f
+C223 f5_n f4 18.6468f
+C224 a_67737_31082# VCO4_selection_0.NAND_2in_0.a 0.08009f
+C225 after_000011_n VCO4_selection_0.inverter_4.in 1.5818f
+C226 VCO3_selection_0.NAND_3in_4.y VCO3_selection_0.NAND_3in_8.y 0.39594f
+C227 VCO4_selection_0.inverter_4.in a_67459_32534# 0.01405f
+C228 VCO4_selection_0.inverter_1.in VCO4_selection_0.NOR_2in_1.a 0.24075f
+C229 a_67126_24226# a_67342_24226# 0.02909f
+C230 101 a_68498_26182# 0.01333f
+C231 010 after_001111_n 0.36122f
+C232 f5 f1 18.84f
+C233 VCO4_selection_0.XNOR_0.y VCO4_selection_0.NOR_2in_1.a 3.15587f
+C234 f1 row_section_decoding_0.NAND_2in_0.a 0.39764f
+C235 a_61693_24854# a_61909_24854# 0.02909f
+C236 101 a_61271_34170# 0.01155f
+C237 VCO3_selection_0.NAND_3in_6.c a_59974_32214# 0.019f
+C238 a_68501_22734# a_68285_22734# 0.02909f
+C239 VCO4_selection_0.inverter_5.in a_67777_34016# 0.07528f
+C240 a_66979_35980# VCO_sel 0.01119f
+C241 VCO3_selection_0.inverter_2.out 3bit_to_8_outs_0.c0_n 0.01482f
+C242 c0 a_61229_24854# 0.01179f
+C243 VCO2_selection_0.NOR_2in_2.b vp 0.34865f
+C244 a_67032_22260# a_67248_22260# 0.02909f
+C245 3bit_to_8_outs_0.c0_n 3bit_to_8_outs_0.c2_n 2.00018f
+C246 VCO2_selection_0.inverter_0.out vp 0.34164f
+C247 VCO2_selection_0.NAND_4in_0.c f5_n 0.21039f
+C248 VCO2_selection_0.NAND_4in_0.d 111 0.60846f
+C249 VCO5_selection_0.inverter_1.out a_68266_21756# 0.01383f
+C250 VCO_selection_0.NAND_2in_0.y m2_66900_35887# 0.01316f
+C251 m2_59751_32771# VCO3_selection_0.NAND_3in_4.y 0.01848f
+C252 m2_69042_24783# VCO2_selection_0.NOR_2in_0.y 0.01368f
+C253 m2_59959_28219# m2_60432_28219# 0.01796f
+C254 after_001111_n f0 0.1422f
+C255 after_000011_n m2_66700_32617# 0.69427f
+C256 vp a_67737_31082# 0.12274f
+C257 VCO3_selection_0.NAND_3in_7.c vp 0.56051f
+C258 3bit_to_8_outs_0.inverter_6.in 3bit_to_8_outs_0.NAND_3in_3.y 0.48578f
+C259 after_001111 3bit_to_8_outs_0.c0_n 0.02277f
+C260 VCO2_selection_0.NAND_3in_5.c VCO2_selection_0.NAND_3in_7.y 0.0119f
+C261 after_001111 a_61747_28786# 0.0103f
+C262 VCO4_selection_0.inverter_3.out VCO4_selection_0.NOR_2in_0.b 0.01036f
+C263 100 m2_61449_32771# 0.0101f
+C264 f5_n VCO3_selection_0.NAND_3in_3.y 0.09609f
+C265 m2_68072_31885# VCO4_selection_0.inverter_3.in 0.16871f
+C266 VCO4_selection_0.NOR_2in_0.a VCO4_selection_0.inverter_5.in 0.01843f
+C267 f2 f1 18.7763f
+C268 VCO4_selection_0.inverter_3.out m2_68344_31885# 0.19204f
+C269 VCO3_selection_0.inverter_4.out m2_60704_29115# 0.22322f
+C270 VCO4_selection_0.XNOR_0.y a_67317_34490# 0.07107f
+C271 VCO2_selection_0.inverter_2.in m2_68277_28695# 0.17808f
+C272 f1 VCO4_selection_0.inverter_4.in 0.01695f
+C273 a_62545_23859# vp 0.12461f
+C274 VCO4_selection_0.inverter_2.out m2_67392_30907# 0.18057f
+C275 3bit_to_8_outs_0.c0_n a_61909_24854# 0.01179f
+C276 VCO4_selection_0.NAND_3in_1.y after_000111_n 0.53611f
+C277 VCO4_selection_0.inverter_4.in m2_68072_32699# 0.16871f
+C278 VCO3_selection_0.inverter_5.out vp 0.3388f
+C279 a_68022_24226# VCO2_selection_0.NAND_3in_3.y 0.06947f
+C280 vp VCO4_selection_0.inverter_5.out 0.39355f
+C281 VCO5_selection_0.inverter_2.in after_000011_n 0.17948f
+C282 VCO2_selection_0.NAND_3in_7.y VCO2_selection_0.XNOR_0._b 0.06611f
+C283 m2_61665_33995# 001 0.01127f
+C284 VCO4_selection_0.inverter_0.out VCO4_selection_0.NOR_2in_0.b 0.0266f
+C285 VCO4_selection_0.NAND_2in_0.a VCO4_selection_0.NAND_2in_0.b 0.70451f
+C286 m2_68187_22167# m2_68663_22167# 0.01756f
+C287 VCO2_5_sel VCO2_selection_0.NAND_4in_0.b 0.95058f
+C288 after_000011_n f3 0.13956f
+C289 a_60755_31712# VCO3_selection_0.XNOR_1.y 0.11436f
+C290 VCO2_selection_0.inverter_3.in after_000011_n 0.43738f
+C291 VCO2_selection_0.inverter_2.in VCO4_selection_0.NAND_3in_0.y 0.02195f
+C292 a_68282_26182# after_000111_n 0.01632f
+C293 VCO2_selection_0.NAND_3in_5.c vp 0.40007f
+C294 VCO2_selection_0.NAND_2in_0.y 011 0.54931f
+C295 VCO4_selection_0.inverter_0.out m2_67392_30661# 0.01807f
+C296 110 3bit_to_8_outs_0.NAND_3in_0.y 0.67958f
+C297 m2_62332_27145# 001 0.18009f
+C298 after_000011_n VCO3_selection_0.XNOR_1._a 0.02536f
+C299 VCO4_selection_0.inverter_4.in VCO4_selection_0.NOR_2in_1.a 0.41291f
+C300 VCO4_selection_0.NAND_3in_2.y VCO4_selection_0.NOR_2in_0.a 0.53242f
+C301 VCO2_selection_0.NAND_3in_3.y VCO2_selection_0.NOR_2in_0.a 0.51755f
+C302 VCO3_selection_0.NAND_3in_6.b m2_60169_34077# 0.16564f
+C303 c2 a_61693_24854# 0.01632f
+C304 3bit_to_8_outs_0.NAND_3in_3.y m2_62332_25501# 0.21959f
+C305 VCO3_selection_0.NAND_2in_0.y VCO3_selection_0.NAND_3in_5.y 0.01949f
+C306 vp VCO4_selection_0.NAND_2in_0.b 0.31744f
+C307 a_67044_23146# vp 0.17102f
+C308 a_61013_25172# a_61229_25172# 0.02909f
+C309 VCO4_selection_0.NAND_2in_0.a m2_67658_30743# 0.28746f
+C310 a_61229_25172# 3bit_to_8_outs_0.c0_n 0.01191f
+C311 after_000111_n 000 0.21316f
+C312 VCO2_selection_0.XNOR_0._b vp 0.3313f
+C313 m2_60228_29929# VCO3_selection_0.NAND_3in_3.y 0.17968f
+C314 m2_67392_30011# m2_67392_29929# 0.16814f
+C315 111 after_000111 3.33558f
+C316 m2_59959_28219# m2_59959_28869# 0.01956f
+C317 after_000011_n row_section_decoding_0.NAND_2in_0.b 0.27446f
+C318 3bit_to_8_outs_0.c1_n vp 0.61352f
+C319 VCO3_selection_0.inverter_4.in m2_60704_29115# 0.2263f
+C320 VCO5_selection_0.inverter_2.in f1 0.99696f
+C321 VCO3_selection_0.NOR_2in_0.y VCO3_selection_0.NOR_2in_1.y 1.18187f
+C322 f1 VCO2_selection_0.XNOR_0._a 0.60852f
+C323 VCO3_selection_0.NAND_3in_4.y VCO3_selection_0.XNOR_1._b 0.0329f
+C324 VCO2_selection_0.NAND_4in_0.d VCO2_selection_0.NAND_4in_0.c 2.31334f
+C325 VCO5_selection_0.XNOR_0._a 001 0.18011f
+C326 a_67806_24226# VCO2_selection_0.NAND_3in_3.c 0.02066f
+C327 VCO2_selection_0.inverter_6.out a_68498_26182# 0.01409f
+C328 VCO3_selection_0.NOR_2in_1.y VCO3_11_sel 0.75789f
+C329 vp VCO3_selection_0.XNOR_1.y 0.61936f
+C330 f3 f1 0.43487f
+C331 VCO4_selection_0.XNOR_0.y f0 0.35889f
+C332 VCO3_selection_0.NAND_3in_6.a vp 0.36141f
+C333 3bit_to_8_outs_0.inverter_8.in 001 0.67963f
+C334 f5 010 1.60789f
+C335 VCO2_selection_0.NAND_3in_7.y m2_68419_24051# 0.16871f
+C336 VCO2_selection_0.NAND_3in_4.y m2_68895_26007# 0.0115f
+C337 a_61013_25172# c2 0.01632f
+C338 f5_n VCO3_selection_0.NAND_3in_4.y 0.09615f
+C339 c2 3bit_to_8_outs_0.c0_n 5.03952f
+C340 after_000011 m2_61449_32771# 0.01291f
+C341 f1 VCO3_selection_0.XNOR_1._a 0.9369f
+C342 f0 a_61215_31154# 0.15466f
+C343 after_001111_n 000 0.28988f
+C344 a_66509_35980# VCO_selection_0.NAND_2in_0.y 0.07562f
+C345 VCO4_selection_0.NOR_2in_0.a a_68213_30104# 0.01026f
+C346 after_000111 f5_n 4.48949f
+C347 a_66995_30578# VCO4_selection_0.inverter_2.in 0.07156f
+C348 VCO2_selection_0.NAND_3in_5.c VCO2_selection_0.NOR_2in_0.y 0.60096f
+C349 m2_68072_31885# m2_68344_31885# 0.01717f
+C350 VCO_selection_0.NAND_2in_0.y VCO_selection_0.NAND_2in_1.y 0.88942f
+C351 after_000011 VCO2_selection_0.XNOR_0._b 0.19245f
+C352 VCO3_selection_0.inverter_12.out m2_59751_32853# 0.01743f
+C353 VCO4_selection_0.XNOR_0._a VCO4_selection_0.XNOR_0.y 1.03953f
+C354 3bit_to_8_outs_0.NAND_3in_6.y 3bit_to_8_outs_0.c0_n 0.63468f
+C355 after_000111_n m2_66700_31967# 0.67497f
+C356 VCO3_selection_0.NAND_3in_3.y a_61747_30268# 0.01332f
+C357 VCO5_selection_0.inverter_0.in vp 0.57767f
+C358 f1 row_section_decoding_0.NAND_2in_0.b 1.37901f
+C359 f5 f0 0.13719f
+C360 a_68118_25112# vp 0.17108f
+C361 m2_67946_22817# VCO5_selection_0.XNOR_0._b 0.0481f
+C362 a_66779_30104# a_66995_30104# 0.02909f
+C363 after_000111 f4 0.04071f
+C364 VCO3_selection_0.NAND_2in_1.y 100 0.3743f
+C365 VCO3_selection_0.NAND_3in_1.y after_000011_n 0.82851f
+C366 VCO3_selection_0.inverter_12.out m2_60359_31875# 0.17998f
+C367 a_60234_31246# VCO3_selection_0.inverter_0.out 0.04823f
+C368 VCO2_selection_0.inverter_4.out VCO2_selection_0.XNOR_0._a 0.01362f
+C369 VCO3_selection_0.NAND_3in_7.y a_61067_30268# 0.01038f
+C370 VCO3_selection_0.NAND_3in_1.y 3bit_to_8_outs_0.NAND_3in_2.y 0.02092f
+C371 VCO_selection_0.NAND_2in_1.y f0 0.03074f
+C372 vp VCO4_selection_0.XNOR_1._a 0.35929f
+C373 f2 010 0.05205f
+C374 m2_59959_28951# m2_59959_28869# 0.40984f
+C375 VCO5_selection_0.inverter_2.out 001 1.1473f
+C376 3bit_to_8_outs_0.NAND_3in_0.y vp 0.57916f
+C377 m2_66700_30661# m2_67392_30661# 0.01756f
+C378 VCO2_selection_0.inverter_6.out VCO2_selection_0.NAND_3in_5.c 0.30445f
+C379 a_67126_28138# a_67342_28138# 0.02909f
+C380 VCO3_selection_0.NAND_3in_1.y VCO3_selection_0.NAND_3in_2.y 0.05926f
+C381 VCO3_selection_0.NAND_2in_1.y VCO3_selection_0.inverter_4.in 0.05f
+C382 VCO3_selection_0.NAND_3in_6.b VCO3_selection_0.inverter_7.out 0.43023f
+C383 VCO3_selection_0.NAND_3in_5.y vp 0.55274f
+C384 VCO5_selection_0.NAND_2in_0.b VCO5_11_sel 0.56042f
+C385 after_000011_n 3bit_to_8_outs_0.c0_n 0.0908f
+C386 VCO2_selection_0.inverter_3.in m2_68005_28695# 0.01039f
+C387 m2_59545_30175# VCO3_selection_0.NAND_3in_3.y 0.02003f
+C388 VCO_selection_0.NAND_2in_2.y after_000111 0.55846f
+C389 m2_67392_30011# VCO4_selection_0.inverter_0.out 0.09739f
+C390 VCO4_selection_0.NAND_3in_1.y VCO4_selection_0.XNOR_0.y 0.02581f
+C391 3bit_to_8_outs_0.c2_n 3bit_to_8_outs_0.c1_n 5.27335f
+C392 VCO3_selection_0.NAND_3in_6.c VCO3_5_sel 0.76573f
+C393 a_60755_31154# f0 0.02763f
+C394 VCO2_selection_0.inverter_6.out VCO2_selection_0.XNOR_0._b 0.08052f
+C395 VCO2_selection_0.NOR_2in_2.y VCO2_selection_0.NOR_2in_1.y 1.07078f
+C396 VCO2_selection_0.inverter_1.out a_68832_27634# 0.05153f
+C397 011 001 0.76972f
+C398 VCO3_selection_0.NAND_2in_1.y vp 0.38848f
+C399 f2 f0 18.6699f
+C400 111 after_000111_n 0.42752f
+C401 VCO3_selection_0.NAND_3in_0.c a_59843_30268# 0.02239f
+C402 101 3bit_to_8_outs_0.NAND_3in_3.y 0.49466f
+C403 a_67596_26182# VCO2_selection_0.NAND_4in_0.d 0.01287f
+C404 VCO5_selection_0.inverter_1.in VCO5_selection_0.XNOR_0._b 0.04875f
+C405 a_61909_26498# 3bit_to_8_outs_0.NAND_3in_6.y 0.07156f
+C406 VCO3_selection_0.NAND_3in_2.y a_61747_28786# 0.0131f
+C407 a_68979_26656# VCO2_5_sel 0.08178f
+C408 VCO3_selection_0.NAND_2in_0.y VCO3_selection_0.NAND_2in_3.y 0.69785f
+C409 VCO2_5_sel VCO2_selection_0.NOR_2in_1.y 0.03688f
+C410 110 VCO3_selection_0.NAND_2in_3.y 0.03358f
+C411 3bit_to_8_outs_0.NAND_3in_3.y vp 0.57491f
+C412 VCO3_selection_0.inverter_4.in a_61061_28786# 0.07562f
+C413 VCO4_selection_0.inverter_2.in VCO4_selection_0.inverter_2.out 0.66566f
+C414 3bit_to_8_outs_0.NAND_3in_0.y f1_n 0.01711f
+C415 VCO3_selection_0.XNOR_0._b VCO3_selection_0.XNOR_0._a 0.56598f
+C416 VCO3_selection_0.inverter_0.out VCO3_selection_0.NAND_3in_7.c 0.3152f
+C417 VCO3_selection_0.inverter_8.out VCO3_selection_0.inverter_7.out 1.24132f
+C418 after_001111_n m2_67392_30743# 0.01756f
+C419 011 VCO4_selection_0.XNOR_1._b 0.02431f
+C420 m2_61665_33995# VCO3_selection_0.NAND_2in_0.y 0.28323f
+C421 VCO5_selection_0.inverter_1.in vp 0.47247f
+C422 VCO4_selection_0.NAND_3in_1.y VCO4_selection_0.inverter_3.in 0.52651f
+C423 VCO5_selection_0.inverter_2.out m2_67946_23063# 0.19881f
+C424 VCO2_selection_0.NOR_2in_2.y VCO2_11_sel 0.64107f
+C425 111 after_001111_n 0.11663f
+C426 after_000111_n f5_n 0.78316f
+C427 m2_60914_34077# VCO3_selection_0.NAND_2in_3.y 0.01039f
+C428 a_66779_32060# a_66995_32060# 0.02909f
+C429 VCO3_selection_0.NAND_3in_6.b a_60251_33666# 0.08051f
+C430 f3 010 0.05179f
+C431 VCO3_selection_0.inverter_5.out VCO3_selection_0.inverter_0.out 0.95037f
+C432 VCO3_selection_0.inverter_4.out a_60041_29290# 0.01383f
+C433 VCO5_selection_0.NAND_2in_0.b VCO5_selection_0.inverter_1.out 0.64011f
+C434 a_61693_25172# a_61909_25172# 0.02909f
+C435 after_000111_n f4 0.82767f
+C436 m2_59753_34727# VCO3_selection_0.NAND_3in_6.a 0.16775f
+C437 3bit_to_8_outs_0.NAND_3in_6.y m2_62332_26159# 0.21959f
+C438 VCO5_selection_0.inverter_2.in f0 0.38556f
+C439 3bit_to_8_outs_0.c2_n 3bit_to_8_outs_0.NAND_3in_0.y 0.04478f
+C440 111 m2_66900_35887# 0.03582f
+C441 VCO3_selection_0.NAND_3in_5.y VCO3_selection_0.NOR_2in_4.b 0.01658f
+C442 VCO2_selection_0.XNOR_0._a f0 1.65896f
+C443 f5 000 0.38955f
+C444 VCO3_selection_0.NAND_3in_4.y a_61531_32688# 0.07204f
+C445 m2_68213_33923# m2_68213_33841# 0.16814f
+C446 a_61271_34170# after_000011_n 0.04416f
+C447 VCO4_selection_0.inverter_3.in 000 0.54365f
+C448 f3 f0 18.7761f
+C449 vp VCO4_11_sel 0.26809f
+C450 VCO3_selection_0.inverter_2.out VCO3_selection_0.NAND_2in_1.y 0.58574f
+C451 after_001111 3bit_to_8_outs_0.NAND_3in_0.y 0.01381f
+C452 VCO2_selection_0.NAND_2in_0.y VCO2_selection_0.NAND_4in_0.a 0.04758f
+C453 VCO3_selection_0.NAND_3in_7.c after_000011_n 0.43627f
+C454 VCO5_selection_0.inverter_1.in f1_n 1.30665f
+C455 m2_60359_32039# VCO3_selection_0.NAND_3in_6.c 0.01968f
+C456 a_67737_31082# VCO4_selection_0.inverter_0.out 0.01417f
+C457 VCO4_selection_0.inverter_2.out VCO4_selection_0.NAND_2in_0.a 0.1821f
+C458 m2_59959_28869# VCO3_selection_0.NOR_2in_0.y 0.16564f
+C459 VCO4_selection_0.inverter_1.in VCO4_selection_0.NOR_2in_0.a 5.8034f
+C460 VCO2_selection_0.NAND_4in_0.c after_000111_n 0.36481f
+C461 f5_n after_001111_n 25.9342f
+C462 VCO5_selection_0.inverter_0.in VCO5_selection_0.NOR_2in_0.y 0.18727f
+C463 VCO3_selection_0.NAND_3in_8.y a_60851_32688# 0.07156f
+C464 f0 VCO3_selection_0.XNOR_1._a 1.82516f
+C465 VCO4_selection_0.inverter_2.in VCO4_selection_0.NAND_3in_0.y 0.06349f
+C466 VCO4_selection_0.XNOR_0.y VCO4_selection_0.NOR_2in_0.a 0.23968f
+C467 VCO4_selection_0.XNOR_0.y m2_66700_31967# 0.02589f
+C468 3bit_to_8_outs_0.NAND_3in_0.y a_61909_24854# 0.01202f
+C469 101 VCO3_selection_0.NAND_2in_3.y 0.54609f
+C470 VCO_selection_0.NAND_2in_0.y VCO_sel 0.65566f
+C471 VCO4_selection_0.inverter_4.in a_66779_32534# 0.01159f
+C472 a_61747_28312# after_000111_n 0.01632f
+C473 after_001111_n f4 0.16521f
+C474 c2 3bit_to_8_outs_0.c1_n 1.19498f
+C475 VCO5_selection_0.inverter_1.in a_67248_22260# 0.0118f
+C476 m2_68213_33841# VCO4_selection_0.inverter_5.out 0.18043f
+C477 after_000011_n VCO4_selection_0.inverter_5.out 0.21052f
+C478 111 a_67602_28612# 0.01155f
+C479 after_000111_n VCO3_selection_0.NAND_3in_3.y 0.65361f
+C480 VCO2_selection_0.NAND_2in_0.y vp 0.39206f
+C481 VCO2_selection_0.NOR_2in_2.a m2_68543_28695# 0.01348f
+C482 f2 000 0.07377f
+C483 VCO3_selection_0.NAND_2in_3.y vp 0.39116f
+C484 m2_68072_31721# VCO4_11_sel 0.22668f
+C485 m2_69042_24783# VCO2_selection_0.inverter_4.out 0.09861f
+C486 VCO2_selection_0.inverter_1.out m2_68543_28695# 0.01172f
+C487 m2_59751_32771# VCO3_selection_0.inverter_7.out 0.01092f
+C488 vp VCO4_selection_0.inverter_2.out 0.45107f
+C489 VCO3_selection_0.XNOR_0._a vp 0.3579f
+C490 VCO3_selection_0.inverter_0.out VCO3_selection_0.XNOR_1.y 0.01652f
+C491 m2_62332_26159# m2_62604_26159# 0.01717f
+C492 VCO_sel f0 0.01967f
+C493 m2_60642_34077# VCO3_selection_0.NAND_2in_0.y 0.17808f
+C494 m2_59753_34727# VCO3_selection_0.NAND_3in_5.y 0.01875f
+C495 a_67050_22734# f0 0.04506f
+C496 111 m2_62604_24515# 0.1797f
+C497 010 VCO3_selection_0.NAND_3in_9.y 0.59886f
+C498 VCO2_selection_0.inverter_1.out m2_68753_28045# 0.01348f
+C499 VCO4_selection_0.inverter_3.in m2_66700_31967# 0.1319f
+C500 a_60041_29290# vp 0.12469f
+C501 after_000011_n m2_61449_32771# 0.20011f
+C502 VCO3_selection_0.NAND_3in_7.c f1 1.07668f
+C503 VCO2_selection_0.NAND_3in_7.y a_67806_24226# 0.01699f
+C504 VCO2_selection_0.NAND_4in_0.d after_000111_n 0.67463f
+C505 VCO3_selection_0.NAND_2in_0.y 001 0.3368f
+C506 VCO4_selection_0.NAND_3in_2.y VCO4_selection_0.inverter_5.in 0.05947f
+C507 a_67871_26656# a_68087_26656# 0.02909f
+C508 VCO4_selection_0.XNOR_0._a a_67777_34490# 0.07427f
+C509 110 001 0.15171f
+C510 after_001111_n a_66779_30578# 0.01632f
+C511 VCO4_selection_0.inverter_2.in m2_67392_30907# 0.22771f
+C512 VCO3_selection_0.NAND_3in_1.y 010 0.38504f
+C513 VCO4_selection_0.inverter_5.in a_67771_33514# 0.11436f
+C514 VCO3_selection_0.NAND_3in_0.c vp 0.28438f
+C515 a_62329_22377# f4 0.01429f
+C516 after_001111 a_61061_28786# 0.04405f
+C517 m2_60228_34809# m2_60500_34809# 0.01717f
+C518 m2_59753_34809# m2_59753_34727# 0.40984f
+C519 VCO4_selection_0.XNOR_0._a VCO_sel 0.0338f
+C520 VCO2_selection_0.NAND_4in_0.a VCO2_selection_0.NAND_4in_0.b 1.61193f
+C521 VCO4_selection_0.inverter_0.out VCO4_selection_0.NAND_2in_0.b 0.2503f
+C522 110 VCO2_selection_0.NAND_3in_3.c 0.16224f
+C523 m2_60642_34077# m2_60914_34077# 0.01717f
+C524 111 a_66985_36298# 0.04388f
+C525 after_000111_n a_61747_30268# 0.02628f
+C526 VCO2_5_sel VCO2_selection_0.NAND_4in_0.a 0.51009f
+C527 VCO_selection_0.NAND_2in_2.y m2_66900_35887# 0.69509f
+C528 VCO5_selection_0.XNOR_0._b VCO5_selection_0.XNOR_0._a 0.62619f
+C529 VCO3_selection_0.inverter_5.out f1 0.0136f
+C530 a_68763_26656# VCO2_selection_0.NAND_4in_0.c 0.01462f
+C531 VCO2_selection_0.inverter_6.out m2_68560_24865# 0.0142f
+C532 101 VCO2_selection_0.NAND_4in_0.b 0.69233f
+C533 VCO2_selection_0.NOR_2in_2.y vp 0.31237f
+C534 3bit_to_8_outs_0.c1_n 3bit_to_8_outs_0.NAND_3in_2.y 0.6154f
+C535 m2_67921_22167# m2_68187_22167# 0.01796f
+C536 011 a_61531_30268# 0.01179f
+C537 VCO3_selection_0.inverter_12.out 110 0.02635f
+C538 f5 m2_67047_28777# 0.07783f
+C539 110 011 0.27287f
+C540 VCO4_selection_0.inverter_4.in VCO4_selection_0.NOR_2in_0.a 0.48774f
+C541 111 f5 0.37006f
+C542 c2 3bit_to_8_outs_0.NAND_3in_0.y 2.12385f
+C543 a_67812_26182# after_000011 0.04356f
+C544 vp a_68213_31082# 0.12263f
+C545 VCO3_selection_0.NOR_2in_4.a VCO3_selection_0.NAND_3in_5.y 0.01344f
+C546 VCO2_selection_0.NAND_4in_0.b vp 0.56102f
+C547 a_67596_26182# after_000111_n 0.01591f
+C548 VCO3_selection_0.inverter_3.out m2_59959_28869# 0.01348f
+C549 3bit_to_8_outs_0.inverter_10.in 3bit_to_8_outs_0.c0_n 0.47983f
+C550 vp VCO4_selection_0.NAND_3in_0.y 0.63569f
+C551 VCO5_selection_0.XNOR_0._a vp 0.32318f
+C552 VCO2_5_sel vp 0.47072f
+C553 VCO4_selection_0.inverter_0.out m2_67658_30743# 0.49866f
+C554 VCO2_selection_0.NOR_2in_2.b m2_68005_28695# 0.09739f
+C555 111 VCO_selection_0.NAND_2in_1.y 0.3906f
+C556 f3 000 0.07338f
+C557 VCO2_selection_0.inverter_1.in f5_n 0.57961f
+C558 VCO2_selection_0.inverter_2.in vp 0.35514f
+C559 VCO3_selection_0.NAND_2in_3.y VCO3_selection_0.NOR_2in_4.b 0.47819f
+C560 VCO4_selection_0.NOR_2in_1.a VCO4_selection_0.inverter_5.out 0.57872f
+C561 100 001 9.20273f
+C562 3bit_to_8_outs_0.inverter_8.in vp 0.57224f
+C563 VCO3_selection_0.inverter_12.out a_61067_32688# 0.01636f
+C564 after_000111_n VCO3_selection_0.NAND_3in_4.y 0.53807f
+C565 VCO2_11_sel VCO2_selection_0.NOR_2in_1.y 0.54173f
+C566 after_000111_n a_67459_32060# 0.01632f
+C567 f1 VCO2_selection_0.XNOR_0._b 2.14738f
+C568 m2_60228_30093# VCO3_selection_0.NAND_3in_3.y 0.1796f
+C569 a_61909_26816# c0 0.01179f
+C570 m2_66700_32617# m2_66700_31967# 0.02834f
+C571 m2_66700_30011# m2_67392_30011# 0.01756f
+C572 VCO5_selection_0.XNOR_0._b 001 0.2209f
+C573 a_68763_26656# VCO2_selection_0.NAND_4in_0.d 0.01181f
+C574 VCO5_selection_0.inverter_0.in after_000011_n 1.22994f
+C575 VCO2_selection_0.NAND_3in_7.y VCO2_selection_0.NAND_3in_3.c 0.77144f
+C576 a_61531_28786# a_61747_28786# 0.02909f
+C577 after_000111_n after_000111 0.67413f
+C578 VCO2_selection_0.NAND_3in_4.y a_68498_26182# 0.07155f
+C579 m2_68663_22167# VCO5_11_sel 0.09896f
+C580 c0 VCO3_selection_0.NOR_2in_1.y 0.01389f
+C581 a_67317_34016# VCO4_selection_0.XNOR_1._b 0.04746f
+C582 VCO2_selection_0.NAND_2in_0.y after_001111 0.43886f
+C583 101 001 1.77826f
+C584 a_61013_26816# a_61229_26816# 0.02909f
+C585 VCO2_selection_0.NAND_3in_5.c VCO2_selection_0.NOR_2in_0.b 0.02371f
+C586 m2_60228_29929# VCO3_selection_0.NOR_2in_1.y 0.01883f
+C587 f5 f5_n 2.16353f
+C588 111 f2 0.08381f
+C589 3bit_to_8_outs_0.NAND_3in_3.y c2 0.53843f
+C590 110 m2_66430_35805# 0.07574f
+C591 f1 VCO3_selection_0.XNOR_1.y 1.07697f
+C592 VCO3_selection_0.inverter_12.out 100 0.13591f
+C593 100 011 19.8598f
+C594 VCO2_11_sel a_69092_28612# 0.01154f
+C595 VCO4_selection_0.NOR_2in_0.a VCO4_selection_0.NOR_2in_0.b 2.26831f
+C596 vp 001 2.18175f
+C597 f5 f4 2.46874f
+C598 VCO3_selection_0.inverter_0.out m2_60500_29929# 0.17997f
+C599 VCO2_selection_0.NAND_3in_5.c VCO2_selection_0.inverter_4.out 1.00912f
+C600 VCO2_selection_0.NAND_4in_0.a 011 0.09322f
+C601 3bit_to_8_outs_0.inverter_10.in a_61909_26498# 0.01202f
+C602 3bit_to_8_outs_0.NAND_3in_3.y 3bit_to_8_outs_0.NAND_3in_6.y 0.15363f
+C603 VCO4_selection_0.XNOR_0._b VCO4_selection_0.XNOR_0.y 0.5806f
+C604 vp a_67737_29600# 0.12279f
+C605 VCO5_selection_0.inverter_2.out vp 0.33145f
+C606 m2_68560_24783# m2_69042_24783# 0.0168f
+C607 VCO2_selection_0.NAND_3in_3.c vp 0.58626f
+C608 VCO2_selection_0.inverter_3.in VCO4_selection_0.NOR_2in_0.a 0.02047f
+C609 101 011 0.14249f
+C610 VCO3_selection_0.inverter_4.in 011 0.01324f
+C611 VCO3_selection_0.XNOR_0._b a_61209_30742# 0.04746f
+C612 VCO3_selection_0.NAND_2in_1.y after_000011_n 0.43474f
+C613 VCO5_selection_0.inverter_0.in m2_68187_22167# 0.08446f
+C614 after_000111 after_001111_n 2.04101f
+C615 VCO3_selection_0.NAND_3in_3.y a_61067_30268# 0.01512f
+C616 vp VCO4_selection_0.XNOR_1._b 0.32994f
+C617 f2 f5_n 0.03908f
+C618 VCO2_selection_0.NAND_4in_0.c f5 0.30239f
+C619 VCO2_selection_0.NAND_3in_5.c a_68639_25204# 0.08009f
+C620 m2_60169_33995# m2_60169_34077# 0.40984f
+C621 VCO_selection_0.NAND_2in_2.y f5 0.29473f
+C622 VCO3_selection_0.inverter_12.out vp 0.36966f
+C623 011 vp 9.60553f
+C624 VCO2_selection_0.NAND_3in_4.y VCO2_selection_0.NAND_3in_5.c 0.03102f
+C625 VCO3_selection_0.inverter_12.out m2_60359_32121# 0.09739f
+C626 3bit_to_8_outs_0.inverter_6.in 100 0.41553f
+C627 VCO3_selection_0.inverter_11.out vp 0.41048f
+C628 f1 VCO4_selection_0.XNOR_1._a 0.60884f
+C629 010 m2_62332_26159# 0.17997f
+C630 a_67510_22734# VCO5_selection_0.XNOR_0._a 0.07427f
+C631 f2 f4 0.04133f
+C632 VCO_selection_0.NAND_2in_2.y VCO_selection_0.NAND_2in_1.y 0.33238f
+C633 f1_n 001 0.0752f
+C634 3bit_to_8_outs_0.c2_n 3bit_to_8_outs_0.inverter_8.in 2.12219f
+C635 m2_67392_30743# m2_67392_30661# 0.16814f
+C636 111 VCO2_selection_0.XNOR_0._a 0.02395f
+C637 VCO5_selection_0.inverter_1.in after_000011_n 0.87349f
+C638 after_000011 001 1.17659f
+C639 m2_68753_27963# VCO2_selection_0.NOR_2in_1.y 0.27819f
+C640 VCO3_selection_0.NAND_3in_7.c f0 0.35668f
+C641 VCO2_selection_0.inverter_0.out a_68832_27634# 0.01383f
+C642 VCO3_selection_0.inverter_1.out vp 0.41663f
+C643 101 3bit_to_8_outs_0.inverter_6.in 0.67958f
+C644 m2_68419_23887# VCO2_selection_0.NOR_2in_0.a 0.17997f
+C645 VCO5_selection_0.inverter_0.in VCO2_selection_0.NOR_2in_0.b 0.02456f
+C646 VCO5_selection_0.inverter_0.out m2_67921_22167# 0.09744f
+C647 111 f3 0.06271f
+C648 111 VCO2_selection_0.inverter_3.in 0.54766f
+C649 VCO2_selection_0.inverter_2.in after_001111 0.02211f
+C650 VCO2_selection_0.NOR_2in_1.y VCO4_selection_0.NAND_2in_0.a 0.01006f
+C651 after_000011 VCO2_selection_0.NAND_3in_3.c 0.0262f
+C652 m2_59545_30175# VCO3_selection_0.NOR_2in_1.y 0.01463f
+C653 a_61693_26498# a_61909_26498# 0.02909f
+C654 3bit_to_8_outs_0.inverter_6.in vp 0.55377f
+C655 VCO3_selection_0.inverter_0.out VCO3_selection_0.XNOR_0._a 0.0277f
+C656 VCO3_selection_0.NAND_3in_6.c VCO3_selection_0.inverter_7.out 0.17956f
+C657 VCO4_selection_0.inverter_3.out VCO4_11_sel 0.52597f
+C658 011 f1_n 0.09771f
+C659 3bit_to_8_outs_0.c0_n c1 2.09798f
+C660 VCO2_selection_0.NOR_2in_0.y VCO2_selection_0.NAND_3in_3.c 0.02395f
+C661 VCO5_selection_0.inverter_2.in VCO5_selection_0.inverter_1.out 0.01875f
+C662 3bit_to_8_outs_0.c2_n 001 0.01469f
+C663 after_000011 011 1.78792f
+C664 VCO3_selection_0.inverter_5.out VCO3_selection_0.NOR_2in_0.y 0.08869f
+C665 VCO5_selection_0.inverter_2.in m2_67946_22899# 0.01094f
+C666 VCO3_selection_0.NAND_3in_7.c VCO3_selection_0.NAND_3in_7.y 0.7555f
+C667 VCO3_selection_0.XNOR_1._a VCO3_selection_0.XNOR_1._b 0.56598f
+C668 VCO3_selection_0.inverter_5.out VCO3_11_sel 0.07319f
+C669 vp VCO2_selection_0.NOR_2in_1.y 0.40668f
+C670 a_67126_26656# VCO2_selection_0.NAND_4in_0.a 0.0131f
+C671 m2_60914_34077# VCO3_selection_0.NAND_2in_0.y 0.16872f
+C672 after_001111 001 0.29228f
+C673 a_62545_22377# vp 0.12528f
+C674 f3 f5_n 0.04397f
+C675 VCO4_selection_0.NOR_2in_0.a VCO4_5_sel 0.1768f
+C676 m2_67047_24133# VCO2_selection_0.NAND_3in_7.y 0.11582f
+C677 VCO3_selection_0.NAND_3in_0.c VCO3_selection_0.inverter_0.out 0.28601f
+C678 VCO4_selection_0.XNOR_0.y VCO4_selection_0.inverter_5.in 0.08384f
+C679 101 m2_62332_25501# 0.17997f
+C680 m2_67392_29929# VCO4_selection_0.NAND_3in_0.y 0.0115f
+C681 VCO2_selection_0.inverter_6.out VCO2_selection_0.NAND_3in_3.c 0.089f
+C682 a_67044_23146# f0 0.15347f
+C683 after_000111_n after_001111_n 25.1098f
+C684 f3 f4 19.3819f
+C685 VCO2_selection_0.XNOR_0._b f0 0.47703f
+C686 VCO2_selection_0.inverter_1.in after_000111 0.64426f
+C687 3bit_to_8_outs_0.inverter_10.in 3bit_to_8_outs_0.c1_n 0.11309f
+C688 3bit_to_8_outs_0.inverter_1.in row_section_decoding_0.NAND_2in_0.a 0.01498f
+C689 VCO2_selection_0.inverter_2.in a_67126_28612# 0.07562f
+C690 a_66985_36298# after_000111 0.02007f
+C691 m2_67392_30011# VCO4_selection_0.NOR_2in_0.a 0.01982f
+C692 m2_68560_24865# f1 0.01358f
+C693 VCO2_selection_0.NAND_3in_5.c m2_68560_24783# 0.16564f
+C694 VCO3_selection_0.NAND_2in_3.y after_000011_n 0.44833f
+C695 a_61693_26816# 3bit_to_8_outs_0.inverter_8.in 0.01402f
+C696 110 VCO2_selection_0.NAND_3in_7.y 0.52128f
+C697 VCO5_selection_0.inverter_0.in m2_68206_22817# 0.14207f
+C698 100 110 3.79801f
+C699 VCO2_11_sel vp 0.37235f
+C700 VCO3_selection_0.inverter_2.out VCO3_selection_0.inverter_1.out 1.4159f
+C701 VCO3_selection_0.XNOR_0._a after_000011_n 0.02535f
+C702 after_001111 011 0.76725f
+C703 a_68282_26182# a_68498_26182# 0.02909f
+C704 110 VCO2_selection_0.NAND_4in_0.a 0.37853f
+C705 VCO2_selection_0.inverter_1.in m2_68215_28045# 0.16872f
+C706 VCO4_selection_0.inverter_2.out VCO4_selection_0.inverter_0.out 0.90162f
+C707 VCO3_selection_0.inverter_7.out VCO3_selection_0.NAND_3in_4.y 0.56286f
+C708 VCO5_selection_0.inverter_0.in VCO5_selection_0.inverter_0.out 0.96432f
+C709 VCO3_selection_0.NAND_3in_4.y a_60851_32688# 0.01154f
+C710 f0 VCO3_selection_0.XNOR_1.y 0.38434f
+C711 m2_61665_33995# after_000011_n 0.4108f
+C712 VCO4_selection_0.inverter_3.in a_67459_32060# 0.01405f
+C713 a_66779_32534# a_66995_32534# 0.02909f
+C714 VCO4_selection_0.XNOR_0.y VCO4_selection_0.NAND_3in_2.y 0.17518f
+C715 m2_60500_34973# VCO3_selection_0.inverter_10.out 0.22322f
+C716 after_000111 f5 0.96608f
+C717 101 VCO3_selection_0.NAND_2in_0.y 0.23204f
+C718 m2_68560_24783# VCO2_selection_0.XNOR_0._b 0.04838f
+C719 101 110 20.1842f
+C720 row_section_decoding_0.NAND_2in_0.b f4 0.21871f
+C721 a_67126_26182# 100 0.01155f
+C722 after_001111_n m2_61440_23438# 0.03798f
+C723 after_000111_n a_62329_22377# 0.07095f
+C724 m2_67946_22817# m2_68206_22817# 0.01883f
+C725 VCO_selection_0.NAND_2in_1.y after_000111 0.61909f
+C726 m2_68213_33677# VCO4_selection_0.inverter_5.in 0.22722f
+C727 3bit_to_8_outs_0.inverter_6.in 3bit_to_8_outs_0.c2_n 0.11043f
+C728 a_68501_22734# VCO5_selection_0.inverter_0.in 0.07322f
+C729 VCO2_selection_0.NOR_2in_2.b m2_68543_28695# 0.01079f
+C730 VCO3_selection_0.NAND_2in_0.y vp 0.35383f
+C731 VCO3_selection_0.NAND_3in_6.a VCO3_11_sel 0.01059f
+C732 VCO3_selection_0.inverter_4.out VCO3_selection_0.inverter_4.in 0.47819f
+C733 110 vp 1.96152f
+C734 VCO3_selection_0.NAND_3in_6.b VCO3_selection_0.NAND_3in_6.a 0.97809f
+C735 vp VCO4_selection_0.inverter_2.in 0.6272f
+C736 VCO3_selection_0.XNOR_0._b vp 0.32905f
+C737 3bit_to_8_outs_0.NAND_3in_2.y m2_62332_27145# 0.21959f
+C738 m2_60642_34077# VCO3_selection_0.NOR_2in_4.a 0.09799f
+C739 m2_59753_34727# VCO3_selection_0.inverter_11.out 0.01301f
+C740 a_68118_25112# f0 0.02644f
+C741 VCO3_selection_0.inverter_3.out VCO3_selection_0.inverter_5.out 0.02078f
+C742 VCO4_selection_0.NOR_2in_1.a VCO4_11_sel 0.02555f
+C743 f5_n VCO3_selection_0.NAND_3in_9.y 0.57435f
+C744 VCO4_selection_0.inverter_3.out a_68213_31082# 0.01417f
+C745 010 VCO3_selection_0.NAND_3in_5.y 0.42223f
+C746 m2_68072_31885# VCO4_11_sel 0.18043f
+C747 after_001111 m2_66430_35805# 0.01109f
+C748 VCO2_selection_0.inverter_0.out m2_68753_28045# 0.01079f
+C749 m2_68560_24865# VCO2_selection_0.inverter_4.out 0.07485f
+C750 VCO3_selection_0.inverter_4.out vp 0.34741f
+C751 VCO3_selection_0.XNOR_0._a f1 0.9369f
+C752 f2 after_000111 0.03985f
+C753 m2_60228_34809# VCO3_selection_0.NAND_3in_5.y 0.1796f
+C754 VCO2_selection_0.NOR_2in_2.a a_68622_29116# 0.05153f
+C755 m2_60500_34809# f5_n 0.01756f
+C756 VCO_selection_0.NAND_2in_2.y VCO_sel 0.54029f
+C757 VCO3_selection_0.NAND_3in_1.y f5_n 0.01773f
+C758 f0 VCO4_selection_0.XNOR_1._a 1.65915f
+C759 after_000011 m2_67047_24133# 0.019f
+C760 after_000011_n VCO4_selection_0.NAND_3in_0.y 0.68364f
+C761 m2_68543_28695# m2_69013_28695# 0.01839f
+C762 VCO4_selection_0.NAND_3in_2.y a_67675_32534# 0.07156f
+C763 m2_66430_35887# m2_66430_35805# 0.40984f
+C764 VCO4_selection_0.inverter_0.out VCO4_selection_0.NAND_3in_0.y 0.51426f
+C765 m2_60500_34973# VCO3_selection_0.NAND_3in_9.y 0.22771f
+C766 101 100 22.3983f
+C767 VCO2_selection_0.inverter_2.in after_000011_n 0.76575f
+C768 a_60755_31712# vp 0.17108f
+C769 a_61333_22377# f4 0.04801f
+C770 101 VCO2_selection_0.NAND_4in_0.a 0.34855f
+C771 m2_59753_34809# m2_60228_34809# 0.01769f
+C772 110 f1_n 0.08813f
+C773 3bit_to_8_outs_0.inverter_8.in 3bit_to_8_outs_0.NAND_3in_2.y 0.48578f
+C774 VCO4_selection_0.inverter_2.out VCO4_selection_0.NOR_2in_1.a 0.02259f
+C775 f5_n a_61747_28786# 0.01809f
+C776 after_000011 110 1.39344f
+C777 VCO4_selection_0.XNOR_0._a VCO4_selection_0.XNOR_1._a 0.04586f
+C778 VCO2_selection_0.NAND_3in_7.y vp 0.58791f
+C779 VCO3_selection_0.inverter_12.out VCO3_selection_0.inverter_0.out 0.02325f
+C780 100 vp 1.79523f
+C781 VCO4_selection_0.inverter_4.in VCO4_selection_0.NAND_3in_2.y 0.51092f
+C782 VCO5_selection_0.inverter_1.in 010 0.49504f
+C783 vp VCO4_selection_0.NAND_2in_0.a 0.34391f
+C784 VCO3_selection_0.NAND_3in_6.b VCO3_selection_0.NAND_3in_5.y 0.01379f
+C785 a_67664_24700# VCO2_selection_0.XNOR_0._b 0.04746f
+C786 a_61229_26498# 3bit_to_8_outs_0.inverter_10.in 0.08164f
+C787 VCO2_selection_0.NAND_4in_0.a vp 0.97137f
+C788 a_66995_32060# 001 0.01315f
+C789 VCO5_selection_0.XNOR_0._b vp 0.4794f
+C790 3bit_to_8_outs_0.inverter_6.in a_61229_25172# 0.08164f
+C791 011 a_60851_30268# 0.01179f
+C792 VCO5_selection_0.NOR_2in_0.y a_68742_22260# 0.01379f
+C793 c2 a_61013_24854# 0.01632f
+C794 101 vp 1.54487f
+C795 a_67126_26182# after_000011 0.01587f
+C796 VCO3_selection_0.NAND_2in_0.y VCO3_selection_0.NOR_2in_4.b 0.53082f
+C797 VCO3_selection_0.inverter_4.in vp 0.39504f
+C798 after_000111_n f5 4.11205f
+C799 after_000011_n 001 2.71542f
+C800 110 VCO3_selection_0.NOR_2in_4.b 0.01794f
+C801 after_000111_n row_section_decoding_0.NAND_2in_0.a 0.04371f
+C802 VCO4_selection_0.NOR_2in_0.a VCO4_selection_0.inverter_5.out 0.33838f
+C803 f1 VCO4_selection_0.NAND_3in_0.y 0.54621f
+C804 f1 VCO5_selection_0.XNOR_0._a 0.60853f
+C805 VCO4_selection_0.inverter_0.out m2_67392_30907# 0.02654f
+C806 VCO3_selection_0.NAND_3in_1.y a_61747_28312# 0.0131f
+C807 c1 3bit_to_8_outs_0.c1_n 0.97581f
+C808 after_000111_n VCO4_selection_0.inverter_3.in 1.5855f
+C809 3bit_to_8_outs_0.NAND_3in_2.y 001 0.49602f
+C810 vp a_67311_33514# 0.17102f
+C811 VCO5_selection_0.inverter_2.out after_000011_n 0.45237f
+C812 a_67126_28138# f5_n 0.01632f
+C813 after_000011_n VCO2_selection_0.NAND_3in_3.c 0.29572f
+C814 3bit_to_8_outs_0.c0_n c0 2.85077f
+C815 VCO3_selection_0.inverter_2.out VCO3_selection_0.inverter_4.out 0.04586f
+C816 f3 after_000111 0.04078f
+C817 VCO3_selection_0.NAND_3in_2.y 001 0.38033f
+C818 VCO3_selection_0.NAND_3in_8.y VCO3_selection_0.XNOR_1.y 0.02418f
+C819 110 after_001111 2.12765f
+C820 3bit_to_8_outs_0.inverter_6.in c2 2.12239f
+C821 100 f1_n 0.09615f
+C822 m2_60914_34077# VCO3_selection_0.NOR_2in_4.b 0.09739f
+C823 after_000011 VCO2_selection_0.NAND_3in_7.y 0.6473f
+C824 100 after_000011 3.50052f
+C825 a_68213_31082# VCO4_selection_0.NOR_2in_1.a 0.04832f
+C826 VCO3_selection_0.inverter_12.out after_000011_n 0.28829f
+C827 after_000011_n 011 1.19885f
+C828 VCO4_selection_0.NOR_2in_0.a VCO4_selection_0.NAND_2in_0.b 0.33407f
+C829 m2_68543_28695# m2_68543_28777# 0.40984f
+C830 m2_68277_28695# m2_68005_28695# 0.01717f
+C831 after_000111_n m2_68895_26007# 0.01756f
+C832 110 m2_66430_35887# 0.01073f
+C833 after_000111_n f2 0.05963f
+C834 f5 after_001111_n 0.90299f
+C835 101 f1_n 0.09429f
+C836 a_59627_30268# a_59843_30268# 0.02909f
+C837 101 after_000011 1.07152f
+C838 m2_60500_29929# VCO3_selection_0.NAND_3in_7.y 0.22771f
+C839 f1 001 0.37546f
+C840 011 m2_62604_26159# 0.1797f
+C841 VCO3_selection_0.inverter_0.out m2_60500_30093# 0.18043f
+C842 VCO3_selection_0.inverter_1.out a_60041_27808# 0.05153f
+C843 3bit_to_8_outs_0.inverter_1.in a_61693_24854# 0.0131f
+C844 m2_68560_24865# m2_68560_24783# 0.40984f
+C845 f1_n vp 0.42126f
+C846 VCO3_selection_0.NAND_3in_7.c f5_n 0.02185f
+C847 f1 VCO2_selection_0.NAND_3in_3.c 1.01671f
+C848 after_000011 vp 1.54731f
+C849 VCO3_selection_0.inverter_2.out m2_60704_28219# 0.09739f
+C850 VCO2_selection_0.NAND_3in_7.y m2_68691_23887# 0.17968f
+C851 c1 3bit_to_8_outs_0.NAND_3in_0.y 0.72792f
+C852 VCO2_selection_0.inverter_2.in m2_68005_28695# 0.16872f
+C853 a_67777_34016# VCO4_selection_0.XNOR_1._a 0.07427f
+C854 VCO_selection_0.NAND_2in_1.y m2_66900_35887# 0.05606f
+C855 vp a_67771_34902# 0.17108f
+C856 100 after_001111 0.29532f
+C857 f1 VCO4_selection_0.XNOR_1._b 2.34913f
+C858 VCO5_selection_0.NAND_2in_0.b m2_68663_22167# 0.42213f
+C859 VCO3_selection_0.inverter_1.out m2_59959_28219# 0.01348f
+C860 VCO2_selection_0.inverter_6.out m2_68895_25843# 0.18075f
+C861 VCO2_selection_0.NOR_2in_0.y vp 0.23395f
+C862 VCO2_selection_0.NAND_3in_4.y VCO2_selection_0.NAND_4in_0.b 0.01098f
+C863 011 f1 0.2964f
+C864 f2 after_001111_n 0.03807f
+C865 111 VCO2_selection_0.XNOR_0._b 0.02438f
+C866 VCO3_selection_0.XNOR_0._a f0 1.82516f
+C867 VCO3_selection_0.inverter_2.out vp 0.32355f
+C868 vp VCO3_selection_0.NOR_2in_4.b 0.35518f
+C869 after_000111 VCO3_selection_0.NAND_3in_9.y 0.6266f
+C870 VCO5_selection_0.inverter_2.in a_67504_23146# 0.11436f
+C871 m2_68419_23887# VCO2_selection_0.NAND_3in_3.y 0.22771f
+C872 101 VCO2_selection_0.inverter_6.out 0.104f
+C873 101 after_001111 0.12129f
+C874 VCO3_selection_0.inverter_4.in after_001111 0.43571f
+C875 3bit_to_8_outs_0.c2_n vp 0.58223f
+C876 m2_67392_30743# m2_67658_30743# 0.01796f
+C877 110 m2_62332_24515# 0.17997f
+C878 a_67195_35980# VCO_selection_0.NAND_2in_1.y 0.02008f
+C879 VCO3_selection_0.NOR_2in_4.a VCO3_selection_0.NAND_2in_0.y 0.61207f
+C880 3bit_to_8_outs_0.c0_n 3bit_to_8_outs_0.inverter_1.in 0.63468f
+C881 m2_68419_24051# VCO2_selection_0.NOR_2in_0.a 0.22367f
+C882 a_60041_29290# VCO3_selection_0.NOR_2in_0.y 0.08227f
+C883 VCO5_selection_0.inverter_0.in VCO5_11_sel 0.01146f
+C884 VCO2_selection_0.inverter_6.out vp 0.56763f
+C885 a_61531_28312# after_000011_n 0.0112f
+C886 after_001111 vp 1.26925f
+C887 after_000011 f1_n 0.11825f
+C888 VCO5_selection_0.inverter_1.in 000 0.33973f
+C889 after_000111_n f3 0.41752f
+C890 110 c2 0.01469f
+C891 VCO3_selection_0.inverter_0.out VCO3_selection_0.XNOR_0._b 0.09107f
+C892 VCO4_selection_0.NAND_3in_1.y VCO4_11_sel 0.52663f
+C893 a_66995_30578# 000 0.01179f
+C894 VCO3_selection_0.NAND_3in_0.c VCO3_selection_0.NOR_2in_0.y 0.0346f
+C895 a_61061_28786# 000 0.01155f
+C896 VCO3_selection_0.NAND_3in_7.c VCO3_selection_0.NAND_3in_3.y 0.73808f
+C897 a_67871_26656# VCO2_selection_0.NAND_4in_0.b 0.01119f
+C898 010 VCO4_selection_0.NAND_3in_0.y 0.56753f
+C899 after_000111 3bit_to_8_outs_0.c0_n 0.02316f
+C900 VCO3_selection_0.XNOR_1.y VCO3_selection_0.XNOR_1._b 0.66266f
+C901 VCO3_selection_0.NAND_3in_0.c VCO3_11_sel 0.74424f
+C902 VCO2_selection_0.inverter_2.in 010 0.33762f
+C903 a_68498_26182# VCO2_selection_0.NAND_4in_0.d 0.01407f
+C904 VCO3_selection_0.inverter_5.out m2_60228_29929# 0.17972f
+C905 VCO4_selection_0.XNOR_0.y VCO4_selection_0.inverter_3.in 0.12994f
+C906 VCO2_selection_0.inverter_1.in f5 0.01438f
+C907 VCO5_selection_0.NOR_2in_0.y vp 0.30717f
+C908 VCO3_selection_0.XNOR_1._a a_60749_32214# 0.07427f
+C909 VCO2_selection_0.NAND_3in_4.y VCO2_selection_0.NAND_3in_3.c 0.03636f
+C910 after_000111_n row_section_decoding_0.NAND_2in_0.b 0.48223f
+C911 VCO3_selection_0.inverter_5.out VCO3_selection_0.NAND_3in_3.y 0.40942f
+C912 a_61809_22377# vp 0.12284f
+C913 VCO5_selection_0.XNOR_0._a f0 1.65893f
+C914 a_61531_34644# a_61747_34644# 0.02909f
+C915 VCO3_selection_0.inverter_10.out a_59835_35148# 0.01383f
+C916 3bit_to_8_outs_0.inverter_10.in 3bit_to_8_outs_0.inverter_8.in 0.2557f
+C917 VCO4_selection_0.NAND_3in_1.y VCO4_selection_0.inverter_2.out 0.04229f
+C918 f3 after_001111_n 0.03913f
+C919 a_66985_36298# VCO_selection_0.NAND_2in_1.y 0.07548f
+C920 m2_66700_30011# VCO4_selection_0.NAND_3in_0.y 0.09699f
+C921 3bit_to_8_outs_0.NAND_3in_3.y a_61909_25172# 0.07156f
+C922 after_001111 f1_n 26.7232f
+C923 111 3bit_to_8_outs_0.NAND_3in_0.y 0.41553f
+C924 VCO3_selection_0.NAND_2in_0.y after_000011_n 0.77132f
+C925 VCO2_selection_0.inverter_6.out after_000011 0.06988f
+C926 after_000011 after_001111 24.8029f
+C927 110 after_000011_n 9.37896f
+C928 VCO5_selection_0.inverter_2.out m2_68206_22817# 0.01415f
+C929 after_000011_n VCO4_selection_0.inverter_2.in 0.06283f
+C930 VCO3_selection_0.XNOR_0._b after_000011_n 0.09431f
+C931 VCO2_selection_0.NAND_4in_0.c VCO2_selection_0.XNOR_0._b 0.01404f
+C932 010 001 19.136f
+C933 VCO2_selection_0.inverter_1.in VCO2_selection_0.inverter_1.out 0.61207f
+C934 100 a_67342_28138# 0.01179f
+C935 VCO5_selection_0.inverter_0.in VCO5_selection_0.inverter_1.out 0.61556f
+C936 VCO5_selection_0.inverter_2.out VCO5_selection_0.inverter_0.out 0.01675f
+C937 m2_60914_33831# VCO3_selection_0.NAND_2in_3.y 0.2263f
+C938 VCO4_selection_0.XNOR_0.y VCO4_selection_0.inverter_4.in 1.33693f
+C939 a_61013_26816# 3bit_to_8_outs_0.inverter_8.in 0.02306f
+C940 VCO4_selection_0.NAND_3in_1.y a_67675_32060# 0.07156f
+C941 VCO2_selection_0.inverter_6.out VCO2_selection_0.NOR_2in_0.y 0.02755f
+C942 c0 3bit_to_8_outs_0.c1_n 2.75721f
+C943 m2_61440_23438# row_section_decoding_0.NAND_2in_0.b 0.01721f
+C944 VCO3_selection_0.NAND_3in_5.y a_61531_34644# 0.08152f
+C945 a_68501_22734# 001 0.01179f
+C946 101 c2 0.01469f
+C947 VCO3_selection_0.NAND_3in_6.b m2_60359_31875# 0.01883f
+C948 after_001111_n row_section_decoding_0.NAND_2in_0.b 0.16321f
+C949 VCO2_selection_0.NAND_3in_5.c m2_68957_24133# 0.0125f
+C950 m2_60914_34077# after_000011_n 0.01692f
+C951 after_000011_n a_61067_32688# 0.01142f
+C952 VCO2_selection_0.NAND_4in_0.d VCO2_selection_0.NAND_3in_5.c 0.03204f
+C953 a_61229_24854# 3bit_to_8_outs_0.NAND_3in_0.y 0.08164f
+C954 a_68213_30104# VCO4_5_sel 0.07562f
+C955 VCO4_selection_0.inverter_2.out 000 0.03329f
+C956 VCO3_selection_0.NAND_3in_9.y a_60851_34644# 0.07156f
+C957 f0 001 0.7193f
+C958 101 a_66509_36298# 0.01155f
+C959 VCO3_selection_0.NOR_2in_4.a vp 0.44449f
+C960 a_60041_29290# VCO3_selection_0.inverter_3.out 0.05115f
+C961 VCO3_selection_0.inverter_4.out VCO3_selection_0.NAND_3in_2.y 0.53082f
+C962 m2_67392_29765# VCO4_selection_0.NOR_2in_0.b 0.01796f
+C963 VCO3_selection_0.inverter_0.out vp 0.47342f
+C964 a_67311_34902# vp 0.17102f
+C965 VCO3_selection_0.NAND_3in_1.y after_000111_n 0.5605f
+C966 VCO3_selection_0.NAND_2in_3.y VCO3_selection_0.NAND_3in_8.y 0.01915f
+C967 010 011 23.1816f
+C968 c2 vp 0.48329f
+C969 f2 f5 0.12029f
+C970 m2_67946_22899# m2_67946_22817# 0.16814f
+C971 f2 row_section_decoding_0.NAND_2in_0.a 0.17219f
+C972 VCO4_selection_0.XNOR_0.y m2_66700_32617# 0.11258f
+C973 a_61531_28786# 001 0.01179f
+C974 VCO2_selection_0.inverter_0.out m2_68215_27799# 0.22576f
+C975 VCO2_selection_0.NAND_3in_3.c f0 0.36073f
+C976 a_62069_23355# row_section_decoding_0.NAND_2in_0.a 0.01379f
+C977 f5_n VCO3_selection_0.NAND_3in_5.y 1.27101f
+C978 VCO4_selection_0.inverter_3.out VCO4_selection_0.NAND_2in_0.a 0.12276f
+C979 VCO4_selection_0.NOR_2in_0.a VCO4_11_sel 0.02049f
+C980 VCO3_selection_0.NAND_3in_6.b a_59758_32214# 0.04434f
+C981 110 f1 0.96168f
+C982 m2_59751_32853# VCO3_selection_0.inverter_8.out 0.0378f
+C983 VCO4_selection_0.inverter_4.in VCO4_selection_0.inverter_3.in 0.05419f
+C984 VCO3_selection_0.XNOR_0._b f1 2.15271f
+C985 m2_66900_35887# VCO_sel 0.09306f
+C986 after_000011_n VCO2_selection_0.NAND_3in_7.y 0.37515f
+C987 VCO2_selection_0.inverter_3.in a_67602_28612# 0.07562f
+C988 a_67675_32060# 000 0.01179f
+C989 100 after_000011_n 0.96702f
+C990 3bit_to_8_outs_0.inverter_10.in 011 0.41553f
+C991 m2_60228_34809# VCO3_selection_0.inverter_11.out 0.18027f
+C992 VCO2_selection_0.NOR_2in_2.b a_68622_29116# 0.01383f
+C993 3bit_to_8_outs_0.NAND_3in_6.y vp 0.57491f
+C994 after_000111_n 3bit_to_8_outs_0.c0_n 0.02046f
+C995 f0 VCO4_selection_0.XNOR_1._b 0.53511f
+C996 100 3bit_to_8_outs_0.NAND_3in_2.y 0.06358f
+C997 VCO4_selection_0.inverter_0.out VCO4_selection_0.NAND_2in_0.a 1.21451f
+C998 VCO2_selection_0.inverter_0.out m2_68215_28045# 0.09739f
+C999 after_000011_n VCO5_selection_0.XNOR_0._b 0.03381f
+C1000 VCO4_selection_0.inverter_4.in a_67675_32534# 0.01202f
+C1001 011 f0 0.90455f
+C1002 VCO4_selection_0.inverter_1.in VCO4_selection_0.NOR_2in_0.b 0.51618f
+C1003 after_000011_n m2_60704_28219# 0.0169f
+C1004 a_67126_24226# VCO2_selection_0.NAND_3in_7.y 0.01332f
+C1005 m2_62332_27145# m2_62604_27145# 0.01717f
+C1006 f0 a_61209_32214# 0.04506f
+C1007 101 after_000011_n 0.82334f
+C1008 vp a_59833_33192# 0.12263f
+C1009 VCO3_selection_0.NAND_3in_6.c VCO3_selection_0.XNOR_1.y 0.13199f
+C1010 VCO4_selection_0.inverter_5.in VCO4_selection_0.inverter_5.out 0.48502f
+C1011 VCO4_selection_0.inverter_3.out vp 0.3007f
+C1012 a_67195_35980# VCO_sel 0.07049f
+C1013 VCO3_selection_0.NAND_3in_6.a VCO3_selection_0.NAND_3in_6.c 0.24911f
+C1014 m2_68277_28695# m2_68543_28695# 0.01796f
+C1015 c0 3bit_to_8_outs_0.NAND_3in_0.y 0.39237f
+C1016 a_61333_22377# after_001111_n 0.08009f
+C1017 VCO5_selection_0.inverter_1.in VCO5_selection_0.inverter_1.out 0.40742f
+C1018 a_67032_22260# VCO5_selection_0.NAND_2in_0.b 0.01271f
+C1019 VCO3_selection_0.inverter_12.out VCO3_selection_0.NAND_3in_6.b 0.15763f
+C1020 c2 f1_n 0.02651f
+C1021 VCO2_selection_0.NOR_2in_2.y m2_68543_28695# 0.16564f
+C1022 after_000011_n vp 6.30874f
+C1023 after_000011 c2 0.018f
+C1024 VCO3_selection_0.NAND_3in_2.y VCO3_selection_0.inverter_4.in 0.72472f
+C1025 VCO_selection_0.NAND_2in_0.y m2_66430_35805# 0.26568f
+C1026 a_60041_27808# vp 0.12263f
+C1027 m2_61449_32771# VCO3_selection_0.NAND_3in_4.y 0.11582f
+C1028 a_61693_26816# 3bit_to_8_outs_0.c2_n 0.01634f
+C1029 vp VCO4_selection_0.inverter_0.out 0.36477f
+C1030 VCO3_selection_0.NAND_3in_6.b VCO3_selection_0.inverter_11.out 0.02028f
+C1031 3bit_to_8_outs_0.NAND_3in_2.y vp 0.60347f
+C1032 3bit_to_8_outs_0.inverter_6.in 3bit_to_8_outs_0.inverter_10.in 0.08443f
+C1033 VCO4_selection_0.inverter_2.in m2_66700_30661# 0.09699f
+C1034 011 VCO3_selection_0.NAND_3in_7.y 0.56075f
+C1035 100 f1 0.18914f
+C1036 VCO3_selection_0.NAND_2in_1.y c0 0.05191f
+C1037 VCO3_selection_0.NAND_3in_6.a VCO3_5_sel 0.83147f
+C1038 3bit_to_8_outs_0.inverter_8.in 000 0.41553f
+C1039 m2_68487_28045# m2_68753_28045# 0.01796f
+C1040 VCO3_selection_0.NOR_2in_4.a VCO3_selection_0.NOR_2in_4.b 1.3042f
+C1041 VCO3_selection_0.NAND_3in_2.y vp 0.57474f
+C1042 a_67806_24226# a_68022_24226# 0.02909f
+C1043 a_61013_26498# a_61229_26498# 0.02909f
+C1044 VCO4_selection_0.NAND_3in_2.y VCO4_selection_0.inverter_5.out 0.92738f
+C1045 m2_68344_31885# VCO4_selection_0.inverter_3.in 0.1796f
+C1046 3bit_to_8_outs_0.inverter_8.in m2_62604_27145# 0.17968f
+C1047 VCO3_selection_0.inverter_4.out m2_59959_28951# 0.0378f
+C1048 VCO4_selection_0.XNOR_0.y a_67777_34490# 0.07532f
+C1049 f1 VCO5_selection_0.XNOR_0._b 2.1475f
+C1050 f3 f5 0.31831f
+C1051 a_69036_23722# vp 0.12263f
+C1052 VCO4_selection_0.inverter_2.out m2_67392_30743# 0.18102f
+C1053 f3 row_section_decoding_0.NAND_2in_0.a 0.63436f
+C1054 a_61531_28312# 010 0.01179f
+C1055 VCO4_selection_0.inverter_4.in m2_66700_32617# 0.12874f
+C1056 c2 3bit_to_8_outs_0.c2_n 0.78542f
+C1057 101 f1 0.20223f
+C1058 a_61229_26498# c0 0.01183f
+C1059 3bit_to_8_outs_0.NAND_3in_3.y c0 0.63462f
+C1060 VCO3_selection_0.inverter_12.out VCO3_selection_0.inverter_8.out 0.49691f
+C1061 after_000111_n a_66779_32060# 0.01632f
+C1062 VCO3_selection_0.NAND_3in_4.y VCO3_selection_0.XNOR_1.y 0.02827f
+C1063 a_66512_22260# VCO5_selection_0.inverter_1.in 0.07562f
+C1064 a_61215_31712# VCO3_selection_0.XNOR_1.y 0.10845f
+C1065 m2_59751_32853# m2_59751_32771# 0.40984f
+C1066 a_67812_26182# 111 0.01179f
+C1067 a_68832_27634# VCO2_selection_0.NOR_2in_1.y 0.08009f
+C1068 VCO2_selection_0.NAND_3in_7.y VCO2_selection_0.NOR_2in_0.b 0.41511f
+C1069 f0 a_61209_30742# 0.04506f
+C1070 after_000011_n f1_n 2.04226f
+C1071 after_001111 c2 0.02087f
+C1072 f1 vp 4.41984f
+C1073 3bit_to_8_outs_0.NAND_3in_6.y 3bit_to_8_outs_0.c2_n 0.53837f
+C1074 000 001 23.6699f
+C1075 after_000011 after_000011_n 0.8291f
+C1076 VCO4_selection_0.NAND_2in_0.a VCO4_selection_0.NOR_2in_1.a 0.03318f
+C1077 a_66779_30578# a_66995_30578# 0.02909f
+C1078 VCO4_selection_0.NOR_2in_0.a VCO4_selection_0.NAND_3in_0.y 0.15328f
+C1079 f5 row_section_decoding_0.NAND_2in_0.b 0.43536f
+C1080 row_section_decoding_0.NAND_2in_0.b row_section_decoding_0.NAND_2in_0.a 0.84917f
+C1081 m2_60228_29929# m2_60500_29929# 0.01717f
+C1082 VCO2_selection_0.XNOR_0._b VCO2_selection_0.NAND_3in_3.y 0.01226f
+C1083 VCO3_selection_0.NAND_3in_7.c after_000111_n 0.02078f
+C1084 a_67664_24700# VCO2_selection_0.NAND_3in_3.c 0.07125f
+C1085 VCO3_selection_0.inverter_5.out m2_60152_30825# 0.44901f
+C1086 VCO3_selection_0.NAND_3in_2.y m2_60432_28869# 0.17808f
+C1087 f3 f2 1.38126f
+C1088 VCO3_selection_0.inverter_2.out a_60041_27808# 0.01419f
+C1089 a_59843_30268# VCO3_11_sel 0.01021f
+C1090 VCO3_selection_0.NAND_2in_3.y f5_n 0.0319f
+C1091 VCO4_selection_0.inverter_1.in VCO4_5_sel 0.05965f
+C1092 110 010 0.3602f
+C1093 VCO_selection_0.NAND_2in_1.y VCO_sel 0.71543f
+C1094 3bit_to_8_outs_0.inverter_1.in 3bit_to_8_outs_0.NAND_3in_0.y 0.48578f
+C1095 vp VCO4_selection_0.NOR_2in_1.a 0.34887f
+C1096 VCO2_selection_0.NOR_2in_0.b vp 0.32298f
+C1097 011 000 0.48001f
+C1098 m2_60500_30093# VCO3_selection_0.NAND_3in_7.y 0.0115f
+C1099 110 VCO_selection_0.NAND_2in_0.y 0.31513f
+C1100 3bit_to_8_outs_0.c2_n 3bit_to_8_outs_0.NAND_3in_2.y 0.53837f
+C1101 VCO2_selection_0.NOR_2in_0.y a_69036_23722# 0.08012f
+C1102 VCO3_selection_0.inverter_12.out VCO3_selection_0.NAND_3in_8.y 0.66967f
+C1103 VCO3_selection_0.inverter_1.out VCO3_selection_0.inverter_3.out 0.04586f
+C1104 VCO4_selection_0.inverter_5.in VCO4_selection_0.XNOR_1._a 1.096f
+C1105 f1 f1_n 0.69811f
+C1106 m2_60359_32039# VCO3_selection_0.XNOR_1.y 0.01094f
+C1107 f2 row_section_decoding_0.NAND_2in_0.b 0.01109f
+C1108 after_000011_n after_001111 0.90274f
+C1109 after_000011 f1 0.77229f
+C1110 row_section_decoding_0.NAND_2in_0.b a_62069_23355# 0.04134f
+C1111 VCO3_selection_0.inverter_2.out m2_59959_28219# 0.42232f
+C1112 111 VCO4_selection_0.NAND_3in_0.y 0.06192f
+C1113 VCO2_selection_0.inverter_4.out vp 0.26064f
+C1114 VCO2_selection_0.NAND_3in_4.y m2_68895_25843# 0.22771f
+C1115 VCO2_selection_0.NOR_2in_0.a 001 0.0211f
+C1116 m2_66700_31967# 001 0.01921f
+C1117 110 f0 0.18309f
+C1118 VCO2_selection_0.inverter_2.in m2_67047_28777# 0.28323f
+C1119 after_000111_n m2_61449_32771# 0.67515f
+C1120 VCO3_selection_0.XNOR_0._b f0 0.63674f
+C1121 VCO2_selection_0.inverter_2.in 111 0.22989f
+C1122 VCO4_selection_0.NAND_2in_0.b a_68213_30104# 0.01066f
+C1123 after_000111 VCO3_selection_0.NAND_3in_5.y 0.80426f
+C1124 VCO4_selection_0.NOR_2in_0.a a_67737_29600# 0.04825f
+C1125 101 VCO2_selection_0.NAND_3in_4.y 0.68309f
+C1126 VCO5_selection_0.inverter_0.in VCO2_selection_0.NAND_3in_3.y 0.02926f
+C1127 a_61333_22377# f5 0.01383f
+C1128 VCO5_selection_0.NAND_2in_0.b m2_67921_22167# 0.16814f
+C1129 VCO3_selection_0.NAND_3in_2.y after_001111 0.76511f
+C1130 a_59758_32214# a_59974_32214# 0.02909f
+C1131 3bit_to_8_outs_0.NAND_3in_3.y 3bit_to_8_outs_0.inverter_1.in 0.08826f
+C1132 a_68639_25204# vp 0.12273f
+C1133 a_66779_30104# VCO4_selection_0.NAND_3in_0.y 0.0131f
+C1134 VCO5_selection_0.NOR_2in_0.y after_000011_n 0.02606f
+C1135 m2_68419_24051# VCO2_selection_0.NAND_3in_3.y 0.0115f
+C1136 VCO3_selection_0.inverter_4.out VCO3_selection_0.NOR_2in_0.y 0.34525f
+C1137 VCO2_selection_0.NAND_3in_4.y vp 0.62924f
+C1138 3bit_to_8_outs_0.c0_n row_section_decoding_0.NAND_2in_0.a 0.01085f
+C1139 100 010 9.73751f
+C1140 a_67771_33514# VCO4_selection_0.XNOR_1._a 0.10751f
+C1141 f5_n VCO2_selection_0.NAND_4in_0.b 0.55415f
+C1142 VCO2_selection_0.NOR_2in_2.a VCO4_5_sel 0.0731f
+C1143 VCO3_selection_0.XNOR_0._b VCO3_selection_0.NAND_3in_7.y 0.01229f
+C1144 VCO3_selection_0.NAND_3in_7.c a_60749_30742# 0.07537f
+C1145 010 VCO5_selection_0.XNOR_0._b 0.02942f
+C1146 after_001111 f1 0.15599f
+C1147 a_60755_31712# f0 0.02763f
+C1148 111 001 0.11473f
+C1149 a_67126_28138# VCO2_selection_0.inverter_1.in 0.0131f
+C1150 f0 a_67317_34016# 0.04506f
+C1151 VCO2_selection_0.NOR_2in_0.y VCO2_selection_0.NOR_2in_0.b 0.49818f
+C1152 101 010 0.19815f
+C1153 101 a_67871_26656# 0.01206f
+C1154 after_000011_n a_67126_28612# 0.01005f
+C1155 VCO3_selection_0.inverter_4.out VCO3_selection_0.NAND_3in_7.y 0.03535f
+C1156 m2_67392_29929# VCO4_selection_0.inverter_0.out 0.18043f
+C1157 100 f0 0.20277f
+C1158 111 VCO2_selection_0.NAND_3in_3.c 0.01724f
+C1159 VCO5_selection_0.inverter_0.out vp 0.40456f
+C1160 VCO3_selection_0.XNOR_1.y a_60749_32214# 0.07528f
+C1161 a_61693_26816# 3bit_to_8_outs_0.NAND_3in_2.y 0.0131f
+C1162 VCO3_selection_0.NAND_3in_0.c VCO3_selection_0.NAND_3in_3.y 0.14577f
+C1163 m2_68753_28045# VCO2_selection_0.NOR_2in_1.y 0.17799f
+C1164 f3 row_section_decoding_0.NAND_2in_0.b 0.16468f
+C1165 010 vp 2.03628f
+C1166 VCO5_selection_0.XNOR_0._b f0 0.47713f
+C1167 VCO5_selection_0.inverter_2.in a_67050_22734# 0.07105f
+C1168 VCO2_selection_0.inverter_4.out VCO2_selection_0.NOR_2in_0.y 1.15986f
+C1169 m2_68691_23887# VCO2_selection_0.NOR_2in_0.b 0.19766f
+C1170 VCO5_selection_0.NOR_2in_0.y m2_68187_22167# 0.16564f
+C1171 VCO3_selection_0.inverter_5.out m2_60228_30093# 0.1797f
+C1172 a_67812_26182# VCO2_selection_0.NAND_4in_0.d 0.07152f
+C1173 VCO3_selection_0.NAND_3in_6.a a_59835_35148# 0.08009f
+C1174 VCO_selection_0.NAND_2in_0.y vp 0.47295f
+C1175 101 f0 0.57043f
+C1176 3bit_to_8_outs_0.inverter_6.in a_61909_25172# 0.01202f
+C1177 VCO2_selection_0.NAND_4in_0.c VCO2_selection_0.NAND_4in_0.b 0.44509f
+C1178 VCO2_selection_0.NAND_3in_4.y after_000011 0.61789f
+C1179 111 011 0.1451f
+C1180 3bit_to_8_outs_0.inverter_10.in vp 0.55378f
+C1181 VCO2_selection_0.NAND_4in_0.c VCO2_5_sel 0.83369f
+C1182 VCO4_selection_0.XNOR_0.y a_66995_32534# 0.02488f
+C1183 after_000011 m2_61712_23684# 0.2263f
+C1184 after_000011_n c2 1.09541f
+C1185 f5_n 001 0.161f
+C1186 VCO2_selection_0.inverter_1.in VCO2_selection_0.inverter_0.out 0.5286f
+C1187 a_67812_28138# VCO2_selection_0.NAND_2in_0.y 0.07562f
+C1188 f0 a_67311_33514# 0.15347f
+C1189 011 a_61531_34644# 0.01179f
+C1190 VCO5_selection_0.inverter_0.in VCO5_selection_0.NAND_2in_0.b 0.10864f
+C1191 f0 vp 2.82994f
+C1192 VCO5_selection_0.inverter_2.out m2_67946_22899# 0.18043f
+C1193 VCO2_selection_0.inverter_6.out VCO2_selection_0.inverter_4.out 0.6129f
+C1194 c0 3bit_to_8_outs_0.inverter_8.in 0.47907f
+C1195 VCO3_selection_0.NAND_3in_7.c a_61067_30268# 0.02301f
+C1196 vp VCO3_selection_0.NOR_2in_0.y 0.51648f
+C1197 a_68832_27634# vp 0.12263f
+C1198 f1 m2_67392_29929# 0.01756f
+C1199 f4 001 0.05985f
+C1200 VCO3_selection_0.NAND_3in_7.c a_61215_31154# 0.10853f
+C1201 a_61209_32214# VCO3_selection_0.XNOR_1._b 0.04746f
+C1202 m2_60500_33017# VCO3_selection_0.inverter_8.out 0.22322f
+C1203 a_66779_32060# VCO4_selection_0.inverter_3.in 0.0131f
+C1204 vp VCO3_11_sel 0.39161f
+C1205 3bit_to_8_outs_0.NAND_3in_6.y 3bit_to_8_outs_0.NAND_3in_2.y 0.08826f
+C1206 110 000 0.15524f
+C1207 VCO5_selection_0.inverter_0.in a_68285_22734# 0.01382f
+C1208 VCO3_selection_0.inverter_4.in VCO3_selection_0.NAND_3in_7.y 0.0494f
+C1209 VCO4_selection_0.NOR_2in_0.b VCO4_5_sel 0.72687f
+C1210 VCO4_selection_0.inverter_2.in 000 0.684f
+C1211 VCO3_selection_0.NAND_3in_5.y a_60851_34644# 0.01082f
+C1212 a_67596_26182# a_67812_26182# 0.02909f
+C1213 f5_n a_61067_34644# 0.02335f
+C1214 010 f1_n 1.60026f
+C1215 VCO3_selection_0.NAND_3in_6.b vp 0.38029f
+C1216 VCO4_selection_0.XNOR_0.y VCO4_selection_0.inverter_5.out 1.22833f
+C1217 VCO3_selection_0.inverter_4.out VCO3_selection_0.inverter_3.out 1.30418f
+C1218 after_000011 010 10.9461f
+C1219 VCO3_selection_0.NAND_3in_6.b m2_60359_32121# 0.01894f
+C1220 after_001111_n a_61747_34644# 0.01652f
+C1221 VCO2_selection_0.inverter_6.out a_68639_25204# 0.05035f
+C1222 VCO4_selection_0.XNOR_0._a vp 0.35412f
+C1223 VCO3_selection_0.NAND_3in_0.c VCO3_5_sel 0.02815f
+C1224 f5_n 011 0.27237f
+C1225 a_68742_22260# VCO5_11_sel 0.07562f
+C1226 110 VCO3_selection_0.NAND_3in_8.y 0.59878f
+C1227 VCO2_selection_0.NAND_4in_0.d VCO2_selection_0.NAND_4in_0.b 0.05019f
+C1228 a_61531_32688# a_61747_32688# 0.02909f
+C1229 a_61013_24854# a_61229_24854# 0.02909f
+C1230 VCO2_selection_0.NAND_3in_4.y VCO2_selection_0.inverter_6.out 1.1324f
+C1231 VCO2_selection_0.NAND_2in_0.y m2_68215_27799# 0.22284f
+C1232 VCO3_selection_0.inverter_10.out VCO3_selection_0.NAND_3in_9.y 0.52748f
+C1233 VCO2_selection_0.NAND_4in_0.d VCO2_5_sel 0.17479f
+C1234 VCO4_selection_0.inverter_3.out VCO4_selection_0.inverter_0.out 0.02918f
+C1235 VCO4_selection_0.NAND_3in_1.y VCO4_selection_0.NAND_2in_0.a 0.04227f
+C1236 vp VCO3_selection_0.NAND_3in_7.y 0.64499f
+C1237 m2_59751_32853# VCO3_selection_0.NAND_3in_6.c 0.27093f
+C1238 VCO3_selection_0.NAND_3in_4.y a_61747_32688# 0.01332f
+C1239 after_000011_n a_67459_32534# 0.01632f
+C1240 011 f4 0.06251f
+C1241 110 a_68022_24226# 0.01179f
+C1242 VCO2_selection_0.NOR_2in_2.b VCO2_selection_0.NOR_2in_2.a 1.3042f
+C1243 m2_60500_34809# VCO3_selection_0.inverter_10.out 0.18043f
+C1244 a_67248_22260# 010 0.01183f
+C1245 f0 f1_n 0.1122f
+C1246 after_000011_n VCO4_selection_0.inverter_0.out 0.02682f
+C1247 VCO3_selection_0.NAND_3in_0.c m2_59545_30175# 0.71956f
+C1248 VCO2_selection_0.inverter_0.out VCO2_selection_0.NOR_2in_2.a 0.02274f
+C1249 a_62545_23859# row_section_decoding_0.NAND_2in_0.a 0.0797f
+C1250 after_000011 f0 0.28897f
+C1251 VCO2_selection_0.inverter_0.out VCO2_selection_0.inverter_1.out 1.30149f
+C1252 VCO2_selection_0.NAND_2in_0.y m2_68215_28045# 0.01039f
+C1253 VCO3_selection_0.NAND_3in_5.y after_001111_n 1.2163f
+C1254 3bit_to_8_outs_0.c2_n 010 0.0148f
+C1255 VCO3_selection_0.NAND_3in_8.y a_61067_32688# 0.01307f
+C1256 a_67459_32060# a_67675_32060# 0.02909f
+C1257 f0 a_67771_34902# 0.02644f
+C1258 vp VCO3_selection_0.inverter_8.out 0.34832f
+C1259 VCO4_selection_0.NAND_3in_1.y vp 0.6331f
+C1260 VCO3_selection_0.NAND_3in_7.c a_60755_31154# 0.11436f
+C1261 VCO4_selection_0.inverter_4.in a_66995_32534# 0.07053f
+C1262 m2_60500_33017# VCO3_selection_0.NAND_3in_8.y 0.22771f
+C1263 100 000 0.13597f
+C1264 3bit_to_8_outs_0.inverter_10.in 3bit_to_8_outs_0.c2_n 2.12248f
+C1265 after_001111 010 0.12962f
+C1266 VCO5_selection_0.inverter_1.in VCO5_selection_0.NAND_2in_0.b 0.6449f
+C1267 m2_68213_33677# VCO4_selection_0.inverter_5.out 0.1803f
+C1268 VCO4_selection_0.XNOR_0._b VCO4_selection_0.XNOR_1._b 0.13128f
+C1269 after_001111 VCO_selection_0.NAND_2in_0.y 0.33541f
+C1270 VCO4_selection_0.XNOR_0._a a_67771_34902# 0.10751f
+C1271 f2 a_62545_23859# 0.04883f
+C1272 011 VCO3_selection_0.NAND_3in_3.y 0.51438f
+C1273 101 000 0.12081f
+C1274 m2_68753_27963# m2_68753_28045# 0.40984f
+C1275 VCO3_selection_0.inverter_4.in 000 0.54666f
+C1276 m2_68213_33841# f1 0.01358f
+C1277 VCO3_selection_0.inverter_1.out c0 0.06415f
+C1278 after_000011_n f1 4.67435f
+C1279 VCO2_selection_0.NAND_4in_0.d VCO2_selection_0.NAND_3in_3.c 0.01084f
+C1280 VCO5_selection_0.inverter_0.out VCO5_selection_0.NOR_2in_0.y 0.336f
+C1281 VCO_selection_0.NAND_2in_0.y m2_66430_35887# 0.09896f
+C1282 VCO2_selection_0.inverter_6.out f0 0.02157f
+C1283 a_61013_26816# 3bit_to_8_outs_0.c2_n 0.01637f
+C1284 VCO3_selection_0.NAND_3in_6.b VCO3_selection_0.NOR_2in_4.b 0.34269f
+C1285 VCO3_selection_0.inverter_3.out vp 0.4449f
+C1286 after_001111 f0 0.16643f
+C1287 after_000011_n m2_68072_32699# 0.01756f
+C1288 VCO2_selection_0.NAND_3in_7.y a_68022_24226# 0.01227f
+C1289 VCO4_selection_0.inverter_4.in VCO4_selection_0.inverter_5.out 0.35319f
+C1290 VCO4_selection_0.NAND_3in_1.y m2_68072_31721# 0.22679f
+C1291 after_000111 VCO2_selection_0.NAND_4in_0.b 0.61024f
+C1292 m2_60500_34809# VCO3_selection_0.NAND_3in_9.y 0.0115f
+C1293 a_68622_29116# VCO2_selection_0.NOR_2in_2.y 0.08009f
+C1294 a_59758_32214# VCO3_5_sel 0.07132f
+C1295 VCO4_selection_0.inverter_2.in m2_67392_30743# 0.0115f
+C1296 vp 000 14.945f
+C1297 after_001111 a_61531_28786# 0.01019f
+C1298 m2_68215_28045# m2_68487_28045# 0.01717f
+C1299 VCO4_selection_0.inverter_3.out VCO4_selection_0.NOR_2in_1.a 2.17131f
+C1300 3bit_to_8_outs_0.inverter_6.in c0 0.47975f
+C1301 VCO3_selection_0.inverter_12.out VCO3_selection_0.NAND_3in_6.c 0.02702f
+C1302 111 110 28.905f
+C1303 VCO4_selection_0.NAND_3in_1.y after_000011 0.62738f
+C1304 c1 vp 0.50397f
+C1305 VCO3_selection_0.NAND_2in_1.y a_61061_28312# 0.07562f
+C1306 VCO_selection_0.NAND_2in_2.y m2_66430_35805# 0.01938f
+C1307 VCO_selection_0.NAND_2in_0.y a_66979_35980# 0.01004f
+C1308 vp VCO3_selection_0.NAND_3in_8.y 0.64331f
+C1309 a_67126_26656# f5_n 0.01007f
+C1310 m2_62604_24515# 3bit_to_8_outs_0.NAND_3in_0.y 0.17968f
+C1311 a_67806_24226# VCO2_selection_0.NAND_3in_3.y 0.01159f
+C1312 VCO2_selection_0.inverter_6.out m2_68560_24783# 0.01105f
+C1313 VCO2_selection_0.NAND_3in_7.y VCO2_selection_0.NOR_2in_0.a 0.63069f
+C1314 VCO4_selection_0.inverter_0.out VCO4_selection_0.NOR_2in_1.a 0.14591f
+C1315 VCO4_selection_0.NAND_2in_0.a VCO4_selection_0.NOR_2in_0.a 0.099f
+C1316 VCO2_selection_0.inverter_3.in VCO2_selection_0.NOR_2in_2.b 0.47624f
+C1317 010 a_67126_28612# 0.01158f
+C1318 VCO4_selection_0.XNOR_0.y VCO4_selection_0.XNOR_1._a 0.01133f
+C1319 a_66995_30104# VCO4_selection_0.NAND_3in_0.y 0.07156f
+C1320 3bit_to_8_outs_0.inverter_6.in m2_62604_25501# 0.17968f
+C1321 a_68124_24700# VCO2_selection_0.XNOR_0._a 0.07427f
+C1322 VCO3_selection_0.XNOR_0._b VCO3_selection_0.XNOR_1._b 0.04548f
+C1323 VCO3_selection_0.inverter_12.out VCO3_5_sel 0.10668f
+C1324 a_61693_26498# 3bit_to_8_outs_0.c2_n 0.01634f
+C1325 VCO3_selection_0.inverter_3.out m2_60432_28869# 0.09799f
+C1326 VCO3_selection_0.NAND_3in_0.c m2_60152_30825# 0.16213f
+C1327 a_67812_28138# 011 0.01155f
+C1328 3bit_to_8_outs_0.NAND_3in_3.y a_61693_25172# 0.0131f
+C1329 after_000111_n a_61747_32688# 0.01632f
+C1330 a_69036_23722# VCO2_selection_0.NOR_2in_0.b 0.01735f
+C1331 after_000111 001 10.6563f
+C1332 after_000011_n m2_68005_28695# 0.0169f
+C1333 f1_n 000 0.16222f
+C1334 VCO2_selection_0.NOR_2in_1.y a_69308_28612# 0.0123f
+C1335 VCO3_selection_0.NAND_2in_0.y f5_n 0.13383f
+C1336 110 f5_n 0.1972f
+C1337 after_000011 000 1.23271f
+C1338 VCO3_selection_0.NAND_3in_2.y m2_59959_28951# 0.01859f
+C1339 vp VCO4_selection_0.NOR_2in_0.a 0.43035f
+C1340 VCO3_selection_0.XNOR_0._b f5_n 0.17174f
+C1341 a_61531_28312# a_61747_28312# 0.02909f
+C1342 VCO2_selection_0.NOR_2in_0.a vp 0.41954f
+C1343 VCO2_selection_0.NOR_2in_2.a m2_68543_28777# 0.10901f
+C1344 f3 a_62545_23859# 0.01463f
+C1345 m2_60500_30093# VCO3_selection_0.NAND_3in_3.y 0.16871f
+C1346 a_68979_26656# VCO2_selection_0.NAND_4in_0.d 0.01118f
+C1347 m2_60914_33831# VCO3_selection_0.NOR_2in_4.b 0.22322f
+C1348 a_61229_26816# 3bit_to_8_outs_0.c0_n 0.01353f
+C1349 100 111 7.26085f
+C1350 VCO3_selection_0.inverter_12.out VCO3_selection_0.NAND_3in_4.y 1.37034f
+C1351 110 f4 0.04892f
+C1352 VCO4_selection_0.inverter_5.in VCO4_selection_0.XNOR_1._b 0.66266f
+C1353 VCO3_selection_0.NOR_2in_0.y a_59627_30268# 0.01179f
+C1354 vp VCO5_11_sel 0.23003f
+C1355 3bit_to_8_outs_0.NAND_3in_6.y 010 0.49466f
+C1356 after_000011_n m2_61712_23684# 0.22668f
+C1357 VCO2_selection_0.NAND_3in_3.y 001 0.03935f
+C1358 a_69092_28612# a_69308_28612# 0.02909f
+C1359 after_000111 011 1.43267f
+C1360 a_59627_30268# VCO3_11_sel 0.07156f
+C1361 a_67311_34902# f0 0.15347f
+C1362 VCO3_selection_0.inverter_0.out f0 0.01835f
+C1363 a_67126_26656# a_67342_26656# 0.02909f
+C1364 m2_62332_25501# m2_62604_25501# 0.01717f
+C1365 101 111 0.32728f
+C1366 VCO2_11_sel a_69308_28612# 0.07047f
+C1367 VCO4_selection_0.NAND_2in_0.b VCO4_selection_0.NOR_2in_0.b 1.03604f
+C1368 VCO5_selection_0.inverter_2.in a_67044_23146# 0.10845f
+C1369 a_67504_23146# VCO5_selection_0.XNOR_0._a 0.10751f
+C1370 VCO2_selection_0.NAND_3in_3.c VCO2_selection_0.NAND_3in_3.y 0.7678f
+C1371 after_000011_n m2_68206_22817# 0.72068f
+C1372 VCO2_selection_0.XNOR_0._b VCO2_selection_0.XNOR_0._a 0.62619f
+C1373 3bit_to_8_outs_0.inverter_10.in 3bit_to_8_outs_0.NAND_3in_6.y 0.48578f
+C1374 3bit_to_8_outs_0.c2_n c1 0.69357f
+C1375 VCO3_selection_0.NAND_3in_6.b VCO3_selection_0.NOR_2in_4.a 0.28843f
+C1376 after_001111 000 0.86727f
+C1377 VCO2_selection_0.inverter_3.in VCO4_selection_0.NAND_2in_0.b 0.02682f
+C1378 VCO5_selection_0.inverter_0.out after_000011_n 0.01165f
+C1379 111 vp 1.98775f
+C1380 a_66779_30578# VCO4_selection_0.inverter_2.in 0.0131f
+C1381 VCO5_selection_0.inverter_0.in m2_68663_22167# 0.07668f
+C1382 after_000011 m2_66700_31967# 0.01284f
+C1383 100 f5_n 0.15548f
+C1384 after_000011_n 010 2.63818f
+C1385 011 VCO4_selection_0.NAND_3in_2.y 0.63803f
+C1386 a_61909_26498# 3bit_to_8_outs_0.c0_n 0.01179f
+C1387 VCO3_selection_0.NAND_3in_3.y a_61531_30268# 0.07204f
+C1388 f5_n VCO2_selection_0.NAND_4in_0.a 0.24172f
+C1389 VCO2_selection_0.NOR_2in_2.b VCO4_5_sel 0.01155f
+C1390 a_67126_26182# VCO2_selection_0.NAND_4in_0.c 0.07579f
+C1391 VCO3_selection_0.inverter_0.out VCO3_selection_0.NAND_3in_7.y 0.51396f
+C1392 VCO3_selection_0.XNOR_0._b VCO3_selection_0.NAND_3in_3.y 0.03327f
+C1393 VCO3_selection_0.XNOR_0._a a_60749_30742# 0.07427f
+C1394 VCO3_selection_0.inverter_12.out m2_60359_32039# 0.18043f
+C1395 a_67342_26656# 110 0.01179f
+C1396 100 f4 0.04742f
+C1397 vp VCO3_selection_0.XNOR_1._b 0.32903f
+C1398 VCO2_selection_0.NOR_2in_0.y VCO2_selection_0.NOR_2in_0.a 0.40942f
+C1399 101 f5_n 1.28527f
+C1400 VCO3_selection_0.NAND_3in_7.y a_60851_30268# 0.07156f
+C1401 m2_60359_32121# VCO3_selection_0.XNOR_1._b 0.0481f
+C1402 VCO4_selection_0.XNOR_0.y VCO4_11_sel 0.02501f
+C1403 a_67504_23146# 001 0.01363f
+C1404 after_000011_n f0 0.2114f
+C1405 VCO5_selection_0.inverter_1.out vp 0.31418f
+C1406 VCO3_selection_0.XNOR_1.y VCO3_selection_0.XNOR_1._a 1.03871f
+C1407 VCO3_selection_0.NOR_2in_4.a VCO3_selection_0.inverter_8.out 0.01793f
+C1408 101 f4 0.05707f
+C1409 after_000111_n 001 0.38744f
+C1410 f5_n vp 0.89364f
+C1411 after_000011_n m2_66700_30011# 0.01792f
+C1412 VCO5_selection_0.inverter_0.out m2_68187_22167# 0.01348f
+C1413 3bit_to_8_outs_0.inverter_10.in m2_62604_26159# 0.17968f
+C1414 VCO3_selection_0.NAND_3in_0.c m2_60228_30093# 0.01982f
+C1415 VCO3_selection_0.NAND_3in_6.a VCO3_selection_0.inverter_10.out 0.3462f
+C1416 VCO2_selection_0.XNOR_0._a a_68118_25112# 0.10751f
+C1417 111 f1_n 0.07404f
+C1418 a_67658_25112# VCO2_selection_0.NAND_3in_3.c 0.10853f
+C1419 VCO2_selection_0.NAND_4in_0.c 100 0.33341f
+C1420 001 a_61747_34170# 0.01155f
+C1421 100 c0 0.13617f
+C1422 after_000011 111 1.01636f
+C1423 VCO2_selection_0.inverter_6.out VCO2_selection_0.NOR_2in_0.a 0.01223f
+C1424 a_61531_30268# a_61747_30268# 0.02909f
+C1425 after_000111_n VCO2_selection_0.NAND_3in_3.c 0.02048f
+C1426 VCO2_selection_0.NAND_4in_0.c VCO2_selection_0.NAND_4in_0.a 0.04151f
+C1427 010 f1 0.61219f
+C1428 vp f4 0.55145f
+C1429 a_61693_26498# 3bit_to_8_outs_0.NAND_3in_6.y 0.0131f
+C1430 VCO3_selection_0.NAND_3in_2.y a_61531_28786# 0.07156f
+C1431 VCO2_selection_0.inverter_1.in VCO2_selection_0.NAND_2in_0.y 0.72136f
+C1432 VCO4_selection_0.inverter_3.in VCO4_11_sel 0.4073f
+C1433 101 VCO2_selection_0.NAND_4in_0.c 0.16637f
+C1434 VCO2_selection_0.inverter_4.out a_68639_25204# 0.01383f
+C1435 101 VCO_selection_0.NAND_2in_2.y 0.3368f
+C1436 after_000011_n VCO3_selection_0.NAND_3in_7.y 0.72492f
+C1437 a_67126_26656# after_000111 0.01632f
+C1438 VCO3_selection_0.NAND_3in_0.c VCO3_selection_0.NOR_2in_1.y 0.25675f
+C1439 VCO3_selection_0.inverter_12.out after_000111_n 0.02013f
+C1440 after_000111_n 011 9.4472f
+C1441 a_60851_34644# a_61067_34644# 0.02909f
+C1442 100 m2_62604_25501# 0.1797f
+C1443 VCO3_selection_0.inverter_3.out VCO3_selection_0.inverter_0.out 0.02058f
+C1444 VCO3_selection_0.inverter_8.out a_59833_33192# 0.01383f
+C1445 f1 f0 11.34f
+C1446 after_001111_n 001 0.90747f
+C1447 VCO2_selection_0.NAND_4in_0.c vp 0.33269f
+C1448 m2_60169_33995# VCO3_selection_0.NAND_2in_0.y 0.01859f
+C1449 a_67342_26656# VCO2_selection_0.NAND_4in_0.a 0.07156f
+C1450 110 3bit_to_8_outs_0.inverter_1.in 0.49466f
+C1451 c0 vp 1.77267f
+C1452 VCO_selection_0.NAND_2in_2.y vp 0.49301f
+C1453 VCO4_selection_0.NAND_2in_0.b VCO4_5_sel 0.43786f
+C1454 m2_68957_24133# VCO2_selection_0.NAND_3in_7.y 0.01904f
+C1455 f5_n f1_n 0.06629f
+C1456 f1 m2_66700_30011# 0.67483f
+C1457 after_000011 f5_n 0.41046f
+C1458 a_68266_21756# vp 0.12274f
+C1459 m2_67392_29765# VCO4_selection_0.NAND_3in_0.y 0.22679f
+C1460 VCO4_selection_0.XNOR_0._b vp 0.34959f
+C1461 VCO3_selection_0.NOR_2in_4.a VCO3_selection_0.NAND_3in_8.y 0.02076f
+C1462 VCO3_selection_0.NAND_2in_0.y VCO3_selection_0.NAND_3in_4.y 0.02372f
+C1463 110 VCO3_selection_0.NAND_3in_4.y 0.42286f
+C1464 111 after_001111 0.129f
+C1465 VCO5_selection_0.NOR_2in_0.y VCO5_11_sel 0.46553f
+C1466 VCO2_selection_0.NAND_4in_0.d VCO2_selection_0.NAND_4in_0.a 0.02701f
+C1467 c2 c1 8.09409f
+C1468 a_59835_35148# VCO3_selection_0.inverter_11.out 0.05409f
+C1469 VCO3_selection_0.inverter_10.out VCO3_selection_0.NAND_3in_5.y 0.4094f
+C1470 m2_60642_34077# m2_60169_34077# 0.01796f
+C1471 vp VCO3_selection_0.NAND_3in_3.y 0.63939f
+C1472 VCO3_selection_0.inverter_5.out a_60234_31246# 0.01419f
+C1473 f1_n f4 0.01808f
+C1474 m2_61665_33995# f5 0.09211f
+C1475 VCO2_selection_0.NOR_2in_2.y VCO4_selection_0.inverter_1.in 0.02095f
+C1476 after_000011 f4 0.09423f
+C1477 110 after_000111 0.32544f
+C1478 VCO4_selection_0.XNOR_0._a f1 0.60888f
+C1479 101 VCO2_selection_0.NAND_4in_0.d 0.50015f
+C1480 after_000111 VCO4_selection_0.inverter_2.in 0.62653f
+C1481 VCO2_selection_0.NAND_3in_5.c m2_69042_24783# 0.17136f
+C1482 a_61909_26816# 3bit_to_8_outs_0.inverter_8.in 0.01202f
+C1483 011 after_001111_n 0.42614f
+C1484 111 m2_66430_35887# 0.03454f
+C1485 VCO5_selection_0.inverter_1.in VCO5_selection_0.inverter_2.in 0.01657f
+C1486 VCO4_selection_0.inverter_1.in a_68213_31082# 0.08009f
+C1487 3bit_to_8_outs_0.NAND_3in_6.y c1 0.61544f
+C1488 3bit_to_8_outs_0.c0_n 3bit_to_8_outs_0.c1_n 6.92534f
+C1489 VCO2_selection_0.inverter_1.in m2_68487_28045# 0.17808f
+C1490 VCO3_selection_0.NAND_3in_4.y a_61067_32688# 0.01512f
+C1491 VCO4_selection_0.inverter_3.in a_67675_32060# 0.01202f
+C1492 VCO2_selection_0.NAND_4in_0.d vp 0.57213f
+C1493 after_000011_n a_66779_32534# 0.01632f
+C1494 m2_59753_34809# VCO3_selection_0.inverter_10.out 0.07363f
+C1495 vp VCO3_selection_0.NAND_3in_6.c 0.20646f
+C1496 VCO2_selection_0.NAND_4in_0.c after_000011 0.44833f
+C1497 VCO3_selection_0.XNOR_0._a a_60755_31154# 0.10751f
+C1498 m2_59959_28951# VCO3_selection_0.NOR_2in_0.y 0.27137f
+C1499 after_000111_n a_62545_22377# 0.01227f
+C1500 after_001111 f5_n 4.69375f
+C1501 110 VCO2_selection_0.NAND_3in_3.y 0.55495f
+C1502 after_000011_n 000 1.79232f
+C1503 m2_66700_30011# m2_66700_30661# 0.0462f
+C1504 100 a_61531_32688# 0.01179f
+C1505 VCO2_selection_0.inverter_2.in VCO2_selection_0.inverter_1.in 0.01325f
+C1506 3bit_to_8_outs_0.NAND_3in_0.y a_61693_24854# 0.01402f
+C1507 m2_68560_24783# VCO2_selection_0.NOR_2in_0.b 0.01008f
+C1508 a_67317_34016# VCO4_selection_0.inverter_5.in 0.07105f
+C1509 VCO3_selection_0.inverter_3.out VCO3_selection_0.NAND_3in_2.y 0.61207f
+C1510 100 VCO3_selection_0.NAND_3in_4.y 0.38365f
+C1511 after_000011_n VCO3_selection_0.NAND_3in_8.y 0.75709f
+C1512 after_000011 VCO3_selection_0.NAND_3in_3.y 0.58308f
+C1513 after_001111 f4 0.05547f
+C1514 m2_60169_34077# VCO3_selection_0.inverter_11.out 0.01203f
+C1515 a_61013_26498# 3bit_to_8_outs_0.c2_n 0.01637f
+C1516 m2_68213_33923# VCO4_selection_0.inverter_5.out 0.09739f
+C1517 vp VCO3_5_sel 0.38845f
+C1518 f0 a_67317_34490# 0.04506f
+C1519 f5 VCO4_selection_0.NAND_3in_0.y 0.0104f
+C1520 VCO3_selection_0.NAND_3in_2.y 000 0.4285f
+C1521 VCO3_selection_0.NAND_3in_5.y VCO3_selection_0.NAND_3in_9.y 0.47412f
+C1522 VCO2_selection_0.NOR_2in_2.a m2_68277_28695# 0.09799f
+C1523 VCO3_selection_0.inverter_2.out c0 0.02507f
+C1524 100 after_000111 2.08961f
+C1525 m2_68560_24783# VCO2_selection_0.inverter_4.out 0.01201f
+C1526 VCO5_selection_0.inverter_1.out VCO5_selection_0.NOR_2in_0.y 0.39821f
+C1527 VCO5_selection_0.NAND_2in_0.b a_68742_22260# 0.01589f
+C1528 m2_59751_32853# VCO3_selection_0.inverter_7.out 0.10644f
+C1529 VCO2_selection_0.inverter_2.in f5 0.37407f
+C1530 3bit_to_8_outs_0.c2_n c0 1.20642f
+C1531 after_000111 VCO2_selection_0.NAND_4in_0.a 0.82882f
+C1532 VCO2_selection_0.NOR_2in_2.a VCO2_selection_0.NOR_2in_2.y 0.28841f
+C1533 VCO2_selection_0.NOR_2in_2.b VCO2_selection_0.NAND_3in_5.c 0.13442f
+C1534 m2_60500_34809# VCO3_selection_0.NAND_3in_5.y 0.16871f
+C1535 VCO4_selection_0.XNOR_0.y 001 0.93363f
+C1536 VCO2_selection_0.inverter_1.out VCO2_selection_0.NOR_2in_2.y 0.01988f
+C1537 3bit_to_8_outs_0.inverter_1.in vp 0.62144f
+C1538 VCO2_selection_0.NAND_4in_0.d after_000011 0.79515f
+C1539 VCO2_selection_0.inverter_1.out m2_68487_28045# 0.09799f
+C1540 after_000111_n m2_67047_24133# 0.68906f
+C1541 101 after_000111 2.01555f
+C1542 VCO4_selection_0.inverter_3.out VCO4_selection_0.NOR_2in_0.a 0.04432f
+C1543 VCO_selection_0.NAND_2in_2.y after_001111 0.13363f
+C1544 VCO4_selection_0.NAND_3in_1.y m2_68072_31885# 0.0115f
+C1545 VCO2_selection_0.NOR_2in_2.b VCO4_selection_0.NAND_2in_0.b 0.01028f
+C1546 VCO3_selection_0.NAND_2in_1.y VCO3_selection_0.NAND_3in_1.y 0.91123f
+C1547 3bit_to_8_outs_0.c0_n 3bit_to_8_outs_0.NAND_3in_0.y 0.48221f
+C1548 VCO3_selection_0.XNOR_0._b m2_60152_30825# 0.04838f
+C1549 vp VCO3_selection_0.NAND_3in_4.y 0.57875f
+C1550 f1 000 0.2159f
+C1551 VCO4_selection_0.inverter_5.in a_67311_33514# 0.10845f
+C1552 a_61215_31712# vp 0.17102f
+C1553 a_61809_22377# f4 0.04801f
+C1554 m2_68957_24133# VCO2_selection_0.NOR_2in_0.y 0.17581f
+C1555 VCO2_selection_0.inverter_1.out VCO2_5_sel 0.03633f
+C1556 VCO2_selection_0.NAND_3in_7.y VCO2_selection_0.NAND_3in_3.y 0.48587f
+C1557 vp VCO4_selection_0.inverter_5.in 0.61091f
+C1558 3bit_to_8_outs_0.inverter_10.in 010 0.67966f
+C1559 VCO2_selection_0.inverter_2.in VCO2_selection_0.NOR_2in_2.a 0.61207f
+C1560 a_68763_26656# a_68979_26656# 0.02909f
+C1561 after_000111 vp 1.39109f
+C1562 VCO4_selection_0.inverter_0.out VCO4_selection_0.NOR_2in_0.a 0.10179f
+C1563 111 a_66509_36298# 0.0102f
+C1564 after_000111_n a_61531_30268# 0.0118f
+C1565 010 f0 0.17881f
+C1566 VCO2_selection_0.NAND_3in_5.c m2_69013_28695# 0.70073f
+C1567 after_000111_n 110 0.20318f
+C1568 f5 001 1.26695f
+C1569 a_68547_26656# VCO2_selection_0.NAND_4in_0.c 0.01523f
+C1570 VCO3_selection_0.inverter_1.out VCO3_selection_0.NOR_2in_1.y 0.28822f
+C1571 VCO_selection_0.NAND_2in_0.y f0 0.02916f
+C1572 VCO3_selection_0.NAND_2in_0.y a_61747_34170# 0.07562f
+C1573 VCO4_selection_0.inverter_3.in 001 0.48791f
+C1574 a_68622_29116# vp 0.12274f
+C1575 VCO3_selection_0.inverter_4.out m2_60704_28869# 0.09739f
+C1576 010 m2_66700_30011# 0.01007f
+C1577 VCO2_selection_0.inverter_1.in 011 0.42957f
+C1578 3bit_to_8_outs_0.inverter_6.in a_61693_25172# 0.01402f
+C1579 VCO4_selection_0.inverter_2.out m2_67392_30661# 0.09799f
+C1580 a_69036_23722# VCO2_selection_0.NOR_2in_0.a 0.04837f
+C1581 a_62329_22377# a_62545_22377# 0.02909f
+C1582 VCO5_selection_0.NOR_2in_0.y a_68266_21756# 0.08009f
+C1583 a_67596_26182# after_000011 0.04539f
+C1584 VCO2_selection_0.inverter_6.out VCO2_selection_0.NAND_4in_0.d 0.27497f
+C1585 VCO3_selection_0.NAND_3in_7.c VCO3_selection_0.XNOR_1.y 0.08284f
+C1586 VCO3_selection_0.XNOR_0._a VCO3_selection_0.XNOR_1._a 0.04548f
+C1587 after_000011 3bit_to_8_outs_0.inverter_1.in 0.04672f
+C1588 VCO_selection_0.NAND_2in_2.y a_66979_35980# 0.01951f
+C1589 VCO3_selection_0.inverter_3.out m2_59959_28951# 0.10901f
+C1590 vp VCO4_selection_0.NAND_3in_2.y 0.64555f
+C1591 VCO2_selection_0.NAND_3in_3.y vp 0.5979f
+C1592 VCO2_selection_0.NOR_2in_2.b m2_68543_28777# 0.0378f
+C1593 c2 f5_n 0.0137f
+C1594 m2_60228_30093# m2_60500_30093# 0.01717f
+C1595 vp a_67771_33514# 0.17108f
+C1596 after_000011_n m2_67047_28777# 0.41122f
+C1597 f5 011 0.15529f
+C1598 m2_66700_30661# 000 0.01072f
+C1599 after_000011 VCO3_selection_0.NAND_3in_4.y 0.57992f
+C1600 VCO3_selection_0.inverter_12.out VCO3_selection_0.inverter_7.out 0.35164f
+C1601 111 after_000011_n 19.4411f
+C1602 VCO2_selection_0.NOR_2in_2.y VCO4_selection_0.NOR_2in_0.b 0.01353f
+C1603 111 VCO4_selection_0.inverter_0.out 0.02456f
+C1604 after_000111 f1_n 26.3213f
+C1605 110 after_001111_n 1.42338f
+C1606 f2 001 0.06006f
+C1607 VCO5_selection_0.inverter_1.in a_67032_22260# 0.0146f
+C1608 m2_60359_32121# m2_60359_32039# 0.16814f
+C1609 VCO4_selection_0.NOR_2in_0.a m2_68072_32699# 0.22713f
+C1610 after_001111_n VCO4_selection_0.inverter_2.in 0.53802f
+C1611 after_000011 after_000111 0.3063f
+C1612 a_68547_26656# VCO2_selection_0.NAND_4in_0.d 0.056f
+C1613 VCO4_selection_0.inverter_4.in 001 0.46007f
+C1614 m2_60169_33995# VCO3_selection_0.NOR_2in_4.b 0.0378f
+C1615 VCO2_selection_0.NAND_3in_4.y a_68282_26182# 0.0131f
+C1616 VCO3_selection_0.NOR_2in_0.y VCO3_11_sel 0.50906f
+C1617 VCO4_selection_0.NAND_2in_0.a a_68213_30104# 0.01155f
+C1618 VCO4_selection_0.XNOR_0._a f0 1.65915f
+C1619 a_67812_28138# after_001111 0.04478f
+C1620 after_000111_n VCO2_selection_0.NAND_3in_7.y 0.53981f
+C1621 100 after_000111_n 0.41739f
+C1622 011 a_67675_32534# 0.01179f
+C1623 VCO5_selection_0.inverter_2.in VCO5_selection_0.XNOR_0._a 1.096f
+C1624 after_000011_n VCO3_selection_0.XNOR_1._b 0.09483f
+C1625 VCO3_selection_0.inverter_4.in m2_60704_28869# 0.01039f
+C1626 VCO5_selection_0.inverter_1.out after_000011_n 0.6148f
+C1627 c2 c0 0.58001f
+C1628 VCO4_selection_0.NOR_2in_0.a VCO4_selection_0.NOR_2in_1.a 3.85863f
+C1629 VCO2_selection_0.NOR_2in_0.a VCO2_selection_0.NOR_2in_0.b 1.33059f
+C1630 101 after_000111_n 0.20162f
+C1631 VCO4_selection_0.inverter_4.in VCO4_selection_0.XNOR_1._b 0.01484f
+C1632 after_000011_n m2_67946_22899# 0.01969f
+C1633 m2_66700_32617# 001 0.01832f
+C1634 3bit_to_8_outs_0.inverter_10.in a_61693_26498# 0.01402f
+C1635 f2 011 0.06676f
+C1636 after_000011_n f5_n 7.67799f
+C1637 VCO2_selection_0.inverter_2.in VCO2_selection_0.inverter_3.in 0.69606f
+C1638 011 VCO4_selection_0.inverter_4.in 0.56403f
+C1639 VCO5_selection_0.NAND_2in_0.b VCO5_selection_0.XNOR_0._b 0.01587f
+C1640 a_66509_36298# VCO_selection_0.NAND_2in_2.y 0.07571f
+C1641 3bit_to_8_outs_0.inverter_1.in a_61909_24854# 0.07156f
+C1642 a_67504_23146# vp 0.17108f
+C1643 VCO2_selection_0.NAND_3in_5.c m2_68543_28777# 0.01912f
+C1644 a_67658_25112# vp 0.17102f
+C1645 111 f1 0.1572f
+C1646 VCO3_selection_0.inverter_0.out VCO3_selection_0.NAND_3in_3.y 0.19982f
+C1647 after_000111_n vp 1.37159f
+C1648 VCO5_selection_0.inverter_0.in m2_67921_22167# 0.03999f
+C1649 after_001111 after_000111 0.59398f
+C1650 after_000011_n f4 0.27716f
+C1651 VCO3_selection_0.NAND_3in_3.y a_60851_30268# 0.01154f
+C1652 VCO3_selection_0.NAND_3in_2.y f5_n 0.65236f
+C1653 100 after_001111_n 0.14652f
+C1654 VCO3_selection_0.inverter_1.out m2_60432_28219# 0.09799f
+C1655 VCO5_selection_0.inverter_2.in 001 0.44964f
+C1656 VCO2_selection_0.NAND_4in_0.a after_001111_n 0.58559f
+C1657 VCO5_selection_0.NAND_2in_0.b vp 0.56597f
+C1658 010 000 0.48852f
+C1659 f1 VCO3_selection_0.XNOR_1._b 2.15658f
+C1660 VCO3_selection_0.NAND_3in_6.b VCO3_selection_0.inverter_8.out 0.0269f
+C1661 after_001111 m2_68215_28045# 0.0169f
+C1662 f1 a_66779_30104# 0.01632f
+C1663 a_59835_35148# vp 0.12263f
+C1664 VCO3_selection_0.NAND_3in_6.a VCO3_selection_0.XNOR_1.y 0.02112f
+C1665 VCO4_selection_0.NOR_2in_0.b a_67737_29600# 0.01419f
+C1666 VCO5_selection_0.inverter_2.in VCO5_selection_0.inverter_2.out 0.49117f
+C1667 101 after_001111_n 1.82891f
+C1668 VCO5_selection_0.inverter_1.out m2_68187_22167# 0.01079f
+C1669 f3 001 0.0599f
+C1670 VCO2_selection_0.XNOR_0._a VCO2_selection_0.NAND_3in_3.c 1.05082f
+C1671 VCO2_selection_0.NOR_2in_2.a VCO2_selection_0.NOR_2in_1.y 0.02485f
+C1672 m2_67946_22899# f1 0.01358f
+C1673 f5_n f1 0.16123f
+C1674 VCO2_selection_0.inverter_1.out VCO2_selection_0.NOR_2in_1.y 0.28826f
+C1675 c0 3bit_to_8_outs_0.NAND_3in_2.y 0.63466f
+C1676 VCO2_selection_0.inverter_3.in m2_68005_28941# 0.22451f
+C1677 m2_60432_28869# m2_60704_28869# 0.01717f
+C1678 VCO3_selection_0.inverter_3.out VCO3_selection_0.NOR_2in_0.y 0.30927f
+C1679 a_67664_24700# f0 0.04506f
+C1680 after_001111_n vp 0.80803f
+C1681 f0 000 0.17294f
+C1682 a_61747_28312# after_000011_n 0.01233f
+C1683 3bit_to_8_outs_0.inverter_10.in c1 0.72472f
+C1684 after_000111_n f1_n 0.13664f
+C1685 after_000011_n VCO3_selection_0.NAND_3in_3.y 0.56697f
+C1686 after_000011 after_000111_n 45.0533f
+C1687 f1 f4 0.24417f
+C1688 a_68087_26656# VCO2_selection_0.NAND_4in_0.b 0.06905f
+C1689 m2_62332_24515# 3bit_to_8_outs_0.inverter_1.in 0.21959f
+C1690 a_61061_28312# 100 0.01155f
+C1691 f3 011 0.06275f
+C1692 VCO3_selection_0.NAND_3in_6.c a_59833_33192# 0.08013f
+C1693 m2_60169_33995# VCO3_selection_0.NOR_2in_4.a 0.10901f
+C1694 VCO5_selection_0.NAND_2in_0.b f1_n 0.57818f
+C1695 VCO5_selection_0.inverter_2.in m2_67946_23063# 0.22722f
+C1696 VCO3_selection_0.NAND_3in_2.y VCO3_selection_0.NAND_3in_3.y 0.0464f
+C1697 c2 3bit_to_8_outs_0.inverter_1.in 0.53837f
+C1698 VCO3_selection_0.NAND_2in_0.y f5 0.31749f
+C1699 VCO5_selection_0.inverter_1.in m2_67921_22167# 0.01803f
+C1700 110 f5 0.18002f
+C1701 110 row_section_decoding_0.NAND_2in_0.a 0.03763f
+C1702 VCO3_selection_0.NAND_3in_1.y 3bit_to_8_outs_0.inverter_8.in 0.02098f
+C1703 a_62329_22377# vp 0.09506f
+C1704 m2_61440_23438# f1_n 0.09739f
+C1705 110 a_60851_32688# 0.01179f
+C1706 VCO4_selection_0.inverter_2.in VCO4_selection_0.inverter_3.in 0.04595f
+C1707 VCO3_selection_0.inverter_10.out VCO3_selection_0.inverter_11.out 1.16328f
+C1708 VCO3_selection_0.NAND_3in_0.c a_60234_31246# 0.08005f
+C1709 a_67248_22260# VCO5_selection_0.NAND_2in_0.b 0.07156f
+C1710 after_001111_n f1_n 0.55116f
+C1711 m2_67392_30011# VCO4_selection_0.NAND_3in_0.y 0.01049f
+C1712 VCO4_selection_0.XNOR_0._b f1 2.31954f
+C1713 after_001111 m2_60704_28869# 0.0169f
+C1714 after_000011 after_001111_n 0.38334f
+C1715 c2 after_000111 0.05859f
+C1716 VCO2_selection_0.inverter_6.out after_000111_n 0.69621f
+C1717 VCO2_selection_0.inverter_1.in m2_68753_27963# 0.01859f
+C1718 after_000111_n after_001111 0.77829f
+C1719 VCO2_selection_0.NAND_2in_0.y VCO2_selection_0.NOR_2in_2.b 0.02443f
+C1720 VCO4_selection_0.inverter_1.in VCO4_selection_0.NAND_2in_0.a 7.63295f
+C1721 f1 VCO3_selection_0.NAND_3in_3.y 0.01353f
+C1722 3bit_to_8_outs_0.NAND_3in_3.y 3bit_to_8_outs_0.c1_n 0.61541f
+C1723 3bit_to_8_outs_0.c0_n 3bit_to_8_outs_0.inverter_8.in 0.54097f
+C1724 VCO2_selection_0.NAND_2in_0.y VCO2_selection_0.inverter_0.out 0.47459f
+C1725 VCO3_selection_0.NAND_3in_6.b m2_59751_32771# 0.03054f
+C1726 100 VCO2_selection_0.inverter_1.in 0.38137f
+C1727 VCO3_selection_0.NAND_2in_3.y a_61271_34170# 0.07562f
+C1728 VCO2_selection_0.NAND_3in_5.c m2_68560_24865# 0.31234f
+C1729 a_61229_26816# 3bit_to_8_outs_0.inverter_8.in 0.08164f
+C1730 110 a_67342_24226# 0.01179f
+C1731 VCO4_selection_0.NAND_3in_1.y 000 0.66786f
+C1732 a_60851_32688# a_61067_32688# 0.02909f
+C1733 m2_59753_34809# VCO3_selection_0.NAND_3in_6.a 0.27348f
+C1734 VCO2_selection_0.inverter_1.in VCO2_selection_0.NAND_4in_0.a 0.05342f
+C1735 VCO3_selection_0.NAND_3in_5.y a_61747_34644# 0.02306f
+C1736 vp VCO3_selection_0.NOR_2in_1.y 0.27678f
+C1737 010 m2_67047_28777# 0.01117f
+C1738 110 f2 0.05266f
+C1739 VCO4_selection_0.inverter_2.out a_67737_31082# 0.0537f
+C1740 111 010 1.08827f
+C1741 VCO3_selection_0.XNOR_0._a VCO3_selection_0.NAND_3in_7.c 0.98224f
+C1742 VCO3_selection_0.inverter_8.out VCO3_selection_0.NAND_3in_8.y 0.52744f
+C1743 after_000011_n 3bit_to_8_outs_0.inverter_1.in 0.02121f
+C1744 a_62545_22377# f3 0.04886f
+C1745 VCO3_selection_0.NAND_3in_9.y a_61067_34644# 0.01267f
+C1746 vp VCO4_selection_0.inverter_1.in 0.27373f
+C1747 f5 VCO2_selection_0.NAND_3in_7.y 0.0268f
+C1748 100 f5 7.79139f
+C1749 VCO4_selection_0.XNOR_0.y vp 0.50186f
+C1750 after_000011_n VCO3_selection_0.NAND_3in_4.y 0.5698f
+C1751 m2_68213_33841# VCO4_selection_0.inverter_5.in 0.01094f
+C1752 VCO2_selection_0.inverter_1.in vp 0.57553f
+C1753 after_001111 after_001111_n 0.80296f
+C1754 111 f0 0.27091f
+C1755 VCO3_selection_0.NAND_3in_0.c VCO3_selection_0.NAND_3in_7.c 0.04232f
+C1756 VCO3_selection_0.inverter_5.out VCO3_selection_0.XNOR_0._a 0.01362f
+C1757 VCO3_selection_0.NAND_3in_6.b a_59974_32214# 0.04933f
+C1758 after_000011_n after_000111 35.8056f
+C1759 VCO5_selection_0.inverter_1.out VCO5_selection_0.inverter_0.out 1.16457f
+C1760 VCO5_selection_0.NAND_2in_0.b VCO5_selection_0.NOR_2in_0.y 1.06592f
+C1761 m2_59751_32771# VCO3_selection_0.inverter_8.out 0.01079f
+C1762 vp a_61215_31154# 0.17102f
+C1763 101 f5 1.994f
+C1764 m2_60169_34077# VCO3_selection_0.NOR_2in_4.b 0.01079f
+C1765 VCO2_selection_0.NOR_2in_2.b VCO2_selection_0.NOR_2in_2.y 0.36673f
+C1766 m2_68957_24133# VCO2_selection_0.NOR_2in_0.b 0.01349f
+C1767 VCO2_selection_0.inverter_1.out m2_68753_27963# 0.10901f
+C1768 m2_67047_24133# VCO2_selection_0.XNOR_0._a 0.01647f
+C1769 VCO5_selection_0.inverter_1.in VCO5_selection_0.inverter_0.in 0.17025f
+C1770 m2_62604_27145# 000 0.1797f
+C1771 010 f5_n 0.74821f
+C1772 VCO2_selection_0.NAND_3in_4.y VCO2_selection_0.NAND_4in_0.c 0.02211f
+C1773 a_67871_26656# f5_n 0.02309f
+C1774 a_67342_24226# VCO2_selection_0.NAND_3in_7.y 0.07204f
+C1775 VCO3_selection_0.NAND_3in_2.y after_000111 0.5868f
+C1776 f0 VCO3_selection_0.XNOR_1._b 0.64022f
+C1777 f5 vp 11.4543f
+C1778 row_section_decoding_0.NAND_2in_0.a vp 0.37328f
+C1779 VCO4_selection_0.XNOR_0._b a_67317_34490# 0.04746f
+C1780 VCO3_selection_0.NAND_3in_0.c VCO3_selection_0.inverter_5.out 1.19802f
+C1781 VCO3_selection_0.inverter_0.out m2_60152_30825# 0.02626f
+C1782 vp VCO3_selection_0.inverter_7.out 0.44117f
+C1783 VCO2_selection_0.inverter_0.out VCO2_selection_0.NAND_4in_0.b 0.01956f
+C1784 VCO2_selection_0.inverter_1.out VCO2_selection_0.NAND_4in_0.a 0.0262f
+C1785 vp VCO4_selection_0.inverter_3.in 0.57087f
+C1786 100 f2 0.04806f
+C1787 010 f4 0.05172f
+C1788 after_000011_n VCO4_selection_0.NAND_3in_2.y 0.53606f
+C1789 VCO4_selection_0.NAND_3in_2.y a_67459_32534# 0.0131f
+C1790 after_000011_n VCO2_selection_0.NAND_3in_3.y 0.98211f
+C1791 VCO2_selection_0.inverter_2.in VCO2_selection_0.NOR_2in_2.b 0.53082f
+C1792 m2_66430_35887# m2_66900_35887# 0.01839f
+C1793 VCO_selection_0.NAND_2in_1.y vp 0.49229f
+C1794 f1 VCO3_selection_0.NAND_3in_4.y 0.01356f
+C1795 f5_n f0 0.23729f
+C1796 VCO2_selection_0.NOR_2in_2.y m2_69013_28695# 0.01308f
+C1797 m2_60432_28219# m2_60704_28219# 0.01717f
+C1798 f1 VCO4_selection_0.inverter_5.in 0.99709f
+C1799 VCO3_selection_0.inverter_2.out VCO3_selection_0.NOR_2in_1.y 0.63146f
+C1800 110 f3 0.04913f
+C1801 101 f2 0.0587f
+C1802 after_000111_n c2 0.01891f
+C1803 a_68547_26656# a_68763_26656# 0.02909f
+C1804 after_000111 f1 0.17108f
+C1805 VCO2_selection_0.NOR_2in_2.a vp 0.43745f
+C1806 VCO4_selection_0.XNOR_0.y a_67771_34902# 0.11436f
+C1807 VCO4_selection_0.inverter_2.in m2_67392_30661# 0.01049f
+C1808 VCO2_selection_0.inverter_1.out vp 0.44632f
+C1809 f0 f4 0.14422f
+C1810 VCO5_11_sel gd 1.67633f
+C1811 VCO2_5_sel gd 0.60506f
+C1812 VCO2_11_sel gd 2.26826f
+C1813 VCO4_5_sel gd 2.86603f
+C1814 VCO3_11_sel gd 1.43737f
+C1815 VCO4_11_sel gd 0.58255f
+C1816 VCO3_5_sel gd 1.61246f
+C1817 VCO_sel gd 2.44817f
+C1818 vp gd 66.60357f
+C1819 m2_68663_22167# gd 0.03433f ; **FLOATING
+C1820 m2_68187_22167# gd 0.01872f ; **FLOATING
+C1821 m2_68206_22817# gd 0.06257f ; **FLOATING
+C1822 m2_67946_22817# gd 0.01132f ; **FLOATING
+C1823 m2_61440_23438# gd 0.0129f ; **FLOATING
+C1824 m2_68957_24133# gd 0.04515f ; **FLOATING
+C1825 m2_67047_24133# gd 0.06419f ; **FLOATING
+C1826 m2_62604_24515# gd 0.01195f ; **FLOATING
+C1827 m2_69042_24783# gd 0.01873f ; **FLOATING
+C1828 m2_68560_24783# gd 0.0355f ; **FLOATING
+C1829 m2_68560_24865# gd 0.01458f ; **FLOATING
+C1830 m2_62604_25501# gd 0.01195f ; **FLOATING
+C1831 m2_68895_25843# gd 0.01176f ; **FLOATING
+C1832 m2_68895_26007# gd 0.01274f ; **FLOATING
+C1833 m2_62604_26159# gd 0.01195f ; **FLOATING
+C1834 m2_62604_27145# gd 0.01195f ; **FLOATING
+C1835 m2_68753_27963# gd 0.02064f ; **FLOATING
+C1836 m2_68753_28045# gd 0.04276f ; **FLOATING
+C1837 m2_68487_28045# gd 0.01445f ; **FLOATING
+C1838 m2_68215_28045# gd 0.01423f ; **FLOATING
+C1839 m2_60704_28219# gd 0.01366f ; **FLOATING
+C1840 m2_60432_28219# gd 0.01361f ; **FLOATING
+C1841 m2_59959_28219# gd 0.04255f ; **FLOATING
+C1842 m2_69013_28695# gd 0.09846f ; **FLOATING
+C1843 m2_68543_28695# gd 0.03544f ; **FLOATING
+C1844 m2_68277_28695# gd 0.01315f ; **FLOATING
+C1845 m2_68005_28695# gd 0.01323f ; **FLOATING
+C1846 m2_68543_28777# gd 0.01411f ; **FLOATING
+C1847 m2_67047_28777# gd 0.01987f ; **FLOATING
+C1848 m2_60704_28869# gd 0.01368f ; **FLOATING
+C1849 m2_60432_28869# gd 0.01359f ; **FLOATING
+C1850 m2_59959_28869# gd 0.04257f ; **FLOATING
+C1851 m2_59959_28951# gd 0.02046f ; **FLOATING
+C1852 m2_67392_30011# gd 0.01354f ; **FLOATING
+C1853 m2_66700_30011# gd 0.07031f ; **FLOATING
+C1854 m2_59545_30175# gd 0.08591f ; **FLOATING
+C1855 m2_67392_30661# gd 0.01358f ; **FLOATING
+C1856 m2_66700_30661# gd 0.07031f ; **FLOATING
+C1857 m2_67658_30743# gd 0.01429f ; **FLOATING
+C1858 m2_60152_30825# gd 0.04198f ; **FLOATING
+C1859 m2_66700_31967# gd 0.06732f ; **FLOATING
+C1860 m2_60359_32121# gd 0.01249f ; **FLOATING
+C1861 m2_66700_32617# gd 0.04817f ; **FLOATING
+C1862 m2_61449_32771# gd 0.02944f ; **FLOATING
+C1863 m2_59751_32771# gd 0.0427f ; **FLOATING
+C1864 m2_59751_32853# gd 0.02073f ; **FLOATING
+C1865 m2_68213_33677# gd 0.01157f ; **FLOATING
+C1866 m2_68213_33841# gd 0.01274f ; **FLOATING
+C1867 m2_68213_33923# gd 0.02005f ; **FLOATING
+C1868 m2_61665_33995# gd 0.01978f ; **FLOATING
+C1869 m2_60169_33995# gd 0.02037f ; **FLOATING
+C1870 m2_60914_34077# gd 0.0134f ; **FLOATING
+C1871 m2_60642_34077# gd 0.01319f ; **FLOATING
+C1872 m2_60169_34077# gd 0.04188f ; **FLOATING
+C1873 m2_59753_34727# gd 0.04937f ; **FLOATING
+C1874 m2_59753_34809# gd 0.02109f ; **FLOATING
+C1875 m2_66430_35805# gd 0.02051f ; **FLOATING
+C1876 m2_66900_35887# gd 0.06669f ; **FLOATING
+C1877 m2_66430_35887# gd 0.03942f ; **FLOATING
+C1878 a_68266_21756# gd 0.57881f
+C1879 a_68742_22260# gd 0.13055f
+C1880 VCO5_selection_0.inverter_0.out gd 1.59805f
+C1881 VCO5_selection_0.inverter_1.out gd 0.3556f
+C1882 a_67248_22260# gd 0.10277f
+C1883 a_67032_22260# gd 0.13013f
+C1884 a_66512_22260# gd 0.13193f
+C1885 a_62545_22377# gd 0.68492f
+C1886 a_62329_22377# gd 0.72339f
+C1887 a_68501_22734# gd 0.10266f
+C1888 a_68285_22734# gd 0.13009f
+C1889 a_67510_22734# gd 0.12355f
+C1890 a_67050_22734# gd 0.12416f
+C1891 a_67504_23146# gd 0.62632f
+C1892 a_62069_23355# gd 0.12992f
+C1893 a_62545_23859# gd 0.4938f
+C1894 VCO2_selection_0.NAND_3in_3.y gd 0.30863f
+C1895 a_68022_24226# gd 0.4114f
+C1896 a_67806_24226# gd 0.68123f
+C1897 a_67342_24226# gd 0.10278f
+C1898 a_67126_24226# gd 0.13013f
+C1899 a_68124_24700# gd 0.37666f
+C1900 a_67664_24700# gd 0.49317f
+C1901 a_61909_24854# gd 0.10276f
+C1902 a_61693_24854# gd 0.13012f
+C1903 a_61229_24854# gd 0.10278f
+C1904 a_61013_24854# gd 0.13013f
+C1905 VCO2_selection_0.inverter_4.out gd 0.47356f
+C1906 a_68639_25204# gd 0.74666f
+C1907 a_61909_25172# gd 0.10276f
+C1908 a_61693_25172# gd 1.12848f
+C1909 a_61229_25172# gd 0.10278f
+C1910 a_61013_25172# gd 0.13013f
+C1911 a_68498_26182# gd 2.8013f
+C1912 a_68282_26182# gd 2.82865f
+C1913 a_67812_26182# gd 0.1005f
+C1914 a_67596_26182# gd 0.12768f
+C1915 a_67126_26182# gd 0.13195f
+C1916 a_61909_26498# gd 0.10276f
+C1917 a_61693_26498# gd 0.13012f
+C1918 a_61229_26498# gd 0.10278f
+C1919 a_61013_26498# gd 0.13013f
+C1920 a_68979_26656# gd 0.73302f
+C1921 a_68763_26656# gd 0.92422f
+C1922 a_68547_26656# gd 1.66945f
+C1923 a_68087_26656# gd 0.2248f
+C1924 a_67871_26656# gd 0.13013f
+C1925 a_67342_26656# gd 1.90975f
+C1926 a_67126_26656# gd 1.93712f
+C1927 a_61909_26816# gd 0.10276f
+C1928 a_61693_26816# gd 0.13012f
+C1929 a_61229_26816# gd 0.10278f
+C1930 a_61013_26816# gd 0.13013f
+C1931 VCO2_selection_0.NAND_4in_0.c gd 0.36791f
+C1932 a_68832_27634# gd 0.72121f
+C1933 a_60041_27808# gd 0.78984f
+C1934 a_67812_28138# gd 0.12967f
+C1935 a_67342_28138# gd 0.10277f
+C1936 a_67126_28138# gd 0.13013f
+C1937 a_61747_28312# gd 0.13013f
+C1938 a_61531_28312# gd 0.10277f
+C1939 a_61061_28312# gd 0.12968f
+C1940 VCO3_selection_0.inverter_1.out gd 0.95685f
+C1941 a_69308_28612# gd 0.38126f
+C1942 a_69092_28612# gd 1.86401f
+C1943 a_67602_28612# gd 0.12967f
+C1944 a_67126_28612# gd 1.97627f
+C1945 a_61747_28786# gd 0.13013f
+C1946 a_61531_28786# gd 0.10277f
+C1947 a_61061_28786# gd 1.77617f
+C1948 VCO2_selection_0.NOR_2in_1.y gd 0.2742f
+C1949 VCO2_selection_0.NOR_2in_2.y gd 0.39542f
+C1950 a_68622_29116# gd 1.28281f
+C1951 VCO3_selection_0.inverter_3.out gd 0.30772f
+C1952 a_67737_29600# gd 0.70549f
+C1953 a_68213_30104# gd 2.558f
+C1954 a_66995_30104# gd 0.10277f
+C1955 a_66779_30104# gd 0.13013f
+C1956 a_61747_30268# gd 3.225f
+C1957 a_61531_30268# gd 0.10278f
+C1958 a_61067_30268# gd 1.54604f
+C1959 a_60851_30268# gd 0.29427f
+C1960 VCO3_selection_0.NAND_3in_7.y gd 0.1915f
+C1961 a_59843_30268# gd 1.3838f
+C1962 a_59627_30268# gd 0.87918f
+C1963 VCO3_selection_0.NOR_2in_0.y gd 0.83508f
+C1964 a_66995_30578# gd 0.10277f
+C1965 a_66779_30578# gd 0.13013f
+C1966 a_61209_30742# gd 0.12416f
+C1967 a_60749_30742# gd 0.12355f
+C1968 VCO4_selection_0.inverter_1.in gd 0.204f
+C1969 a_68213_31082# gd 0.3716f
+C1970 VCO4_selection_0.NAND_2in_0.a gd 0.13703f
+C1971 a_67737_31082# gd 0.43556f
+C1972 VCO4_selection_0.inverter_2.out gd 0.27322f
+C1973 a_60755_31154# gd 2.28927f
+C1974 a_60234_31246# gd 1.80866f
+C1975 a_60755_31712# gd 0.24881f
+C1976 VCO4_selection_0.NAND_3in_1.y gd 0.71548f
+C1977 a_67675_32060# gd 0.10277f
+C1978 a_67459_32060# gd 0.48306f
+C1979 a_66995_32060# gd 0.10278f
+C1980 a_66779_32060# gd 0.13013f
+C1981 a_61209_32214# gd 0.48525f
+C1982 a_60749_32214# gd 0.12355f
+C1983 a_59974_32214# gd 1.24741f
+C1984 a_59758_32214# gd 2.12988f
+C1985 a_67675_32534# gd 0.10277f
+C1986 a_67459_32534# gd 0.13013f
+C1987 a_66995_32534# gd 0.23066f
+C1988 a_66779_32534# gd 0.13013f
+C1989 a_61747_32688# gd 0.26304f
+C1990 a_61531_32688# gd 0.23569f
+C1991 a_61067_32688# gd 0.47239f
+C1992 a_60851_32688# gd 1.67379f
+C1993 VCO4_selection_0.NOR_2in_1.a gd 0.80568f
+C1994 VCO4_selection_0.NOR_2in_0.a gd 1.69444f
+C1995 VCO4_selection_0.inverter_4.in gd 0.12789f
+C1996 VCO3_selection_0.inverter_12.out gd 0.33524f
+C1997 a_59833_33192# gd 0.18307f
+C1998 VCO3_selection_0.NAND_3in_6.c gd 1.11552f
+C1999 a_67771_33514# gd 0.37061f
+C2000 a_60251_33666# gd 1.08113f
+C2001 a_67777_34016# gd 1.62f
+C2002 a_67317_34016# gd 0.12416f
+C2003 a_61747_34170# gd 0.13195f
+C2004 a_61271_34170# gd 0.12968f
+C2005 VCO3_selection_0.NAND_3in_6.b gd 0.7942f
+C2006 a_67777_34490# gd 0.37753f
+C2007 a_67317_34490# gd 0.51922f
+C2008 a_61747_34644# gd 0.13013f
+C2009 a_61531_34644# gd 0.10278f
+C2010 a_61067_34644# gd 2.9234f
+C2011 a_60851_34644# gd 0.10277f
+C2012 VCO4_selection_0.XNOR_0.y gd 0.25407f
+C2013 a_59835_35148# gd 0.98492f
+C2014 VCO3_selection_0.NAND_3in_6.a gd 0.48819f
+C2015 a_67195_35980# gd 1.23041f
+C2016 a_66979_35980# gd 0.13009f
+C2017 a_66509_35980# gd 0.13195f
+C2018 a_66985_36298# gd 2.38316f
+C2019 a_66509_36298# gd 0.13195f
+C2020 VCO_selection_0.NAND_2in_1.y gd 0.2078f
+.ends
+

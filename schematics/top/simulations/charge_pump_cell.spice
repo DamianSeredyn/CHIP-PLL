@@ -25,7 +25,7 @@ XM15 net13 bias net4 gd sg13_lv_nmos w=1.6u l=0.6u ng=1 m=1 mm_ok=1
 x1 vp gd bias vbias
 x2 vp net6 gd curr_source
 XM16 vtest vtest vp vp sg13_lv_pmos w=1.8u l=1.8u ng=1 m=1 mm_ok=1
-XM18 vtest vtest 0 0 sg13_lv_nmos w=0.6u l=1.8u ng=1 m=1 mm_ok=1
+XM18 vtest vtest gd gd sg13_lv_nmos w=0.6u l=1.8u ng=1 m=1 mm_ok=1
 XM19 vout rst vtest vp sg13_lv_pmos w=1.8u l=0.6u ng=1 m=1 mm_ok=1
 **.ends
 

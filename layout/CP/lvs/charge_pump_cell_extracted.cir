@@ -1,21 +1,81 @@
-* Extracted by KLayout with SG13CMOS5L LVS runset on : 21/08/2026 15:38
+* Extracted by KLayout with SG13CMOS5L LVS runset on : 23/08/2026 21:42
+
+.SUBCKT charge_pump_cell DN UP gd rst vout vp
+X$99 gd \$79 vp curr_source
+X$100 vp \$7 gd vbias
+M$1 gd \$18 \$18 gd sg13_lv_nmos L=1.8u W=0.6u AS=0.204p AD=0.204p PS=1.88u
++ PD=1.88u rfmode=0
+M$2 vout rst \$18 vp sg13_lv_pmos L=0.6u W=1.8u AS=0.612p AD=0.612p PS=4.28u
++ PD=4.28u rfmode=0
+M$3 vp \$18 \$18 vp sg13_lv_pmos L=1.8u W=1.8u AS=0.612p AD=0.612p PS=4.28u
++ PD=4.28u rfmode=0
+M$4 \$50 \$46 vout vp sg13_lv_pmos L=0.6u W=1u AS=0.34p AD=0.34p PS=2.68u
++ PD=2.68u rfmode=0
+M$5 vp UP \$46 vp sg13_lv_pmos L=0.6u W=1u AS=0.34p AD=0.34p PS=2.68u PD=2.68u
++ rfmode=0
+M$6 vp \$79 \$17 vp sg13_lv_pmos L=0.6u W=1u AS=0.34p AD=0.34p PS=2.68u
++ PD=2.68u rfmode=0
+M$7 \$90 \$47 vp vp sg13_lv_pmos L=0.6u W=1.65u AS=0.561p AD=0.561p PS=3.98u
++ PD=3.98u rfmode=0
+M$8 \$50 \$7 \$90 vp sg13_lv_pmos L=0.6u W=1.6u AS=0.544p AD=0.544p PS=3.88u
++ PD=3.88u rfmode=0
+M$9 \$86 \$7 \$47 vp sg13_lv_pmos L=0.6u W=1.6u AS=0.544p AD=0.544p PS=3.88u
++ PD=3.88u rfmode=0
+M$10 vp \$47 \$86 vp sg13_lv_pmos L=0.6u W=1.6u AS=0.544p AD=0.544p PS=3.88u
++ PD=3.88u rfmode=0
+M$11 \$48 DN vout gd sg13_lv_nmos L=0.6u W=1u AS=0.34p AD=0.34p PS=2.68u
++ PD=2.68u rfmode=0
+M$12 \$8 \$17 gd gd sg13_lv_nmos L=0.6u W=4.8u AS=1.152p AD=1.152p PS=7.84u
++ PD=7.84u rfmode=0
+M$15 \$8 \$7 \$17 gd sg13_lv_nmos L=0.6u W=4.8u AS=1.152p AD=1.152p PS=7.84u
++ PD=7.84u rfmode=0
+M$18 gd gd gd gd sg13_lv_nmos L=0.6u W=1.6u AS=0.544p AD=0.544p PS=3.88u
++ PD=3.88u rfmode=0
+M$19 \$39 \$17 gd gd sg13_lv_nmos L=0.6u W=1.6u AS=0.544p AD=0.544p PS=3.88u
++ PD=3.88u rfmode=0
+M$20 gd \$17 \$40 gd sg13_lv_nmos L=0.6u W=1.6u AS=0.544p AD=0.544p PS=3.88u
++ PD=3.88u rfmode=0
+M$21 \$47 \$7 \$45 gd sg13_lv_nmos L=0.6u W=1.6u AS=0.544p AD=0.544p PS=3.88u
++ PD=3.88u rfmode=0
+M$22 \$45 \$7 \$40 gd sg13_lv_nmos L=0.6u W=1.6u AS=0.544p AD=0.544p PS=3.88u
++ PD=3.88u rfmode=0
+M$23 \$39 \$7 \$48 gd sg13_lv_nmos L=0.6u W=1.6u AS=0.544p AD=0.544p PS=3.88u
++ PD=3.88u rfmode=0
+M$24 \$46 UP gd gd sg13_lv_nmos L=0.6u W=1u AS=0.34p AD=0.34p PS=2.68u PD=2.68u
++ rfmode=0
+.ENDS charge_pump_cell
+
+.SUBCKT vbias vp vbias gd
+X$4 gd \$15 vp curr_source
+M$1 \$7 \$8 vbias gd sg13_lv_nmos L=0.6u W=3.6u AS=1.224p AD=1.224p PS=7.88u
++ PD=7.88u rfmode=0
+M$2 gd \$7 \$7 gd sg13_lv_nmos L=0.6u W=1.2u AS=0.408p AD=0.408p PS=3.08u
++ PD=3.08u rfmode=0
+R$3 vbias \$8 gd rppd w=1u l=1.7u ps=0u b=0 m=1
+M$4 vp \$15 \$8 vp sg13_lv_pmos L=0.6u W=1.2u AS=0.408p AD=0.408p PS=3.08u
++ PD=3.08u rfmode=0
+M$5 gd gd gd gd sg13_lv_nmos L=0.6u W=1.86u AS=0.6324p AD=0.6324p PS=4.4u
++ PD=4.4u rfmode=0
+M$6 vp vp vp vp sg13_lv_pmos L=0.6u W=1.375u AS=0.4675p AD=0.4675p PS=3.43u
++ PD=3.43u rfmode=0
+.ENDS vbias
 
 .SUBCKT curr_source gd iref vp
-R$1 gd \$16 gd rppd w=1u l=1.7u ps=0u b=0 m=1
+R$1 gd \$14 gd rppd w=1u l=1.7u ps=0u b=0 m=1
 M$2 gd gd gd gd sg13_lv_nmos L=0.6u W=0.4u AS=0.136p AD=0.136p PS=1.48u
 + PD=1.48u rfmode=0
-M$3 gd \$6 \$6 gd sg13_lv_nmos L=0.6u W=1u AS=0.34p AD=0.34p PS=2.68u PD=2.68u
-+ rfmode=0
-M$4 vp \$6 iref gd sg13_lv_nmos L=0.6u W=1u AS=0.34p AD=0.34p PS=2.68u PD=2.68u
-+ rfmode=0
-M$5 vp vp \$6 gd sg13_lv_nmos L=0.6u W=1u AS=0.34p AD=0.34p PS=2.68u PD=2.68u
-+ rfmode=0
-M$6 gd \$10 \$10 gd sg13_lv_nmos L=0.6u W=1.4u AS=0.476p AD=0.476p PS=3.48u
+M$3 gd \$9 \$9 gd sg13_lv_nmos L=0.6u W=1.4u AS=0.476p AD=0.476p PS=3.48u
 + PD=3.48u rfmode=0
-M$7 vp iref \$10 vp sg13_lv_pmos L=0.6u W=1.2u AS=0.408p AD=0.408p PS=3.08u
+M$4 vp iref \$9 vp sg13_lv_pmos L=0.6u W=1.2u AS=0.408p AD=0.408p PS=3.08u
 + PD=3.08u rfmode=0
+M$5 gd \$7 \$7 gd sg13_lv_nmos L=0.6u W=1u AS=0.34p AD=0.34p PS=2.68u PD=2.68u
++ rfmode=0
+M$6 vp vp \$7 gd sg13_lv_nmos L=0.6u W=1u AS=0.34p AD=0.34p PS=2.68u PD=2.68u
++ rfmode=0
+M$7 vp \$7 iref gd sg13_lv_nmos L=0.6u W=1u AS=0.34p AD=0.34p PS=2.68u PD=2.68u
++ rfmode=0
 M$8 iref iref vp vp sg13_lv_pmos L=0.6u W=1.4u AS=0.476p AD=0.476p PS=3.48u
 + PD=3.48u rfmode=0
-M$9 iref \$10 \$16 gd sg13_lv_nmos L=0.6u W=1.2u AS=0.408p AD=0.408p PS=3.08u
+M$9 iref \$9 \$14 gd sg13_lv_nmos L=0.6u W=1.2u AS=0.408p AD=0.408p PS=3.08u
 + PD=3.08u rfmode=0
 .ENDS curr_source

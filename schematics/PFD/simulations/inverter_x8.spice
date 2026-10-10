@@ -1,0 +1,12 @@
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x8.sch
+**.subckt inverter_x8 IN OUT VP GND
+*.ipin IN
+*.iopin VP
+*.opin OUT
+*.iopin GND
+XM1 OUT IN GND net2 sg13_lv_nmos w=1.20u l=0.13u ng=1 m=1 mm_ok=1
+XM2 OUT IN VP net1 sg13_lv_pmos w=1.20u l=0.13u ng=1 m=1 mm_ok=1
+XR1 net2 GND ptap1 R=262.8473 w=0.78e-6 l=0.78e-6
+XR2 VP net1 ntap1 R=262.8473 w=0.78e-6 l=0.78e-6
+**.ends
+.end

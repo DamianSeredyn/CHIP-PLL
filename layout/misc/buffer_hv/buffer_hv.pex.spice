@@ -1,0 +1,17 @@
+* PEX produced on Thu Aug 27 10:05:00 PM CEST 2026 using /foss/tools/sak/sak-pex.sh with m=2 and s=1
+* NGSPICE file created from buffer_hv.ext - technology: ihp-sg13g2
+
+.subckt buffer_hv vph gd in out
+X0 a_2901_2626# in vph vph sg13_hv_pmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.45u
+X1 out a_2901_2626# vph vph sg13_hv_pmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.45u
+X2 a_2901_2626# in gd gd sg13_hv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.45u
+X3 out a_2901_2626# gd gd sg13_hv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.45u
+C0 out vph 0.12279f
+C1 in vph 0.20617f
+C2 a_2901_2626# out 0.34328f
+C3 a_2901_2626# in 0.36079f
+C4 a_2901_2626# vph 0.39972f
+C5 out gd 0.64657f
+C6 vph gd 0.67714f
+.ends
+

@@ -1,0 +1,16 @@
+** sch_path: /foss/designs/CHIP-PLL/schematics/buf/buf.sch
+**.subckt buf VDD INPUT OUT GND
+*.ipin INPUT
+*.iopin VDD
+*.iopin GND
+*.opin OUT
+XM9 OUT net3 VDD VDD sg13_hv_pmos w=10u l=0.4u ng=1 m=4 mm_ok=1
+XM6 net3 net2 VDD VDD sg13_hv_pmos w=10u l=0.4u ng=1 m=2 mm_ok=1
+XM4 net2 net1 VDD VDD sg13_hv_pmos w=10u l=0.4u ng=1 m=1 mm_ok=1
+XM2 net1 INPUT VDD VDD sg13_hv_pmos w=5u l=0.4u ng=1 m=1 mm_ok=1
+XM1 OUT net3 GND GND sg13_hv_nmos w=10u l=0.45u ng=1 m=4 mm_ok=1
+XM3 net3 net2 GND GND sg13_hv_nmos w=10u l=0.45u ng=1 m=2 mm_ok=1
+XM5 net2 net1 GND GND sg13_hv_nmos w=10u l=0.45u ng=1 m=1 mm_ok=1
+XM7 net1 INPUT GND GND sg13_hv_nmos w=5u l=0.45u ng=1 m=1 mm_ok=1
+**.ends
+.end
