@@ -146,7 +146,7 @@ N 320 -950 360 -950 {lab=VCO5_SEL}
 N 380 -920 380 -870 {lab=gd}
 N 380 -1050 380 -980 {lab=VP}
 N 430 -950 470 -950 {lab=VCO5_SEL_n}
-N 390 -710 390 -670 {lab=VCO5_SEL}
+N 370 -710 370 -670 {lab=VCO5_SEL}
 N 370 -820 370 -770 {lab=VCO5_SEL_n}
 N 410 -820 410 -770 {lab=VP}
 N 410 -710 410 -670 {lab=gd}
@@ -589,7 +589,7 @@ C {lab_wire.sym} 100 -940 0 1 {name=p139 sig_type=std_logic lab=VCO4_SEL_n}
 C {lab_wire.sym} 0 -660 2 1 {name=p144 sig_type=std_logic lab=VCO4_SEL}
 C {lab_wire.sym} 0 -810 2 1 {name=p145 sig_type=std_logic lab=VCO4_SEL_n}
 C {lab_wire.sym} 10 -600 2 1 {name=p160 sig_type=std_logic lab=VCO4_SEL_n}
-C {lab_wire.sym} 390 -670 2 1 {name=p146 sig_type=std_logic lab=VCO5_SEL}
+C {lab_wire.sym} 370 -670 2 1 {name=p146 sig_type=std_logic lab=VCO5_SEL}
 C {lab_wire.sym} 470 -950 0 1 {name=p149 sig_type=std_logic lab=VCO5_SEL_n}
 C {lab_wire.sym} 370 -820 2 1 {name=p154 sig_type=std_logic lab=VCO5_SEL_n}
 C {lab_wire.sym} 380 -610 2 1 {name=p155 sig_type=std_logic lab=VCO5_SEL_n}
