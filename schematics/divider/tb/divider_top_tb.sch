@@ -137,13 +137,14 @@ value="
 .param temp=27
 .param vdd=1.2
 .control
+set num_threads=67
 set maxdata = 1000
 op
 print all
 save all
 
 
-tran 50p 1u
+tran 50p 5u
 
 write divider_top_tb.raw 
 set appendwrite

@@ -6,36 +6,30 @@ S {}
 F {}
 E {}
 N 140 10 260 10 {lab=out}
-N -50 -100 -50 -60 {lab=GND}
-N -550 350 -550 370 {lab=GND}
-N -440 350 -440 370 {lab=GND}
-N -50 -100 -30 -100 {lab=GND}
+N -50 -100 -50 -60 {lab=gd}
+N -550 350 -550 370 {lab=gd}
+N -440 350 -440 370 {lab=gd}
+N -50 -100 -30 -100 {lab=gd}
 N -550 250 -550 290 {lab=Vp}
-N -330 350 -330 370 {lab=GND}
+N -330 350 -330 370 {lab=gd}
 N -330 250 -330 290 {lab=clk_ref}
 N -440 250 -440 290 {lab=Vph}
 N -120 10 -100 10 {lab=clk_ref}
 N 60 -90 60 -60 {lab=Vph}
 N 80 -90 80 -60 {lab=Vp}
-N 210 70 210 90 {lab=GND}
-N 20 330 20 350 {lab=GND}
-N 90 330 90 350 {lab=GND}
-N 170 330 170 350 {lab=GND}
+N 210 70 210 90 {lab=gd}
 N 20 240 20 270 {lab=d0}
 N 90 240 90 270 {lab=d1}
 N 170 240 170 270 {lab=d2}
-N 240 330 240 350 {lab=GND}
-N 300 330 300 350 {lab=GND}
-N 390 330 390 350 {lab=GND}
 N 240 240 240 270 {lab=d3}
 N 300 240 300 270 {lab=d4}
 N 390 240 390 270 {lab=d5}
 N 90 410 90 430 {lab=a1}
-N 90 490 90 510 {lab=GND}
+N 90 490 90 510 {lab=gd}
 N 20 410 20 430 {lab=a0}
-N 20 490 20 510 {lab=GND}
+N 20 490 20 510 {lab=gd}
 N 160 410 160 430 {lab=a2}
-N 160 490 160 510 {lab=GND}
+N 160 490 160 510 {lab=gd}
 N -70 80 -70 110 {lab=a2}
 N -50 80 -50 110 {lab=a1}
 N -30 80 -30 110 {lab=a0}
@@ -46,8 +40,16 @@ N 60 80 60 110 {lab=d2}
 N 80 80 80 110 {lab=d1}
 N 100 80 100 110 {lab=d0}
 N -770 230 -770 300 {lab=rst}
-N -770 360 -770 380 {lab=GND}
 N -190 -10 -100 -10 {lab=rst}
+N 20 330 20 350 {lab=gd}
+N 90 330 90 350 {lab=gd}
+N 170 330 170 350 {lab=gd}
+N 240 330 240 350 {lab=gd}
+N 300 330 300 350 {lab=gd}
+N 390 330 390 350 {lab=gd}
+N -770 360 -770 380 {lab=gd}
+N -880 360 -880 410 {lab=GND}
+N -880 260 -880 300 {lab=gd}
 C {devices/code_shown.sym} -220 -330 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_tt
@@ -55,17 +57,24 @@ value=".lib cornerMOSlv.lib mos_tt
 .lib cornerRES.lib res_typ
 
 "}
-C {devices/code_shown.sym} -760 -780 0 0 {name=NGSPICE only_toplevel=false
+C {devices/code_shown.sym} -590 -790 0 0 {name=NGSPICE only_toplevel=false
 value="
 .temp=25
 .param T = 31.25u
-
+.option klu method=gear reltol=1e-3 gmin=1e-12 abstol=1e-12 rshunt=1e12
+.options cshunt=2.5f
 .param Vp=1.2
 .param Vph=3.3
-.control
-save v(rst) v(out) v(xPLL.cvco) v(xPLL.cref) v(xPLL.UP) v(xPLL.DOWN) v(xPLL.vout) v(xPLL.vco_out_prebuff) v(xPLL.vout_aftRC) v(xPLL.vco_out_buffered) v(xPLL.out_PLL_divided) v(xPLL.pre_LS) v(xPLL.aft_LS) 
-tran 0.2n 1.5m
+.control 
 
+* Operating Point Analysis
+
+
+
+write PLL_top_tb.raw
+set appendwrite
+save v(gd) v(vp) v(rst) v(out) v(xPLL.cvco) v(xPLL.cref) v(xPLL.UP) v(xPLL.DOWN) v(xPLL.vout) v(xPLL.vco_out_prebuff) v(xPLL.vout_aftRC) v(xPLL.vco_out_buffered) v(xPLL.out_PLL_divided) v(xPLL.pre_LS) v(xPLL.aft_LS) 
+tran 0.2n 3m
 meas tran t1 WHEN v(out)=1.65 RISE=1 FROM=0.7m
 meas tran t2 WHEN v(out)=1.65 RISE=2 FROM=0.7m
 meas tran period PARAM='t2-t1'
@@ -76,15 +85,7 @@ write PLL_top_tb.raw
 "}
 C {devices/vsource.sym} -330 320 0 0 {name=Vref value="dc 0 ac 0 pulse(0 \{Vph\} \{T/2\} 10n 10n \{T/2\} \{T\}) "}
 C {devices/vsource.sym} -550 320 0 0 {name=Vp value="dc \{Vp\}"}
-C {gnd.sym} -550 370 0 0 {name=l1 lab=GND
-}
 C {devices/vsource.sym} -440 320 0 0 {name=Vph value="dc \{Vph\}"}
-C {gnd.sym} -440 370 0 0 {name=l2 lab=GND
-}
-C {gnd.sym} -30 -100 0 0 {name=l3 lab=GND
-}
-C {gnd.sym} -330 370 0 0 {name=l4 lab=GND
-}
 C {lab_wire.sym} -550 250 0 0 {name=p6 sig_type=std_logic lab=Vp}
 C {lab_wire.sym} -440 250 0 0 {name=p1 sig_type=std_logic lab=Vph}
 C {lab_wire.sym} -330 250 0 0 {name=p2 sig_type=std_logic lab=clk_ref}
@@ -97,8 +98,6 @@ m=1
 value=20p
 footprint=1206
 device="ceramic capacitor"}
-C {gnd.sym} 210 90 0 0 {name=l5 lab=GND
-}
 C {lab_wire.sym} 240 240 1 0 {name=p20 sig_type=std_logic lab=d3
 }
 C {lab_wire.sym} 20 240 1 0 {name=p21 sig_type=std_logic lab=d0
@@ -115,34 +114,16 @@ C {vsource.sym} 300 300 0 0 {name=V8 value=0 savecurrent=false}
 C {vsource.sym} 390 300 0 0 {name=V9 value=0 savecurrent=false}
 C {vsource.sym} 20 300 0 0 {name=V11 value=1.2 savecurrent=false}
 C {vsource.sym} 90 300 0 0 {name=V10 value=1.2  savecurrent=false}
-C {vsource.sym} 170 300 0 0 {name=V12 value=0 savecurrent=false}
-C {vsource.sym} 240 300 0 0 {name=V7 value=0 savecurrent=false}
-C {vsource.sym} 90 460 0 0 {name=V5 value=1.2 savecurrent=false}
+C {vsource.sym} 170 300 0 0 {name=V12 value=1.2 savecurrent=false}
+C {vsource.sym} 240 300 0 0 {name=V7 value=1.2 savecurrent=false}
+C {vsource.sym} 90 460 0 0 {name=V5 value=0 savecurrent=false}
 C {lab_wire.sym} 90 410 0 0 {name=p24 sig_type=std_logic lab=a1
 }
-C {vsource.sym} 20 460 0 0 {name=V6 value=1.2 savecurrent=false}
+C {vsource.sym} 20 460 0 0 {name=V6 value=0 savecurrent=false}
 C {lab_wire.sym} 20 410 0 0 {name=p25 sig_type=std_logic lab=a0
 }
-C {vsource.sym} 160 460 0 0 {name=V13 value=1.2 savecurrent=false}
+C {vsource.sym} 160 460 0 0 {name=V13 value=0 savecurrent=false}
 C {lab_wire.sym} 160 410 0 0 {name=p27 sig_type=std_logic lab=a2
-}
-C {gnd.sym} 20 350 0 0 {name=l6 lab=GND
-}
-C {gnd.sym} 90 350 0 0 {name=l7 lab=GND
-}
-C {gnd.sym} 170 350 0 0 {name=l8 lab=GND
-}
-C {gnd.sym} 240 350 0 0 {name=l9 lab=GND
-}
-C {gnd.sym} 300 350 0 0 {name=l10 lab=GND
-}
-C {gnd.sym} 160 510 0 0 {name=l11 lab=GND
-}
-C {gnd.sym} 90 510 0 0 {name=l12 lab=GND
-}
-C {gnd.sym} 20 510 0 0 {name=l13 lab=GND
-}
-C {gnd.sym} 390 350 0 0 {name=l14 lab=GND
 }
 C {lab_wire.sym} 100 110 1 0 {name=p8 sig_type=std_logic lab=d0
 }
@@ -162,9 +143,25 @@ C {lab_wire.sym} -50 110 0 0 {name=p15 sig_type=std_logic lab=a1
 }
 C {lab_wire.sym} -70 110 0 0 {name=p16 sig_type=std_logic lab=a2
 }
-C {/foss/designs/CHIP-PLL/schematics/top/PLL_top.sym} 50 -70 0 0 {name=xPLL}
-C {devices/vsource.sym} -770 330 0 0 {name=Vp1 value="dc \{Vp\} ac 0 PULSE(\{Vp\} 0 63u 1p 1p 1 2"}
+C {PLL_top.sym} 50 -70 0 0 {name=xPLL}
+C {devices/vsource.sym} -770 330 0 0 {name=Vp1 value="dc \{Vp\} ac 0 PULSE(\{Vp\} 0 2u 1n 1n 1 2)"}
 C {lab_wire.sym} -770 230 0 0 {name=p17 sig_type=std_logic lab=rst}
-C {gnd.sym} -770 380 0 0 {name=l15 lab=GND
-}
 C {lab_wire.sym} -190 -10 0 0 {name=p18 sig_type=std_logic lab=rst}
+C {lab_wire.sym} -30 -100 0 0 {name=p19 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 210 90 0 0 {name=p23 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 20 350 0 0 {name=p26 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 90 350 0 0 {name=p28 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 170 350 0 0 {name=p29 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 240 350 0 0 {name=p30 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 300 350 0 0 {name=p31 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 390 350 0 0 {name=p32 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 20 510 0 0 {name=p33 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 90 510 0 0 {name=p34 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 160 510 0 0 {name=p35 sig_type=std_logic lab=gd}
+C {lab_wire.sym} -330 370 0 0 {name=p36 sig_type=std_logic lab=gd}
+C {lab_wire.sym} -440 370 0 0 {name=p37 sig_type=std_logic lab=gd}
+C {lab_wire.sym} -550 370 0 0 {name=p38 sig_type=std_logic lab=gd}
+C {lab_wire.sym} -770 380 0 0 {name=p39 sig_type=std_logic lab=gd}
+C {devices/vsource.sym} -880 330 0 0 {name=Vp2 value="dc 0"}
+C {lab_wire.sym} -880 260 0 0 {name=p40 sig_type=std_logic lab=gd}
+C {devices/gnd.sym} -880 410 0 0 {name=l2 lab=GND}
