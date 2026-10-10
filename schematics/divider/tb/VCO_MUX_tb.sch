@@ -73,7 +73,7 @@ set appendwrite
 .endc
 "}
 C {vsource.sym} -340 -80 0 0 {name=V1 value=\{vdd\} savecurrent=false}
-C {vsource.sym} -590 -90 0 0 {name=VCO value="PULSE(\{vdd\} 0 0 10p 10p 1.5625n 3.125n)" savecurrent=false}
+C {vsource.sym} -590 -90 0 0 {name=VCO value="PULSE(\{vdd\} 0 0 10p 10p 0.83n 1.66n)" savecurrent=false}
 C {lab_wire.sym} -340 -120 0 0 {name=p8 sig_type=std_logic lab=VP
 }
 C {vsource.sym} -240 110 0 0 {name=V3 value="PWL(

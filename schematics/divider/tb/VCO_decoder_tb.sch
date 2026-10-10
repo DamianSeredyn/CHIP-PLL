@@ -51,6 +51,8 @@ value=".lib cornerMOSlv.lib mos_tt
 C {devices/code_shown.sym} -170 -20 0 0 {name=NGSPICE only_toplevel=false
 value="
 .param temp=27
+.options klu method=gear reltol=1e-3 gmin=1e-12 abstol=1e-12 rshunt=1e12 itl4=100
+.options cshunt=1e-16
 .param vdd=1.2
 .control
 op
