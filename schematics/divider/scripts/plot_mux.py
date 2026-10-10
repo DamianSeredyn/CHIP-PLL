@@ -45,8 +45,16 @@ def load_slots():
         print(f"Brak {path} — uruchom najpierw run_sweep_mux.sh")
         sys.exit(1)
     with open(path) as f:
-        return json.load(f)
+        plan = json.load(f)
 
+    # Code -> division mapping (from MUX_8to1.sch):
+    #   A2A1A0 = 111 -> in8 -> /128,  110 -> in7 -> /64, ... 001 -> in2 -> /2,  000 -> in1 -> /1
+    for s in plan['slots']:
+        addr = int(s['bits'], 2)
+        s['addr'] = addr
+        s['input'] = addr + 1
+        s['expected_div'] = 2 ** addr
+    return plan
 
 # ── Wczytanie pliku .dat (format ngspice wrdata: pary t,sygnal) ───────────────
 def load_dat(path):
@@ -213,6 +221,12 @@ for idx, filepath in enumerate(dat_files, 1):
             t_lo = s['t0'] + FLO * W
             t_hi = s['t0'] + FHI * W
             f_out, dc_out = analyze_window(d['time_out'], d['out'], t_lo, t_hi, vp)
+            if f_out is None:
+                m = (d['time_out'] >= t_lo) & (d['time_out'] <= t_hi)
+                v = d['out'][m]
+                print(f"  [{tag}] slot {s['k']}: n={m.sum()} "
+                      f"vmin={v.min():.3f} vmax={v.max():.3f}" if m.any()
+                      else f"  [{tag}] slot {s['k']}: no samples")
             ev = eval_slot(f_clk, f_out, dc_out, s['expected_div'])
             ev.update({
                 'k': s['k'], 't0': s['t0'], 't1': s['t1'],

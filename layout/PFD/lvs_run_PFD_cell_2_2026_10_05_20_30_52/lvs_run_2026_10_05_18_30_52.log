@@ -1,0 +1,16 @@
+05-Oct-2026 20:30:52 | INFO    | Your Klayout version is: KLayout 0.30.12
+05-Oct-2026 20:30:52 | INFO    | Running SG13CMOS5L LVS checks on design /foss/designs/CHIP-PLL/layout/PFD/PFD_cell_2.gds on cell PFD_cell_2
+05-Oct-2026 20:30:56 | INFO    | ==============================================================================
+05-Oct-2026 20:30:56 | INFO    | Important Summary
+05-Oct-2026 20:30:56 | INFO    | +------------------+--------------------------------------------------------------------------+
+05-Oct-2026 20:30:56 | INFO    | | Status           | PASS                                                                     |
+05-Oct-2026 20:30:56 | INFO    | | Mode             | COMPARE                                                                  |
+05-Oct-2026 20:30:56 | INFO    | | Outcome          | Comparison mode: PASS (netlists match).                                  |
+05-Oct-2026 20:30:56 | INFO    | | Layout           | PFD_cell_2.gds                                                           |
+05-Oct-2026 20:30:56 | INFO    | | Top Cell         | PFD_cell_2                                                               |
+05-Oct-2026 20:30:56 | INFO    | | Results Dir      | /foss/designs/CHIP-PLL/layout/PFD/lvs_run_PFD_cell_2_2026_10_05_20_30_52 |
+05-Oct-2026 20:30:56 | INFO    | | Warnings         | 0                                                                        |
+05-Oct-2026 20:30:56 | INFO    | | Errors           | 0                                                                        |
+05-Oct-2026 20:30:56 | INFO    | | Run Time (s)     | 4.388                                                                    |
+05-Oct-2026 20:30:56 | INFO    | +------------------+--------------------------------------------------------------------------+
+05-Oct-2026 20:30:56 | INFO    | ==============================================================================

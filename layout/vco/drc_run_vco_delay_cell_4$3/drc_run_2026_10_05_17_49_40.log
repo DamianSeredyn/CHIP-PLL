@@ -1,0 +1,9 @@
+05-Oct-2026 19:49:40 | INFO    | KLayout version detected: 0.30.12
+05-Oct-2026 19:49:40 | INFO    | Using DRC JSON file: /foss/pdks/ihp-sg13cmos5l/libs.tech/klayout/python/sg13cmos5l_pycell_lib/sg13cmos5l_tech_mod.json
+05-Oct-2026 19:49:40 | INFO    | Running IHP-SG13CMOS5L main checks on design /foss/designs/CHIP-PLL/layout/vco/vco_core_4.gds, topcell: vco_delay_cell_4$3
+05-Oct-2026 19:49:46 | INFO    | Running IHP-SG13CMOS5L sg13cmos5l_maximal checks on design /foss/designs/CHIP-PLL/layout/vco/vco_core_4.gds, topcell: vco_delay_cell_4$3
+05-Oct-2026 19:50:03 | INFO    | Completed running Sg13cmos5l_maximal checks.
+05-Oct-2026 19:50:03 | INFO    | =====================================================================================
+05-Oct-2026 19:50:03 | INFO    | KLayout DRC Check Passed: No DRC violations detected in the layout.
+05-Oct-2026 19:50:03 | INFO    | =====================================================================================
+05-Oct-2026 19:50:03 | INFO    | Total DRC Run time: 23.45 seconds (including execution, analysis, and reporting)
