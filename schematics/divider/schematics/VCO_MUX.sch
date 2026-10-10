@@ -78,7 +78,6 @@ N 540 -80 560 -80 {lab=VCO5_sel}
 N 540 50 640 50 {lab=VCO5_sel}
 N 580 -130 580 -110 {lab=VP}
 N 580 -50 580 -40 {lab=gd}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate_scaled.sym} 200 20 0 0 {name=x1}
 C {iopin.sym} -120 -60 2 0 {name=p46 lab=gd}
 C {lab_wire.sym} -100 -60 2 0 {name=p53 sig_type=std_logic lab=gd}
 C {iopin.sym} -120 -40 2 0 {name=p54 lab=VP}
@@ -149,3 +148,4 @@ C {lab_wire.sym} 100 110 0 0 {name=p47 sig_type=std_logic lab=VCO2_sel}
 C {lab_wire.sym} 320 -80 0 0 {name=p49 sig_type=std_logic lab=VCO3_sel}
 C {lab_wire.sym} 320 110 0 0 {name=p48 sig_type=std_logic lab=VCO4_sel}
 C {lab_wire.sym} 540 -80 0 0 {name=p50 sig_type=std_logic lab=VCO5_sel}
+C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_passgate.sym} 200 20 0 0 {name=x20}
