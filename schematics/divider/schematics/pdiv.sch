@@ -7,13 +7,13 @@ F {}
 E {}
 N -190 240 -170 240 {lab=clk}
 N 130 380 280 380 {lab=div64}
-N 130 360 280 360 {lab=div32}
+N 130 360 280 360 {lab=r_div32}
 N 130 260 160 260 {lab=VP}
 N 130 240 200 240 {lab=gd}
-N 130 340 280 340 {lab=div16}
-N 130 320 280 320 {lab=div8}
-N 130 300 280 300 {lab=div4}
-N 130 280 280 280 {lab=div2}
+N 130 340 280 340 {lab=r_div16}
+N 130 320 280 320 {lab=r_div8}
+N 130 300 280 300 {lab=r_div4}
+N 130 280 280 280 {lab=r_div2}
 N 580 320 610 320 {lab=gd}
 N 580 300 640 300 {lab=VP}
 N 250 400 280 400 {lab=d0}
@@ -101,17 +101,17 @@ C {lab_wire.sym} -190 240 0 0 {name=p3 sig_type=std_logic lab=clk
 }
 C {lab_wire.sym} 160 260 2 0 {name=p5 sig_type=std_logic lab=VP
 }
-C {lab_wire.sym} 150 280 2 0 {name=p6 sig_type=std_logic lab=div2
+C {lab_wire.sym} 150 280 2 0 {name=p6 sig_type=std_logic lab=r_div2
 }
-C {lab_wire.sym} 150 300 2 0 {name=p7 sig_type=std_logic lab=div4
+C {lab_wire.sym} 150 300 2 0 {name=p7 sig_type=std_logic lab=r_div4
 }
-C {lab_wire.sym} 150 320 2 0 {name=p9 sig_type=std_logic lab=div8
+C {lab_wire.sym} 150 320 2 0 {name=p9 sig_type=std_logic lab=r_div8
 }
-C {lab_wire.sym} 150 340 2 0 {name=p10 sig_type=std_logic lab=div16
+C {lab_wire.sym} 150 340 2 0 {name=p10 sig_type=std_logic lab=r_div16
 }
-C {lab_wire.sym} 150 360 2 0 {name=p11 sig_type=std_logic lab=div32
+C {lab_wire.sym} 150 360 2 0 {name=p11 sig_type=std_logic lab=r_div32
 }
-C {lab_wire.sym} 150 380 2 0 {name=p12 sig_type=std_logic lab=div64
+C {lab_wire.sym} 150 380 2 0 {name=p12 sig_type=std_logic lab=r_div64
 }
 C {lab_wire.sym} 640 300 2 0 {name=p13 sig_type=std_logic lab=VP
 }
