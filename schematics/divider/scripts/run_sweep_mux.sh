@@ -1,71 +1,135 @@
 #!/bin/bash
 # ==============================================================================
-# SWEEP MUX 8:1 — corner / temperatura / VDD
-# ------------------------------------------------------------------------------
-# Analogiczny do run_sweep.sh dzielnika. Symuluje MUX_8to1_tb.spice i zapisuje
-# przebiegi zegara wejsciowego (clk) oraz wyjscia (out).
+# SWEEP MUX 8:1 — corner / temperature / VDD
+# ==============================================================================
+# Simulates MUX_8to1_tb.spice and stores the input clock (clk) and the MUX
+# output (out) waveforms.
 #
-# Adres MUX-a steruja zrodla V3/V4/V5 (wezly a1/a0/a2). Adres przelacza sie
-# co staly odstep czasu, dzieki czemu na wyjsciu pojawia sie kolejno clk,
-# clk/2, clk/4, ... clk/128. Przed symulacjami skrypt PARSUJE V3/V4/V5 i
-# zapisuje plan przedzialow pomiarowych do mux_slots.json — plot_mux.py
-# uzywa go, by wiedziec w ktorym oknie czasowym jaka czestotliwosc jest
-# oczekiwana. Dzieki temu przedzialy sa "dobrane na podstawie ustawien V3/V4/V5".
+# The MUX address is driven by sources V3/V4/V5 (nodes a1/a0/a2). The address
+# switches every fixed time interval, so the output shows clk, clk/2, clk/4,
+# ... clk/128 in turn. Before simulating, this script PARSES V3/V4/V5 and
+# writes the measurement-slot plan to mux_slots.json — plot_mux.py uses it to
+# know which frequency is expected in which time window.
 #
-# Plik wklej do  mux/scripts/  (lub innego bloku) i uruchamiaj stamtad.
+# USAGE
+#   run_sweep_mux.sh                      full sweep (all corners / T / VDD)
+#   run_sweep_mux.sh -c typ|hot|cold      PVT presets
+#   run_sweep_mux.sh -c mos_tt mos_ss     explicit corners
+#   run_sweep_mux.sh -t t_min t_nom       temperatures (names or values)
+#   run_sweep_mux.sh -v vp_min 1.2        supply voltages (names or values)
+#   run_sweep_mux.sh -h                   this help
+#
+# Presets:
+#   typ  -> mos_tt, t_nom, vp_nom
+#   hot  -> mos_ss, t_max, vp_min
+#   cold -> mos_ff, t_min, vp_max
+# ==============================================================================
+# Expected hierarchy (the mux shares the divider block's folders):
+#   /foss/designs/CHIP-PLL/schematics/divider/scripts/<this file>
+#   SCRIPT_DIR  -> .../CHIP-PLL/schematics/divider/scripts
+#   DIVIDER_DIR -> .../CHIP-PLL/schematics/divider        (1 level up)
+#   ROOT_DIR    -> .../CHIP-PLL                           (2 levels above DIVIDER_DIR)
+#   Testbench   -> divider/simulations/MUX_8to1_tb.spice
+#   Results     -> divider/results/data  (mux_*.dat, mux_slots.json), divider/results
 # ==============================================================================
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
+DIVIDER_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+ROOT_DIR="$(cd "$DIVIDER_DIR/../.." && pwd)"
 
-source $PROJECT_DIR/configs/corner_data
+source $ROOT_DIR/configs/corner_data
 
-# ── Presety (-c <preset lub corner>) ──────────────────────────────────────────
-#   typ → mos_tt, t_nom, vp_nom | hot → mos_ss, t_max, vp_min | cold → mos_ff, t_min, vp_max
-#   mozna podac cornery wprost: -c tt ss ff ; bez argumentow → pelny sweep
-# ──────────────────────────────────────────────────────────────────────────────
-
+# ── Argument parsing ───────────────────────────────────────────────────────────
 FILTER_CORNERS=""
 FILTER_TEMPS=""
 FILTER_VPS=""
 PRESET=""
 
+resolve_var() {
+    local name="$1"
+    case "$name" in
+        t_min)  echo "$t_min"  ;;
+        t_nom)  echo "$t_nom"  ;;
+        t_max)  echo "$t_max"  ;;
+        vp_min) echo "$vp_min" ;;
+        vp_nom) echo "$vp_nom" ;;
+        vp_max) echo "$vp_max" ;;
+        *)      echo "$name"   ;;
+    esac
+}
+
 while [[ $# -gt 0 ]]; do
     case "$1" in
-        -c) shift
+        -c)
+            shift
             while [[ $# -gt 0 && "$1" != -* ]]; do
                 case "$1" in
                     typ)
-                        PRESET="typ"
+                        PRESET="$PRESET typ"
                         FILTER_CORNERS="$FILTER_CORNERS mos_tt"
-                        FILTER_TEMPS="$t_nom"
-                        FILTER_VPS="$vp_nom"
+                        FILTER_TEMPS="$FILTER_TEMPS $t_nom"
+                        FILTER_VPS="$FILTER_VPS $vp_nom"
                         ;;
                     hot)
-                        PRESET="hot"
+                        PRESET="$PRESET hot"
                         FILTER_CORNERS="$FILTER_CORNERS mos_ss"
-                        FILTER_TEMPS="$t_min"
-                        FILTER_VPS="$vp_min"
+                        FILTER_TEMPS="$FILTER_TEMPS $t_max"
+                        FILTER_VPS="$FILTER_VPS $vp_min"
                         ;;
                     cold)
-                        PRESET="cold"
+                        PRESET="$PRESET cold"
                         FILTER_CORNERS="$FILTER_CORNERS mos_ff"
-                        FILTER_TEMPS="$t_min"
-                        FILTER_VPS="$vp_max"
+                        FILTER_TEMPS="$FILTER_TEMPS $t_min"
+                        FILTER_VPS="$FILTER_VPS $vp_max"
                         ;;
                     *)
                         FILTER_CORNERS="$FILTER_CORNERS $1"
                         ;;
                 esac
                 shift
-            done ;;
-        *) echo "Nieznana opcja: $1"; exit 1 ;;
+            done
+            ;;
+        -t)
+            shift
+            [[ $# -eq 0 || "$1" == -* ]] && { echo "Error: -t requires a value"; exit 1; }
+            while [[ $# -gt 0 && "$1" != -* ]]; do
+                FILTER_TEMPS="$FILTER_TEMPS $(resolve_var "$1")"
+                shift
+            done
+            ;;
+        -v)
+            shift
+            [[ $# -eq 0 || "$1" == -* ]] && { echo "Error: -v requires a value"; exit 1; }
+            while [[ $# -gt 0 && "$1" != -* ]]; do
+                FILTER_VPS="$FILTER_VPS $(resolve_var "$1")"
+                shift
+            done
+            ;;
+        -h|--help)
+            sed -n '/^# USAGE/,/^# ===/p' "$0" | sed 's/^# \?//' | head -40
+            exit 0
+            ;;
+        *)
+            echo "Error: unknown option '$1'"
+            echo "Run with -h for usage."
+            exit 1
+            ;;
     esac
 done
 
+# ── Deduplicate lists ──────────────────────────────────────────────────────────
+dedup() {
+    echo "$1" | tr ' ' '\n' | grep -v '^$' | awk '!seen[$0]++' | tr '\n' ' '
+}
+FILTER_CORNERS=$(dedup "$FILTER_CORNERS")
+FILTER_TEMPS=$(dedup "$FILTER_TEMPS")
+FILTER_VPS=$(dedup "$FILTER_VPS")
+
+# ── Fall back to full range ────────────────────────────────────────────────────
 if [[ -z "$FILTER_TEMPS" ]]; then FILTER_TEMPS="$t_min $t_nom $t_max"; fi
 if [[ -z "$FILTER_VPS"   ]]; then FILTER_VPS="$vp_min $vp_nom $vp_max"; fi
 
+# ── Filter corners ─────────────────────────────────────────────────────────────
 if [[ -n "$FILTER_CORNERS" ]]; then
     filtered=""
     for C in $corners; do
@@ -77,23 +141,34 @@ if [[ -n "$FILTER_CORNERS" ]]; then
         done
     done
     if [[ -z "$filtered" ]]; then
-        echo "Błąd: żaden corner nie pasuje do: $FILTER_CORNERS"
-        echo "Dostępne cornery: $corners"
+        echo "Error: no corner matches for: $FILTER_CORNERS"
+        echo "Available corners: $corners"
         exit 1
     fi
-    corners="$filtered"
+    corners=$(dedup "$filtered")
 fi
 
+# ── Configuration ──────────────────────────────────────────────────────────────
 SIM_NAME="mux"
-SPICE=$PROJECT_DIR/divider/simulations/MUX_8to1_tb.spice
-DATA_DIR=$PROJECT_DIR/divider/results/data
-RESULTS_DIR=$PROJECT_DIR/divider/results
+SPICE=$DIVIDER_DIR/simulations/MUX_8to1_tb.spice
+DATA_DIR=$DIVIDER_DIR/results/data
+RESULTS_DIR=$DIVIDER_DIR/results
 
-if [[ -n "$PRESET" ]]; then
-    echo "Preset: $PRESET → corners:$corners  temp: $FILTER_TEMPS  vp: $FILTER_VPS"
-else
-    echo "Symulowane cornery: wszystkie ($corners)"
+if [[ ! -f "$SPICE" ]]; then
+    echo "Error: testbench not found: $SPICE"
+    exit 1
 fi
+
+echo "=========================================================================="
+echo "MUX 8:1 SWEEP"
+echo "=========================================================================="
+echo "Corners     : $corners"
+echo "Temperatures: $FILTER_TEMPS"
+echo "VDDs        : $FILTER_VPS"
+[[ -n "$PRESET" ]] && echo "Preset(s)   :$PRESET"
+echo "Testbench   : $SPICE"
+echo "Results     : $RESULTS_DIR"
+echo ""
 
 echo "Simulation parameters:"
 python3 - "$SPICE" <<'PYEOF'
@@ -109,8 +184,9 @@ PYEOF
 
 mkdir -p $DATA_DIR
 
-# ── Wyznacz przedzialy pomiarowe z V3/V4/V5 → mux_slots.json ──────────────────
-echo "Przedzialy pomiarowe (z V3/V4/V5):"
+# ── Derive measurement slots from V3/V4/V5 → mux_slots.json ───────────────────
+echo ""
+echo "Measurement slots (from V3/V4/V5):"
 python3 - "$SPICE" "$DATA_DIR/mux_slots.json" <<'PYEOF'
 import re, sys, json
 spice_path, json_path = sys.argv[1:]
@@ -128,12 +204,12 @@ def spice_num(s):
 
 spice = open(spice_path).read()
 
-# === USER EDIT === nazwy zrodel adresowych (LSB->MSB nie ma znaczenia,
-# kolejnosc wyznaczana jest po okresie PULSE; tu wystarczy je wymienic).
+# === USER EDIT === address source names (LSB->MSB order does not matter here;
+# the order is derived from the PULSE period, so just list them).
 ADDR_SOURCES = ['V3', 'V4', 'V5']
 
-# Okno pomiaru wewnatrz kazdego przedzialu (pomijamy poczatek przy przelaczeniu
-# adresu oraz sam koniec przed kolejnym przelaczeniem).
+# Measurement window inside each slot (skip the start right after the address
+# switches, and the very end before the next switch).
 MEAS_FRAC_LO = 0.15
 MEAS_FRAC_HI = 0.95
 
@@ -145,9 +221,13 @@ for nm in ADDR_SOURCES:
     a = m.group(1).split()             # PULSE(V1 V2 TD TR TF PW PER)
     bits.append({'name': nm, 'td': spice_num(a[2]), 'pw': spice_num(a[5]), 'per': spice_num(a[6])})
 
-# bit0 = najkrotszy okres (LSB)
+if not bits:
+    print("Error: no PULSE address sources found for", ADDR_SOURCES)
+    sys.exit(1)
+
+# bit0 = shortest period (LSB)
 bits.sort(key=lambda b: b['per'])
-W = bits[0]['pw']                      # szerokosc przedzialu = czas trzymania kodu (PW LSB)
+W = bits[0]['pw']                      # slot width = code hold time (PW of LSB)
 nslots = 2 ** len(bits)
 
 def level(b, t):
@@ -160,31 +240,42 @@ for k in range(nslots):
     t0, t1, tc = k * W, (k + 1) * W, (k + 0.5) * W
     a = [level(bits[i], tc) for i in range(len(bits))]   # a[0]=LSB
     addr = sum(a[i] << i for i in range(len(a)))
-    inp  = 8 - addr                    # ktore wejscie inN jest wybrane
-    div  = 2 ** (7 - addr)             # dzielnik na wyjsciu (z dekodowania MUX-a)
+    inp  = 8 - addr                    # which input inN is selected
+    div  = 2 ** (7 - addr)             # divider ratio at output (from MUX decoding)
     bitstr = ''.join(str(a[i]) for i in reversed(range(len(a))))  # MSB..LSB
     slots.append({'k': k, 't0': t0, 't1': t1, 'addr': addr,
                   'bits': bitstr, 'input': inp, 'expected_div': div})
     print(f"  slot {k}: {t0*1e6:6.2f}..{t1*1e6:6.2f} us  A2A1A0={bitstr}  "
-          f"in{inp}  ÷{div}")
+          f"in{inp}  /{div}")
 
 with open(json_path, 'w') as f:
     json.dump({'slot_width': W, 'num_slots': nslots,
                'meas_frac_lo': MEAS_FRAC_LO, 'meas_frac_hi': MEAS_FRAC_HI,
                'slots': slots}, f, indent=2)
 PYEOF
+[[ $? -ne 0 ]] && exit 1
 
-# Usuń poprzednie wyniki
-rm -f $DATA_DIR/${SIM_NAME}_*.dat
-rm -f $RESULTS_DIR/${SIM_NAME}_report.html
-
-# Policz kombinacje
+# ── Count total simulations ────────────────────────────────────────────────────
 TOTAL=0
 for CORNER in $corners; do
 for TEMP in $FILTER_TEMPS; do
 for VP in $FILTER_VPS; do
     TOTAL=$((TOTAL + 1))
 done; done; done
+
+echo ""
+echo "Total simulations: $TOTAL"
+echo "=========================================================================="
+echo ""
+
+# Remove previous results only for the PVT points we are about to (re)run
+for CORNER in $corners; do
+for TEMP in $FILTER_TEMPS; do
+for VP in $FILTER_VPS; do
+    TAG="${CORNER}_T${TEMP}_Vp${VP}"
+    rm -f $DATA_DIR/${SIM_NAME}_${TAG}.dat
+done; done; done
+rm -f $RESULTS_DIR/${SIM_NAME}_report.html
 
 CURRENT=0
 
@@ -202,25 +293,25 @@ spice_path, corner, temp, vp, dat_path = sys.argv[1:]
 with open(spice_path) as f:
     spice = f.read()
 
-# 1. Usun istniejacy blok .control
+# 1. Remove existing .control block
 spice = re.sub(r'\.control.*?\.endc', '', spice, flags=re.DOTALL)
 
-# 2. Podmien parametry sweepowane
-spice = re.sub(r'\.param\s+temp\s*=.*', f'.param temp={temp}', spice)
-spice = re.sub(r'\.param\s+vdd\s*=.*',  f'.param vdd={vp}',    spice)
+# 2. Replace swept parameters
+spice = re.sub(r'\.param\s+temp\s*=.*', f'.param temp={temp}', spice, flags=re.IGNORECASE)
+spice = re.sub(r'\.param\s+vdd\s*=.*',  f'.param vdd={vp}',    spice, flags=re.IGNORECASE)
 
-# 3. Wybierz corner z biblioteki cornerMOSlv.lib
+# 3. Select corner from cornerMOSlv.lib
 spice = re.sub(r'(\.lib\s+\S*cornerMOSlv\.lib\s+)\S+',
                r'\g<1>' + corner, spice, flags=re.IGNORECASE)
 
-# 4. Usun istniejace linie .options TEMP
+# 4. Remove existing .options TEMP lines
 spice = re.sub(r'\.options[^\n]*\bTEMP\b[^\n]*\n', '', spice, flags=re.IGNORECASE)
 
-# 5. Wstaw .options TEMP przed .end
+# 5. Insert .options TEMP before .end
 spice = re.sub(r'(\.end\b)', f'.options TEMP={temp}\n\\1', spice, flags=re.IGNORECASE)
 
-# 6. Blok .control — zapisujemy zegar wejsciowy i wyjscie multipleksera.
-#    Kolejnosc MUSI sie zgadzac z SIGNAL_ORDER w plot_mux.py
+# 6. .control block — save input clock and MUX output.
+#    Order MUST match SIGNAL_ORDER in plot_mux.py
 control_block = f"""
 .control
 tran 50p 12.01u
@@ -243,5 +334,8 @@ done
 done
 done
 
-echo "Generating report..."
+echo ""
+echo "=========================================================================="
+echo "All simulations done. Generating report..."
+echo "=========================================================================="
 python3 $SCRIPT_DIR/plot_mux.py

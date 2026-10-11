@@ -31,23 +31,11 @@ N -130 850 -130 860 {lab=0}
 N -130 240 -130 260 {lab=clk_in}
 N 640 750 640 770 {lab=0}
 N 640 620 640 690 {lab=d8}
-N 700 750 700 770 {lab=0}
-N 760 750 760 770 {lab=0}
-N 700 620 700 690 {lab=d9}
-N 820 750 820 770 {lab=0}
-N 820 620 820 690 {lab=d11}
-N 760 620 760 690 {lab=d10}
-N 640 960 640 980 {lab=0}
-N 640 830 640 900 {lab=d12}
 N 150 270 170 270 {lab=d}
 N 150 250 170 250 {lab=data_en}
 N 150 230 170 230 {lab=clk_in}
 N 470 230 510 230 {lab=VP}
 N 470 250 510 250 {lab=0}
-N 470 510 480 510 {lab=d12}
-N 470 490 480 490 {lab=d11}
-N 470 470 480 470 {lab=d10}
-N 470 450 480 450 {lab=d9}
 N 470 430 480 430 {lab=d8}
 N 470 410 480 410 {lab=d7}
 N 470 390 480 390 {lab=d6}
@@ -104,14 +92,7 @@ C {vsource.sym} -60 450 0 0 {name=V3 value="PWL(
 + 212.51n 1.2
 + 222.5n 1.2
 + 222.51n 0
-+ 232.5n 0
-+ 232.51n 1.2
-+ 242.5n 1.2
-+ 242.51n 0
-+ 262.5n 0
-+ 262.51n 1.2
-+ 272.5n 1.2
-+ 272.51n 0)" savecurrent=false}
++ 232.5n 0)" savecurrent=false}
 C {lab_wire.sym} -60 400 0 0 {name=p6 sig_type=std_logic lab=d
 }
 C {capa.sym} 700 340 0 0 {name=C2
@@ -188,8 +169,8 @@ C {gnd.sym} -130 490 0 0 {name=l19 lab=0
 }
 C {vsource.sym} -130 820 0 0 {name=V4 value="PWL(
 + 0 1.2 
-+ 272.6n 1.2
-+ 272.61n 0)" savecurrent=false}
++ 232.5n 1.2
++ 232.51n 0)" savecurrent=false}
 C {lab_wire.sym} -130 770 0 0 {name=p5 sig_type=std_logic lab=data_en
 }
 C {gnd.sym} -130 860 0 0 {name=l21 lab=0
@@ -208,45 +189,8 @@ device="ceramic capacitor"}
 C {lab_wire.sym} 640 620 2 0 {name=p22 sig_type=std_logic lab=d8
 
 }
-C {capa.sym} 700 720 0 0 {name=C4
-m=1
-value=1f
-footprint=1206
-device="ceramic capacitor"}
-C {lab_wire.sym} 700 620 2 0 {name=p27 sig_type=std_logic lab=d9
-}
-C {capa.sym} 760 720 0 0 {name=C11
-m=1
-value=1f
-footprint=1206
-device="ceramic capacitor"}
-C {lab_wire.sym} 760 620 2 0 {name=p36 sig_type=std_logic lab=d10
-}
-C {capa.sym} 820 720 0 0 {name=C12
-m=1
-value=1f
-footprint=1206
-device="ceramic capacitor"}
-C {lab_wire.sym} 820 620 2 0 {name=p43 sig_type=std_logic lab=d11
-}
 C {gnd.sym} 640 770 0 0 {name=l23 lab=0
 }
-C {gnd.sym} 700 770 0 0 {name=l24 lab=0
-}
-C {gnd.sym} 760 770 0 0 {name=l25 lab=0
-}
-C {gnd.sym} 820 770 0 0 {name=l26 lab=0
-}
-C {capa.sym} 640 930 0 0 {name=C13
-m=1
-value=1f
-footprint=1206
-device="ceramic capacitor"}
-C {lab_wire.sym} 640 830 2 0 {name=p51 sig_type=std_logic lab=d12
-}
-C {gnd.sym} 640 980 0 0 {name=l31 lab=0
-}
-C {/foss/designs/CHIP-PLL/divider/schematics/input_register.sym} 320 370 0 0 {name=x16}
 C {lab_wire.sym} 150 270 0 0 {name=p54 sig_type=std_logic lab=d
 }
 C {lab_wire.sym} 510 230 2 0 {name=p2 sig_type=std_logic lab=VP
@@ -273,11 +217,4 @@ C {lab_wire.sym} 480 410 2 0 {name=p17 sig_type=std_logic lab=d7
 C {lab_wire.sym} 480 430 2 0 {name=p18 sig_type=std_logic lab=d8
 
 }
-C {lab_wire.sym} 480 450 2 0 {name=p19 sig_type=std_logic lab=d9
-}
-C {lab_wire.sym} 480 470 2 0 {name=p21 sig_type=std_logic lab=d10
-}
-C {lab_wire.sym} 480 490 2 0 {name=p23 sig_type=std_logic lab=d11
-}
-C {lab_wire.sym} 480 510 2 0 {name=p24 sig_type=std_logic lab=d12
-}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/input_register.sym} 320 330 0 0 {name=x1}
