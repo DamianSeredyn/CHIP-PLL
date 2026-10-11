@@ -5,20 +5,28 @@ V {}
 S {}
 F {}
 E {}
-N 1080 -440 1080 -310 {lab=up}
 N 1040 -220 1040 -130 {lab=in}
 N 1080 -220 1080 -160 {lab=out}
 N 1000 -220 1040 -220 {lab=in}
 N 1040 -310 1040 -220 {lab=in}
-N 1080 -130 1080 -10 {lab=dn}
 N 1080 -220 1150 -220 {lab=out}
 N 1080 -280 1080 -220 {lab=out}
 N 990 -470 1040 -470 {lab=pgt}
 N 1000 20 1040 20 {lab=ngt}
-N 1080 20 1080 100 {lab=gnd}
-N 1080 -560 1080 -470 {lab=vp}
+N 1080 60 1080 100 {lab=gnd}
+N 1080 -530 1080 -470 {lab=vp}
+N 1080 -440 1080 -340 {lab=up}
+N 1080 -100 1080 -10 {lab=dn}
+N 1080 -130 1170 -130 {lab=gnd}
+N 1080 -310 1180 -310 {lab=vp}
+N 1180 -530 1180 -310 {lab=vp}
+N 1080 -530 1180 -530 {lab=vp}
+N 1080 -560 1080 -530 {lab=vp}
+N 1170 -130 1170 60 {lab=gnd}
+N 1080 60 1170 60 {lab=gnd}
+N 1080 20 1080 60 {lab=gnd}
 C {sg13g2_pr/sg13_lv_pmos.sym} 1060 -470 0 0 {name=M23
-l=8*4u
+l=7.5*4u
 w=1.2u
 ng=1
 m=1
@@ -26,7 +34,7 @@ model=sg13_lv_pmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} 1060 -310 0 0 {name=M24
-l=8*2u
+l=7.5*2u
 w=1.2u
 ng=1
 m=1
@@ -34,7 +42,7 @@ model=sg13_lv_pmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 1060 -130 0 0 {name=M25
-l=8*2u
+l=7.5*2u
 w=0.8u
 ng=1
 m=1
@@ -42,7 +50,7 @@ model=sg13_lv_nmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 1060 20 0 0 {name=M26
-l=8*4u
+l=7.5*4u
 w=0.8u
 ng=1
 m=1

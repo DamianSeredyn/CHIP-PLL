@@ -80,15 +80,10 @@ N -110 -280 -100 -280 {lab=vp}
 N -110 -280 -110 -260 {lab=vp}
 N -110 -180 -100 -180 {lab=gd}
 N -110 -200 -110 -180 {lab=gd}
-<<<<<<< HEAD
 N -60 -230 -30 -230 {lab=en1}
 N -160 -230 -130 -230 {lab=en1_}
-=======
-N -160 -230 -130 -230 {lab=en1_}
-N -60 -230 -30 -230 {lab=en1}
 N -160 -230 -160 -210 {lab=en1_}
 N -170 -230 -160 -230 {lab=en1_}
->>>>>>> 884f9cdb839ebb5306fb20f0ed290386c8d0c0a9
 N -30 -230 -30 -200 {lab=en1}
 N -170 -130 -160 -130 {lab=vp}
 N -170 -110 -160 -110 {lab=gd}
@@ -258,8 +253,6 @@ N 390 -390 410 -390 {lab=out}
 N 300 -390 320 -390 {lab=out_unb}
 N 270 310 290 310 {lab=en5_}
 N 290 310 290 360 {lab=en5_}
-N -160 -230 -160 -210 {lab=en1_}
-N -170 -230 -160 -230 {lab=en1_}
 N -860 -270 -740 -270 {lab=A0}
 N -860 60 -740 60 {lab=A2}
 N -860 -100 -740 -100 {lab=A1}
@@ -353,11 +346,6 @@ C {lab_pin.sym} -160 -130 2 0 {name=p86 sig_type=std_logic lab=vp}
 C {lab_pin.sym} -160 -110 2 0 {name=p87 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 -40 2 0 {name=p88 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 -140 2 0 {name=p89 sig_type=std_logic lab=vp}
-<<<<<<< HEAD
-=======
-C {lab_pin.sym} -160 630 3 0 {name=p90 sig_type=std_logic lab=en7_}
-C {lab_pin.sym} -30 640 3 0 {name=p91 sig_type=std_logic lab=en7}
->>>>>>> 884f9cdb839ebb5306fb20f0ed290386c8d0c0a9
 C {lab_pin.sym} -160 10 2 0 {name=p92 sig_type=std_logic lab=vp}
 C {lab_pin.sym} -160 30 2 0 {name=p93 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 100 2 0 {name=p94 sig_type=std_logic lab=gd}
@@ -368,13 +356,8 @@ C {lab_pin.sym} -160 150 2 0 {name=p98 sig_type=std_logic lab=vp}
 C {lab_pin.sym} -160 170 2 0 {name=p99 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 240 2 0 {name=p100 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 140 2 0 {name=p101 sig_type=std_logic lab=vp}
-<<<<<<< HEAD
 C {lab_pin.sym} -160 340 3 0 {name=p102 sig_type=std_logic lab=en5_}
-C {lab_pin.sym} -30 350 3 0 {name=p103 sig_type=std_logic lab=en5}
-=======
-C {lab_pin.sym} -160 350 3 0 {name=p102 sig_type=std_logic lab=en5_}
 C {lab_pin.sym} -30 360 3 0 {name=p103 sig_type=std_logic lab=en5}
->>>>>>> 884f9cdb839ebb5306fb20f0ed290386c8d0c0a9
 C {lab_pin.sym} -160 290 2 0 {name=p104 sig_type=std_logic lab=vp}
 C {lab_pin.sym} -160 310 2 0 {name=p105 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 380 2 0 {name=p106 sig_type=std_logic lab=gd}
@@ -397,11 +380,6 @@ C {lab_pin.sym} -160 710 2 0 {name=p122 sig_type=std_logic lab=vp}
 C {lab_pin.sym} -160 730 2 0 {name=p123 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 800 2 0 {name=p124 sig_type=std_logic lab=gd}
 C {lab_pin.sym} -100 700 2 0 {name=p125 sig_type=std_logic lab=vp}
-<<<<<<< HEAD
-=======
-C {lab_pin.sym} -160 -210 3 0 {name=p126 sig_type=std_logic lab=en1_}
-C {lab_pin.sym} -30 -200 3 0 {name=p127 sig_type=std_logic lab=en1}
->>>>>>> 884f9cdb839ebb5306fb20f0ed290386c8d0c0a9
 C {lab_pin.sym} 190 -250 1 0 {name=p136 sig_type=std_logic lab=vp}
 C {lab_pin.sym} 190 -170 3 0 {name=p137 sig_type=std_logic lab=gd}
 C {lab_pin.sym} 190 -50 1 0 {name=p138 sig_type=std_logic lab=vp}

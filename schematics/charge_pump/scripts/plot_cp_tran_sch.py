@@ -14,12 +14,8 @@ PROJECT_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, '../..'))
 DATA_DIR    = os.path.join(PROJECT_DIR, 'charge_pump/results_tran_sch/data')
 RESULTS_DIR = os.path.join(PROJECT_DIR, 'charge_pump/results_tran_sch')
 
-# Prog powyzej ktorego v(up)/v(dn) uznajemy za "aktywny" (impuls wysoki).
+# Prog powyzej ktorego v(up)/v(dn) uznajemy za aktywny
 UP_DN_THRESHOLD = 0.6
-
-# Jaka czesc KONCA kazdego impulsu uznajemy za "ustabilizowana" (do mediany).
-# 0.5 = druga polowa impulsu (pomijamy pierwsza polowe jako zbocze/narastanie)
-SETTLED_FRACTION = 0.5
 
 # Okno czasowe (w mikrosekundach) do usredniania Vout/Vbias/Iref
 AVG_T_MIN, AVG_T_MAX = 90, 100
@@ -81,24 +77,22 @@ def find_active_segments(active_mask):
     return [g for g in np.split(idx, breaks + 1) if len(g) >= 2]
 
 
-def settled_median_active(values, time_vec, active_mask, settled_fraction=SETTLED_FRACTION):
+def time_avg_active(values, time_vec, active_mask):
+   
+    trapz_fn = getattr(np, 'trapezoid', None) or np.trapz
     segments = find_active_segments(active_mask)
     if not segments:
         return float('nan')
-
-    medians = []
+    total_integral = 0.0
+    total_duration = 0.0
     for g in segments:
-        n = len(g)
-        cut = int(np.floor(n * (1 - settled_fraction)))
-        cut = min(cut, n - 1)  # zostaw przynajmniej 1 probke
-        settled_idx = g[cut:]
-        if len(settled_idx) == 0:
-            continue
-        medians.append(float(np.median(values[settled_idx])))
-
-    if not medians:
+        t_g = time_vec[g]
+        v_g = values[g]
+        total_integral += trapz_fn(v_g, t_g)
+        total_duration += (t_g[-1] - t_g[0])
+    if total_duration == 0:
         return float('nan')
-    return float(np.mean(medians))
+    return total_integral / total_duration
 
 
 summary = []
@@ -126,20 +120,15 @@ for fpath in data_files:
               f"uzywam calego przebiegu jako fallback")
         win_mask = np.ones_like(time_us, dtype=bool)
 
-    # maski aktywnosci UP/DN - zostawione TYLKO do zacieniowania na wykresie
-    # (informacyjnie, kiedy impulsy sa aktywne) - NIE uzywane juz do liczenia
-    # srednich. Iup/Idn licza sie teraz z CALEGO zakresu pomiaru (caly czas
-    # symulacji), bez ograniczania do okien aktywnosci.
     up_active = v_up > UP_DN_THRESHOLD
     dn_active = v_dn > UP_DN_THRESHOLD
-    full_mask = np.ones_like(time_us, dtype=bool)
 
     avgs = {
         'vout':  time_avg(vout, time_us, win_mask),
         'vbias': time_avg(vbias, time_us, win_mask),
         'iref':  time_avg(i_iref_uA, time_us, win_mask),
-        'iup':   time_avg(i_iup_uA, time_us, full_mask),
-        'idn':   time_avg(i_idn_uA, time_us, full_mask),
+        'iup':   time_avg_active(i_iup_uA, time_us, up_active),
+        'idn':   time_avg_active(i_idn_uA, time_us, dn_active),
     }
     summary.append((tag, corner, temp, vp, avgs))
 
@@ -161,9 +150,6 @@ for fpath in data_files:
     axes[2].legend(fontsize=9)
     axes[2].grid(True, alpha=0.3)
 
-    # Panel 4 - tylko iup vs idn, skala osi Y liczona z zakresu percentyli
-    # (5-95%). Zacieniowane momenty gdy UP (pomaranczowo) / DN (fioletowo)
-    # sa aktywne, ciemniejszy odcien = czesc "ustabilizowana" uzyta do mediany.
     axes[3].plot(time_us, i_iup_uA, color='#ff7f0e', linewidth=1.2, label='iup')
     axes[3].plot(time_us, i_idn_uA, color='#9467bd', linewidth=1.2, label='idn')
     combined = np.concatenate([i_iup_uA, i_idn_uA])
@@ -239,8 +225,8 @@ for tag, corner, temp, vp, a in summary:
   <p>{corner} | T={temp}C | Vp={vp}V |
      V(out)={fmt(a["vout"])}V, V(vbias)={fmt(a["vbias"])}V (okno {AVG_T_MIN}-{AVG_T_MAX}us),
      Iref={fmt(a["iref"],3)}uA (okno {AVG_T_MIN}-{AVG_T_MAX}us),
-     Iup={fmt(a["iup"],3)}uA (srednia z calego zakresu pomiaru),
-     Idn={fmt(a["idn"],3)}uA (srednia z calego zakresu pomiaru)</p>
+     Iup={fmt(a["iup"],3)}uA,
+     Idn={fmt(a["idn"],3)}uA </p>
   <img src="cp_layout_{tag}.png">
 </div>
 '''
@@ -265,11 +251,10 @@ img {{ max-width: 900px; border: 1px solid #ccc; }}
 </style>
 </head>
 <body>
-<h1>Charge pump - post-layout, sweep PVT</h1>
-<p>Vout/Vbias/Iref: srednia wazona czasem w oknie {AVG_T_MIN}-{AVG_T_MAX}us (stan ustalony).
-Iup/Idn: srednia wazona czasem z CALEGO zakresu pomiaru (caly czas symulacji),
-bez ograniczania do okien aktywnosci UP/DN. Na wykresach (panel 4) zacieniowanie
-pokazuje TYLKO informacyjnie kiedy UP/DN sa aktywne - nie wplywa juz na liczby w tabeli.</p>
+<h1>Charge pump - schematic, sweep PVT</h1>
+<p>Vout/Vbias/Iref: srednia wazona czasem w oknie {AVG_T_MIN}-{AVG_T_MAX}us.
+Iup/Idn: srednia wazona czasem (trapez), liczona tylko w oknach, gdy
+odpowiednie zrodlo sterujace (UP/DN) jest aktywne </p>
 
 <table>
 <thead>

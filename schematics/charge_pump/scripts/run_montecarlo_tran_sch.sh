@@ -21,7 +21,7 @@ TMP_NETLIST="$SIM_DIR/temp_mc_run_$$.spice"
 # ---------------------------------------------------------------------------
 # Parametry Monte Carlo
 # ---------------------------------------------------------------------------
-N_ITER=330                  # liczba iteracji
+N_ITER=100                  # liczba iteracji
 
 CORNER_MC="mos_tt_mismatch"  # nominalny corner + mismatch (potwierdzone w
                              # cornerMOSlv.lib: .LIB mos_tt_mismatch)
@@ -78,7 +78,7 @@ prepare_netlist_mc() {
 .control
 set rndseed=$seed
 save $SIG_VOUT $SIG_VBIAS $SIG_IREF $SIG_IUP $SIG_IDN $SIG_UP $SIG_DN
-tran 10n 50u
+tran 100n 50u
 set filetype=ascii
 wrdata cp_test.txt $SIG_VOUT $SIG_VBIAS $SIG_IREF $SIG_IUP $SIG_IDN $SIG_UP $SIG_DN
 quit

@@ -3,6 +3,7 @@ r"""
 table_op_layout_schematic.py
 Wersja dla netlisty SCHEMATOWEJ (bez ekstrakcji). Identyczna logika jak
 table_op_layout.py, inne nazwy wektorów: XM3/XM17/XM18, v(x1.bias).
+Wiersze dla Vout = 0.2 V i 1.0 V są w całości szare.
 
 UWAGA: format linii "print" w ngspice to zwykle "nazwa_wektora = wartość".
 Jeśli parsowanie zwraca same None, sprawdź log ręcznie, np.:
@@ -35,6 +36,24 @@ if not log_files:
     raise SystemExit(1)
 
 CORNER_ORDER = {'mos_tt': 0, 'mos_ss': 1, 'mos_ff': 2, 'mos_sf': 3, 'mos_fs': 4}
+
+
+def to_float(s):
+    """Konwertuje tag z nazwy pliku na liczbe: '0p2', '0,2', '1.0', 'm40' -> float.
+    Zwraca None gdy sie nie da."""
+    if s is None:
+        return None
+    t = str(s).strip().replace(',', '.')
+    neg = False
+    if re.match(r'^[mM]\d', t):      # 'm40' -> -40
+        neg = True
+        t = t[1:]
+    t = t.replace('p', '.').replace('P', '.')
+    try:
+        v = float(t)
+    except ValueError:
+        return None
+    return -v if neg else v
 
 
 def parse_tag(filename):
@@ -87,7 +106,13 @@ if missing_count:
     print(f"UWAGA: {missing_count} z {len(rows)} wierszy ma brakujace wartosci "
           f"- sprawdz format 'print' w logu (patrz docstring skryptu).")
 
-rows.sort(key=lambda r: (CORNER_ORDER.get(r[0], 99), float(r[1]), float(r[2]), float(r[3])))
+
+def _num(s):
+    v = to_float(s)
+    return v if v is not None else float('inf')
+
+
+rows.sort(key=lambda r: (CORNER_ORDER.get(r[0], 99), _num(r[1]), _num(r[2]), _num(r[3])))
 
 
 def fmt(v, d=4):
@@ -115,8 +140,23 @@ def pct_diff(idn, iup):
     return (abs_iup - abs_idn) / denom * 100
 
 
-def fmt_pct_cell(idn, iup):
+GRAY_BG = '#e0e0e0'
+GRAY_VOUT_VALUES = (0.2, 1.0)
+GRAY_TOL = 1e-6
+
+
+def is_gray_vout(vout_t):
+    v = to_float(vout_t)
+    if v is None:
+        return False
+    return any(abs(v - gv) < GRAY_TOL for gv in GRAY_VOUT_VALUES)
+
+
+def fmt_pct_cell(idn, iup, force_gray=False):
     val = pct_diff(idn, iup)
+    if force_gray:
+        style = f' style="background:{GRAY_BG};"'
+        return f'<td{style}>{"-" if val is None else f"{val:.2f}"}</td>'
     if val is None:
         return '<td>-</td>'
     if val > 2:
@@ -128,18 +168,22 @@ def fmt_pct_cell(idn, iup):
     return f'<td{style}>{val:.2f}</td>'
 
 
+NCOLS = 9
+
 rows_html = ''
 current_corner = None
 for corner, temp, vp, vout_t, vout_m, vbias, iref, iup, idn in rows:
     if corner != current_corner:
         current_corner = corner
-        rows_html += f'<tr class="corner-header"><td colspan="10"><b>{corner}</b></td></tr>\n'
+        rows_html += f'<tr class="corner-header"><td colspan="{NCOLS}"><b>{corner}</b></td></tr>\n'
+    gray = is_gray_vout(vout_t)
+    td_style = f' style="background:{GRAY_BG};"' if gray else ''
     rows_html += (
         f'<tr>'
-        f'<td>{temp}</td><td>{vp}</td><td>{vout_t}</td>'
-        f'<td>{fmt(vout_m)}</td><td>{fmt(vbias)}</td>'
-        f'<td>{fmt_uA(iref)}</td><td>{fmt_uA(iup)}</td><td>{fmt_uA(idn)}</td>'
-        f'{fmt_pct_cell(idn, iup)}'
+        f'<td{td_style}>{temp}</td><td{td_style}>{vp}</td><td{td_style}>{vout_t}</td>'
+        f'<td{td_style}>{fmt(vout_m)}</td><td{td_style}>{fmt(vbias)}</td>'
+        f'<td{td_style}>{fmt_uA(iref)}</td><td{td_style}>{fmt_uA(iup)}</td><td{td_style}>{fmt_uA(idn)}</td>'
+        f'{fmt_pct_cell(idn, iup, force_gray=gray)}'
         f'</tr>\n'
     )
 

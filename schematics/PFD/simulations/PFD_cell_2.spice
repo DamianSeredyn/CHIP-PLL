@@ -2,20 +2,20 @@
 .subckt PFD_cell_2 gnd vp cRef UP DOWN cVco rst
 *.PININFO gnd:B vp:B cRef:I cVco:I rst:I UP:O DOWN:O
 x9 rst reset_n vp gnd inverter_x4
-MM4 DOWN rst gnd gnd sg13_lv_nmos w=0.45u l=0.15u ng=1
-MM5 UP rst gnd gnd sg13_lv_nmos w=0.45u l=0.15u ng=1
-x4 net2 DOWN vp gnd inverter_x4
-x6 net1 UP vp gnd inverter_x4
-x2 pre_down net2 vp gnd inverter_x4
-x5 pre_up net1 vp gnd inverter_x4
+MM4 UP rst gnd gnd sg13_lv_nmos w=0.45u l=0.15u ng=1
+MM5 DOWN rst gnd gnd sg13_lv_nmos w=0.45u l=0.15u ng=1
+x4 net2 UP vp gnd inverter_x4
+x6 net1 DOWN vp gnd inverter_x4
+x2 pre_up net2 vp gnd inverter_x4
+x5 pre_down net1 vp gnd inverter_x4
 x1 rst vp flip_flop_reset vp gnd reset_n PFD_passgate
 x3 reset_n vp flip_flop_reset net3 gnd rst PFD_passgate
-x7 vp gnd pre_down post_nand pre_up NAND_2in
+x7 vp gnd pre_up post_nand pre_down NAND_2in
 * noconn #net5
 x8 gnd vp net3 net4 PFD_buffor
 x10 post_nand net4 vp gnd inverter_x4
-x11 cRef flip_flop_reset vp pre_down net5 vp gnd PFD_flip_flop
-x12 cVco flip_flop_reset vp pre_up net6 vp gnd PFD_flip_flop
+x11 cRef flip_flop_reset vp pre_up net5 vp gnd PFD_flip_flop
+x12 cVco flip_flop_reset vp pre_down net6 vp gnd PFD_flip_flop
 * noconn #net6
 .ends
 
@@ -77,9 +77,9 @@ x2 clk clk_n vp gd inverter_x4
 x6 Q NQ vp gd inverter_x8
 x9 1 2 vp gd inverter_x8
 x1 clk_n vp D 1 gd clk PFD_passgate
-MM1 gd 1 gd gd sg13_lv_nmos w=5u l=5u ng=1
-MM2 gd 3 gd gd sg13_lv_nmos w=5u l=5u ng=1
-MM3 gd 2 gd gd sg13_lv_nmos w=5u l=5u ng=1
+MM1 gd 1 gd gd sg13_lv_nmos w=10u l=5u ng=1
+MM2 gd 3 gd gd sg13_lv_nmos w=10u l=5u ng=1
+MM3 gd 2 gd gd sg13_lv_nmos w=10u l=5u ng=1
 .ends
 
 

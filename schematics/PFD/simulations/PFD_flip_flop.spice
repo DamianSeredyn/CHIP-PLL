@@ -10,9 +10,9 @@ x2 clk clk_n vp gd inverter_x4
 x6 Q NQ vp gd inverter_x8
 x9 1 2 vp gd inverter_x8
 x1 clk_n vp D 1 gd clk PFD_passgate
-MM1 gd 1 gd gd sg13_lv_nmos w=5u l=5u ng=1
-MM2 gd 3 gd gd sg13_lv_nmos w=5u l=5u ng=1
-MM3 gd 2 gd gd sg13_lv_nmos w=5u l=5u ng=1
+MM1 gd 1 gd gd sg13_lv_nmos w=10u l=5u ng=1
+MM2 gd 3 gd gd sg13_lv_nmos w=10u l=5u ng=1
+MM3 gd 2 gd gd sg13_lv_nmos w=10u l=5u ng=1
 .ends
 
 * expanding   symbol:  PFD_passgate.sym # of pins=6
