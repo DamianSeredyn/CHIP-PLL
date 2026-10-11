@@ -1,0 +1,34 @@
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/VCO_MUX.sch
+.subckt VCO_MUX gd VP VCO_in VCO2_in VCO3_in VCO4_in VCO5_in VCO_sel VCO2_sel VCO3_sel VCO4_sel VCO5_sel out
+*.PININFO gd:B VP:B VCO2_in:I VCO3_in:I VCO4_in:I VCO5_in:I out:O VCO_in:I VCO2_sel:I VCO3_sel:I VCO_sel:I VCO4_sel:I VCO5_sel:I
+x1 net1 VP gd VCO_sel VCO_in out passgate_scaled
+x2 VCO_sel net1 VP gd inverter
+x3 net2 VP gd VCO2_sel VCO2_in out passgate_scaled
+x4 VCO2_sel net2 VP gd inverter
+x5 net3 VP gd VCO3_sel VCO3_in out passgate_scaled
+x6 VCO3_sel net3 VP gd inverter
+x7 net4 VP gd VCO4_sel VCO4_in out passgate_scaled
+x8 VCO4_sel net4 VP gd inverter
+x9 net5 VP gd VCO5_sel VCO5_in out passgate_scaled
+x10 VCO5_sel net5 VP gd inverter
+.ends
+
+* expanding   symbol:  passgate_scaled.sym # of pins=6
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/passgate_scaled.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/passgate_scaled.sch
+.subckt passgate_scaled en_ VP GND en IO OI
+*.PININFO OI:B IO:B VP:B GND:B en_:I en:I
+MM1 IO en OI GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM2 IO en_ OI VP sg13_lv_pmos w=0.15u l=0.13u ng=1
+.ends
+
+
+* expanding   symbol:  inverter.sym # of pins=4
+** sym_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym
+** sch_path: /foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sch
+.subckt inverter IN OUT VP GND
+*.PININFO IN:I VP:B OUT:O GND:B
+MM1 OUT IN GND GND sg13_lv_nmos w=0.15u l=0.13u ng=1
+MM2 OUT IN VP VP sg13_lv_pmos w=0.15u l=0.13u ng=1
+.ends
+
