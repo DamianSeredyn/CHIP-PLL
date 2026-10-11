@@ -74,7 +74,7 @@ value="
 write PLL_top_tb.raw
 set appendwrite
 save v(gd) v(vp) v(rst) v(out) v(xPLL.cvco) v(xPLL.cref) v(xPLL.UP) v(xPLL.DOWN) v(xPLL.vout) v(xPLL.vco_out_prebuff) v(xPLL.vout_aftRC) v(xPLL.vco_out_buffered) v(xPLL.out_PLL_divided) v(xPLL.pre_LS) v(xPLL.aft_LS) 
-tran 0.2n 3m
+tran 0.1n 3m
 meas tran t1 WHEN v(out)=1.65 RISE=1 FROM=0.7m
 meas tran t2 WHEN v(out)=1.65 RISE=2 FROM=0.7m
 meas tran period PARAM='t2-t1'
@@ -114,15 +114,15 @@ C {vsource.sym} 300 300 0 0 {name=V8 value=0 savecurrent=false}
 C {vsource.sym} 390 300 0 0 {name=V9 value=0 savecurrent=false}
 C {vsource.sym} 20 300 0 0 {name=V11 value=1.2 savecurrent=false}
 C {vsource.sym} 90 300 0 0 {name=V10 value=1.2  savecurrent=false}
-C {vsource.sym} 170 300 0 0 {name=V12 value=1.2 savecurrent=false}
-C {vsource.sym} 240 300 0 0 {name=V7 value=1.2 savecurrent=false}
-C {vsource.sym} 90 460 0 0 {name=V5 value=0 savecurrent=false}
+C {vsource.sym} 170 300 0 0 {name=V12 value=0 savecurrent=false}
+C {vsource.sym} 240 300 0 0 {name=V7 value=0 savecurrent=false}
+C {vsource.sym} 90 460 0 0 {name=V5 value=1.2 savecurrent=false}
 C {lab_wire.sym} 90 410 0 0 {name=p24 sig_type=std_logic lab=a1
 }
-C {vsource.sym} 20 460 0 0 {name=V6 value=0 savecurrent=false}
+C {vsource.sym} 20 460 0 0 {name=V6 value=1.2 savecurrent=false}
 C {lab_wire.sym} 20 410 0 0 {name=p25 sig_type=std_logic lab=a0
 }
-C {vsource.sym} 160 460 0 0 {name=V13 value=0 savecurrent=false}
+C {vsource.sym} 160 460 0 0 {name=V13 value=1.2 savecurrent=false}
 C {lab_wire.sym} 160 410 0 0 {name=p27 sig_type=std_logic lab=a2
 }
 C {lab_wire.sym} 100 110 1 0 {name=p8 sig_type=std_logic lab=d0
