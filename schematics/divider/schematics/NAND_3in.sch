@@ -51,7 +51,7 @@ N -20 100 10 100 {lab=c}
 N 260 -170 280 -170 {lab=c}
 C {sg13g2_pr/sg13_lv_nmos.sym} 30 -80 0 0 {name=M1
 l=0.13u
-w=0.15u
+w=0.3u
 ng=1
 m=1
 model=sg13_lv_nmos
@@ -59,7 +59,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 30 10 0 0 {name=M3
 l=0.13u
-w=0.15u
+w=0.3u
 ng=1
 m=1
 model=sg13_lv_nmos
@@ -67,7 +67,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 30 100 0 0 {name=M4
 l=0.13u
-w=0.15u
+w=0.3u
 ng=1
 m=1
 model=sg13_lv_nmos

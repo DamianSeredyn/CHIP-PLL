@@ -5,43 +5,46 @@ V {}
 S {}
 F {}
 E {}
-N 120 -120 120 -50 {lab=OI}
-N -20 -120 -20 -50 {lab=IO}
-N 120 -120 140 -120 {lab=OI}
-N 120 -190 120 -120 {lab=OI}
-N -40 -120 -20 -120 {lab=IO}
-N -20 -190 -20 -120 {lab=IO}
-N 50 -10 50 10 {lab=en}
-N 50 -190 50 -170 {lab=VP}
-N 50 -170 90 -170 {lab=VP}
-N 50 -70 50 -50 {lab=GND}
-N 10 -70 50 -70 {lab=GND}
-N -20 -50 20 -50 {lab=IO}
-N 80 -50 120 -50 {lab=OI}
-N 80 -190 120 -190 {lab=OI}
-N -20 -190 20 -190 {lab=IO}
-N 50 -250 50 -230 {lab=en_}
-N 40 10 50 10 {lab=en}
-N 40 -250 50 -250 {lab=en_}
-C {sg13g2_pr/sg13_lv_nmos.sym} 50 -30 3 0 {name=M1
-l=0.13u
-w=0.15u
-ng=1
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_pmos.sym} 50 -210 1 0 {name=M2
-l=0.13u
-w=0.15u
+N -90 -40 -90 60 {lab=A}
+N 70 60 140 60 {lab=B}
+N 140 -30 140 60 {lab=B}
+N 70 -120 140 -120 {lab=B}
+N 140 -30 190 -30 {lab=B}
+N 140 -120 140 -30 {lab=B}
+N -130 -40 -90 -40 {lab=A}
+N -90 -120 -90 -40 {lab=A}
+N 40 100 40 140 {lab=in_n}
+N 40 -200 40 -160 {lab=in_p}
+N 40 -120 40 -40 {lab=vp}
+N -90 -120 10 -120 {lab=A}
+N -90 60 10 60 {lab=A}
+N -70 -40 40 -40 {lab=vp}
+N -70 -70 -70 -40 {lab=vp}
+N -80 -10 40 -10 {lab=gnd}
+N -80 -10 -80 0 {lab=gnd}
+N 40 -10 40 60 {lab=gnd}
+C {sg13g2_pr/sg13_lv_pmos.sym} 40 -140 3 1 {name=M4
+l=0.15u
+w=0.3u
 ng=1
 m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {iopin.sym} 140 -120 0 0 {name=p1 lab=OI}
-C {iopin.sym} -40 -120 2 0 {name=p3 lab=IO}
-C {iopin.sym} 90 -170 1 0 {name=p5 lab=VP}
-C {iopin.sym} 10 -70 3 0 {name=p7 lab=GND}
-C {ipin.sym} 40 -250 0 0 {name=p2 lab=en_}
-C {ipin.sym} 40 10 0 0 {name=p4 lab=en}
+C {sg13g2_pr/sg13_lv_nmos.sym} 40 80 1 1 {name=M5
+l=0.15u
+w=0.3u
+ng=1
+m=1
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {ipin.sym} 40 140 0 0 {name=p6 lab=in_n}
+C {ipin.sym} 40 -200 0 0 {name=p8 lab=in_p}
+C {iopin.sym} -70 -70 1 1 {name=p9 lab=vp
+}
+C {iopin.sym} -80 0 1 0 {name=p10 lab=gnd}
+C {iopin.sym} 190 -30 0 0 {name=p11 lab=B
+}
+C {iopin.sym} -130 -40 0 1 {name=p12 lab=A
+}
