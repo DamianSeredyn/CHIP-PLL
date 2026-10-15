@@ -558,7 +558,7 @@ if use_debug:
 tran_control = f"""
 .control
 save v(out_pb) v(out) i(v2){pgt_save}
-tran 1p 200n
+tran 200p 100u 
 wrdata {dat_path} v(out_pb) v(out) i(v2){pgt_wr}
 exit
 .endc
