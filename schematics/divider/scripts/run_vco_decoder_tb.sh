@@ -53,6 +53,19 @@
 #       --fine   f5f4f3f2f1f0  (exactly 6 digits)   e.g. 000100
 #   --code accepts decimal, 0x.. hex or 0b.. binary (9 bits, c2c1c0f5..f0).
 #
+# TICK SCALE (--tick-scale <x>):
+#   Slows the free-running counter by x: PW/PER (and TD) of the nine PULSE
+#   sources are multiplied by x in the simulated copy of the netlist, TSTOP grows
+#   by x, rise/fall times stay 10p. The tick becomes x*1.5625ns, so every code
+#   gets x times longer to settle before the report samples it (last 30% of the
+#   tick). Use it to tell a real logic error (fails for any x) from decoder delay
+#   or glitches that do not fit in the window (disappear for large enough x).
+#   The scale is stored in <dat>.meta and read back by plot_vco_decoder.py.
+#   Ignored in single-code mode.
+#
+# Logs and the simulated netlist: results/logs/vcodec_<tag>.log and
+# results/logs/vcodec_run.spice (no longer in /tmp).
+#
 # File naming: vcodec_<corner>_T<temp>_Vp<vp>.dat
 # (NOTE: -ext results use the same names and overwrite schematic results.)
 #
@@ -83,6 +96,7 @@ Usage: $(basename "$0") [options]
                             fine = f5f4f3f2f1f0; code = coarse*64 + fine
   -ext                      post-layout: replace cells with <cell>.pex.spice
   --ext-dir <path>          extraction directory (default: \$ROOT_DIR/layout/extraction)
+  --tick-scale <x>          slow the 512-code counter by x (default 1, e.g. 2, 4): tick = x*1.5625ns
   -h, --help                this help
 
 Examples:
@@ -92,6 +106,7 @@ Examples:
   $(basename "$0") -c typ --code 0b010001001
   $(basename "$0") -c typ -ext --coarse 011 --fine 010001
   $(basename "$0") -c mos_ss -t t_max -v vp_min -ext
+  $(basename "$0") -c typ -ext --tick-scale 4
 EOF
 }
 
@@ -104,6 +119,7 @@ USE_EXT=0
 CODES=""
 COARSE=""
 FINE=""
+TICK_SCALE="1"
 EXTRACTION_DIR="$ROOT_DIR/layout/extraction"
 
 resolve_var() {
@@ -139,6 +155,11 @@ while [[ $# -gt 0 ]]; do
             shift
             [[ $# -eq 0 || "$1" == -* ]] && { echo "Error: --fine requires a value"; exit 1; }
             FINE="$1"; shift
+            ;;
+        --tick-scale)
+            shift
+            [[ $# -eq 0 || "$1" == -* ]] && { echo "Error: --tick-scale requires a value"; exit 1; }
+            TICK_SCALE="$1"; shift
             ;;
         --ext-dir)
             shift
@@ -213,6 +234,9 @@ if [[ -n "$COARSE$FINE" ]]; then
     CV=$(( 2#$C_BITS )); FV=$(( 2#$F_BITS ))
     CODES="$CODES $(( CV * 64 + FV ))"
 fi
+if [[ ! "$TICK_SCALE" =~ ^([0-9]+\.?[0-9]*|\.[0-9]+)$ ]] || ! awk -v s="$TICK_SCALE" 'BEGIN{exit !(s+0>0)}'; then
+    echo "Error: --tick-scale must be a positive number (e.g. 2, 4, 0.5)"; exit 1
+fi
 CODE_LIST="-1"      # -1 = normal full 512-code run
 CODE_MODE=0
 if [[ -n "$CODES" ]]; then
@@ -253,7 +277,7 @@ DATA_DIR=$DECODER_DIR/results/data
 RESULTS_DIR=$DECODER_DIR/results
 
 TSTEP="50p"
-TSTOP="801n"     # 512 codes * 1.5625ns tick + margin
+TSTOP=$(awk -v s="$TICK_SCALE" 'BEGIN{printf "%.6gn", 801*s}')   # 512 codes * 1.5625ns tick * scale + margin
 if [[ "$CODE_MODE" -eq 1 ]]; then
     SIM_NAME="vcodecsel"   # does not match the vcodec_* glob used by the report script
     TSTOP="20n"            # static code: short run, outputs are read at the end
@@ -282,7 +306,9 @@ if [[ "$HAS_VCO5_NET" -eq 0 ]]; then
     echo "         the report will mark those codes as UNTESTABLE."
 fi
 
-mkdir -p $DATA_DIR $RESULTS_DIR
+LOG_DIR=$RESULTS_DIR/logs
+RUN_SPICE=$LOG_DIR/vcodec_run.spice
+mkdir -p $DATA_DIR $RESULTS_DIR $LOG_DIR
 
 # Netlist actually simulated. Schematic by default; with -ext replaced by the
 # post-layout copy built below.
@@ -567,6 +593,9 @@ echo "Corners     : $corners"
 echo "Temperatures: $FILTER_TEMPS"
 echo "VDDs        : $FILTER_VPS"
 echo "Timestep    : $TSTEP   TSTOP: $TSTOP"
+if [[ "$CODE_MODE" -eq 0 ]]; then
+    echo "Tick        : $(awk -v s="$TICK_SCALE" 'BEGIN{printf "%.6g", 1.5625*s}') ns  (tick-scale $TICK_SCALE)"
+fi
 if [[ "$CODE_MODE" -eq 1 ]]; then
     echo "Codes       : $CODE_LIST  (single-code mode, DC inputs)"
 fi
@@ -596,12 +625,14 @@ for VP in $FILTER_VPS; do
     if [[ "$CODE_MODE" -eq 1 ]]; then TAG="code${CODE}_${TAG}"; fi
     DAT=$DATA_DIR/${SIM_NAME}_${TAG}.dat
 
-    python3 - "$SIM_NETLIST" "$CORNER" "$TEMP" "$VP" "$DAT" "$TSTEP" "$TSTOP" "$HAS_VCO5_NET" "$CODE" <<'PYEOF'
+    python3 - "$SIM_NETLIST" "$CORNER" "$TEMP" "$VP" "$DAT" "$TSTEP" "$TSTOP" "$HAS_VCO5_NET" "$CODE" "$TICK_SCALE" "$RUN_SPICE" <<'PYEOF'
 import re, sys
 
-(netlist_path, corner, temp, vp, dat_path, tstep, tstop, has_vco5, code) = sys.argv[1:]
+(netlist_path, corner, temp, vp, dat_path, tstep, tstop, has_vco5, code,
+ tick_scale, run_spice) = sys.argv[1:]
 has_vco5 = (has_vco5 == "1")
 code = int(code)
+tick_scale = float(tick_scale)
 
 with open(netlist_path) as f:
     spice = f.read()
@@ -665,6 +696,50 @@ if code >= 0:
                          f'c0,c1,c2,f0..f5)\n')
         sys.exit(3)
 
+elif tick_scale != 1.0:
+    # 3c. Free-running mode with a slower counter: multiply TD, PW, PER of the
+    #     nine PULSE sources by tick_scale (rise/fall times TR, TF unchanged).
+    nodes_all = {'f0', 'f1', 'f2', 'f3', 'f4', 'f5', 'c0', 'c1', 'c2'}
+    spice = re.sub(r'[ \t]*\n[ \t]*\+', ' ', spice)    # join '+' continuation lines
+    scaled = set()
+    sfx = {'f': 1e-15, 'p': 1e-12, 'n': 1e-9, 'u': 1e-6, 'm': 1e-3,
+           'k': 1e3, 'meg': 1e6, 'g': 1e9, 't': 1e12}
+
+    def scale_tok(t):
+        if t.startswith('{') and t.endswith('}'):
+            return '{(' + t[1:-1] + ')*' + repr(tick_scale) + '}'
+        mm = re.fullmatch(r'([+-]?(?:\d+\.?\d*|\.\d+)(?:[eE][+-]?\d+)?)(meg|[fpnumkgt])?[a-zA-Z]*',
+                          t, re.IGNORECASE)
+        if not mm:
+            return '{(' + t + ')*' + repr(tick_scale) + '}'
+        val = float(mm.group(1)) * sfx.get((mm.group(2) or '').lower(), 1.0)
+        return f'{val * tick_scale:.9g}'
+
+    src_re2 = re.compile(r'^([ \t]*[Vv]\S*)[ \t]+(\S+)[ \t]+(\S+)[ \t]+(.*\bpulse\b.*)$',
+                         re.IGNORECASE | re.MULTILINE)
+    pul_re = re.compile(r'(\bpulse\b[ \t]*\(?)([^)\n]*)(\)?)', re.IGNORECASE)
+
+    def repl_scale(m):
+        node = m.group(2).lower()
+        if node not in nodes_all:
+            return m.group(0)
+        pm = pul_re.search(m.group(4))
+        toks = re.findall(r'\{[^}]*\}|[^\s,]+', pm.group(2)) if pm else []
+        if len(toks) < 7:
+            return m.group(0)
+        for i in (2, 5, 6):          # TD, PW, PER
+            toks[i] = scale_tok(toks[i])
+        new = pm.group(1) + ' '.join(toks) + pm.group(3)
+        scaled.add(node)
+        tail = m.group(4)[:pm.start()] + new + m.group(4)[pm.end():]
+        return f'{m.group(1)} {m.group(2)} {m.group(3)} {tail}'
+
+    spice = src_re2.sub(repl_scale, spice)
+    if scaled != nodes_all:
+        sys.stderr.write(f'ERROR: --tick-scale could not rescale PULSE on: {sorted(nodes_all - scaled)}\n'
+                         f'       (need PULSE(v1 v2 td tr tf pw per) on each of c0,c1,c2,f0..f5)\n')
+        sys.exit(3)
+
 # 4. Rebuild the .control block: single transient, wrdata all decoder I/O.
 #    Inputs (c0,c1,c2,f0..f5) are saved too so the analysis script can
 #    cross-check the reconstructed code against the actual bit values
@@ -686,13 +761,17 @@ exit
 .endc
 """
 
-with open('/tmp/vcodec_run.spice', 'w') as f:
+with open(run_spice, 'w') as f:
     f.write(spice + control_block)
 
 # stash the signal order next to the .dat file so the python report
 # generator doesn't have to guess it
 with open(dat_path + '.siglist', 'w') as f:
     f.write(' '.join(sigs))
+
+# tick scale used for this run, read back by plot_vco_decoder.py
+with open(dat_path + '.meta', 'w') as f:
+    f.write(f'{tick_scale:g}\n')
 PYEOF
 
     if [[ $? -ne 0 ]]; then
@@ -700,9 +779,9 @@ PYEOF
         exit 1
     fi
 
-    ngspice -b /tmp/vcodec_run.spice >/tmp/vcodec_${TAG}.log 2>&1
+    ngspice -b $RUN_SPICE >$LOG_DIR/vcodec_${TAG}.log 2>&1
     if [[ ! -s "$DAT" ]]; then
-        echo "  [$TAG] FAILED — see /tmp/vcodec_${TAG}.log"
+        echo "  [$TAG] FAILED — see $LOG_DIR/vcodec_${TAG}.log"
     else
         CURRENT=$((CURRENT+1))
         PCT=$(( CURRENT * 100 / TOTAL ))

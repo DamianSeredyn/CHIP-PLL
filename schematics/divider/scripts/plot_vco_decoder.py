@@ -11,9 +11,13 @@
 #     coarse  = code >> 6     (0..7,  from c0,c1,c2)
 #     fine    = code & 0x3F   (0..63, from f0..f5)
 #
+# TICK SCALE: run_vco_decoder_tb.sh --tick-scale <x> slows the counter by x
+# (tick = x * 1.5625ns, TSTOP = x * 801ns). The scale used for each run is
+# stored in <dat>.meta and read back here; if the file is missing, x = 1.
+#
 # For each code we sample the decoder's select outputs late in the tick
-# (after the ~10ps PULSE edges have settled) and compare the asserted
-# VCO/mode against a golden table taken directly from vco_dec_v2_codes.ods.
+# (last 30% of the tick) and compare the asserted VCO/mode against a golden
+# table taken directly from vco_dec_v2_codes.ods.
 #
 # GOLDEN TABLE NOTE (v2 codes, from vco_dec_v2_codes.ods): the spreadsheet lists
 # fine = 0..63 (binary 000000..111111) for every coarse code (8 columns).
@@ -27,10 +31,9 @@
 # numbers, i.e. coarse = c2c1c0 (c2 = MSB) and fine = f5..f0 (f5 = MSB), the
 # same convention as the previous version of this script.
 #
-# KNOWN SCHEMATIC CAVEAT: VCO_decoder_tb.sch currently has TWO ports labeled
-# "VCO2_11_sel" (one of them almost certainly should be "VCO5_11_sel"). Until
-# that's fixed, this script marks all Vco5-11 codes UNTESTABLE rather than
-# silently reporting a false pass/fail.
+# KNOWN SCHEMATIC CAVEAT: if VCO_decoder_tb.sch has TWO ports labeled
+# "VCO2_11_sel" (one of them should be "VCO5_11_sel"), this script marks all
+# Vco5-11 codes UNTESTABLE rather than silently reporting a false pass/fail.
 # ==============================================================================
 
 import os
@@ -45,7 +48,7 @@ from collections import defaultdict
 # CONFIGURATION
 # ──────────────────────────────────────────────────────────────────────────────
 
-BASE_HALF = 1.5625e-9   # f0's PULSE half-period = one "tick" = one code's dwell time
+BASE_HALF = 1.5625e-9   # f0's PULSE half-period = one "tick" = one code's dwell time (scale 1)
 N_CODES = 512
 SETTLE_FRACTION = 0.7   # ignore the first 70% of each tick (PULSE edges + decoder delay)
 VOH_FRACTION = 0.5      # fraction of vdd above which an output counts as HIGH
@@ -127,18 +130,31 @@ def load_dat(dat_path, siglist_path):
         return None, None
 
 
-def analyze_pvt(time, signals, vdd):
+def load_tick_scale(dat_path):
+    """Tick scale used for this run (written by run_vco_decoder_tb.sh to <dat>.meta). Default 1."""
+    meta = Path(str(dat_path) + '.meta')
+    if not meta.exists():
+        return 1.0
+    try:
+        val = float(meta.read_text().split()[0])
+        return val if val > 0 else 1.0
+    except (ValueError, IndexError):
+        return 1.0
+
+
+def analyze_pvt(time, signals, vdd, tick_scale=1.0):
     """
     For every one of the 512 codes, sample the select outputs near the end
-    of that code's 1.5625ns tick and figure out which one (if any) is
-    asserted. Returns a dict: (coarse,fine) -> result dict.
+    of that code's tick (1.5625ns * tick_scale) and figure out which one (if
+    any) is asserted. Returns a dict: (coarse,fine) -> result dict.
     """
     results = {}
     has_vco5 = 'VCO5_11_sel' in signals
+    tick = BASE_HALF * tick_scale
 
     for code in range(N_CODES):
-        t_lo = code * BASE_HALF
-        t_hi = (code + 1) * BASE_HALF
+        t_lo = code * tick
+        t_hi = (code + 1) * tick
         t_sample = t_lo + SETTLE_FRACTION * (t_hi - t_lo)
         mask = (time >= t_sample) & (time < t_hi)
         if not np.any(mask):
@@ -248,7 +264,8 @@ def render_pvt_table(tag, results):
     return '\n'.join(rows)
 
 
-def generate_html_report(results_by_pvt, output_path):
+def generate_html_report(results_by_pvt, output_path, scales=None):
+    scales = scales or {}
     total_pass = total_fail = total_multi = total_untestable = total_dc = 0
     for results in results_by_pvt.values():
         for r in results.values():
@@ -288,8 +305,14 @@ def generate_html_report(results_by_pvt, output_path):
         n_multi = sum(1 for r in results.values() if r['status'] == 'multi')
         n_unt = sum(1 for r in results.values() if r['status'] == 'untestable')
         n_dc = sum(1 for r in results.values() if r['status'] == 'dontcare')
+        scale = scales.get(tag, 1.0)
+        tick_ns = BASE_HALF * 1e9 * scale
+        settle_ns = SETTLE_FRACTION * tick_ns
         html.append('<div class="pvt-block">')
         html.append(f'<h2>{tag} — {n_pass} pass / {n_fail} fail / {n_multi} multi-drive / {n_unt} untestable / {n_dc} X (not checked)</h2>')
+        html.append(f'<p>Tick = {tick_ns:.5g} ns (tick-scale x{scale:g}); outputs sampled from '
+                    f'{settle_ns:.4g} ns to {tick_ns:.5g} ns after each code change, i.e. the decoder '
+                    f'must settle within ~{settle_ns:.4g} ns.</p>')
         html.append(render_pvt_table(tag, results))
         html.append('</div>')
 
@@ -297,10 +320,11 @@ def generate_html_report(results_by_pvt, output_path):
     <div class="notes">
       <p><strong>How this report was built:</strong></p>
       <ul>
-        <li>c0,c1,c2,f0-f5 are binary-weighted PULSE sources, so one 801ns transient
-            sweeps <code>code(t) = floor(t / 1.5625ns) mod 512</code> through all
-            512 (coarse,fine) combinations. Each output is sampled in the last
-            30% of its 1.5625ns window, after PULSE edges and decoder
+        <li>c0,c1,c2,f0-f5 are binary-weighted PULSE sources, so one transient
+            sweeps <code>code(t) = floor(t / tick)</code> through all
+            512 (coarse,fine) combinations (tick = 1.5625ns x tick-scale, see the
+            heading of each PVT block). Each output is sampled in the last
+            30% of its tick, after PULSE edges and decoder
             propagation delay have settled.</li>
         <li><strong>Golden table</strong> comes directly from <code>vco_dec_v2_codes.ods</code>
             (not re-derived), row/column headers match the fine/coarse binary
@@ -308,16 +332,18 @@ def generate_html_report(results_by_pvt, output_path):
         <li><strong>PASS</strong> (green): exactly the expected select line is
             asserted. <strong>FAIL</strong> (red): wrong select line asserted,
             or none asserted when one was expected. <strong>MULTI-DRIVE</strong>:
-            more than one select line asserted simultaneously — always a bug.
-            <strong>UNTESTABLE</strong> (amber): Vco5-11 codes, blocked by the
-            duplicate <code>VCO2_11_sel</code> net name in
-            <code>VCO_decoder_tb.sch</code> (see header comments in both
-            scripts) — fix the schematic port label to
-            <code>VCO5_11_sel</code> and re-run to get real coverage here.</li>
+            more than one select line asserted simultaneously at the sampling
+            instant (a logic error, or a transition that has not settled yet).
+            <strong>UNTESTABLE</strong> (amber): Vco5-11 codes when the
+            testbench has no separate <code>VCO5_11_sel</code> net.</li>
         <li><strong>X (grey)</strong>: cells marked "X" in the spreadsheet
             (all of fine=63, and coarse=111 from fine=39 upward) are
             don't-care. They are not sampled or compared and are excluded
             from the PASS/FAIL/MULTI-DRIVE counts.</li>
+        <li><strong>Telling logic errors from timing:</strong> re-run with
+            <code>--tick-scale 2</code>, <code>4</code>, ... Failures that vanish
+            when the tick grows are decoder delay / glitches that do not fit in
+            the window; failures that stay are real logic errors.</li>
       </ul>
     </div>
     </body></html>
@@ -347,6 +373,7 @@ def main():
         sys.exit(1)
 
     results_by_pvt = {}
+    scales = {}
 
     for dat_path in dat_files:
         m = re.match(r'vcodec_(.*?)_T(.*?)_Vp([\d.]+)\.dat', dat_path.name)
@@ -363,16 +390,18 @@ def main():
             print("SKIP (could not load)")
             continue
 
-        results_by_pvt[tag] = analyze_pvt(time, signals, float(vp))
+        scale = load_tick_scale(dat_path)
+        scales[tag] = scale
+        results_by_pvt[tag] = analyze_pvt(time, signals, float(vp), scale)
         n_fail = sum(1 for r in results_by_pvt[tag].values() if r['status'] in ('fail', 'multi'))
-        print(f"OK ({n_fail} issues)")
+        print(f"OK ({n_fail} issues, tick-scale x{scale:g})")
 
     if not results_by_pvt:
         print("Error: no valid results to report")
         sys.exit(1)
 
     print(f"\nGenerating report: {report_path}")
-    generate_html_report(results_by_pvt, str(report_path))
+    generate_html_report(results_by_pvt, str(report_path), scales)
     print("Report generated.")
     print(f"  Open: {report_path}")
 
