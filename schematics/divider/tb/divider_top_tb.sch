@@ -82,15 +82,15 @@ C {lab_wire.sym} -270 520 1 0 {name=p50 sig_type=std_logic lab=d4
 C {vsource.sym} -270 580 0 0 {name=V8 value=0 savecurrent=false}
 C {vsource.sym} -150 580 0 0 {name=V9 value=0 savecurrent=false}
 C {vsource.sym} -390 400 0 0 {name=V11 value=0 savecurrent=false}
-C {vsource.sym} -270 400 0 0 {name=V10 value=\{vdd\}  savecurrent=false}
-C {vsource.sym} -150 400 0 0 {name=V12 value=\{vdd\} savecurrent=false}
+C {vsource.sym} -270 400 0 0 {name=V10 value=0  savecurrent=false}
+C {vsource.sym} -150 400 0 0 {name=V12 value=0 savecurrent=false}
 C {vsource.sym} -390 580 0 0 {name=V7 value=0 savecurrent=false}
 C {vsource.sym} -80 500 0 0 {name=V5 value=0 savecurrent=false}
 C {lab_wire.sym} -80 450 0 0 {name=p24 sig_type=std_logic lab=a1
 }
 C {gnd.sym} -80 550 0 0 {name=l15 lab=0
 }
-C {vsource.sym} -80 350 0 0 {name=V6 value=\{vdd\} savecurrent=false}
+C {vsource.sym} -80 350 0 0 {name=V6 value=0 savecurrent=false}
 C {lab_wire.sym} -80 300 0 0 {name=p25 sig_type=std_logic lab=a0
 }
 C {gnd.sym} -80 400 0 0 {name=l16 lab=0
@@ -131,6 +131,7 @@ C {lab_wire.sym} 300 580 3 0 {name=p14 sig_type=std_logic lab=a2
 C \{gnd.sym}
 C {devices/code_shown.sym} -520 -190 0 0 {name=NGSPICE only_toplevel=false
 value="
+.options savecurrents
 .param temp=27
 .param vdd=1.2
 .control
@@ -141,7 +142,7 @@ print all
 save all
 
 
-tran 25p 500n
+tran 25p 300n
 
 write divider_top_tb.raw 
 set appendwrite

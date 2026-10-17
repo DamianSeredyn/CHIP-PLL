@@ -204,7 +204,6 @@ C {/foss/designs/CHIP-PLL/schematics/divider/schematics/d_flip_flop_reset.sym} 1
 C {lab_wire.sym} 1040 570 2 0 {name=p18 sig_type=std_logic lab=VP
 }
 C {lab_wire.sym} 1020 700 2 0 {name=p19 sig_type=std_logic lab=gd}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 1020 640 0 0 {name=x10}
 C {ipin.sym} -10 -20 0 0 {name=p20 lab=reset}
 C {lab_wire.sym} 10 -20 2 0 {name=p21 sig_type=std_logic lab=reset}
 C {lab_wire.sym} 970 640 0 0 {name=p22 sig_type=std_logic lab=reset}
@@ -216,3 +215,4 @@ C {lab_wire.sym} 700 280 2 0 {name=p24 sig_type=std_logic lab=out_pre_buff
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate.sym} 1320 90 0 0 {name=x3}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate.sym} 1320 300 0 0 {name=x8}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 1150 10 0 0 {name=x6}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 1020 640 0 0 {name=x9}
