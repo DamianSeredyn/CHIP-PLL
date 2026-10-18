@@ -120,13 +120,11 @@ C {opin.sym} 70 300 0 1 {name=p12 lab=coarse_4}
 C {opin.sym} 70 320 0 1 {name=p3 lab=coarse_5}
 C {opin.sym} 70 340 0 1 {name=p5 lab=coarse_6}
 C {opin.sym} 70 360 0 1 {name=p17 lab=coarse_7}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 390 0 0 0 {name=x1}
+C {inverter_dek.sym} 390 0 0 0 {name=x1}
 C {lab_wire.sym} 390 50 3 0 {name=p29 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 390 -50 1 0 {name=p31 sig_type=std_logic lab=VP}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 390 150 0 0 {name=x2}
 C {lab_wire.sym} 390 200 3 0 {name=p32 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 390 100 1 0 {name=p34 sig_type=std_logic lab=VP}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 390 290 0 0 {name=x3}
 C {lab_wire.sym} 390 340 3 0 {name=p35 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 390 240 1 0 {name=p37 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 350 150 0 0 {name=p38 sig_type=std_logic lab=c1}
@@ -135,11 +133,10 @@ C {lab_wire.sym} 350 0 0 0 {name=p40 sig_type=std_logic lab=c0}
 C {lab_wire.sym} 460 150 0 1 {name=p41 sig_type=std_logic lab=c1_n}
 C {lab_wire.sym} 460 290 0 1 {name=p42 sig_type=std_logic lab=c2_n}
 C {lab_wire.sym} 460 0 0 1 {name=p43 sig_type=std_logic lab=c0_n}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} 750 -20 0 0 {name=x4}
+C {NAND_3in_dek.sym} 750 -20 0 0 {name=x4}
 C {lab_wire.sym} 920 -40 2 0 {name=p30 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 920 -20 2 0 {name=p44 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 1040 0 2 0 {name=p45 sig_type=std_logic lab=coarse_0}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} 750 120 0 0 {name=x5}
 C {lab_wire.sym} 920 100 2 0 {name=p47 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 920 120 2 0 {name=p48 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 1040 140 2 0 {name=p49 sig_type=std_logic lab=coarse_1}
@@ -170,46 +167,32 @@ C {lab_wire.sym} 1160 270 2 1 {name=p98 sig_type=std_logic lab=c1}
 C {lab_wire.sym} 1160 420 2 1 {name=p99 sig_type=std_logic lab=c1}
 C {lab_wire.sym} 1160 400 2 1 {name=p100 sig_type=std_logic lab=c0}
 C {lab_wire.sym} 1160 250 2 1 {name=p101 sig_type=std_logic lab=c0_n}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 970 0 0 0 {name=x12}
 C {lab_wire.sym} 970 50 3 0 {name=p102 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 970 -50 1 0 {name=p103 sig_type=std_logic lab=VP}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 970 140 0 0 {name=x13}
 C {lab_wire.sym} 970 190 3 0 {name=p104 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 970 90 1 0 {name=p105 sig_type=std_logic lab=VP}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} 750 270 0 0 {name=x14}
 C {lab_wire.sym} 920 250 2 0 {name=p106 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 920 270 2 0 {name=p107 sig_type=std_logic lab=gd}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 970 290 0 0 {name=x15}
 C {lab_wire.sym} 970 340 3 0 {name=p108 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 970 240 1 0 {name=p109 sig_type=std_logic lab=VP}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} 750 420 0 0 {name=x6}
 C {lab_wire.sym} 920 400 2 0 {name=p50 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 920 420 2 0 {name=p51 sig_type=std_logic lab=gd}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 970 440 0 0 {name=x16}
 C {lab_wire.sym} 970 490 3 0 {name=p110 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 970 390 1 0 {name=p111 sig_type=std_logic lab=VP}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} 1330 -20 0 0 {name=x7}
 C {lab_wire.sym} 1500 -40 2 0 {name=p62 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 1500 -20 2 0 {name=p64 sig_type=std_logic lab=gd}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} 1330 120 0 0 {name=x17}
 C {lab_wire.sym} 1500 100 2 0 {name=p113 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 1500 120 2 0 {name=p114 sig_type=std_logic lab=gd}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 1550 0 0 0 {name=x18}
 C {lab_wire.sym} 1550 50 3 0 {name=p130 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 1550 -50 1 0 {name=p131 sig_type=std_logic lab=VP}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 1550 140 0 0 {name=x19}
 C {lab_wire.sym} 1550 190 3 0 {name=p132 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 1550 90 1 0 {name=p133 sig_type=std_logic lab=VP}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} 1330 270 0 0 {name=x20}
 C {lab_wire.sym} 1500 250 2 0 {name=p134 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 1500 270 2 0 {name=p135 sig_type=std_logic lab=gd}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 1550 290 0 0 {name=x21}
 C {lab_wire.sym} 1550 340 3 0 {name=p136 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 1550 240 1 0 {name=p137 sig_type=std_logic lab=VP}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} 1330 420 0 0 {name=x22}
 C {lab_wire.sym} 1500 400 2 0 {name=p138 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 1500 420 2 0 {name=p139 sig_type=std_logic lab=gd}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 1550 440 0 0 {name=x23}
 C {lab_wire.sym} 1550 490 3 0 {name=p140 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 1550 390 1 0 {name=p141 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 1160 0 2 1 {name=p112 sig_type=std_logic lab=c2}
@@ -223,3 +206,20 @@ C {lab_wire.sym} 90 300 2 0 {name=p13 sig_type=std_logic lab=coarse_4}
 C {lab_wire.sym} 90 320 2 0 {name=p15 sig_type=std_logic lab=coarse_5}
 C {lab_wire.sym} 90 340 2 0 {name=p16 sig_type=std_logic lab=coarse_6}
 C {lab_wire.sym} 90 360 2 0 {name=p18 sig_type=std_logic lab=coarse_7}
+C {inverter_dek.sym} 390 150 0 0 {name=x2}
+C {inverter_dek.sym} 390 290 0 0 {name=x3}
+C {inverter_dek.sym} 970 440 0 0 {name=x8}
+C {inverter_dek.sym} 970 290 0 0 {name=x9}
+C {inverter_dek.sym} 970 140 0 0 {name=x10}
+C {inverter_dek.sym} 970 0 0 0 {name=x11}
+C {inverter_dek.sym} 1550 0 0 0 {name=x12}
+C {inverter_dek.sym} 1550 140 0 0 {name=x13}
+C {inverter_dek.sym} 1550 290 0 0 {name=x15}
+C {inverter_dek.sym} 1550 440 0 0 {name=x16}
+C {NAND_3in_dek.sym} 750 120 0 0 {name=x5}
+C {NAND_3in_dek.sym} 750 270 0 0 {name=x6}
+C {NAND_3in_dek.sym} 750 420 0 0 {name=x7}
+C {NAND_3in_dek.sym} 1330 420 0 0 {name=x14}
+C {NAND_3in_dek.sym} 1330 270 0 0 {name=x17}
+C {NAND_3in_dek.sym} 1330 120 0 0 {name=x18}
+C {NAND_3in_dek.sym} 1330 -20 0 0 {name=x19}
