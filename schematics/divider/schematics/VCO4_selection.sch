@@ -105,19 +105,19 @@ C {ipin.sym} 1770 -2570 0 0 {name=p10 lab=after_000011}
 C {lab_wire.sym} 1790 -2570 2 0 {name=p11 sig_type=std_logic lab=after_000011}
 C {ipin.sym} 1770 -2550 0 0 {name=p12 lab=after_000111_n}
 C {lab_wire.sym} 1790 -2550 2 0 {name=p13 sig_type=std_logic lab=after_000111_n}
-C {NAND_3in_dek.sym} 2320 -2780 0 0 {name=x80}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in_dek.sym} 2320 -2780 0 0 {name=x80}
 C {lab_wire.sym} 2490 -2800 2 0 {name=p327 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2490 -2780 2 0 {name=p328 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 2490 -2640 2 0 {name=p331 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2490 -2620 2 0 {name=p332 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 2490 -2560 2 0 {name=p335 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2490 -2540 2 0 {name=p336 sig_type=std_logic lab=gd}
-C {NAND_3in_dek.sym} 2320 -2700 0 0 {name=x86}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in_dek.sym} 2320 -2700 0 0 {name=x86}
 C {lab_wire.sym} 2490 -2720 2 0 {name=p339 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2490 -2700 2 0 {name=p340 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 2490 -2480 2 0 {name=p347 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2490 -2460 2 0 {name=p348 sig_type=std_logic lab=gd}
-C {inverter_dek.sym} 2540 -2440 0 0 {name=x91}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_dek.sym} 2540 -2440 0 0 {name=x91}
 C {lab_wire.sym} 2540 -2480 0 1 {name=p349 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2540 -2400 2 0 {name=p350 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 2150 -2800 0 0 {name=p357 sig_type=std_logic lab=000}
@@ -130,14 +130,14 @@ C {lab_wire.sym} 2150 -2780 0 0 {name=p372 sig_type=std_logic lab=after_000011}
 C {lab_wire.sym} 2150 -2620 0 0 {name=p373 sig_type=std_logic lab=after_000011_n}
 C {lab_wire.sym} 2150 -2480 0 0 {name=p184 sig_type=std_logic lab=001}
 C {lab_wire.sym} 2150 -2460 0 0 {name=p185 sig_type=std_logic lab=after_000011_n}
-C {NAND_4in_dek.sym} 2730 -2730 0 0 {name=x42}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_4in_dek.sym} 2730 -2730 0 0 {name=x42}
 C {lab_wire.sym} 2900 -2760 2 0 {name=p186 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2900 -2740 2 0 {name=p187 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 2930 -2720 2 0 {name=p188 sig_type=std_logic lab=VCO4_5_sel}
 C {lab_wire.sym} 2150 -2680 0 0 {name=p189 sig_type=std_logic lab=after_000011}
 C {lab_wire.sym} 2150 -2700 0 0 {name=p190 sig_type=std_logic lab=after_000111_n}
-C {NAND_2in_dek.sym} 2320 -2540 0 0 {name=x46}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in_dek.sym} 2320 -2540 0 0 {name=x46}
 C {lab_wire.sym} 2150 -2540 0 0 {name=p191 sig_type=std_logic lab=000000}
 C {lab_wire.sym} 2150 -2600 0 0 {name=p192 sig_type=std_logic lab=000000_n}
-C {NAND_3in_dek.sym} 2320 -2620 0 0 {name=x1}
-C {NAND_2in_dek.sym} 2320 -2460 0 0 {name=x2}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in_dek.sym} 2320 -2620 0 0 {name=x1}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in_dek.sym} 2320 -2460 0 0 {name=x2}
