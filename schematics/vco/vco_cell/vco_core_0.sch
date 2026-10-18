@@ -41,7 +41,7 @@ N 1210 -470 1250 -470 {lab=4th}
 N 1530 -470 1570 -470 {lab=out}
 N -120 -470 -30 -470 {lab=out}
 C {sg13g2_pr/sg13_lv_nmos.sym} -230 -360 0 0 {name=M1
-l=0.16*4u
+l=0.14*4u
 w=0.8u
 ng=1
 m=1
@@ -49,7 +49,7 @@ model=sg13_lv_nmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} -230 -580 0 0 {name=M2
-l=0.16*4u
+l=0.14*4u
 w=1.2u
 ng=1
 m=1
