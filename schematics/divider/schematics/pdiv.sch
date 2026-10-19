@@ -6,7 +6,7 @@ S {}
 F {}
 E {}
 N -190 240 -170 240 {lab=clk}
-N 130 380 280 380 {lab=div64}
+N 130 380 280 380 {lab=r_div64}
 N 130 360 280 360 {lab=r_div32}
 N 130 260 160 260 {lab=VP}
 N 130 240 200 240 {lab=gd}
@@ -198,16 +198,12 @@ C {lab_pin.sym} 10 130 2 0 {name=p69 sig_type=std_logic lab=out_div}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} 500 -100 0 0 {name=x4}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in.sym} 510 70 0 0 {name=x7}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NOR_2in.sym} 860 -10 0 0 {name=x5}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 1150 10 0 0 {name=x6}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate_scaled.sym} 1320 90 0 0 {name=x3}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate_scaled.sym} 1320 300 0 0 {name=x9}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/div_with_reset.sym} -20 310 0 0 {name=x1}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/count_data_check.sym} 430 390 0 0 {name=x2}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/d_flip_flop_reset.sym} 1270 630 0 0 {name=x11}
 C {lab_wire.sym} 1040 570 2 0 {name=p18 sig_type=std_logic lab=VP
 }
 C {lab_wire.sym} 1020 700 2 0 {name=p19 sig_type=std_logic lab=gd}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 1020 640 0 0 {name=x10}
 C {ipin.sym} -10 -20 0 0 {name=p20 lab=reset}
 C {lab_wire.sym} 10 -20 2 0 {name=p21 sig_type=std_logic lab=reset}
 C {lab_wire.sym} 970 640 0 0 {name=p22 sig_type=std_logic lab=reset}
@@ -216,3 +212,7 @@ C {lab_wire.sym} -220 260 2 0 {name=p23 sig_type=std_logic lab=out
 }
 C {lab_wire.sym} 700 280 2 0 {name=p24 sig_type=std_logic lab=out_pre_buff
 }
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate.sym} 1320 90 0 0 {name=x3}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate.sym} 1320 300 0 0 {name=x8}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 1150 10 0 0 {name=x6}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 1020 640 0 0 {name=x9}
