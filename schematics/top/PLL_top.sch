@@ -130,7 +130,7 @@ C {lab_pin.sym} 2970 -190 2 0 {name=p12 sig_type=std_logic lab=vph}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x2.sym} 2630 -40 0 0 {name=x1}
 C {lab_wire.sym} 2620 -90 0 0 {name=p50 sig_type=std_logic lab=vp}
 C {lab_wire.sym} 2620 10 0 0 {name=p51 sig_type=std_logic lab=gd}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 2750 -40 0 0 {name=x3}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4_top.sym} 2750 -40 0 0 {name=x3}
 C {lab_wire.sym} 2750 -90 0 0 {name=p24 sig_type=std_logic lab=vp}
 C {lab_wire.sym} 2750 10 0 0 {name=p49 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 1970 180 0 0 {name=p52 sig_type=std_logic lab=vco_out_buffered}
@@ -140,7 +140,7 @@ C {lab_wire.sym} 2840 -40 0 0 {name=p58 sig_type=std_logic lab=pre_LS}
 C {lab_wire.sym} 3100 -120 0 0 {name=p59 sig_type=std_logic lab=aft_LS}
 C {/foss/designs/CHIP-PLL/schematics/charge_pump/charge_pump_cell.sym} 870 0 0 0 {name=xCP}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 720 290 0 0 {name=x9}
-C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_top.sym} 1530 -40 0 0 {name=xVCO}
+C {vco_top.sym} 1530 -40 0 0 {name=xVCO}
 C {lab_wire.sym} 1660 140 0 0 {name=p25 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 1610 -250 0 0 {name=p28 sig_type=std_logic lab=vp
 }
