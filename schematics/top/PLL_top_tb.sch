@@ -5,7 +5,7 @@ V {}
 S {}
 F {}
 E {}
-N 140 10 260 10 {lab=out}
+N 140 30 260 30 {lab=out}
 N -50 -100 -50 -60 {lab=gd}
 N -550 350 -550 370 {lab=gd}
 N -440 350 -440 370 {lab=gd}
@@ -17,7 +17,7 @@ N -440 250 -440 290 {lab=Vph}
 N -120 10 -100 10 {lab=clk_ref}
 N 60 -90 60 -60 {lab=Vph}
 N 80 -90 80 -60 {lab=Vp}
-N 210 70 210 90 {lab=gd}
+N 210 90 210 110 {lab=gd}
 N 20 240 20 270 {lab=d0}
 N 90 240 90 270 {lab=d1}
 N 170 240 170 270 {lab=d2}
@@ -50,6 +50,8 @@ N 390 330 390 350 {lab=gd}
 N -770 360 -770 380 {lab=gd}
 N -880 360 -880 410 {lab=GND}
 N -880 260 -880 300 {lab=gd}
+N 140 -0 390 -0 {lab=#net1}
+N 530 50 530 90 {lab=#net2}
 C {devices/code_shown.sym} -220 -330 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_tt
@@ -92,8 +94,8 @@ C {lab_wire.sym} -330 250 0 0 {name=p2 sig_type=std_logic lab=clk_ref}
 C {lab_wire.sym} -120 10 0 0 {name=p3 sig_type=std_logic lab=clk_ref}
 C {lab_wire.sym} 80 -90 0 1 {name=p4 sig_type=std_logic lab=Vp}
 C {lab_wire.sym} 60 -90 0 0 {name=p5 sig_type=std_logic lab=Vph}
-C {lab_wire.sym} 260 10 0 0 {name=p7 sig_type=std_logic lab=out}
-C {capa.sym} 210 40 0 0 {name=C1
+C {lab_wire.sym} 260 30 0 0 {name=p7 sig_type=std_logic lab=out}
+C {capa.sym} 210 60 0 0 {name=C1
 m=1
 value=20p
 footprint=1206
@@ -148,7 +150,7 @@ C {devices/vsource.sym} -770 330 0 0 {name=Vp1 value="dc \{Vp\} ac 0 PULSE(\{Vp\
 C {lab_wire.sym} -770 230 0 0 {name=p17 sig_type=std_logic lab=rst}
 C {lab_wire.sym} -190 -10 0 0 {name=p18 sig_type=std_logic lab=rst}
 C {lab_wire.sym} -30 -100 0 0 {name=p19 sig_type=std_logic lab=gd}
-C {lab_wire.sym} 210 90 0 0 {name=p23 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 210 110 0 0 {name=p23 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 20 350 0 0 {name=p26 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 90 350 0 0 {name=p28 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 170 350 0 0 {name=p29 sig_type=std_logic lab=gd}
@@ -165,3 +167,5 @@ C {lab_wire.sym} -770 380 0 0 {name=p39 sig_type=std_logic lab=gd}
 C {devices/vsource.sym} -880 330 0 0 {name=Vp2 value="dc 0"}
 C {lab_wire.sym} -880 260 0 0 {name=p40 sig_type=std_logic lab=gd}
 C {devices/gnd.sym} -880 410 0 0 {name=l2 lab=GND}
+C {/foss/designs/CHIP-PLL/schematics/misc/RC_filter.sym} 540 10 0 0 {name=x1}
+C {lab_wire.sym} 530 90 0 0 {name=p41 sig_type=std_logic lab=gd}
