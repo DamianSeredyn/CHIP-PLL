@@ -8,7 +8,7 @@
 # Dla kazdej kombinacji corner/temp/vp oraz kazdego Vin z VIN_SWEEP uruchamiane
 # sa DWIE analizy ngspice na tej samej (regenerowanej) netliscie:
 #
-#  A) TRANSIENT: tran 200p 160u
+#  A) TRANSIENT: tran 200p 20u
 #     Zapis (wrdata): v(out_pb) v(out) i(v2) v(x2.pgt)
 #       - v(out)    : przebieg wyjscia pierscienia -> f_out, v_osc (pk-pk)
 #       - i(v2)     : prad zasilania rdzenia (V2) -> i_osc = -mean(i(v2))
@@ -80,7 +80,33 @@ source "$PROJECT_DIR/configs/corner_data"
 #
 # -debug : tryb debugowania. Nie ukrywa wyjscia ngspice, wypisuje polecenia,
 #          sciezki plikow, surowe wartosci AC (1 MHz) oraz posrednie wyniki
-#          roznic skonczonych. Dziala razem z -meas.
+#          roznic skonczonych. Dziala razem z -meas. Wymusza -j 1 (logi
+#          z wielu watkow bylyby poprzeplatane).
+#
+# -cores [N ...] : symuluje kolejno warianty rdzenia vco_core_N (domyslnie
+#          0 1 2 3 4, albo tylko wskazane, np. -cores 1 3). Dla kazdego N:
+#            1) w netliscie instancja rdzenia (np. 'x2 vdd 0 out in vco_core_0')
+#               jest przebudowywana pod vco_core_N: lista pinow bierze sie
+#               z naglowka .subckt w vco_core_N.pex.spice, a kazdy pin jest
+#               laczony z siecia testbenchu o tej samej nazwie (vp->vdd,
+#               gnd->0; mapowanie mozna rozszerzyc w CORE_PORT_MAP),
+#            2) netlista jest podmieniana na post-layout (-ext wlaczone
+#               automatycznie; wymagany plik vco_core_N.pex.spice),
+#            3) uruchamiany jest caly PVT/Vin sweep + plot_vco.py,
+#            4) wyniki trafiaja do $RESULTS_DIR/core_N/ (png, html, data).
+#
+# -en5 [0|1|both] : sweep stanu pinu wyboru trybu en5 (zrodlo V3 w testbenchu):
+#          0    -> V3 = 0
+#          1    -> V3 = EN5_HIGH (domyslnie {vdd}, czyli en5 = napiecie zasilania
+#                  danego przebiegu; dla vp_nom = 1.2 V)
+#          both -> oba przypadki (domyslne w -cores dla rdzeni z pinem en5)
+#          W -cores rdzenie bez pinu en5 (np. vco_core_0) licza sie raz.
+#          Wyniki: results/core_N_en5_0/, results/core_N_en5_1/
+#          Bez -cores: wyniki w results/en5_0/, results/en5_1/ (tylko gdy podano -en5).
+#
+# -j N : liczba rownoleglych symulacji ngspice (domyslnie: nproc).
+#        Kazdy ngspice dziala jednowatkowo (OMP_NUM_THREADS=1), a
+#        rownoleglosc dotyczy kombinacji corner/temp/vp/Vin.
 
 FILTER_CORNERS=""
 FILTER_TEMPS=""
@@ -89,6 +115,22 @@ PRESET=""
 USE_EXT=0
 USE_MEAS=0
 USE_DEBUG=0
+USE_CORES=0
+CORE_LIST=()
+JOBS="$(nproc 2>/dev/null || echo 4)"
+
+# Prefiks nazwy rdzenia: vco_core_0, vco_core_1, ... (zmien, jesli symbole
+# nazywaja sie inaczej, np. "vco_core").
+CORE_PREFIX="vco_core_"
+# Mapowanie pin rdzenia -> siec testbenchu (pin=siec). Piny nieobecne tutaj sa
+# laczone z siecia o tej samej nazwie (en5, nen5, en11, nen11, in, out ...).
+CORE_PORT_MAP="vp=vdd gnd=0"
+
+# en5: EN5_SEL = ""(nie ruszaj V3) | 0 | 1 | both. EN5_HIGH = wartosc dla en5=1
+# (np. "{vdd}" albo "1.2"). EN5_VAL = biezaca wartosc podstawiana do V3.
+EN5_SEL=""
+EN5_HIGH="{vdd}"
+EN5_VAL=""
 
 EXTRACTION_DIR="$PROJECT_DIR/layout/extraction"
 
@@ -103,6 +145,26 @@ while [[ $# -gt 0 ]]; do
         -debug)
             USE_DEBUG=1
             shift ;;
+        -cores)
+            USE_CORES=1
+            USE_EXT=1
+            shift
+            while [[ $# -gt 0 && "$1" =~ ^[0-9]+$ ]]; do
+                CORE_LIST+=("$1")
+                shift
+            done ;;
+        -en5)
+            case "$2" in
+                0|1|both) EN5_SEL="$2"; shift 2 ;;
+                *) echo "Blad: -en5 wymaga argumentu 0, 1 lub both"; exit 1 ;;
+            esac ;;
+        -j)
+            if [[ -z "$2" || ! "$2" =~ ^[0-9]+$ || "$2" -lt 1 ]]; then
+                echo "Blad: -j wymaga dodatniej liczby calkowitej"
+                exit 1
+            fi
+            JOBS="$2"
+            shift 2 ;;
         -c) shift
             while [[ $# -gt 0 && "$1" != -* ]]; do
                 case "$1" in
@@ -133,6 +195,18 @@ while [[ $# -gt 0 ]]; do
         *) echo "Nieznana opcja: $1"; exit 1 ;;
     esac
 done
+
+if [[ "$USE_CORES" -eq 1 && ${#CORE_LIST[@]} -eq 0 ]]; then
+    CORE_LIST=(0 1 2 3 4)
+fi
+if [[ "$USE_CORES" -eq 1 && -z "$EN5_SEL" ]]; then
+    EN5_SEL="both"
+fi
+
+if [[ "$USE_DEBUG" -eq 1 && "$JOBS" -gt 1 ]]; then
+    echo "Tryb -debug: wymuszam -j 1 (wyjscie ngspice musi byc czytelne)."
+    JOBS=1
+fi
 
 # Jesli nie podano presetow temp/vp, uzyj pelnego zakresu
 if [[ -z "$FILTER_TEMPS" ]]; then FILTER_TEMPS="$t_min $t_nom $t_max"; fi
@@ -178,8 +252,8 @@ if [[ ! -f "$SPICE" ]]; then
     echo "  [BLAD] Netlista nie istnieje pod SPICE! Sprawdz sciezke."
 fi
 
-# Netlista uzywana do symulacji. Domyslnie schematyczna; przy -ext podmieniona
-# na wersje post-layout zbudowana ponizej.
+# Netlista uzywana do symulacji. Domyslnie schematyczna; przy -ext / -cores
+# podmieniona na wersje post-layout zbudowana ponizej.
 SIM_SPICE="$SPICE"
 
 if [[ -n "$PRESET" ]]; then
@@ -194,6 +268,11 @@ else
     echo "Vin sweep: $VIN_SWEEP  (uzyj -meas dla pomiaru KVCO)"
 fi
 
+echo "Rownolegle symulacje: $JOBS"
+if [[ "$USE_CORES" -eq 1 ]]; then
+    echo "Tryb -cores: warianty rdzenia: ${CORE_LIST[*]} (post-layout)"
+fi
+
 # Pomocnicza funkcja debugowania: wypisuje tylko gdy USE_DEBUG=1
 dbg() {
     if [[ "$USE_DEBUG" -eq 1 ]]; then
@@ -205,21 +284,148 @@ if [[ "$USE_DEBUG" -eq 1 ]]; then
     echo "Tryb -debug: wlaczone szczegolowe logi (wyjscie ngspice widoczne)."
 fi
 
-# Budowa netlisty post-layout gdy podano -ext
-if [[ "$USE_EXT" -eq 1 ]]; then
-    if [[ ! -d "$EXTRACTION_DIR" ]]; then
-        echo "Blad: katalog ekstrakcji nie istnieje: $EXTRACTION_DIR"
-        exit 1
-    fi
-    EXT_SPICE="$RESULTS_DIR/vco_dcin_tb_ext.spice"
-    echo "Tryb -ext: budowa netlisty post-layout z $EXTRACTION_DIR"
+# Kazdy ngspice jednowatkowo - rownoleglosc robimy sami na poziomie procesow.
+export OMP_NUM_THREADS=1
 
-    python3 - "$SPICE" "$EXTRACTION_DIR" "$EXT_SPICE" <<'PYEOF'
+# Katalog roboczy na pliki tymczasowe (osobny podkatalog na kazde zadanie)
+# oraz katalog logow ngspice.
+WORK="$(mktemp -d /tmp/vco_work.XXXXXX)"
+LOG_DIR=/tmp/vco_logs
+mkdir -p "$LOG_DIR"
+cleanup() { rm -rf "$WORK"; }
+on_signal() {
+    echo
+    echo "Przerwano - zatrzymuje symulacje..."
+    kill $(jobs -p) 2>/dev/null
+    cleanup
+    exit 130
+}
+trap cleanup EXIT
+trap on_signal INT TERM
+
+# -----------------------------------------------------------------------------
+# make_core_netlist <N> <out>
+#   Kopia netlisty z podmieniona instancja rdzenia na vco_core_<N>
+#   (odpowiednik wymiany symbolu na schemacie). Rdzenie roznia sie liczba
+#   pinow, wiec:
+#     - lista pinow = naglowek .subckt z vco_core_<N>.pex.spice,
+#     - kazdy pin -> siec testbenchu o tej samej nazwie (z CORE_PORT_MAP),
+#     - stara definicja .subckt rdzenia zastepowana pustym stubem o tych
+#       samych pinach (cialo i tak zastapi ekstrakcja w build_ext_netlist).
+#   Dziala niezaleznie od tego, ktory rdzen (0..4) jest w bazowej netliscie.
+# -----------------------------------------------------------------------------
+make_core_netlist() {
+    python3 - "$SPICE" "$1" "$2" "$CORE_PREFIX" "$EXTRACTION_DIR" "$CORE_PORT_MAP" <<'PYEOF'
+import os
+import re
+import sys
+
+src, n, out, prefix, ext_dir, map_str = sys.argv[1:7]
+
+port_map = {}
+for kv in map_str.split():
+    if '=' in kv:
+        k, v = kv.split('=', 1)
+        port_map[k.lower()] = v
+
+
+def fail(msg):
+    sys.stderr.write(f'[-cores] BLAD: {msg}\n')
+    sys.exit(2)
+
+
+with open(src) as f:
+    text = f.read()
+
+name = f'{prefix}{n}'
+pex = os.path.join(ext_dir, f'{name}.pex.spice')
+if not os.path.isfile(pex):
+    fail(f'brak pliku ekstrakcji {pex}')
+
+ports = None
+with open(pex) as f:
+    for line in f:
+        m = re.match(r'^[ \t]*\.subckt[ \t]+(\S+)[ \t]+(.*)', line, re.IGNORECASE)
+        if m:
+            ports = [t for t in m.group(2).split() if '=' not in t]
+            break
+if not ports:
+    fail(f'nie znaleziono naglowka .subckt w {pex}')
+
+inst_re = re.compile(
+    r'^([ \t]*x\S*)[ \t]+(.*?)[ \t]+(' + re.escape(prefix) + r'\d+)[ \t]*$',
+    re.IGNORECASE | re.MULTILINE,
+)
+insts = list(inst_re.finditer(text))
+if not insts:
+    fail(f'w netliscie nie ma instancji rdzenia ({prefix}<cyfra>)')
+base_names = []
+for m in insts:
+    if m.group(3) not in base_names:
+        base_names.append(m.group(3))
+
+# Sieci dostepne w testbenchu (bez samych linii instancji rdzenia)
+rest = inst_re.sub('', text)
+nets = set()
+for m in insts:   # sieci, do ktorych podlaczony byl dotychczasowy rdzen
+    nets.update(t.lower() for t in m.group(2).split())
+for line in rest.splitlines():
+    s = line.strip()
+    if s and s[0] not in '*.':
+        nets.update(t.lower() for t in s.split())
+
+conn = []
+missing = []
+for p in ports:
+    net = port_map.get(p.lower(), p.lower())
+    if net != '0' and net.lower() not in nets:
+        missing.append(p)
+    conn.append(net)
+if missing:
+    fail(f'piny {name} bez odpowiadajacej sieci w testbenchu: {missing}\n'
+         f'        piny ekstrakcji: {ports}\n'
+         f'        Dodaj siec do testbenchu albo regule pin=siec do CORE_PORT_MAP.')
+
+text = inst_re.sub(lambda m: f'{m.group(1)} {" ".join(conn)} {name}', text)
+
+stub = f'.subckt {name} {" ".join(ports)}\n.ends\n'
+placed = False
+for b in base_names:
+    block_re = re.compile(
+        r'^[ \t]*\.subckt[ \t]+' + re.escape(b) + r'\b.*?^[ \t]*\.ends\b[^\n]*\n?',
+        re.IGNORECASE | re.DOTALL | re.MULTILINE,
+    )
+    def repl(m, first=not placed):
+        return stub if first else ''
+    text, k = block_re.subn(repl, text, count=1)
+    if k:
+        placed = True
+if not placed:
+    fail(f'nie znaleziono definicji .subckt {base_names}')
+
+with open(out, 'w') as f:
+    f.write(text)
+sys.stderr.write(f'[-cores] {", ".join(base_names)} -> {name}; piny: '
+                 + ', '.join(f'{p}->{c}' for p, c in zip(ports, conn))
+                 + f'\n[-cores] netlista: {out}\n')
+PYEOF
+}
+
+# -----------------------------------------------------------------------------
+# build_ext_netlist <in> <out> [wymagana_komorka]
+#   Buduje netliste post-layout. Jesli podano wymagana_komorke (tryb -cores),
+#   to jej ekstrakcja MUSI zostac faktycznie wstawiona; inaczej blad
+#   (np. gdy ekstrakcja rodzica przykrywa rdzen i wszystkie warianty byly by
+#   identyczne).
+# -----------------------------------------------------------------------------
+build_ext_netlist() {
+    python3 - "$1" "$EXTRACTION_DIR" "$2" "$3" <<'PYEOF'
 import re
 import sys
 import os
 
 in_path, ext_dir, out_path = sys.argv[1:4]
+required = (sys.argv[4] if len(sys.argv) > 4 else '') or None
 
 with open(in_path) as f:
     netlist = f.read()
@@ -279,6 +485,13 @@ for name in subckts:
     if os.path.isfile(pex):
         available[name] = pex
 
+if required and required not in available:
+    sys.stderr.write(
+        f'[-ext] BLAD: brak ekstrakcji dla wymaganej komorki {required}: '
+        f'{os.path.join(ext_dir, required + ".pex.spice")}\n'
+    )
+    sys.exit(2)
+
 if not available:
     sys.stderr.write(
         f'[-ext] Brak plikow ekstrakcji w {ext_dir} dla zadnej komorki '
@@ -291,8 +504,17 @@ for name in available:
     excluded |= descendants(name, subckts) & set(available)
 selected = {n: p for n, p in available.items() if n not in excluded}
 
+if required and required not in selected:
+    sys.stderr.write(
+        f'[-ext] BLAD: ekstrakcja {required} jest pomijana, bo komorka nadrzedna '
+        f'ma wlasna ekstrakcje (rdzen jest juz w niej zawarty - warianty '
+        f'rdzenia bylyby identyczne).\n'
+    )
+    sys.exit(2)
+
 out = netlist
 adapters = []
+substituted = []
 
 for name, pex in selected.items():
     ext_name, ext_ports = parse_ext_header(pex)
@@ -390,9 +612,14 @@ for name, pex in selected.items():
         f'{ext_renamed.rstrip()}\n'
     )
     adapters.append(adapter)
+    substituted.append(name)
 
 if not adapters:
     sys.stderr.write('[-ext] Nic nie podmieniono; przerywam.\n')
+    sys.exit(2)
+
+if required and required not in substituted:
+    sys.stderr.write(f'[-ext] BLAD: nie udalo sie podmienic wymaganej komorki {required}.\n')
     sys.exit(2)
 
 ext_section = (
@@ -415,30 +642,21 @@ with open(out_path, 'w') as f:
     f.write(out)
 
 sys.stderr.write('[-ext] Zastosowano ekstrakcje:\n')
-for name in sorted(selected):
+for name in sorted(substituted):
     sys.stderr.write(f'         ekstrakcja:  {name}\n')
 for name in sorted(excluded):
     sys.stderr.write(f'         pominieto (wewnatrz ekstrahowanego rodzica): {name}\n')
 for name in sorted(set(subckts) - set(available)):
     sys.stderr.write(f'         schemat (brak ekstrakcji): {name}\n')
 PYEOF
+}
 
-    if [[ $? -ne 0 ]]; then
-        echo "Blad: budowa netlisty post-layout nie powiodla sie."
-        exit 1
-    fi
-    SIM_SPICE="$EXT_SPICE"
-    echo "Netlista post-layout zapisana: $EXT_SPICE"
-fi
-
-if [[ "$USE_EXT" -eq 1 ]]; then
-    echo "Netlista uzyta do symulacji: $SIM_SPICE (post-layout / PEX)"
-else
-    echo "Netlista uzyta do symulacji: $SIM_SPICE (schematyczna)"
-fi
-
-echo "Simulation parameters:"
-python3 - "$SIM_SPICE" <<'PYEOF'
+# -----------------------------------------------------------------------------
+# print_params - wypisuje parametry .param z uzywanej netlisty
+# -----------------------------------------------------------------------------
+print_params() {
+    echo "Simulation parameters:"
+    python3 - "$SIM_SPICE" <<'PYEOF'
 import re, sys
 spice_path = sys.argv[1]
 skip = {'temp', 'vdd', 'vin'}
@@ -448,36 +666,33 @@ with open(spice_path) as f:
         if m and m.group(1).lower() not in skip:
             print(f"  {m.group(1)}={m.group(2)}")
 PYEOF
-
-mkdir -p $DATA_DIR
+}
 
 # Usun wszystkie poprzednie wyniki przed kazda symulacja
-rm -f $DATA_DIR/vco_*.dat
-rm -f $DATA_DIR/vco_*.acdat
-rm -f $RESULTS_DIR/vco_*.png
-rm -f $RESULTS_DIR/kvco_*.png
-rm -f $RESULTS_DIR/rc_*.png
-rm -f $RESULTS_DIR/vco_report.html
+clean_results() {
+    mkdir -p "$DATA_DIR"
+    rm -f "$DATA_DIR"/vco_*.dat
+    rm -f "$DATA_DIR"/vco_*.acdat
+    rm -f "$RESULTS_DIR"/vco_*.png
+    rm -f "$RESULTS_DIR"/kvco_*.png
+    rm -f "$RESULTS_DIR"/rc_*.png
+    rm -f "$RESULTS_DIR"/vco_report.html
+}
 
-# Policz laczna liczbe kombinacji
-TOTAL=0
-for CORNER in $corners; do
-for TEMP in $FILTER_TEMPS; do
-for VP in $FILTER_VPS; do
-for VIN in $VIN_SWEEP; do
-    TOTAL=$((TOTAL + 1))
-done; done; done; done
-
-CURRENT=0
-
-for CORNER in $corners; do
-for TEMP in $FILTER_TEMPS; do
-for VP in $FILTER_VPS; do
-for VIN in $VIN_SWEEP; do
-
-    TAG="${CORNER}_T${TEMP}_Vp${VP}_Vin${VIN}"
-    DAT=$DATA_DIR/vco_${TAG}.dat
-    ACDAT=$DATA_DIR/vco_${TAG}.acdat
+# -----------------------------------------------------------------------------
+# run_job <corner> <temp> <vp> <vin>
+#   Jedna kombinacja PVT/Vin: transient (+ AC przy -meas). Dziala w osobnym
+#   podkatalogu $WORK/<tag>, wiec moze byc uruchamiana rownolegle.
+#   Zmienne globalne uzywane: SIM_SPICE, DATA_DIR, WORK, LOG_DIR, LOG_PREFIX,
+#   USE_MEAS, USE_DEBUG, TOTAL, DONE_DIR.
+# -----------------------------------------------------------------------------
+run_job() {
+    local CORNER="$1" TEMP="$2" VP="$3" VIN="$4"
+    local TAG="${CORNER}_T${TEMP}_Vp${VP}_Vin${VIN}"
+    local DAT="$DATA_DIR/vco_${TAG}.dat"
+    local ACDAT="$DATA_DIR/vco_${TAG}.acdat"
+    local JOBDIR="$WORK/${LOG_PREFIX}${TAG}"
+    mkdir -p "$JOBDIR"
 
     dbg "----------------------------------------------------------------"
     dbg "TAG=$TAG"
@@ -487,9 +702,10 @@ for VIN in $VIN_SWEEP; do
 
     # Zbuduj netliste do symulacji (transient + opcjonalnie .ac dla C).
     # USE_MEAS decyduje czy dolaczyc analize .ac i zapis i(v1) przy 1 MHz.
-    python3 - "$SIM_SPICE" "$CORNER" "$TEMP" "$VP" "$VIN" "$DAT" "$ACDAT" "$USE_MEAS" "$USE_DEBUG" <<'PYEOF'
+    python3 - "$SIM_SPICE" "$CORNER" "$TEMP" "$VP" "$VIN" "$DAT" "$ACDAT" "$USE_MEAS" "$USE_DEBUG" "$JOBDIR" "$EN5_VAL" <<'PYEOF'
 import re, sys
-spice_path, corner, temp, vp, vin, dat_path, acdat_path, use_meas, use_debug = sys.argv[1:]
+(spice_path, corner, temp, vp, vin, dat_path, acdat_path,
+ use_meas, use_debug, jobdir, en5_val) = sys.argv[1:]
 use_meas  = (use_meas  == '1')
 use_debug = (use_debug == '1')
 
@@ -502,6 +718,14 @@ spice = re.sub(r'\.param\s+temp\s*=.*', f'.param temp={temp}', spice)
 spice = re.sub(r'\.options[^\n]*\bTEMP\b[^\n]*\n', '', spice, flags=re.IGNORECASE)
 spice = re.sub(r'\.param\s+vdd\s*=.*',  f'.param vdd={vp}',    spice)
 spice = re.sub(r'\.param\s+vin\s*=.*',  f'.param vin={vin}',   spice)
+
+# Stan pinu en5 (zrodlo V3 en5 0 <wartosc>), jesli zadano sweep en5.
+if en5_val != '':
+    spice, k_en5 = re.subn(r'^([ \t]*V3[ \t]+en5[ \t]+0[ \t]+)\S+',
+                           lambda m: m.group(1) + en5_val, spice,
+                           flags=re.IGNORECASE | re.MULTILINE)
+    if k_en5 == 0:
+        sys.stderr.write('[-en5] UWAGA: nie znaleziono linii "V3 en5 0 <wartosc>" w netliscie\n')
 
 # WAZNE: netlista ma '.save i(v1)', co powoduje ze ngspice zapisuje TYLKO
 # i(v1) i odrzuca reszte wektorow (out, out_pb, i(v2)) -> "zero length" w
@@ -554,11 +778,11 @@ if use_debug:
 # reszte. Naprawa: usuwamy '.save' z netlisty (wyzej), a tu jawnie 'save'
 # potrzebne sygnaly.
 #tran 200p 100u dluga
-#tran 1p 50n krotka
+#tran 1p 20n krotka
 tran_control = f"""
 .control
 save v(out_pb) v(out) i(v2){pgt_save}
-tran 200p 100u 
+tran 200p 100u
 wrdata {dat_path} v(out_pb) v(out) i(v2){pgt_wr}
 exit
 .endc
@@ -585,17 +809,20 @@ exit
 .endc
 """
 
-with open('/tmp/vco_run.spice', 'w') as f:
+run_path = f'{jobdir}/run.spice'
+ac_path  = f'{jobdir}/ac.spice'
+
+with open(run_path, 'w') as f:
     f.write(spice + tran_control)
 
 if use_meas:
-    with open('/tmp/vco_ac.spice', 'w') as f:
+    with open(ac_path, 'w') as f:
         f.write(spice_ac + ac_control)
 
 if use_debug:
-    sys.stderr.write(f"[DEBUG-PY] transient netlist -> /tmp/vco_run.spice\n")
+    sys.stderr.write(f"[DEBUG-PY] transient netlist -> {run_path}\n")
     if use_meas:
-        sys.stderr.write(f"[DEBUG-PY] ac netlist        -> /tmp/vco_ac.spice\n")
+        sys.stderr.write(f"[DEBUG-PY] ac netlist        -> {ac_path}\n")
         sys.stderr.write(f"[DEBUG-PY] AC-source: {ac_note}\n")
         # pokaz faktyczna linie V1 w netliscie AC
         for ln in spice_ac.splitlines():
@@ -612,30 +839,32 @@ if use_debug:
             sys.stderr.write(f"[DEBUG-PY]   {ln}\n")
 PYEOF
 
-    # Uruchom transient. Zawsze zapisujemy log do /tmp, zeby moc pokazac blad
+    # Uruchom transient. Zawsze zapisujemy log, zeby moc pokazac blad
     # gdy plik .dat nie powstanie (nawet bez -debug).
-    TRAN_LOG=/tmp/vco_tran_${TAG}.log
+    local TRAN_LOG="$LOG_DIR/vco_tran_${LOG_PREFIX}${TAG}.log"
     if [[ "$USE_DEBUG" -eq 1 ]]; then
         dbg "Uruchamiam ngspice (transient)..."
-        ngspice -b /tmp/vco_run.spice 2>&1 | tee "$TRAN_LOG"
+        ngspice -b "$JOBDIR/run.spice" 2>&1 | tee "$TRAN_LOG"
         dbg "ngspice transient zakonczony"
     else
-        ngspice -b /tmp/vco_run.spice > "$TRAN_LOG" 2>&1
+        ngspice -b "$JOBDIR/run.spice" > "$TRAN_LOG" 2>&1
     fi
 
     # Sprawdz czy transient faktycznie zapisal plik .dat.
     if [[ ! -f "$DAT" ]]; then
-        echo "  [BLAD] Transient nie zapisal $DAT"
-        echo "  [BLAD] Ostatnie linie logu ngspice ($TRAN_LOG):"
-        grep -iE "error|warning|no such|not available|aborted" "$TRAN_LOG" | tail -8 | sed 's/^/         /'
-        echo "  [BLAD] (pelny log: $TRAN_LOG)"
+        {
+            echo "  [BLAD] ($TAG) Transient nie zapisal $DAT"
+            echo "  [BLAD] Ostatnie linie logu ngspice ($TRAN_LOG):"
+            grep -iE "error|warning|no such|not available|aborted" "$TRAN_LOG" | tail -8 | sed 's/^/         /'
+            echo "  [BLAD] (pelny log: $TRAN_LOG)"
+        }
     fi
 
     # Uruchom AC (tylko -meas) dla ekstrakcji C przy 1 MHz.
     if [[ "$USE_MEAS" -eq 1 ]]; then
         if [[ "$USE_DEBUG" -eq 1 ]]; then
             dbg "Uruchamiam ngspice (.ac 1 MHz)..."
-            ngspice -b /tmp/vco_ac.spice
+            ngspice -b "$JOBDIR/ac.spice"
             dbg "ngspice ac zakonczony (exit=$?)"
             if [[ -f "$ACDAT" ]]; then
                 dbg "ACDAT zawartosc ($ACDAT):"
@@ -644,21 +873,193 @@ PYEOF
                 dbg "UWAGA: brak pliku ACDAT ($ACDAT) - ekstrakcja C sie nie powiedzie"
             fi
         else
-            ngspice -b /tmp/vco_ac.spice >/dev/null 2>&1
+            ngspice -b "$JOBDIR/ac.spice" >/dev/null 2>&1
         fi
     fi
 
-    CURRENT=$((CURRENT + 1))
-    PCT=$(( CURRENT * 100 / TOTAL ))
-    printf "%-45s done %3d%% of simulation finished\n" "${TAG}" "${PCT}"
+    rm -rf "$JOBDIR"
 
-done
-done
-done
-done
+    # Licznik postepu wspolny dla rownoleglych zadan (plik znacznikowy na zadanie)
+    : > "$DONE_DIR/${TAG}"
+    local N_DONE PCT
+    N_DONE=$(ls "$DONE_DIR" | wc -l)
+    PCT=$(( N_DONE * 100 / TOTAL ))
+    printf "%-45s done %3d%% of simulation finished\n" "${LOG_PREFIX}${TAG}" "${PCT}"
+}
 
-echo "Generating plots and report..."
-PLOT_ARGS=""
-if [[ "$USE_MEAS"  -eq 1 ]]; then PLOT_ARGS="$PLOT_ARGS --meas";  fi
-if [[ "$USE_DEBUG" -eq 1 ]]; then PLOT_ARGS="$PLOT_ARGS --debug"; fi
-python3 $SCRIPT_DIR/plot_vco.py $PLOT_ARGS
+# -----------------------------------------------------------------------------
+# run_batch - uruchamia caly sweep PVT x Vin dla biezacego SIM_SPICE,
+#             maksymalnie $JOBS zadan naraz.
+# -----------------------------------------------------------------------------
+run_batch() {
+    TOTAL=0
+    for CORNER in $corners; do
+    for TEMP in $FILTER_TEMPS; do
+    for VP in $FILTER_VPS; do
+    for VIN in $VIN_SWEEP; do
+        TOTAL=$((TOTAL + 1))
+    done; done; done; done
+
+    DONE_DIR="$WORK/done_${LOG_PREFIX:-all}"
+    rm -rf "$DONE_DIR"; mkdir -p "$DONE_DIR"
+
+    for CORNER in $corners; do
+    for TEMP in $FILTER_TEMPS; do
+    for VP in $FILTER_VPS; do
+    for VIN in $VIN_SWEEP; do
+        # Limit liczby rownoleglych zadan
+        while [[ $(jobs -rp | wc -l) -ge $JOBS ]]; do
+            wait -n 2>/dev/null || true
+        done
+        run_job "$CORNER" "$TEMP" "$VP" "$VIN" &
+    done; done; done; done
+    wait
+}
+
+run_plots() {
+    echo "Generating plots and report..."
+    local PLOT_ARGS=""
+    if [[ "$USE_MEAS"  -eq 1 ]]; then PLOT_ARGS="$PLOT_ARGS --meas";  fi
+    if [[ "$USE_DEBUG" -eq 1 ]]; then PLOT_ARGS="$PLOT_ARGS --debug"; fi
+    python3 "$SCRIPT_DIR/plot_vco.py" $PLOT_ARGS
+}
+
+# Czy rdzen N ma pin en5 (wg naglowka .subckt w ekstrakcji)
+core_has_en5() {
+    local pex="$EXTRACTION_DIR/${CORE_PREFIX}$1.pex.spice"
+    grep -m1 -iE '^[[:space:]]*\.subckt' "$pex" 2>/dev/null | grep -qiw 'en5'
+}
+
+# Przenosi biezace wyniki do $RESULTS_DIR/<nazwa>/
+archive_results() {
+    local N="$1"
+    local OUT="$RESULTS_DIR/${N}"
+    rm -rf "$OUT"
+    mkdir -p "$OUT/data"
+    shopt -s nullglob
+    local f
+    for f in "$RESULTS_DIR"/vco_*.png "$RESULTS_DIR"/kvco_*.png \
+             "$RESULTS_DIR"/rc_*.png "$RESULTS_DIR"/vco_report.html; do
+        [[ -e "$f" ]] && mv "$f" "$OUT/"
+    done
+    for f in "$DATA_DIR"/vco_*.dat "$DATA_DIR"/vco_*.acdat; do
+        mv "$f" "$OUT/data/"
+    done
+    shopt -u nullglob
+    echo "Wyniki: $OUT"
+}
+
+# =============================================================================
+# GLOWNA CZESC
+# =============================================================================
+LOG_PREFIX=""
+
+if [[ "$USE_CORES" -eq 1 ]]; then
+    if [[ ! -d "$EXTRACTION_DIR" ]]; then
+        echo "Blad: katalog ekstrakcji nie istnieje: $EXTRACTION_DIR"
+        exit 1
+    fi
+    mkdir -p "$RESULTS_DIR"
+
+    CORES_OK=()
+    CORES_FAILED=()
+
+    for N in "${CORE_LIST[@]}"; do
+        echo
+        echo "============================================================"
+        echo "  RDZEN ${CORE_PREFIX}${N}  (post-layout)"
+        echo "============================================================"
+
+        CORE_NETLIST="$RESULTS_DIR/vco_dcin_tb_core${N}.spice"
+        EXT_SPICE="$RESULTS_DIR/vco_dcin_tb_ext_core${N}.spice"
+
+        if ! make_core_netlist "$N" "$CORE_NETLIST"; then
+            echo "Blad: nie udalo sie przygotowac netlisty dla rdzenia $N - pomijam."
+            CORES_FAILED+=("$N"); continue
+        fi
+        if ! build_ext_netlist "$CORE_NETLIST" "$EXT_SPICE" "${CORE_PREFIX}${N}"; then
+            echo "Blad: budowa netlisty post-layout dla rdzenia $N nie powiodla sie - pomijam."
+            CORES_FAILED+=("$N"); continue
+        fi
+
+        SIM_SPICE="$EXT_SPICE"
+        echo "Netlista uzyta do symulacji: $SIM_SPICE (post-layout / PEX)"
+        print_params
+
+        # Tryby en5: rdzen z pinem en5 -> wg EN5_SEL; bez pinu -> jeden przebieg.
+        MODES=("")
+        if core_has_en5 "$N"; then
+            case "$EN5_SEL" in
+                0) MODES=(0) ;;
+                1) MODES=(1) ;;
+                *) MODES=(0 1) ;;
+            esac
+        else
+            echo "Rdzen $N nie ma pinu en5 - sweep en5 pominiety (jeden przebieg)."
+        fi
+
+        for M in "${MODES[@]}"; do
+            if [[ -z "$M" ]]; then
+                EN5_VAL=""; SUF=""; LOG_PREFIX="core${N}_"
+            else
+                if [[ "$M" == "1" ]]; then EN5_VAL="$EN5_HIGH"; else EN5_VAL="0"; fi
+                SUF="_en5_${M}"; LOG_PREFIX="core${N}${SUF}_"
+                echo "--- rdzen $N: en5 = $EN5_VAL ---"
+            fi
+            clean_results
+            run_batch
+            run_plots
+            archive_results "core_${N}${SUF}"
+        done
+        CORES_OK+=("$N")
+    done
+
+    echo
+    echo "Podsumowanie -cores: OK: ${CORES_OK[*]:-brak}  | BLAD: ${CORES_FAILED[*]:-brak}"
+    [[ ${#CORES_FAILED[@]} -eq 0 ]] || exit 1
+    exit 0
+fi
+
+# --- tryb standardowy (jeden rdzen, jak dotychczas) ---
+
+# Budowa netlisty post-layout gdy podano -ext
+if [[ "$USE_EXT" -eq 1 ]]; then
+    if [[ ! -d "$EXTRACTION_DIR" ]]; then
+        echo "Blad: katalog ekstrakcji nie istnieje: $EXTRACTION_DIR"
+        exit 1
+    fi
+    EXT_SPICE="$RESULTS_DIR/vco_dcin_tb_ext.spice"
+    echo "Tryb -ext: budowa netlisty post-layout z $EXTRACTION_DIR"
+    mkdir -p "$RESULTS_DIR"
+
+    if ! build_ext_netlist "$SPICE" "$EXT_SPICE" ""; then
+        echo "Blad: budowa netlisty post-layout nie powiodla sie."
+        exit 1
+    fi
+    SIM_SPICE="$EXT_SPICE"
+    echo "Netlista post-layout zapisana: $EXT_SPICE"
+fi
+
+if [[ "$USE_EXT" -eq 1 ]]; then
+    echo "Netlista uzyta do symulacji: $SIM_SPICE (post-layout / PEX)"
+else
+    echo "Netlista uzyta do symulacji: $SIM_SPICE (schematyczna)"
+fi
+
+print_params
+if [[ -n "$EN5_SEL" ]]; then
+    case "$EN5_SEL" in 0) MODES=(0) ;; 1) MODES=(1) ;; *) MODES=(0 1) ;; esac
+    for M in "${MODES[@]}"; do
+        if [[ "$M" == "1" ]]; then EN5_VAL="$EN5_HIGH"; else EN5_VAL="0"; fi
+        LOG_PREFIX="en5_${M}_"
+        echo "--- en5 = $EN5_VAL ---"
+        clean_results
+        run_batch
+        run_plots
+        archive_results "en5_${M}"
+    done
+else
+    clean_results
+    run_batch
+    run_plots
+fi
