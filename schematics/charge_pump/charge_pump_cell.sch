@@ -120,11 +120,11 @@ N 980 -310 980 -260 {lab=vtest}
 N 980 -260 1050 -260 {lab=vtest}
 N 1050 -280 1050 -260 {lab=vtest}
 N 850 -450 1180 -450 {lab=vout}
-N 1000 30 1020 30 {lab=#net11}
-N 1020 0 1020 30 {lab=#net11}
-N 960 0 1020 -0 {lab=#net11}
-N 960 0 960 60 {lab=#net11}
-N 960 60 1000 60 {lab=#net11}
+N 1000 30 1020 30 {lab=gd}
+N 1020 0 1020 30 {lab=gd}
+N 960 0 1020 -0 {lab=gd}
+N 960 0 960 60 {lab=gd}
+N 960 60 1000 60 {lab=gd}
 C {lab_pin.sym} 850 -190 0 1 {name=p54 sig_type=std_logic lab=net4}
 C {lab_pin.sym} 370 -170 0 1 {name=p17 sig_type=std_logic lab=net7}
 C {lab_pin.sym} 230 -180 0 1 {name=p7 sig_type=std_logic lab=net2}
@@ -165,8 +165,8 @@ C {lab_pin.sym} 710 -560 2 0 {name=p15 sig_type=std_logic lab=vp}
 C {lab_pin.sym} 1060 -700 2 0 {name=p39 sig_type=std_logic lab=vp}
 C {lab_pin.sym} 1080 -520 0 1 {name=p40 sig_type=std_logic lab=gd}
 C {lab_pin.sym} 840 -400 0 1 {name=p4 sig_type=std_logic lab=gd}
-C {vbias.sym} 530 -540 0 0 {name=x1}
-C {curr_source.sym} 0 -660 0 0 {name=x2}
+C {/foss/designs/CHIP-PLL/schematics/charge_pump/vbias.sym} 530 -540 0 0 {name=x1}
+C {/foss/designs/CHIP-PLL/schematics/charge_pump/curr_source.sym} 0 -660 0 0 {name=x2}
 C {lab_pin.sym} 1050 -390 0 0 {name=p24 sig_type=std_logic lab=vp}
 C {lab_pin.sym} 1050 -260 2 0 {name=p27 sig_type=std_logic lab=vtest}
 C {lab_pin.sym} 1230 -170 0 1 {name=p29 sig_type=std_logic lab=vp}
