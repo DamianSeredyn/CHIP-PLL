@@ -194,7 +194,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_hv_nmos.sym} 550 40 0 0 {name=M8
 l=0.45u
-w=1.5u
+w=3u
  ng=1
  m=1
   mm_ok=1
