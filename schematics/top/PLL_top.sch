@@ -167,9 +167,9 @@ C {lab_wire.sym} 490 350 0 0 {name=p53 sig_type=std_logic lab=gd}
 C {/foss/designs/CHIP-PLL/schematics/misc/buffer_hv.sym} 580 290 0 0 {name=x4}
 C {lab_wire.sym} 620 290 0 0 {name=p54 sig_type=std_logic lab=rst_lv}
 C {opin.sym} 1160 -10 0 0 {name=p8 lab=vout}
-C {sg13cmos5l_pr/sg13_lv_nmos.sym} 1800 340 1 0 {name=M1<23:0>
+C {sg13cmos5l_pr/sg13_lv_nmos.sym} 1800 340 1 0 {name=M1
 l=5u
-w=10u
+w=240u
 ng=1
 m=1
 mm_ok=1
