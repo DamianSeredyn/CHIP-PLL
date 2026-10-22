@@ -86,7 +86,7 @@ C {iopin.sym} 110 290 1 0 {name=p5 lab=GND}
 C {opin.sym} 440 150 0 0 {name=p6 lab=OUT}
 C {sg13g2_pr/sg13_hv_pmos.sym} 330 100 0 0 {name=M9
 l=0.4u
-w=10u
+w=3u
  ng=1
  m=4
   mm_ok=1
@@ -95,7 +95,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_hv_pmos.sym} 170 100 0 0 {name=M6
 l=0.4u
-w=10u
+w=3u
  ng=1
  m=3
   mm_ok=1
@@ -104,7 +104,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_hv_pmos.sym} 10 100 0 0 {name=M4
 l=0.4u
-w=10u
+w=3u
  ng=1
  m=2
   mm_ok=1
@@ -113,7 +113,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_hv_pmos.sym} -170 100 0 0 {name=M2
 l=0.4u
-w=10u
+w=3u
  ng=1
  m=1
   mm_ok=1
@@ -122,7 +122,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_hv_nmos.sym} 330 190 0 0 {name=M1
 l=0.45u
-w=10u
+w=2u
  ng=1
  m=4
   mm_ok=1
@@ -131,7 +131,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_hv_nmos.sym} 170 190 0 0 {name=M3
 l=0.45u
-w=10u
+w=2u
  ng=1
  m=3
   mm_ok=1
@@ -140,7 +140,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_hv_nmos.sym} 10 190 0 0 {name=M5
 l=0.45u
-w=10u
+w=2u
  ng=1
  m=2
   mm_ok=1
@@ -149,7 +149,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_hv_nmos.sym} -170 190 0 0 {name=M7
 l=0.45u
-w=10u
+w=2u
  ng=1
  m=1
   mm_ok=1
