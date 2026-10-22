@@ -82,13 +82,6 @@ N 490 230 490 260 {lab=vp}
 N 490 320 490 350 {lab=gd}
 N 410 290 470 290 {lab=rst}
 N 550 290 700 290 {lab=rst_lv}
-N 1800 300 1800 320 {lab=vp}
-N 1770 360 1770 450 {lab=gd}
-N 1800 360 1800 450 {lab=gd}
-N 1770 450 1800 450 {lab=gd}
-N 1800 450 1830 450 {lab=gd}
-N 1830 360 1830 450 {lab=gd}
-N 1790 320 1800 320 {lab=vp}
 C {ipin.sym} 40 -20 0 0 {name=p1 lab=clk_ref}
 C {lab_wire.sym} 120 -80 0 0 {name=p2 sig_type=std_logic lab=vp}
 C {lab_wire.sym} 120 40 0 0 {name=p3 sig_type=std_logic lab=gd}
@@ -137,7 +130,7 @@ C {lab_pin.sym} 2970 -190 2 0 {name=p12 sig_type=std_logic lab=vph}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x2.sym} 2630 -40 0 0 {name=x1}
 C {lab_wire.sym} 2620 -90 0 0 {name=p50 sig_type=std_logic lab=vp}
 C {lab_wire.sym} 2620 10 0 0 {name=p51 sig_type=std_logic lab=gd}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4_top.sym} 2750 -40 0 0 {name=x3}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 2750 -40 0 0 {name=x3}
 C {lab_wire.sym} 2750 -90 0 0 {name=p24 sig_type=std_logic lab=vp}
 C {lab_wire.sym} 2750 10 0 0 {name=p49 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 1970 180 0 0 {name=p52 sig_type=std_logic lab=vco_out_buffered}
@@ -167,14 +160,3 @@ C {lab_wire.sym} 490 350 0 0 {name=p53 sig_type=std_logic lab=gd}
 C {/foss/designs/CHIP-PLL/schematics/misc/buffer_hv.sym} 580 290 0 0 {name=x4}
 C {lab_wire.sym} 620 290 0 0 {name=p54 sig_type=std_logic lab=rst_lv}
 C {opin.sym} 1160 -10 0 0 {name=p8 lab=vout}
-C {sg13cmos5l_pr/sg13_lv_nmos.sym} 1800 340 1 0 {name=M1
-l=5u
-w=240u
-ng=1
-m=1
-mm_ok=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
-C {lab_wire.sym} 1770 450 0 0 {name=p16 sig_type=std_logic lab=gd}
-C {lab_wire.sym} 1800 300 0 0 {name=p17 sig_type=std_logic lab=vp}
