@@ -105,7 +105,19 @@ N -40 850 -20 850 {lab=GND}
 N 430 860 450 860 {lab=GND}
 N -1090 390 -1060 390 {lab=d9}
 N -1090 410 -1060 410 {lab=d10}
-N -1090 430 -1060 430 {lab=d9}
+N -1090 430 -1060 430 {lab=d11}
+N -510 340 -470 340 {lab=#net1}
+N -40 340 0 340 {lab=#net2}
+N 430 350 470 350 {lab=#net3}
+N -510 530 -470 530 {lab=#net4}
+N -40 530 0 530 {lab=#net5}
+N 430 540 470 540 {lab=#net6}
+N -510 720 -470 720 {lab=#net7}
+N -40 720 0 720 {lab=#net8}
+N 430 730 470 730 {lab=#net9}
+N -510 870 -470 870 {lab=#net10}
+N -40 870 0 870 {lab=#net11}
+N 430 880 470 880 {lab=#net12}
 C {lab_wire.sym} 170 100 2 0 {name=p2 sig_type=std_logic lab=clk_buf
 }
 C {lab_wire.sym} -490 300 2 0 {name=p10 sig_type=std_logic lab=VP
@@ -238,7 +250,6 @@ C {/foss/designs/CHIP-PLL/schematics/divider/schematics/d_flip_flop.sym} 280 510
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/d_flip_flop.sym} -660 690 0 0 {name=x8}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/d_flip_flop.sym} -190 690 0 0 {name=x9}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/d_flip_flop.sym} 280 700 0 0 {name=x10}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in.sym} -160 80 0 0 {name=x1}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 100 100 0 0 {name=x11}
 C {lab_wire.sym} -490 830 2 0 {name=p24 sig_type=std_logic lab=VP
 }
@@ -276,3 +287,16 @@ C {lab_wire.sym} -1090 410 2 1 {name=p74 sig_type=std_logic lab=d10
 C {opin.sym} -1060 430 0 0 {name=p93 lab=d11}
 C {lab_wire.sym} -1090 430 2 1 {name=p94 sig_type=std_logic lab=d11
 }
+C {noconn.sym} -470 340 2 0 {name=l1}
+C {noconn.sym} 0 340 2 0 {name=l2}
+C {noconn.sym} 470 350 2 0 {name=l3}
+C {noconn.sym} -470 530 2 0 {name=l4}
+C {noconn.sym} 0 530 2 0 {name=l5}
+C {noconn.sym} 470 540 2 0 {name=l6}
+C {noconn.sym} -470 720 2 0 {name=l7}
+C {noconn.sym} 0 720 2 0 {name=l8}
+C {noconn.sym} 470 730 2 0 {name=l9}
+C {noconn.sym} -470 870 2 0 {name=l10}
+C {noconn.sym} 0 870 2 0 {name=l11}
+C {noconn.sym} 470 880 2 0 {name=l12}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in_x2.sym} -160 80 0 0 {name=x1}
