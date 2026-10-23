@@ -162,7 +162,7 @@ C {lab_wire.sym} 620 290 0 0 {name=p54 sig_type=std_logic lab=rst_lv}
 C {opin.sym} 1160 -10 0 0 {name=p8 lab=vout}
 C {opin.sym} 670 -30 3 0 {name=p16 lab=UP}
 C {opin.sym} 670 40 1 0 {name=p17 lab=DOWN}
-C {opin.sym} 200 180 2 0 {name=p45 lab=Cvco}
-C {opin.sym} 2040 180 1 0 {name=p55 lab=Vco_out}
-C {opin.sym} 2580 -40 1 0 {name=p56 lab=out_Divider}
-C {opin.sym} 220 -20 3 0 {name=p69 lab=Cref}
+C {opin.sym} 200 180 2 0 {name=p45 lab=cvco}
+C {opin.sym} 2040 180 1 0 {name=p55 lab=vco_out_buffered}
+C {opin.sym} 2580 -40 1 0 {name=p56 lab=out_PLL_divided}
+C {opin.sym} 220 -20 3 0 {name=p69 lab=cref}
