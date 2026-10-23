@@ -89,7 +89,6 @@ N -540 340 -520 340 {lab=VCO3_sel}
 N -540 360 -520 360 {lab=VCO4_sel}
 N 50 -10 70 -10 {lab=VCO5_sel}
 N -540 380 -520 380 {lab=VCO5_sel}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/VCO_decoder.sym} -100 -100 0 0 {name=x1}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/VCO_MUX.sym} 570 -100 0 0 {name=x2}
 C {iopin.sym} -540 -360 2 0 {name=p46 lab=gd}
 C {lab_wire.sym} -520 -360 2 0 {name=p53 sig_type=std_logic lab=gd}
@@ -171,16 +170,12 @@ C {lab_wire.sym} 70 120 2 0 {name=p80 sig_type=std_logic lab=gd}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 120 140 0 0 {name=x5}
 C {lab_wire.sym} 120 100 0 1 {name=p81 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 120 180 2 0 {name=p82 sig_type=std_logic lab=gd}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NOR_2in.sym} -100 240 0 0 {name=x6}
 C {lab_wire.sym} 70 220 2 0 {name=p83 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 70 240 2 0 {name=p84 sig_type=std_logic lab=gd}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 120 260 0 0 {name=x7}
 C {lab_wire.sym} 120 220 0 1 {name=p85 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 120 300 2 0 {name=p86 sig_type=std_logic lab=gd}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NOR_2in.sym} -100 360 0 0 {name=x8}
 C {lab_wire.sym} 70 340 2 0 {name=p87 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 70 360 2 0 {name=p88 sig_type=std_logic lab=gd}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 120 380 0 0 {name=x9}
 C {lab_wire.sym} 120 340 0 1 {name=p89 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 120 420 2 0 {name=p90 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 400 -90 2 1 {name=p91 sig_type=std_logic lab=VCO_sel}
@@ -206,3 +201,8 @@ C {opin.sym} -540 360 0 1 {name=p106 lab=VCO4_sel}
 C {lab_wire.sym} -520 360 2 0 {name=p107 sig_type=std_logic lab=VCO4_sel}
 C {opin.sym} -540 380 0 1 {name=p109 lab=VCO5_sel}
 C {lab_wire.sym} -520 380 2 0 {name=p108 sig_type=std_logic lab=VCO5_sel}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NOR_2in.sym} -100 240 0 0 {name=x3}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NOR_2in.sym} -100 360 0 0 {name=x6}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 120 260 0 0 {name=x7}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter.sym} 120 380 0 0 {name=x8}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/VCO_decoder_cells.sym} -100 -100 0 0 {name=x9}

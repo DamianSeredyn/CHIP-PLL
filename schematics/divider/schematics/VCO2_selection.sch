@@ -150,16 +150,14 @@ C {ipin.sym} 2510 -3130 0 0 {name=p31 lab=after_001111}
 C {lab_wire.sym} 2530 -3130 2 0 {name=p32 sig_type=std_logic lab=after_001111}
 C {lab_wire.sym} 1830 -2810 0 0 {name=p124 sig_type=std_logic lab=101}
 C {lab_wire.sym} 1830 -2890 0 0 {name=p125 sig_type=std_logic lab=110}
-C {NAND_3in.sym} 2000 -2870 0 0 {name=x15}
-C {NAND_2in.sym} 2000 -2710 0 0 {name=x16}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in_dek.sym} 2000 -2870 0 0 {name=x15}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in_dek.sym} 2000 -2710 0 0 {name=x16}
 C {lab_wire.sym} 2170 -2890 2 0 {name=p130 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2170 -2870 2 0 {name=p131 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 2170 -2730 2 0 {name=p132 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2170 -2710 2 0 {name=p133 sig_type=std_logic lab=gd}
-C {NAND_3in.sym} 2000 -2790 0 0 {name=x17}
 C {lab_wire.sym} 2170 -2810 2 0 {name=p134 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2170 -2790 2 0 {name=p135 sig_type=std_logic lab=gd}
-C {NAND_3in.sym} 2000 -2630 0 0 {name=x18}
 C {lab_wire.sym} 2170 -2650 2 0 {name=p136 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2170 -2630 2 0 {name=p137 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 1830 -2730 0 0 {name=p140 sig_type=std_logic lab=100}
@@ -171,26 +169,20 @@ C {lab_wire.sym} 1830 -2770 0 0 {name=p147 sig_type=std_logic lab=f5_n}
 C {lab_wire.sym} 1830 -2710 0 0 {name=p90 sig_type=std_logic lab=f5}
 C {lab_wire.sym} 1830 -2630 0 0 {name=p91 sig_type=std_logic lab=after_000011}
 C {lab_wire.sym} 1830 -2610 0 0 {name=p94 sig_type=std_logic lab=after_000111_n}
-C {NAND_4in.sym} 2400 -2820 0 0 {name=x19}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_4in_dek.sym} 2400 -2820 0 0 {name=x19}
 C {lab_wire.sym} 2570 -2850 2 0 {name=p148 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2570 -2830 2 0 {name=p149 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 2600 -2810 2 0 {name=p150 sig_type=std_logic lab=VCO2_5_sel}
-C {NAND_3in.sym} 2440 -2460 0 0 {name=x20}
 C {lab_wire.sym} 2610 -2480 2 0 {name=p157 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2610 -2460 2 0 {name=p158 sig_type=std_logic lab=gd}
-C {NAND_3in.sym} 2000 -2310 0 0 {name=x24}
 C {lab_wire.sym} 2170 -2330 2 0 {name=p159 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2170 -2310 2 0 {name=p160 sig_type=std_logic lab=gd}
-C {NAND_2in.sym} 2000 -2400 0 0 {name=x25}
 C {lab_wire.sym} 2170 -2420 2 0 {name=p161 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2170 -2400 2 0 {name=p162 sig_type=std_logic lab=gd}
-C {NAND_2in.sym} 2000 -2500 0 0 {name=x28}
 C {lab_wire.sym} 2170 -2520 2 0 {name=p167 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2170 -2500 2 0 {name=p168 sig_type=std_logic lab=gd}
-C {NAND_2in.sym} 2000 -2060 0 0 {name=x30}
 C {lab_wire.sym} 2170 -2080 2 0 {name=p171 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2170 -2060 2 0 {name=p172 sig_type=std_logic lab=gd}
-C {NAND_3in.sym} 2000 -2230 0 0 {name=x32}
 C {lab_wire.sym} 2170 -2250 2 0 {name=p175 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2170 -2230 2 0 {name=p176 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 1830 -2330 0 0 {name=p193 sig_type=std_logic lab=100}
@@ -205,16 +197,24 @@ C {lab_wire.sym} 1830 -2500 0 0 {name=p203 sig_type=std_logic lab=f5}
 C {lab_wire.sym} 1830 -2060 0 0 {name=p204 sig_type=std_logic lab=after_000011_n}
 C {lab_wire.sym} 1830 -2230 0 0 {name=p205 sig_type=std_logic lab=after_000011}
 C {lab_wire.sym} 1830 -2210 0 0 {name=p206 sig_type=std_logic lab=after_000111_n}
-C {NAND_3in.sym} 2000 -2150 0 0 {name=x26}
 C {lab_wire.sym} 2170 -2170 2 0 {name=p92 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2170 -2150 2 0 {name=p93 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 1830 -2170 0 0 {name=p95 sig_type=std_logic lab=110}
 C {lab_wire.sym} 1830 -2150 0 0 {name=p96 sig_type=std_logic lab=after_000111_n}
 C {lab_wire.sym} 1830 -2130 0 0 {name=p138 sig_type=std_logic lab=000000_n}
-C {NAND_4in.sym} 2440 -2310 0 0 {name=x21}
 C {lab_wire.sym} 2610 -2340 2 0 {name=p139 sig_type=std_logic lab=VP}
 C {lab_wire.sym} 2610 -2320 2 0 {name=p143 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 2640 -2300 2 0 {name=p144 sig_type=std_logic lab=VCO2_11_sel}
-C {inverter.sym} 2670 -2440 0 0 {name=x22}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_dek.sym} 2670 -2440 0 0 {name=x22}
 C {lab_wire.sym} 2670 -2390 3 0 {name=p151 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 2670 -2490 1 0 {name=p152 sig_type=std_logic lab=VP}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in_dek.sym} 2000 -2790 0 0 {name=x1}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in_dek.sym} 2000 -2630 0 0 {name=x2}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in_dek.sym} 2000 -2500 0 0 {name=x3}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in_dek.sym} 2000 -2400 0 0 {name=x4}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in_dek.sym} 2000 -2060 0 0 {name=x5}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in_dek.sym} 2000 -2310 0 0 {name=x6}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in_dek.sym} 2000 -2230 0 0 {name=x7}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in_dek.sym} 2000 -2150 0 0 {name=x8}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_4in_dek.sym} 2440 -2310 0 0 {name=x9}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in_dek.sym} 2440 -2460 0 0 {name=x10}

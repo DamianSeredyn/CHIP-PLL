@@ -5,65 +5,65 @@ V {}
 S {}
 F {}
 E {}
-N 1040 -220 1040 -130 {lab=in}
-N 1080 -220 1080 -160 {lab=out}
-N 1000 -220 1040 -220 {lab=in}
-N 1040 -310 1040 -220 {lab=in}
-N 1080 -220 1150 -220 {lab=out}
-N 1080 -280 1080 -220 {lab=out}
-N 990 -470 1040 -470 {lab=pgt}
-N 1000 20 1040 20 {lab=ngt}
-N 1080 70 1080 100 {lab=gnd}
-N 1080 -560 1080 -470 {lab=vp}
-N 1080 -100 1080 -10 {lab=dn}
-N 1080 70 1190 70 {lab=gnd}
-N 1080 20 1080 70 {lab=gnd}
-N 1190 -130 1190 70 {lab=gnd}
-N 1080 -130 1190 -130 {lab=gnd}
-N 1080 -310 1190 -310 {lab=vp}
-N 1190 -470 1190 -310 {lab=vp}
-N 1080 -470 1190 -470 {lab=vp}
-N 1080 -440 1080 -340 {lab=up}
-C {sg13g2_pr/sg13_lv_pmos.sym} 1060 -470 0 0 {name=M23
-l=0.16*4u
+N 590 -220 590 -130 {lab=in}
+N 630 -220 630 -160 {lab=out}
+N 550 -220 590 -220 {lab=in}
+N 590 -310 590 -220 {lab=in}
+N 630 -220 700 -220 {lab=out}
+N 630 -280 630 -220 {lab=out}
+N 540 -470 590 -470 {lab=pgt}
+N 550 20 590 20 {lab=ngt}
+N 630 70 630 100 {lab=gnd}
+N 630 -560 630 -470 {lab=vp}
+N 630 -100 630 -10 {lab=dn}
+N 630 70 740 70 {lab=gnd}
+N 630 20 630 70 {lab=gnd}
+N 740 -130 740 70 {lab=gnd}
+N 630 -130 740 -130 {lab=gnd}
+N 630 -310 740 -310 {lab=vp}
+N 740 -470 740 -310 {lab=vp}
+N 630 -470 740 -470 {lab=vp}
+N 630 -440 630 -340 {lab=up}
+C {sg13g2_pr/sg13_lv_pmos.sym} 610 -470 0 0 {name=M23
+l=0.14*4u
 w=1.2u
 ng=1
 m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {sg13g2_pr/sg13_lv_pmos.sym} 1060 -310 0 0 {name=M24
-l=0.16*2u
+C {sg13g2_pr/sg13_lv_pmos.sym} 610 -310 0 0 {name=M1
+l=0.14*2u
 w=1.2u
 ng=1
 m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {sg13g2_pr/sg13_lv_nmos.sym} 1060 -130 0 0 {name=M25
-l=0.16*2u
+C {sg13g2_pr/sg13_lv_nmos.sym} 610 -130 0 0 {name=M2
+l=0.14*2u
 w=0.8u
 ng=1
 m=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
-C {sg13g2_pr/sg13_lv_nmos.sym} 1060 20 0 0 {name=M26
-l=0.16*4u
+C {sg13g2_pr/sg13_lv_nmos.sym} 610 20 0 0 {name=M26
+l=0.14*4u
 w=0.8u
 ng=1
 m=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
-C {lab_wire.sym} 1080 -390 0 0 {name=p21 sig_type=std_logic lab=up
+C {lab_wire.sym} 630 -390 0 0 {name=p21 sig_type=std_logic lab=up
 }
-C {lab_wire.sym} 1080 -50 0 0 {name=p22 sig_type=std_logic lab=dn}
-C {ipin.sym} 1000 -220 0 0 {name=p23 lab=in}
-C {opin.sym} 1150 -220 0 0 {name=p24 lab=out}
-C {iopin.sym} 1080 100 0 1 {name=p20 lab=gnd}
-C {iopin.sym} 1080 -560 0 1 {name=p25 lab=vp
+C {lab_wire.sym} 630 -50 0 0 {name=p22 sig_type=std_logic lab=dn}
+C {ipin.sym} 550 -220 0 0 {name=p1 lab=in}
+C {opin.sym} 700 -220 0 0 {name=p2 lab=out}
+C {iopin.sym} 630 100 0 1 {name=p3 lab=gnd}
+C {iopin.sym} 630 -560 0 1 {name=p4 lab=vp
 }
-C {iopin.sym} 990 -470 0 1 {name=p26 lab=pgt
+C {iopin.sym} 540 -470 0 1 {name=p26 lab=pgt
 }
-C {iopin.sym} 1000 20 0 1 {name=p27 lab=ngt}
+C {iopin.sym} 550 20 0 1 {name=p27 lab=ngt}

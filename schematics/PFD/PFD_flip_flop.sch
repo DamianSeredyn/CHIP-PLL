@@ -122,9 +122,6 @@ C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_passgate.sym} 640 200 0 1 {name=x7}
 C {lab_wire.sym} -100 490 0 0 {name=p42 sig_type=std_logic lab=gd}
 C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_NOR.sym} 650 -80 0 0 {name=x3}
 C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_NOR.sym} 120 130 1 0 {name=x5}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 90 -300 0 0 {name=x2}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x8.sym} 920 50 0 0 {name=x6}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x8.sym} 30 -70 0 0 {name=x9}
 C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_passgate.sym} -90 -70 0 0 {name=x1}
 C {lab_wire.sym} 120 190 0 0 {name=p44 sig_type=std_logic lab=post_NOR}
 C {sg13cmos5l_pr/sg13_lv_nmos.sym} -100 380 1 0 {name=M1
@@ -156,3 +153,6 @@ mm_ok=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
+C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_inverter_x8.sym} 30 -70 0 0 {name=x9}
+C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_inverter_x8.sym} 920 50 0 0 {name=x6}
+C {/foss/designs/CHIP-PLL/schematics/PFD/PFD_inverter_x4.sym} 90 -300 0 0 {name=x2}

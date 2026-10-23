@@ -70,7 +70,7 @@ C {lab_wire.sym} 680 -10 0 0 {name=p4 sig_type=std_logic lab=out_pb
 }
 C {lab_wire.sym} 410 -130 0 0 {name=p5 sig_type=std_logic lab=vdd
 }
-C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_core_4.sym} 100 -10 0 0 {name=x2}
+C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/vco_core_2.sym} 100 -10 0 0 {name=x2}
 C {gnd.sym} -240 290 0 0 {name=l4 lab=0
 }
 C {lab_wire.sym} -160 150 0 0 {name=p6 sig_type=std_logic lab=in
@@ -134,3 +134,4 @@ C {connector.sym} -150 -40 0 0 {name=c8 footprint=connector(1,1)}
 C {connector.sym} -120 20 0 0 {name=c9 footprint=connector(1,1)}
 C {connector.sym} -150 40 0 0 {name=c10 footprint=connector(1,1)}
 C {/foss/designs/CHIP-PLL/schematics/vco/vco_cell/0_buf.sym} 450 80 0 0 {name=x1}
+C {connector.sym} -120 -60 0 0 {name=c6 footprint=connector(1,1)}

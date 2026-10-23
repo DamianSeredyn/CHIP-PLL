@@ -73,41 +73,44 @@ N 1210 -470 1440 -470 {lab=4th}
 N 1570 280 1690 280 {lab=11_lst}
 N -470 280 -370 280 {lab=11_1st}
 N -850 -810 -810 -810 {lab=en5}
-N 1460 -690 1500 -690 {lab=nen5}
-N 1500 -690 1500 -640 {lab=nen5}
-N 1340 -690 1390 -690 {lab=en5}
-N 1340 -690 1340 -540 {lab=en5}
-N 1340 -540 1500 -540 {lab=en5}
-N 1500 -580 1500 -540 {lab=en5}
-N 1420 -610 1480 -610 {lab=4th}
-N 1560 -610 1670 -610 {lab=5th}
-N 1540 -580 1540 -530 {lab=gnd}
-N 1540 -690 1540 -640 {lab=vp}
-N 290 -150 330 -150 {lab=nen11}
-N 330 -150 330 -100 {lab=nen11}
-N 170 -150 220 -150 {lab=en11}
-N 170 -150 170 0 {lab=en11}
-N 170 0 330 0 {lab=en11}
-N 330 -40 330 0 {lab=en11}
-N 250 -70 310 -70 {lab=4th}
-N 390 -70 500 -70 {lab=11_1st}
-N 370 -40 370 10 {lab=gnd}
-N 370 -150 370 -100 {lab=vp}
-N 1860 130 1900 130 {lab=nen11}
-N 1900 130 1900 180 {lab=nen11}
-N 1740 130 1790 130 {lab=en11}
-N 1740 130 1740 280 {lab=en11}
-N 1740 280 1900 280 {lab=en11}
-N 1900 240 1900 280 {lab=en11}
-N 1820 210 1880 210 {lab=11_lst}
-N 1960 210 2070 210 {lab=5th}
-N 1940 240 1940 290 {lab=gnd}
-N 1940 130 1940 180 {lab=vp}
 N -850 -700 -810 -700 {lab=en11}
 N -850 -670 -810 -670 {lab=nen11}
 N -860 -640 -820 -640 {lab=nen5}
+N 660 -300 700 -300 {lab=nen11}
+N 700 -300 700 -250 {lab=nen11}
+N 730 -30 800 -30 {lab=11_1st}
+N 730 -210 800 -210 {lab=11_1st}
+N 700 10 700 50 {lab=en11}
+N 700 -210 700 -130 {lab=vp}
+N 570 -210 670 -210 {lab=4th}
+N 570 -30 670 -30 {lab=4th}
+N 700 -100 700 -30 {lab=gnd}
+N 570 -210 570 -30 {lab=4th}
+N 800 -210 800 -30 {lab=11_1st}
+N 1030 -300 1070 -300 {lab=nen11}
+N 1070 -300 1070 -250 {lab=nen11}
+N 1100 -30 1170 -30 {lab=5th}
+N 1100 -210 1170 -210 {lab=5th}
+N 1070 10 1070 50 {lab=en11}
+N 1070 -210 1070 -130 {lab=vp}
+N 940 -210 1040 -210 {lab=11_lst}
+N 940 -30 1040 -30 {lab=11_lst}
+N 1070 -100 1070 -30 {lab=gnd}
+N 940 -210 940 -30 {lab=11_lst}
+N 1170 -210 1170 -30 {lab=5th}
+N 1370 -300 1410 -300 {lab=nen5}
+N 1410 -300 1410 -250 {lab=nen5}
+N 1440 -30 1510 -30 {lab=5th}
+N 1440 -210 1510 -210 {lab=5th}
+N 1410 10 1410 50 {lab=en5}
+N 1410 -210 1410 -130 {lab=vp}
+N 1280 -210 1380 -210 {lab=4th}
+N 1280 -30 1380 -30 {lab=4th}
+N 1410 -100 1410 -30 {lab=gnd}
+N 1280 -210 1280 -30 {lab=4th}
+N 1510 -210 1510 -30 {lab=5th}
 C {sg13g2_pr/sg13_lv_nmos.sym} -230 -360 0 0 {name=M1
-l=0.44*4u
+l=0.35*4u
 w=0.8u
 ng=1
 m=1
@@ -115,7 +118,7 @@ model=sg13_lv_nmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} -230 -580 0 0 {name=M2
-l=0.44*4u
+l=0.35*4u
 w=1.2u
 ng=1
 m=1
@@ -241,50 +244,11 @@ C {lab_wire.sym} 1660 -310 0 0 {name=p36 sig_type=std_logic lab=5th
 C {lab_wire.sym} -410 280 0 0 {name=p64 sig_type=std_logic lab=11_1st
 }
 C {ipin.sym} -850 -810 0 0 {name=p70 lab=en5}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate.sym} 1500 -590 0 0 {name=x14}
-C {lab_wire.sym} 1340 -690 0 0 {name=p65 sig_type=std_logic lab=en5
-}
-C {lab_wire.sym} 1450 -610 0 0 {name=p71 sig_type=std_logic lab=4th
-}
-C {lab_wire.sym} 1630 -610 0 0 {name=p72 sig_type=std_logic lab=5th
-}
-C {lab_wire.sym} 1540 -530 0 0 {name=p75 sig_type=std_logic lab=gnd
-}
-C {lab_wire.sym} 1540 -690 0 0 {name=p76 sig_type=std_logic lab=vp
-}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate.sym} 330 -50 0 0 {name=x16}
-C {lab_wire.sym} 170 -150 0 0 {name=p28 sig_type=std_logic lab=en11
-}
-C {lab_wire.sym} 280 -70 0 0 {name=p29 sig_type=std_logic lab=4th
-}
-C {lab_wire.sym} 370 10 0 0 {name=p79 sig_type=std_logic lab=gnd
-}
-C {lab_wire.sym} 370 -150 0 0 {name=p80 sig_type=std_logic lab=vp
-}
-C {lab_wire.sym} 500 -70 0 0 {name=p81 sig_type=std_logic lab=11_1st
-}
 C {lab_wire.sym} 1650 280 0 0 {name=p30 sig_type=std_logic lab=11_lst
 }
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/passgate.sym} 1900 230 0 0 {name=x18}
-C {lab_wire.sym} 1740 130 0 0 {name=p31 sig_type=std_logic lab=en11
-}
-C {lab_wire.sym} 1850 210 0 0 {name=p34 sig_type=std_logic lab=11_lst
-}
-C {lab_wire.sym} 1940 290 0 0 {name=p83 sig_type=std_logic lab=gnd
-}
-C {lab_wire.sym} 1940 130 0 0 {name=p84 sig_type=std_logic lab=vp
-}
-C {lab_wire.sym} 2070 210 0 0 {name=p85 sig_type=std_logic lab=5th
-}
 C {ipin.sym} -850 -700 0 0 {name=p37 lab=en11}
-C {lab_wire.sym} 310 -150 0 0 {name=p62 sig_type=std_logic lab=nen11
-}
 C {ipin.sym} -850 -670 0 0 {name=p63 lab=nen11}
 C {ipin.sym} -860 -640 0 0 {name=p66 lab=nen5}
-C {lab_wire.sym} 1470 -690 0 0 {name=p67 sig_type=std_logic lab=nen5
-}
-C {lab_wire.sym} 1880 130 0 0 {name=p35 sig_type=std_logic lab=nen11
-}
 C {lab_wire.sym} 280 -470 0 0 {name=p68 sig_type=std_logic lab=1th
 }
 C {lab_wire.sym} 590 -470 0 0 {name=p69 sig_type=std_logic lab=2th
@@ -300,4 +264,88 @@ C {lab_wire.sym} 580 280 0 0 {name=p78 sig_type=std_logic lab=8th
 C {lab_wire.sym} 890 280 0 0 {name=p82 sig_type=std_logic lab=9th
 }
 C {lab_wire.sym} 1250 280 0 0 {name=p86 sig_type=std_logic lab=10th
+}
+C {lab_wire.sym} 1410 50 0 0 {name=p65 sig_type=std_logic lab=en5
+}
+C {lab_wire.sym} 1280 -120 0 0 {name=p71 sig_type=std_logic lab=4th
+}
+C {lab_wire.sym} 1510 -120 0 0 {name=p72 sig_type=std_logic lab=5th
+}
+C {lab_wire.sym} 700 50 0 0 {name=p28 sig_type=std_logic lab=en11
+}
+C {lab_wire.sym} 570 -120 0 0 {name=p29 sig_type=std_logic lab=4th
+}
+C {lab_wire.sym} 700 -100 0 0 {name=p79 sig_type=std_logic lab=gnd
+}
+C {lab_wire.sym} 700 -130 0 0 {name=p80 sig_type=std_logic lab=vp
+}
+C {lab_wire.sym} 800 -120 0 0 {name=p81 sig_type=std_logic lab=11_1st
+}
+C {lab_wire.sym} 1070 50 0 0 {name=p31 sig_type=std_logic lab=en11
+}
+C {lab_wire.sym} 940 -120 0 0 {name=p34 sig_type=std_logic lab=11_lst
+}
+C {lab_wire.sym} 1170 -120 0 0 {name=p85 sig_type=std_logic lab=5th
+}
+C {lab_wire.sym} 670 -300 0 0 {name=p35 sig_type=std_logic lab=nen11
+}
+C {lab_wire.sym} 1370 -300 0 0 {name=p62 sig_type=std_logic lab=nen5
+}
+C {lab_wire.sym} 1030 -300 0 0 {name=p67 sig_type=std_logic lab=nen11
+}
+C {sg13g2_pr/sg13_lv_pmos.sym} 700 -230 3 1 {name=M4
+l=0.15u
+w=0.3u
+ng=1
+m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_nmos.sym} 700 -10 1 1 {name=M5
+l=0.15u
+w=0.3u
+ng=1
+m=1
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {lab_wire.sym} 1070 -100 0 0 {name=p89 sig_type=std_logic lab=gnd
+}
+C {lab_wire.sym} 1070 -130 0 0 {name=p90 sig_type=std_logic lab=vp
+}
+C {sg13g2_pr/sg13_lv_pmos.sym} 1070 -230 3 1 {name=M3
+l=0.15u
+w=0.3u
+ng=1
+m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_nmos.sym} 1070 -10 1 1 {name=M6
+l=0.15u
+w=0.3u
+ng=1
+m=1
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {lab_wire.sym} 1410 -100 0 0 {name=p88 sig_type=std_logic lab=gnd
+}
+C {lab_wire.sym} 1410 -130 0 0 {name=p91 sig_type=std_logic lab=vp
+}
+C {sg13g2_pr/sg13_lv_pmos.sym} 1410 -230 3 1 {name=M7
+l=0.15u
+w=0.3u
+ng=1
+m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_nmos.sym} 1410 -10 1 1 {name=M8
+l=0.15u
+w=0.3u
+ng=1
+m=1
+model=sg13_lv_nmos
+spiceprefix=X
 }
