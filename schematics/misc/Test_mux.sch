@@ -45,8 +45,6 @@ N -260 -210 -240 -210 {lab=t0}
 N -260 -190 -240 -190 {lab=t1}
 N -260 -170 -240 -170 {lab=t2}
 N -250 -90 -230 -90 {lab=VPHIGH}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/MUX_8to1.sym} 80 30 0 0 {name=x1}
-C {level_shifter.sym} 750 -90 0 0 {name=x3}
 C {lab_pin.sym} 660 -180 1 0 {name=p128 sig_type=std_logic lab=VP}
 C {lab_pin.sym} 420 -110 1 0 {name=p1 sig_type=std_logic lab=VP}
 C {lab_pin.sym} 260 -50 2 0 {name=p2 sig_type=std_logic lab=VP}
@@ -105,3 +103,5 @@ C {iopin.sym} -250 -90 2 0 {name=p47 lab=VPHIGH}
 C {ipin.sym} -260 -170 2 1 {name=p40 lab=t2}
 C {ipin.sym} -260 -190 2 1 {name=p41 lab=t1}
 C {ipin.sym} -260 -210 2 1 {name=p45 lab=t0}
+C {mux8to1.sym} 80 30 0 0 {name=x1}
+C {debug_level_shifter.sym} 750 -90 0 0 {name=x3}
