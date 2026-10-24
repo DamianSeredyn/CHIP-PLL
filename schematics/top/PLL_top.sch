@@ -138,7 +138,7 @@ C {lab_pin.sym} 2970 -190 2 0 {name=p12 sig_type=std_logic lab=vph}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x2.sym} 2630 -40 0 0 {name=x1}
 C {lab_wire.sym} 2620 -90 0 0 {name=p50 sig_type=std_logic lab=vp}
 C {lab_wire.sym} 2620 10 0 0 {name=p51 sig_type=std_logic lab=gd}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4.sym} 2750 -40 0 0 {name=x3}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_x4_top.sym} 2750 -40 0 0 {name=x3}
 C {lab_wire.sym} 2750 -90 0 0 {name=p24 sig_type=std_logic lab=vp}
 C {lab_wire.sym} 2750 10 0 0 {name=p49 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 1970 180 0 0 {name=p52 sig_type=std_logic lab=vco_out_buffered}
@@ -176,7 +176,7 @@ C {opin.sym} 2580 -40 1 0 {name=p56 lab=out_PLL_divided}
 C {opin.sym} 220 -20 3 0 {name=p69 lab=cref}
 C {sg13cmos5l_pr/sg13_lv_nmos.sym} 2390 320 1 0 {name=M1
 l=5u
-w=540u
+w=240u
 ng=1
 m=1
 mm_ok=1
