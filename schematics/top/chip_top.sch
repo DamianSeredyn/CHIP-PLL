@@ -57,24 +57,21 @@ N 510 300 510 400 {lab=#net15}
 N 640 160 680 160 {lab=vp}
 N 640 140 680 140 {lab=gd}
 N 640 200 770 200 {lab=debug_out}
-N -140 -280 -70 -280 {lab=vp_bangap}
-N -140 -260 -70 -260 {lab=gd}
-N 230 -280 380 -280 {lab=vref_res}
-N 230 -260 520 -260 {lab=vref_sb}
 N 230 70 230 130 {lab=#net16}
 N 230 130 340 130 {lab=#net16}
-N 210 150 340 150 {lab=#net16}
-N 210 70 210 150 {lab=#net16}
-N 190 70 190 170 {lab=#net17}
-N 190 170 340 170 {lab=#net17}
-N 170 190 340 190 {lab=#net18}
-N 170 70 170 190 {lab=#net18}
-N 150 70 150 210 {lab=#net19}
-N 150 210 340 210 {lab=#net19}
-N 130 230 340 230 {lab=#net20}
-N 130 70 130 230 {lab=#net20}
-N 280 250 340 250 {lab=#net21}
-N 280 270 340 270 {lab=#net22}
+N 210 150 340 150 {lab=#net17}
+N 210 70 210 150 {lab=#net17}
+N 190 70 190 170 {lab=#net18}
+N 190 170 340 170 {lab=#net18}
+N 170 190 340 190 {lab=#net19}
+N 170 70 170 190 {lab=#net19}
+N 150 70 150 210 {lab=#net20}
+N 150 210 340 210 {lab=#net20}
+N 130 230 340 230 {lab=#net21}
+N 130 70 130 230 {lab=#net21}
+N 280 250 340 250 {lab=gd}
+N 280 270 340 270 {lab=gd}
+N 640 180 680 180 {lab=vph}
 C {PLL_top.sym} 60 -80 0 0 {name=x2}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/input_register.sym} -290 270 0 0 {name=x1}
 C {/foss/designs/CHIP-PLL/schematics/misc/buffer_hv.sym} -630 290 0 0 {name=x3}
@@ -105,10 +102,6 @@ C {ipin.sym} -530 -350 0 0 {name=p21 lab=vph}
 C {lab_wire.sym} 680 140 0 0 {name=p22 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 680 160 0 0 {name=p23 sig_type=std_logic lab=vp}
 C {opin.sym} 770 200 0 0 {name=p24 lab=debug_out}
-C {/foss/designs/CHIP-PLL/schematics/bandgap/bandgap_top.sym} 80 -270 0 0 {name=x7}
-C {ipin.sym} -140 -280 0 0 {name=p25 lab=vp_bangap}
-C {ipin.sym} -140 -260 0 0 {name=p26 lab=gd}
-C {opin.sym} 380 -280 0 0 {name=p27 lab=vref_res}
-C {opin.sym} 520 -260 0 0 {name=p28 lab=vref_sb}
 C {lab_wire.sym} 280 250 0 0 {name=p29 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 280 270 0 0 {name=p30 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 680 180 0 0 {name=p31 sig_type=std_logic lab=vph}
