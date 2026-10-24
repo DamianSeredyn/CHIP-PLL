@@ -44,8 +44,9 @@ N 530 -30 550 -30 {lab=MUX_buff_out}
 N -260 -210 -240 -210 {lab=t0}
 N -260 -190 -240 -190 {lab=t1}
 N -260 -170 -240 -170 {lab=t2}
+N -250 -90 -230 -90 {lab=VPHIGH}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/MUX_8to1.sym} 80 30 0 0 {name=x1}
-C {/foss/designs/CHIP-PLL/schematics/misc/level_shifter.sym} 750 -90 0 0 {name=x3}
+C {level_shifter.sym} 750 -90 0 0 {name=x3}
 C {lab_pin.sym} 660 -180 1 0 {name=p128 sig_type=std_logic lab=VP}
 C {lab_pin.sym} 420 -110 1 0 {name=p1 sig_type=std_logic lab=VP}
 C {lab_pin.sym} 260 -50 2 0 {name=p2 sig_type=std_logic lab=VP}
@@ -92,9 +93,6 @@ C {lab_pin.sym} -90 130 2 1 {name=p36 sig_type=std_logic lab=in8}
 C {lab_pin.sym} 810 -110 2 0 {name=p37 sig_type=std_logic lab=debug_out}
 C {lab_pin.sym} 250 10 2 0 {name=p38 sig_type=std_logic lab=MUX_out}
 C {lab_pin.sym} 550 10 2 0 {name=p39 sig_type=std_logic lab=MUX_buff_out}
-C {iopin.sym} -260 -210 2 0 {name=p40 lab=t0}
-C {iopin.sym} -260 -190 2 0 {name=p41 lab=t1}
-C {opin.sym} -260 -170 2 0 {name=p45 lab=t2}
 C {lab_wire.sym} -240 -210 2 0 {name=p42 sig_type=std_logic lab=t0
 }
 C {lab_wire.sym} -240 -190 2 0 {name=p43 sig_type=std_logic lab=t1
@@ -102,3 +100,8 @@ C {lab_wire.sym} -240 -190 2 0 {name=p43 sig_type=std_logic lab=t1
 C {lab_wire.sym} -240 -170 2 0 {name=p44 sig_type=std_logic lab=t2
 }
 C {/foss/designs/CHIP-PLL/schematics/buf/buf_lp.sym} 420 -150 0 0 {name=x2}
+C {lab_pin.sym} -230 -90 2 0 {name=p46 sig_type=std_logic lab=VPHIGH}
+C {iopin.sym} -250 -90 2 0 {name=p47 lab=VPHIGH}
+C {ipin.sym} -260 -170 2 1 {name=p40 lab=t2}
+C {ipin.sym} -260 -190 2 1 {name=p41 lab=t1}
+C {ipin.sym} -260 -210 2 1 {name=p45 lab=t0}
