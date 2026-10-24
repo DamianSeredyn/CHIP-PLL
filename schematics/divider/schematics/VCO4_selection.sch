@@ -5,21 +5,23 @@ V {}
 S {}
 F {}
 E {}
-L 4 2020 -2830 2020 -2490 {}
-L 4 2190 -2830 2530 -2830 {}
-L 4 2510 -2830 2850 -2830 {}
-L 4 2220 -2830 2560 -2830 {}
-L 4 2560 -2830 2900 -2830 {}
-L 4 2190 -2370 2530 -2370 {}
-L 4 2510 -2370 2850 -2370 {}
-L 4 3050 -2830 3050 -2490 {}
-L 4 2020 -2710 2020 -2370 {}
-L 4 2020 -2370 2360 -2370 {}
-L 4 2020 -2830 2360 -2830 {}
-L 4 3050 -2710 3050 -2370 {}
-L 4 2710 -2370 3050 -2370 {}
-L 4 2710 -2830 3050 -2830 {}
-T {VCO4 selection} 2050 -2860 0 0 0.4 0.4 {}
+L 4 2030 -2810 2030 -2470 {}
+L 4 2200 -2810 2540 -2810 {}
+L 4 2520 -2810 2860 -2810 {}
+L 4 2230 -2810 2570 -2810 {}
+L 4 2570 -2810 2910 -2810 {}
+L 4 2200 -2350 2540 -2350 {}
+L 4 2520 -2350 2860 -2350 {}
+L 4 3120 -2810 3120 -2470 {}
+L 4 2030 -2690 2030 -2350 {}
+L 4 2030 -2350 2370 -2350 {}
+L 4 2030 -2810 2370 -2810 {}
+L 4 3120 -2690 3120 -2350 {}
+L 4 2720 -2350 3060 -2350 {}
+L 4 2720 -2810 3060 -2810 {}
+L 4 2780 -2350 3120 -2350 {}
+L 4 2780 -2810 3120 -2810 {}
+T {VCO4 selection} 2060 -2840 0 0 0.4 0.4 {}
 N 1770 -2880 1790 -2880 {lab=gd}
 N 1770 -2860 1790 -2860 {lab=VP}
 N 1770 -2760 1790 -2760 {lab=000000_n}
@@ -34,46 +36,61 @@ N 1770 -2610 1790 -2610 {lab=011}
 N 1770 -2590 1790 -2590 {lab=001}
 N 1770 -2570 1790 -2570 {lab=after_000011}
 N 1770 -2550 1790 -2550 {lab=after_000111_n}
-N 2470 -2780 2490 -2780 {lab=gd}
-N 2470 -2800 2490 -2800 {lab=VP}
-N 2470 -2760 2580 -2760 {lab=#net1}
-N 2150 -2800 2170 -2800 {lab=000}
-N 2150 -2760 2170 -2760 {lab=after_001111_n}
-N 2150 -2780 2170 -2780 {lab=after_000011}
-N 2470 -2620 2490 -2620 {lab=gd}
-N 2470 -2640 2490 -2640 {lab=VP}
-N 2470 -2600 2540 -2600 {lab=#net2}
-N 2150 -2640 2170 -2640 {lab=010}
-N 2150 -2600 2170 -2600 {lab=000000_n}
-N 2150 -2620 2170 -2620 {lab=after_000011_n}
-N 2470 -2540 2490 -2540 {lab=gd}
-N 2470 -2560 2490 -2560 {lab=VP}
-N 2470 -2520 2560 -2520 {lab=#net3}
-N 2150 -2560 2170 -2560 {lab=011}
-N 2150 -2540 2170 -2540 {lab=000000}
-N 2470 -2700 2490 -2700 {lab=gd}
-N 2470 -2720 2490 -2720 {lab=VP}
-N 2470 -2680 2520 -2680 {lab=#net4}
-N 2150 -2720 2170 -2720 {lab=001}
-N 2150 -2680 2170 -2680 {lab=after_000011}
-N 2470 -2460 2490 -2460 {lab=gd}
-N 2470 -2480 2490 -2480 {lab=VP}
-N 2540 -2410 2540 -2400 {lab=gd}
-N 2540 -2480 2540 -2470 {lab=VP}
-N 2470 -2440 2520 -2440 {lab=#net5}
-N 2590 -2440 2670 -2440 {lab=VCO4_11_sel}
-N 2150 -2480 2170 -2480 {lab=001}
-N 2150 -2460 2170 -2460 {lab=after_000011_n}
-N 2880 -2740 2900 -2740 {lab=gd}
-N 2880 -2760 2900 -2760 {lab=VP}
-N 2880 -2720 2930 -2720 {lab=VCO4_5_sel}
-N 2150 -2700 2170 -2700 {lab=after_000111_n}
-N 2520 -2740 2520 -2680 {lab=#net4}
-N 2520 -2740 2580 -2740 {lab=#net4}
-N 2540 -2720 2580 -2720 {lab=#net2}
-N 2540 -2720 2540 -2600 {lab=#net2}
-N 2560 -2700 2560 -2520 {lab=#net3}
-N 2560 -2700 2580 -2700 {lab=#net3}
+N 2480 -2760 2500 -2760 {lab=gd}
+N 2480 -2780 2500 -2780 {lab=VP}
+N 2480 -2740 2590 -2740 {lab=#net1}
+N 2160 -2780 2180 -2780 {lab=000}
+N 2160 -2740 2180 -2740 {lab=after_001111_n}
+N 2160 -2760 2180 -2760 {lab=after_000011}
+N 2480 -2600 2500 -2600 {lab=gd}
+N 2480 -2620 2500 -2620 {lab=VP}
+N 2480 -2580 2550 -2580 {lab=#net2}
+N 2160 -2620 2180 -2620 {lab=010}
+N 2160 -2580 2180 -2580 {lab=000000_n}
+N 2160 -2600 2180 -2600 {lab=after_000011_n}
+N 2480 -2520 2500 -2520 {lab=gd}
+N 2480 -2540 2500 -2540 {lab=VP}
+N 2480 -2500 2570 -2500 {lab=#net3}
+N 2160 -2540 2180 -2540 {lab=011}
+N 2160 -2520 2180 -2520 {lab=000000}
+N 2480 -2680 2500 -2680 {lab=gd}
+N 2480 -2700 2500 -2700 {lab=VP}
+N 2480 -2660 2530 -2660 {lab=#net4}
+N 2160 -2700 2180 -2700 {lab=001}
+N 2160 -2660 2180 -2660 {lab=Z}
+N 2480 -2440 2500 -2440 {lab=gd}
+N 2480 -2460 2500 -2460 {lab=VP}
+N 2550 -2390 2550 -2380 {lab=gd}
+N 2550 -2460 2550 -2450 {lab=VP}
+N 2480 -2420 2530 -2420 {lab=#net5}
+N 2600 -2420 2680 -2420 {lab=VCO4_11_sel}
+N 2160 -2460 2180 -2460 {lab=001}
+N 2160 -2440 2180 -2440 {lab=after_000011_n}
+N 2890 -2720 2910 -2720 {lab=gd}
+N 2890 -2740 2910 -2740 {lab=VP}
+N 2890 -2700 2940 -2700 {lab=VCO4_5_sel}
+N 2160 -2680 2180 -2680 {lab=after_000111_n}
+N 2530 -2720 2530 -2660 {lab=#net4}
+N 2530 -2720 2590 -2720 {lab=#net4}
+N 2550 -2700 2590 -2700 {lab=#net2}
+N 2550 -2700 2550 -2580 {lab=#net2}
+N 2570 -2680 2570 -2500 {lab=#net3}
+N 2570 -2680 2590 -2680 {lab=#net3}
+N 3050 -2600 3070 -2600 {lab=gd}
+N 3050 -2620 3070 -2620 {lab=VP}
+N 3050 -2500 3070 -2500 {lab=gd}
+N 3050 -2520 3070 -2520 {lab=VP}
+N 3050 -2580 3050 -2550 {lab=nand_f1_f0}
+N 2750 -2550 3050 -2550 {lab=nand_f1_f0}
+N 2750 -2550 2750 -2520 {lab=nand_f1_f0}
+N 3050 -2480 3070 -2480 {lab=Z}
+N 2720 -2500 2750 -2500 {lab=after_000011_n}
+N 2730 -2620 2750 -2620 {lab=f1}
+N 2730 -2600 2750 -2600 {lab=f0}
+N 2720 -2550 2750 -2550 {lab=nand_f1_f0}
+N 2160 -2420 2180 -2420 {lab=nand_f1_f0}
+N 1780 -2370 1800 -2370 {lab=f1}
+N 1780 -2350 1800 -2350 {lab=f0}
 C {iopin.sym} 1770 -2880 2 0 {name=p46 lab=gd}
 C {lab_wire.sym} 1790 -2880 2 0 {name=p53 sig_type=std_logic lab=gd}
 C {iopin.sym} 1770 -2860 2 0 {name=p54 lab=VP}
@@ -105,39 +122,55 @@ C {ipin.sym} 1770 -2570 0 0 {name=p10 lab=after_000011}
 C {lab_wire.sym} 1790 -2570 2 0 {name=p11 sig_type=std_logic lab=after_000011}
 C {ipin.sym} 1770 -2550 0 0 {name=p12 lab=after_000111_n}
 C {lab_wire.sym} 1790 -2550 2 0 {name=p13 sig_type=std_logic lab=after_000111_n}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in_dek.sym} 2320 -2780 0 0 {name=x80}
-C {lab_wire.sym} 2490 -2800 2 0 {name=p327 sig_type=std_logic lab=VP}
-C {lab_wire.sym} 2490 -2780 2 0 {name=p328 sig_type=std_logic lab=gd}
-C {lab_wire.sym} 2490 -2640 2 0 {name=p331 sig_type=std_logic lab=VP}
-C {lab_wire.sym} 2490 -2620 2 0 {name=p332 sig_type=std_logic lab=gd}
-C {lab_wire.sym} 2490 -2560 2 0 {name=p335 sig_type=std_logic lab=VP}
-C {lab_wire.sym} 2490 -2540 2 0 {name=p336 sig_type=std_logic lab=gd}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in_dek.sym} 2320 -2700 0 0 {name=x86}
-C {lab_wire.sym} 2490 -2720 2 0 {name=p339 sig_type=std_logic lab=VP}
-C {lab_wire.sym} 2490 -2700 2 0 {name=p340 sig_type=std_logic lab=gd}
-C {lab_wire.sym} 2490 -2480 2 0 {name=p347 sig_type=std_logic lab=VP}
-C {lab_wire.sym} 2490 -2460 2 0 {name=p348 sig_type=std_logic lab=gd}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/inverter_dek.sym} 2540 -2440 0 0 {name=x91}
-C {lab_wire.sym} 2540 -2480 0 1 {name=p349 sig_type=std_logic lab=VP}
-C {lab_wire.sym} 2540 -2400 2 0 {name=p350 sig_type=std_logic lab=gd}
-C {lab_wire.sym} 2150 -2800 0 0 {name=p357 sig_type=std_logic lab=000}
-C {lab_wire.sym} 2150 -2640 0 0 {name=p358 sig_type=std_logic lab=010}
-C {lab_wire.sym} 2150 -2560 0 0 {name=p363 sig_type=std_logic lab=011}
-C {lab_wire.sym} 2150 -2720 0 0 {name=p364 sig_type=std_logic lab=001}
-C {lab_wire.sym} 2670 -2440 2 0 {name=p369 sig_type=std_logic lab=VCO4_11_sel}
-C {lab_wire.sym} 2150 -2760 0 0 {name=p371 sig_type=std_logic lab=after_001111_n}
-C {lab_wire.sym} 2150 -2780 0 0 {name=p372 sig_type=std_logic lab=after_000011}
-C {lab_wire.sym} 2150 -2620 0 0 {name=p373 sig_type=std_logic lab=after_000011_n}
-C {lab_wire.sym} 2150 -2480 0 0 {name=p184 sig_type=std_logic lab=001}
-C {lab_wire.sym} 2150 -2460 0 0 {name=p185 sig_type=std_logic lab=after_000011_n}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_4in_dek.sym} 2730 -2730 0 0 {name=x42}
-C {lab_wire.sym} 2900 -2760 2 0 {name=p186 sig_type=std_logic lab=VP}
-C {lab_wire.sym} 2900 -2740 2 0 {name=p187 sig_type=std_logic lab=gd}
-C {lab_wire.sym} 2930 -2720 2 0 {name=p188 sig_type=std_logic lab=VCO4_5_sel}
-C {lab_wire.sym} 2150 -2680 0 0 {name=p189 sig_type=std_logic lab=after_000011}
-C {lab_wire.sym} 2150 -2700 0 0 {name=p190 sig_type=std_logic lab=after_000111_n}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in_dek.sym} 2320 -2540 0 0 {name=x46}
-C {lab_wire.sym} 2150 -2540 0 0 {name=p191 sig_type=std_logic lab=000000}
-C {lab_wire.sym} 2150 -2600 0 0 {name=p192 sig_type=std_logic lab=000000_n}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_3in_dek.sym} 2320 -2620 0 0 {name=x1}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/NAND_2in_dek.sym} 2320 -2460 0 0 {name=x2}
+C {lab_wire.sym} 2500 -2780 2 0 {name=p16 sig_type=std_logic lab=VP}
+C {lab_wire.sym} 2500 -2760 2 0 {name=p17 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 2500 -2620 2 0 {name=p18 sig_type=std_logic lab=VP}
+C {lab_wire.sym} 2500 -2600 2 0 {name=p20 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 2500 -2540 2 0 {name=p21 sig_type=std_logic lab=VP}
+C {lab_wire.sym} 2500 -2520 2 0 {name=p29 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 2500 -2700 2 0 {name=p30 sig_type=std_logic lab=VP}
+C {lab_wire.sym} 2500 -2680 2 0 {name=p31 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 2500 -2460 2 0 {name=p32 sig_type=std_logic lab=VP}
+C {lab_wire.sym} 2500 -2440 2 0 {name=p33 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 2550 -2460 0 1 {name=p34 sig_type=std_logic lab=VP}
+C {lab_wire.sym} 2550 -2380 2 0 {name=p35 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 2160 -2780 0 0 {name=p36 sig_type=std_logic lab=000}
+C {lab_wire.sym} 2160 -2620 0 0 {name=p37 sig_type=std_logic lab=010}
+C {lab_wire.sym} 2160 -2540 0 0 {name=p38 sig_type=std_logic lab=011}
+C {lab_wire.sym} 2160 -2700 0 0 {name=p39 sig_type=std_logic lab=001}
+C {lab_wire.sym} 2680 -2420 2 0 {name=p40 sig_type=std_logic lab=VCO4_11_sel}
+C {lab_wire.sym} 2160 -2740 0 0 {name=p41 sig_type=std_logic lab=after_001111_n}
+C {lab_wire.sym} 2160 -2760 0 0 {name=p42 sig_type=std_logic lab=after_000011}
+C {lab_wire.sym} 2160 -2600 0 0 {name=p43 sig_type=std_logic lab=after_000011_n}
+C {lab_wire.sym} 2160 -2460 0 0 {name=p44 sig_type=std_logic lab=001}
+C {lab_wire.sym} 2160 -2440 0 0 {name=p45 sig_type=std_logic lab=after_000011_n}
+C {lab_wire.sym} 2910 -2740 2 0 {name=p47 sig_type=std_logic lab=VP}
+C {lab_wire.sym} 2910 -2720 2 0 {name=p48 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 2940 -2700 2 0 {name=p49 sig_type=std_logic lab=VCO4_5_sel}
+C {lab_wire.sym} 2160 -2680 0 0 {name=p50 sig_type=std_logic lab=after_000111_n}
+C {lab_wire.sym} 2160 -2520 0 0 {name=p51 sig_type=std_logic lab=000000}
+C {lab_wire.sym} 2160 -2580 0 0 {name=p52 sig_type=std_logic lab=000000_n}
+C {lab_wire.sym} 3070 -2620 2 0 {name=p55 sig_type=std_logic lab=VP}
+C {lab_wire.sym} 3070 -2600 2 0 {name=p199 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 3070 -2520 2 0 {name=p200 sig_type=std_logic lab=VP}
+C {lab_wire.sym} 3070 -2500 2 0 {name=p207 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 3070 -2480 2 0 {name=p208 sig_type=std_logic lab=Z}
+C {lab_wire.sym} 2160 -2660 0 0 {name=p209 sig_type=std_logic lab=Z}
+C {lab_wire.sym} 2720 -2500 0 0 {name=p210 sig_type=std_logic lab=after_000011_n}
+C {lab_wire.sym} 2730 -2620 0 0 {name=p211 sig_type=std_logic lab=f1}
+C {lab_wire.sym} 2730 -2600 0 0 {name=p212 sig_type=std_logic lab=f0}
+C {lab_wire.sym} 2720 -2550 0 0 {name=p214 sig_type=std_logic lab=nand_f1_f0}
+C {lab_wire.sym} 2160 -2420 0 0 {name=p215 sig_type=std_logic lab=nand_f1_f0}
+C {NAND_3in_dek.sym} 2330 -2760 0 0 {name=x3}
+C {NAND_3in_dek.sym} 2330 -2680 0 0 {name=x4}
+C {NAND_3in_dek.sym} 2330 -2600 0 0 {name=x8}
+C {NAND_3in_dek.sym} 2330 -2440 0 0 {name=x9}
+C {NAND_2in_dek.sym} 2330 -2520 0 0 {name=x7}
+C {NAND_2in_dek.sym} 2900 -2600 0 0 {name=x10}
+C {NAND_2in_dek.sym} 2900 -2500 0 0 {name=x11}
+C {NAND_4in_dek.sym} 2740 -2710 0 0 {name=x6}
+C {inverter_dek.sym} 2550 -2420 0 0 {name=x5}
+C {lab_wire.sym} 1800 -2370 2 0 {name=p56 sig_type=std_logic lab=f1}
+C {lab_wire.sym} 1800 -2350 2 0 {name=p57 sig_type=std_logic lab=f0}
+C {ipin.sym} 1780 -2370 0 0 {name=p58 lab=f1}
+C {ipin.sym} 1780 -2350 0 0 {name=p61 lab=f0}
