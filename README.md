@@ -1,4 +1,4 @@
-# CHIP-PLL
+# IHP_PLL0663
 
 The CHIP-PLL is a phase-locked loop (PLL) designed for use in high-performance mixed-signal applications. It is implemented in CMOS 130 nm IHP SG13G2 technology. The PLL provides precise frequency synthesis with low phase noise and supports integration into larger systems on chip (SoC).
 
@@ -14,7 +14,7 @@ These supply voltages must be observed to ensure proper operation and to avoid d
 
 - CMOS Technology Node: 130 nm
 
-- Process: IHP SG13G2
+- Process: IHP SG13CMOS5L
 
 
 - doc/     : user documentation
