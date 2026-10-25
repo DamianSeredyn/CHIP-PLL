@@ -14,7 +14,7 @@ These supply voltages must be observed to ensure proper operation and to avoid d
 
 - CMOS Technology Node: 130 nm
 
-- Process: IHP SG13G2
+- Process: IHP SG13CMOS5L
 
 
 - doc/     : user documentation
