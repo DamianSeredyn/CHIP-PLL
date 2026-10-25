@@ -16,3 +16,7 @@ These supply voltages must be observed to ensure proper operation and to avoid d
 
 - Process: IHP SG13G2
 
+
+- doc/     : user documentation
+- dependencies/ : sub-cells and blocks
+- release/v.1.0.0 : immutable versioned deliveries
