@@ -61,7 +61,7 @@ N 1440 -940 1480 -940 {lab=after_001111}
 N 1440 -920 1480 -920 {lab=110}
 N 1440 -900 1480 -900 {lab=101}
 N 1440 -880 1480 -880 {lab=f5}
-N 970 -810 970 -790 {lab=gd}
+N 970 -770 970 -750 {lab=gd}
 N 970 -1100 970 -1070 {lab=VP}
 N 1120 -1000 1150 -1000 {lab=VCO4_11_sel}
 N 1120 -980 1150 -980 {lab=VCO4_5_sel}
@@ -124,6 +124,8 @@ N 1460 -1520 1490 -1520 {lab=f5_n}
 N 1460 -1200 1490 -1200 {lab=f5}
 N 480 -1420 520 -1420 {lab=000000_n}
 N 160 -1500 180 -1500 {lab=f0}
+N 790 -820 820 -820 {lab=f0}
+N 790 -800 820 -800 {lab=f1}
 C {iopin.sym} 980 -1970 2 0 {name=p46 lab=gd}
 C {lab_wire.sym} 1000 -1970 2 0 {name=p53 sig_type=std_logic lab=gd}
 C {iopin.sym} 980 -1950 2 0 {name=p54 lab=VP}
@@ -200,7 +202,7 @@ C {lab_wire.sym} 1440 -920 0 0 {name=p40 sig_type=std_logic lab=110}
 C {lab_wire.sym} 1440 -900 0 0 {name=p41 sig_type=std_logic lab=101}
 C {lab_wire.sym} 1440 -880 0 0 {name=p42 sig_type=std_logic lab=f5}
 C {lab_wire.sym} 970 -1100 2 0 {name=p43 sig_type=std_logic lab=VP}
-C {lab_wire.sym} 970 -790 2 0 {name=p44 sig_type=std_logic lab=gd}
+C {lab_wire.sym} 970 -750 2 0 {name=p44 sig_type=std_logic lab=gd}
 C {lab_wire.sym} 1150 -980 2 0 {name=p45 sig_type=std_logic lab=VCO4_5_sel}
 C {lab_wire.sym} 1150 -1000 2 0 {name=p47 sig_type=std_logic lab=VCO4_11_sel}
 C {lab_wire.sym} 790 -1040 0 0 {name=p48 sig_type=std_logic lab=000000}
@@ -259,13 +261,15 @@ C {lab_wire.sym} 1460 -1280 0 0 {name=p137 sig_type=std_logic lab=100}
 C {lab_wire.sym} 1460 -1260 0 0 {name=p138 sig_type=std_logic lab=after_001111_n}
 C {lab_wire.sym} 1460 -1240 0 0 {name=p139 sig_type=std_logic lab=after_000011}
 C {lab_wire.sym} 1460 -1220 0 0 {name=p140 sig_type=std_logic lab=010}
+C {lab_wire.sym} 1460 -1200 0 0 {name=p141 sig_type=std_logic lab=f5}
+C {lab_wire.sym} 520 -1420 2 0 {name=p142 sig_type=std_logic lab=000000_n}
+C {lab_wire.sym} 160 -1500 0 0 {name=p72 sig_type=std_logic lab=f0}
+C {lab_wire.sym} 790 -820 0 0 {name=p49 sig_type=std_logic lab=f0}
+C {lab_wire.sym} 790 -800 0 0 {name=p73 sig_type=std_logic lab=f1}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/3bit_to_8_outs.sym} 390 -1790 0 0 {name=x6}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/row_section_decoding.sym} 330 -1410 0 0 {name=x7}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/VCO2_selection.sym} 390 -970 0 0 {name=x4}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/VCO4_selection.sym} 970 -940 0 0 {name=x2}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/VCO_selection.sym} 1630 -930 0 0 {name=x1}
-C {/foss/designs/CHIP-PLL/schematics/divider/schematics/VCO3_selection.sym} 1640 -1370 0 0 {name=x5}
 C {/foss/designs/CHIP-PLL/schematics/divider/schematics/VCO5_selection.sym} 1610 -1810 0 0 {name=x3}
-C {lab_wire.sym} 1460 -1200 0 0 {name=p141 sig_type=std_logic lab=f5}
-C {lab_wire.sym} 520 -1420 2 0 {name=p142 sig_type=std_logic lab=000000_n}
-C {lab_wire.sym} 160 -1500 0 0 {name=p72 sig_type=std_logic lab=f0}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/VCO3_selection.sym} 1640 -1370 0 0 {name=x5}
+C {/foss/designs/CHIP-PLL/schematics/divider/schematics/VCO_selection.sym} 1630 -930 0 0 {name=x1}
